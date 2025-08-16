@@ -1,0 +1,105 @@
+package net.ibizsys.centralstudio.filter;
+
+import java.sql.Timestamp;
+import net.ibizsys.centralstudio.util.Conditions;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * 模型 PSDEGROUPDETAIL 过滤器对象
+ */
+public class PSDEGroupDetailFilter extends net.ibizsys.centralstudio.util.PSModelSearchContextDTO {
+
+    public PSDEGroupDetailFilter(){
+    
+    }      
+
+    /**
+     * 设置属性[组成员名称]过滤操作[LIKE]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdegroupdetailname__like(String value){
+        this.setFieldCond("psdegroupdetailname", Conditions.LIKE, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体组]过滤操作[EQ]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdegroupid__eq(String value){
+        this.setFieldCond("psdegroupid", Conditions.EQ, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体组]过滤操作[EQ]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdegroupname__eq(String value){
+        this.setFieldCond("psdegroupname", Conditions.EQ, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体组]过滤操作[LIKE]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdegroupname__like(String value){
+        this.setFieldCond("psdegroupname", Conditions.LIKE, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体]过滤操作[EQ]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdeid__eq(String value){
+        this.setFieldCond("psdeid", Conditions.EQ, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体]过滤操作[EQ]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdename__eq(String value){
+        this.setFieldCond("psdename", Conditions.EQ, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[实体]过滤操作[LIKE]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter psdename__like(String value){
+        this.setFieldCond("psdename", Conditions.LIKE, value);
+        return this;
+    }
+
+    /**
+     * 设置属性[用户分类]过滤操作[EQ]
+     * @param value
+     * @return
+     */
+    @JsonIgnore
+    public PSDEGroupDetailFilter usercat__eq(String value){
+        this.setFieldCond("usercat", Conditions.EQ, value);
+        return this;
+    }
+
+}

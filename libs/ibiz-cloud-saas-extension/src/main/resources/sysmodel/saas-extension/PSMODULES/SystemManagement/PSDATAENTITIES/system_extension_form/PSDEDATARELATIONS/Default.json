@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_FORM"
+  },
+  "formCaption" : "系统扩展表单",
+  "name" : "系统扩展表单默认关系界面组"
+}

@@ -1,0 +1,43 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "USERUPDATE",
+  "codeName" : "Start",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo/PSDEACTIONS/Start.json",
+  "logicName" : "开始",
+  "name" : "Start",
+  "getPSDEActionInput" : {
+    "name" : "StartInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCJobsInfoDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionParams" : [ {
+    "name" : "STATUS",
+    "getPSDEField" : {
+      "name" : "STATUS",
+      "codeName" : "Status"
+    },
+    "stdDataType" : 9,
+    "value" : "0",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "LAST_TIME",
+    "getPSDEField" : {
+      "name" : "LAST_TIME",
+      "codeName" : "LastTime"
+    },
+    "stdDataType" : 1,
+    "value" : "0",
+    "valueType" : "VALUE"
+  } ],
+  "getPSDEActionReturn" : {
+    "name" : "StartResult",
+    "type" : "VOID"
+  },
+  "paramMode" : 2,
+  "customParam" : true
+}

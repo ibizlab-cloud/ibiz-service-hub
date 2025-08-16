@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstRouter/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "路由",
+  "name" : "路由默认关系界面组"
+}

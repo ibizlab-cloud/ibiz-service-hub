@@ -1,0 +1,121 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/bi_cube_extension_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_apply_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/data_source_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_scope_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_source_state.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/notify_event.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_action_attach.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_backend_task.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_dataflow.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_detail.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_field.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_grid.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_logic.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_main_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_template.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_portlet.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_suite.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow_definition.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_merge.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source.json"
+  } ],
+  "codeName" : "SystemManagement",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement.json",
+  "name" : "系统管理"
+}

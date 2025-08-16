@@ -1,0 +1,1705 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "dcsystemname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "id" : "permissiontype",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTYPE",
+      "codeName" : "PermissionType"
+    }
+  }, {
+    "id" : "sys_permissionname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    }
+  }, {
+    "id" : "permissiontag",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTAG",
+      "codeName" : "PermissionTag"
+    }
+  }, {
+    "id" : "entityname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    }
+  }, {
+    "id" : "isalldata",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISALLDATA",
+      "codeName" : "IsAllData"
+    }
+  }, {
+    "id" : "enableorgdr",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ENABLEORGDR",
+      "codeName" : "EnableOrgDR"
+    }
+  }, {
+    "id" : "orgdr",
+    "dataType" : 1,
+    "getPSAppDEField" : {
+      "name" : "ORGDR",
+      "codeName" : "OrgDR"
+    }
+  }, {
+    "id" : "enabledeptdr",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ENABLEDEPTDR",
+      "codeName" : "EnableDeptDR"
+    }
+  }, {
+    "id" : "deptdr",
+    "dataType" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEPTDR",
+      "codeName" : "DeptDR"
+    }
+  }, {
+    "id" : "enabledeptbc",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ENABLEDEPTBC",
+      "codeName" : "EnableDeptBC"
+    }
+  }, {
+    "id" : "deptbc",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEPTBC",
+      "codeName" : "DeptBC"
+    }
+  }, {
+    "id" : "bscope",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "BSCOPE",
+      "codeName" : "BScope"
+    }
+  }, {
+    "id" : "dcsystemid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "id" : "sys_permissionid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    }
+  }, {
+    "id" : "entityid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYID",
+      "codeName" : "EntityId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "系统",
+      "codeName" : "dcsystemname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "dcsystemname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "getPSEditor" : {
+        "editorParams" : {
+          "AC" : "TRUE",
+          "PICKUPVIEW" : "TRUE"
+        },
+        "editorType" : "PICKER",
+        "handlerType" : "PickupText",
+        "name" : "dcsystemname",
+        "getPSAppDEACMode" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "getPSAppDEDataSet" : {
+          "modelref" : true,
+          "id" : "FetchDefault"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+        },
+        "getPSEditorItems" : [ {
+          "name" : "dcsystemid"
+        } ],
+        "getPickupPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemPickupView.json",
+          "viewType" : "DEPICKUPVIEW"
+        },
+        "valueItemName" : "dcsystemid",
+        "enableAC" : true,
+        "enablePickupView" : true,
+        "forceSelection" : true,
+        "showTrigger" : true,
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 6,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "valueItemName" : "dcsystemid",
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "权限类别",
+      "codeName" : "permissiontype",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "permissiontype",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTYPE",
+        "codeName" : "PermissionType"
+      },
+      "getPSEditor" : {
+        "editorType" : "DROPDOWNLIST",
+        "name" : "permissiontype",
+        "getPSAppCodeList" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/PermissionType.json"
+        },
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 6,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : false,
+      "needCodeListConfig" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "资源名称",
+      "codeName" : "sys_permissionname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "sys_permissionname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONNAME",
+        "codeName" : "PermissionName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "maxLength" : 200,
+        "name" : "sys_permissionname"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 6,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "权限标识",
+      "codeName" : "permissiontag",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "permissiontag",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTAG",
+        "codeName" : "PermissionTag"
+      },
+      "getPSDEFDGroupLogics" : [ {
+        "groupOP" : "AND",
+        "logicCat" : "PANELVISIBLE",
+        "logicType" : "GROUP",
+        "name" : "表单成员[permissiontag][面板显示]逻辑",
+        "getPSDEFDLogics" : [ {
+          "condOP" : "NOTEQ",
+          "dEFDName" : "permissiontype",
+          "logicType" : "SINGLE",
+          "name" : "permissiontype 不等于(<>) (OPPRIV)",
+          "value" : "OPPRIV"
+        } ],
+        "relatedDetailNames" : [ "permissiontype" ],
+        "notMode" : false
+      }, {
+        "groupOP" : "AND",
+        "logicCat" : "ITEMBLANK",
+        "logicType" : "GROUP",
+        "name" : "表单成员[permissiontag][表单项空输入]逻辑",
+        "getPSDEFDLogics" : [ {
+          "condOP" : "EQ",
+          "dEFDName" : "permissiontype",
+          "logicType" : "SINGLE",
+          "name" : "permissiontype 等于(=) (OPPRIV)",
+          "value" : "OPPRIV"
+        } ],
+        "relatedDetailNames" : [ "permissiontype" ],
+        "notMode" : false
+      } ],
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "maxLength" : 60,
+        "name" : "permissiontag"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 6,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "实体名",
+      "codeName" : "entityname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "entityname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      },
+      "getPSDEFDGroupLogics" : [ {
+        "groupOP" : "AND",
+        "logicCat" : "PANELVISIBLE",
+        "logicType" : "GROUP",
+        "name" : "表单成员[entityname][面板显示]逻辑",
+        "getPSDEFDLogics" : [ {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "name" : "AND[取反]",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "permissiontype",
+            "logicType" : "SINGLE",
+            "name" : "permissiontype 不等于(<>) (OPPRIV)",
+            "value" : "OPPRIV"
+          } ],
+          "notMode" : true
+        } ],
+        "relatedDetailNames" : [ "permissiontype" ],
+        "notMode" : false
+      }, {
+        "groupOP" : "AND",
+        "logicCat" : "ITEMBLANK",
+        "logicType" : "GROUP",
+        "name" : "表单成员[entityname][表单项空输入]逻辑",
+        "getPSDEFDLogics" : [ {
+          "condOP" : "NOTEQ",
+          "dEFDName" : "permissiontype",
+          "logicType" : "SINGLE",
+          "name" : "permissiontype 不等于(<>) (OPPRIV)",
+          "value" : "OPPRIV"
+        } ],
+        "relatedDetailNames" : [ "permissiontype" ],
+        "notMode" : false
+      } ],
+      "getPSEditor" : {
+        "editorParams" : {
+          "SRFNAVPARAM.n_dcsystemid_eq" : "%dcsystemid%",
+          "AC" : "TRUE",
+          "PICKUPVIEW" : "TRUE"
+        },
+        "editorType" : "PICKER",
+        "handlerType" : "PickupText",
+        "name" : "entityname",
+        "getPSAppDEACMode" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "getPSAppDEDataSet" : {
+          "modelref" : true,
+          "id" : "FetchDefault"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaEntity.json"
+        },
+        "getPSEditorItems" : [ {
+          "name" : "entityid"
+        } ],
+        "getPSNavigateParams" : [ {
+          "key" : "n_dcsystemid_eq",
+          "name" : "n_dcsystemid_eq",
+          "value" : "dcsystemid",
+          "rawValue" : false
+        } ],
+        "getPickupPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MetaEntityPickupView.json",
+          "viewType" : "DEPICKUPVIEW"
+        },
+        "valueItemName" : "entityid",
+        "enableAC" : true,
+        "enablePickupView" : true,
+        "forceSelection" : true,
+        "showTrigger" : true,
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 6,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "resetItemName" : "dcsystemname",
+      "resetItemNames" : [ "dcsystemname" ],
+      "valueItemName" : "entityid",
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "分组面板",
+      "codeName" : "grouppanel5",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "grouppanel5",
+      "getPSDEFDGroupLogics" : [ {
+        "groupOP" : "AND",
+        "logicCat" : "PANELVISIBLE",
+        "logicType" : "GROUP",
+        "name" : "表单成员[grouppanel5][面板显示]逻辑",
+        "getPSDEFDLogics" : [ {
+          "condOP" : "EQ",
+          "dEFDName" : "permissiontype",
+          "logicType" : "SINGLE",
+          "name" : "permissiontype 等于(=) (OPPRIV)",
+          "value" : "OPPRIV"
+        } ],
+        "relatedDetailNames" : [ "permissiontype" ],
+        "notMode" : false
+      } ],
+      "getPSDEFormDetails" : [ {
+        "caption" : "全部数据",
+        "codeName" : "isalldata",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "isalldata",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ISALLDATA",
+          "codeName" : "IsAllData"
+        },
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "ITEMBLANK",
+          "logicType" : "GROUP",
+          "name" : "表单成员[isalldata][表单项空输入]逻辑",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "permissiontype",
+            "logicType" : "SINGLE",
+            "name" : "permissiontype 不等于(<>) (OPPRIV)",
+            "value" : "OPPRIV"
+          } ],
+          "relatedDetailNames" : [ "permissiontype" ],
+          "notMode" : false
+        } ],
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "isalldata",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 6,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "数据范围",
+        "codeName" : "grouppanel1",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel1",
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "name" : "表单成员[grouppanel1][面板显示]逻辑",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "isalldata",
+            "logicType" : "SINGLE",
+            "name" : "isalldata 不等于(<>) (1)",
+            "value" : "1"
+          } ],
+          "relatedDetailNames" : [ "isalldata" ],
+          "notMode" : false
+        } ],
+        "getPSDEFormDetails" : [ {
+          "caption" : "机构范围",
+          "codeName" : "grouppanel2",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "GROUPPANEL",
+          "name" : "grouppanel2",
+          "getPSDEFormDetails" : [ {
+            "caption" : "启用机构范围",
+            "codeName" : "enableorgdr",
+            "dataType" : 9,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "itemWidth" : 230.0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "enableorgdr",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "ENABLEORGDR",
+              "codeName" : "EnableOrgDR"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST_100",
+              "editorWidth" : 100.0,
+              "name" : "enableorgdr",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 6,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "isalldata",
+            "resetItemNames" : [ "isalldata" ],
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "机构数据范围",
+            "codeName" : "orgdr",
+            "dataType" : 1,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "orgdr",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "ORGDR",
+              "codeName" : "OrgDR"
+            },
+            "getPSDEFDGroupLogics" : [ {
+              "groupOP" : "AND",
+              "logicCat" : "ITEMBLANK",
+              "logicType" : "GROUP",
+              "name" : "表单成员[orgdr][表单项空输入]逻辑",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "NOTEQ",
+                "dEFDName" : "enableorgdr",
+                "logicType" : "SINGLE",
+                "name" : "enableorgdr 不等于(<>) (1)",
+                "value" : "1"
+              } ],
+              "relatedDetailNames" : [ "enableorgdr" ],
+              "notMode" : false
+            } ],
+            "getPSEditor" : {
+              "editorType" : "CHECKBOXLIST",
+              "name" : "orgdr",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DR.json"
+              }
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 18,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "enableorgdr",
+            "resetItemNames" : [ "enableorgdr" ],
+            "allowEmpty" : false,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false,
+          "showCaption" : false
+        }, {
+          "caption" : "部门范围",
+          "codeName" : "grouppanel3",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "GROUPPANEL",
+          "name" : "grouppanel3",
+          "getPSDEFormDetails" : [ {
+            "caption" : "启用部门范围",
+            "codeName" : "enabledeptdr",
+            "dataType" : 9,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "itemWidth" : 230.0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "enabledeptdr",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "ENABLEDEPTDR",
+              "codeName" : "EnableDeptDR"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST_100",
+              "editorWidth" : 100.0,
+              "name" : "enabledeptdr",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 6,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "isalldata",
+            "resetItemNames" : [ "isalldata" ],
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "部门数据范围",
+            "codeName" : "deptdr",
+            "dataType" : 1,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "deptdr",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "DEPTDR",
+              "codeName" : "DeptDR"
+            },
+            "getPSDEFDGroupLogics" : [ {
+              "groupOP" : "AND",
+              "logicCat" : "ITEMBLANK",
+              "logicType" : "GROUP",
+              "name" : "表单成员[deptdr][表单项空输入]逻辑",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "NOTEQ",
+                "dEFDName" : "enabledeptdr",
+                "logicType" : "SINGLE",
+                "name" : "enabledeptdr 不等于(<>) (1)",
+                "value" : "1"
+              } ],
+              "relatedDetailNames" : [ "enabledeptdr" ],
+              "notMode" : false
+            } ],
+            "getPSEditor" : {
+              "editorType" : "CHECKBOXLIST",
+              "name" : "deptdr",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DR.json"
+              }
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 18,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "enabledeptdr",
+            "resetItemNames" : [ "enabledeptdr" ],
+            "allowEmpty" : false,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false,
+          "showCaption" : false
+        }, {
+          "caption" : "部门代码",
+          "codeName" : "grouppanel4",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "GROUPPANEL",
+          "name" : "grouppanel4",
+          "getPSDEFormDetails" : [ {
+            "caption" : "启用部门代码",
+            "codeName" : "enabledeptbc",
+            "dataType" : 9,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "itemWidth" : 230.0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "enabledeptbc",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "ENABLEDEPTBC",
+              "codeName" : "EnableDeptBC"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST_100",
+              "editorWidth" : 100.0,
+              "name" : "enabledeptbc",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 6,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "isalldata",
+            "resetItemNames" : [ "isalldata" ],
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "部门业务代码",
+            "codeName" : "deptbc",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "deptbc",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "DEPTBC",
+              "codeName" : "DeptBC"
+            },
+            "getPSDEFDGroupLogics" : [ {
+              "groupOP" : "AND",
+              "logicCat" : "ITEMBLANK",
+              "logicType" : "GROUP",
+              "name" : "表单成员[deptbc][表单项空输入]逻辑",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "NOTEQ",
+                "dEFDName" : "enabledeptbc",
+                "logicType" : "SINGLE",
+                "name" : "enabledeptbc 不等于(<>) (1)",
+                "value" : "1"
+              } ],
+              "relatedDetailNames" : [ "enabledeptbc" ],
+              "notMode" : false
+            } ],
+            "getPSEditor" : {
+              "editorType" : "TEXTBOX",
+              "maxLength" : 100,
+              "name" : "deptbc"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 18,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "resetItemName" : "enabledeptbc",
+            "resetItemNames" : [ "enabledeptbc" ],
+            "allowEmpty" : false,
+            "showCaption" : true
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false,
+          "showCaption" : false
+        }, {
+          "caption" : "业务数据范围",
+          "codeName" : "bscope",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "itemHeight" : 80.0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "bscope",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "BSCOPE",
+            "codeName" : "BScope"
+          },
+          "getPSEditor" : {
+            "editorHeight" : 80.0,
+            "editorParams" : {
+              "HEIGHT" : "200"
+            },
+            "editorType" : "TEXTAREA_10",
+            "maxLength" : 2000,
+            "name" : "bscope",
+            "placeHolder" : "[(<条件('1'或'ID')>,<符号('='、'!=')>,<条件值('1'或#{srf.sessioncontext.srfpersonid})>)]如[('1','=','1')]",
+            "showMaxLength" : true
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "resetItemName" : "isalldata",
+          "resetItemNames" : [ "isalldata" ],
+          "allowEmpty" : true,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "infoGroupMode" : false,
+        "showCaption" : false
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 24,
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : false
+    }, {
+      "caption" : "租户系统标识",
+      "codeName" : "dcsystemid",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "dcsystemid",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "dcsystemid"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 24,
+        "colMD" : 6,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "hidden" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  }, {
+    "caption" : "权限操作",
+    "codeName" : "formpage2",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage2",
+    "getPSDEFormDetails" : [ {
+      "codeName" : "druipart1",
+      "contentHeight" : 500.0,
+      "dRItemTag" : "DRItem",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "DRUIPART",
+      "height" : 500.0,
+      "name" : "druipart1",
+      "getPSAppView" : {
+        "accUserMode" : 2,
+        "caption" : "权限操作",
+        "codeName" : "PermissionActionGridView",
+        "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionGridView.json",
+        "funcViewMode" : "MDATAVIEW",
+        "gridRowActiveMode" : 2,
+        "name" : "PermissionActionGridView",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+        },
+        "getPSAppViewEngines" : [ {
+          "engineCat" : "VIEW",
+          "engineType" : "GridView",
+          "name" : "engine",
+          "getPSUIEngineParams" : [ {
+            "appViewLogicName" : "opendata",
+            "name" : "OPENDATA",
+            "paramType" : "LOGIC"
+          }, {
+            "appViewLogicName" : "newdata",
+            "name" : "NEWDATA",
+            "paramType" : "LOGIC"
+          }, {
+            "ctrlName" : "grid",
+            "name" : "GRID",
+            "paramType" : "CTRL"
+          }, {
+            "ctrlName" : "searchform",
+            "name" : "SEARCHFORM",
+            "paramType" : "CTRL"
+          } ]
+        } ],
+        "getPSAppViewLogics" : [ {
+          "eventArg" : "deuiaction1",
+          "eventNames" : "CLICK",
+          "logicTrigger" : "CTRLEVENT",
+          "logicType" : "APPVIEWUIACTION",
+          "name" : "toolbar_deuiaction1_click",
+          "getPSAppViewUIAction" : {
+            "modelref" : true,
+            "id" : "toolbar_deuiaction1"
+          },
+          "getPSViewCtrlName" : "toolbar"
+        }, {
+          "eventArg" : "tbitem4",
+          "eventNames" : "CLICK",
+          "logicTrigger" : "CTRLEVENT",
+          "logicType" : "APPVIEWUIACTION",
+          "name" : "toolbar_tbitem4_click",
+          "getPSAppViewUIAction" : {
+            "modelref" : true,
+            "id" : "toolbar_tbitem4"
+          },
+          "getPSViewCtrlName" : "toolbar"
+        }, {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "SYSUILOGIC",
+          "name" : "newdata",
+          "getPSAppUILogic" : {
+            "actionAfterWizard" : "DEFAULT",
+            "logicType" : "PREDEFINED",
+            "name" : "新建数据",
+            "getNewDataPSAppView" : {
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_NEWDATA",
+            "batchAddOnly" : false,
+            "enableBatchAdd" : false,
+            "enableWizardAdd" : false
+          }
+        }, {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "SYSUILOGIC",
+          "name" : "opendata",
+          "getPSAppUILogic" : {
+            "logicType" : "PREDEFINED",
+            "name" : "打开数据",
+            "getOpenDataPSAppView" : {
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_OPENDATA",
+            "editMode" : true
+          }
+        } ],
+        "getPSAppViewRefs" : [ {
+          "name" : "NEWDATA",
+          "realTitle" : "权限操作编辑视图",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        }, {
+          "name" : "EDITDATA",
+          "realTitle" : "权限操作编辑视图",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        } ],
+        "getPSAppViewUIActions" : [ {
+          "name" : "toolbar_deuiaction1",
+          "getPSUIAction" : {
+            "modelref" : true,
+            "id" : "New"
+          },
+          "xDataControlName" : "grid"
+        }, {
+          "name" : "toolbar_tbitem4",
+          "getPSUIAction" : {
+            "modelref" : true,
+            "id" : "Remove"
+          },
+          "uIActionTarget" : "MULTIKEY",
+          "xDataControlName" : "grid"
+        } ],
+        "getPSControls" : [ {
+          "aggMode" : "NONE",
+          "codeName" : "Main",
+          "columnEnableFilter" : 2,
+          "columnEnableLink" : 2,
+          "controlType" : "GRID",
+          "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction/PSGRIDS/Main.json",
+          "getFetchPSControlAction" : {
+            "modelref" : true,
+            "id" : "fetch"
+          },
+          "groupMode" : "NONE",
+          "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+          "logicName" : "主表格",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionName" : "Get",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "READ",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Get"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionName" : "Create",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "create",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Create"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionName" : "Update",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "UPDATE",
+              "name" : "update",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Update"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionName" : "Remove",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "DELETE",
+              "name" : "remove",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Remove"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionName" : "GetDraft",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "GetDraft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionType" : "DEDATASET",
+              "name" : "fetch",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FetchDefault"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            } ],
+            "userDRAction" : "READ",
+            "enableDEFieldPrivilege" : false,
+            "id" : "数据表格处理器"
+          },
+          "getPSControlLogics" : [ {
+            "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+            "logicTag" : "grid",
+            "logicType" : "APPVIEWENGINE",
+            "name" : "engine_grid",
+            "getPSAppViewEngine" : {
+              "modelref" : true,
+              "id" : "engine"
+            }
+          } ],
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "GRID"
+          },
+          "getPSDEGridColumns" : [ {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "资源名称",
+            "codeName" : "sys_permissionname",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "sys_permissionname",
+            "excelCaption" : "资源名称",
+            "name" : "sys_permissionname",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSIONNAME",
+              "codeName" : "PermissionName"
+            },
+            "width" : 150,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "操作名称",
+            "codeName" : "sys_permission_actionname",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "sys_permission_actionname",
+            "excelCaption" : "操作名称",
+            "name" : "sys_permission_actionname",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONNAME",
+              "codeName" : "PermissionActionName"
+            },
+            "width" : 100,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "业务数据范围",
+            "codeName" : "bscope",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "bscope",
+            "excelCaption" : "业务数据范围",
+            "name" : "bscope",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "BSCOPE",
+              "codeName" : "BScope"
+            },
+            "width" : 300,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          } ],
+          "getPSDEGridDataItems" : [ {
+            "dataType" : 25,
+            "name" : "sys_permissionname",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSIONNAME",
+              "codeName" : "PermissionName"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "sys_permission_actionname",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONNAME",
+              "codeName" : "PermissionActionName"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "bscope",
+            "getPSAppDEField" : {
+              "name" : "BSCOPE",
+              "codeName" : "BScope"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONID",
+              "codeName" : "PermissionActionId"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfdataaccaction",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONID",
+              "codeName" : "PermissionActionId"
+            },
+            "dataAccessAction" : true
+          }, {
+            "dataType" : 25,
+            "name" : "sys_permissionid",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSIONID",
+              "codeName" : "PermissionId"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfmajortext",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONNAME",
+              "codeName" : "PermissionActionName"
+            }
+          } ],
+          "getPSDEGridEditItems" : [ {
+            "caption" : "操作标识",
+            "codeName" : "srfkey",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "SYS_PERMISSION_ACTIONID",
+              "codeName" : "PermissionActionId"
+            },
+            "getPSEditor" : {
+              "editorType" : "HIDDEN",
+              "name" : "srfkey"
+            },
+            "allowEmpty" : true
+          } ],
+          "pagingMode" : 1,
+          "pagingSize" : 20,
+          "getRemovePSControlAction" : {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+            }
+          },
+          "sortMode" : "REMOTE",
+          "hasWFDataItems" : false,
+          "enableColFilter" : false,
+          "enableCustomized" : true,
+          "enableGroup" : false,
+          "enablePagingBar" : true,
+          "enableRowEdit" : false,
+          "enableRowEditOrder" : false,
+          "enableRowNew" : false,
+          "forceFit" : false,
+          "hideHeader" : false,
+          "noSort" : false,
+          "singleSelect" : false,
+          "name" : "grid",
+          "modelid" : "92140817cd9702f64ebc9d86fb4e2ff3",
+          "modeltype" : "PSDEGRID"
+        }, {
+          "codeName" : "Default",
+          "controlType" : "SEARCHFORM",
+          "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction/PSSEARCHFORMS/Default.json",
+          "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+          "logicName" : "默认搜索表单",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionType" : "FILTERACTION",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGet"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGetDraft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "search",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterSearch"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+              }
+            } ],
+            "enableDEFieldPrivilege" : false,
+            "id" : "搜索表单处理器"
+          },
+          "getPSControlLogics" : [ {
+            "eventNames" : "SEARCH;LOAD;SAVE",
+            "logicTag" : "searchform",
+            "logicType" : "APPVIEWENGINE",
+            "name" : "engine_searchform",
+            "getPSAppViewEngine" : {
+              "modelref" : true,
+              "id" : "engine"
+            }
+          } ],
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "SEARCHFORM"
+          },
+          "getPSDEFormPages" : [ {
+            "caption" : "常规条件",
+            "codeName" : "formpage1",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMPAGE",
+            "name" : "formpage1",
+            "getPSLayout" : {
+              "columnCount" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "infoGroupMode" : false
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "searchButtonStyle" : "DEFAULT",
+          "tabHeaderPos" : "TOP",
+          "enableAdvanceSearch" : false,
+          "enableAutoSearch" : false,
+          "enableFilterSave" : false,
+          "noTabHeader" : true,
+          "name" : "searchform",
+          "modelid" : "19333b25b14e6582d089f503bba953d3",
+          "modeltype" : "PSDEFORM_SEARCHFORM"
+        }, {
+          "codeName" : "GridViewtoolbar",
+          "controlType" : "TOOLBAR",
+          "hookEventNames" : [ "CLICK" ],
+          "logicName" : "表格界面（组1、新建、删除、组2）",
+          "name" : "toolbar",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+          },
+          "getPSControlLogics" : [ {
+            "eventArg" : "deuiaction1",
+            "eventNames" : "CLICK",
+            "logicTag" : "toolbar",
+            "logicType" : "APPVIEWLOGIC",
+            "name" : "toolbar_deuiaction1_click",
+            "getPSAppViewLogic" : {
+              "modelref" : true,
+              "id" : "toolbar_deuiaction1_click"
+            }
+          }, {
+            "eventArg" : "tbitem4",
+            "eventNames" : "CLICK",
+            "logicTag" : "toolbar",
+            "logicType" : "APPVIEWLOGIC",
+            "name" : "toolbar_tbitem4_click",
+            "getPSAppViewLogic" : {
+              "modelref" : true,
+              "id" : "toolbar_tbitem4_click"
+            }
+          } ],
+          "getPSControlParam" : {
+            "id" : "TOOLBAR"
+          },
+          "getPSDEToolbarItems" : [ {
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "TBB.TEXT.*.NEW"
+            },
+            "caption" : "新建",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction1",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "toolbar_deuiaction1"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf0f6@FontAwesome",
+              "cssClass" : "fa fa-file-text-o"
+            },
+            "getPSUIAction" : {
+              "getCapPSLanguageRes" : {
+                "lanResTag" : "TBB.TEXT.*.NEW"
+              },
+              "caption" : "新建",
+              "codeName" : "New",
+              "fullCodeName" : "New",
+              "name" : "表格界面_新建操作",
+              "getPSSysImage" : {
+                "glyph" : "xf0f6@FontAwesome",
+                "cssClass" : "fa fa-file-text-o"
+              },
+              "predefinedType" : "GRIDVIEW_NEWACTION",
+              "timeout" : 60000,
+              "getTooltipPSLanguageRes" : {
+                "lanResTag" : "TBB.TOOLTIP.*.NEW"
+              },
+              "uIActionMode" : "SYS",
+              "uIActionTag" : "New",
+              "uIActionType" : "DEUIACTION"
+            },
+            "tooltip" : "新建",
+            "getTooltipPSLanguageRes" : {
+              "lanResTag" : "TBB.TOOLTIP.*.NEW"
+            },
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "TBB.TEXT.*.REMOVE"
+            },
+            "caption" : "删除",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "tbitem4",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "toolbar_tbitem4"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf00d@FontAwesome",
+              "cssClass" : "fa fa-remove"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "MULTIKEY",
+              "getCapPSLanguageRes" : {
+                "lanResTag" : "TBB.TEXT.*.REMOVE"
+              },
+              "caption" : "删除",
+              "codeName" : "Remove",
+              "fullCodeName" : "Remove",
+              "name" : "表格界面_删除操作",
+              "getPSSysImage" : {
+                "glyph" : "xf00d@FontAwesome",
+                "cssClass" : "fa fa-remove"
+              },
+              "predefinedType" : "GRIDVIEW_REMOVEACTION",
+              "timeout" : 60000,
+              "getTooltipPSLanguageRes" : {
+                "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+              },
+              "uIActionMode" : "SYS",
+              "uIActionTag" : "Remove",
+              "uIActionType" : "DEUIACTION"
+            },
+            "tooltip" : "删除",
+            "getTooltipPSLanguageRes" : {
+              "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+            },
+            "uIActionTarget" : "MULTIKEY",
+            "showCaption" : true,
+            "showIcon" : true
+          } ],
+          "xDataControlName" : "grid",
+          "modelid" : "219821D7-575B-4151-92BE-55C5AF611810",
+          "modeltype" : "PSDETOOLBAR"
+        } ],
+        "getPSDEViewCodeName" : "GridView",
+        "getPSDEViewId" : "604f5952b8023bb6106346f5c3c864a6",
+        "getPSViewLayoutPanel" : {
+          "codeName" : "Layoutpanel",
+          "controlStyle" : "APPDEGRIDVIEW",
+          "controlType" : "VIEWLAYOUTPANEL",
+          "name" : "layoutpanel",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+          },
+          "getPSControlParam" : { },
+          "layoutBodyOnly" : true,
+          "layoutPanel" : true,
+          "useDefaultLayout" : true
+        },
+        "title" : "权限操作表格视图",
+        "viewStyle" : "DEFAULT",
+        "viewType" : "DEGRIDVIEW",
+        "xDataControlName" : "grid",
+        "enableDP" : true,
+        "enableExport" : true,
+        "enableFilter" : true,
+        "enableImport" : true,
+        "enableQuickSearch" : true,
+        "enableRowEdit" : false,
+        "enableSearch" : true,
+        "rowEditDefault" : false,
+        "showCaptionBar" : false,
+        "modelid" : "fbd485d92d092875aea8136cc88aca66",
+        "modeltype" : "PSAPPDEVIEW",
+        "getPSAppDERSPaths" : [ [ {
+          "actionRSMode" : 1,
+          "codeName" : "SysPermissionActions",
+          "dataRSMode" : 0,
+          "majorDECodeName" : "SysPermission",
+          "majorDEName" : "SYS_PERMISSION",
+          "getMajorPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json"
+          },
+          "minorDECodeName" : "SysPermissionAction",
+          "minorDEName" : "SYS_PERMISSION_ACTION",
+          "getMinorPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermissionAction.json"
+          },
+          "name" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID",
+          "getParentPSAppDEField" : {
+            "name" : "SYS_PERMISSIONID",
+            "codeName" : "PermissionId"
+          },
+          "rSMode" : 2
+        } ] ]
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "height" : 500,
+        "heightMode" : "PX",
+        "layout" : "TABLE_24COL"
+      },
+      "parentDataJO" : {
+        "srfparentdefname" : "SYS_PERMISSIONID",
+        "srfparentdename" : "SYS_PERMISSION",
+        "SRFPARENTTYPE" : "DER1N",
+        "srfparentmode" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID",
+        "SRFDER1NID" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID"
+      },
+      "needSave" : false,
+      "refreshItemsSetParamOnly" : false,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : false,
+  "modelid" : "f5014ab6d9567ca83d70ea179458d886",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

@@ -1,0 +1,1189 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "DSID",
+        "codeName" : "DSId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "DSID",
+        "codeName" : "DSId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionType" : "USERCUSTOM",
+    "codeName" : "BuildDS",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/BuildDS.json",
+    "logicName" : "buildDS",
+    "name" : "buildDS",
+    "getPSDEActionInput" : {
+      "name" : "BuildDSInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "BuildDSResult",
+      "type" : "VOID"
+    }
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionType" : "USERCUSTOM",
+    "codeName" : "InitDS",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/InitDS.json",
+    "logicName" : "行为",
+    "name" : "InitDS",
+    "getPSDEActionInput" : {
+      "name" : "InitDSInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "InitDSResult",
+      "type" : "VOID"
+    }
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZDATASOURCE",
+    "tableName" : "IBZDATASOURCE",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`IBZDATASOURCE`",
+    "tableName" : "IBZDATASOURCE",
+    "valid" : true
+  }, {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZDATASOURCE",
+    "tableName" : "IBZDATASOURCE",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[IBZDATASOURCE]",
+    "tableName" : "IBZDATASOURCE",
+    "valid" : true
+  }, {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZDATASOURCE",
+    "tableName" : "IBZDATASOURCE",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "DSID",
+      "codeName" : "DSId"
+    }, {
+      "name" : "DSNAME",
+      "codeName" : "DSName"
+    }, {
+      "name" : "DSTYPE",
+      "codeName" : "DSType"
+    }, {
+      "name" : "DSCFG",
+      "codeName" : "DSCfg"
+    } ],
+    "codeName" : "Table",
+    "name" : "IBZDATASOURCE",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "IBZDATASOURCE"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDRGROUPS/DRGroup.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "数据查询",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DST_DATASOURCE"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DST_DATASOURCE"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "数据集",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DstDataSourceDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DSID",
+      "dBType" : "ORACLE",
+      "name" : "DSID",
+      "queryCodeExp" : "t1.DSID",
+      "standardColumnName" : "DSID",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DSID",
+      "dBType" : "MYSQL5",
+      "name" : "DSID",
+      "queryCodeExp" : "t1.`DSID`",
+      "standardColumnName" : "`DSID`",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DSID",
+      "dBType" : "POSTGRESQL",
+      "name" : "DSID",
+      "queryCodeExp" : "t1.DSID",
+      "standardColumnName" : "DSID",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DSID",
+      "dBType" : "SQLSERVER",
+      "name" : "DSID",
+      "standardColumnName" : "[DSID]",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DSID",
+      "name" : "DSID",
+      "standardColumnName" : "DSID",
+      "valueAutoGen" : true
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_DSID_EQ",
+      "name" : "N_DSID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[DSID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSID][标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[DSID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSID][标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DSID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[DSID][标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[DSID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSID][标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DSID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "DSId",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "defaultValue" : "dsname",
+    "defaultValueType" : "PARAM",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "标识",
+    "name" : "DSID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DSID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DSNAME",
+      "dBType" : "ORACLE",
+      "name" : "DSNAME",
+      "queryCodeExp" : "t1.DSNAME",
+      "standardColumnName" : "DSNAME"
+    }, {
+      "columnName" : "DSNAME",
+      "dBType" : "MYSQL5",
+      "name" : "DSNAME",
+      "queryCodeExp" : "t1.`DSNAME`",
+      "standardColumnName" : "`DSNAME`"
+    }, {
+      "columnName" : "DSNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "DSNAME",
+      "queryCodeExp" : "t1.DSNAME",
+      "standardColumnName" : "DSNAME"
+    }, {
+      "columnName" : "DSNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "DSNAME",
+      "standardColumnName" : "[DSNAME]"
+    }, {
+      "columnName" : "DSNAME",
+      "name" : "DSNAME",
+      "standardColumnName" : "DSNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_DSNAME_LIKE",
+      "name" : "N_DSNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[DSNAME][数据源名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[DSNAME][数据源名称]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[DSNAME][数据源名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSNAME][数据源名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[DSNAME][数据源名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSNAME][数据源名称]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[DSNAME][数据源名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSNAME][数据源名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DSNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "DSName",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "数据源名称",
+    "name" : "DSNAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DSNAME"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DSTYPE",
+      "dBType" : "ORACLE",
+      "name" : "DSTYPE",
+      "queryCodeExp" : "t1.DSTYPE",
+      "standardColumnName" : "DSTYPE"
+    }, {
+      "columnName" : "DSTYPE",
+      "dBType" : "MYSQL5",
+      "name" : "DSTYPE",
+      "queryCodeExp" : "t1.`DSTYPE`",
+      "standardColumnName" : "`DSTYPE`"
+    }, {
+      "columnName" : "DSTYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "DSTYPE",
+      "queryCodeExp" : "t1.DSTYPE",
+      "standardColumnName" : "DSTYPE"
+    }, {
+      "columnName" : "DSTYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "DSTYPE",
+      "standardColumnName" : "[DSTYPE]"
+    }, {
+      "columnName" : "DSTYPE",
+      "name" : "DSTYPE",
+      "standardColumnName" : "DSTYPE"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_DSTYPE_EQ",
+      "name" : "N_DSTYPE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[DSTYPE][类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSTYPE][类型]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[DSTYPE][类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSTYPE][类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[DSTYPE][类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[DSTYPE][类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DSTYPE][类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[DSTYPE][类型]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DSTYPE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "DSType",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "类型",
+    "name" : "DSTYPE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DSTYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DSCFG",
+      "dBType" : "ORACLE",
+      "name" : "DSCFG",
+      "queryCodeExp" : "t1.DSCFG",
+      "standardColumnName" : "DSCFG"
+    }, {
+      "columnName" : "DSCFG",
+      "dBType" : "MYSQL5",
+      "name" : "DSCFG",
+      "queryCodeExp" : "t1.`DSCFG`",
+      "standardColumnName" : "`DSCFG`"
+    }, {
+      "columnName" : "DSCFG",
+      "dBType" : "POSTGRESQL",
+      "name" : "DSCFG",
+      "queryCodeExp" : "t1.DSCFG",
+      "standardColumnName" : "DSCFG"
+    }, {
+      "columnName" : "DSCFG",
+      "dBType" : "SQLSERVER",
+      "name" : "DSCFG",
+      "standardColumnName" : "[DSCFG]"
+    }, {
+      "columnName" : "DSCFG",
+      "name" : "DSCFG",
+      "standardColumnName" : "DSCFG"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[DSCFG][配置]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[DSCFG][配置]",
+        "stringLength" : 4000,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[DSCFG][配置]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[DSCFG][配置]",
+        "stringLength" : 4000,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DSCFG][配置]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[DSCFG][配置]移动端默认",
+        "stringLength" : 4000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[DSCFG][配置]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[DSCFG][配置]",
+        "stringLength" : 4000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DSCFG",
+          "maxValue" : 4000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[4000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[4000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[4000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "DSCfg",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 4000,
+    "logicName" : "配置",
+    "name" : "DSCFG",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DSCFG"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 4000,
+    "valueFormat" : "%1$s"
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "DstDataSourceDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "defaultValue" : "dsname",
+      "defaultValueType" : "PARAM",
+      "logicName" : "标识",
+      "name" : "DSId",
+      "getPSDEField" : {
+        "name" : "DSID",
+        "codeName" : "DSId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "数据源名称",
+      "name" : "DSName",
+      "getPSDEField" : {
+        "name" : "DSNAME",
+        "codeName" : "DSName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "类型",
+      "name" : "DSType",
+      "getPSDEField" : {
+        "name" : "DSTYPE",
+        "codeName" : "DSType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "配置",
+      "name" : "DSCfg",
+      "getPSDEField" : {
+        "name" : "DSCFG",
+        "codeName" : "DSCfg"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 4000,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "DstDataSourceFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "defaultValue" : "dsname",
+      "defaultValueType" : "PARAM",
+      "logicName" : "标识",
+      "name" : "N_DSID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_DSID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "DSID",
+        "codeName" : "DSId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "数据源名称",
+      "name" : "N_DSNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_DSNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "DSNAME",
+        "codeName" : "DSName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "类型",
+      "name" : "N_DSTYPE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_DSTYPE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "DSTYPE",
+        "codeName" : "DSType"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "MPickupView",
+    "logicName" : "数据源实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "数据源实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView",
+    "logicName" : "数据源实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "数据源实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView",
+    "logicName" : "数据源实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "数据源实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "数据源实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "数据源实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "数据源实体选择表格视图（部件视图）",
+    "name" : "数据源实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "数据源实体编辑视图（左右关系）",
+    "name" : "数据源实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "数据源实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "数据源实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "DstDataSource",
+  "dEType" : 1,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "DstDataSourceFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "DstDataSourceDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "DSID",
+    "codeName" : "DSId"
+  },
+  "logicName" : "数据源",
+  "getMajorPSDEField" : {
+    "name" : "DSNAME",
+    "codeName" : "DSName"
+  },
+  "getMajorPSDERs" : [ {
+    "codeName" : "Data_source",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDERS/DER1N_META_ENTITY_DST_DATASOURCE_DSID.json",
+    "fKeyName" : "F3C7BD564AE63BA052",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+    },
+    "name" : "DER1N_META_ENTITY_DST_DATASOURCE_DSID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "DSID",
+      "codeName" : "DSId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "DSNAME",
+      "codeName" : "DSName"
+    },
+    "pickupDEFName" : "DSID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "Data_source"
+  } ],
+  "name" : "DST_DATASOURCE",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite.json"
+  },
+  "saaSMode" : 0,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "DstDataSource",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "IBZDATASOURCE",
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

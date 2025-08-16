@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <artifactId>ibiz-plugin</artifactId>
+    <version>8.1.0.570.29.1</version>
+  </parent>
+  <artifactId>ibiz-centralstudio</artifactId>
+    <name>ibiz-centralstudio</name>
+  <properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>
+  <dependencies>	
+  	
+  	<dependency>
+       <groupId>org.eclipse.jgit</groupId>
+       <artifactId>org.eclipse.jgit</artifactId>
+       <version>5.12.0.202106070339-r</version>
+    </dependency>
+        
+    <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+	<dependency>
+	    <groupId>org.yaml</groupId>
+	    <artifactId>snakeyaml</artifactId>
+	</dependency>
+  	
+  	<dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
+        
+ 	
+
+	 <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+        </dependency> 
+        
+        <dependency>
+		    <groupId>io.projectreactor.netty</groupId>
+		    <artifactId>reactor-netty-http</artifactId>
+		</dependency>
+		
+
+ 
+ 		<dependency>
+            <groupId>org.olap4j</groupId>
+            <artifactId>olap4j</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+	
+	 <dependency>
+       	<groupId>cn.ibizlab.plugin</groupId>
+		<artifactId>ibiz-model</artifactId>
+		<version>${ibiz.cloud.version}</version>
+	</dependency>
+	
+
+	</dependencies>	
+</project>

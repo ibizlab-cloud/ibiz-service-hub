@@ -1,0 +1,606 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictOption/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictOption.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VKEY",
+      "codeName" : "ValueKey"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "LABEL",
+      "codeName" : "Label"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "cname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CNAME",
+      "codeName" : "CatalogName"
+    }
+  }, {
+    "id" : "val",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VAL",
+      "codeName" : "Value"
+    }
+  }, {
+    "id" : "label",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "LABEL",
+      "codeName" : "Label"
+    }
+  }, {
+    "id" : "pval",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PVAL",
+      "codeName" : "Parent"
+    }
+  }, {
+    "id" : "showorder",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    }
+  }, {
+    "id" : "disabled",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "DISABLED",
+      "codeName" : "Disabled"
+    }
+  }, {
+    "id" : "expired",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "EXPIRED",
+      "codeName" : "Expired"
+    }
+  }, {
+    "id" : "vfilter",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VFILTER",
+      "codeName" : "Filter"
+    }
+  }, {
+    "id" : "iconcls",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ICONCLS",
+      "codeName" : "IconClass"
+    }
+  }, {
+    "id" : "cls",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CLS",
+      "codeName" : "Cls"
+    }
+  }, {
+    "id" : "extension",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "EXTENSION",
+      "codeName" : "Extension"
+    }
+  }, {
+    "id" : "cid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CID",
+      "codeName" : "CatalogId"
+    }
+  }, {
+    "id" : "vkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VKEY",
+      "codeName" : "ValueKey"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "字典项基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "目录",
+        "codeName" : "cname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "cname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CNAME",
+          "codeName" : "CatalogName"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "AC" : "TRUE",
+            "PICKUPVIEW" : "TRUE"
+          },
+          "editorType" : "PICKER",
+          "handlerType" : "PickupText",
+          "name" : "cname",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "FetchDefault"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog.json"
+          },
+          "getPSEditorItems" : [ {
+            "name" : "cid"
+          } ],
+          "getPickupPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictCatalogPickupView.json",
+            "viewType" : "DEPICKUPVIEW"
+          },
+          "valueItemName" : "cid",
+          "enableAC" : true,
+          "enablePickupView" : true,
+          "forceSelection" : true,
+          "showTrigger" : true,
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "valueItemName" : "cid",
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "代码值",
+        "codeName" : "val",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "val",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "VAL",
+          "codeName" : "Value"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 40,
+          "name" : "val"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "名称",
+        "codeName" : "label",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "label",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "LABEL",
+          "codeName" : "Label"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "label"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "父代码值",
+        "codeName" : "pval",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "pval",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PVAL",
+          "codeName" : "Parent"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 40,
+          "name" : "pval"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "排序",
+        "codeName" : "showorder",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "showorder",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SHOWORDER",
+          "codeName" : "ShowOrder"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "name" : "showorder"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "是否禁用",
+        "codeName" : "disabled",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "disabled",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DISABLED",
+          "codeName" : "Disabled"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "disabled",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "colXS" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "过期/失效",
+        "codeName" : "expired",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "expired",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "EXPIRED",
+          "codeName" : "Expired"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "expired",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "colXS" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "过滤项",
+        "codeName" : "vfilter",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "vfilter",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "VFILTER",
+          "codeName" : "Filter"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 500,
+          "name" : "vfilter"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "colXS" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "图标",
+        "codeName" : "iconcls",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "iconcls",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ICONCLS",
+          "codeName" : "IconClass"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 255,
+          "name" : "iconcls"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "栏目样式",
+        "codeName" : "cls",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "cls",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CLS",
+          "codeName" : "Cls"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 500,
+          "name" : "cls"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "扩展",
+        "codeName" : "extension",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "extension",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "EXTENSION",
+          "codeName" : "Extension"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1000,
+          "name" : "extension",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "colXS" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "目录代码",
+        "codeName" : "cid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "cid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CID",
+          "codeName" : "CatalogId"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "cid"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : true,
+  "modelid" : "baa4121249b3e1776057b3951643cf72",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

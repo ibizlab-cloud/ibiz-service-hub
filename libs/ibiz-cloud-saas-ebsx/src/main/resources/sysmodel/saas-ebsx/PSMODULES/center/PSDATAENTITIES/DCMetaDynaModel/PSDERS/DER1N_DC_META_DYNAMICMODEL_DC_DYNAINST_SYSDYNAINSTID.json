@@ -1,0 +1,31 @@
+{
+  "codeName" : "DynaInst",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDERS/DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID.json",
+  "fKeyName" : "F2E15ABADEBA7E5D91",
+  "logicName" : "动态实例",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel.json"
+  },
+  "name" : "DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYSDYNAINSTID",
+    "codeName" : "SysDynaInstId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "SYSDYNAINSTNAME",
+    "codeName" : "SysDynaInstName"
+  },
+  "pickupDEFName" : "SYSDYNAINSTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DynaInst"
+}

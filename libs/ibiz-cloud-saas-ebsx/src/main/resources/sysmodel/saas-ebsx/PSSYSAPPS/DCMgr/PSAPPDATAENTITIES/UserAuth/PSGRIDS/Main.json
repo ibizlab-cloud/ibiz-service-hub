@@ -1,0 +1,176 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/UserAuth/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/UserAuth.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "认证类型",
+    "codeName" : "identity_type",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "identity_type",
+    "excelCaption" : "认证类型",
+    "name" : "identity_type",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/IdentityType.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "IDENTITY_TYPE",
+      "codeName" : "IdentityType"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "认证标识",
+    "codeName" : "identifier",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "identifier",
+    "excelCaption" : "认证标识",
+    "name" : "identifier",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "IDENTIFIER",
+      "codeName" : "Identifier"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "凭据",
+    "codeName" : "credential",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "credential",
+    "excelCaption" : "凭据",
+    "name" : "credential",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREDENTIAL",
+      "codeName" : "Credential"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "identity_type",
+    "getPSAppDEField" : {
+      "name" : "IDENTITY_TYPE",
+      "codeName" : "IdentityType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "identifier",
+    "getPSAppDEField" : {
+      "name" : "IDENTIFIER",
+      "codeName" : "Identifier"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "credential",
+    "getPSAppDEField" : {
+      "name" : "CREDENTIAL",
+      "codeName" : "Credential"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "AUTHID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "AUTHID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "CREDENTIAL",
+      "codeName" : "Credential"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "AUTHID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/UserAuth.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "7538ba4860096d2385f98d168a3fbef6",
+  "modeltype" : "PSDEGRID"
+}

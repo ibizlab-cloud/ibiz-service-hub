@@ -1,0 +1,28 @@
+{
+  "codeName" : "Author",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDERS/DER1N_SYS_BULLETIN_SYS_USER_AUTHORID.json",
+  "fKeyName" : "F4B38AF3DFF9310A1C",
+  "logicName" : "作者",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin.json"
+  },
+  "name" : "DER1N_SYS_BULLETIN_SYS_USER_AUTHORID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "AUTHORID",
+    "codeName" : "Authorid"
+  },
+  "pickupDEFName" : "AUTHORID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Author",
+  "enableFKey" : true
+}

@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Jump",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEACTIONS/Jump.json",
+  "logicName" : "流程跳转",
+  "name" : "jump",
+  "getPSDEActionInput" : {
+    "name" : "JumpInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFInstanceDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "JumpResult",
+    "type" : "VOID"
+  }
+}

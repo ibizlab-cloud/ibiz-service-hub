@@ -1,0 +1,146 @@
+package net.ibizsys.model.dataentity.defield;
+
+
+
+public class PSDEFGroupImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectImpl implements net.ibizsys.model.dataentity.defield.IPSDEFGroup{
+
+	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETCODENAME2 = "codeName2";
+	public final static String ATTR_GETDYNAMODELFILEPATH = "dynaModelFilePath";
+	public final static String ATTR_GETGROUPTAG = "groupTag";
+	public final static String ATTR_GETGROUPTAG2 = "groupTag2";
+	public final static String ATTR_GETGROUPTYPE = "groupType";
+	public final static String ATTR_GETLOGICMODE = "logicMode";
+	public final static String ATTR_GETLOGICPARAM = "logicParam";
+	public final static String ATTR_GETLOGICPARAM2 = "logicParam2";
+	public final static String ATTR_GETORDERVALUE = "orderValue";
+	public final static String ATTR_GETPSDEFGROUPDETAILS = "getPSDEFGroupDetails";
+	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+
+	public java.lang.String getCodeName(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getCodeName2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	@Deprecated
+	public java.lang.String getDynaModelFilePath(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDYNAMODELFILEPATH);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getGroupTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGROUPTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getGroupTag2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGROUPTAG2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getGroupType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGROUPTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICMODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicParam(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICPARAM);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicParam2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICPARAM2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public int getOrderValue(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
+
+	private java.util.List<net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail> psdefgroupdetails = null;
+	public java.util.List<net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail> getPSDEFGroupDetails(){
+		if(this.psdefgroupdetails == null){
+			com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEFGROUPDETAILS);
+			if(value == null){return null;}
+			com.fasterxml.jackson.databind.node.ArrayNode arrayNode = (com.fasterxml.jackson.databind.node.ArrayNode)value;
+			if(arrayNode.size() == 0){return null;}
+			java.util.List<net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail> list = new java.util.ArrayList<net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail>();
+			for(int i = 0;i<arrayNode.size();i++) {
+				net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail obj = this.getPSModelObject(net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail.class, (com.fasterxml.jackson.databind.node.ObjectNode)arrayNode.get(i),ATTR_GETPSDEFGROUPDETAILS);
+				if(obj!=null)list.add(obj);
+			}
+			this.psdefgroupdetails = list;
+		}
+		return (this.psdefgroupdetails.size() == 0)? null : this.psdefgroupdetails;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail getPSDEFGroupDetail(Object objKey, boolean bTryMode){
+		return getPSModelObject(net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail.class, this.getPSDEFGroupDetails(), objKey, bTryMode);
+	}
+	public void setPSDEFGroupDetails(java.util.List<net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail> list){
+		this.psdefgroupdetails = list;
+	}
+	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
+
+	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
+		if(this.pssyssfplugin != null) return this.pssyssfplugin;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSSFPLUGIN);
+		if(value == null){
+			return null;
+		}
+		this.pssyssfplugin = getPSModelObject(net.ibizsys.model.res.IPSSysSFPlugin.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSSFPLUGIN);
+		return this.pssyssfplugin;
+	}
+
+	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPluginMust(){
+		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后台扩展插件");}
+		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
+}

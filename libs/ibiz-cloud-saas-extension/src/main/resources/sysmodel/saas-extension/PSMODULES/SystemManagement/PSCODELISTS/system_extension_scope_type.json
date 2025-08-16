@@ -1,0 +1,49 @@
+{
+  "codeListTag" : "SystemManagement__system_extension_scope_type",
+  "codeListType" : "STATIC",
+  "codeName" : "system_extension_scope_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_scope_type.json",
+  "emptyText" : "未定义",
+  "name" : "系统扩展归属类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "system",
+    "text" : "系统",
+    "value" : "SYSTEM"
+  }, {
+    "codeName" : "modelgroup",
+    "text" : "模型组",
+    "value" : "MODELGROUP"
+  }, {
+    "codeName" : "module",
+    "text" : "模块",
+    "value" : "MODULE"
+  }, {
+    "codeName" : "dataentity",
+    "text" : "实体",
+    "value" : "DATAENTITY"
+  }, {
+    "codeName" : "workflow",
+    "text" : "工作流",
+    "value" : "WORKFLOW"
+  }, {
+    "codeName" : "bicube",
+    "text" : "智能立方体",
+    "value" : "BICUBE"
+  }, {
+    "codeName" : "data",
+    "text" : "数据",
+    "value" : "DATA"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

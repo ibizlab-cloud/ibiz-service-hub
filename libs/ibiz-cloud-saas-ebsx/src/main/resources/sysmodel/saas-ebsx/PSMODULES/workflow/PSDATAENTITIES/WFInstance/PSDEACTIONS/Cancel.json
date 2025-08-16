@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Cancel",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEACTIONS/Cancel.json",
+  "logicName" : "取消",
+  "name" : "cancel",
+  "getPSDEActionInput" : {
+    "name" : "CancelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFInstanceDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CancelResult",
+    "type" : "VOID"
+  }
+}

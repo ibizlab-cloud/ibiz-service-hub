@@ -1,0 +1,49 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DIGESTCODE",
+    "name" : "DIGESTCODE"
+  }, {
+    "expression" : "t1.FILEEXT",
+    "name" : "FILEEXT"
+  }, {
+    "expression" : "t1.FILEID",
+    "name" : "FILEID"
+  }, {
+    "expression" : "t1.FILENAME",
+    "name" : "FILENAME"
+  }, {
+    "expression" : "t1.FILEPATH",
+    "name" : "FILEPATH"
+  }, {
+    "expression" : "t1.FILESIZE",
+    "name" : "FILESIZE"
+  }, {
+    "expression" : "t1.FOLDER",
+    "name" : "FOLDER"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.OWNERID",
+    "name" : "OWNERID"
+  }, {
+    "expression" : "t1.OWNERTYPE",
+    "name" : "OWNERTYPE"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DIGESTCODE,\nt1.FILEEXT,\nt1.FILEID,\nt1.FILENAME,\nt1.FILEPATH,\nt1.FILESIZE,\nt1.FOLDER,\nt1.MEMO,\nt1.OWNERID,\nt1.OWNERTYPE,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZFILE t1 \n",
+  "id" : "PSMODULES/disk/PSDATAENTITIES/SDFile/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,14 @@
+{
+  "codeName" : "notify",
+  "dynaModelFilePath" : "PSSYSERMAPS/notify.json",
+  "name" : "notify",
+  "getPSSysERMapNodes" : [ {
+    "leftPos" : 100,
+    "name" : "INTERNAL_MESSAGE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    },
+    "topPos" : 100
+  } ]
+}

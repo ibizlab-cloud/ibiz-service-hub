@@ -1,0 +1,196 @@
+{
+  "codeName" : "Default",
+  "controlType" : "SEARCHFORM",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment/PSSEARCHFORMS/Default.json",
+  "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+  "logicName" : "默认搜索表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SEARCH;LOAD;SAVE",
+    "logicTag" : "searchform",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_searchform",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "n_deptcode_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEPTCODE",
+      "codeName" : "DeptCode"
+    }
+  }, {
+    "id" : "n_deptname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    }
+  }, {
+    "id" : "n_bcode_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    }
+  }, {
+    "id" : "n_orgname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "常规条件",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "PAGE.HEADER.WFEXPLOREVIEW"
+      },
+      "caption" : "部门代码",
+      "codeName" : "n_deptcode_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "n_deptcode_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DEPTCODE",
+        "codeName" : "DeptCode"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_deptcode_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "colSM" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "ERROR.STD.SYS.INPUTERROR"
+      },
+      "caption" : "部门名称",
+      "codeName" : "n_deptname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "n_deptname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DEPTNAME",
+        "codeName" : "DeptName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_deptname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "colSM" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "PAGE.COMMON.IFFORMVIEW.EMPTYINFO"
+      },
+      "caption" : "业务编码",
+      "codeName" : "n_bcode_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "n_bcode_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_bcode_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "colSM" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "单位",
+      "codeName" : "n_orgname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "n_orgname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_orgname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "colSM" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "searchButtonStyle" : "DEFAULT",
+  "tabHeaderPos" : "TOP",
+  "enableAdvanceSearch" : false,
+  "enableAutoSearch" : false,
+  "enableFilterSave" : false,
+  "noTabHeader" : true,
+  "modelid" : "228da2bd5bf38608c3f8020e9170431f",
+  "modeltype" : "PSDEFORM_SEARCHFORM"
+}

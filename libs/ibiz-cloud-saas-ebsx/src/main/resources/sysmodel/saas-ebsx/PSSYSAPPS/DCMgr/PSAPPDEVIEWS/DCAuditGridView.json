@@ -1,0 +1,807 @@
+{
+  "accUserMode" : 2,
+  "caption" : "认证日志",
+  "codeName" : "DCAuditGridView",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditGridView.json",
+  "funcViewMode" : "MDATAVIEW",
+  "gridRowActiveMode" : 2,
+  "name" : "DCAuditGridView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "GridView",
+    "name" : "engine",
+    "getPSUIEngineParams" : [ {
+      "appViewLogicName" : "opendata",
+      "name" : "OPENDATA",
+      "paramType" : "LOGIC"
+    }, {
+      "appViewLogicName" : "newdata",
+      "name" : "NEWDATA",
+      "paramType" : "LOGIC"
+    }, {
+      "ctrlName" : "grid",
+      "name" : "GRID",
+      "paramType" : "CTRL"
+    }, {
+      "ctrlName" : "searchform",
+      "name" : "SEARCHFORM",
+      "paramType" : "CTRL"
+    } ]
+  } ],
+  "getPSAppViewLogics" : [ {
+    "eventArg" : "tbitem4",
+    "eventNames" : "CLICK",
+    "logicTrigger" : "CTRLEVENT",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "toolbar_tbitem4_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "toolbar_tbitem4"
+    },
+    "getPSViewCtrlName" : "toolbar"
+  }, {
+    "logicTrigger" : "CUSTOM",
+    "logicType" : "SYSUILOGIC",
+    "name" : "newdata",
+    "getPSAppUILogic" : {
+      "actionAfterWizard" : "DEFAULT",
+      "logicType" : "PREDEFINED",
+      "name" : "新建数据",
+      "getNewDataPSAppView" : {
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      },
+      "getPSAppUILogicRefViews" : [ {
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      } ],
+      "viewLogicType" : "APP_NEWDATA",
+      "batchAddOnly" : false,
+      "enableBatchAdd" : false,
+      "enableWizardAdd" : false
+    }
+  }, {
+    "logicTrigger" : "CUSTOM",
+    "logicType" : "SYSUILOGIC",
+    "name" : "opendata",
+    "getPSAppUILogic" : {
+      "logicType" : "PREDEFINED",
+      "name" : "打开数据",
+      "getOpenDataPSAppView" : {
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      },
+      "getPSAppUILogicRefViews" : [ {
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      } ],
+      "viewLogicType" : "APP_OPENDATA",
+      "editMode" : true
+    }
+  } ],
+  "getPSAppViewRefs" : [ {
+    "name" : "EDITDATA",
+    "realTitle" : "租户审计日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  }, {
+    "name" : "NEWDATA",
+    "realTitle" : "租户审计日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  } ],
+  "getPSAppViewUIActions" : [ {
+    "name" : "toolbar_tbitem4",
+    "getPSUIAction" : {
+      "modelref" : true,
+      "id" : "Edit"
+    },
+    "uIActionTarget" : "SINGLEKEY",
+    "xDataControlName" : "grid"
+  } ],
+  "getPSControls" : [ {
+    "aggMode" : "NONE",
+    "codeName" : "Main",
+    "columnEnableFilter" : 2,
+    "columnEnableLink" : 2,
+    "controlType" : "GRID",
+    "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit/PSGRIDS/Main.json",
+    "getFetchPSControlAction" : {
+      "modelref" : true,
+      "id" : "fetch"
+    },
+    "groupMode" : "NONE",
+    "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+    "logicName" : "主表格",
+    "minorSortDir" : "DESC",
+    "getMinorSortPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+    },
+    "getPSControlHandler" : {
+      "getPSHandlerActions" : [ {
+        "actionName" : "Get",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "READ",
+        "name" : "load",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Get"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionName" : "Create",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "CREATE",
+        "name" : "create",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Create"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionName" : "Update",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "UPDATE",
+        "name" : "update",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Update"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionName" : "Remove",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "DELETE",
+        "name" : "remove",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Remove"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionName" : "GetDraft",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "CREATE",
+        "name" : "loaddraft",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "GetDraft"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionType" : "DEDATASET",
+        "name" : "fetch",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "FetchDefault"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      } ],
+      "userDRAction" : "READ",
+      "enableDEFieldPrivilege" : false,
+      "id" : "数据表格处理器"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+      "logicTag" : "grid",
+      "logicType" : "APPVIEWENGINE",
+      "name" : "engine_grid",
+      "getPSAppViewEngine" : {
+        "modelref" : true,
+        "id" : "engine"
+      }
+    } ],
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "GRID"
+    },
+    "getPSDEGridColumns" : [ {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "系统",
+      "codeName" : "dcsystemname",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "dcsystemname",
+      "excelCaption" : "系统",
+      "name" : "dcsystemname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "width" : 200,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "审计信息",
+      "codeName" : "sysauditname",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "sysauditname",
+      "excelCaption" : "审计信息",
+      "name" : "sysauditname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITNAME",
+        "codeName" : "SysAuditName"
+      },
+      "width" : 150,
+      "widthUnit" : "STAR",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "FRONT",
+      "caption" : "日志级别",
+      "codeName" : "loglevel",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "loglevel",
+      "excelCaption" : "日志级别",
+      "name" : "loglevel",
+      "noPrivDisplayMode" : 1,
+      "getPSAppCodeList" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList32.json"
+      },
+      "getPSAppDEField" : {
+        "name" : "LOGLEVEL",
+        "codeName" : "LogLevel"
+      },
+      "width" : 100,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "审计类别",
+      "codeName" : "auditcat",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "auditcat",
+      "excelCaption" : "审计类别",
+      "name" : "auditcat",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "AUDITCAT",
+        "codeName" : "AuditCat"
+      },
+      "width" : 100,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "访问地址",
+      "codeName" : "address",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "address",
+      "excelCaption" : "访问地址",
+      "name" : "address",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ADDRESS",
+        "codeName" : "Address"
+      },
+      "width" : 150,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "操作人",
+      "codeName" : "oppersonname",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "oppersonname",
+      "excelCaption" : "操作人",
+      "name" : "oppersonname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "OPPERSONNAME",
+        "codeName" : "OPPersonName"
+      },
+      "width" : 200,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "审计时间",
+      "codeName" : "createdate",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "createdate",
+      "excelCaption" : "审计时间",
+      "name" : "createdate",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+      "width" : 150,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    } ],
+    "getPSDEGridDataItems" : [ {
+      "dataType" : 25,
+      "name" : "dcsystemname",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "sysauditname",
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITNAME",
+        "codeName" : "SysAuditName"
+      }
+    }, {
+      "dataType" : 9,
+      "name" : "loglevel",
+      "getPSAppDEField" : {
+        "name" : "LOGLEVEL",
+        "codeName" : "LogLevel"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "auditcat",
+      "getPSAppDEField" : {
+        "name" : "AUDITCAT",
+        "codeName" : "AuditCat"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "address",
+      "getPSAppDEField" : {
+        "name" : "ADDRESS",
+        "codeName" : "Address"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "oppersonname",
+      "getPSAppDEField" : {
+        "name" : "OPPERSONNAME",
+        "codeName" : "OPPersonName"
+      }
+    }, {
+      "format" : "YYYY-MM-DD HH:mm:ss",
+      "dataType" : 5,
+      "name" : "createdate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "oppersonid",
+      "getPSAppDEField" : {
+        "name" : "OPPERSONID",
+        "codeName" : "OPPersonId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "srfkey",
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITID",
+        "codeName" : "SysAuditId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "srfdataaccaction",
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITID",
+        "codeName" : "SysAuditId"
+      },
+      "dataAccessAction" : true
+    }, {
+      "dataType" : 25,
+      "name" : "dcsystemid",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "srfmajortext",
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITNAME",
+        "codeName" : "SysAuditName"
+      }
+    } ],
+    "getPSDEGridEditItems" : [ {
+      "caption" : "系统审计标识",
+      "codeName" : "srfkey",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "name" : "srfkey",
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITID",
+        "codeName" : "SysAuditId"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "srfkey"
+      },
+      "allowEmpty" : true
+    } ],
+    "pagingMode" : 1,
+    "pagingSize" : 20,
+    "getRemovePSControlAction" : {
+      "actionName" : "Remove",
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "name" : "remove",
+      "getPSAppDEMethod" : {
+        "modelref" : true,
+        "id" : "Remove"
+      },
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+      }
+    },
+    "sortMode" : "REMOTE",
+    "hasWFDataItems" : false,
+    "enableColFilter" : false,
+    "enableCustomized" : true,
+    "enableGroup" : false,
+    "enablePagingBar" : true,
+    "enableRowEdit" : false,
+    "enableRowEditOrder" : false,
+    "enableRowNew" : false,
+    "forceFit" : false,
+    "hideHeader" : false,
+    "noSort" : false,
+    "singleSelect" : false,
+    "name" : "grid",
+    "modelid" : "e0767dd98e8288d0dae7b0b1c725ab07",
+    "modeltype" : "PSDEGRID"
+  }, {
+    "codeName" : "Default",
+    "controlType" : "SEARCHFORM",
+    "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit/PSSEARCHFORMS/Default.json",
+    "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+    "logicName" : "默认搜索表单",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+    },
+    "getPSControlHandler" : {
+      "getPSHandlerActions" : [ {
+        "actionType" : "FILTERACTION",
+        "name" : "load",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "FilterGet"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionType" : "FILTERACTION",
+        "name" : "loaddraft",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "FilterGetDraft"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      }, {
+        "actionType" : "FILTERACTION",
+        "name" : "search",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "FilterSearch"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+        }
+      } ],
+      "enableDEFieldPrivilege" : false,
+      "id" : "搜索表单处理器"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "SEARCH;LOAD;SAVE",
+      "logicTag" : "searchform",
+      "logicType" : "APPVIEWENGINE",
+      "name" : "engine_searchform",
+      "getPSAppViewEngine" : {
+        "modelref" : true,
+        "id" : "engine"
+      }
+    } ],
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "SEARCHFORM"
+    },
+    "getPSDEFormItems" : [ {
+      "id" : "n_dcsystemname_like",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      }
+    }, {
+      "id" : "n_sysauditname_like",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "SYSAUDITNAME",
+        "codeName" : "SysAuditName"
+      }
+    }, {
+      "id" : "n_loglevel_eq",
+      "dataType" : 9,
+      "getPSAppDEField" : {
+        "name" : "LOGLEVEL",
+        "codeName" : "LogLevel"
+      }
+    } ],
+    "getPSDEFormPages" : [ {
+      "caption" : "常规条件",
+      "codeName" : "formpage1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMPAGE",
+      "name" : "formpage1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "租户系统名称",
+        "codeName" : "n_dcsystemname_like",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 100,
+        "name" : "n_dcsystemname_like",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DCSYSTEMNAME",
+          "codeName" : "DCSystemName"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "name" : "n_dcsystemname_like"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 8,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "审计名称",
+        "codeName" : "n_sysauditname_like",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 100,
+        "name" : "n_sysauditname_like",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYSAUDITNAME",
+          "codeName" : "SysAuditName"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "name" : "n_sysauditname_like"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 8,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "日志级别",
+        "codeName" : "n_loglevel_eq",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 100,
+        "name" : "n_loglevel_eq",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "LOGLEVEL",
+          "codeName" : "LogLevel"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST",
+          "name" : "n_loglevel_eq",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList32.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 8,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "searchButtonStyle" : "DEFAULT",
+    "tabHeaderPos" : "TOP",
+    "enableAdvanceSearch" : false,
+    "enableAutoSearch" : false,
+    "enableFilterSave" : false,
+    "noTabHeader" : true,
+    "name" : "searchform",
+    "modelid" : "4901714bde907939dbec83f9345ad696",
+    "modeltype" : "PSDEFORM_SEARCHFORM"
+  }, {
+    "codeName" : "GridViewtoolbar",
+    "controlType" : "TOOLBAR",
+    "hookEventNames" : [ "CLICK" ],
+    "logicName" : "表格界面（组1、查看、组2）",
+    "name" : "toolbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+    },
+    "getPSControlLogics" : [ {
+      "eventArg" : "tbitem4",
+      "eventNames" : "CLICK",
+      "logicTag" : "toolbar",
+      "logicType" : "APPVIEWLOGIC",
+      "name" : "toolbar_tbitem4_click",
+      "getPSAppViewLogic" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem4_click"
+      }
+    } ],
+    "getPSControlParam" : {
+      "id" : "TOOLBAR"
+    },
+    "getPSDEToolbarItems" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.*.EDIT"
+      },
+      "caption" : "查看",
+      "groupExtractMode" : "ITEM",
+      "itemType" : "DEUIACTION",
+      "name" : "tbitem4",
+      "noPrivDisplayMode" : 2,
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem4"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf044@FontAwesome",
+        "cssClass" : "fa fa-edit"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "TBB.TEXT.*.EDIT"
+        },
+        "caption" : "编辑",
+        "codeName" : "Edit",
+        "fullCodeName" : "Edit",
+        "name" : "表格界面_编辑操作",
+        "getPSSysImage" : {
+          "glyph" : "xf044@FontAwesome",
+          "cssClass" : "fa fa-edit"
+        },
+        "predefinedType" : "GRIDVIEW_EDITACTION",
+        "timeout" : 60000,
+        "getTooltipPSLanguageRes" : {
+          "lanResTag" : "TBB.TOOLTIP.*.EDIT"
+        },
+        "uIActionMode" : "SYS",
+        "uIActionTag" : "Edit",
+        "uIActionType" : "DEUIACTION"
+      },
+      "tooltip" : "查看",
+      "getTooltipPSLanguageRes" : {
+        "lanResTag" : "TBB.TOOLTIP.*.EDIT"
+      },
+      "uIActionTarget" : "SINGLEKEY",
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "xDataControlName" : "grid",
+    "modelid" : "24ddc68b1717d44d1ea610d438f930f6",
+    "modeltype" : "PSDETOOLBAR"
+  } ],
+  "getPSDEViewCodeName" : "GridView",
+  "getPSDEViewId" : "8a116bcabc1923da15ed8d6427c956c5",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDEGRIDVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysAudit.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "租户审计日志表格视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEGRIDVIEW",
+  "xDataControlName" : "grid",
+  "enableDP" : true,
+  "enableExport" : true,
+  "enableFilter" : true,
+  "enableImport" : true,
+  "enableQuickSearch" : true,
+  "enableRowEdit" : false,
+  "enableSearch" : true,
+  "rowEditDefault" : false,
+  "modelid" : "0cfbfe45c041766dc76c1cd84b319e6f",
+  "modeltype" : "PSAPPDEVIEW"
+}

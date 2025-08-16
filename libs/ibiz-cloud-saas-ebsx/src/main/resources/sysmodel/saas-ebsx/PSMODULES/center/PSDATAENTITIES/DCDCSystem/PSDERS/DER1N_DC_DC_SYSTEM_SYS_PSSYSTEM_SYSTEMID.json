@@ -1,0 +1,31 @@
+{
+  "codeName" : "System",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDERS/DER1N_DC_DC_SYSTEM_SYS_PSSYSTEM_SYSTEMID.json",
+  "fKeyName" : "FEC70A1C8823067721",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem.json"
+  },
+  "name" : "DER1N_DC_DC_SYSTEM_SYS_PSSYSTEM_SYSTEMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYSTEMID",
+    "codeName" : "SystemId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "SYSTEMNAME",
+    "codeName" : "SystemName"
+  },
+  "pickupDEFName" : "SYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "System",
+  "enableFKey" : true
+}

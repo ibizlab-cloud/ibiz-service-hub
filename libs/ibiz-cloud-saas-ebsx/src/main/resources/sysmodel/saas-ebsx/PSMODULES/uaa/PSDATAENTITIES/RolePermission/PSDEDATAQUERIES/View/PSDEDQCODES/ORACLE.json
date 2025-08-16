@@ -1,0 +1,55 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t41.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t31.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t21.PERMISSIONTAG",
+    "name" : "PERMISSIONTAG"
+  }, {
+    "expression" : "t21.PERMISSIONTYPE",
+    "name" : "PERMISSIONTYPE"
+  }, {
+    "expression" : "t21.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.SYSTEMFLAG",
+    "name" : "SYSTEMFLAG"
+  }, {
+    "expression" : "t1.SYS_PERMISSIONID",
+    "name" : "SYS_PERMISSIONID"
+  }, {
+    "expression" : "t21.SYS_PERMISSIONNAME",
+    "name" : "SYS_PERMISSIONNAME"
+  }, {
+    "expression" : "t1.SYS_ROLEID",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t11.SYS_ROLENAME",
+    "name" : "SYS_ROLENAME"
+  }, {
+    "expression" : "t1.SYS_ROLE_PERMISSIONID",
+    "name" : "SYS_ROLE_PERMISSIONID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt41.DCSYSTEMNAME,\nt31.ENTITYNAME,\nt1.ISVALID,\nt21.PERMISSIONTAG,\nt21.PERMISSIONTYPE,\nt21.PSSYSTEMID,\nt1.SYSTEMFLAG,\nt1.SYS_PERMISSIONID,\nt21.SYS_PERMISSIONNAME,\nt1.SYS_ROLEID,\nt11.SYS_ROLENAME,\nt1.SYS_ROLE_PERMISSIONID,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZROLE_PERMISSION t1 \nLEFT JOIN IBZROLE t11 ON t1.SYS_ROLEID = t11.SYS_ROLEID \nLEFT JOIN IBZPERMISSION t21 ON t1.SYS_PERMISSIONID = t21.SYS_PERMISSIONID \nLEFT JOIN IBZENTITY t31 ON t21.ENTITYID = t31.ENTITYID \nLEFT JOIN IBZDCSYSTEM t41 ON t21.DCSYSTEMID = t41.DCSYSTEMID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

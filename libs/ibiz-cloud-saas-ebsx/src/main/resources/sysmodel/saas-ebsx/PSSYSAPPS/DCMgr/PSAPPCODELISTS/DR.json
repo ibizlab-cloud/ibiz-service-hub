@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__DR",
+  "codeListType" : "STATIC",
+  "codeName" : "DR",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DR.json",
+  "emptyText" : "未定义",
+  "name" : "数据范围",
+  "orMode" : "NUM",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "当前",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "上级",
+    "value" : "2"
+  }, {
+    "codeName" : "Item_4",
+    "text" : "下级",
+    "value" : "4"
+  }, {
+    "codeName" : "Item_8",
+    "text" : "无值",
+    "value" : "8"
+  } ],
+  "textSeparator" : "、",
+  "codeItemValueNumber" : true,
+  "enableCache" : true
+}

@@ -1,0 +1,52 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DEFAULTINST`",
+    "name" : "DEFAULTINST"
+  }, {
+    "expression" : "t1.`DYNAINSTID`",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.`DYNAINSTNAME`",
+    "name" : "DYNAINSTNAME"
+  }, {
+    "expression" : "t1.`INSTALLDYNAINST`",
+    "name" : "INSTALLDYNAINST"
+  }, {
+    "expression" : "t1.`INTERNALINST`",
+    "name" : "INTERNALINST"
+  }, {
+    "expression" : "t1.`ISVALID`",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.`MEMO`",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.`REALDYNAINSTID`",
+    "name" : "REALDYNAINSTID"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t11.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`DCSYSTEMID`,\nt1.`DEFAULTINST`,\nt1.`DYNAINSTID`,\nt1.`DYNAINSTNAME`,\nt1.`INSTALLDYNAINST`,\nt1.`INTERNALINST`,\nt1.`ISVALID`,\nt1.`MEMO`,\nt1.`REALDYNAINSTID`,\nt1.`SRFDCID`,\nt11.`SYSTEMID`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `IBZDYNAINST` t1 \nLEFT JOIN `IBZDCSYSTEM` t11 ON t1.`DCSYSTEMID` = t11.`DCSYSTEMID` \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

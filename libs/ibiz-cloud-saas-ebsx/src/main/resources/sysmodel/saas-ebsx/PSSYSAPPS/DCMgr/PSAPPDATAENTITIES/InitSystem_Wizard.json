@@ -1,0 +1,892 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "SYS_INITSYSTEM_WIZARDID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL",
+    "codeName" : "Install",
+    "methodType" : "DEACTION",
+    "name" : "Install",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL2",
+    "codeName" : "Install2",
+    "methodType" : "DEACTION",
+    "name" : "Install2",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install2",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL3",
+    "codeName" : "Install3",
+    "methodType" : "DEACTION",
+    "name" : "Install3",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install3",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "SYS_INITSYSTEM_WIZARDID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "InitSystem_WizardId",
+    "logicName" : "租户系统初始化向导标识",
+    "name" : "SYS_INITSYSTEM_WIZARDID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "DCSystemId",
+    "logicName" : "租户系统",
+    "name" : "DCSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "InitSystem_WizardName",
+    "logicName" : "租户系统初始化向导名称",
+    "name" : "SYS_INITSYSTEM_WIZARDNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "CenterId",
+    "logicName" : "租户标识",
+    "name" : "CENTERID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "SystemName",
+    "logicName" : "系统",
+    "name" : "SYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "SystemId",
+    "logicName" : "系统标识",
+    "name" : "SYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "InitSystem_WizardDTO",
+    "name" : "InitSystem_WizardDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "CenterId",
+      "logicName" : "租户标识",
+      "name" : "CenterId",
+      "getPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "CenterId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "DCSystemId",
+      "logicName" : "租户系统",
+      "name" : "DCSystemId",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "InitSystem_WizardId",
+      "logicName" : "租户系统初始化向导标识",
+      "name" : "InitSystem_WizardId",
+      "getPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "InitSystem_WizardName",
+      "logicName" : "租户系统初始化向导名称",
+      "name" : "InitSystem_WizardName",
+      "getPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDNAME",
+        "codeName" : "InitSystem_WizardName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemId",
+      "logicName" : "系统标识",
+      "name" : "SystemId",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemName",
+      "logicName" : "系统",
+      "name" : "SystemName",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "InitSystem_WizardFilterDTO",
+    "name" : "InitSystem_WizardFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_SYSTEMID_EQ",
+      "logicName" : "系统标识",
+      "name" : "N_SYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMNAME_EQ",
+      "logicName" : "系统",
+      "name" : "N_SYSTEMNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMNAME_LIKE",
+      "logicName" : "系统",
+      "name" : "N_SYSTEMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYS_INITSYSTEM_WIZARDID_EQ",
+      "logicName" : "租户系统初始化向导标识",
+      "name" : "N_SYS_INITSYSTEM_WIZARDID_EQ",
+      "getPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYS_INITSYSTEM_WIZARDNAME_LIKE",
+      "logicName" : "租户系统初始化向导名称",
+      "name" : "N_SYS_INITSYSTEM_WIZARDNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDNAME",
+        "codeName" : "InitSystem_WizardName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "SYS_INITSYSTEM_WIZARDID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL",
+    "codeName" : "Install",
+    "methodType" : "DEACTION",
+    "name" : "Install",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL2",
+    "codeName" : "Install2",
+    "methodType" : "DEACTION",
+    "name" : "Install2",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install2",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionName" : "INSTALL3",
+    "codeName" : "Install3",
+    "methodType" : "DEACTION",
+    "name" : "Install3",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/install3",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "SYS_INITSYSTEM_WIZARDID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "InitSystem_WizardDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "InitSystem_Wizard",
+  "dEAPICodeName" : "initsystem_wizard",
+  "dEAPICodeName2" : "initsystem_wizards",
+  "dEAPITag" : "SYS_INITSYSTEM_WIZARD",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/InitSystem_Wizard.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "SYS_INITSYSTEM_WIZARDID",
+    "codeName" : "InitSystem_WizardId"
+  },
+  "logicName" : "系统初始化向导",
+  "getMajorPSAppDEField" : {
+    "name" : "SYS_INITSYSTEM_WIZARDNAME",
+    "codeName" : "InitSystem_WizardName"
+  },
+  "name" : "SYS_INITSYSTEM_WIZARD",
+  "getPSDEName" : "SYS_INITSYSTEM_WIZARD",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "SYS_INITSYSTEM_WIZARDNAME",
+    "codeName" : "InitSystem_WizardName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard.json"
+  }
+}

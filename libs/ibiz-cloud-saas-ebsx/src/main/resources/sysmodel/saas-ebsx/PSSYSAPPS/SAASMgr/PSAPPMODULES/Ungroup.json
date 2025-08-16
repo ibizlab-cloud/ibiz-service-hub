@@ -1,0 +1,8 @@
+{
+  "codeName" : "Ungroup",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/Ungroup.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/Ungroup",
+  "name" : "未分类模块",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/Ungroup",
+  "defaultModule" : true
+}

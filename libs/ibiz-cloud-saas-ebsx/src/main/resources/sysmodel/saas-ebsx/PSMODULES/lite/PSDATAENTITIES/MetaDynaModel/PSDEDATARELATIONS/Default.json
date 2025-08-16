@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "模型版本",
+  "name" : "动态模型默认关系界面组"
+}

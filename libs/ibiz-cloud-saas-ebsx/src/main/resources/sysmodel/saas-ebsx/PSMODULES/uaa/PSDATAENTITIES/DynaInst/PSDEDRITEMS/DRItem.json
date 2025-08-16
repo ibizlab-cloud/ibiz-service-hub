@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "动态模型实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDERS/DER1N_META_DYNAMICMODEL_SYS_DYNAINST_SYSDYNAINSTID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "SYSDYNAINSTID",
+    "srfparentdename" : "SYS_DYNAINST",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_META_DYNAMICMODEL_SYS_DYNAINST_SYSDYNAINSTID",
+    "SRFDER1NID" : "DER1N_META_DYNAMICMODEL_SYS_DYNAINST_SYSDYNAINSTID"
+  },
+  "viewCodeName" : "DynaInstGridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_META_DYNAMICMODEL_SYS_DYNAINST_SYSDYNAINSTID"
+  }
+}

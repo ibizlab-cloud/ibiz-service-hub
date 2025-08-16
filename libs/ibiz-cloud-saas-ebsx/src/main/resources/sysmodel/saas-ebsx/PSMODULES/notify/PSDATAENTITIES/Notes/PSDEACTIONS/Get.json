@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Notes/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "NOTESID",
+      "codeName" : "NotesId"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "NotesDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

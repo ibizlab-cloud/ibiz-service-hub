@@ -1,0 +1,31 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BPMNFILE",
+    "name" : "BPMNFILE"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.MOBAPPS",
+    "name" : "MOBAPPS"
+  }, {
+    "expression" : "t1.MODELID",
+    "name" : "MODELID"
+  }, {
+    "expression" : "t1.MODELNAME",
+    "name" : "MODELNAME"
+  }, {
+    "expression" : "t1.REFDATAENTITY",
+    "name" : "REFDATAENTITY"
+  }, {
+    "expression" : "t1.REFGROUP",
+    "name" : "REFGROUP"
+  }, {
+    "expression" : "t1.WEBAPPS",
+    "name" : "WEBAPPS"
+  } ],
+  "queryCode" : "SELECT\nt1.BPMNFILE,\nt1.ISVALID,\nt1.MOBAPPS,\nt1.MODELID,\nt1.MODELNAME,\nt1.REFDATAENTITY,\nt1.REFGROUP,\nt1.WEBAPPS\nFROM IBZWFMODEL t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFModel/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

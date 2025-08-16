@@ -1,0 +1,26 @@
+{
+  "codeName" : "Auto2",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEDRITEMS/Auto2.json",
+  "itemType" : "DER1N",
+  "name" : "用户角色关系表实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "SYS_ROLEID",
+    "srfparentdename" : "SYS_ROLE",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+    "SRFDER1NID" : "DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID"
+  },
+  "viewCodeName" : "GridView22",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID"
+  }
+}

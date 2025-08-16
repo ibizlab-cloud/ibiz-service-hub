@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCEvent/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统事件",
+  "name" : "租户事件默认关系界面组"
+}

@@ -1,0 +1,476 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "orgid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    }
+  }, {
+    "id" : "orgcode",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGCODE",
+      "codeName" : "OrgCode"
+    }
+  }, {
+    "id" : "orgname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "id" : "shortname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SHORTNAME",
+      "codeName" : "ShortName"
+    }
+  }, {
+    "id" : "porgname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PORGNAME",
+      "codeName" : "ParentOrgName"
+    }
+  }, {
+    "id" : "orglevel",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ORGLEVEL",
+      "codeName" : "OrgLevel"
+    }
+  }, {
+    "id" : "showorder",
+    "dataType" : 9,
+    "createDV" : "1",
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    }
+  }, {
+    "id" : "isvalid",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISVALID",
+      "codeName" : "IsValid"
+    }
+  }, {
+    "id" : "porgid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PORGID",
+      "codeName" : "ParentOrgId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "CTRL.WFSERVICE.ERR000012"
+      },
+      "caption" : "单位标识",
+      "codeName" : "orgid",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 1,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "orgid",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "orgid"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "hidden" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.*.UPDATEMAN"
+      },
+      "caption" : "单位代码",
+      "codeName" : "orgcode",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 1,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "orgcode",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "maxLength" : 100,
+        "name" : "orgcode"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "名称",
+      "codeName" : "orgname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "orgname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "maxLength" : 100,
+        "name" : "orgname"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : false,
+      "showCaption" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.*.CANCELWF"
+      },
+      "caption" : "单位简称",
+      "codeName" : "shortname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "shortname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "SHORTNAME",
+        "codeName" : "ShortName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "maxLength" : 100,
+        "name" : "shortname"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "上级单位",
+      "codeName" : "porgname",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 1,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "porgname",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "PORGNAME",
+        "codeName" : "ParentOrgName"
+      },
+      "getPSEditor" : {
+        "editorParams" : {
+          "AC" : "TRUE",
+          "PICKUPVIEW" : "TRUE"
+        },
+        "editorType" : "PICKER",
+        "handlerType" : "PickupText",
+        "name" : "porgname",
+        "getPSAppDEACMode" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "getPSAppDEDataSet" : {
+          "modelref" : true,
+          "id" : "FetchDefault"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+        },
+        "getPSEditorItems" : [ {
+          "name" : "porgid"
+        } ],
+        "getPickupPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationPickupView.json",
+          "viewType" : "DEPICKUPVIEW"
+        },
+        "valueItemName" : "porgid",
+        "enableAC" : true,
+        "enablePickupView" : true,
+        "forceSelection" : true,
+        "showTrigger" : true,
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "valueItemName" : "porgid",
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "单位级别",
+      "codeName" : "orglevel",
+      "dataType" : 9,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "orglevel",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGLEVEL",
+        "codeName" : "OrgLevel"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "orglevel"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.AUDIT"
+      },
+      "caption" : "排序",
+      "codeName" : "showorder",
+      "createDV" : "1",
+      "dataType" : 9,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "showorder",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "showorder"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "启用",
+      "codeName" : "isvalid",
+      "dataType" : 9,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "itemWidth" : 230.0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "isvalid",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ISVALID",
+        "codeName" : "IsValid"
+      },
+      "getPSEditor" : {
+        "editorType" : "DROPDOWNLIST_100",
+        "editorWidth" : 100.0,
+        "name" : "isvalid",
+        "getPSAppCodeList" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+        },
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "needCodeListConfig" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "上级单位",
+      "codeName" : "porgid",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "porgid",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "PORGID",
+        "codeName" : "ParentOrgId"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "porgid"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 12,
+        "colMD" : 12,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "hidden" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : true,
+  "modelid" : "c5c8428ad8704c0567b5c34707a80fed",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

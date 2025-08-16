@@ -1,0 +1,1664 @@
+{
+  "getAllPSAppDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      }
+    } ],
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "defaultMode" : true,
+    "enablePagingBar" : false
+  } ],
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "ORGID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "ORGID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataImports" : [ {
+    "batchSize" : 1000,
+    "codeName" : "DataImport",
+    "createDataAccessAction" : "CREATE",
+    "getCreatePSAppDEAction" : {
+      "modelref" : true,
+      "id" : "Create"
+    },
+    "name" : "数据导入",
+    "getPSDEDataImportItems" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.AUDIT"
+      },
+      "caption" : "排序",
+      "name" : "SHOWORDER",
+      "orderValue" : 100,
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      }
+    }, {
+      "caption" : "上级单位",
+      "name" : "PORGNAME",
+      "orderValue" : 150,
+      "getPSAppDEField" : {
+        "name" : "PORGNAME",
+        "codeName" : "ParentOrgName"
+      }
+    }, {
+      "caption" : "名称",
+      "name" : "ORGNAME",
+      "orderValue" : 200,
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      }
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.*.CANCELWF"
+      },
+      "caption" : "单位简称",
+      "name" : "SHORTNAME",
+      "orderValue" : 300,
+      "getPSAppDEField" : {
+        "name" : "SHORTNAME",
+        "codeName" : "ShortName"
+      }
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.*.UPDATEMAN"
+      },
+      "caption" : "单位代码",
+      "name" : "ORGCODE",
+      "orderValue" : 400,
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      }
+    }, {
+      "caption" : "单位级别",
+      "name" : "ORGLEVEL",
+      "orderValue" : 500,
+      "getPSAppDEField" : {
+        "name" : "ORGLEVEL",
+        "codeName" : "OrgLevel"
+      },
+      "uniqueItem" : true
+    } ],
+    "updateDataAccessAction" : "UPDATE",
+    "getUpdatePSAppDEAction" : {
+      "modelref" : true,
+      "id" : "Update"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true,
+    "ignoreError" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchCurUserOrg",
+    "dataSetName" : "CurUserOrg",
+    "dataSetTag" : "CurUserOrg",
+    "methodType" : "FETCH",
+    "name" : "FetchCurUserOrg",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchcuruserorg",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchRootOrg",
+    "dataSetName" : "RootOrg",
+    "dataSetTag" : "RootOrg",
+    "methodType" : "FETCH",
+    "name" : "FetchRootOrg",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchrootorg",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchRootOrg2",
+    "dataSetName" : "RootOrg2",
+    "dataSetTag" : "RootOrg2",
+    "methodType" : "FETCH",
+    "name" : "FetchRootOrg2",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchrootorg2",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchThirdTree",
+    "dataSetName" : "ThirdTree",
+    "dataSetTag" : "ThirdTree",
+    "methodType" : "FETCH",
+    "name" : "FetchThirdTree",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchthirdtree",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "OrgId",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "CTRL.WFSERVICE.ERR000012"
+    },
+    "logicName" : "单位标识",
+    "name" : "ORGID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "OrgCode",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.*.UPDATEMAN"
+    },
+    "logicName" : "单位代码",
+    "name" : "ORGCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgName",
+    "logicName" : "名称",
+    "name" : "ORGNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "ParentOrgId",
+    "logicName" : "上级单位",
+    "name" : "PORGID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "ShortName",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.CANCELWF"
+    },
+    "logicName" : "单位简称",
+    "name" : "SHORTNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgLevel",
+    "logicName" : "单位级别",
+    "name" : "ORGLEVEL",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "ShowOrder",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.AUDIT"
+    },
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "ParentOrgName",
+    "logicName" : "上级单位",
+    "name" : "PORGNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Domains",
+    "logicName" : "区属",
+    "name" : "DOMAINS",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Enable",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "CTRL.WFSERVICE.ERR000015"
+    },
+    "logicName" : "逻辑有效",
+    "name" : "ENABLE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "CreateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.PRINT"
+    },
+    "logicName" : "创建时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "UpdateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "OTHER.LIST.MYWF.COL.ACTOR.CAPTION"
+    },
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver4",
+    "logicName" : "保留4",
+    "name" : "RESERVER4",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver6",
+    "logicName" : "保留6",
+    "name" : "RESERVER6",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Reserver5",
+    "logicName" : "保留5",
+    "name" : "RESERVER5",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Reserver8",
+    "logicName" : "保留8",
+    "name" : "RESERVER8",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver7",
+    "logicName" : "保留7",
+    "name" : "RESERVER7",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver11",
+    "logicName" : "保留11",
+    "name" : "RESERVER11",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver13",
+    "logicName" : "保留13",
+    "name" : "RESERVER13",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver10",
+    "logicName" : "保留10",
+    "name" : "RESERVER10",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver9",
+    "logicName" : "保留9",
+    "name" : "RESERVER9",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver12",
+    "logicName" : "保留12",
+    "name" : "RESERVER12",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver16",
+    "logicName" : "保留16",
+    "name" : "RESERVER16",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver19",
+    "logicName" : "保留19",
+    "name" : "RESERVER19",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver15",
+    "logicName" : "保留15",
+    "name" : "RESERVER15",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver14",
+    "logicName" : "保留14",
+    "name" : "RESERVER14",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver17",
+    "logicName" : "保留17",
+    "name" : "RESERVER17",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver18",
+    "logicName" : "保留18",
+    "name" : "RESERVER18",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver20",
+    "logicName" : "保留20",
+    "name" : "RESERVER20",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver2",
+    "logicName" : "保留2",
+    "name" : "RESERVER2",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver",
+    "logicName" : "保留",
+    "name" : "RESERVER",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver3",
+    "logicName" : "保留3",
+    "name" : "RESERVER3",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "SaaSMode",
+    "logicName" : "支持Saas",
+    "name" : "SAASMODE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "IsValid",
+    "logicName" : "启用标志",
+    "name" : "ISVALID",
+    "stdDataType" : 9
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "OrganizationDTO",
+    "name" : "OrganizationDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "OrgId",
+      "logicName" : "单位标识",
+      "name" : "OrgId",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "OrgCode",
+      "logicName" : "单位代码",
+      "name" : "OrgCode",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgName",
+      "logicName" : "名称",
+      "name" : "OrgName",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "ParentOrgId",
+      "logicName" : "上级单位",
+      "name" : "ParentOrgId",
+      "getPSAppDEField" : {
+        "name" : "PORGID",
+        "codeName" : "ParentOrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ShortName",
+      "logicName" : "单位简称",
+      "name" : "ShortName",
+      "getPSAppDEField" : {
+        "name" : "SHORTNAME",
+        "codeName" : "ShortName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgLevel",
+      "logicName" : "单位级别",
+      "name" : "OrgLevel",
+      "getPSAppDEField" : {
+        "name" : "ORGLEVEL",
+        "codeName" : "OrgLevel"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ShowOrder",
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ParentOrgName",
+      "logicName" : "上级单位",
+      "name" : "ParentOrgName",
+      "getPSAppDEField" : {
+        "name" : "PORGNAME",
+        "codeName" : "ParentOrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Domains",
+      "logicName" : "区属",
+      "name" : "Domains",
+      "getPSAppDEField" : {
+        "name" : "DOMAINS",
+        "codeName" : "Domains"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "创建时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver",
+      "logicName" : "保留",
+      "name" : "Reserver",
+      "getPSAppDEField" : {
+        "name" : "RESERVER",
+        "codeName" : "Reserver"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver10",
+      "logicName" : "保留10",
+      "name" : "Reserver10",
+      "getPSAppDEField" : {
+        "name" : "RESERVER10",
+        "codeName" : "Reserver10"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver11",
+      "logicName" : "保留11",
+      "name" : "Reserver11",
+      "getPSAppDEField" : {
+        "name" : "RESERVER11",
+        "codeName" : "Reserver11"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver12",
+      "logicName" : "保留12",
+      "name" : "Reserver12",
+      "getPSAppDEField" : {
+        "name" : "RESERVER12",
+        "codeName" : "Reserver12"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver13",
+      "logicName" : "保留13",
+      "name" : "Reserver13",
+      "getPSAppDEField" : {
+        "name" : "RESERVER13",
+        "codeName" : "Reserver13"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver14",
+      "logicName" : "保留14",
+      "name" : "Reserver14",
+      "getPSAppDEField" : {
+        "name" : "RESERVER14",
+        "codeName" : "Reserver14"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver15",
+      "logicName" : "保留15",
+      "name" : "Reserver15",
+      "getPSAppDEField" : {
+        "name" : "RESERVER15",
+        "codeName" : "Reserver15"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver16",
+      "logicName" : "保留16",
+      "name" : "Reserver16",
+      "getPSAppDEField" : {
+        "name" : "RESERVER16",
+        "codeName" : "Reserver16"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver17",
+      "logicName" : "保留17",
+      "name" : "Reserver17",
+      "getPSAppDEField" : {
+        "name" : "RESERVER17",
+        "codeName" : "Reserver17"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver18",
+      "logicName" : "保留18",
+      "name" : "Reserver18",
+      "getPSAppDEField" : {
+        "name" : "RESERVER18",
+        "codeName" : "Reserver18"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver19",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留19",
+      "name" : "Reserver19",
+      "getPSAppDEField" : {
+        "name" : "RESERVER19",
+        "codeName" : "Reserver19"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver2",
+      "logicName" : "保留2",
+      "name" : "Reserver2",
+      "getPSAppDEField" : {
+        "name" : "RESERVER2",
+        "codeName" : "Reserver2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver20",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留20",
+      "name" : "Reserver20",
+      "getPSAppDEField" : {
+        "name" : "RESERVER20",
+        "codeName" : "Reserver20"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver3",
+      "logicName" : "保留3",
+      "name" : "Reserver3",
+      "getPSAppDEField" : {
+        "name" : "RESERVER3",
+        "codeName" : "Reserver3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver4",
+      "logicName" : "保留4",
+      "name" : "Reserver4",
+      "getPSAppDEField" : {
+        "name" : "RESERVER4",
+        "codeName" : "Reserver4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver5",
+      "logicName" : "保留5",
+      "name" : "Reserver5",
+      "getPSAppDEField" : {
+        "name" : "RESERVER5",
+        "codeName" : "Reserver5"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver6",
+      "logicName" : "保留6",
+      "name" : "Reserver6",
+      "getPSAppDEField" : {
+        "name" : "RESERVER6",
+        "codeName" : "Reserver6"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver7",
+      "logicName" : "保留7",
+      "name" : "Reserver7",
+      "getPSAppDEField" : {
+        "name" : "RESERVER7",
+        "codeName" : "Reserver7"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver8",
+      "logicName" : "保留8",
+      "name" : "Reserver8",
+      "getPSAppDEField" : {
+        "name" : "RESERVER8",
+        "codeName" : "Reserver8"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver9",
+      "logicName" : "保留9",
+      "name" : "Reserver9",
+      "getPSAppDEField" : {
+        "name" : "RESERVER9",
+        "codeName" : "Reserver9"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsValid",
+      "logicName" : "启用标志",
+      "name" : "IsValid",
+      "getPSAppDEField" : {
+        "name" : "ISVALID",
+        "codeName" : "IsValid"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SaaSMode",
+      "logicName" : "支持Saas",
+      "name" : "SaaSMode",
+      "getPSAppDEField" : {
+        "name" : "SAASMODE",
+        "codeName" : "SaaSMode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Depts",
+      "name" : "Depts",
+      "getRefPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DepartmentDTO"
+      },
+      "getRefPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/Department.json"
+      },
+      "getRefPickupPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DER",
+      "type" : "DTOS"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "OrganizationFilterDTO",
+    "name" : "OrganizationFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_ISVALID_EQ",
+      "logicName" : "启用标志",
+      "name" : "N_ISVALID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ISVALID",
+        "codeName" : "IsValid"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGCODE_EQ",
+      "logicName" : "单位代码",
+      "name" : "N_ORGCODE_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGCODE_LEFTLIKE",
+      "logicName" : "单位代码",
+      "name" : "N_ORGCODE_LEFTLIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGCODE_LIKE",
+      "logicName" : "单位代码",
+      "name" : "N_ORGCODE_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGCODE_RIGHTLIKE",
+      "logicName" : "单位代码",
+      "name" : "N_ORGCODE_RIGHTLIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_EQ",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_IN",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_IN",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_LEFTLIKE",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_LEFTLIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_LIKE",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_NOTEQ",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_NOTEQ",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_RIGHTLIKE",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_RIGHTLIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGLEVEL_GTANDEQ",
+      "logicName" : "单位级别",
+      "name" : "N_ORGLEVEL_GTANDEQ",
+      "getPSAppDEField" : {
+        "name" : "ORGLEVEL",
+        "codeName" : "OrgLevel"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGLEVEL_LTANDEQ",
+      "logicName" : "单位级别",
+      "name" : "N_ORGLEVEL_LTANDEQ",
+      "getPSAppDEField" : {
+        "name" : "ORGLEVEL",
+        "codeName" : "OrgLevel"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_LIKE",
+      "logicName" : "名称",
+      "name" : "N_ORGNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PORGID_EQ",
+      "logicName" : "上级单位",
+      "name" : "N_PORGID_EQ",
+      "getPSAppDEField" : {
+        "name" : "PORGID",
+        "codeName" : "ParentOrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PORGID_IN",
+      "logicName" : "上级单位",
+      "name" : "N_PORGID_IN",
+      "getPSAppDEField" : {
+        "name" : "PORGID",
+        "codeName" : "ParentOrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PORGID_ISNULL",
+      "logicName" : "上级单位",
+      "name" : "N_PORGID_ISNULL",
+      "getPSAppDEField" : {
+        "name" : "PORGID",
+        "codeName" : "ParentOrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PORGNAME_EQ",
+      "logicName" : "上级单位",
+      "name" : "N_PORGNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "PORGNAME",
+        "codeName" : "ParentOrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PORGNAME_LIKE",
+      "logicName" : "上级单位",
+      "name" : "N_PORGNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "PORGNAME",
+        "codeName" : "ParentOrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SHORTNAME_LIKE",
+      "logicName" : "单位简称",
+      "name" : "N_SHORTNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SHORTNAME",
+        "codeName" : "ShortName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "ORGID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "ORGID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchCurUserOrg",
+    "dataSetName" : "CurUserOrg",
+    "dataSetTag" : "CurUserOrg",
+    "methodType" : "FETCH",
+    "name" : "FetchCurUserOrg",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchcuruserorg",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchRootOrg",
+    "dataSetName" : "RootOrg",
+    "dataSetTag" : "RootOrg",
+    "methodType" : "FETCH",
+    "name" : "FetchRootOrg",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchrootorg",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchRootOrg2",
+    "dataSetName" : "RootOrg2",
+    "dataSetTag" : "RootOrg2",
+    "methodType" : "FETCH",
+    "name" : "FetchRootOrg2",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchrootorg2",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchThirdTree",
+    "dataSetName" : "ThirdTree",
+    "dataSetTag" : "ThirdTree",
+    "methodType" : "FETCH",
+    "name" : "FetchThirdTree",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "OrganizationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchthirdtree",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "Organization",
+  "dEAPICodeName" : "organization",
+  "dEAPICodeName2" : "organizations",
+  "dEAPITag" : "SYS_ORG",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "getDefaultPSAppDEDataImport" : {
+    "modelref" : true,
+    "id" : "DataImport"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/Organization.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "CTRL.FORMAH.INPUTERROR"
+  },
+  "logicName" : "单位机构",
+  "getMajorPSAppDEField" : {
+    "name" : "ORGNAME",
+    "codeName" : "OrgName"
+  },
+  "name" : "SYS_ORG",
+  "getPSDEName" : "SYS_ORG",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "ORGNAME",
+    "codeName" : "OrgName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldCoreAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+  }
+}

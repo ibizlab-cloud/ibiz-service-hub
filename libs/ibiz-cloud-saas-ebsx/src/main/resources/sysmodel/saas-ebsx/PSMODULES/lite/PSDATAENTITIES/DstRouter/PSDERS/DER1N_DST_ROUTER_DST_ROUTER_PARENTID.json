@@ -1,0 +1,28 @@
+{
+  "codeName" : "Parent",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstRouter/PSDERS/DER1N_DST_ROUTER_DST_ROUTER_PARENTID.json",
+  "fKeyName" : "F1B273F47CC0DA9E67",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "Children",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json"
+  },
+  "minorServiceCodeName" : "Children",
+  "name" : "DER1N_DST_ROUTER_DST_ROUTER_PARENTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "PARENTID",
+    "codeName" : "Parentid"
+  },
+  "pickupDEFName" : "PARENTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Parent"
+}

@@ -1,0 +1,458 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "CREATEDATE",
+    "codeName" : "CreateDate"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+  },
+  "getPSAppViewLogics" : [ {
+    "logicTrigger" : "CUSTOM",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "grid_operation_uca0f5af_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "发布"
+    }
+  }, {
+    "logicTrigger" : "CUSTOM",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "grid_operation_ufc01902_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "撤回"
+    }
+  } ],
+  "getPSAppViewUIActions" : [ {
+    "name" : "发布",
+    "getPSUIAction" : {
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+      },
+      "modelref" : true,
+      "id" : "Publish@SysBulletin"
+    },
+    "uIActionTarget" : "MULTIKEY",
+    "xDataControlName" : "grid"
+  }, {
+    "name" : "撤回",
+    "getPSUIAction" : {
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+      },
+      "modelref" : true,
+      "id" : "Retract@SysBulletin"
+    },
+    "uIActionTarget" : "MULTIKEY",
+    "xDataControlName" : "grid"
+  } ],
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "是否置顶",
+    "codeName" : "istop",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "istop",
+    "excelCaption" : "是否置顶",
+    "name" : "istop",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ISTOP",
+      "codeName" : "IsTop"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "公告标题",
+    "codeName" : "noticename",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "noticename",
+    "excelCaption" : "公告标题",
+    "name" : "noticename",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "NOTICENAME",
+      "codeName" : "NoticeName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "开始时间",
+    "codeName" : "begintime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "begintime",
+    "excelCaption" : "开始时间",
+    "name" : "begintime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "BEGINTIME",
+      "codeName" : "BeginTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "结束时间",
+    "codeName" : "endtime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "endtime",
+    "excelCaption" : "结束时间",
+    "name" : "endtime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ENDTIME",
+      "codeName" : "EndTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "发布标记",
+    "codeName" : "pubflag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pubflag",
+    "excelCaption" : "发布标记",
+    "name" : "pubflag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PUBFLAG",
+      "codeName" : "PubFlag"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "发布时间",
+    "codeName" : "publishdate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "publishdate",
+    "excelCaption" : "发布时间",
+    "name" : "publishdate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PUBLISHDATE",
+      "codeName" : "PublishDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "更新人",
+    "codeName" : "updateman",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "updateman",
+    "excelCaption" : "更新人",
+    "name" : "updateman",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/SysOperator.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "UPDATEMAN",
+      "codeName" : "UpdateMan"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "更新时间",
+    "codeName" : "updatedate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "updatedate",
+    "excelCaption" : "更新时间",
+    "name" : "updatedate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "RIGHT",
+    "caption" : "操作",
+    "codeName" : "operation",
+    "columnType" : "UAGRIDCOLUMN",
+    "name" : "operation",
+    "noPrivDisplayMode" : 1,
+    "getPSDEUIActionGroup" : {
+      "codeName" : "Auto13",
+      "name" : "系统公告单项数据操作",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+      },
+      "getPSUIActionGroupDetails" : [ {
+        "caption" : "发布",
+        "detailType" : "DEUIACTION",
+        "name" : "uca0f5af",
+        "getPSUIAction" : {
+          "actionTarget" : "MULTIKEY",
+          "caption" : "发布",
+          "codeName" : "Publish",
+          "frontProcessType" : "OTHER",
+          "fullCodeName" : "SysBulletin_Publish",
+          "name" : "发布",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "Publish"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf00c@FontAwesome",
+            "cssClass" : "fa fa-check"
+          },
+          "timeout" : 60000,
+          "uIActionMode" : "BACKEND",
+          "uIActionTag" : "Publish",
+          "uIActionType" : "DEUIACTION",
+          "enableConfirm" : true,
+          "id" : "Publish@SysBulletin"
+        },
+        "addSeparator" : false,
+        "showCaption" : true,
+        "showIcon" : true
+      }, {
+        "caption" : "撤回",
+        "detailType" : "DEUIACTION",
+        "name" : "ufc01902",
+        "getPSUIAction" : {
+          "actionTarget" : "MULTIKEY",
+          "caption" : "撤回",
+          "codeName" : "Retract",
+          "frontProcessType" : "OTHER",
+          "fullCodeName" : "SysBulletin_Retract",
+          "name" : "撤回",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "Retract"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf021@FontAwesome",
+            "cssClass" : "fa fa-refresh"
+          },
+          "timeout" : 60000,
+          "uIActionMode" : "BACKEND",
+          "uIActionTag" : "Retract",
+          "uIActionType" : "DEUIACTION",
+          "enableConfirm" : true,
+          "id" : "Retract@SysBulletin"
+        },
+        "addSeparator" : false,
+        "showCaption" : true,
+        "showIcon" : true
+      } ],
+      "uniqueTag" : "SysBulletin__Auto13"
+    },
+    "getPSSysImage" : {
+      "cssClass" : "settings"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : false
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 9,
+    "name" : "istop",
+    "getPSAppDEField" : {
+      "name" : "ISTOP",
+      "codeName" : "IsTop"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "noticename",
+    "getPSAppDEField" : {
+      "name" : "NOTICENAME",
+      "codeName" : "NoticeName"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "begintime",
+    "getPSAppDEField" : {
+      "name" : "BEGINTIME",
+      "codeName" : "BeginTime"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "endtime",
+    "getPSAppDEField" : {
+      "name" : "ENDTIME",
+      "codeName" : "EndTime"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "pubflag",
+    "getPSAppDEField" : {
+      "name" : "PUBFLAG",
+      "codeName" : "PubFlag"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "publishdate",
+    "getPSAppDEField" : {
+      "name" : "PUBLISHDATE",
+      "codeName" : "PublishDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "updateman",
+    "getPSAppDEField" : {
+      "name" : "UPDATEMAN",
+      "codeName" : "UpdateMan"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "updatedate",
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "NOTICEID",
+      "codeName" : "NoticeId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "NOTICEID",
+      "codeName" : "NoticeId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "orgid",
+    "getPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "authorid",
+    "getPSAppDEField" : {
+      "name" : "AUTHORID",
+      "codeName" : "Authorid"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "NOTICENAME",
+      "codeName" : "NoticeName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "系统公告标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "NOTICEID",
+      "codeName" : "NoticeId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "6ce4d4705ea19a46dcd802fd0a7c7654",
+  "modeltype" : "PSDEGRID"
+}

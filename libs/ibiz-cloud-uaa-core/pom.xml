@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ibiz-plugin</artifactId>
+        <groupId>cn.ibizlab.plugin</groupId>
+        <version>8.1.0.570.29.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ibiz-cloud-uaa-core</artifactId>
+	<name>ibiz-cloud-uaa-core</name>
+		
+	<properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+		<spring.security.oauth.version>2.3.8.RELEASE</spring.security.oauth.version>
+	</properties>
+
+	<dependencies>
+    	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+       </dependency>
+       
+<!--        	<dependency> -->
+<!--             <groupId>org.springframework.boot</groupId> -->
+<!--             <artifactId>spring-boot-starter-security</artifactId> -->
+<!--        </dependency> -->
+       
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.1</version>
+		</dependency>
+		
+	  	<!-- https://mvnrepository.com/artifact/org.springframework.ldap/spring-ldap-core -->
+		<dependency>
+		    <groupId>org.springframework.ldap</groupId>
+		    <artifactId>spring-ldap-core</artifactId>
+		</dependency>
+			  	
+		 <!-- OAuth2-->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${spring.security.oauth.version}</version>
+        </dependency>
+	  	
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.62</version>
+		</dependency>    
+					
+
+    	<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-runtime</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+		
+		<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-core</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+		
+
+
+    </dependencies>
+
+</project>

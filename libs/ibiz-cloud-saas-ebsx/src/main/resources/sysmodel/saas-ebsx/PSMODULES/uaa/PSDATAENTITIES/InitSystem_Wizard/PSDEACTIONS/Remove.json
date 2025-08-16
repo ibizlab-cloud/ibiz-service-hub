@@ -1,0 +1,25 @@
+{
+  "actionMode" : "DELETE",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Remove",
+  "dataAccessAction" : "DELETE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/Remove.json",
+  "logicName" : "Remove",
+  "name" : "Remove",
+  "orderValue" : 21,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "SYS_INITSYSTEM_WIZARDID",
+      "codeName" : "InitSystem_WizardId"
+    },
+    "name" : "RemoveInput",
+    "type" : "KEYFIELDS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RemoveResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true
+}

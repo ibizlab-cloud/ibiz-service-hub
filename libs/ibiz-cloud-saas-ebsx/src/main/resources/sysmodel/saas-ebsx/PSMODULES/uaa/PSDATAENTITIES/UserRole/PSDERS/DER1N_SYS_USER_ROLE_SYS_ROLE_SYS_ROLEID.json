@@ -1,0 +1,31 @@
+{
+  "codeName" : "SysRole",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID.json",
+  "fKeyName" : "F6472927DB7FA72043",
+  "logicName" : "角色",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  },
+  "name" : "DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYS_ROLEID",
+    "codeName" : "RoleId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "SYS_ROLENAME",
+    "codeName" : "RoleName"
+  },
+  "pickupDEFName" : "SYS_ROLEID",
+  "removeActionType" : 1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "SysRole"
+}

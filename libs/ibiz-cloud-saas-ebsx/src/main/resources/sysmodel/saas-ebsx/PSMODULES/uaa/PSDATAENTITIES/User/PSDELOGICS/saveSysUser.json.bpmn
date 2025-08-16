@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.logic.usersavesysuser" isClosed="false" isExecutable="true" name="uaa_user_savesysuser_ruleFlow" processType="Private" tns:packageName="net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.logic.usersavesysuser">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.ebsx.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="usersavesysuserdefault" type="entity"/>
+                                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IUserService))" name="userservice" type="service"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IUserService))" name="iBzSysUserDefaultService" type="service"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="usersavesysuserdefault" type="net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.User" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usersavesysuserprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置用户为管理员"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usersavesysuserdeaction2" id="deaction2" implementation="http://www.jboss.org/drools/rule" name="保存用户"/>
+                        <endEvent id="deaction2_end" name="end"/>
+                        <sequenceFlow id="deaction2_end_line" sourceRef="deaction2" targetRef="deaction2_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usersavesysuserdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="保存用户"/>
+                        <endEvent id="deaction1_end" name="end"/>
+                        <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+                    <sequenceFlow id="gateway-begin_deaction2" sourceRef="gateway-begin" targetRef="deaction2">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $usersavesysuserdefault:User();
+                                    eval($usersavesysuserdefault==usersavesysuserdefault);
+                                eval((RuleUtils.test($usersavesysuserdefault.get("loginname"),"NOTEQ","ibzadmin")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-begin_prepareparam1" sourceRef="gateway-begin" targetRef="prepareparam1">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $usersavesysuserdefault:User();
+                                    eval($usersavesysuserdefault==usersavesysuserdefault);
+                                eval((RuleUtils.test($usersavesysuserdefault.get("loginname"),"EQ","ibzadmin")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+                            <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+                            <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+                            <endEvent id="gateway-begin_end" name="end"/>
+        </process>
+    </definitions>

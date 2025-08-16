@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InstallTestData",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDEACTIONS/InstallTestData.json",
+  "logicName" : "安装测试数据",
+  "name" : "InstallTestData",
+  "getPSDEActionInput" : {
+    "name" : "InstallTestDataInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCDCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallTestDataResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

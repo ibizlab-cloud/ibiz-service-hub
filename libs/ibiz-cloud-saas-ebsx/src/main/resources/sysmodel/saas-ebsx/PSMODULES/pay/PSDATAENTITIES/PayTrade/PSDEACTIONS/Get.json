@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "TRADEID",
+      "codeName" : "TradeId"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PayTradeDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

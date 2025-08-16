@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "SystemManagement__bi_cube_extension_type",
+  "codeListType" : "STATIC",
+  "codeName" : "bi_cube_extension_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSCODELISTS/bi_cube_extension_type.json",
+  "emptyText" : "未定义",
+  "name" : "立方体扩展类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "dimension",
+    "text" : "维度",
+    "value" : "DIMENSION"
+  }, {
+    "codeName" : "measure",
+    "text" : "指标",
+    "value" : "MEASURE"
+  }, {
+    "codeName" : "bireport",
+    "text" : "智能报表",
+    "value" : "BIREPORT"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

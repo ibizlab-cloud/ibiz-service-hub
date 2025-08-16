@@ -1,0 +1,30 @@
+{
+  "codeName" : "system",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source/PSDERS/DER1N_SYSTEM_SOURCE_SYSTEM_SYSTEM_ID.json",
+  "fKeyName" : "F2EAA66A0012818279",
+  "logicName" : "系统",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "system_sources",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json"
+  },
+  "minorServiceCodeName" : "system_sources",
+  "name" : "DER1N_SYSTEM_SOURCE_SYSTEM_SYSTEM_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYSTEM_ID",
+    "codeName" : "system_id"
+  },
+  "pickupDEFName" : "SYSTEM_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "system",
+  "enableFKey" : true
+}

@@ -1,0 +1,25 @@
+{
+  "actionMode" : "DELETE",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Remove",
+  "dataAccessAction" : "DELETE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Remove.json",
+  "logicName" : "Remove",
+  "name" : "Remove",
+  "orderValue" : 21,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "DYNAINSTID",
+      "codeName" : "DynaInstId"
+    },
+    "name" : "RemoveInput",
+    "type" : "KEYFIELDS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RemoveResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true
+}

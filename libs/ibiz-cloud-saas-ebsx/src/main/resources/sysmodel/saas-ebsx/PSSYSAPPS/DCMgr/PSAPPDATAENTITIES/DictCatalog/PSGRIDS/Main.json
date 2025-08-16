@@ -1,0 +1,222 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "代码",
+    "codeName" : "ccode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "ccode",
+    "excelCaption" : "代码",
+    "name" : "ccode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CCODE",
+      "codeName" : "Code"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "名称",
+    "codeName" : "cname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "cname",
+    "excelCaption" : "名称",
+    "name" : "cname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CNAME",
+      "codeName" : "Name"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "分组",
+    "codeName" : "cgroup",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "cgroup",
+    "excelCaption" : "分组",
+    "name" : "cgroup",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CGROUP",
+      "codeName" : "Group"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "备注",
+    "codeName" : "memo",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "memo",
+    "excelCaption" : "备注",
+    "name" : "memo",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MEMO",
+      "codeName" : "Memo"
+    },
+    "width" : 300,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "最后修改时间",
+    "codeName" : "updatedate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "updatedate",
+    "excelCaption" : "最后修改时间",
+    "name" : "updatedate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "ccode",
+    "getPSAppDEField" : {
+      "name" : "CCODE",
+      "codeName" : "Code"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "cname",
+    "getPSAppDEField" : {
+      "name" : "CNAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "cgroup",
+    "getPSAppDEField" : {
+      "name" : "CGROUP",
+      "codeName" : "Group"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "memo",
+    "getPSAppDEField" : {
+      "name" : "MEMO",
+      "codeName" : "Memo"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "updatedate",
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "CID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "CID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "CNAME",
+      "codeName" : "Name"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "CID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "07812574de957a4ff8c45a868f13c5ae",
+  "modeltype" : "PSDEGRID"
+}

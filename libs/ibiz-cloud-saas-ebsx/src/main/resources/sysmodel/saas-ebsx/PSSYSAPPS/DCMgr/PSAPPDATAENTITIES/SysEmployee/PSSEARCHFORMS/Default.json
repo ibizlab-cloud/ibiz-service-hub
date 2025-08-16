@@ -1,0 +1,222 @@
+{
+  "codeName" : "Default",
+  "controlType" : "SEARCHFORM",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee/PSSEARCHFORMS/Default.json",
+  "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+  "logicName" : "默认搜索表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SEARCH;LOAD;SAVE",
+    "logicTag" : "searchform",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_searchform",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "n_usercode_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "USERCODE",
+      "codeName" : "UserCode"
+    }
+  }, {
+    "id" : "n_personname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    }
+  }, {
+    "id" : "n_loginname_eq",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "LOGINNAME",
+      "codeName" : "LoginName"
+    }
+  }, {
+    "id" : "n_orgname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "id" : "n_mdeptname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MDEPTNAME",
+      "codeName" : "MDeptName"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "PAGE.HEADER.MSGEDITVIEW"
+    },
+    "caption" : "常规条件",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "工号",
+      "codeName" : "n_usercode_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 80,
+      "name" : "n_usercode_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "USERCODE",
+        "codeName" : "UserCode"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_usercode_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "姓名",
+      "codeName" : "n_personname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 80,
+      "name" : "n_personname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_personname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "登录名",
+      "codeName" : "n_loginname_eq",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 80,
+      "name" : "n_loginname_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "LOGINNAME",
+        "codeName" : "LoginName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_loginname_eq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "单位",
+      "codeName" : "n_orgname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 80,
+      "name" : "n_orgname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_orgname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "部门",
+      "codeName" : "n_mdeptname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 80,
+      "name" : "n_mdeptname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_mdeptname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "resetItemName" : "orgid",
+      "resetItemNames" : [ "orgid" ],
+      "allowEmpty" : true,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "searchButtonStyle" : "DEFAULT",
+  "tabHeaderPos" : "TOP",
+  "enableAdvanceSearch" : false,
+  "enableAutoSearch" : false,
+  "enableFilterSave" : false,
+  "noTabHeader" : true,
+  "modelid" : "99567216a4cc4ddaa59659719a4b2af7",
+  "modeltype" : "PSDEFORM_SEARCHFORM"
+}

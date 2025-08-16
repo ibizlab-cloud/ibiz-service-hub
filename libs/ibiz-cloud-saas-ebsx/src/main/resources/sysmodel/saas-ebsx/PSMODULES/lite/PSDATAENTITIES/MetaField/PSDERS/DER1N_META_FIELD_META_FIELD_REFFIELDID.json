@@ -1,0 +1,30 @@
+{
+  "codeName" : "RefField",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_FIELD_REFFIELDID.json",
+  "fKeyName" : "F932ED2D2FE2E698F2",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+  },
+  "name" : "DER1N_META_FIELD_META_FIELD_REFFIELDID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "REFFIELDID",
+    "codeName" : "Ref_field_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "REFFIELDNAME",
+    "codeName" : "Ref_field_name"
+  },
+  "pickupDEFName" : "REFFIELDID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "RefField"
+}

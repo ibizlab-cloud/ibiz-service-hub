@@ -1,0 +1,44 @@
+package net.ibizsys.central.cloud.saas.ebsx.ou.logic.employeelogic.savedeptmember;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import net.ibizsys.central.cloud.saas.ebsx.util.errors.BadRequestAlertException;
+                global net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Employee employeesavedeptmemberdefault;
+                global net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.DeptMember employeesavedeptmembermember;
+                    global net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IDeptMemberService deptmemberservice;
+        global net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IEmployeeService iBzSysEmployeeDefaultService;
+        global net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "employeesavedeptmemberbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备成员]
+            rule "prepareparam1"
+            ruleflow-group "employeesavedeptmemberprepareparam1"
+            when
+            then
+                            employeesavedeptmembermember.set("deptid",employeesavedeptmemberdefault.get("mdeptid"));
+                            employeesavedeptmembermember.set("postid",employeesavedeptmemberdefault.get("postid"));
+                            employeesavedeptmembermember.set("userid",employeesavedeptmemberdefault.get("userid"));
+                        update(employeesavedeptmemberdefault);//更新fact中变量值
+                        update(employeesavedeptmembermember);//更新fact中变量值
+            end
+
+            //逻辑处理节点[保存成员]
+            rule "deaction1"
+            ruleflow-group "employeesavedeptmemberdeaction1"
+            when
+            then
+                        deptmemberservice.save(employeesavedeptmembermember);
+                        update(employeesavedeptmemberdefault);//更新fact中变量值
+                        update(employeesavedeptmembermember);//更新fact中变量值
+            end

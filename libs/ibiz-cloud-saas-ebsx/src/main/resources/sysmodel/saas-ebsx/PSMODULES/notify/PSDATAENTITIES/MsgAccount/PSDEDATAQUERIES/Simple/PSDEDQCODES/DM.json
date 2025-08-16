@@ -1,0 +1,40 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DDACCOUNTID",
+    "name" : "DDACCOUNTID"
+  }, {
+    "expression" : "t1.EMAIL",
+    "name" : "EMAIL"
+  }, {
+    "expression" : "t1.EMPID",
+    "name" : "EMPID"
+  }, {
+    "expression" : "t1.PHONE",
+    "name" : "PHONE"
+  }, {
+    "expression" : "t1.WXACCOUNTID",
+    "name" : "WXACCOUNTID"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.MSGACCOUNTID",
+    "name" : "MSGACCOUNTID"
+  }, {
+    "expression" : "t1.MSGACCOUNTNAME",
+    "name" : "MSGACCOUNTNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.MSGACCOUNTID,\nt1.MSGACCOUNTNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZMSGACCOUNT t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount/PSDEDATAQUERIES/Simple/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "权限操作实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction/PSDERS/DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "SYS_PERMISSIONID",
+    "srfparentdename" : "SYS_PERMISSION",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID",
+    "SRFDER1NID" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID"
+  }
+}

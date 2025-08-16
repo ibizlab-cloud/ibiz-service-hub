@@ -1,0 +1,28 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/JobsStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskPredefinedType.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsLock.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsLog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsRegistry.json"
+  } ],
+  "codeName" : "task",
+  "dynaModelFilePath" : "PSMODULES/task.json",
+  "name" : "task"
+}

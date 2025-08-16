@@ -1,0 +1,44 @@
+{
+  "accUserMode" : 0,
+  "appSwitchMode" : 0,
+  "caption" : "中心门户",
+  "codeName" : "IndexView",
+  "dynaModelFilePath" : "PSSYSAPPS/DCPortal/PSAPPINDEXVIEWS/IndexView.json",
+  "name" : "IndexView",
+  "getPSControls" : [ {
+    "codeName" : "IndexView",
+    "controlType" : "APPMENU",
+    "layoutMode" : "TABLE_24COL",
+    "logicName" : "应用首页视图默认菜单",
+    "name" : "appmenu",
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "appmenu"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true
+    },
+    "modelid" : "DC3BACD2-470D-4BDC-A254-E1B07FED21FB",
+    "modeltype" : "PSAPPMENU"
+  } ],
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPINDEXVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "中心门户",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "APPINDEXVIEW",
+  "blankMode" : false,
+  "defaultPage" : true,
+  "enableAppSwitch" : false,
+  "enableDP" : true,
+  "modelid" : "E71FAF10-5567-4775-A50F-CBB4EA69FA69",
+  "modeltype" : "PSAPPINDEXVIEW"
+}

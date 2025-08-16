@@ -1,0 +1,25 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CNT`",
+    "name" : "CNT"
+  }, {
+    "expression" : "t1.`DEFINITIONKEY`",
+    "name" : "DEFINITIONKEY"
+  }, {
+    "expression" : "t1.`DEFINITIONNAME`",
+    "name" : "DEFINITIONNAME"
+  }, {
+    "expression" : "t1.`NODEID`",
+    "name" : "NODEID"
+  }, {
+    "expression" : "t1.`NODENAME`",
+    "name" : "NODENAME"
+  }, {
+    "expression" : "t1.`VERSION`",
+    "name" : "VERSION"
+  } ],
+  "queryCode" : "SELECT\nt1.`CNT`,\nt1.`DEFINITIONKEY`,\nt1.`DEFINITIONNAME`,\nt1.`NODEID`,\nt1.`NODENAME`,\nt1.`VERSION`\nFROM `IBZWFNODE` t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

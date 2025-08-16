@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem2",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEDRITEMS/DRItem2.json",
+  "itemType" : "DER1N",
+  "name" : "组织系统实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDERS/DER1N_SYS_ORG_SYSTEM_SYS_DC_SYSTEM_DC_SYSTEM_ID_55BE22.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "DC_SYSTEM_ID",
+    "srfparentdename" : "SYS_DC_SYSTEM",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_ORG_SYSTEM_SYS_DC_SYSTEM_DC_SYSTEM_ID_55BE22",
+    "SRFDER1NID" : "DER1N_SYS_ORG_SYSTEM_SYS_DC_SYSTEM_DC_SYSTEM_ID_55BE22"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_ORG_SYSTEM_SYS_DC_SYSTEM_DC_SYSTEM_ID_55BE22"
+  }
+}

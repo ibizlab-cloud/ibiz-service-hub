@@ -1,0 +1,30 @@
+{
+  "codeName" : "DynaInst",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDERS/DER1N_SYS_ORG_SYSTEM_SYS_DYNAINST_DYNAINSTID_55BE22.json",
+  "fKeyName" : "F3120DF633F8BB1863",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+  },
+  "name" : "DER1N_SYS_ORG_SYSTEM_SYS_DYNAINST_DYNAINSTID_55BE22",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DYNAINSTID",
+    "codeName" : "DynaInstId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DYNAINSTNAME",
+    "codeName" : "DynaInstName"
+  },
+  "pickupDEFName" : "DYNAINSTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DynaInst"
+}

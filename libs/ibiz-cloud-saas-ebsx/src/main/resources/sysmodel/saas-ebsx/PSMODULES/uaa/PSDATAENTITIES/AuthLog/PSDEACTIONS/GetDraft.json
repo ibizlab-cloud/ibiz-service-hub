@@ -1,0 +1,27 @@
+{
+  "actionMode" : "GETDRAFT",
+  "actionType" : "BUILTIN",
+  "codeName" : "GetDraft",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog/PSDEACTIONS/GetDraft.json",
+  "logicName" : "GetDraft",
+  "name" : "GetDraft",
+  "orderValue" : 41,
+  "getPSDEActionInput" : {
+    "name" : "GetDraftInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "AuthLogDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetDraftResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "AuthLogDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

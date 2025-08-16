@@ -1,0 +1,98 @@
+{
+  "codeName" : "Master",
+  "dynaModelFilePath" : "PSSYSDYNAMODELS/Master.json",
+  "name" : "主数据对象",
+  "getPSDynaModelAttrs" : [ {
+    "name" : "A001/PSDEFORM/IF_DataPanel",
+    "value" : "  {\n    \"codename\": \"IF_DataPanel\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"头信息展示表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"infoformflag\": 3,\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n          {\n            \"showcaption\": 0,\n            \"detailtype\": \"GROUPPANEL\",\n            \"psdeformid\": \"<PSDEFORM>\",\n            \"psdeformdetailname\": \"group1\",\n            \"caption\": \"基本信息\",\n            \"layoutmode\": \"FLEX\",\n            \"colmodel\": \"50%;50%\",\n            \"psdeformdetails\": []\n          }\n        ]\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A002/PSDEGRID/Master",
+    "value" : "{\n  \"codename\": \"Master\",\n  \"pagingsize\": 20,\n  \"enablepagingbar\": 1,\n  \"psdegridname\": \"首选表格\",\n  \"showheader\": 1,\n  \"psdegridcols\": [\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A003/PSDEDATAQUERY/Master",
+    "value" : "{\n  \"logicname\": \"首选表格\",\n  \"codename\": \"Master\",\n  \"defaultmode\": 0,\n  \"privmode\": 0,\n  \"custommode\": 0,\n  \"psdedataqueryname\": \"Master\",\n  \"psdedqjoins\": [\n    {\n      \"mainflag\": 1,\n      \"joinpsdeid\": \"<PSDATAENTITY>\",\n      \"psdedqjoinname\": \"EAMWORKORDER\",\n      \"psdejointypeid\": \"MAIN\",\n      \"psdejointypename\": \"主查询\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A004/PSDEDATASET/Master",
+    "value" : "{\n  \"codename\": \"Master\",\n  \"logicname\": \"首选表格\",\n  \"psdedatasetname\": \"Master\",\n  \"psdedsdqs\": [\n    {\n      \"psdedqid\": \"<PSDATAENTITY>/Master\",\n      \"ordervalue\": 100\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A005/PSDEFORM/EF_MasterQuick",
+    "value" : " {\n    \"codename\": \"EF_MasterQuick\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"快速新建表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n          {\n            \"showcaption\": 0,\n            \"detailtype\": \"GROUPPANEL\",\n            \"psdeformid\": \"<PSDEFORM>\",\n            \"psdeformdetailname\": \"group1\",\n            \"caption\": \"基本信息\",\n            \"colmodel\": \"50%;50%\",\n            \"psdeformdetails\": [      \n            ]\n          }\n        ]\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A006/PSDEVIEWBASE/MasterQuickView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEOPTVIEW\",\n  \"codename\": \"MasterQuickView\",\n  \"psappviewcnt\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"openmode\": \"DRAWER_RIGHT\",\n  \"psdeviewbasename\": \"快速新建视图\",\n  \"title\": \"快速新建\",\n  \"psdeviewctrls\": [\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"FORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/EF_MasterQuick\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]快速新建表单\",\n      \"psdeformname\": \"快速新建表单\",\n      \"validflag\": 1,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A007/PSDEFORM/IF_Master",
+    "value" : "  {\n    \"codename\": \"IF_Master\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"主信息概览表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"infoformflag\": 3,\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n          {\n            \"child_col_sm\": 12,\n            \"detailtype\": \"GROUPPANEL\",\n            \"psdeformid\": \"<PSDEFORM>\",\n            \"child_col_md\": 8,\n            \"psdeformdetailname\": \"group1\",\n            \"child_col_lg\": 6,\n            \"caption\": \"基本信息\",\n            \"layoutmode\": \"TABLE_24COL\",\n            \"colmodel\": \"50%;50%\",\n            \"psdeformdetails\": [\n             \n            ]\n          }\n        ]\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A008/PSDEVIEWBASE/MasterInfoView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEEDITVIEW\",\n  \"codename\": \"MasterInfoView\",\n  \"psappviewcnt\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"主信息概览视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"主信息概览\",\n  \"psdeviewctrls\": [\n   {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"FORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/IF_Master\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]主信息概览表单\",\n      \"psdeformname\": \"主信息概览表单\",\n      \"validflag\": 1,\n      \"psachandlerid\": \"Auto12\",\n      \"psdeid\": \"<PSDATAENTITY>\"\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"TOOLBAR\",\n      \"psdeviewctrlname\": \"TOOLBAR\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[工具栏]工具栏模板（默认编辑界面）\",\n      \"psctrlname\": \"工具栏模板（默认编辑界面）\",\n      \"validflag\": 0,\n      \"psdetoolbarname\": \"工具栏模板（默认编辑界面）\",\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A009/PSSYSPORTLET/MasterSummary",
+    "value" : "  {\n    \"codename\": \"MasterSummary\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"psdeviewid\": \"<PSDATAENTITY>/MasterInfoView\",\n    \"showtitlebar\": 0,\n    \"logicname\": \"概览\",\n    \"pssysportletname\": \"概览\",\n    \"portlettype\": \"VIEW\",\n    \"height\": 0,\n    \"templengine\": \"V2\"\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A011/PSSYSDASHBOARD/MasterSummary",
+    "value" : "{\n  \"codename\": \"MasterSummary\",\n  \"psmoduleid\": \"<PSMODULE>\",\n  \"pssysdashboardname\": \"概览\",\n  \"pssysdbparts\": [\n    {\n      \"dbparttype\": \"CONTAINER\",\n      \"pssyscssid\": \"Auto1\",\n      \"validflag\": 1,\n      \"pssysdbpartname\": \"container1\",\n      \"pssysdbparts\": [\n        {\n          \"dbparttype\": \"SYSPORTLET\",\n          \"pssysdashboardid\": \"<PSSYSDASHBOARD>\",\n          \"pssysportletid\": \"<PSDATAENTITY>/概览\",\n          \"validflag\": 1,\n          \"pssysdbpartname\": \"sysportlet1\"\n        }\n      ]\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A021/PSDEFORM/EF_Master",
+    "value" : "{\n    \"codename\": \"EF_Master\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"主编辑表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"mobflag\": 0,\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n          {\n            \"child_col_sm\": 12,\n            \"detailtype\": \"GROUPPANEL\",\n            \"psdeformid\": \"<PSDEFORM>\",\n            \"child_col_md\": 8,\n            \"psdeformdetailname\": \"group1\",\n            \"child_col_lg\": 6,\n            \"caption\": \"基本信息\",\n            \"layoutmode\": \"TABLE_24COL\",\n            \"colmodel\": \"50%;50%\",\n            \"psdeformdetails\": [\n            \n         \n            ]\n          }\n        ]\n      }\n    ]\n  }\n",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A022/PSDEVIEWBASE/MasterEditView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEEDITVIEW\",\n  \"codename\": \"MasterEditView\",\n  \"psappviewcnt\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"主编辑视图\",\n  \"title\": \"主编辑视图\",\n  \"psdeviewctrls\": [\n    {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"FORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/EF_Master\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]主编辑表单\",\n      \"psdeformname\": \"主编辑表单\",\n      \"validflag\": 1,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"TOOLBAR\",\n      \"psdeviewctrlname\": \"TOOLBAR\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[工具栏]工具栏模板（弹出简单编辑表单，保存及关闭按钮）\",\n      \"validflag\": 1,\n      \"psdetoolbarname\": \"工具栏模板（弹出简单编辑表单，保存及关闭按钮）\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"psdetoolbarid\": \"Auto12\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A023/PSDEUIACTION/MasterEdit",
+    "value" : "{\n  \"actiontarget\": \"SINGLEKEY\",\n  \"codename\": \"MasterEdit\",\n  \"psdeviewbaseid\": \"<PSDATAENTITY>/MasterEditView\",\n  \"psdeuiactionname\": \"打开主编辑界面\",\n  \"caption\": \"编辑\",\n  \"frontprotype\": \"WIZARD\",\n  \"uiactiontype\": \"FRONT\",\n  \"templmode\": 0\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A024/PSDEUIACTION/MasterRemove",
+    "value" : "{\n  \"actiontarget\": \"SINGLEKEY\",\n  \"codename\": \"MasterRemove\",\n  \"psdeactionid\": \"<PSDATAENTITY>/Remove\",\n  \"psdeuiactionname\": \"删除并关闭\",\n  \"reloaddata\": 1,\n  \"caption\": \"删除并关闭\",\n  \"closeeditview\": 1,\n  \"uiactiontype\": \"BACKEND\",\n  \"templmode\": 0,\n  \"userconfirm\": 1\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A026/PSDEUAGROUP/MasterTabInfo",
+    "value" : "{\n  \"codename\": \"MasterTabInfo\",\n  \"psdeuagroupname\": \"主信息总览界面行为组\",\n  \"psdeuagrpdetails\": [\n    {\n      \"ordervalue\": 1000,\n      \"psdeuiactionid\": \"<PSDATAENTITY>/打开主编辑界面(MasterEdit)\",\n      \"validflag\": 1,\n      \"detailtype\": \"DEUIACTION\"\n    },\n    {\n      \"ordervalue\": 2000,\n      \"addseparator\": 1,\n      \"psdeuiactionid\": \"<PSDATAENTITY>/删除并关闭(MasterRemove)\",\n      \"validflag\": 1,\n      \"detailtype\": \"DEUIACTION\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A030/PSDEDATARELATION/MasterTabInfo",
+    "value" : "{\n    \"codename\": \"MasterTabInfo\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#83ecaf4d20a079a2cf8717ec2eb33c75\",\n    \"psdedatarelationname\": \"主信息总览\",\n    \"psdedrdetails\": [\n  \n    ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A031/PSDEVIEWBASE/MasterSummaryView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEPORTALVIEW\",\n  \"codename\": \"MasterSummaryView\",\n  \"psappviewcnt\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"概览\",\n  \"showcaptionbar\": 0,\n  \"title\": \"概览\",\n  \"psdeviewctrls\": [\n    {\n      \"pssysdashboardid\": \"<PSDATAENTITY>/MasterSummary\",\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"DASHBOARD\",\n      \"psdeviewctrlname\": \"DASHBOARD\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[数据看板]概览\",\n      \"validflag\": 1,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A032/PSDEVIEWBASE/MasterTabInfoView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DETABEXPVIEW\",\n  \"codename\": \"MasterTabInfoView\",\n  \"psappviewcnt\": 1,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"主信息总览视图\",\n  \"title\": \"主信息总览视图\",\n  \"psdeviewctrls\": [\n     {\n      \"psdedrid\": \"<PSDATAENTITY>/MasterTabInfo\",\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"DRTAB\",\n      \"psdeviewctrlname\": \"DRTAB\",\n      \"defaultflag\": 0,\n      \"psdedrname\": \"主信息总览\",\n      \"configinfo\": \"[关系组]主信息总览\",\n      \"validflag\": 1,\n      \"ordervalue\": 100,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"DATAPANEL\",\n      \"psdeformid\": \"<PSDATAENTITY>/IF_DataPanel\",\n      \"defaultflag\": 0,\n      \"psdeuagroupname\": \"主信息总览界面行为组\",\n      \"configinfo\": \"[工具栏]工具栏模板（主信息总览界面）\",\n      \"configinfo\": \"[表单]头信息展示表单\",\n      \"psdeformname\": \"头信息展示表单\",\n      \"validflag\": 1,\n      \"ordervalue\": 100,\n      \"psdetoolbarname\": \"工具栏模板（主信息总览界面）\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n       \"psdetoolbarid\": \"Auto17\"\n    }\n  ],\n  \"psdeviewengines\": [\n    {\n      \"psuienginetypename\": \"数据面板部件引擎\",\n      \"psdeviewctrlid\": \"<PSDEVIEWBASE>/DATAPANEL\",\n      \"psdeviewenginename\": \"DATAPANEL\",\n      \"validflag\": 1,\n      \"psdeviewctrlname\": \"DATAPANEL\",\n      \"psuienginetypeid\": \"CTRL_DATAPANEL\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A033/PSDEUIACTION/MasterTabInfo",
+    "value" : "{\n  \"actiontarget\": \"SINGLEKEY\",\n  \"codename\": \"MasterTabInfo\",\n  \"psdeviewbaseid\": \"<PSDATAENTITY>/MasterTabInfoView\",\n  \"psdeuiactionname\": \"打开主信息界面\",\n  \"caption\": \"打开主信息界面\",\n  \"frontprotype\": \"WIZARD\",\n  \"uiactiontype\": \"FRONT\",\n  \"templmode\": 0\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A034/PSDEUIACTION/MasterQuick",
+    "value" : "{\n  \"actiontarget\": \"NONE\",\n  \"codename\": \"MasterQuick\",\n  \"nextpsdeuiactionid\": \"<PSDATAENTITY>/打开主信息界面(MasterTabInfo)\",\n  \"psdeviewbaseid\": \"<PSDATAENTITY>/MasterQuickView\",\n  \"psdeuiactionname\": \"快速新建\",\n  \"reloaddata\": 1,\n  \"caption\": \"新建\",\n  \"frontprotype\": \"WIZARD\",\n  \"uiactiontype\": \"FRONT\",\n\n  \"templmode\": 0,\n  \"noprivdm\": 2,\n  \"psdeopprivid\": \"CREATE\"\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A035/PSDEUAGROUP/Master",
+    "value" : "{\n  \"codename\": \"Master\",\n  \"psdeuagroupname\": \"首选表格界面行为组\",\n  \"psdeuagrpdetails\": [\n    {\n      \"ordervalue\": 1000,\n      \"psdeuiactionid\": \"<PSDATAENTITY>/快速新建(MasterQuick)\",\n      \"validflag\": 1,\n      \"detailtype\": \"DEUIACTION\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A036/PSDEFORM/SF_Master",
+    "value" : "  {\n    \"codename\": \"SF_Master\",\n    \"formtype\": \"SEARCHFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"首选表格搜索表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#b096f059cf4433a634a5c101306d802d\",\n    \"mobflag\": 0,\n    \"psdeformdetails\": [\n      {\n        \"showcaption\": 0,\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"常规条件\",\n        \"colmodel\": \"33%;33%;34%\"\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A037/PSDEVIEWBASE/MasterGridView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEGRIDVIEW\",\n  \"codename\": \"MasterGridView\",\n  \"psappviewcnt\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"首选表格视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"首选表格视图\",\n  \"psdeviewctrls\": [\n   {\n      \"enabledynasys\": 0,\n      \"psdeuagroupid\": \"<PSDATAENTITY>/Master\",\n      \"psdeviewctrltype\": \"TOOLBAR\",\n      \"psdeviewctrlname\": \"TOOLBAR\",\n      \"defaultflag\": 0,\n      \"psdeuagroupname\": \"首选表格界面行为组\",\n      \"configinfo\": \"[工具栏]工具栏模板（首选表格界面）\",\n      \"validflag\": 1,\n      \"ordervalue\": 100,\n      \"psdetoolbarname\": \"工具栏模板（首选表格界面）\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"psdetoolbarid\": \"Auto18\"\n    },\n    {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"GRID\",\n      \"psdeviewctrlname\": \"GRID\",\n      \"defaultflag\": 1,\n      \"psdegridid\": \"<PSDATAENTITY>/Master\",\n      \"configinfo\": \"[表格]首选表格;[数据集合]DEFAULT\",\n      \"psdedatasetid\": \"<PSDATAENTITY>/DEFAULT\",\n      \"validflag\": 1,\n\n      \"psdegridname\": \"首选表格\",\n      \"psdeid\": \"<PSDATAENTITY>\"\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"SEARCHFORM\",\n      \"psdeviewctrlname\": \"SEARCHFORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/SF_Master\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]首选表格搜索表单\",\n      \"psdeformname\": \"首选表格搜索表单\",\n      \"validflag\": 1,\n \n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ],\n  \"psdeviewrvs\": [\n    {\n      \"refmodetext\": \"编辑数据视图\",\n      \"psdeviewrvname\": \"EDITDATA\",\n      \"defviewtype\": \"EDITVIEW\",\n      \"minorpsdeviewid\": \"<PSDATAENTITY>/MasterTabInfoView\"\n    },\n    {\n      \"refmodetext\": \"新建数据视图\",\n      \"psdeviewrvname\": \"NEWDATA\",\n      \"defviewtype\": \"EDITVIEW\",\n      \"minorpsdeviewid\": \"<PSDATAENTITY>/MasterQuickView\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  } ]
+}

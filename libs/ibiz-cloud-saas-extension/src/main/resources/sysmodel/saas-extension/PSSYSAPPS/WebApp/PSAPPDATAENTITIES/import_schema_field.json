@@ -1,0 +1,927 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/CheckKey.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Create.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetResult",
+      "name" : "GetResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Get.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetDraftInput",
+      "name" : "GetDraftInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetDraftResult",
+      "name" : "GetDraftResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/GetDraft.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Remove.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Save.json"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Update.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    },
+    "builtinMethod" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetTag" : "Default",
+    "dataSetType" : "DATAQUERY",
+    "methodType" : "FETCH",
+    "name" : "DEFAULT",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "DefaultInput",
+      "name" : "DefaultInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "DefaultResult",
+      "name" : "DefaultResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ID][导入模式属性标识]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDID"
+        },
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ID][导入模式属性标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ID][导入模式属性标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDID"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ID][导入模式属性标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "id",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDID"
+    },
+    "logicName" : "导入模式属性标识",
+    "name" : "ID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableFrontOnly" : true,
+    "keyField" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[NAME][映射属性]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[NAME][映射属性]移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[NAME][映射属性]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[NAME][映射属性]",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "name",
+    "logicName" : "导入属性",
+    "name" : "NAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableFrontOnly" : true,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[CAPTION][导入标题]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[CAPTION][导入标题]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[CAPTION][导入标题]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[CAPTION][导入标题]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "caption",
+    "logicName" : "导入标题",
+    "name" : "CAPTION",
+    "stdDataType" : 25,
+    "stringLength" : 2000,
+    "enableFrontOnly" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[IMPORT_SCHAME_ID][导入模式标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[IMPORT_SCHAME_ID][导入模式标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[IMPORT_SCHAME_ID][导入模式标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[IMPORT_SCHAME_ID][导入模式标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "import_schema_id",
+    "logicName" : "导入模式标识",
+    "name" : "IMPORT_SCHAME_ID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableFrontOnly" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[CODE_LIST_MAPPINGS][代码表映射]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[CODE_LIST_MAPPINGS][代码表映射]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[CODE_LIST_MAPPINGS][代码表映射]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[CODE_LIST_MAPPINGS][代码表映射]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "code_list_mappings",
+    "logicName" : "代码表映射",
+    "name" : "CODE_LIST_MAPPINGS",
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "enableFrontOnly" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[IMPORT_FORMAT][导入格式化]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[IMPORT_FORMAT][导入格式化]移动端默认",
+        "stringLength" : 1000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[IMPORT_FORMAT][导入格式化]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[IMPORT_FORMAT][导入格式化]",
+        "stringLength" : 1000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "import_format",
+    "logicName" : "导入格式化",
+    "name" : "IMPORT_FORMAT",
+    "stdDataType" : 25,
+    "stringLength" : 1000,
+    "enableFrontOnly" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[INDEX][位置]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[INDEX][位置]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[INDEX][位置]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[INDEX][位置]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "index",
+    "logicName" : "索引位置",
+    "name" : "INDEX",
+    "stdDataType" : 9,
+    "enableFrontOnly" : true
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "import_schema_fieldDTO",
+    "name" : "import_schema_fieldDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "id",
+      "logicName" : "导入模式属性标识",
+      "name" : "id",
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "name",
+      "logicName" : "导入属性",
+      "name" : "name",
+      "getPSAppDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "caption",
+      "logicName" : "导入标题",
+      "name" : "caption",
+      "getPSAppDEField" : {
+        "name" : "CAPTION",
+        "codeName" : "caption"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "import_schema_id",
+      "logicName" : "导入模式标识",
+      "name" : "import_schema_id",
+      "getPSAppDEField" : {
+        "name" : "IMPORT_SCHAME_ID",
+        "codeName" : "import_schema_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "code_list_mappings",
+      "logicName" : "代码表映射",
+      "name" : "code_list_mappings",
+      "getPSAppDEField" : {
+        "name" : "CODE_LIST_MAPPINGS",
+        "codeName" : "code_list_mappings"
+      },
+      "sourceType" : "DEFIELD",
+      "type" : "DTOS",
+      "listMap" : true
+    }, {
+      "codeName" : "import_format",
+      "logicName" : "导入格式化",
+      "name" : "import_format",
+      "getPSAppDEField" : {
+        "name" : "IMPORT_FORMAT",
+        "codeName" : "import_format"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "index",
+      "logicName" : "索引位置",
+      "name" : "index",
+      "getPSAppDEField" : {
+        "name" : "INDEX",
+        "codeName" : "index"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "import_schema_fieldFilterDTO",
+    "name" : "import_schema_fieldFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_ID_EQ",
+      "logicName" : "导入模式属性标识",
+      "name" : "N_ID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_IMPORT_SCHAME_ID_EQ",
+      "logicName" : "导入模式标识",
+      "name" : "N_IMPORT_SCHAME_ID_EQ",
+      "getPSAppDEField" : {
+        "name" : "IMPORT_SCHAME_ID",
+        "codeName" : "import_schema_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/CheckKey.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Create.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetResult",
+      "name" : "GetResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Get.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetDraftInput",
+      "name" : "GetDraftInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetDraftResult",
+      "name" : "GetDraftResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/GetDraft.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Remove.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Save.json"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Update.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    },
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetTag" : "Default",
+    "dataSetType" : "DATAQUERY",
+    "methodType" : "FETCH",
+    "name" : "DEFAULT",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "DefaultInput",
+      "name" : "DefaultInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "DefaultResult",
+      "name" : "DefaultResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "import_schema_fieldDTO"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "import_schema_field",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/WebApp/PSAPPDATAENTITIES/import_schema_field.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.IMPORT_SCHEMA_FIELD"
+  },
+  "logicName" : "导入模式属性",
+  "getMajorPSAppDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "name" : "IMPORT_SCHEMA_FIELD",
+  "getPSDEName" : "IMPORT_SCHEMA_FIELD",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json"
+  },
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "NAME",
+    "codeName" : "name"
+  } ],
+  "storageMode" : 4,
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/EmpBind/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "员工绑定",
+  "name" : "员工绑定默认关系界面组"
+}

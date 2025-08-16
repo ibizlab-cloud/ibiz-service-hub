@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Bind",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept/PSDEACTIONS/Bind.json",
+  "logicName" : "绑定",
+  "name" : "Bind",
+  "getPSDEActionInput" : {
+    "name" : "BindInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "OpenDeptDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "BindResult",
+    "type" : "VOID"
+  }
+}

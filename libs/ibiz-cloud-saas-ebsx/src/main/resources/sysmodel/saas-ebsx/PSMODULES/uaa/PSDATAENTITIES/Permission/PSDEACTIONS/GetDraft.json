@@ -1,0 +1,27 @@
+{
+  "actionMode" : "GETDRAFT",
+  "actionType" : "BUILTIN",
+  "codeName" : "GetDraft",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDEACTIONS/GetDraft.json",
+  "logicName" : "GetDraft",
+  "name" : "GetDraft",
+  "orderValue" : 41,
+  "getPSDEActionInput" : {
+    "name" : "GetDraftInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PermissionDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetDraftResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PermissionDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

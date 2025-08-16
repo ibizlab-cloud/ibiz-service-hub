@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ibiz-service-hub</artifactId>
+        <groupId>cn.ibizlab.plugin</groupId>
+        <version>${ibiz.cloud.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ibiz-service-runner</artifactId>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <version>${ibiz.cloud.version}</version>
+    <name>iBiz Service Runner</name>
+    <description>iBiz Service Runner</description>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <!-- cores -->
+        <module>ibizservicerunner-core</module>
+        <!-- services -->
+        <module>ibizservicerunner-provider</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-cloud</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-redis</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-mybatisplus-spring-boot-starter</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+         <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-zookeeper</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-poi</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-liquibase</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-elasticsearch</artifactId>
+            <version>${ibiz.cloud.version}</version>
+       </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-kafka</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-quartz</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-rabbitmq</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-mongodb</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-activemq</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+                <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-solr</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-python</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibizlab-plugin-groovy</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-eai</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-psmodel-runtime</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-jgit</artifactId>
+            <version>${ibiz.cloud.version}</version>
+       </dependency>
+       	<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-neo4j</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-antvg6</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-neo4j-report</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-extension</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-opml</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-version</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-util</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-ai</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-wechat</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-open</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-calcite</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-autoconfigure</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        <!--达梦数据库-->
+        <dependency>
+            <groupId>com.dameng</groupId>
+            <artifactId>DmJdbcDriver18</artifactId>
+            <version>8.1.1.193</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>aliyunmaven</id>
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <!-- Sonatype 发布快照包的地址（新的快照仓库） -->
+        <repository>
+            <id>ossrh-snapshots</id>
+            <name>Sonatype Snapshot Repository</name>
+            <url>https://ossrh-staging-api.central.sonatype.com/content/repositories/snapshots/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+	</repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <!-- 更新元数据 -->
+                    <updateReleaseInfo>true</updateReleaseInfo>
+                    <skip>${maven.deploy.skip}</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

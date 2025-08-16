@@ -1,0 +1,34 @@
+{
+  "codeListTag" : "uaa__CodeList100",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList100",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList100.json",
+  "emptyText" : "未定义",
+  "name" : "输入辅助_页面参数",
+  "getPSCodeItems" : [ {
+    "codeName" : "Carettemplgroup_srfda_pageparam",
+    "text" : "常规页面参数",
+    "value" : "CARETTEMPLGROUP_SRFDA_PAGEPARAM"
+  }, {
+    "codeName" : "Carettemplgroup_srfda_gridviewpageparam",
+    "text" : "表格页面参数",
+    "value" : "CARETTEMPLGROUP_SRFDA_GRIDVIEWPAGEPARAM"
+  }, {
+    "codeName" : "Carettemplgroup_srfda_editviewpageparam",
+    "text" : "编辑页面参数",
+    "value" : "CARETTEMPLGROUP_SRFDA_EDITVIEWPAGEPARAM"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_01001",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

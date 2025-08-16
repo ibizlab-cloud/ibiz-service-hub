@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/log/PSDATAENTITIES/SysLog/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统日志",
+  "name" : "系统日志默认关系界面组"
+}

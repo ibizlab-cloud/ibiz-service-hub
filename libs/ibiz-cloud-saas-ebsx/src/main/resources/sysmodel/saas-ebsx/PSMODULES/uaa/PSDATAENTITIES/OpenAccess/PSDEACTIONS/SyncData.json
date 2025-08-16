@@ -1,0 +1,22 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SyncData",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/SyncData.json",
+  "logicName" : "同步数据",
+  "name" : "SyncData",
+  "getPSDEActionInput" : {
+    "name" : "SyncDataInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "OpenAccessDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SyncDataResult",
+    "type" : "VOID"
+  },
+  "enableAudit" : true
+}

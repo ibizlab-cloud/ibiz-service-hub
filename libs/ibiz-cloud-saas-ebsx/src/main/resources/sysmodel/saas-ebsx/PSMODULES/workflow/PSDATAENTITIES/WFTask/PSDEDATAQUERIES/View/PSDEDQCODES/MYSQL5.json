@@ -1,0 +1,49 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`BUSINESSKEY`",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.`BUSINESSKEY2`",
+    "name" : "BUSINESSKEY2"
+  }, {
+    "expression" : "t1.`CREATETIME`",
+    "name" : "CREATETIME"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DEFINITIONID`",
+    "name" : "DEFINITIONID"
+  }, {
+    "expression" : "t1.`DEFINITIONKEY`",
+    "name" : "DEFINITIONKEY"
+  }, {
+    "expression" : "t1.`DEFINITIONNAME`",
+    "name" : "DEFINITIONNAME"
+  }, {
+    "expression" : "t1.`DESCRIPTION`",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.`ENTITYID`",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.`INSTANCEID`",
+    "name" : "INSTANCEID"
+  }, {
+    "expression" : "t1.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.`TASKDEFINITIONKEY`",
+    "name" : "TASKDEFINITIONKEY"
+  }, {
+    "expression" : "t1.`TASKID`",
+    "name" : "TASKID"
+  }, {
+    "expression" : "t1.`TASKNAME`",
+    "name" : "TASKNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.`BUSINESSKEY`,\nt1.`BUSINESSKEY2`,\nt1.`CREATETIME`,\nt1.`DCSYSTEMID`,\nt1.`DEFINITIONID`,\nt1.`DEFINITIONKEY`,\nt1.`DEFINITIONNAME`,\nt1.`DESCRIPTION`,\nt1.`ENTITYID`,\nt1.`INSTANCEID`,\nt1.`ORGID`,\nt1.`TASKDEFINITIONKEY`,\nt1.`TASKID`,\nt1.`TASKNAME`\nFROM `IBZTASK` t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFTask/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

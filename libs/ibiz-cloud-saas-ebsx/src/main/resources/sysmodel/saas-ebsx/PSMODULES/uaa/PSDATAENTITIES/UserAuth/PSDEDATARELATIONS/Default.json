@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "账号绑定",
+  "name" : "实体默认关系界面组"
+}

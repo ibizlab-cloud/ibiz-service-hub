@@ -1,0 +1,23 @@
+{
+  "actionMode" : "CHECKKEY",
+  "actionType" : "BUILTIN",
+  "codeName" : "CheckKey",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/CheckKey.json",
+  "logicName" : "CheckKey",
+  "name" : "CheckKey",
+  "getPSDEActionInput" : {
+    "name" : "CheckKeyInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "InitSystem_WizardDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CheckKeyResult",
+    "stdDataType" : 9,
+    "type" : "SIMPLE"
+  },
+  "builtinAction" : true
+}

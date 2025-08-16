@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "notify__TodoUrlType",
+  "codeListType" : "STATIC",
+  "codeName" : "TodoUrlType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/TodoUrlType.json",
+  "emptyText" : "未定义",
+  "name" : "待办地址类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "FullUrl",
+    "text" : "完整地址",
+    "value" : "FullUrl"
+  }, {
+    "codeName" : "RouterUrl",
+    "text" : "路由地址",
+    "value" : "RouterUrl"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

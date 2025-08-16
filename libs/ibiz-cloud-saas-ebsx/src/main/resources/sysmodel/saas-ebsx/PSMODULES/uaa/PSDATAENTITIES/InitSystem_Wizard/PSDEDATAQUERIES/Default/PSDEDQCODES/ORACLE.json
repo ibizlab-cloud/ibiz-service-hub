@@ -1,0 +1,39 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.CENTERID = #{ctx.sessioncontext.centerid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CENTERID",
+    "name" : "CENTERID"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t11.PSSYSTEMNAME",
+    "name" : "SYSTEMNAME"
+  }, {
+    "expression" : "t1.SYS_INITSYSTEM_WIZARDID",
+    "name" : "SYS_INITSYSTEM_WIZARDID"
+  }, {
+    "expression" : "t1.SYS_INITSYSTEM_WIZARDNAME",
+    "name" : "SYS_INITSYSTEM_WIZARDNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CENTERID,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.SYSTEMID,\nt11.PSSYSTEMNAME AS SYSTEMNAME,\nt1.SYS_INITSYSTEM_WIZARDID,\nt1.SYS_INITSYSTEM_WIZARDNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZINITSYSTEMWIZARD t1 \nLEFT JOIN IBZPSSYSTEM t11 ON t1.SYSTEMID = t11.PSSYSTEMID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "消息队列（历史）",
+  "name" : "消息队列（历史）默认关系界面组"
+}

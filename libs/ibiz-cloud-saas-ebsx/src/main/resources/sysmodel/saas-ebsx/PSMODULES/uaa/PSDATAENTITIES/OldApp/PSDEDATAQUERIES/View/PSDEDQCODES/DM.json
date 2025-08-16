@@ -1,0 +1,34 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ADDR",
+    "name" : "ADDR"
+  }, {
+    "expression" : "t1.APPGROUP",
+    "name" : "APPGROUP"
+  }, {
+    "expression" : "t1.APPID",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.APPNAME",
+    "name" : "APPNAME"
+  }, {
+    "expression" : "t1.APPTYPE",
+    "name" : "APPTYPE"
+  }, {
+    "expression" : "t1.FULLNAME",
+    "name" : "FULLNAME"
+  }, {
+    "expression" : "t1.ICON",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.VISABLED",
+    "name" : "VISABLED"
+  } ],
+  "queryCode" : "SELECT\nt1.ADDR,\nt1.APPGROUP,\nt1.APPID,\nt1.APPNAME,\nt1.APPTYPE,\nt1.FULLNAME,\nt1.ICON,\nt1.PSSYSTEMID,\nt1.VISABLED\nFROM IBZAPP t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "lookup",
+  "name" : "实体2默认关系界面组"
+}

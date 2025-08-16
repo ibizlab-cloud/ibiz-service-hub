@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/TodoHis/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "待办历史",
+  "name" : "待办历史默认关系界面组"
+}

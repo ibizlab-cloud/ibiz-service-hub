@@ -1,0 +1,3166 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <!--输出实体[SYS_PSSYSAPPFUNC]数据结构 -->
+    <changeSet author="root" id="tab-sys_pssysappfunc-2-1">
+        <createTable tableName="IBZPSSYSAPPFUNC">
+                <column name="PERMISSIONTAG" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TIP" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ICONCSS" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="PSSYSAPPFUNCID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PSSYSAPPFUNC"/>
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="URL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="VIEWPATHPARAMS" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ICON" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="PSSYSAPPFUNCNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ISDEFAULT" remarks="" type="INT">
+                </column>
+                <column name="PSSYSTEMAPPNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="APPCATEGORY" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="MOBILEAPP" remarks="" type="INT">
+                </column>
+                <column name="PSSYSTEMAPPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_PSSYSTEMAPP]数据结构 -->
+    <changeSet author="root" id="tab-sys_pssystemapp-16-2">
+        <createTable tableName="IBZPSSYSTEMAPP">
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="MOBILEAPP" remarks="" type="INT">
+                </column>
+                <column name="APPCATEGORY" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="VIEWPATHFORMAT" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TIP" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ICON" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="PSSYSTEMAPPID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PSSYSTEMAPP"/>
+                </column>
+                <column name="URL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="SERVICEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="INDEXCODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PSSYSTEMAPPNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ICONCSS" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="APPWFS" remarks="" type="VARCHAR(1000)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_AUTHLOG]数据结构 -->
+    <changeSet author="root" id="tab-sys_authlog-26-3">
+        <createTable tableName="IBZAUTHLOG">
+                <column name="LOGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_AUTHLOG"/>
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AUTHTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="IPADDR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MACADDR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERAGENT" remarks="" type="VARCHAR(5)">
+                </column>
+                <column name="AUTHAGENT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AUTHCODE" remarks="" type="VARCHAR(15)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_BULLETIN]数据结构 -->
+    <changeSet author="root" id="tab-sys_bulletin-17-4">
+        <createTable tableName="IBZBULLETIN">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="BEGINTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ISTOP" remarks="" type="INT">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="ENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="PUBLISHDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ATTS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="NOTICENAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="NOTICEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_BULLETIN"/>
+                </column>
+                <column name="PUBFLAG" remarks="" type="INT">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AUTHORID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_CARBONCOPY]数据结构 -->
+    <changeSet author="root" id="tab-sys_carboncopy-1-5">
+        <createTable tableName="IBZCARBONCOPY">
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ISREAD" remarks="" type="INT">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CLOBPARAM02" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PROCESSDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="BIZTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TITLE" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="TODOID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_CARBONCOPY"/>
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM08" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM02" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DUEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PARAM06" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CLOBPARAM01" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM04" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM03" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM01" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM05" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BIZKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TODOSTATE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TODOTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="PARAM07" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LINKURL" remarks="" type="VARCHAR(300)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_CARBONCOPYHIS]数据结构 -->
+    <changeSet author="root" id="tab-sys_carboncopyhis-1-6">
+        <createTable tableName="IBZCARBONCOPYHIS">
+                <column name="LINKURL" remarks="" type="VARCHAR(300)">
+                </column>
+                <column name="BIZKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CLOBPARAM01" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM08" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TODOSTATE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DUEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ISREAD" remarks="" type="INT">
+                </column>
+                <column name="PARAM02" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="TODOID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_CARBONCOPYHIS"/>
+                </column>
+                <column name="PROCESSDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PARAM05" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CLOBPARAM02" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM03" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TODOTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="PARAM06" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM04" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="BIZTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM01" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM07" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TITLE" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_CENTER]数据结构 -->
+    <changeSet author="root" id="tab-sys_center-31-7">
+        <createTable tableName="IBZCENTER">
+                <column name="CENTERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_CENTER"/>
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CENTERNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="EXPIRATIONDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TPPROOTURL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PORTALURL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_DC_SYSTEM]数据结构 -->
+    <changeSet author="root" id="tab-sys_dc_system-28-22">
+        <createTable tableName="IBZDCSYSTEM">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="DCSYSTEMNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYSPERMISSION" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_DC_SYSTEM"/>
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DATAAUDIT]数据结构 -->
+    <changeSet author="root" id="tab-dataaudit-20-23">
+        <createTable tableName="T_DATAAUDIT">
+                <column name="OBJECTTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AUDITINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="DATAAUDITID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DATAAUDIT"/>
+                </column>
+                <column name="AUDITTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DATAAUDITNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="OBJECTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPPERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPPERSONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IPADDRESS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SESSIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_DEPT]数据结构 -->
+    <changeSet author="root" id="tab-sys_dept-108-24">
+        <createTable tableName="IBZDEPT">
+                <column name="DEPTID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_DEPT"/>
+                </column>
+                <column name="DEPTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHORTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTLEVEL" remarks="" type="INT">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="BCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LEADERID" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="LEADERNAME" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="ENABLE" remarks="" type="INT">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER18" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER14" remarks="" type="INT">
+                </column>
+                <column name="RESERVER20" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER17" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER15" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER19" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER16" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER12" remarks="" type="INT">
+                </column>
+                <column name="RESERVER9" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER10" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER13" remarks="" type="INT">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER11" remarks="" type="INT">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTLEADER" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="WXWORKDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DDDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTLEADERID" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="DEPTFULLNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_DEPT_AUTH]数据结构 -->
+    <changeSet author="root" id="tab-sys_dept_auth-4-25">
+        <createTable tableName="IBZDEPTAUTH">
+                <column name="DEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTAUTHID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_DEPT_AUTH"/>
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_DEPTMEMBER]数据结构 -->
+    <changeSet author="root" id="tab-sys_deptmember-14-26">
+        <createTable tableName="IBZDEPTMEMBER">
+                <column name="MEMBERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_DEPTMEMBER"/>
+                </column>
+                <column name="DEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DICT_CATALOG]数据结构 -->
+    <changeSet author="root" id="tab-dict_catalog-38-27">
+        <createTable tableName="IBZDICTCATALOG">
+                <column name="CID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DICT_CATALOG"/>
+                </column>
+                <column name="CCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CGROUP" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="ENABLE" remarks="" type="INT">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DICT_OPTION]数据结构 -->
+    <changeSet author="root" id="tab-dict_option-21-28">
+        <createTable tableName="IBZDICTOPTION">
+                <column name="VKEY" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DICT_OPTION"/>
+                </column>
+                <column name="CID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="VAL" remarks="" type="VARCHAR(40)">
+                </column>
+                <column name="LABEL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PVAL" remarks="" type="VARCHAR(40)">
+                </column>
+                <column name="VFILTER" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="CLS" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="ICONCLS" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="DISABLED" remarks="" type="INT">
+                </column>
+                <column name="EXPIRED" remarks="" type="INT">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="EXTENSION" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_COMPONENT]数据结构 -->
+    <changeSet author="root" id="tab-dst_component-1-29">
+        <createTable tableName="IBZCOMPONENT">
+                <column name="CID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_COMPONENT"/>
+                </column>
+                <column name="CNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CFG" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_CONFIG]数据结构 -->
+    <changeSet author="root" id="tab-dst_config-1-30">
+        <createTable tableName="IBZCFG">
+                <column name="CFGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_CONFIG"/>
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CFGTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TARGETTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CFG" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_DATASOURCE]数据结构 -->
+    <changeSet author="root" id="tab-dst_datasource-1-31">
+        <createTable tableName="IBZDATASOURCE">
+                <column name="DSID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_DATASOURCE"/>
+                </column>
+                <column name="DSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DSTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DSCFG" remarks="" type="VARCHAR(4000)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_ROUTER]数据结构 -->
+    <changeSet author="root" id="tab-dst_router-1-32">
+        <createTable tableName="IBZROUTER">
+                <column name="ROUTERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_ROUTER"/>
+                </column>
+                <column name="ROUTERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ROUTERPATH" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="PARENTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="META" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="COMPONENT" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_SYSTEM]数据结构 -->
+    <changeSet author="root" id="tab-dst_system-13-33">
+        <createTable tableName="IBZPSSYSTEM">
+                <column name="PSSYSTEMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_SYSTEM"/>
+                </column>
+                <column name="PSSYSTEMNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSSTRUCTURE" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="APPS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="MD5CHECK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[DST_VIEW]数据结构 -->
+    <changeSet author="root" id="tab-dst_view-1-34">
+        <createTable tableName="IBZVIEW">
+                <column name="VIEWID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_DST_VIEW"/>
+                </column>
+                <column name="VIEWNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="VIEWPATH" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CFG" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_DYNAINST]数据结构 -->
+    <changeSet author="root" id="tab-sys_dynainst-9-35">
+        <createTable tableName="IBZDYNAINST">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="REALDYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_DYNAINST"/>
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DYNAINSTNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="INTERNALINST" remarks="" type="INT">
+                </column>
+                <column name="DEFAULTINST" remarks="" type="INT">
+                </column>
+                <column name="INSTALLDYNAINST" remarks="" type="INT">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_EMPBIND]数据结构 -->
+    <changeSet author="root" id="tab-sys_empbind-2-36">
+        <createTable tableName="IBZEMP">
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_EMPBIND"/>
+                </column>
+                <column name="PERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXWORKUNIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DDUNIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UAAUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DDUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXWORKUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_EMP]数据结构 -->
+    <changeSet author="root" id="tab-sys_emp-178-37">
+        <createTable tableName="IBZEMP">
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_EMP"/>
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LOGINNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PASSWORD" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="NICKNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SEX" remarks="" type="VARCHAR(20)">
+                </column>
+                <column name="CERTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PHONE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BIRTHDAY" remarks="" type="DATETIME">
+                </column>
+                <column name="EMAIL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AVATAR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ADDR" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="USERICON" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="IPADDR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="THEME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LANG" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="FONTSIZE" remarks="" type="VARCHAR(10)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="RESERVER20" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER19" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER17" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER18" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER15" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER14" remarks="" type="INT">
+                </column>
+                <column name="RESERVER16" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER12" remarks="" type="INT">
+                </column>
+                <column name="RESERVER13" remarks="" type="INT">
+                </column>
+                <column name="RESERVER11" remarks="" type="INT">
+                </column>
+                <column name="RESERVER9" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER10" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="SUPERUSER" remarks="" type="INT">
+                </column>
+                <column name="ENABLE" remarks="" type="INT">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="FROMOPENUSERTAG" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DDUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="STATE" remarks="" type="VARCHAR(10)">
+                </column>
+                <column name="MSGTYPE" remarks="" type="INT">
+                </column>
+                <column name="WXWORKUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UAAUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXWORKUNIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DDUNIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_INITSYSTEM_WIZARD]数据结构 -->
+    <changeSet author="root" id="tab-sys_initsystem_wizard-5-38">
+        <createTable tableName="IBZINITSYSTEMWIZARD">
+                <column name="SYS_INITSYSTEM_WIZARDID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_INITSYSTEM_WIZARD"/>
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SYS_INITSYSTEM_WIZARDNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CENTERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_INFO]数据结构 -->
+    <changeSet author="root" id="tab-jobs_info-58-39">
+        <createTable tableName="JOBS_INFO2">
+                <column name="ID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_JOBS_INFO"/>
+                </column>
+                <column name="TENANT_ID" remarks="" type="VARCHAR(400)">
+                </column>
+                <column name="APP" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CRON" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="HANDLER" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="PARAM" remarks="" type="VARCHAR(4000)">
+                </column>
+                <column name="TIMEOUT" remarks="" type="INT">
+                </column>
+                <column name="FAIL_RETRY_COUNT" remarks="" type="INT">
+                </column>
+                <column name="LAST_TIME" remarks="" type="BIGINT">
+                </column>
+                <column name="NEXT_TIME" remarks="" type="BIGINT">
+                </column>
+                <column name="AUTHOR" remarks="" type="VARCHAR(30)">
+                </column>
+                <column name="REMARK" remarks="" type="VARCHAR(30)">
+                </column>
+                <column name="STATUS" remarks="" type="INT">
+                </column>
+                <column name="UPDATE_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATE_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSDYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TASKTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PREDEFINEDTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_LOCK]数据结构 -->
+    <changeSet author="root" id="tab-jobs_lock-3-40">
+        <createTable tableName="JOBS_LOCK">
+                <column name="ID" remarks="" type="BIGINT">
+                    <constraints primaryKey="true" primaryKeyName="PK_JOBS_LOCK"/>
+                </column>
+                <column name="NAME" remarks="" type="VARCHAR(30)">
+                </column>
+                <column name="OWNER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATE_TIME" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_LOG]数据结构 -->
+    <changeSet author="root" id="tab-jobs_log-26-41">
+        <createTable tableName="JOBS_LOG2">
+                <column name="ID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_JOBS_LOG"/>
+                </column>
+                <column name="JOB_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ADDRESS" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="HANDLER" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="PARAM" remarks="" type="VARCHAR(4000)">
+                </column>
+                <column name="FAIL_RETRY_COUNT" remarks="" type="INT">
+                </column>
+                <column name="TRIGGER_CODE" remarks="" type="INT">
+                </column>
+                <column name="TRIGGER_TYPE" remarks="" type="VARCHAR(30)">
+                </column>
+                <column name="TRIGGER_MSG" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATE_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_REGISTRY]数据结构 -->
+    <changeSet author="root" id="tab-jobs_registry-13-42">
+        <createTable tableName="JOBS_REGISTRY2">
+                <column name="ID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_JOBS_REGISTRY"/>
+                </column>
+                <column name="APP" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ADDRESS" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="STATUS" remarks="" type="INT">
+                </column>
+                <column name="UPDATE_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_DATASET]数据结构 -->
+    <changeSet author="root" id="tab-meta_dataset-1-43">
+        <createTable tableName="IBZDATASET">
+                <column name="DATASETID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_DATASET"/>
+                </column>
+                <column name="DATASETNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DSCODE" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="DSMODEL" remarks="" type="TEXT(1048576)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_DYNAMICMODEL]数据结构 -->
+    <changeSet author="root" id="tab-meta_dynamicmodel-15-44">
+        <createTable tableName="IBZDYNAMICMODEL">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="STATUS" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DYNAINSTTAG2" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CONFIGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_DYNAMICMODEL"/>
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ACTIVETAG" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="MODELFILE" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="CONFIGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DYNAINSTTAG" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PDYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSDYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_ENTITY]数据结构 -->
+    <changeSet author="root" id="tab-meta_entity-8-45">
+        <createTable tableName="IBZENTITY">
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_ENTITY"/>
+                </column>
+                <column name="ENTITYNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LOGICNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TABLENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MODULEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="EXTPARAMS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_FIELD]数据结构 -->
+    <changeSet author="root" id="tab-meta_field-1-46">
+        <createTable tableName="IBZFIELD">
+                <column name="FIELDID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_FIELD"/>
+                </column>
+                <column name="FIELDNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="FIELDLOGICNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REFFIELDID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REFFIELDNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RELATIONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RELATIONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="KEYFIELD" remarks="" type="INT">
+                </column>
+                <column name="MAJORFIELD" remarks="" type="INT">
+                </column>
+                <column name="UNIONKEY" remarks="" type="VARCHAR(70)">
+                </column>
+                <column name="FIELDTYPE" remarks="" type="VARCHAR(70)">
+                </column>
+                <column name="PREDEFINED" remarks="" type="VARCHAR(70)">
+                </column>
+                <column name="DICT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="NULLABLE" remarks="" type="INT">
+                </column>
+                <column name="PHYSICALFIELD" remarks="" type="INT">
+                </column>
+                <column name="DATATYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DATALENGTH" remarks="" type="INT">
+                </column>
+                <column name="DATAPRECI" remarks="" type="INT">
+                </column>
+                <column name="EXPRESSION" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="EXTENSIONFIELD" remarks="" type="INT">
+                </column>
+                <column name="ISENABLEAUDIT" remarks="" type="INT">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_MODEL]数据结构 -->
+    <changeSet author="root" id="tab-meta_model-1-47">
+        <createTable tableName="IBZMODEL">
+                <column name="MODELID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_MODEL"/>
+                </column>
+                <column name="MODELNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MODELCFG" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MATERIALIZEDVIEW" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REFRESHTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_MODULE]数据结构 -->
+    <changeSet author="root" id="tab-meta_module-1-48">
+        <createTable tableName="IBZMODULE">
+                <column name="MODULEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_MODULE"/>
+                </column>
+                <column name="MODULENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[META_RELATION]数据结构 -->
+    <changeSet author="root" id="tab-meta_relation-4-49">
+        <createTable tableName="IBZRELATION">
+                <column name="RELATIONID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_META_RELATION"/>
+                </column>
+                <column name="RELATIONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RELTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CODENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REFENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REFENTITYNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="NESTEDNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LOOKUP" remarks="" type="TEXT(1000)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_ACCOUNT]数据结构 -->
+    <changeSet author="root" id="tab-msg_account-3-50">
+        <createTable tableName="IBZMSGACCOUNT">
+                <column name="EMAIL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PHONE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MSGACCOUNTID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_ACCOUNT"/>
+                </column>
+                <column name="DDACCOUNTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="MSGACCOUNTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXACCOUNTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="EMPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_BODY]数据结构 -->
+    <changeSet author="root" id="tab-msg_body-17-51">
+        <createTable tableName="IBZMSGBODY">
+                <column name="ISERROR" remarks="" type="INT">
+                </column>
+                <column name="ISSEND" remarks="" type="INT">
+                </column>
+                <column name="MSGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_BODY"/>
+                </column>
+                <column name="TOUSERS" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="MSGLINK_PC" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MSGLINK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SUBJECT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CONTENT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MSGTYPE" remarks="" type="INT">
+                </column>
+                <column name="MSGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TEMPLATEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ERRORINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="USERDATA" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERDATA2" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="TEMPLPARAMS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_OPEN_ACCESS]数据结构 -->
+    <changeSet author="root" id="tab-msg_open_access-23-52">
+        <createTable tableName="IBZOPENACCESS">
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_OPEN_ACCESS"/>
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SECRET_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REGION_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_TOKEN" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="EXPIRES_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="DISABLED" remarks="" type="INT">
+                </column>
+                <column name="REDIRECT_URI" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="NOTIFY_URL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="AGENT_ID" remarks="" type="BIGINT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_SEND_QUEUE]数据结构 -->
+    <changeSet author="root" id="tab-msg_send_queue-42-53">
+        <createTable tableName="IBZMSGSENDQUEUE">
+                <column name="URL" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="MOBILEURL" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="MSGSENDQUEUENAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CONTENTTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DSTADDRESSES" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="USERDATA3" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="MSGTYPE" remarks="" type="INT">
+                </column>
+                <column name="SMSCONTENT" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="SUBJECT" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DDCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PROCESSTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="PLANSENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="IMCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="USERDATA" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ERRORINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="FILEAT3" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="IMPORTANCEFLAG" remarks="" type="INT">
+                </column>
+                <column name="USERDATA4" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="TOTALDSTADDRESSES" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="FILEAT" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="MSGSENDQUEUEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_SEND_QUEUE"/>
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISSEND" remarks="" type="INT">
+                </column>
+                <column name="FILEAT4" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="FILEAT2" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="SENDTAG" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DSTUSERS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="ISERROR" remarks="" type="INT">
+                </column>
+                <column name="USERDATA2" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TEMPLATEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_SEND_QUEUE_HIS]数据结构 -->
+    <changeSet author="root" id="tab-msg_send_queue_his-40-54">
+        <createTable tableName="IBZMSGSENDQUEUEHIS">
+                <column name="URL" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="MOBILEURL" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="USERDATA4" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="WXCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="ISERROR" remarks="" type="INT">
+                </column>
+                <column name="FILEAT3" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="FILEAT2" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="MSGTYPE" remarks="" type="INT">
+                </column>
+                <column name="USERDATA3" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="MSGSENDQUEUEHISNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SMSCONTENT" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="PROCESSTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="USERDATA" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IMPORTANCEFLAG" remarks="" type="INT">
+                </column>
+                <column name="TOTALDSTADDRESSES" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ERRORINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="SUBJECT" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="FILEAT" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="FILEAT4" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="CONTENTTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PLANSENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="SENDTAG" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="MSGSENDQUEUEHISID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_SEND_QUEUE_HIS"/>
+                </column>
+                <column name="USERDATA2" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DDCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="ISSEND" remarks="" type="INT">
+                </column>
+                <column name="IMCONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="DSTUSERS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="DSTADDRESSES" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TEMPLATEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_TEMPLATE]数据结构 -->
+    <changeSet author="root" id="tab-msg_template-42-55">
+        <createTable tableName="IBZMSGTEMPL">
+                <column name="TID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_TEMPLATE"/>
+                </column>
+                <column name="TEMPLATE_NAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TEMPLATE_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CONTENT" remarks="" type="VARCHAR(4000)">
+                </column>
+                <column name="TEMPLATE_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TEMPLATE_URL" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SUBJECT" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[MSG_USER_ACCOUNT]数据结构 -->
+    <changeSet author="root" id="tab-msg_user_account-6-56">
+        <createTable tableName="IBZUSERAUTH">
+                <column name="AUTHID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_MSG_USER_ACCOUNT"/>
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IDENTITY_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IDENTIFIER" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREDENTIAL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_NOTES]数据结构 -->
+    <changeSet author="root" id="tab-sys_notes-1-57">
+        <createTable tableName="IBZNOTE">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="NOTESNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="BEGINTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="NOTESID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_NOTES"/>
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_OPEN_ACCESS]数据结构 -->
+    <changeSet author="root" id="tab-sys_open_access-160-58">
+        <createTable tableName="IBZOPENACCESS">
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_OPEN_ACCESS"/>
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SECRET_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REGION_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_TOKEN" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="EXPIRES_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="DISABLED" remarks="" type="INT">
+                </column>
+                <column name="REDIRECT_URI" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="NOTIFY_URL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="AGENT_ID" remarks="" type="BIGINT">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISMOBACCAPP" remarks="" type="INT">
+                </column>
+                <column name="DEFAULTFLAG" remarks="" type="INT">
+                </column>
+                <column name="CALLBACK_TOKEN" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CALLBACK_PARAM" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CALLBACK_PARAM2" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_OPEN_DEPT]数据结构 -->
+    <changeSet author="root" id="tab-sys_open_dept-29-59">
+        <createTable tableName="IBZOPENDEPT">
+                <column name="SYSDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPENDEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISBINDING" remarks="" type="INT">
+                </column>
+                <column name="REALID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="OPENDEPTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="OPENDEPTID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_OPEN_DEPT"/>
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_OPEN_USER]数据结构 -->
+    <changeSet author="root" id="tab-sys_open_user-59-60">
+        <createTable tableName="IBZOPENUSER">
+                <column name="ACCESS_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SECRET_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPENUSERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_OPEN_USER"/>
+                </column>
+                <column name="DEPTS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPENUSERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MOBILE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISBINDING" remarks="" type="INT">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="REALID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="OPENUSERCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYSUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_ORG_SYSTEMAPP]数据结构 -->
+    <changeSet author="root" id="tab-sys_org_systemapp-1-61">
+        <createTable tableName="IBZORGSYSTEMAPP">
+                <column name="ACCESS_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SECRET_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REGION_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_TOKEN" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="EXPIRES_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ORGSYSTEMAPPID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_ORG_SYSTEMAPP"/>
+                </column>
+                <column name="ORGSYSTEMAPPNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_ORG_SYSTEM]数据结构 -->
+    <changeSet author="root" id="tab-sys_org_system-7-62">
+        <createTable tableName="IBZORGSYSTEM">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ORGSYSTEMNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ORGSYSTEMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_ORG_SYSTEM"/>
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_ORG]数据结构 -->
+    <changeSet author="root" id="tab-sys_org-101-63">
+        <createTable tableName="IBZORG">
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_ORG"/>
+                </column>
+                <column name="ORGCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHORTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGLEVEL" remarks="" type="INT">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENABLE" remarks="" type="INT">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER11" remarks="" type="INT">
+                </column>
+                <column name="RESERVER13" remarks="" type="INT">
+                </column>
+                <column name="RESERVER10" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER9" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER12" remarks="" type="INT">
+                </column>
+                <column name="RESERVER16" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER19" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER15" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER14" remarks="" type="INT">
+                </column>
+                <column name="RESERVER17" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER18" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER20" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SAASMODE" remarks="" type="INT">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[PT_ASYNCACTION]数据结构 -->
+    <changeSet author="root" id="tab-pt_asyncaction-80-64">
+        <createTable tableName="ibzasyncaction">
+                <column name="FULLTOPICTAG" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="TOPICTAG" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ACTIONPARAM2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACTIONPARAM3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACTIONPARAM" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ACTIONPARAM4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PUSHTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="QOS" remarks="" type="INT">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACTIONRESULT" remarks="" type="VARCHAR(4000)">
+                </column>
+                <column name="ASYNCACITONID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_PT_ASYNCACTION"/>
+                </column>
+                <column name="ASYNCACITONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACTIONTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BEGINTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ACTIONSTATE" remarks="" type="INT">
+                </column>
+                <column name="ENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ASYNCRESULTDOWNLOADURL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="STEPINFO" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="FULLRESULT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="COMPLETIONRATE" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="PASYNCACITONID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="FULLSTEPINFO" remarks="" type="TEXT(1048576)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[PAY_OPEN_ACCESS]数据结构 -->
+    <changeSet author="root" id="tab-pay_open_access-16-66">
+        <createTable tableName="IBZOPENACCESS">
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_PAY_OPEN_ACCESS"/>
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPEN_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SECRET_KEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REGION_ID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESS_TOKEN" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="EXPIRES_TIME" remarks="" type="DATETIME">
+                </column>
+                <column name="DISABLED" remarks="" type="INT">
+                </column>
+                <column name="REDIRECT_URI" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="NOTIFY_URL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="AGENT_ID" remarks="" type="BIGINT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[PAY_TRADE]数据结构 -->
+    <changeSet author="root" id="tab-pay_trade-9-67">
+        <createTable tableName="IBZPAYTRADE">
+                <column name="SUBJECT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TOTALAMOUNT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TRADENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TRADETYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TRADESTATUS" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="OUTTRADENO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TRADEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_PAY_TRADE"/>
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ACCESSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_PERMISSION]数据结构 -->
+    <changeSet author="root" id="tab-sys_permission-57-68">
+        <createTable tableName="IBZPERMISSION">
+                <column name="SYS_PERMISSIONID" remarks="" type="VARCHAR(200)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PERMISSION"/>
+                </column>
+                <column name="SYS_PERMISSIONNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="PERMISSIONTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="PERMISSIONTAG" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="PSSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ENABLEORGDR" remarks="" type="INT">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="BSCOPE" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="ORGDR" remarks="" type="BIGINT">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ENABLEDEPTDR" remarks="" type="INT">
+                </column>
+                <column name="DEPTBC" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTDR" remarks="" type="BIGINT">
+                </column>
+                <column name="SYSTEMFLAG" remarks="" type="INT">
+                </column>
+                <column name="ENABLEDEPTBC" remarks="" type="INT">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PSYS_PERMISSIONID" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISALLDATA" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_PERMISSION_ACTION]数据结构 -->
+    <changeSet author="root" id="tab-sys_permission_action-5-69">
+        <createTable tableName="IBZPERMISSIONACTION">
+                <column name="SYS_PERMISSION_ACTIONID" remarks="" type="VARCHAR(200)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PERMISSION_ACTION"/>
+                </column>
+                <column name="SYS_PERMISSION_ACTIONNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="BSCOPE" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="SYSTEMFLAG" remarks="" type="INT">
+                </column>
+                <column name="OPPRIV" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYS_PERMISSIONID" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_POST]数据结构 -->
+    <changeSet author="root" id="tab-sys_post-56-70">
+        <createTable tableName="IBZPOST">
+                <column name="POSTID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_POST"/>
+                </column>
+                <column name="POSTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER18" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER20" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER17" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER19" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER14" remarks="" type="INT">
+                </column>
+                <column name="RESERVER16" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER12" remarks="" type="INT">
+                </column>
+                <column name="RESERVER15" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER10" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER9" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER13" remarks="" type="INT">
+                </column>
+                <column name="RESERVER11" remarks="" type="INT">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[REP_REPORT]数据结构 -->
+    <changeSet author="root" id="tab-rep_report-9-71">
+        <createTable tableName="IBZREPORT">
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="REPORTID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_REP_REPORT"/>
+                </column>
+                <column name="REPORTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DYNAINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REPORTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESOURCEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CONF" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="DSLINK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REPORTTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_ROLE]数据结构 -->
+    <changeSet author="root" id="tab-sys_role-53-72">
+        <createTable tableName="IBZROLE">
+                <column name="SYS_ROLEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_ROLE"/>
+                </column>
+                <column name="SYS_ROLENAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="PROLEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="AUTHORIZEALL" remarks="" type="INT">
+                </column>
+                <column name="SYSTEMFLAG" remarks="" type="INT">
+                </column>
+                <column name="GLOBALFLAG" remarks="" type="INT">
+                </column>
+                <column name="USERMODE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ROLETAG" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_ROLE_PERMISSION]数据结构 -->
+    <changeSet author="root" id="tab-sys_role_permission-12-73">
+        <createTable tableName="IBZROLE_PERMISSION">
+                <column name="SYS_ROLE_PERMISSIONID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_ROLE_PERMISSION"/>
+                </column>
+                <column name="SYS_ROLEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYS_PERMISSIONID" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SYSTEMFLAG" remarks="" type="INT">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SD_FILE]数据结构 -->
+    <changeSet author="root" id="tab-sd_file-26-74">
+        <createTable tableName="IBZFILE">
+                <column name="FILEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SD_FILE"/>
+                </column>
+                <column name="FILENAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="FILEPATH" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="FOLDER" remarks="" type="VARCHAR(40)">
+                </column>
+                <column name="FILESIZE" remarks="" type="INT">
+                </column>
+                <column name="FILEEXT" remarks="" type="VARCHAR(20)">
+                </column>
+                <column name="OWNERTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OWNERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="DIGESTCODE" remarks="" type="VARCHAR(64)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_SCHEDULES]数据结构 -->
+    <changeSet author="root" id="tab-sys_schedules-1-75">
+        <createTable tableName="IBZSCHEDULES">
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="BEGINTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SCHEDULESID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_SCHEDULES"/>
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SCHEDULESNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="EMPID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_AUDIT]数据结构 -->
+    <changeSet author="root" id="tab-sys_audit-4-76">
+        <createTable tableName="IBZAUDIT">
+                <column name="LOGLEVEL" remarks="" type="INT">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYSAUDITID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_AUDIT"/>
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="AUDITCAT" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ADDRESS" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="SYSAUDITNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="AUDITINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="OPPERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPPERSONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_EVENT]数据结构 -->
+    <changeSet author="root" id="tab-sys_event-1-77">
+        <createTable tableName="IBZEVENT">
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SYSEVENTNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYSEVENTID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_EVENT"/>
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="EVENTCAT" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPPERSONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="LOGLEVEL" remarks="" type="INT">
+                </column>
+                <column name="EVENTINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_LOG]数据结构 -->
+    <changeSet author="root" id="tab-sys_log-26-78">
+        <createTable tableName="IBZLOG">
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERDATA" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSLOGNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SYSLOGID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_LOG"/>
+                </column>
+                <column name="OPPERSONID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEPTID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="LOGCAT" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LOGINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="USERDATA2" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="LOGLEVEL" remarks="" type="INT">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_PO]数据结构 -->
+    <changeSet author="root" id="tab-sys_po-9-80">
+        <createTable tableName="IBZPO">
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="POINFO" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="LOGLEVEL" remarks="" type="INT">
+                </column>
+                <column name="POCAT" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TIME" remarks="" type="BIGINT">
+                </column>
+                <column name="SYSPOID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PO"/>
+                </column>
+                <column name="ACTION" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSPONAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DENAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_PSSYSTEM]数据结构 -->
+    <changeSet author="root" id="tab-sys_pssystem-36-81">
+        <createTable tableName="IBZPSSYSTEM">
+                <column name="PSSYSTEMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_PSSYSTEM"/>
+                </column>
+                <column name="PSSYSTEMNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSSTRUCTURE" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="APPS" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="MD5CHECK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="REMOTESYSMODELPATH" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="REMOTESYSMODEL" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="REMOTESYSMODELBRANCH" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="REALPSDEVSLNSYSID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SYSMODEL" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="REMOTESYSMODELPWD" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="REMOTESYSMODELUSER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IPADRESS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="JOBPORT" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_TEAM]数据结构 -->
+    <changeSet author="root" id="tab-sys_team-53-82">
+        <createTable tableName="IBZTEAM">
+                <column name="TEAMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_TEAM"/>
+                </column>
+                <column name="TEAMNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER3" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER2" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER18" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER17" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER20" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER15" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER19" remarks="" type="DATETIME">
+                </column>
+                <column name="RESERVER14" remarks="" type="INT">
+                </column>
+                <column name="RESERVER12" remarks="" type="INT">
+                </column>
+                <column name="RESERVER16" remarks="" type="DECIMAL(38,2)">
+                </column>
+                <column name="RESERVER13" remarks="" type="INT">
+                </column>
+                <column name="RESERVER9" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER10" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="RESERVER7" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER8" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER11" remarks="" type="INT">
+                </column>
+                <column name="RESERVER6" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="RESERVER4" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="RESERVER5" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_TEAMMEMBER]数据结构 -->
+    <changeSet author="root" id="tab-sys_teammember-5-83">
+        <createTable tableName="IBZTEAMMEMBER">
+                <column name="TEAMMEMBERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_TEAMMEMBER"/>
+                </column>
+                <column name="TEAMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_TODO]数据结构 -->
+    <changeSet author="root" id="tab-sys_todo-12-84">
+        <createTable tableName="IBZTODO">
+                <column name="PROCESSDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PARAM06" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM01" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM07" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM04" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CLOBPARAM01" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM03" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CLOBPARAM02" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM05" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TITLE" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="PARAM08" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM02" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="TODOURLTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="BIZTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BIZKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TODOSTATE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="TODOID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_TODO"/>
+                </column>
+                <column name="DUEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="TODOTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ISREAD" remarks="" type="INT">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LINKURL" remarks="" type="VARCHAR(300)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM09" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_TODOHIS]数据结构 -->
+    <changeSet author="root" id="tab-sys_todohis-14-85">
+        <createTable tableName="IBZTODOHIS">
+                <column name="ISREAD" remarks="" type="INT">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CLOBPARAM01" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM04" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TITLE" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="TODOSTATE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="COMPLETEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PARAM07" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LINKURL" remarks="" type="VARCHAR(300)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM03" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TODOID" remarks="" type="VARCHAR(60)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_TODOHIS"/>
+                </column>
+                <column name="PARAM08" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM05" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CONTENT" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="PARAM01" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="PARAM02" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PROCESSDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BIZKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM06" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BIZTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CLOBPARAM02" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TODOTYPE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM09" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="LASTOPT" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[UA_ORG]数据结构 -->
+    <changeSet author="root" id="tab-ua_org-6-86">
+        <createTable tableName="IBZORG">
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_UA_ORG"/>
+                </column>
+                <column name="ORGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHORTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SHOWORDER" remarks="" type="INT">
+                </column>
+                <column name="ENABLE" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_USER]数据结构 -->
+    <changeSet author="root" id="tab-sys_user-70-87">
+        <createTable tableName="IBZUSER">
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_USER"/>
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="PERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PASSWORD" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LOGINNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DOMAINS" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="POSTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="NICKNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SEX" remarks="" type="VARCHAR(20)">
+                </column>
+                <column name="BIRTHDAY" remarks="" type="DATETIME">
+                </column>
+                <column name="CERTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PHONE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="EMAIL" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AVATAR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ADDR" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="USERICON" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="THEME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="LANG" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="FONTSIZE" remarks="" type="VARCHAR(10)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="RESERVER" remarks="" type="VARCHAR(255)">
+                </column>
+                <column name="SUPERUSER" remarks="" type="INT">
+                </column>
+                <column name="APIUSER" remarks="" type="INT">
+                </column>
+                <column name="STATE" remarks="" type="VARCHAR(10)">
+                </column>
+                <column name="PWDCHGTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="DDUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXWORKID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WXUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_USER_AUTH]数据结构 -->
+    <changeSet author="root" id="tab-sys_user_auth-13-88">
+        <createTable tableName="IBZUSERAUTH">
+                <column name="AUTHID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_USER_AUTH"/>
+                </column>
+                <column name="IDENTITY_TYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="IDENTIFIER" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="CREDENTIAL" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="EMPNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="EMPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="OPENUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[SYS_USER_ROLE]数据结构 -->
+    <changeSet author="root" id="tab-sys_user_role-50-89">
+        <createTable tableName="IBZUSER_ROLE">
+                <column name="SYS_USER_ROLEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_SYS_USER_ROLE"/>
+                </column>
+                <column name="SYS_ROLEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMANNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ISVALID" remarks="" type="INT">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_DEFINITION]数据结构 -->
+    <changeSet author="root" id="tab-wf_definition-42-90">
+        <createTable tableName="IBZWFDEFINITION">
+                <column name="DEFINITIONKEY" remarks="" type="VARCHAR(200)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_DEFINITION"/>
+                </column>
+                <column name="DEFINITIONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MODELVERSION" remarks="" type="INT">
+                </column>
+                <column name="MODELENABLE" remarks="" type="INT">
+                </column>
+                <column name="PSSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MD5CHECK" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BPMNFILE" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="PROCESSDIAGRAM" remarks="" type="VARCHAR(1000)">
+                </column>
+                <column name="DEPLOYKEY" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="WEBSERVICEIDS" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="MOBILESERVICEIDS" remarks="" type="VARCHAR(200)">
+                </column>
+                <column name="DYNAMODELID" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_GROUP]数据结构 -->
+    <changeSet author="root" id="tab-wf_group-44-91">
+        <createTable tableName="IBZWFGROUP">
+                <column name="GROUPID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_GROUP"/>
+                </column>
+                <column name="GROUPNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="GROUPSCOPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MEMO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="GROUPCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_HISTORY]数据结构 -->
+    <changeSet author="root" id="tab-wf_history-5-92">
+        <createTable tableName="IBZWFHISTORY">
+                <column name="HISTID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_HISTORY"/>
+                </column>
+                <column name="AUTHOR" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="AUTHORNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MESSAGE" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="ACTIONTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ACTIONTYPE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TASKID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="INSTANCEID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BUSINESSKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TASKDEFKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REALINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PROCESSDEFKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_INSTANCE]数据结构 -->
+    <changeSet author="root" id="tab-wf_instance-52-93">
+        <createTable tableName="IBZWFINSTANCE">
+                <column name="INSTANCEID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_INSTANCE"/>
+                </column>
+                <column name="INSTANCENAME" remarks="" type="VARCHAR(300)">
+                </column>
+                <column name="DEFINITIONKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DEFINITIONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BUSINESSKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="STARTTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="ENDTIME" remarks="" type="DATETIME">
+                </column>
+                <column name="STARTUSERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="STARTUSERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="REALINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="WFSTATE" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="CURSTEPNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CURSTEPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="APPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPDATEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="CREATEMAN" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_GROUP_MEMBER]数据结构 -->
+    <changeSet author="root" id="tab-wf_group_member-23-94">
+        <createTable tableName="IBZWFMEMBER">
+                <column name="MEMBERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_GROUP_MEMBER"/>
+                </column>
+                <column name="MEMBERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="GROUPID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="GROUPCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="SRFDCID" remarks="" type="VARCHAR(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_PSSYSTEM]数据结构 -->
+    <changeSet author="root" id="tab-wf_pssystem-13-95">
+        <createTable tableName="IBZPSSYSTEM">
+                <column name="PSSYSTEMID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_PSSYSTEM"/>
+                </column>
+                <column name="PSSYSTEMNAME" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_TIMEOUT]数据结构 -->
+    <changeSet author="root" id="tab-wf_timeout-5-96">
+        <createTable tableName="IBZWFTIMEOUT">
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TASKID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BUSINESSKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_TIMEOUT"/>
+                </column>
+                <column name="DUEDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="MAJORTEXT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DEPTID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_UNDOTASK]数据结构 -->
+    <changeSet author="root" id="tab-wf_undotask-1-97">
+        <createTable tableName="IBZTASK">
+                <column name="MAJORTEXT" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ENTITYID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="TASKID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_UNDOTASK"/>
+                </column>
+                <column name="BUSINESSKEY" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(60)">
+                </column>
+                <column name="DEPTID" remarks="" type="VARCHAR(60)">
+                </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[WF_USER]数据结构 -->
+    <changeSet author="root" id="tab-wf_user-2-98">
+        <createTable tableName="IBZUSER">
+                <column name="USERID" remarks="" type="VARCHAR(100)">
+                    <constraints primaryKey="true" primaryKeyName="PK_WF_USER"/>
+                </column>
+                <column name="USERNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PERSONNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MDEPTNAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="BCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGCODE" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ORGNAME" remarks="" type="VARCHAR(100)">
+                </column>
+        </createTable>
+    </changeSet>
+
+
+    <!--输出实体[SYS_PSSYSAPPFUNC]外键关系 -->
+    <changeSet author="root" id="fk-sys_pssysappfunc-2-99">
+       <addForeignKeyConstraint baseColumnNames="PSSYSTEMAPPID" baseTableName="IBZPSSYSAPPFUNC" constraintName="F9B1483033A97DE351" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="PSSYSTEMAPPID" referencedTableName="IBZPSSYSTEMAPP" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_PSSYSAPPFUNC]外键关系 -->
+    <changeSet author="root" id="fk-sys_pssysappfunc-2-100">
+       <addForeignKeyConstraint baseColumnNames="SYSTEMID" baseTableName="IBZPSSYSAPPFUNC" constraintName="F94761B9B7B2756632" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="PSSYSTEMID" referencedTableName="IBZPSSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_BULLETIN]外键关系 -->
+    <changeSet author="root" id="fk-sys_bulletin-17-101">
+       <addForeignKeyConstraint baseColumnNames="AUTHORID" baseTableName="IBZBULLETIN" constraintName="F4B38AF3DFF9310A1C" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="USERID" referencedTableName="IBZUSER" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_DC_SYSTEM]外键关系 -->
+    <changeSet author="root" id="fk-sys_dc_system-28-104">
+       <addForeignKeyConstraint baseColumnNames="SYSTEMID" baseTableName="IBZDCSYSTEM" constraintName="FBC1C259FC48DC084F" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="PSSYSTEMID" referencedTableName="IBZPSSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[DATAAUDIT]外键关系 -->
+    <changeSet author="root" id="fk-dataaudit-20-105">
+       <addForeignKeyConstraint baseColumnNames="DCSYSTEMID" baseTableName="T_DATAAUDIT" constraintName="FC0ADA542DA94A3A8C" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="DCSYSTEMID" referencedTableName="IBZDCSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_DYNAINST]外键关系 -->
+    <changeSet author="root" id="fk-sys_dynainst-9-106">
+       <addForeignKeyConstraint baseColumnNames="SRFDCID" baseTableName="IBZDYNAINST" constraintName="FF4F21430D98CD77DA" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="CENTERID" referencedTableName="IBZCENTER" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_DYNAINST]外键关系 -->
+    <changeSet author="root" id="fk-sys_dynainst-9-107">
+       <addForeignKeyConstraint baseColumnNames="DCSYSTEMID" baseTableName="IBZDYNAINST" constraintName="F53D03E45C5E6EBB55" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="DCSYSTEMID" referencedTableName="IBZDCSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[JOBS_INFO]外键关系 -->
+    <changeSet author="root" id="fk-jobs_info-58-108">
+       <addForeignKeyConstraint baseColumnNames="APP" baseTableName="JOBS_INFO2" constraintName="F53CE0E921B6508465" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="DCSYSTEMID" referencedTableName="IBZDCSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[JOBS_LOG]外键关系 -->
+    <changeSet author="root" id="fk-jobs_log-26-109">
+       <addForeignKeyConstraint baseColumnNames="JOB_ID" baseTableName="JOBS_LOG2" constraintName="F2F62FFC5F4B40BF18" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="JOBS_INFO2" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[META_DYNAMICMODEL]外键关系 -->
+    <changeSet author="root" id="fk-meta_dynamicmodel-15-110">
+       <addForeignKeyConstraint baseColumnNames="PDYNAINSTID" baseTableName="IBZDYNAMICMODEL" constraintName="FFC774D53169CFEA97" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="CONFIGID" referencedTableName="IBZDYNAMICMODEL" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_ORG_SYSTEMAPP]外键关系 -->
+    <changeSet author="root" id="fk-sys_org_systemapp-1-111">
+       <addForeignKeyConstraint baseColumnNames="ORGSYSTEMID" baseTableName="IBZORGSYSTEMAPP" constraintName="F61F86D93969F710E5" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ORGSYSTEMID" referencedTableName="IBZORGSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[SYS_ORG_SYSTEM]外键关系 -->
+    <changeSet author="root" id="fk-sys_org_system-7-112">
+       <addForeignKeyConstraint baseColumnNames="DCSYSTEMID" baseTableName="IBZORGSYSTEM" constraintName="F37BDE824260F8B810" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="DCSYSTEMID" referencedTableName="IBZDCSYSTEM" validate="true"/>
+    </changeSet>
+
+    <!--输出实体[PT_ASYNCACTION]外键关系 -->
+    <changeSet author="root" id="fk-pt_asyncaction-80-113">
+       <addForeignKeyConstraint baseColumnNames="PASYNCACITONID" baseTableName="ibzasyncaction" constraintName="FA4C11E8A1A3DDA7C1" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ASYNCACITONID" referencedTableName="ibzasyncaction" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

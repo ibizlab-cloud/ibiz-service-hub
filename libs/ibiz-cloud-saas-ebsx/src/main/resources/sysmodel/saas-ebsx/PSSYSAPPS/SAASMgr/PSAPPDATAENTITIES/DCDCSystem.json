@@ -1,0 +1,1362 @@
+{
+  "getAllPSAppDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      }
+    } ],
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    },
+    "defaultMode" : true,
+    "enablePagingBar" : false
+  } ],
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "ExecuteTestCases",
+    "methodType" : "DEACTION",
+    "name" : "ExecuteTestCases",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/executetestcases",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "FixModel",
+    "methodType" : "DEACTION",
+    "name" : "FixModel",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fixmodel",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "DCSYSTEMID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitTestProjects",
+    "methodType" : "DEACTION",
+    "name" : "InitTestProjects",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/inittestprojects",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallBaseData",
+    "methodType" : "DEACTION",
+    "name" : "InstallBaseData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installbasedata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallSampleData",
+    "methodType" : "DEACTION",
+    "name" : "InstallSampleData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installsampledata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallTestData",
+    "methodType" : "DEACTION",
+    "name" : "InstallTestData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installtestdata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Publish",
+    "methodType" : "DEACTION",
+    "name" : "Publish",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/publish",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "DCSYSTEMID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "RunModelTestProject",
+    "methodType" : "DEACTION",
+    "name" : "RunModelTestProject",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/runmodeltestproject",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "RunUnitTestProject",
+    "methodType" : "DEACTION",
+    "name" : "RunUnitTestProject",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/rununittestproject",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "Memo",
+    "logicName" : "备注",
+    "name" : "MEMO",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "DCSystemId",
+    "logicName" : "租户系统标识",
+    "name" : "DCSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "DCSystemName",
+    "logicName" : "系统名称",
+    "name" : "DCSYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "SysPermission",
+    "logicName" : "系统权限",
+    "name" : "SYSPERMISSION",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "SystemName",
+    "logicName" : "系统名称",
+    "name" : "SYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "SystemId",
+    "logicName" : "系统标识",
+    "name" : "SYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "AccessId",
+    "logicName" : "开放平台应用",
+    "name" : "ACCESSID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "AccessName",
+    "logicName" : "开放平台应用",
+    "name" : "ACCESSNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "DCDCSystemDTO",
+    "name" : "DCDCSystemDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "Memo",
+      "logicName" : "备注",
+      "name" : "Memo",
+      "orderValue" : 3,
+      "getPSAppDEField" : {
+        "name" : "MEMO",
+        "codeName" : "Memo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "AccessId",
+      "logicName" : "开放平台应用",
+      "name" : "AccessId",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "AccessId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "AccessName",
+      "logicName" : "开放平台应用",
+      "name" : "AccessName",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "DCSystemId",
+      "logicName" : "租户系统标识",
+      "name" : "DCSystemId",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "DCSystemName",
+      "logicName" : "系统名称",
+      "name" : "DCSystemName",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SysPermission",
+      "logicName" : "系统权限",
+      "name" : "SysPermission",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "SYSPERMISSION",
+        "codeName" : "SysPermission"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemId",
+      "logicName" : "系统标识",
+      "name" : "SystemId",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemName",
+      "logicName" : "系统名称",
+      "name" : "SystemName",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "orderValue" : 1000,
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "DCDCSystemFilterDTO",
+    "name" : "DCDCSystemFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_ACCESSID_EQ",
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSID_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "AccessId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ACCESSNAME_EQ",
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSNAME_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ACCESSNAME_LIKE",
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSNAME_LIKE",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMID_EQ",
+      "logicName" : "租户系统标识",
+      "name" : "N_DCSYSTEMID_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_LIKE",
+      "logicName" : "系统名称",
+      "name" : "N_DCSYSTEMNAME_LIKE",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSPERMISSION_EQ",
+      "logicName" : "系统权限",
+      "name" : "N_SYSPERMISSION_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "SYSPERMISSION",
+        "codeName" : "SysPermission"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMID_EQ",
+      "logicName" : "系统标识",
+      "name" : "N_SYSTEMID_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMNAME_EQ",
+      "logicName" : "系统名称",
+      "name" : "N_SYSTEMNAME_EQ",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMNAME_LIKE",
+      "logicName" : "系统名称",
+      "name" : "N_SYSTEMNAME_LIKE",
+      "orderValue" : 99999,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMNAME",
+        "codeName" : "SystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "ExecuteTestCases",
+    "methodType" : "DEACTION",
+    "name" : "ExecuteTestCases",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/executetestcases",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "FixModel",
+    "methodType" : "DEACTION",
+    "name" : "FixModel",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fixmodel",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "DCSYSTEMID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitTestProjects",
+    "methodType" : "DEACTION",
+    "name" : "InitTestProjects",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/inittestprojects",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallBaseData",
+    "methodType" : "DEACTION",
+    "name" : "InstallBaseData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installbasedata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallSampleData",
+    "methodType" : "DEACTION",
+    "name" : "InstallSampleData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installsampledata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InstallTestData",
+    "methodType" : "DEACTION",
+    "name" : "InstallTestData",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/installtestdata",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Publish",
+    "methodType" : "DEACTION",
+    "name" : "Publish",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/publish",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "DCSYSTEMID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "RunModelTestProject",
+    "methodType" : "DEACTION",
+    "name" : "RunModelTestProject",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/runmodeltestproject",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "RunUnitTestProject",
+    "methodType" : "DEACTION",
+    "name" : "RunUnitTestProject",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/rununittestproject",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCDCSystemDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEUIActions" : [ {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "初始化测试项目",
+    "codeName" : "InitTestProjects",
+    "confirmMsg" : "确认初始化测试项目？",
+    "fullCodeName" : "DCDCSystem_InitTestProjects",
+    "name" : "初始化测试项目",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "InitTestProjects"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCDCSystem.json"
+    },
+    "refreshMode" : 1,
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "InitTestProjects",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "reloadData" : true,
+    "id" : "InitTestProjects@DCDCSystem"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "系统发布",
+    "codeName" : "Publish",
+    "confirmMsg" : "确认发布系统？",
+    "fullCodeName" : "DCDCSystem_Publish",
+    "name" : "发布",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Publish"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCDCSystem.json"
+    },
+    "refreshMode" : 1,
+    "successMsg" : "发布系统动态模型成功！",
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "Publish",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "reloadData" : true,
+    "id" : "Publish@DCDCSystem"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "运行模型测试",
+    "codeName" : "RunModelTestProject",
+    "confirmMsg" : "确认运行模型测试？",
+    "fullCodeName" : "DCDCSystem_RunModelTestProject",
+    "name" : "运行模型测试",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "RunModelTestProject"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCDCSystem.json"
+    },
+    "refreshMode" : 1,
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "RunModelTestProject",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "reloadData" : true,
+    "id" : "RunModelTestProject@DCDCSystem"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "运行单元测试",
+    "codeName" : "RunUnitTestProject",
+    "confirmMsg" : "确认运行单元测试？",
+    "fullCodeName" : "DCDCSystem_RunUnitTestProject",
+    "name" : "运行单元测试",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "RunUnitTestProject"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCDCSystem.json"
+    },
+    "refreshMode" : 1,
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "RunUnitTestProject",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "reloadData" : true,
+    "id" : "RunUnitTestProject@DCDCSystem"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "DCDCSystem",
+  "dEAPITag" : "DC_DC_SYSTEM",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCDCSystem.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "DCSYSTEMID",
+    "codeName" : "DCSystemId"
+  },
+  "logicName" : "系统",
+  "getMajorPSAppDEField" : {
+    "name" : "DCSYSTEMNAME",
+    "codeName" : "DCSystemName"
+  },
+  "name" : "DC_DC_SYSTEM",
+  "getPSDEName" : "DC_DC_SYSTEM",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "DCSYSTEMNAME",
+    "codeName" : "DCSystemName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldCoreAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true
+}

@@ -1,0 +1,183 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenUser/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenUser.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户名称",
+    "codeName" : "openusername",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "openusername",
+    "excelCaption" : "用户名称",
+    "name" : "openusername",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "OPENUSERNAME",
+      "codeName" : "OpenUserName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "手机号",
+    "codeName" : "mobile",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "mobile",
+    "excelCaption" : "手机号",
+    "name" : "mobile",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MOBILE",
+      "codeName" : "Mobile"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "绑定状态",
+    "codeName" : "isbinding",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "isbinding",
+    "excelCaption" : "绑定状态",
+    "name" : "isbinding",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ISBINDING",
+      "codeName" : "IsBinding"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "openusername",
+    "getPSAppDEField" : {
+      "name" : "OPENUSERNAME",
+      "codeName" : "OpenUserName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "mobile",
+    "getPSAppDEField" : {
+      "name" : "MOBILE",
+      "codeName" : "Mobile"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "isbinding",
+    "getPSAppDEField" : {
+      "name" : "ISBINDING",
+      "codeName" : "IsBinding"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "OPENUSERID",
+      "codeName" : "OpenUserId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "OPENUSERID",
+      "codeName" : "OpenUserId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "accessid",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "OPENUSERNAME",
+      "codeName" : "OpenUserName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "开放用户标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "OPENUSERID",
+      "codeName" : "OpenUserId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenUser.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "498603575c19259456578ff1158836cf",
+  "modeltype" : "PSDEGRID"
+}

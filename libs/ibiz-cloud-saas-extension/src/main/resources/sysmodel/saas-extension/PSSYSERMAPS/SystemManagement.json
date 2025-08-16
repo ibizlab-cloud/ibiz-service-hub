@@ -1,0 +1,214 @@
+{
+  "codeName" : "SystemManagement",
+  "dynaModelFilePath" : "PSSYSERMAPS/SystemManagement.json",
+  "name" : "SystemManagement",
+  "getPSSysERMapNodes" : [ {
+    "leftPos" : 100,
+    "name" : "DATA_SOURCE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 550,
+    "name" : "DEPLOY_SYSTEM",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 1000,
+    "name" : "DEPLOY_SYSTEM_DATA_SOURCE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 1450,
+    "name" : "DEPLOY_SYSTEM_SETTING",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 100,
+    "name" : "SERVICE_HUB",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 550,
+    "name" : "SERVICE_HUB_DEPLOY_SYSTEM",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 1000,
+    "name" : "SYSTEM",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 1450,
+    "name" : "SYSTEM_EXTENSION",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 100,
+    "name" : "SYSTEM_EXTENSION_ACTION_ATTACH",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_action_attach.json"
+    },
+    "topPos" : 1200
+  }, {
+    "leftPos" : 550,
+    "name" : "SYSTEM_EXTENSION_BACKEND_TASK",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_backend_task.json"
+    },
+    "topPos" : 1200
+  }, {
+    "leftPos" : 1000,
+    "name" : "SYSTEM_EXTENSION_DATAFLOW",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_dataflow.json"
+    },
+    "topPos" : 1200
+  }, {
+    "leftPos" : 1450,
+    "name" : "SYSTEM_EXTENSION_DETAIL",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_detail.json"
+    },
+    "topPos" : 1200
+  }, {
+    "leftPos" : 100,
+    "name" : "SYSTEM_EXTENSION_FIELD",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_field.json"
+    },
+    "topPos" : 1750
+  }, {
+    "leftPos" : 550,
+    "name" : "SYSTEM_EXTENSION_FORM",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form.json"
+    },
+    "topPos" : 1750
+  }, {
+    "leftPos" : 1000,
+    "name" : "SYSTEM_EXTENSION_GRID",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_grid.json"
+    },
+    "topPos" : 1750
+  }, {
+    "leftPos" : 1450,
+    "name" : "SYSTEM_EXTENSION_LOGIC",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_logic.json"
+    },
+    "topPos" : 1750
+  }, {
+    "leftPos" : 100,
+    "name" : "SYSTEM_EXTENSION_MAIN_STATE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_main_state.json"
+    },
+    "topPos" : 2300
+  }, {
+    "leftPos" : 550,
+    "name" : "SYSTEM_EXTENSION_NOTIFY",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify.json"
+    },
+    "topPos" : 2300
+  }, {
+    "leftPos" : 1000,
+    "name" : "SYSTEM_EXTENSION_NOTIFY_TEMPLATE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_template.json"
+    },
+    "topPos" : 2300
+  }, {
+    "leftPos" : 1450,
+    "name" : "SYSTEM_EXTENSION_SUITE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_suite.json"
+    },
+    "topPos" : 2300
+  }, {
+    "leftPos" : 100,
+    "name" : "SYSTEM_EXTENSION_WORKFLOW",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow.json"
+    },
+    "topPos" : 2850
+  }, {
+    "leftPos" : 550,
+    "name" : "SYSTEM_EXTENSION_WORKFLOW_DEFINITION",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow_definition.json"
+    },
+    "topPos" : 2850
+  }, {
+    "leftPos" : 1000,
+    "name" : "SYSTEM_MERGE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_merge.json"
+    },
+    "topPos" : 2850
+  }, {
+    "leftPos" : 1450,
+    "name" : "SYSTEM_SOURCE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json"
+    },
+    "topPos" : 2850
+  }, {
+    "leftPos" : 100,
+    "name" : "SYSTEM_VERSION",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "topPos" : 3400
+  }, {
+    "leftPos" : 550,
+    "name" : "SYSTEM_VERSION_SOURCE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source.json"
+    },
+    "topPos" : 3400
+  } ]
+}

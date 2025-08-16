@@ -1,0 +1,4704 @@
+{
+  "getAllPSSysDBTables" : [ {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APP_TAG",
+      "length" : 100,
+      "logicName" : "应用标记",
+      "name" : "APP_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "APP_VIEW_TAG",
+      "length" : 100,
+      "logicName" : "应用视图标记",
+      "name" : "APP_VIEW_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CAPTION",
+      "length" : 200,
+      "logicName" : "标题",
+      "name" : "CAPTION",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_TYPE",
+      "length" : 30,
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "THEME_MODEL",
+      "length" : 1048576,
+      "logicName" : "主题模型",
+      "name" : "THEME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "codeName" : "APP_VIEW_THEME",
+    "logicName" : "应用视图主题",
+    "name" : "APP_VIEW_THEME",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CONFIG",
+      "length" : 1048576,
+      "logicName" : "额外配置",
+      "name" : "CONFIG",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PASSWORD",
+      "length" : 100,
+      "logicName" : "密码",
+      "name" : "PASSWORD",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SUMMARY",
+      "length" : 1000,
+      "logicName" : "简介",
+      "name" : "SUMMARY",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TYPE",
+      "length" : 20,
+      "logicName" : "数据源类型",
+      "name" : "TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "URL",
+      "length" : 250,
+      "logicName" : "连接串",
+      "name" : "URL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "USERNAME",
+      "length" : 100,
+      "logicName" : "用户名",
+      "name" : "USERNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "codeName" : "DATA_SOURCE",
+    "logicName" : "数据源",
+    "name" : "DATA_SOURCE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_VERSION_ID",
+      "length" : 100,
+      "logicName" : "系统版本标识",
+      "name" : "SYSTEM_VERSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VER",
+      "length" : 100,
+      "logicName" : "版本",
+      "name" : "VER",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F6639A410E8DEB8",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_FA2BCD5A529EE72",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_VERSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_VERSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F5FB1A8146C97BE",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "DEPLOY_SYSTEM",
+    "logicName" : "部署系统",
+    "name" : "DEPLOY_SYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_SOURCE_ID",
+      "length" : 100,
+      "logicName" : "数据源标识",
+      "name" : "DATA_SOURCE_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DEPLOY_SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "部署系统标识",
+      "name" : "DEPLOY_SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_SCHEMA",
+      "logicName" : "更新结构",
+      "name" : "UPDATE_SCHEMA",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DATA_SOURCE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DATA_SOURCE_ID"
+        }
+      } ],
+      "codeName" : "IF_FA20601034773DC",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DATA_SOURCE_DATA_SOURCE_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DEPLOY_SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DEPLOY_SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_FFC5B7D89B8F438",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "DEPLOY_SYSTEM_DATA_SOURCE",
+    "logicName" : "部署系统数据源",
+    "name" : "DEPLOY_SYSTEM_DATA_SOURCE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CONFIG",
+      "length" : 1048576,
+      "logicName" : "配置",
+      "name" : "CONFIG",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DEPLOY_SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "部署系统标识",
+      "name" : "DEPLOY_SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DEPLOY_SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DEPLOY_SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F4184A493C14DB9",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DEPLOY_SYSTEM_SETTING_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "DEPLOY_SYSTEM_SETTING",
+    "logicName" : "部署系统配置",
+    "name" : "DEPLOY_SYSTEM_SETTING",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ASYNC_ACITON_ID",
+      "length" : 100,
+      "logicName" : "异步操作标识",
+      "name" : "ASYNC_ACITON_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_DATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATE_DATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FILEID",
+      "length" : 100,
+      "logicName" : "导入文件标识",
+      "name" : "FILEID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "HEADERS",
+      "length" : 1048576,
+      "logicName" : "数据列头",
+      "name" : "HEADERS",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "导入行为标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "IMPORT_SCHAME_ID",
+      "length" : 100,
+      "logicName" : "导入模式标识",
+      "name" : "IMPORT_SCHAME_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "IMPORT_STAGE",
+      "length" : 60,
+      "logicName" : "导入阶段",
+      "name" : "IMPORT_STAGE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "导入行为名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PREVIEW_DATA",
+      "length" : 1048576,
+      "logicName" : "预览数据",
+      "name" : "PREVIEW_DATA",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_DATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATE_DATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "IMPORT_SCHAME_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "IMPORT_SCHAME_ID"
+        }
+      } ],
+      "codeName" : "IF_FA63322ECFDE9CF",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_IMPORT_ACTION_IMPORT_SCHEMA_IMPORT_SCHAME_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "IMPORT_ACTION",
+    "logicName" : "数据导入行为",
+    "name" : "IMPORT_ACTION",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_DATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATE_DATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FIELDS",
+      "length" : 1048576,
+      "logicName" : "导入模式属性",
+      "name" : "FIELDS",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "导入模式标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "IMPORT_TAG",
+      "length" : 100,
+      "logicName" : "导入标记",
+      "name" : "IMPORT_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "导入模式名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_TYPE",
+      "length" : 30,
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCHAME_TAG",
+      "length" : 500,
+      "logicName" : "导入模式标记",
+      "name" : "SCHAME_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TYPE",
+      "length" : 60,
+      "logicName" : "导入模式类型",
+      "name" : "TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_DATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATE_DATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "codeName" : "IMPORT_SCHEMA",
+    "logicName" : "导入模式",
+    "name" : "IMPORT_SCHEMA",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CONTENT",
+      "length" : 1048576,
+      "logicName" : "内容",
+      "name" : "CONTENT",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CONTENT_TYPE",
+      "length" : 60,
+      "logicName" : "内容类型",
+      "name" : "CONTENT_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "FROM_ID",
+      "length" : 100,
+      "logicName" : "来源消息标识",
+      "name" : "FROM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "MESSAGE_TYPE",
+      "length" : 60,
+      "logicName" : "消息类型",
+      "name" : "MESSAGE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MOBILE_URL",
+      "length" : 2000,
+      "logicName" : "移动端URL",
+      "name" : "MOBILE_URL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_ID",
+      "length" : 100,
+      "logicName" : "所有者标识",
+      "name" : "OWNER_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_TYPE",
+      "length" : 30,
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "RECEIVER",
+      "length" : 200,
+      "logicName" : "接受者",
+      "name" : "RECEIVER",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SENDER",
+      "length" : 200,
+      "logicName" : "发送者",
+      "name" : "SENDER",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SHORT_CONTENT",
+      "length" : 4000,
+      "logicName" : "短内容",
+      "name" : "SHORT_CONTENT",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "length" : 60,
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TIMESTAMP",
+      "logicName" : "消息时间戳",
+      "name" : "TIMESTAMP",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "TITLE",
+      "length" : 200,
+      "logicName" : "标题",
+      "name" : "TITLE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "URL",
+      "length" : 2000,
+      "logicName" : "URL",
+      "name" : "URL",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "codeName" : "INTERNAL_MESSAGE",
+    "logicName" : "站内信",
+    "name" : "INTERNAL_MESSAGE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CONFIG",
+      "length" : 1048576,
+      "logicName" : "配置",
+      "name" : "CONFIG",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "SERVICE_HUB",
+    "logicName" : "服务集成",
+    "name" : "SERVICE_HUB",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DEPLOY_SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "部署系统标识",
+      "name" : "DEPLOY_SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SERVICE_HUB_ID",
+      "length" : 100,
+      "logicName" : "服务集成标识",
+      "name" : "SERVICE_HUB_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DEPLOY_SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DEPLOY_SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F5160FE24E5DE17",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SERVICE_HUB_DEPLOY_SYSTEM_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SERVICE_HUB_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SERVICE_HUB_ID"
+        }
+      } ],
+      "codeName" : "IF_F5717A6895BBE7C",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SERVICE_HUB_DEPLOY_SYSTEM_SERVICE_HUB_SERVICE_HUB_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SERVICE_HUB_DEPLOY_SYSTEM",
+    "logicName" : "服务集成部署系统",
+    "name" : "SERVICE_HUB_DEPLOY_SYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DEFAULT_BRANCH",
+      "length" : 200,
+      "logicName" : "默认分支",
+      "name" : "DEFAULT_BRANCH",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "GROUP_ID",
+      "length" : 200,
+      "logicName" : "群组标识",
+      "name" : "GROUP_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "HTTP_URL_TO_REPO",
+      "length" : 1000,
+      "logicName" : "系统仓库地址",
+      "name" : "HTTP_URL_TO_REPO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "MARKET_URL",
+      "length" : 1000,
+      "logicName" : "市场地址",
+      "name" : "MARKET_URL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PRODCT_GROUP_ID",
+      "length" : 100,
+      "logicName" : "产品分组标识",
+      "name" : "PRODCT_GROUP_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PRODUCT_BASE_GROUP_ID",
+      "length" : 100,
+      "logicName" : "产品基础分组标识",
+      "name" : "PRODUCT_BASE_GROUP_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PRODUCT_GROUP_ID",
+      "length" : 100,
+      "logicName" : "产品分组标识",
+      "name" : "PRODUCT_GROUP_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PRODUCT_ID",
+      "length" : 100,
+      "logicName" : "产品标识",
+      "name" : "PRODUCT_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 200,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 200,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG2",
+      "length" : 200,
+      "logicName" : "系统标记2",
+      "name" : "SYSTEM_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG3",
+      "length" : 200,
+      "logicName" : "系统标记3",
+      "name" : "SYSTEM_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG4",
+      "length" : 200,
+      "logicName" : "系统标记4",
+      "name" : "SYSTEM_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TYPE",
+      "length" : 60,
+      "logicName" : "系统类型",
+      "name" : "TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "SYSTEM",
+    "logicName" : "系统",
+    "name" : "SYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACTIVATED",
+      "logicName" : "是否激活",
+      "name" : "ACTIVATED",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRC_SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "源系统扩展标识",
+      "name" : "SRC_SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRC_SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRC_SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FD48AD2B2A06B5E",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_SYSTEM_EXTENSION_SRC_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F7216420A38B1C8",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_SYSTEM_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION",
+    "logicName" : "系统扩展",
+    "name" : "SYSTEM_EXTENSION",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACTION_ATTACH_TAG",
+      "length" : 100,
+      "logicName" : "行为附加标记",
+      "name" : "ACTION_ATTACH_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F4F4D03D4E41008",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_ACTION_ATTACH_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_ACTION_ATTACH",
+    "logicName" : "系统扩展行为附加",
+    "name" : "SYSTEM_EXTENSION_ACTION_ATTACH",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "BACKEND_TASK_TAG",
+      "length" : 100,
+      "logicName" : "后台任务标识",
+      "name" : "BACKEND_TASK_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F70574561516D7F",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_BACKEND_TASK_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_BACKEND_TASK",
+    "logicName" : "系统扩展后台任务",
+    "name" : "SYSTEM_EXTENSION_BACKEND_TASK",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "BI_CUBE_TAG",
+      "length" : 100,
+      "logicName" : "BI立方体标记",
+      "name" : "BI_CUBE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "BI_SCHEME_TAG",
+      "length" : 100,
+      "logicName" : "BI体系标记",
+      "name" : "BI_SCHEME_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CATEGORY",
+      "length" : 200,
+      "logicName" : "类别",
+      "name" : "CATEGORY",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "ITEM_TAG",
+      "length" : 200,
+      "logicName" : "项标记",
+      "name" : "ITEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TYPE",
+      "length" : 100,
+      "logicName" : "对象类型",
+      "name" : "TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FF1AE4498D8854A",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_BI_CUBE_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_BI_CUBE",
+    "logicName" : "系统扩展智能立方体",
+    "name" : "SYSTEM_EXTENSION_BI_CUBE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATAFLOW_TAG",
+      "length" : 100,
+      "logicName" : "数据流标记",
+      "name" : "DATAFLOW_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F2A5E8A19E2532D",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_DATAFLOW_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_DATAFLOW",
+    "logicName" : "系统扩展数据流",
+    "name" : "SYSTEM_EXTENSION_DATAFLOW",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_DETAIL",
+    "logicName" : "系统扩展明细",
+    "name" : "SYSTEM_EXTENSION_DETAIL",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FIELD_TAG",
+      "length" : 100,
+      "logicName" : "属性标记",
+      "name" : "FIELD_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F3689B85C58692A",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_FIELD_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_FIELD",
+    "logicName" : "系统扩展属性",
+    "name" : "SYSTEM_EXTENSION_FIELD",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FORM_TAG",
+      "length" : 100,
+      "logicName" : "表单标记",
+      "name" : "FORM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FE4F4D85239CAE7",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_FORM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_FORM",
+    "logicName" : "系统扩展表单",
+    "name" : "SYSTEM_EXTENSION_FORM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "GRID_TAG",
+      "length" : 100,
+      "logicName" : "表格标记",
+      "name" : "GRID_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FD711F47645ADF8",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_GRID_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_GRID",
+    "logicName" : "系统扩展表格",
+    "name" : "SYSTEM_EXTENSION_GRID",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "LOGIC_TAG",
+      "length" : 100,
+      "logicName" : "逻辑标记",
+      "name" : "LOGIC_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F8BAC2D2C77B4C2",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_LOGIC_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_LOGIC",
+    "logicName" : "系统扩展处理逻辑",
+    "name" : "SYSTEM_EXTENSION_LOGIC",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "codeName" : "SYSTEM_EXTENSION_MAINSTATE",
+    "logicName" : "系统扩展主状态逻辑",
+    "name" : "SYSTEM_EXTENSION_MAINSTATE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "MAIN_STATE_LOGIC_TAG",
+      "length" : 100,
+      "logicName" : "主状态逻辑标记",
+      "name" : "MAIN_STATE_LOGIC_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F24C422240DF652",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_MAIN_STATE_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_MAIN_STATE",
+    "logicName" : "系统扩展主状态逻辑",
+    "name" : "SYSTEM_EXTENSION_MAIN_STATE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NOTIFY_TAG",
+      "length" : 100,
+      "logicName" : "通知标记",
+      "name" : "NOTIFY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F1E8BD5E003B008",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_NOTIFY_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_NOTIFY",
+    "logicName" : "系统扩展通知",
+    "name" : "SYSTEM_EXTENSION_NOTIFY",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_ID",
+      "length" : 100,
+      "logicName" : "所有者标识",
+      "name" : "OWNER_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_TYPE",
+      "length" : 30,
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SETTING_MODEL",
+      "length" : 1048576,
+      "logicName" : "设置模型",
+      "name" : "SETTING_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_NOTIFY_SETTING",
+    "logicName" : "系统扩展通知设置",
+    "name" : "SYSTEM_EXTENSION_NOTIFY_SETTING",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NOTIFY_TEMPLATE_TAG",
+      "length" : 100,
+      "logicName" : "通知模板标记",
+      "name" : "NOTIFY_TEMPLATE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F2E33F58BC36784",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_NOTIFY_TEMPLATE_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_NOTIFY_TEMPLATE",
+    "logicName" : "系统扩展通知模板",
+    "name" : "SYSTEM_EXTENSION_NOTIFY_TEMPLATE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "PORTLET_TAG",
+      "length" : 100,
+      "logicName" : "门户部件标记",
+      "name" : "PORTLET_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FF9488167CAB94F",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_PORTLET_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_PORTLET",
+    "logicName" : "系统扩展门户部件",
+    "name" : "SYSTEM_EXTENSION_PORTLET",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "codeName" : "SYSTEM_EXTENSION_SCHEDULE_TASK",
+    "logicName" : "系统扩展计划任务",
+    "name" : "SYSTEM_EXTENSION_SCHEDULE_TASK",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DATA_ENTITY_TAG",
+      "length" : 100,
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "WORKFLOW_TAG",
+      "length" : 100,
+      "logicName" : "工作流标识",
+      "name" : "WORKFLOW_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F1A486A896C80BC",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_WORKFLOW_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_WORKFLOW",
+    "logicName" : "系统扩展工作流",
+    "name" : "SYSTEM_EXTENSION_WORKFLOW",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPLY_FLAG",
+      "logicName" : "已应用",
+      "name" : "APPLY_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "APPLY_INFO",
+      "length" : 4000,
+      "logicName" : "应用信息",
+      "name" : "APPLY_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "扩展模型",
+      "name" : "EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG",
+      "length" : 200,
+      "logicName" : "扩展标记",
+      "name" : "EXTENSION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG2",
+      "length" : 200,
+      "logicName" : "扩展标记2",
+      "name" : "EXTENSION_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG3",
+      "length" : 200,
+      "logicName" : "扩展标记3",
+      "name" : "EXTENSION_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTENSION_TAG4",
+      "length" : 200,
+      "logicName" : "扩展标记4",
+      "name" : "EXTENSION_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "PENDING_EXTENSION_MODEL",
+      "length" : 1048576,
+      "logicName" : "待定扩展模型",
+      "name" : "PENDING_EXTENSION_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "RUNTIME_MODEL",
+      "length" : 1048576,
+      "logicName" : "运行时模型",
+      "name" : "RUNTIME_MODEL",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG",
+      "length" : 200,
+      "logicName" : "范围标记",
+      "name" : "SCOPE_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG2",
+      "length" : 200,
+      "logicName" : "范围标记2",
+      "name" : "SCOPE_TAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG3",
+      "length" : 200,
+      "logicName" : "范围标记3",
+      "name" : "SCOPE_TAG3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TAG4",
+      "length" : 200,
+      "logicName" : "范围标记4",
+      "name" : "SCOPE_TAG4",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "扩展作用范围类型",
+      "name" : "SCOPE_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_EXTENSION_ID",
+      "length" : 100,
+      "logicName" : "系统扩展标识",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_TAG",
+      "length" : 100,
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "模型版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "WORKFLOW_DEFINITION_TAG",
+      "length" : 100,
+      "logicName" : "工作流版本定义标识",
+      "name" : "WORKFLOW_DEFINITION_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "WORKFLOW_TAG",
+      "length" : 100,
+      "logicName" : "工作流标识",
+      "name" : "WORKFLOW_TAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_EXTENSION_ID"
+        }
+      } ],
+      "codeName" : "IF_F22A9A756D3DE3C",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_EXTENSION_WORKFLOW_DEFINITION_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_EXTENSION_WORKFLOW_DEFINITION",
+    "logicName" : "系统扩展工作流版本",
+    "name" : "SYSTEM_EXTENSION_WORKFLOW_DEFINITION",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DEPENDENCIES",
+      "length" : 500,
+      "logicName" : "依赖",
+      "name" : "DEPENDENCIES",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "MERGE_SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "合并系统标识",
+      "name" : "MERGE_SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MERGE_SYSTEM_SOURCE_ID",
+      "length" : 100,
+      "logicName" : "合并系统源标识",
+      "name" : "MERGE_SYSTEM_SOURCE_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORDER_VALUE",
+      "logicName" : "合并次序",
+      "name" : "ORDER_VALUE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SETTINGS",
+      "length" : 1048576,
+      "logicName" : "设置",
+      "name" : "SETTINGS",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "VER",
+      "length" : 100,
+      "logicName" : "版本",
+      "name" : "VER",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "MERGE_SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "MERGE_SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F71FC6532B60629",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_MERGE_SYSTEM_MERGE_SYSTEM_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "MERGE_SYSTEM_SOURCE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "MERGE_SYSTEM_SOURCE_ID"
+        }
+      } ],
+      "codeName" : "IF_F4988BC05BA246D",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_MERGE_SYSTEM_SOURCE_MERGE_SYSTEM_SOURCE_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F23B35E8203C589",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_MERGE_SYSTEM_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_MERGE",
+    "logicName" : "系统合并",
+    "name" : "SYSTEM_MERGE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DIGEST",
+      "length" : 200,
+      "logicName" : "摘要信息",
+      "name" : "DIGEST",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OSS_FILE",
+      "length" : 500,
+      "logicName" : "OSS文件",
+      "name" : "OSS_FILE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_MERGE_ID",
+      "length" : 100,
+      "logicName" : "系统合并标识",
+      "name" : "SYSTEM_MERGE_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F2EAA66A0012818",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_SOURCE_SYSTEM_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_SOURCE",
+    "logicName" : "系统源",
+    "name" : "SYSTEM_SOURCE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "API_MODEL",
+      "length" : 4000,
+      "logicName" : "接口模型",
+      "name" : "API_MODEL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "APP_MODEL",
+      "length" : 4000,
+      "logicName" : "应用程序模型",
+      "name" : "APP_MODEL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DEFAULT_FLAG",
+      "logicName" : "默认版本",
+      "name" : "DEFAULT_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "DIGEST",
+      "length" : 200,
+      "logicName" : "模型摘要",
+      "name" : "DIGEST",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "MERGE_INFO",
+      "length" : 2000,
+      "logicName" : "系统合并信息",
+      "name" : "MERGE_INFO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OSS_FILE",
+      "length" : 500,
+      "logicName" : "OSS文件",
+      "name" : "OSS_FILE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "logicName" : "状态",
+      "name" : "STATE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_ID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEM_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_SOURCE_ID",
+      "length" : 100,
+      "logicName" : "系统源标识",
+      "name" : "SYSTEM_SOURCE_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TYPE",
+      "length" : 60,
+      "logicName" : "类型",
+      "name" : "TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "VALID_FLAG",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "VERSION",
+      "logicName" : "版本",
+      "name" : "VERSION",
+      "stdDataType" : 9,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_SOURCE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_SOURCE_ID"
+        }
+      } ],
+      "codeName" : "IF_FFDA8865B68AF39",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_VERSION_SYSTEM_SOURCE_SYSTEM_SOURCE_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_ID"
+        }
+      } ],
+      "codeName" : "IF_F3331CCADE3442C",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_VERSION_SYSTEM_SYSTEM_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_VERSION",
+    "logicName" : "系统版本",
+    "name" : "SYSTEM_VERSION",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_SOURCE_ID",
+      "length" : 100,
+      "logicName" : "系统源标识",
+      "name" : "SYSTEM_SOURCE_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEM_VERSION_ID",
+      "length" : 100,
+      "logicName" : "系统版本标识",
+      "name" : "SYSTEM_VERSION_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_SOURCE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_SOURCE_ID"
+        }
+      } ],
+      "codeName" : "IF_F97369188ADE540",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_VERSION_SOURCE_SYSTEM_SOURCE_SYSTEM_SOURCE_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEM_VERSION_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEM_VERSION_ID"
+        }
+      } ],
+      "codeName" : "IF_FBD07EB4F42A6F8",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_SYSTEM_VERSION_SOURCE_SYSTEM_VERSION_SYSTEM_VERSION_ID",
+      "sourceType" : "DER"
+    } ],
+    "codeName" : "SYSTEM_VERSION_SOURCE",
+    "logicName" : "系统版本系统源",
+    "name" : "SYSTEM_VERSION_SOURCE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  } ],
+  "codeName" : "A12e5f234a4d69ccba3",
+  "dSLink" : "DEFAULT",
+  "dynaModelFilePath" : "PSSYSDBSCHEMES/DEFAULT.json",
+  "name" : "默认数据库架构",
+  "autoExtendModel" : true,
+  "pubIndex" : true
+}

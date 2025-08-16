@@ -1,0 +1,81 @@
+{
+  "name" : "租户门户",
+  "simple" : "true",
+  "title" : "中心门户",
+  "caption" : "中心门户",
+  "getAllPSAppDEUIActions" : [ {
+    "caption" : "取消变更",
+    "codeName" : "CancelChanges",
+    "fullCodeName" : "CancelChanges",
+    "name" : "取消变更",
+    "predefinedType" : "DATA_CANCELCHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CancelChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "建立数据",
+    "codeName" : "CreateObject",
+    "fullCodeName" : "CreateObject",
+    "name" : "建立数据",
+    "predefinedType" : "DATA_CREATEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CreateObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登录",
+    "codeName" : "Login",
+    "fullCodeName" : "Login",
+    "name" : "应用登录",
+    "predefinedType" : "APP_LOGIN",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Login",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登出",
+    "codeName" : "Logout",
+    "fullCodeName" : "Logout",
+    "name" : "应用登出",
+    "predefinedType" : "APP_LOGOUT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Logout",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "删除数据",
+    "codeName" : "RemoveObject",
+    "fullCodeName" : "RemoveObject",
+    "name" : "删除数据",
+    "predefinedType" : "DATA_REMOVEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "RemoveObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "保存变更",
+    "codeName" : "SaveChanges",
+    "fullCodeName" : "SaveChanges",
+    "name" : "保存变更",
+    "predefinedType" : "DATA_SAVECHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "同步数据",
+    "codeName" : "Synchronize",
+    "fullCodeName" : "Synchronize",
+    "name" : "同步数据",
+    "predefinedType" : "DATA_SYNCHRONIZE",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Synchronize",
+    "uIActionType" : "DEUIACTION"
+  } ],
+  "cache" : {
+    "getPSAppViews" : [ ]
+  },
+  "id" : "PSSYSAPPS/DCPortal/PSSYSAPP.json"
+}

@@ -1,0 +1,80 @@
+{
+  "codeName" : "Gateway",
+  "defaultLanguage" : "ZH_CN",
+  "logicName" : "网关管理系统",
+  "name" : "GATEWAY",
+  "vCName" : "trunk",
+  "id" : "PSSYSTEM.json",
+  "getAllPSSysUtils" : [ {
+    "codeName" : "CACHE",
+    "name" : "CACHE",
+    "utilTag" : "CACHE",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "UNISTATE",
+    "name" : "UNISTATE",
+    "utilTag" : "UNISTATE",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "UAA",
+    "name" : "UAA",
+    "utilTag" : "UAA",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "CLOUDCLIENT",
+    "name" : "CLOUDCLIENT",
+    "utilTag" : "CLOUDCLIENT",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "OSS",
+    "name" : "OSS",
+    "utilTag" : "OSS",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "WF",
+    "name" : "WF",
+    "utilTag" : "WF",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "CONF",
+    "name" : "CONF",
+    "utilTag" : "CONF",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "NOTIFY",
+    "name" : "NOTIFY",
+    "utilTag" : "NOTIFY",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "AI",
+    "name" : "AI",
+    "utilTag" : "AI",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "DATAFLOW",
+    "name" : "DATAFLOW",
+    "utilTag" : "DATAFLOW",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "PORTAL",
+    "name" : "PORTAL",
+    "utilTag" : "PORTAL",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "HUBDEVOPS",
+    "name" : "HUBDEVOPS",
+    "utilTag" : "HUBDEVOPS",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "HUBEXTENSION",
+    "name" : "HUBEXTENSION",
+    "utilTag" : "HUBEXTENSION",
+    "utilType" : "USER"
+  }, {
+    "codeName" : "KB",
+    "name" : "KB",
+    "utilTag" : "KB",
+    "utilType" : "USER"
+  }
+  ]
+}

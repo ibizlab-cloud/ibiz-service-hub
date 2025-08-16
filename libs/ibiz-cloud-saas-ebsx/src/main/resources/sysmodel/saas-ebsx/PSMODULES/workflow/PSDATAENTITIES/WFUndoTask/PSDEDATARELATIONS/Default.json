@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "工作流未提交业务数据",
+  "name" : "工作流未提交任务默认关系界面组"
+}

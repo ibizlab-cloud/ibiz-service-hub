@@ -1,0 +1,22 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ADDRESS",
+    "name" : "ADDRESS"
+  }, {
+    "expression" : "t1.APP",
+    "name" : "APP"
+  }, {
+    "expression" : "t1.STATUS",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.ID",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.UPDATE_TIME",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.ID,\nt1.UPDATE_TIME\nFROM JOBS_REGISTRY2 t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCJobsRegistry/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+}

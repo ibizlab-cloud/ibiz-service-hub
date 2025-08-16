@@ -1,0 +1,14 @@
+{
+  "dBType" : "DB2",
+  "dynaModelFilePath" : "PSSYSTEMDBCFGS/DB2.json",
+  "mOSFilePath" : "pssystemdbcfgs/DB2",
+  "name" : "DB2",
+  "objNameCase" : "DEFAULT",
+  "rTMOSFilePath" : "pssystemdbcfgs/DB2",
+  "defaultMode" : false,
+  "pubFKey" : true,
+  "pubIndex" : true,
+  "pubModel" : true,
+  "pubModelComment" : true,
+  "pubView" : true
+}

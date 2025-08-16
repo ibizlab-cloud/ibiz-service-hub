@@ -1,0 +1,133 @@
+{
+  "codeName" : "saveDeptMember",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDELOGICS/saveDeptMember.json",
+  "logicName" : "保存部门成员",
+  "name" : "保存部门成员",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 223,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      },
+      "name" : "部门与用户不为空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "mdeptid",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[mdeptid] 值不为空(NotNil)"
+        }, {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "userid",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[userid] 值不为空(NotNil)"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 42,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Prepareparam1",
+    "leftPos" : 223,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备sysUser参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Deaction1"
+      },
+      "name" : "连接7148",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "DEPTID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "name" : "Default[mdeptid] ==> Default[DEPTID]",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "mdeptid",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "DEPTNAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "name" : "Default[mdeptname] ==> Default[DEPTNAME]",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "mdeptname",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 205,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Deaction1",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDEACTIONS/Save.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+    },
+    "leftPos" : 222,
+    "logicNodeType" : "DEACTION",
+    "name" : "保存部门用户",
+    "topPos" : 361,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

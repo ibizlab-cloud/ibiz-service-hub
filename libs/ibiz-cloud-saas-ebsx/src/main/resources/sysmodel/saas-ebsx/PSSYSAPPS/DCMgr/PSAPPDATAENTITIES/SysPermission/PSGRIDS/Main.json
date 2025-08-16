@@ -1,0 +1,377 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统",
+    "codeName" : "dcsystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dcsystemname",
+    "excelCaption" : "系统",
+    "name" : "dcsystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "权限类别",
+    "codeName" : "permissiontype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "permissiontype",
+    "excelCaption" : "权限类别",
+    "name" : "permissiontype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/PermissionType.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTYPE",
+      "codeName" : "PermissionType"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "资源名称",
+    "codeName" : "sys_permissionname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "sys_permissionname",
+    "excelCaption" : "资源名称",
+    "name" : "sys_permissionname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "权限标识",
+    "codeName" : "permissiontag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "permissiontag",
+    "excelCaption" : "权限标识",
+    "name" : "permissiontag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTAG",
+      "codeName" : "PermissionTag"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "实体名",
+    "codeName" : "entityname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "entityname",
+    "excelCaption" : "实体名",
+    "name" : "entityname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "全部数据",
+    "codeName" : "isalldata",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "isalldata",
+    "excelCaption" : "全部数据",
+    "name" : "isalldata",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ISALLDATA",
+      "codeName" : "IsAllData"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "机构数据范围",
+    "codeName" : "orgdr",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "orgdr",
+    "excelCaption" : "机构数据范围",
+    "name" : "orgdr",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DR.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ORGDR",
+      "codeName" : "OrgDR"
+    },
+    "width" : 180,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "部门数据范围",
+    "codeName" : "deptdr",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "deptdr",
+    "excelCaption" : "部门数据范围",
+    "name" : "deptdr",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DR.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "DEPTDR",
+      "codeName" : "DeptDR"
+    },
+    "width" : 180,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "部门业务代码",
+    "codeName" : "deptbc",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "deptbc",
+    "excelCaption" : "部门业务代码",
+    "name" : "deptbc",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEPTBC",
+      "codeName" : "DeptBC"
+    },
+    "width" : 180,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "业务数据范围",
+    "codeName" : "bscope",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "bscope",
+    "excelCaption" : "业务数据范围",
+    "name" : "bscope",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "BSCOPE",
+      "codeName" : "BScope"
+    },
+    "width" : 200,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemname",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "permissiontype",
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTYPE",
+      "codeName" : "PermissionType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "sys_permissionname",
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "permissiontag",
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTAG",
+      "codeName" : "PermissionTag"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "entityname",
+    "getPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "isalldata",
+    "getPSAppDEField" : {
+      "name" : "ISALLDATA",
+      "codeName" : "IsAllData"
+    }
+  }, {
+    "dataType" : 1,
+    "name" : "orgdr",
+    "getPSAppDEField" : {
+      "name" : "ORGDR",
+      "codeName" : "OrgDR"
+    }
+  }, {
+    "dataType" : 1,
+    "name" : "deptdr",
+    "getPSAppDEField" : {
+      "name" : "DEPTDR",
+      "codeName" : "DeptDR"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "deptbc",
+    "getPSAppDEField" : {
+      "name" : "DEPTBC",
+      "codeName" : "DeptBC"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "bscope",
+    "getPSAppDEField" : {
+      "name" : "BSCOPE",
+      "codeName" : "BScope"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "psys_permissionid",
+    "getPSAppDEField" : {
+      "name" : "PSYS_PERMISSIONID",
+      "codeName" : "PPermissionId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "entityid",
+    "getPSAppDEField" : {
+      "name" : "ENTITYID",
+      "codeName" : "EntityId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "资源标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "f5014ab6d9567ca83d70ea179458d886",
+  "modeltype" : "PSDEGRID"
+}

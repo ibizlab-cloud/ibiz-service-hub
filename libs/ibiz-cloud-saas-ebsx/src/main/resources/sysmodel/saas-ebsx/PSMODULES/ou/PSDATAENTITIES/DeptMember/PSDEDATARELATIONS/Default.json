@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "部门成员",
+  "name" : "部门成员默认关系界面组"
+}

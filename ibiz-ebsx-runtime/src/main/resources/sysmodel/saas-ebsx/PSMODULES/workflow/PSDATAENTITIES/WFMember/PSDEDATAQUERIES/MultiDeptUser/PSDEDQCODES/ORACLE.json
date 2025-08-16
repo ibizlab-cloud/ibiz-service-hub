@@ -1,0 +1,49 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BCODE",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.ENABLE",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.GROUPCODE",
+    "name" : "GROUPCODE"
+  }, {
+    "expression" : "t1.GROUPID",
+    "name" : "GROUPID"
+  }, {
+    "expression" : "t1.GROUPNAME",
+    "name" : "GROUPNAME"
+  }, {
+    "expression" : "t1.MDEPTID",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t1.MDEPTNAME",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t1.MEMBERID",
+    "name" : "MEMBERID"
+  }, {
+    "expression" : "t1.MEMBERNAME",
+    "name" : "MEMBERNAME"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\n    t1.BCODE,\n    t1.ENABLE,\n    t1.GROUPCODE,\n    t1.GROUPID,\n    t1.GROUPNAME,\n    t1.MDEPTID,\n    t1.MDEPTNAME,\n    t1.MEMBERID,\n    t1.MEMBERNAME,\n    t1.ORGID,\n    t1.ORGNAME,\n    t1.PERSONNAME,\n    t1.SHOWORDER,\n    t1.USERID\nFROM (SELECT\n          d.BUSINESS_CATEGORY as BCODE,\n          t21.ENABLED as ENABLE,\n          t1.GROUPCODE,\n          t1.GROUPID,\n          t11.GROUPNAME,\n          t21.MDEPARTMENT_ID as MDEPTID,\n          d.DEPARTMENT_NAME  as MDEPTNAME,\n          t1.MEMBERID,\n          t1.MEMBERNAME,\n          t21.ORGANIZATION_ID as ORGID,\n          o.ORGANIZATION_NAME as ORGNAME,\n          t21.DISPLAY_NAME as PERSONNAME,\n          case when d.SORT is null then o.SORT else d.SORT end as SHOWORDER,\n          t1.USERID\n      FROM IBZWFMEMBER t1\n               LEFT JOIN IBZWFGROUP t11 ON t1.GROUPID = t11.GROUPID\n               LEFT JOIN sys_person t21 ON t1.USERID = t21.ID\n               LEFT JOIN sys_organization o ON t21.ORGANIZATION_ID = o.ID\n               LEFT JOIN sys_department d ON t21.MDEPARTMENT_ID = d.ID\n      union\n      SELECT distinct\n          d.BUSINESS_CATEGORY as BCODE,\n          t21.ENABLED as ENABLE,\n          t11.ROLETAG as GROUPCODE,\n          t11.GROUPID,\n          t11.SYS_ROLENAME as GROUPNAME,\n          t21.MDEPARTMENT_ID as MDEPTID,\n          d.DEPARTMENT_NAME  as MDEPTNAME,\n          concat(t11.GROUPID,t1.MEMBER_UID) as MEMBERID,\n          null as MEMBERNAME,\n          t21.ORGANIZATION_ID as ORGID,\n          o.ORGANIZATION_NAME as ORGNAME,\n          t21.DISPLAY_NAME as PERSONNAME,\n          case when d.SORT is null then o.SORT else d.SORT end as SHOWORDER,\n          t1.MEMBER_UID as USERID\n      FROM sys_role_member t1\n               INNER JOIN (select ROLETAG,SYS_ROLENAME,SYS_ROLEID,concat(SRFDCID,concat('-',ROLETAG)) as GROUPID from ibzrole where SRFDCID is not null and ROLETAG  not in (select GROUPCODE from ibzwfgroup)) t11\n                          ON t1.ROLE_ID = t11.SYS_ROLEID\n               LEFT JOIN sys_person t21 ON t1.MEMBER_UID = t21.ID\n               LEFT JOIN sys_organization o ON t21.ORGANIZATION_ID = o.ID\n               LEFT JOIN sys_department d ON t21.MDEPARTMENT_ID = d.ID\n      where t1.MEMBER_TYPE = 'inetOrgPerson' and t1.ROLE_ID!='ROLE_USERS' and not exists(select 1 from IBZWFMEMBER m where m.GROUPCODE=t11.ROLETAG and m.USERID= t1.MEMBER_UID)\n     ) t1\n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/ORACLE.json"
+}

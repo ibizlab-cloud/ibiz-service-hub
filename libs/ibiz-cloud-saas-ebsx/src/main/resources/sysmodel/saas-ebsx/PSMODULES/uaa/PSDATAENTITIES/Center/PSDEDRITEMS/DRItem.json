@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "租户系统实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDERS/DER1N_SYS_DC_SYSTEM_SYS_CENTER_SRFDCID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "SRFDCID",
+    "srfparentdename" : "SYS_CENTER",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_DC_SYSTEM_SYS_CENTER_SRFDCID",
+    "SRFDER1NID" : "DER1N_SYS_DC_SYSTEM_SYS_CENTER_SRFDCID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_DC_SYSTEM_SYS_CENTER_SRFDCID"
+  }
+}

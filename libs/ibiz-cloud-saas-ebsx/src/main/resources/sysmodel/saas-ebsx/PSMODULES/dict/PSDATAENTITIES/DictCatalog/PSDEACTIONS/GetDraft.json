@@ -1,0 +1,27 @@
+{
+  "actionMode" : "GETDRAFT",
+  "actionType" : "BUILTIN",
+  "codeName" : "GetDraft",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog/PSDEACTIONS/GetDraft.json",
+  "logicName" : "GetDraft",
+  "name" : "GetDraft",
+  "orderValue" : 41,
+  "getPSDEActionInput" : {
+    "name" : "GetDraftInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DictCatalogDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetDraftResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DictCatalogDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

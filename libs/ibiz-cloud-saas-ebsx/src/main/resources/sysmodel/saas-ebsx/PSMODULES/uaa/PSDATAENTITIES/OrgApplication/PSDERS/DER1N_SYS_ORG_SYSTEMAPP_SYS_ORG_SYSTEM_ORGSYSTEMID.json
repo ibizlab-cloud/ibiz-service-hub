@@ -1,0 +1,28 @@
+{
+  "codeName" : "OrgSystem",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication/PSDERS/DER1N_SYS_ORG_SYSTEMAPP_SYS_ORG_SYSTEM_ORGSYSTEMID.json",
+  "fKeyName" : "F61F86D93969F710E5",
+  "logicName" : "组织系统",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication.json"
+  },
+  "name" : "DER1N_SYS_ORG_SYSTEMAPP_SYS_ORG_SYSTEM_ORGSYSTEMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ORGSYSTEMID",
+    "codeName" : "OrgSystemId"
+  },
+  "pickupDEFName" : "ORGSYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "OrgSystem",
+  "enableFKey" : true
+}

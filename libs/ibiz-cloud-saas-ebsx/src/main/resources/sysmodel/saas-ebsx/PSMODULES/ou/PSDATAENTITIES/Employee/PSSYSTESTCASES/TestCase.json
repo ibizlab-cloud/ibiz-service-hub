@@ -1,0 +1,47 @@
+{
+  "codeName" : "TestCase",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSSYSTESTCASES/TestCase.json",
+  "name" : "测试用例1",
+  "getPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACTIONS/Create.json"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "getPSSysTestCaseAsserts" : [ {
+    "assertType" : "NOEXCEPTION",
+    "name" : "assert",
+    "getPSSysTestCaseInput" : {
+      "modelref" : true,
+      "id" : "input"
+    }
+  }, {
+    "assertType" : "CUSTOMCODE",
+    "memo" : "全局用户存在",
+    "name" : "assert2",
+    "getPSSysTestCaseInput" : {
+      "modelref" : true,
+      "id" : "input"
+    },
+    "scriptCode" : "var user = sys.filter(\"SYS_USER\").eq(\"userid\", entity.get(\"uaauserid\")).selectone(true);\nif(user == null){\n  return \"全局用户未存在\";\n}"
+  } ],
+  "getPSSysTestCaseInputs" : [ {
+    "inputType" : "DATA",
+    "name" : "input",
+    "getPSSysTestCaseAsserts" : [ {
+      "modelref" : true,
+      "id" : "assert"
+    }, {
+      "modelref" : true,
+      "id" : "assert2"
+    } ],
+    "getPSSysTestData" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSSYSTESTDATA/TestData.json"
+    }
+  } ],
+  "testCaseType" : "DEACTION",
+  "rollbackTransaction" : true
+}

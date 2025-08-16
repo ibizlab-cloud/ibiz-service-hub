@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "ExecuteTestCases",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDEACTIONS/ExecuteTestCases.json",
+  "logicName" : "执行测试用例",
+  "name" : "ExecuteTestCases",
+  "getPSDEActionInput" : {
+    "name" : "ExecuteTestCasesInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCDCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ExecuteTestCasesResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InstallBaseData",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDEACTIONS/InstallBaseData.json",
+  "logicName" : "安装基础数据",
+  "name" : "InstallBaseData",
+  "getPSDEActionInput" : {
+    "name" : "InstallBaseDataInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCDCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallBaseDataResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

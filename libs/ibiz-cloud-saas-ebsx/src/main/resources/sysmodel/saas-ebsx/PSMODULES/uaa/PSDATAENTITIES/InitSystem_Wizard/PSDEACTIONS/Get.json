@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "SYS_INITSYSTEM_WIZARDID",
+      "codeName" : "InitSystem_WizardId"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "InitSystem_WizardDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

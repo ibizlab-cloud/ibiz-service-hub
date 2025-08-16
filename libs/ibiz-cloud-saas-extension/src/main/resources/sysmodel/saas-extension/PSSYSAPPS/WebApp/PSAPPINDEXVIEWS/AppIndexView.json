@@ -1,0 +1,93 @@
+{
+  "accUserMode" : 0,
+  "appSwitchMode" : 0,
+  "caption" : "应用首页视图",
+  "codeName" : "AppIndexView",
+  "dynaModelFilePath" : "PSSYSAPPS/WebApp/PSAPPINDEXVIEWS/AppIndexView.json",
+  "name" : "AppIndexView",
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/WebApp/PSAPPMODULES/Ungroup.json"
+  },
+  "getPSControls" : [ {
+    "codeName" : "Usr1120502447Menu",
+    "controlType" : "APPMENU",
+    "layoutMode" : "TABLE_24COL",
+    "logicName" : "应用首页视图菜单",
+    "name" : "appmenu",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "导入行为",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem1",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "UsrAppFunc1121135437"
+      },
+      "getPSLayout" : {
+        "childColMD" : 24,
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "导入行为"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "导入模式管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem2",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "UsrAppFunc1121624645"
+      },
+      "getPSLayout" : {
+        "childColMD" : 24,
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "导入模式管理"
+    } ],
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "appmenu"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true
+    },
+    "modelid" : "a75c2cd86d1fa3a4e1b8a75b08c8efb8",
+    "modeltype" : "PSAPPMENU"
+  }, {
+    "caption" : "应用首页视图",
+    "codeName" : "captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSControlParam" : { }
+  } ],
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPINDEXVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "应用首页视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "APPINDEXVIEW",
+  "blankMode" : false,
+  "defaultPage" : true,
+  "enableAppSwitch" : false,
+  "enableDP" : true,
+  "modelid" : "85513d6f5caa35cd3bceab883fb0e0f8",
+  "modeltype" : "PSAPPINDEXVIEW"
+}

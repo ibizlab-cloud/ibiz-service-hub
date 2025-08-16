@@ -1,0 +1,6 @@
+package net.ibizsys.central.cloud.core.ai;
+
+public interface IAIWorkerAgentRuntimeBaseContext extends IAIAgentRuntimeBaseContext{
+
+
+}

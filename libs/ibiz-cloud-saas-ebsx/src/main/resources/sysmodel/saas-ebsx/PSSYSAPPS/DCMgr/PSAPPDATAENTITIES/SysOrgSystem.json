@@ -1,0 +1,871 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetResult",
+      "name" : "GetResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetDraftInput",
+      "name" : "GetDraftInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetDraftResult",
+      "name" : "GetDraftResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "Memo",
+    "logicName" : "备注",
+    "name" : "MEMO",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "OrgSystemId",
+    "logicName" : "组织系统标识",
+    "name" : "ORGSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "IsValid",
+    "logicName" : "启用标志",
+    "name" : "ISVALID",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "OrgSystemName",
+    "logicName" : "组织系统名称",
+    "name" : "ORGSYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "DCSystemId",
+    "logicName" : "租户系统标识",
+    "name" : "DCSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgId",
+    "logicName" : "单位标识",
+    "name" : "ORGID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgName",
+    "logicName" : "组织名称",
+    "name" : "ORGNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "DCSystemName",
+    "logicName" : "系统",
+    "name" : "DCSYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "DynaInstId",
+    "logicName" : "动态实例标识",
+    "name" : "DYNAINSTID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "DynaInstName",
+    "logicName" : "动态实例名称",
+    "name" : "DYNAINSTNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "DCOrgSystemDTO",
+    "name" : "DCOrgSystemDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "Memo",
+      "logicName" : "备注",
+      "name" : "Memo",
+      "getPSAppDEField" : {
+        "name" : "MEMO",
+        "codeName" : "Memo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "DCSystemId",
+      "logicName" : "租户系统标识",
+      "name" : "DCSystemId",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DCSystemName",
+      "logicName" : "系统",
+      "name" : "DCSystemName",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DynaInstId",
+      "logicName" : "动态实例标识",
+      "name" : "DynaInstId",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTID",
+        "codeName" : "DynaInstId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DynaInstName",
+      "logicName" : "动态实例名称",
+      "name" : "DynaInstName",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTNAME",
+        "codeName" : "DynaInstName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsValid",
+      "logicName" : "启用标志",
+      "name" : "IsValid",
+      "getPSAppDEField" : {
+        "name" : "ISVALID",
+        "codeName" : "IsValid"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgId",
+      "logicName" : "单位标识",
+      "name" : "OrgId",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgName",
+      "logicName" : "组织名称",
+      "name" : "OrgName",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgSystemId",
+      "logicName" : "组织系统标识",
+      "name" : "OrgSystemId",
+      "getPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "OrgSystemName",
+      "logicName" : "组织系统名称",
+      "name" : "OrgSystemName",
+      "getPSAppDEField" : {
+        "name" : "ORGSYSTEMNAME",
+        "codeName" : "OrgSystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "DCOrgSystemFilterDTO",
+    "name" : "DCOrgSystemFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_DCSYSTEMID_EQ",
+      "logicName" : "租户系统标识",
+      "name" : "N_DCSYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_EQ",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_LIKE",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DYNAINSTID_EQ",
+      "logicName" : "动态实例标识",
+      "name" : "N_DYNAINSTID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTID",
+        "codeName" : "DynaInstId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DYNAINSTNAME_EQ",
+      "logicName" : "动态实例名称",
+      "name" : "N_DYNAINSTNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTNAME",
+        "codeName" : "DynaInstName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DYNAINSTNAME_LIKE",
+      "logicName" : "动态实例名称",
+      "name" : "N_DYNAINSTNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTNAME",
+        "codeName" : "DynaInstName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_EQ",
+      "logicName" : "单位标识",
+      "name" : "N_ORGID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_EQ",
+      "logicName" : "组织名称",
+      "name" : "N_ORGNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_LIKE",
+      "logicName" : "组织名称",
+      "name" : "N_ORGNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGSYSTEMID_EQ",
+      "logicName" : "组织系统标识",
+      "name" : "N_ORGSYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGSYSTEMNAME_LIKE",
+      "logicName" : "组织系统名称",
+      "name" : "N_ORGSYSTEMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGSYSTEMNAME",
+        "codeName" : "OrgSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetResult",
+      "name" : "GetResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "GetDraftInput",
+      "name" : "GetDraftInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "GetDraftResult",
+      "name" : "GetDraftResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCOrgSystemDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysOrgSystem",
+  "dEAPICodeName" : "sysorgsystem",
+  "dEAPICodeName2" : "sysorgsystems",
+  "dEAPITag" : "DC_ORG_SYSTEM",
+  "dECodeName" : "DCOrgSystem",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrgSystem.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "ORGSYSTEMID",
+    "codeName" : "OrgSystemId"
+  },
+  "logicName" : "组织系统",
+  "getMajorPSAppDEField" : {
+    "name" : "ORGSYSTEMNAME",
+    "codeName" : "OrgSystemName"
+  },
+  "getMinorPSAppDERSs" : [ {
+    "actionRSMode" : 1,
+    "codeName" : "SysOrgSystems",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "SysDCSystem",
+    "majorDEName" : "DC_DC_SYSTEM",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "minorDECodeName" : "SysOrgSystem",
+    "minorDEName" : "DC_ORG_SYSTEM",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrgSystem.json"
+    },
+    "name" : "DER1N_DC_ORG_SYSTEM_DC_DC_SYSTEM_DCSYSTEMID",
+    "getParentPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    },
+    "rSMode" : 2
+  } ],
+  "name" : "DC_ORG_SYSTEM",
+  "getOrgIdPSAppDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getPSDEName" : "DC_ORG_SYSTEM",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "ORGSYSTEMNAME",
+    "codeName" : "OrgSystemName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json"
+  }
+}

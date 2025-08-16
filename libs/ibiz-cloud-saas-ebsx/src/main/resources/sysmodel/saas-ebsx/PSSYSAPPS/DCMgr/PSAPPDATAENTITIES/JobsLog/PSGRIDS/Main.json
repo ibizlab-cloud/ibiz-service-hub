@@ -1,0 +1,270 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsLog/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsLog.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "处理器",
+    "codeName" : "handler",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "handler",
+    "excelCaption" : "处理器",
+    "name" : "handler",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "执行地址",
+    "codeName" : "address",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "address",
+    "excelCaption" : "执行地址",
+    "name" : "address",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ADDRESS",
+      "codeName" : "Address"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "触发器调度类型",
+    "codeName" : "trigger_type",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "trigger_type",
+    "excelCaption" : "触发器调度类型",
+    "name" : "trigger_type",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_TYPE",
+      "codeName" : "TriggerType"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "触发器调度返回码",
+    "codeName" : "trigger_code",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "trigger_code",
+    "excelCaption" : "触发器调度返回码",
+    "name" : "trigger_code",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_CODE",
+      "codeName" : "TriggerCode"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "触发器调度信息",
+    "codeName" : "trigger_msg",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "trigger_msg",
+    "excelCaption" : "触发器调度信息",
+    "name" : "trigger_msg",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_MSG",
+      "codeName" : "TriggerMsg"
+    },
+    "width" : 200,
+    "widthUnit" : "STAR",
+    "enableSort" : false
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "失败重试次数",
+    "codeName" : "fail_retry_count",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "fail_retry_count",
+    "excelCaption" : "失败重试次数",
+    "name" : "fail_retry_count",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "FAIL_RETRY_COUNT",
+      "codeName" : "FailRetryCount"
+    },
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "执行时间",
+    "codeName" : "create_time",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "create_time",
+    "excelCaption" : "执行时间",
+    "name" : "create_time",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREATE_TIME",
+      "codeName" : "CreateTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "handler",
+    "getPSAppDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "address",
+    "getPSAppDEField" : {
+      "name" : "ADDRESS",
+      "codeName" : "Address"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "trigger_type",
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_TYPE",
+      "codeName" : "TriggerType"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "trigger_code",
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_CODE",
+      "codeName" : "TriggerCode"
+    }
+  }, {
+    "dataType" : 21,
+    "name" : "trigger_msg",
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_MSG",
+      "codeName" : "TriggerMsg"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "fail_retry_count",
+    "getPSAppDEField" : {
+      "name" : "FAIL_RETRY_COUNT",
+      "codeName" : "FailRetryCount"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "create_time",
+    "getPSAppDEField" : {
+      "name" : "CREATE_TIME",
+      "codeName" : "CreateTime"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "job_id",
+    "getPSAppDEField" : {
+      "name" : "JOB_ID",
+      "codeName" : "JobId"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "主键ID",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsLog.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "c93e0d2ade8cf88bd4d1d12863633f3b",
+  "modeltype" : "PSDEGRID"
+}

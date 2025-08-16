@@ -1,0 +1,25 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/ImportSchemaType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/import_schema_owner_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/importStage.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json"
+  } ],
+  "codeName" : "DataImport",
+  "dynaModelFilePath" : "PSMODULES/DataImport.json",
+  "name" : "导入"
+}

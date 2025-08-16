@@ -1,0 +1,25 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "mark_all_read",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/mark_all_read.json",
+  "logicName" : "全部已读",
+  "name" : "mark_all_read",
+  "getPSDEActionInput" : {
+    "name" : "Mark_all_readInput",
+    "type" : "NONE"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Mark_all_readResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDELOGICS/mark_all_read.json"
+  },
+  "paramMode" : 99,
+  "customParam" : true,
+  "enableFront" : false
+}

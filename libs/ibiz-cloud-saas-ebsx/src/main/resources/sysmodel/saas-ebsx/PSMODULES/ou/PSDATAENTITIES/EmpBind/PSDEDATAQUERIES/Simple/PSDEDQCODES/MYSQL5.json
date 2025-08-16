@@ -1,0 +1,22 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`DDUSERID`",
+    "name" : "DDUSERID"
+  }, {
+    "expression" : "t1.`UAAUSERID`",
+    "name" : "UAAUSERID"
+  }, {
+    "expression" : "t1.`WXWORKID`",
+    "name" : "WXWORKID"
+  }, {
+    "expression" : "t1.`PERSONNAME`",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.`USERID`",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.`PERSONNAME`,\nt1.`USERID`\nFROM `IBZEMP` t1 \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/EmpBind/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

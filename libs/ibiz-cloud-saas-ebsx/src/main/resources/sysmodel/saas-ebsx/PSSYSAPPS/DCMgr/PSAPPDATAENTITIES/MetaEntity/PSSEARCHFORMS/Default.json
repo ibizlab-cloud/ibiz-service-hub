@@ -1,0 +1,260 @@
+{
+  "codeName" : "Default",
+  "controlType" : "SEARCHFORM",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaEntity/PSSEARCHFORMS/Default.json",
+  "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+  "logicName" : "默认搜索表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaEntity.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SEARCH;LOAD;SAVE",
+    "logicTag" : "searchform",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_searchform",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "n_logicname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "LOGICNAME",
+      "codeName" : "LogicName"
+    }
+  }, {
+    "id" : "n_entityname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    }
+  }, {
+    "id" : "n_codename_eq",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CODENAME",
+      "codeName" : "CodeName"
+    }
+  }, {
+    "id" : "n_tablename_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "TABLENAME",
+      "codeName" : "TableName"
+    }
+  }, {
+    "id" : "n_dsname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DSNAME",
+      "codeName" : "DSName"
+    }
+  }, {
+    "id" : "n_systemid_eq",
+    "hidden" : true,
+    "dataType" : 25,
+    "createDVT" : "SESSION",
+    "createDV" : "dstsystemid",
+    "updateDVT" : "SESSION",
+    "updateDV" : "dstsystemid",
+    "getPSAppDEField" : {
+      "name" : "SYSTEMID",
+      "codeName" : "SystemId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "常规条件",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "逻辑名称(文本包含(%))",
+      "codeName" : "n_logicname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_logicname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "LOGICNAME",
+        "codeName" : "LogicName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_logicname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "实体名(文本包含(%))",
+      "codeName" : "n_entityname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_entityname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_entityname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "代码名称(=)",
+      "codeName" : "n_codename_eq",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_codename_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "CODENAME",
+        "codeName" : "CodeName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_codename_eq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "表名称(文本包含(%))",
+      "codeName" : "n_tablename_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_tablename_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "TABLENAME",
+        "codeName" : "TableName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_tablename_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "数据源(文本包含(%))",
+      "codeName" : "n_dsname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_dsname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DSNAME",
+        "codeName" : "DSName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_dsname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "系统标识(等于(=))",
+      "codeName" : "n_systemid_eq",
+      "createDV" : "dstsystemid",
+      "createDVT" : "SESSION",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "TOP",
+      "labelWidth" : 130,
+      "name" : "n_systemid_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "n_systemid_eq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "updateDV" : "dstsystemid",
+      "updateDVT" : "SESSION",
+      "allowEmpty" : true,
+      "hidden" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "searchButtonStyle" : "DEFAULT",
+  "tabHeaderPos" : "TOP",
+  "enableAdvanceSearch" : false,
+  "enableAutoSearch" : false,
+  "enableFilterSave" : false,
+  "noTabHeader" : true,
+  "modelid" : "c9450d600f3cf83afffd19a71877ee02",
+  "modeltype" : "PSDEFORM_SEARCHFORM"
+}

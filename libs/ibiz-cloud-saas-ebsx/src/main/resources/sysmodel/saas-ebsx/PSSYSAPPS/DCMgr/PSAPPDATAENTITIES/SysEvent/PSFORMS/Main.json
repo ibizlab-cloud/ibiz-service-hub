@@ -1,0 +1,346 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEvent/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEvent.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYSEVENTID",
+      "codeName" : "SysEventId"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYSEVENTNAME",
+      "codeName" : "SysEventName"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "dcsystemname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "id" : "syseventname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYSEVENTNAME",
+      "codeName" : "SysEventName"
+    }
+  }, {
+    "id" : "oppersonid",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "OPPERSONID",
+      "codeName" : "OPPersonId"
+    }
+  }, {
+    "id" : "loglevel",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "LOGLEVEL",
+      "codeName" : "LogLevel"
+    }
+  }, {
+    "id" : "eventcat",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "EVENTCAT",
+      "codeName" : "EventCat"
+    }
+  }, {
+    "id" : "eventinfo",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "EVENTINFO",
+      "codeName" : "EventInfo"
+    }
+  }, {
+    "id" : "syseventid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYSEVENTID",
+      "codeName" : "SysEventId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "租户事件基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "系统",
+        "codeName" : "dcsystemname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "dcsystemname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DCSYSTEMNAME",
+          "codeName" : "DCSystemName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "dcsystemname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "事件名称",
+        "codeName" : "syseventname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "syseventname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYSEVENTNAME",
+          "codeName" : "SysEventName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "syseventname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "操作人",
+        "codeName" : "oppersonid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "oppersonid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "OPPERSONID",
+          "codeName" : "OPPersonId"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "oppersonid",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "日志级别",
+        "codeName" : "loglevel",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 3,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "loglevel",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "LOGLEVEL",
+          "codeName" : "LogLevel"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "loglevel",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList32.json"
+          },
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "convertToCodeItemText" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "事件类别",
+        "codeName" : "eventcat",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "eventcat",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "EVENTCAT",
+          "codeName" : "EventCat"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "eventcat",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "详细信息",
+        "codeName" : "eventinfo",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "eventinfo",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "EVENTINFO",
+          "codeName" : "EventInfo"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "eventinfo",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : true,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : true
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "infoFormMode" : true,
+  "noTabHeader" : true,
+  "modelid" : "78dcc06f89d0b7e9e7193f4b8847917d",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

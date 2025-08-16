@@ -1,0 +1,84 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.ENABLE = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BCODE",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.DDDEPTID",
+    "name" : "DDDEPTID"
+  }, {
+    "expression" : "t1.DEPTCODE",
+    "name" : "DEPTCODE"
+  }, {
+    "expression" : "t1.DEPTFULLNAME",
+    "name" : "DEPTFULLNAME"
+  }, {
+    "expression" : "t1.DEPTID",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.DEPTLEADER",
+    "name" : "DEPTLEADER"
+  }, {
+    "expression" : "t1.DEPTLEADERID",
+    "name" : "DEPTLEADERID"
+  }, {
+    "expression" : "t1.DEPTLEVEL",
+    "name" : "DEPTLEVEL"
+  }, {
+    "expression" : "t1.DEPTNAME",
+    "name" : "DEPTNAME"
+  }, {
+    "expression" : "t1.DOMAINS",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.ENABLE",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.LEADERID",
+    "name" : "LEADERID"
+  }, {
+    "expression" : "t1.LEADERNAME",
+    "name" : "LEADERNAME"
+  }, {
+    "expression" : "t11.ORGCODE",
+    "name" : "ORGCODE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t11.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PDEPTID",
+    "name" : "PDEPTID"
+  }, {
+    "expression" : "t21.DEPTNAME",
+    "name" : "PDEPTNAME"
+  }, {
+    "expression" : "t1.SHORTNAME",
+    "name" : "SHORTNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.WXWORKDEPTID",
+    "name" : "WXWORKDEPTID"
+  } ],
+  "queryCode" : "SELECT\nt1.BCODE,\nt1.CREATEDATE,\nt1.DDDEPTID,\nt1.DEPTCODE,\nt1.DEPTFULLNAME,\nt1.DEPTID,\nt1.DEPTLEADER,\nt1.DEPTLEADERID,\nt1.DEPTLEVEL,\nt1.DEPTNAME,\nt1.DOMAINS,\nt1.ENABLE,\nt1.ISVALID,\nt1.LEADERID,\nt1.LEADERNAME,\nt11.ORGCODE,\nt1.ORGID,\nt11.ORGNAME,\nt1.PDEPTID,\nt21.DEPTNAME AS PDEPTNAME,\nt1.SHORTNAME,\nt1.SHOWORDER,\nt1.UPDATEDATE,\nt1.WXWORKDEPTID\nFROM IBZDEPT t1 \nLEFT JOIN IBZORG t11 ON t1.ORGID = t11.ORGID \nLEFT JOIN IBZDEPT t21 ON t1.PDEPTID = t21.DEPTID \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEDATAQUERIES/LeaderDept/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,21 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "codeName" : "Save",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstComponent/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DstComponentDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

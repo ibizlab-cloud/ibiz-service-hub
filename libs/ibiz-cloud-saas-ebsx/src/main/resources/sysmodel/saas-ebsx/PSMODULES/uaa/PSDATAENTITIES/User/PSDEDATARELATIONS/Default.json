@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "ERROR.STD.1"
+  },
+  "formCaption" : "系统用户",
+  "name" : "用户表默认关系界面组"
+}

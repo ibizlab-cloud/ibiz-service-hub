@@ -1,0 +1,21 @@
+{
+  "codeListTag" : "lite__DynamicModelStatus",
+  "codeListType" : "STATIC",
+  "codeName" : "DynamicModelStatus",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/DynamicModelStatus.json",
+  "emptyText" : "未定义",
+  "name" : "动态模型导入状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_0",
+    "color" : "rgba(245, 158, 18, 1)",
+    "text" : "未激活",
+    "value" : "0"
+  }, {
+    "codeName" : "Item_1",
+    "color" : "rgba(100, 235, 22, 1)",
+    "text" : "已激活",
+    "value" : "1"
+  } ],
+  "enableCache" : true
+}

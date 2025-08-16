@@ -1,0 +1,310 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPO/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "CREATEDATE",
+    "codeName" : "CreateDate"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPO.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统",
+    "codeName" : "dcsystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dcsystemname",
+    "excelCaption" : "系统",
+    "name" : "dcsystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "性能记录名称",
+    "codeName" : "sysponame",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "sysponame",
+    "excelCaption" : "性能记录名称",
+    "name" : "sysponame",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SYSPONAME",
+      "codeName" : "SysPOName"
+    },
+    "width" : 150,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "日志级别",
+    "codeName" : "loglevel",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "loglevel",
+    "excelCaption" : "日志级别",
+    "name" : "loglevel",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList32.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "LOGLEVEL",
+      "codeName" : "LogLevel"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "性能记录类别",
+    "codeName" : "pocat",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pocat",
+    "excelCaption" : "性能记录类别",
+    "name" : "pocat",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "POCAT",
+      "codeName" : "POCat"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "实体",
+    "codeName" : "dename",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dename",
+    "excelCaption" : "实体",
+    "name" : "dename",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DENAME",
+      "codeName" : "DEName"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "操作",
+    "codeName" : "action",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "action",
+    "excelCaption" : "操作",
+    "name" : "action",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ACTION",
+      "codeName" : "Action"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "执行时间（ms）",
+    "codeName" : "time",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "time",
+    "excelCaption" : "执行时间（ms）",
+    "name" : "time",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TIME",
+      "codeName" : "Time"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "记录时间",
+    "codeName" : "createdate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "createdate",
+    "excelCaption" : "记录时间",
+    "name" : "createdate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemname",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "sysponame",
+    "getPSAppDEField" : {
+      "name" : "SYSPONAME",
+      "codeName" : "SysPOName"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "loglevel",
+    "getPSAppDEField" : {
+      "name" : "LOGLEVEL",
+      "codeName" : "LogLevel"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "pocat",
+    "getPSAppDEField" : {
+      "name" : "POCAT",
+      "codeName" : "POCat"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "dename",
+    "getPSAppDEField" : {
+      "name" : "DENAME",
+      "codeName" : "DEName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "action",
+    "getPSAppDEField" : {
+      "name" : "ACTION",
+      "codeName" : "Action"
+    }
+  }, {
+    "dataType" : 1,
+    "name" : "time",
+    "getPSAppDEField" : {
+      "name" : "TIME",
+      "codeName" : "Time"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "createdate",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "SYSPOID",
+      "codeName" : "SysPOId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "SYSPOID",
+      "codeName" : "SysPOId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "SYSPONAME",
+      "codeName" : "SysPOName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "优化标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "SYSPOID",
+      "codeName" : "SysPOId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPO.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "d56c37c5c26c56c1573e3d78f02db6a1",
+  "modeltype" : "PSDEGRID"
+}

@@ -1,0 +1,454 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysRolePermission/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysRolePermission.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_ROLE_PERMISSIONID",
+      "codeName" : "RolePermissionId"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "sys_rolename",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_ROLENAME",
+      "codeName" : "RoleName"
+    }
+  }, {
+    "id" : "sys_permissionname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    }
+  }, {
+    "id" : "isvalid",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISVALID",
+      "codeName" : "IsValid"
+    }
+  }, {
+    "id" : "sys_permissionid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    }
+  }, {
+    "id" : "sys_roleid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_ROLEID",
+      "codeName" : "RoleId"
+    }
+  }, {
+    "id" : "entityname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    }
+  }, {
+    "id" : "permissiontype",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PERMISSIONTYPE",
+      "codeName" : "PermissionType"
+    }
+  }, {
+    "id" : "sys_role_permissionid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SYS_ROLE_PERMISSIONID",
+      "codeName" : "RolePermissionId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "COMMON.DPPAGE.OTHER"
+    },
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "PAGE.COMMON.PICKUPVIEW.OKBTN.TEXT"
+      },
+      "caption" : "角色权限关系表基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "角色名称",
+        "codeName" : "sys_rolename",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "sys_rolename",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYS_ROLENAME",
+          "codeName" : "RoleName"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "AC" : "TRUE",
+            "PICKUPVIEW" : "TRUE"
+          },
+          "editorType" : "PICKER",
+          "handlerType" : "PickupText",
+          "name" : "sys_rolename",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "FetchDefault"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysRole.json"
+          },
+          "getPSEditorItems" : [ {
+            "name" : "sys_roleid"
+          } ],
+          "getPickupPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RolePickupView.json",
+            "viewType" : "DEPICKUPVIEW"
+          },
+          "valueItemName" : "sys_roleid",
+          "enableAC" : true,
+          "enablePickupView" : true,
+          "forceSelection" : true,
+          "showTrigger" : true,
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "valueItemName" : "sys_roleid",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "权限名称",
+        "codeName" : "sys_permissionname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "sys_permissionname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYS_PERMISSIONNAME",
+          "codeName" : "PermissionName"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "AC" : "TRUE",
+            "PICKUPVIEW" : "TRUE"
+          },
+          "editorType" : "PICKER",
+          "handlerType" : "PickupText",
+          "name" : "sys_permissionname",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "FetchDefault"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json"
+          },
+          "getPSEditorItems" : [ {
+            "name" : "sys_permissionid"
+          } ],
+          "getPickupPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionPickupView.json",
+            "viewType" : "DEPICKUPVIEW"
+          },
+          "valueItemName" : "sys_permissionid",
+          "enableAC" : true,
+          "enablePickupView" : true,
+          "forceSelection" : true,
+          "showTrigger" : true,
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "valueItemName" : "sys_permissionid",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "启用标志",
+        "codeName" : "isvalid",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "isvalid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ISVALID",
+          "codeName" : "IsValid"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "isvalid",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "权限表标识",
+        "codeName" : "sys_permissionid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "sys_permissionid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYS_PERMISSIONID",
+          "codeName" : "PermissionId"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "sys_permissionid"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      }, {
+        "caption" : "角色表标识",
+        "codeName" : "sys_roleid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "sys_roleid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SYS_ROLEID",
+          "codeName" : "RoleId"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "sys_roleid"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      }, {
+        "caption" : "实体名",
+        "codeName" : "entityname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "entityname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ENTITYNAME",
+          "codeName" : "EntityName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "entityname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "权限类型",
+        "codeName" : "permissiontype",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 3,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "permissiontype",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PERMISSIONTYPE",
+          "codeName" : "PermissionType"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "permissiontype",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/PermissionType.json"
+          },
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "convertToCodeItemText" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : true,
+  "modelid" : "23fac320d6a48ee04e3c5d10aaf4fedb",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

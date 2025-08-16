@@ -1,0 +1,52 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CONF",
+    "name" : "CONF"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.DSLINK",
+    "name" : "DSLINK"
+  }, {
+    "expression" : "t1.DYNAINSTID",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.REPORTCODE",
+    "name" : "REPORTCODE"
+  }, {
+    "expression" : "t1.REPORTID",
+    "name" : "REPORTID"
+  }, {
+    "expression" : "t1.REPORTNAME",
+    "name" : "REPORTNAME"
+  }, {
+    "expression" : "t1.REPORTTYPE",
+    "name" : "REPORTTYPE"
+  }, {
+    "expression" : "t1.RESOURCEID",
+    "name" : "RESOURCEID"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt1.DCSYSTEMNAME,\nt1.DSLINK,\nt1.DYNAINSTID,\nt1.REPORTCODE,\nt1.REPORTID,\nt1.REPORTNAME,\nt1.REPORTTYPE,\nt1.RESOURCEID,\nt1.SYSTEMID,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZREPORT t1 \n",
+  "id" : "PSMODULES/rep/PSDATAENTITIES/Report/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

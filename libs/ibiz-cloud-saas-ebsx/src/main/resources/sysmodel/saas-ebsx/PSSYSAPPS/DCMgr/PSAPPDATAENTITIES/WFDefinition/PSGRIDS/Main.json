@@ -1,0 +1,255 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFDefinition/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "CREATEDATE",
+    "codeName" : "CreateDate"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFDefinition.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "流程名称",
+    "codeName" : "definitionname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "definitionname",
+    "excelCaption" : "流程名称",
+    "name" : "definitionname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "DefinitionName"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "流程标识",
+    "codeName" : "definitionkey",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "definitionkey",
+    "excelCaption" : "流程标识",
+    "name" : "definitionkey",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    },
+    "width" : 250,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统标识",
+    "codeName" : "pssystemid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pssystemid",
+    "excelCaption" : "系统标识",
+    "name" : "pssystemid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "模型版本",
+    "codeName" : "modelversion",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "modelversion",
+    "excelCaption" : "模型版本",
+    "name" : "modelversion",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MODELVERSION",
+      "codeName" : "ModelVersion"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "模型是否启用",
+    "codeName" : "modelenable",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "modelenable",
+    "excelCaption" : "模型是否启用",
+    "name" : "modelenable",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "MODELENABLE",
+      "codeName" : "ModelEnable"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "上传时间",
+    "codeName" : "createdate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "createdate",
+    "excelCaption" : "上传时间",
+    "name" : "createdate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 180,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "definitionname",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "DefinitionName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "definitionkey",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "pssystemid",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "modelversion",
+    "getPSAppDEField" : {
+      "name" : "MODELVERSION",
+      "codeName" : "ModelVersion"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "modelenable",
+    "getPSAppDEField" : {
+      "name" : "MODELENABLE",
+      "codeName" : "ModelEnable"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "createdate",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "DefinitionName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "流程标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFDefinition.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "72c6b0c632bfa6ce46ea37bdc41913f5",
+  "modeltype" : "PSDEGRID"
+}

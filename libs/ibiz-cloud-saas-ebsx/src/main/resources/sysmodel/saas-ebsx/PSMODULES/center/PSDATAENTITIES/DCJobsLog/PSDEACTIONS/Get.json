@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCJobsLogDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

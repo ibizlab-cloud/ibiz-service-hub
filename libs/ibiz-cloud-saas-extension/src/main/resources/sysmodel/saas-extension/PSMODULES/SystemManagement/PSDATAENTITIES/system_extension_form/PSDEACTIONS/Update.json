@@ -1,0 +1,26 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Update",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form/PSDEACTIONS/Update.json",
+  "logicName" : "Update",
+  "name" : "Update",
+  "orderValue" : 11,
+  "getPSDEActionInput" : {
+    "name" : "UpdateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "system_extension_formDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpdateResult",
+    "type" : "VOID"
+  },
+  "prepareLastMode" : 2,
+  "builtinAction" : true,
+  "prepareLast" : true
+}

@@ -1,0 +1,313 @@
+{
+  "cardHeight" : 143,
+  "cardWidth" : 270,
+  "codeName" : "Portal",
+  "controlType" : "DATAVIEW",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem/PSDATAVIEWS/Portal.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "getItemPSLayoutPanel" : {
+    "getAllPSPanelFields" : [ {
+      "id" : "dcsystemid",
+      "hidden" : true,
+      "viewFieldName" : "DCSYSTEMID"
+    }, {
+      "id" : "systemname",
+      "viewFieldName" : "SYSTEMNAME"
+    }, {
+      "id" : "createdate",
+      "viewFieldName" : "CREATEDATE"
+    } ],
+    "codeName" : "Portal",
+    "controlType" : "PANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem/PSPANELS/Portal.json",
+    "layoutMode" : "TABLE_24COL",
+    "logicName" : "门户展示卡片项布局面板",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSAppViewLogics" : [ {
+      "logicTrigger" : "CUSTOM",
+      "logicType" : "APPVIEWUIACTION",
+      "name" : "itemlayoutpanel_button1_click",
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "itemlayoutpanel_button1"
+      }
+    } ],
+    "getPSAppViewUIActions" : [ {
+      "name" : "itemlayoutpanel_button1",
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+        },
+        "modelref" : true,
+        "id" : "OpenSettingView@SysDCSystem"
+      },
+      "uIActionTarget" : "SINGLEKEY",
+      "xDataControlName" : "itemlayoutpanel"
+    } ],
+    "getPSControlParam" : { },
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "getRootPSPanelItems" : [ {
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "container1",
+      "getPSLayout" : {
+        "dir" : "column",
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSPanelItems" : [ {
+        "itemType" : "FIELD",
+        "name" : "dcsystemid",
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "dcsystemid"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "viewFieldName" : "DCSYSTEMID",
+        "hidden" : true
+      }, {
+        "itemStyle" : "DEFAULT",
+        "itemType" : "FIELD",
+        "name" : "systemname",
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "systemname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "viewFieldName" : "SYSTEMNAME"
+      }, {
+        "contentHeight" : 80.0,
+        "height" : 80.0,
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container2",
+        "getPSLayout" : {
+          "align" : "flex-end",
+          "layout" : "FLEX",
+          "vAlign" : "center"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "height" : 80,
+          "heightMode" : "PX",
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "激活时间",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "createdate",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "createdate",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "CREATEDATE"
+        }, {
+          "actionType" : "UIACTION",
+          "buttonStyle" : "DEFAULT",
+          "caption" : "管理",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "BUTTON",
+          "name" : "button1",
+          "getPSAppViewUIAction" : {
+            "modelref" : true,
+            "id" : "itemlayoutpanel_button1"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf0ad@FontAwesome",
+            "cssClass" : "fa fa-wrench"
+          },
+          "getPSUIAction" : {
+            "actionTarget" : "SINGLEKEY",
+            "caption" : "管理",
+            "codeName" : "OpenSettingView",
+            "getFrontPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemEditView.json",
+              "viewType" : "DEEDITVIEW"
+            },
+            "frontProcessType" : "WIZARD",
+            "fullCodeName" : "SysDCSystem_OpenSettingView",
+            "name" : "打开服务管理视图",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf0ad@FontAwesome",
+              "cssClass" : "fa fa-wrench"
+            },
+            "uIActionMode" : "FRONT",
+            "uIActionTag" : "OpenSettingView",
+            "uIActionType" : "DEUIACTION",
+            "id" : "OpenSettingView@SysDCSystem"
+          },
+          "tooltip" : "管理",
+          "uIActionTarget" : "SINGLEKEY",
+          "showCaption" : true
+        } ]
+      } ]
+    } ],
+    "name" : "itemlayoutpanel",
+    "modelid" : "8cab4721a6b43086e90ef4c0ba0d1350",
+    "modeltype" : "PSSYSVIEWPANEL"
+  },
+  "logicName" : "门户展示卡片",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "dataview",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_dataview",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEDataViewDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 5,
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "name" : "createdate",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "systemname",
+    "getPSAppDEField" : {
+      "name" : "SYSTEMNAME",
+      "codeName" : "SystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "systemid",
+    "getPSAppDEField" : {
+      "name" : "SYSTEMID",
+      "codeName" : "SystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "accessid",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    }
+  } ],
+  "getPSDEDataViewItems" : [ {
+    "caption" : "租户系统标识",
+    "dataItemName" : "dcsystemid",
+    "itemType" : "DATAITEM",
+    "name" : "DCSYSTEMID",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    },
+    "enableSort" : false
+  }, {
+    "caption" : "建立时间",
+    "dataItemName" : "createdate",
+    "itemType" : "DATAITEM",
+    "name" : "CREATEDATE",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "enableSort" : false
+  }, {
+    "caption" : "系统名称",
+    "dataItemName" : "systemname",
+    "itemType" : "DATAITEM",
+    "name" : "SYSTEMNAME",
+    "getPSAppDEField" : {
+      "name" : "SYSTEMNAME",
+      "codeName" : "SystemName"
+    },
+    "enableSort" : false
+  } ],
+  "pagingSize" : 1000,
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "hasWFDataItems" : false,
+  "appendDEItems" : true,
+  "enableCardEdit" : false,
+  "enableCardEditGroup" : false,
+  "enableCardEditOrder" : false,
+  "enableCardNew" : false,
+  "enableGroup" : false,
+  "enablePagingBar" : false,
+  "noSort" : true,
+  "singleSelect" : false,
+  "modelid" : "8cab4721a6b43086e90ef4c0ba0d1350",
+  "modeltype" : "PSDEDATAVIEW"
+}

@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFInstanceDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

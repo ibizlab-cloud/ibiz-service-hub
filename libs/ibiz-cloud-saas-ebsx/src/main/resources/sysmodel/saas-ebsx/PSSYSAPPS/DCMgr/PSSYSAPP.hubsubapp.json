@@ -1,0 +1,645 @@
+{
+  "name" : "iBizCloud后台管理",
+  "getAllPSAppDEUIActionGroups" : [ {
+    "codeName" : "Auto1",
+    "name" : "发布动态模型",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "发布模型",
+      "detailType" : "DEUIACTION",
+      "name" : "ue59b944",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "发布模型",
+        "codeName" : "publish",
+        "fullCodeName" : "MetaDynaModel_publish",
+        "name" : "发布动态模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Publish"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+        },
+        "refreshMode" : 1,
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "publish",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "reloadData" : true,
+        "id" : "publish@MetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "同步模型",
+      "detailType" : "DEUIACTION",
+      "name" : "ub46e553",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "同步模型",
+        "codeName" : "syncModel",
+        "fullCodeName" : "MetaDynaModel_syncModel",
+        "name" : "同步模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "SyncModel"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+        },
+        "successMsg" : "同步模型成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "syncModel",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "syncModel@MetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "MetaDynaModel__Auto1"
+  }, {
+    "codeName" : "Auto5",
+    "name" : "同步数据界面组",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "同步数据",
+      "detailType" : "DEUIACTION",
+      "name" : "ub2dd13b",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "同步数据",
+        "codeName" : "SyncData",
+        "fullCodeName" : "OpenAccess_SyncData",
+        "name" : "同步数据",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "SyncData"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+        },
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "SyncData",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "SyncData@OpenAccess"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "OpenAccess__Auto5"
+  }, {
+    "codeName" : "Aea4228d0b0c2525c4b",
+    "name" : "流程跳转_重启流程",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "流程跳转",
+      "detailType" : "DEUIACTION",
+      "name" : "ua0b499b",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "流程跳转",
+        "codeName" : "jump",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFInstanceOptionView.json",
+          "viewType" : "DEOPTVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "WFInstance_jump",
+        "name" : "流程跳转",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+        },
+        "refreshMode" : 1,
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "jump",
+        "uIActionType" : "DEUIACTION",
+        "reloadData" : true,
+        "id" : "jump@WFInstance"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "取消流程",
+      "detailType" : "DEUIACTION",
+      "name" : "u7f6e55a",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "取消流程",
+        "codeName" : "cancel",
+        "confirmMsg" : "是否确认取消流程？",
+        "fullCodeName" : "WFInstance_cancel",
+        "name" : "取消流程",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Cancel"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+        },
+        "refreshMode" : 1,
+        "successMsg" : "操作成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "cancel",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "reloadData" : true,
+        "id" : "cancel@WFInstance"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "WFInstance__Aea4228d0b0c2525c4b"
+  }, {
+    "codeName" : "Auto8",
+    "name" : "发送",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "发送",
+      "detailType" : "DEUIACTION",
+      "name" : "u5998abf",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "发送",
+        "codeName" : "Send",
+        "confirmMsg" : "确认发送该消息？",
+        "fullCodeName" : "MsgSendQueue_Send",
+        "name" : "发送",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Send"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf1d8@FontAwesome",
+          "cssClass" : "fa fa-send"
+        },
+        "refreshMode" : 1,
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "Send",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "reloadData" : true,
+        "id" : "Send@MsgSendQueue"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "MsgSendQueue__Auto8"
+  }, {
+    "codeName" : "Auto1",
+    "name" : "新建",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "快速新建",
+      "detailType" : "DEUIACTION",
+      "name" : "ud360a6b",
+      "getPSSysImage" : {
+        "glyph" : "xf0f6@FontAwesome",
+        "cssClass" : "fa fa-file-text-o"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "快速新建",
+        "codeName" : "OpenNewCreateView",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeOptionView.json",
+          "viewType" : "DEOPTVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "SysEmployee_OpenNewCreateView",
+        "name" : "新建数据（人员）",
+        "getNextPSUIAction" : {
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+          },
+          "modelref" : true,
+          "id" : "OpenMainView@SysEmployee"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf0f6@FontAwesome",
+          "cssClass" : "fa fa-file-text-o"
+        },
+        "refreshMode" : 1,
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "OpenNewCreateView",
+        "uIActionType" : "DEUIACTION",
+        "reloadData" : true,
+        "id" : "OpenNewCreateView@SysEmployee"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysEmployee__Auto1"
+  }, {
+    "codeName" : "EMPOP",
+    "name" : "EMPOP",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "初始化密码",
+      "detailType" : "DEUIACTION",
+      "name" : "ucf1b3df",
+      "getPSSysImage" : {
+        "glyph" : "xf021@FontAwesome",
+        "cssClass" : "fa fa-refresh"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "MULTIKEY",
+        "caption" : "初始化密码",
+        "codeName" : "InitPwd",
+        "fullCodeName" : "SysEmployee_InitPwd",
+        "name" : "初始化密码",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "InitPwd"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+        },
+        "successMsg" : "初始化密码成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "InitPwd",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "InitPwd@SysEmployee"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysEmployee__EMPOP"
+  }, {
+    "codeName" : "Ab43403ae44dfbebfeb",
+    "name" : "重新发送",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "重新发送",
+      "detailType" : "DEUIACTION",
+      "name" : "ue3555a1",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "重新发送",
+        "codeName" : "Resend",
+        "fullCodeName" : "MsgSendQueueHis_Resend",
+        "name" : "重新发送",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Resend"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+        },
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "Resend",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "Resend@MsgSendQueueHis"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "MsgSendQueueHis__Ab43403ae44dfbebfeb"
+  }, {
+    "codeName" : "Auto10",
+    "name" : "查看更多",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "更多",
+      "detailType" : "DEUIACTION",
+      "name" : "u7b0005c",
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "更多",
+        "codeName" : "More",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemGridView.json",
+          "viewType" : "DEGRIDVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "SysDCSystem_More",
+        "name" : "更多",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf101@FontAwesome",
+          "cssClass" : "fa fa-angle-double-right"
+        },
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "More",
+        "uIActionType" : "DEUIACTION",
+        "id" : "More@SysDCSystem"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysDCSystem__Auto10"
+  }, {
+    "codeName" : "Auto2",
+    "name" : "新建",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "快速新建",
+      "detailType" : "DEUIACTION",
+      "name" : "u33326df",
+      "getPSSysImage" : {
+        "glyph" : "xf0f6@FontAwesome",
+        "cssClass" : "fa fa-file-text-o"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "快速新建",
+        "codeName" : "OpenNewCreateView",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentOptionView.json",
+          "viewType" : "DEOPTVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "SysDepartment_OpenNewCreateView",
+        "name" : "新建数据（部门）",
+        "getNextPSUIAction" : {
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+          },
+          "modelref" : true,
+          "id" : "OpenMainView@SysDepartment"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf0f6@FontAwesome",
+          "cssClass" : "fa fa-file-text-o"
+        },
+        "refreshMode" : 1,
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "OpenNewCreateView",
+        "uIActionType" : "DEUIACTION",
+        "reloadData" : true,
+        "id" : "OpenNewCreateView@SysDepartment"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysDepartment__Auto2"
+  }, {
+    "codeName" : "Auto3",
+    "name" : "新建",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "快速新建",
+      "detailType" : "DEUIACTION",
+      "name" : "uc438e25",
+      "getPSSysImage" : {
+        "glyph" : "xf0f6@FontAwesome",
+        "cssClass" : "fa fa-file-text-o"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "快速新建",
+        "codeName" : "OpenNewCreateView",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationOptionView.json",
+          "viewType" : "DEOPTVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "SysOrganization_OpenNewCreateView",
+        "name" : "数据新建（单位机构）",
+        "getNextPSUIAction" : {
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+          },
+          "modelref" : true,
+          "id" : "OpenMainView@SysOrganization"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf0f6@FontAwesome",
+          "cssClass" : "fa fa-file-text-o"
+        },
+        "refreshMode" : 1,
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "OpenNewCreateView",
+        "uIActionType" : "DEUIACTION",
+        "reloadData" : true,
+        "id" : "OpenNewCreateView@SysOrganization"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysOrganization__Auto3"
+  }, {
+    "codeName" : "Auto13",
+    "name" : "系统公告单项数据操作",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "发布",
+      "detailType" : "DEUIACTION",
+      "name" : "uca0f5af",
+      "getPSUIAction" : {
+        "actionTarget" : "MULTIKEY",
+        "caption" : "发布",
+        "codeName" : "Publish",
+        "frontProcessType" : "OTHER",
+        "fullCodeName" : "SysBulletin_Publish",
+        "name" : "发布",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Publish"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf00c@FontAwesome",
+          "cssClass" : "fa fa-check"
+        },
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "Publish",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "Publish@SysBulletin"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "撤回",
+      "detailType" : "DEUIACTION",
+      "name" : "ufc01902",
+      "getPSUIAction" : {
+        "actionTarget" : "MULTIKEY",
+        "caption" : "撤回",
+        "codeName" : "Retract",
+        "frontProcessType" : "OTHER",
+        "fullCodeName" : "SysBulletin_Retract",
+        "name" : "撤回",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Retract"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf021@FontAwesome",
+          "cssClass" : "fa fa-refresh"
+        },
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "Retract",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "Retract@SysBulletin"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysBulletin__Auto13"
+  }, {
+    "codeName" : "Auto9",
+    "name" : "查看更多",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "更多",
+      "detailType" : "DEUIACTION",
+      "name" : "udf90405",
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "更多",
+        "codeName" : "More",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/BulletinGridView.json",
+          "viewType" : "DEGRIDVIEW"
+        },
+        "frontProcessType" : "WIZARD",
+        "fullCodeName" : "SysBulletin_More",
+        "name" : "查看更多",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysBulletin.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf101@FontAwesome",
+          "cssClass" : "fa fa-angle-double-right"
+        },
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "More",
+        "uIActionType" : "DEUIACTION",
+        "id" : "More@SysBulletin"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysBulletin__Auto9"
+  } ],
+  "getAllPSDEDRControls" : [ ],
+  "getAllPSControls" : [ ],
+  "getAllPSAppViewRefs" : [ ],
+  "getAllPSAppPFPluginRefs" : [ {
+    "name" : "事件信息展示插件",
+    "pluginCode" : "sjxxzsEditor",
+    "pluginType" : "EDITOR_CUSTOMSTYLE",
+    "refMode" : "EDITORSTYPE"
+  }, {
+    "name" : "租户日志详细信息插件",
+    "pluginCode" : "EnterNodeLine",
+    "pluginType" : "EDITOR_CUSTOMSTYLE",
+    "refMode" : "EDITORSTYPE"
+  }, {
+    "name" : "系统性能日志信息展示插件",
+    "pluginCode" : "SysLogInfo",
+    "pluginType" : "EDITOR_CUSTOMSTYLE",
+    "refMode" : "EDITORSTYPE"
+  } ],
+  "id" : "PSSYSAPPS/DCMgr/PSSYSAPP.json"
+}

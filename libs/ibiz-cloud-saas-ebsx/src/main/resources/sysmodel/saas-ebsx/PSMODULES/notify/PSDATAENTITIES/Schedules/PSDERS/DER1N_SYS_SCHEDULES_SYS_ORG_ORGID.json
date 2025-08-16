@@ -1,0 +1,27 @@
+{
+  "codeName" : "Org",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Schedules/PSDERS/DER1N_SYS_SCHEDULES_SYS_ORG_ORGID.json",
+  "fKeyName" : "F932CE2542A8FCAD39",
+  "logicName" : "单位",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Schedules.json"
+  },
+  "name" : "DER1N_SYS_SCHEDULES_SYS_ORG_ORGID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "pickupDEFName" : "ORGID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Org"
+}

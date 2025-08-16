@@ -1,0 +1,53 @@
+{
+  "codeListTag" : "notify__OpenAccessType",
+  "codeListType" : "STATIC",
+  "codeName" : "OpenAccessType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json",
+  "emptyText" : "未定义",
+  "name" : "第三方平台",
+  "getPSCodeItems" : [ {
+    "codeName" : "Aliyun",
+    "text" : "阿里云",
+    "value" : "aliyun"
+  }, {
+    "codeName" : "Wechat",
+    "text" : "微信开放平台",
+    "value" : "wechat"
+  }, {
+    "codeName" : "Qq",
+    "text" : "QQ互联",
+    "value" : "qq"
+  }, {
+    "codeName" : "Dingtalk",
+    "text" : "钉钉开放平台",
+    "value" : "dingtalk"
+  }, {
+    "codeName" : "Wxwork",
+    "text" : "企业微信",
+    "value" : "wxwork"
+  }, {
+    "codeName" : "Wxmp",
+    "text" : "微信公众号",
+    "value" : "wxmp"
+  }, {
+    "codeName" : "Odoo",
+    "text" : "Odoo",
+    "value" : "odoo"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

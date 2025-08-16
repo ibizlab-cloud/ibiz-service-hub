@@ -1,0 +1,1470 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "GetAppUrl",
+    "methodType" : "DEACTION",
+    "name" : "GetAppUrl",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "requestPath" : "/getappurl",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "GetAppUrlMob",
+    "methodType" : "DEACTION",
+    "name" : "GetAppUrlMob",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "requestPath" : "/getappurlmob",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SetAppSetting",
+    "methodType" : "DEACTION",
+    "name" : "SetAppSetting",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/setappsetting",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SetAppSettingMob",
+    "methodType" : "DEACTION",
+    "name" : "SetAppSettingMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/setappsettingmob",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchOrgApp",
+    "dataSetName" : "OrgApp",
+    "dataSetTag" : "OrgApp",
+    "methodType" : "FETCH",
+    "name" : "FetchOrgApp",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchorgapp",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonApp",
+    "dataSetName" : "PersonApp",
+    "dataSetTag" : "PersonApp",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonApp",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonapp",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppMob",
+    "dataSetName" : "PersonAppMob",
+    "dataSetTag" : "PersonAppMob",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappmob",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppSetting",
+    "dataSetName" : "PersonAppSetting",
+    "dataSetTag" : "PersonAppSetting",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppSetting",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappsetting",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppSettingMob",
+    "dataSetName" : "PersonAppSettingMob",
+    "dataSetTag" : "PersonAppSettingMob",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppSettingMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappsettingmob",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "ShowOrder",
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "IsPersonal",
+    "logicName" : "是否定制",
+    "name" : "ISPERSONAL",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "MobileApp",
+    "logicName" : "是否移动应用",
+    "name" : "MOBILEAPP",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "AppCategory",
+    "logicName" : "应用类别",
+    "name" : "APPCATEGORY",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "ViewPathFormat",
+    "logicName" : "视图路径格式",
+    "name" : "VIEWPATHFORMAT",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "Setting",
+    "logicName" : "应用设置",
+    "name" : "SETTING",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Tip",
+    "logicName" : "提示",
+    "name" : "TIP",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Icon",
+    "logicName" : "图标",
+    "name" : "ICON",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "PSSystemAppId",
+    "logicName" : "系统应用标识",
+    "name" : "PSSYSTEMAPPID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "Url",
+    "logicName" : "地址",
+    "name" : "URL",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "ServiceId",
+    "logicName" : "服务名",
+    "name" : "SERVICEID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "IndexCodeName",
+    "logicName" : "首页名称",
+    "name" : "INDEXCODENAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PSSystemAppName",
+    "logicName" : "系统应用名称",
+    "name" : "PSSYSTEMAPPNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CodeName",
+    "logicName" : "应用代码名称",
+    "name" : "CODENAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "IconCss",
+    "logicName" : "图标样式",
+    "name" : "ICONCSS",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "SystemId",
+    "logicName" : "系统标识",
+    "name" : "SYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "AppWFs",
+    "logicName" : "应用部署工作流",
+    "name" : "APPWFS",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "ApplicationDTO",
+    "name" : "ApplicationDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "ShowOrder",
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "AppCategory",
+      "logicName" : "应用类别",
+      "name" : "AppCategory",
+      "getPSAppDEField" : {
+        "name" : "APPCATEGORY",
+        "codeName" : "AppCategory"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "AppWFs",
+      "logicName" : "应用部署工作流",
+      "name" : "AppWFs",
+      "getPSAppDEField" : {
+        "name" : "APPWFS",
+        "codeName" : "AppWFs"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CodeName",
+      "logicName" : "应用代码名称",
+      "name" : "CodeName",
+      "getPSAppDEField" : {
+        "name" : "CODENAME",
+        "codeName" : "CodeName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Icon",
+      "logicName" : "图标",
+      "name" : "Icon",
+      "getPSAppDEField" : {
+        "name" : "ICON",
+        "codeName" : "Icon"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IconCss",
+      "logicName" : "图标样式",
+      "name" : "IconCss",
+      "getPSAppDEField" : {
+        "name" : "ICONCSS",
+        "codeName" : "IconCss"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IndexCodeName",
+      "logicName" : "首页名称",
+      "name" : "IndexCodeName",
+      "getPSAppDEField" : {
+        "name" : "INDEXCODENAME",
+        "codeName" : "IndexCodeName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsPersonal",
+      "logicName" : "是否定制",
+      "name" : "IsPersonal",
+      "getPSAppDEField" : {
+        "name" : "ISPERSONAL",
+        "codeName" : "IsPersonal"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MobileApp",
+      "logicName" : "是否移动应用",
+      "name" : "MobileApp",
+      "getPSAppDEField" : {
+        "name" : "MOBILEAPP",
+        "codeName" : "MobileApp"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PSSystemAppId",
+      "logicName" : "系统应用标识",
+      "name" : "PSSystemAppId",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "PSSystemAppName",
+      "logicName" : "系统应用名称",
+      "name" : "PSSystemAppName",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMAPPNAME",
+        "codeName" : "PSSystemAppName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "ServiceId",
+      "logicName" : "服务名",
+      "name" : "ServiceId",
+      "getPSAppDEField" : {
+        "name" : "SERVICEID",
+        "codeName" : "ServiceId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Setting",
+      "logicName" : "应用设置",
+      "name" : "Setting",
+      "getPSAppDEField" : {
+        "name" : "SETTING",
+        "codeName" : "Setting"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemId",
+      "logicName" : "系统标识",
+      "name" : "SystemId",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Tip",
+      "logicName" : "提示",
+      "name" : "Tip",
+      "getPSAppDEField" : {
+        "name" : "TIP",
+        "codeName" : "Tip"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Url",
+      "logicName" : "地址",
+      "name" : "Url",
+      "getPSAppDEField" : {
+        "name" : "URL",
+        "codeName" : "Url"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ViewPathFormat",
+      "logicName" : "视图路径格式",
+      "name" : "ViewPathFormat",
+      "getPSAppDEField" : {
+        "name" : "VIEWPATHFORMAT",
+        "codeName" : "ViewPathFormat"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "ApplicationFilterDTO",
+    "name" : "ApplicationFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_APPCATEGORY_EQ",
+      "logicName" : "应用类别",
+      "name" : "N_APPCATEGORY_EQ",
+      "getPSAppDEField" : {
+        "name" : "APPCATEGORY",
+        "codeName" : "AppCategory"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_APPCATEGORY_NOTIN",
+      "logicName" : "应用类别",
+      "name" : "N_APPCATEGORY_NOTIN",
+      "getPSAppDEField" : {
+        "name" : "APPCATEGORY",
+        "codeName" : "AppCategory"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CODENAME_EQ",
+      "logicName" : "应用代码名称",
+      "name" : "N_CODENAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "CODENAME",
+        "codeName" : "CodeName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CODENAME_LIKE",
+      "logicName" : "应用代码名称",
+      "name" : "N_CODENAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "CODENAME",
+        "codeName" : "CodeName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MOBILEAPP_EQ",
+      "logicName" : "是否移动应用",
+      "name" : "N_MOBILEAPP_EQ",
+      "getPSAppDEField" : {
+        "name" : "MOBILEAPP",
+        "codeName" : "MobileApp"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSSYSTEMAPPID_EQ",
+      "logicName" : "系统应用标识",
+      "name" : "N_PSSYSTEMAPPID_EQ",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSSYSTEMAPPNAME_EQ",
+      "logicName" : "系统应用名称",
+      "name" : "N_PSSYSTEMAPPNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMAPPNAME",
+        "codeName" : "PSSystemAppName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSSYSTEMAPPNAME_LIKE",
+      "logicName" : "系统应用名称",
+      "name" : "N_PSSYSTEMAPPNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMAPPNAME",
+        "codeName" : "PSSystemAppName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYSTEMID_EQ",
+      "logicName" : "系统标识",
+      "name" : "N_SYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "GetAppUrl",
+    "methodType" : "DEACTION",
+    "name" : "GetAppUrl",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "requestPath" : "/getappurl",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "GetAppUrlMob",
+    "methodType" : "DEACTION",
+    "name" : "GetAppUrlMob",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "requestPath" : "/getappurlmob",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "PSSYSTEMAPPID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SetAppSetting",
+    "methodType" : "DEACTION",
+    "name" : "SetAppSetting",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/setappsetting",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SetAppSettingMob",
+    "methodType" : "DEACTION",
+    "name" : "SetAppSettingMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/setappsettingmob",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchOrgApp",
+    "dataSetName" : "OrgApp",
+    "dataSetTag" : "OrgApp",
+    "methodType" : "FETCH",
+    "name" : "FetchOrgApp",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchorgapp",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonApp",
+    "dataSetName" : "PersonApp",
+    "dataSetTag" : "PersonApp",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonApp",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonapp",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppMob",
+    "dataSetName" : "PersonAppMob",
+    "dataSetTag" : "PersonAppMob",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappmob",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppSetting",
+    "dataSetName" : "PersonAppSetting",
+    "dataSetTag" : "PersonAppSetting",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppSetting",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappsetting",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchPersonAppSettingMob",
+    "dataSetName" : "PersonAppSettingMob",
+    "dataSetTag" : "PersonAppSettingMob",
+    "methodType" : "FETCH",
+    "name" : "FetchPersonAppSettingMob",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ApplicationDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchpersonappsettingmob",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysPSSystemApp",
+  "dEAPICodeName" : "syspssystemapp",
+  "dEAPICodeName2" : "syspssystemapps",
+  "dEAPITag" : "SYS_PSSYSTEMAPP",
+  "dECodeName" : "Application",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "PSSYSTEMAPPID",
+    "codeName" : "PSSystemAppId"
+  },
+  "logicName" : "部署应用",
+  "getMajorPSAppDEField" : {
+    "name" : "PSSYSTEMAPPNAME",
+    "codeName" : "PSSystemAppName"
+  },
+  "getMinorPSAppDERSs" : [ {
+    "actionRSMode" : 1,
+    "codeName" : "SysPSSystemApps",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "SysPSSystem",
+    "majorDEName" : "SYS_PSSYSTEM",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "minorDECodeName" : "SysPSSystemApp",
+    "minorDEName" : "SYS_PSSYSTEMAPP",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+    },
+    "name" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID",
+    "getParentPSAppDEField" : {
+      "name" : "SYSTEMID",
+      "codeName" : "SystemId"
+    },
+    "rSMode" : 2
+  } ],
+  "name" : "SYS_PSSYSTEMAPP",
+  "getPSDEName" : "SYS_PSSYSTEMAPP",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "PSSYSTEMAPPNAME",
+    "codeName" : "PSSystemAppName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldCoreAPI",
+  "getUnionKeyValuePSAppDEFields" : [ {
+    "name" : "SYSTEMID",
+    "codeName" : "SystemId"
+  }, {
+    "name" : "PSSYSTEMAPPNAME",
+    "codeName" : "PSSystemAppName"
+  } ],
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : false,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/task/PSDATAENTITIES/JobsLog/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "任务调度日志",
+  "name" : "任务调度日志默认关系界面组"
+}

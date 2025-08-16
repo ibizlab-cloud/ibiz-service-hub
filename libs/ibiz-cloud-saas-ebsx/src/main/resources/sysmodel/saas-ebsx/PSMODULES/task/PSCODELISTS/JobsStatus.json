@@ -1,0 +1,31 @@
+{
+  "codeListTag" : "task__JobsStatus",
+  "codeListType" : "STATIC",
+  "codeName" : "JobsStatus",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/task/PSCODELISTS/JobsStatus.json",
+  "emptyText" : "未定义",
+  "name" : "JobsStatus",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_0",
+    "color" : "rgba(58, 116, 7, 1)",
+    "text" : "已启动",
+    "value" : "0"
+  }, {
+    "codeName" : "Item_1",
+    "color" : "rgba(67, 65, 65, 1)",
+    "text" : "已停止",
+    "value" : "1"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

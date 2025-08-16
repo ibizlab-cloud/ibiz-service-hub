@@ -1,0 +1,21 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "codeName" : "Save",
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PTAsyncActionDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

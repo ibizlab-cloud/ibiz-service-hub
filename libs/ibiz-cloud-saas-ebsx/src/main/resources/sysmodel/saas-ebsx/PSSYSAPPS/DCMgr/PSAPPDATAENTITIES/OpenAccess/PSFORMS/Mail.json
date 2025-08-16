@@ -1,0 +1,467 @@
+{
+  "codeName" : "Mail",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess/PSFORMS/Mail.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "邮件服务应用",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "accessid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    }
+  }, {
+    "id" : "accessname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "id" : "open_type",
+    "hidden" : true,
+    "dataType" : 25,
+    "createDV" : "mail",
+    "getPSAppDEField" : {
+      "name" : "OPEN_TYPE",
+      "codeName" : "OpenType"
+    }
+  }, {
+    "id" : "notify_url",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "NOTIFY_URL",
+      "codeName" : "NotifyUrl"
+    }
+  }, {
+    "id" : "access_key",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESS_KEY",
+      "codeName" : "AccessKey"
+    }
+  }, {
+    "id" : "access_token",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ACCESS_TOKEN",
+      "codeName" : "AccessToken"
+    }
+  }, {
+    "id" : "disabled",
+    "dataType" : 9,
+    "createDV" : "0",
+    "getPSAppDEField" : {
+      "name" : "DISABLED",
+      "codeName" : "Disabled"
+    }
+  }, {
+    "id" : "ismobaccapp",
+    "hidden" : true,
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISMOBACCAPP",
+      "codeName" : "IsMobAccApp"
+    }
+  }, {
+    "id" : "defaultflag",
+    "dataType" : 9,
+    "createDV" : "1",
+    "getPSAppDEField" : {
+      "name" : "DEFAULTFLAG",
+      "codeName" : "Defaultflag"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "邮件服务平台基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "开放应用",
+        "codeName" : "accessid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 0,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "accessid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ACCESSID",
+          "codeName" : "Id"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "accessid"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      }, {
+        "caption" : "邮件服务名称",
+        "codeName" : "accessname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "accessname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ACCESSNAME",
+          "codeName" : "Name"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "accessname"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "平台类型",
+        "codeName" : "open_type",
+        "createDV" : "mail",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "open_type",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "OPEN_TYPE",
+          "codeName" : "OpenType"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "open_type"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      }, {
+        "caption" : "邮件服务地址",
+        "codeName" : "notify_url",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "notify_url",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "NOTIFY_URL",
+          "codeName" : "NotifyUrl"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 500,
+          "name" : "notify_url"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "服务用户",
+        "codeName" : "access_key",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "access_key",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ACCESS_KEY",
+          "codeName" : "AccessKey"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "access_key"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "服务密码",
+        "codeName" : "access_token",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "access_token",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ACCESS_TOKEN",
+          "codeName" : "AccessToken"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "enableShowPwd" : "true"
+          },
+          "editorType" : "PASSWORD",
+          "maxLength" : 1000,
+          "name" : "access_token"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "是否禁用",
+        "codeName" : "disabled",
+        "createDV" : "0",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "disabled",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DISABLED",
+          "codeName" : "Disabled"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "disabled",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "是否移动接入应用",
+        "codeName" : "ismobaccapp",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "ismobaccapp",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ISMOBACCAPP",
+          "codeName" : "IsMobAccApp"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "ismobaccapp"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      }, {
+        "caption" : "默认服务",
+        "codeName" : "defaultflag",
+        "createDV" : "1",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "defaultflag",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DEFAULTFLAG",
+          "codeName" : "Defaultflag"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "defaultflag",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : true,
+  "modelid" : "D7488886-0FCF-4367-8A1A-E70BB2A2FE53",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

@@ -1,0 +1,24 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "SCRIPT",
+  "codeName" : "Test",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACTIONS/Test.json",
+  "logicName" : "行为",
+  "name" : "Test",
+  "getPSDEActionInput" : {
+    "name" : "TestInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "EmployeeDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "TestResult",
+    "type" : "VOID"
+  },
+  "scriptCode" : "entity.aa = 12;\nentity.id = '111';\nvar id = entity.id;",
+  "enableAudit" : true,
+  "enableFront" : false
+}

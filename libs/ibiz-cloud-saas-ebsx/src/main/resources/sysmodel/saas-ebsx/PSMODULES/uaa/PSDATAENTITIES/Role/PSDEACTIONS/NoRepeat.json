@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "NoRepeat",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEACTIONS/NoRepeat.json",
+  "logicName" : "角色去重查询",
+  "name" : "NoRepeat",
+  "getPSDEActionInput" : {
+    "name" : "NoRepeatInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "RoleDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "NoRepeatResult",
+    "type" : "VOID"
+  },
+  "enableAudit" : true
+}

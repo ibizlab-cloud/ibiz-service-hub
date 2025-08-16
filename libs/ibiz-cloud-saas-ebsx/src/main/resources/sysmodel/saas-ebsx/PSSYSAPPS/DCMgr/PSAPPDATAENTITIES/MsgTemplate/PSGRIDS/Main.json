@@ -1,0 +1,235 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgTemplate/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgTemplate.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "模板类型",
+    "codeName" : "template_type",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "template_type",
+    "excelCaption" : "模板类型",
+    "name" : "template_type",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/TemplateType2.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_TYPE",
+      "codeName" : "TemplateType"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "模板标识",
+    "codeName" : "template_id",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "template_id",
+    "excelCaption" : "模板标识",
+    "name" : "template_id",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_ID",
+      "codeName" : "TemplateId"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "模板标题",
+    "codeName" : "template_name",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "template_name",
+    "excelCaption" : "模板标题",
+    "name" : "template_name",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_NAME",
+      "codeName" : "TemplateName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "开放应用类型",
+    "codeName" : "open_type",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "open_type",
+    "excelCaption" : "开放应用类型",
+    "name" : "open_type",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/OpenAccessType.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "OPEN_TYPE",
+      "codeName" : "OpenType"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "开放应用",
+    "codeName" : "accessname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "accessname",
+    "excelCaption" : "开放应用",
+    "name" : "accessname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "AccessName"
+    },
+    "width" : 300,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "template_type",
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_TYPE",
+      "codeName" : "TemplateType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "template_id",
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_ID",
+      "codeName" : "TemplateId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "template_name",
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_NAME",
+      "codeName" : "TemplateName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "open_type",
+    "getPSAppDEField" : {
+      "name" : "OPEN_TYPE",
+      "codeName" : "OpenType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "accessname",
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "AccessName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "TID",
+      "codeName" : "TId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "TID",
+      "codeName" : "TId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "accessid",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "TEMPLATE_NAME",
+      "codeName" : "TemplateName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "模板标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "TID",
+      "codeName" : "TId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgTemplate.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "d0d8be5d0d92fcb47d7798a070b712ef",
+  "modeltype" : "PSDEGRID"
+}

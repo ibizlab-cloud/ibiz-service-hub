@@ -1,0 +1,18 @@
+{
+  "codeName" : "deleteSysUser",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEDATASYNCS/deleteSysUser.json",
+  "eventType" : 4,
+  "getInPSSysDataSyncAgent" : {
+    "modelref" : true,
+    "path" : "PSSYSDATASYNCAGENTS/deleteSysUser.json"
+  },
+  "getInTestPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/DeleteSysUser.json"
+  },
+  "name" : "删除用户信息",
+  "syncDir" : "IN",
+  "syncTag" : "deleteSysUser",
+  "exportFull" : false,
+  "inMode" : true
+}

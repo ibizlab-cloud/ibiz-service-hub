@@ -1,0 +1,36 @@
+{
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept/PSDEUSERROLES/DefaultDR.json",
+  "name" : "开放部门默认操作角色",
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "CREATE",
+    "name" : "CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  }, {
+    "dataAccessAction" : "UPDATE",
+    "name" : "UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "DELETE",
+    "name" : "DELETE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    }
+  }, {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  } ],
+  "roleTag" : "DefaultDR",
+  "userDRAction" : "READ",
+  "defaultMode" : true
+}

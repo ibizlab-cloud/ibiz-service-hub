@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Publish",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Publish.json",
+  "logicName" : "发布配置",
+  "name" : "Publish",
+  "getPSDEActionInput" : {
+    "name" : "PublishInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "PublishResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

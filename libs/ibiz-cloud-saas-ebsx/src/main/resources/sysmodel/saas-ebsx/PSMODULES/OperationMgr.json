@@ -1,0 +1,16 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist2.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit.json"
+  } ],
+  "codeName" : "OperationMgr",
+  "dynaModelFilePath" : "PSMODULES/OperationMgr.json",
+  "name" : "运行管理"
+}

@@ -1,0 +1,296 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysUser/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysUser.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户全局名",
+    "codeName" : "username",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "username",
+    "excelCaption" : "用户全局名",
+    "name" : "username",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "USERNAME",
+      "codeName" : "UserName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "登录名",
+    "codeName" : "loginname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "loginname",
+    "excelCaption" : "登录名",
+    "name" : "loginname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "LOGINNAME",
+      "codeName" : "LoginName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户工号",
+    "codeName" : "usercode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "usercode",
+    "excelCaption" : "用户工号",
+    "name" : "usercode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "USERCODE",
+      "codeName" : "UserCode"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "单位名称",
+    "codeName" : "orgname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "orgname",
+    "excelCaption" : "单位名称",
+    "name" : "orgname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户姓名",
+    "codeName" : "personname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "personname",
+    "excelCaption" : "用户姓名",
+    "name" : "personname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "联系方式",
+    "codeName" : "phone",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "phone",
+    "excelCaption" : "联系方式",
+    "name" : "phone",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PHONE",
+      "codeName" : "Phone"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "超级管理员",
+    "codeName" : "superuser",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "superuser",
+    "excelCaption" : "超级管理员",
+    "name" : "superuser",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "SUPERUSER",
+      "codeName" : "SuperUser"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "备注",
+    "codeName" : "memo",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "memo",
+    "excelCaption" : "备注",
+    "name" : "memo",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MEMO",
+      "codeName" : "Memo"
+    },
+    "width" : 100,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "username",
+    "getPSAppDEField" : {
+      "name" : "USERNAME",
+      "codeName" : "UserName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "loginname",
+    "getPSAppDEField" : {
+      "name" : "LOGINNAME",
+      "codeName" : "LoginName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "usercode",
+    "getPSAppDEField" : {
+      "name" : "USERCODE",
+      "codeName" : "UserCode"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "orgname",
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "personname",
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "phone",
+    "getPSAppDEField" : {
+      "name" : "PHONE",
+      "codeName" : "Phone"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "superuser",
+    "getPSAppDEField" : {
+      "name" : "SUPERUSER",
+      "codeName" : "SuperUser"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "memo",
+    "getPSAppDEField" : {
+      "name" : "MEMO",
+      "codeName" : "Memo"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "用户标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysUser.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "2063f456db7b031e7c1c77e16190b449",
+  "modeltype" : "PSDEGRID"
+}

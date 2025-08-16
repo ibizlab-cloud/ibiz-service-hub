@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Publish",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Publish.json",
+  "logicName" : "发布模型",
+  "name" : "publish",
+  "getPSDEActionInput" : {
+    "name" : "PublishInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaDynaModelDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "PublishResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

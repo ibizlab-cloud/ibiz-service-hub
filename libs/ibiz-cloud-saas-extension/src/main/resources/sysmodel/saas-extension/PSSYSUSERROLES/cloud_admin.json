@@ -1,0 +1,66 @@
+{
+  "codeName" : "cloud_admin",
+  "defaultUser" : "ADMIN",
+  "dynaModelFilePath" : "PSSYSUSERROLES/cloud_admin.json",
+  "name" : "cloud管理员默认",
+  "getPSSysUserRoleDatas" : [ {
+    "name" : "cloud管理员默认-INTERNAL_MESSAGE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/ALL.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    }
+  }, {
+    "name" : "cloud管理员默认-IMPORT_SCHEMA[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEUSERROLES/ALL.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+    }
+  }, {
+    "name" : "cloud管理员默认-APP_VIEW_THEME[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEUSERROLES/ALL.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+    }
+  }, {
+    "name" : "cloud管理员默认-SYSTEM_EXTENSION_NOTIFY_SETTING[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEUSERROLES/ALL.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+    }
+  } ],
+  "getPSSysUserRoleReses" : [ {
+    "name" : "cloud管理员默认-默认管理员操作",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ADMIN"
+    },
+    "sysUniResCode" : "ADMIN"
+  }, {
+    "name" : "cloud管理员默认-默认用户操作",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "DEFAULT"
+    },
+    "sysUniResCode" : "DEFAULT"
+  } ],
+  "roleTag" : "CLOUD_ADMIN",
+  "roleType" : "CUSTOM",
+  "uniResTags" : [ "ADMIN", "DEFAULT" ],
+  "systemReserved" : true
+}

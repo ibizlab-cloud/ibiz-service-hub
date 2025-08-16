@@ -1,0 +1,260 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统应用名称",
+    "codeName" : "pssystemappname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pssystemappname",
+    "excelCaption" : "系统应用名称",
+    "name" : "pssystemappname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPNAME",
+      "codeName" : "PSSystemAppName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "移动应用",
+    "codeName" : "mobileapp",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "mobileapp",
+    "excelCaption" : "移动应用",
+    "name" : "mobileapp",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "MOBILEAPP",
+      "codeName" : "MobileApp"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "应用类别",
+    "codeName" : "appcategory",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "appcategory",
+    "excelCaption" : "应用类别",
+    "name" : "appcategory",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/AppCategory.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "APPCATEGORY",
+      "codeName" : "AppCategory"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "排序",
+    "codeName" : "showorder",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "showorder",
+    "excelCaption" : "排序",
+    "name" : "showorder",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "提示信息",
+    "codeName" : "tip",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "tip",
+    "excelCaption" : "提示信息",
+    "name" : "tip",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "TIP",
+      "codeName" : "Tip"
+    },
+    "width" : 150,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "更新时间",
+    "codeName" : "updatedate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "updatedate",
+    "excelCaption" : "更新时间",
+    "name" : "updatedate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "pssystemappname",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPNAME",
+      "codeName" : "PSSystemAppName"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "mobileapp",
+    "getPSAppDEField" : {
+      "name" : "MOBILEAPP",
+      "codeName" : "MobileApp"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "appcategory",
+    "getPSAppDEField" : {
+      "name" : "APPCATEGORY",
+      "codeName" : "AppCategory"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "showorder",
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "tip",
+    "getPSAppDEField" : {
+      "name" : "TIP",
+      "codeName" : "Tip"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "updatedate",
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPID",
+      "codeName" : "PSSystemAppId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPID",
+      "codeName" : "PSSystemAppId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "systemid",
+    "getPSAppDEField" : {
+      "name" : "SYSTEMID",
+      "codeName" : "SystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPNAME",
+      "codeName" : "PSSystemAppName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "系统应用标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMAPPID",
+      "codeName" : "PSSystemAppId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingSize" : 500,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : false,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "825c56075c20b2370912f31d349f604b",
+  "modeltype" : "PSDEGRID"
+}

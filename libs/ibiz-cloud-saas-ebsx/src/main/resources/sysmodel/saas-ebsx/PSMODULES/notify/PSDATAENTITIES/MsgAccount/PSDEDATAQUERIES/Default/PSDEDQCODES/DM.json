@@ -1,0 +1,46 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DDACCOUNTID",
+    "name" : "DDACCOUNTID"
+  }, {
+    "expression" : "t1.EMAIL",
+    "name" : "EMAIL"
+  }, {
+    "expression" : "t1.EMPID",
+    "name" : "EMPID"
+  }, {
+    "expression" : "t11.USERNAME",
+    "name" : "EMPNAME"
+  }, {
+    "expression" : "t1.MSGACCOUNTID",
+    "name" : "MSGACCOUNTID"
+  }, {
+    "expression" : "t1.MSGACCOUNTNAME",
+    "name" : "MSGACCOUNTNAME"
+  }, {
+    "expression" : "t1.PHONE",
+    "name" : "PHONE"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t11.USERCODE",
+    "name" : "USERCODE"
+  }, {
+    "expression" : "t1.WXACCOUNTID",
+    "name" : "WXACCOUNTID"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DDACCOUNTID,\nt1.EMAIL,\nt1.EMPID,\nt11.USERNAME AS EMPNAME,\nt1.MSGACCOUNTID,\nt1.MSGACCOUNTNAME,\nt1.PHONE,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt11.USERCODE,\nt1.WXACCOUNTID\nFROM IBZMSGACCOUNT t1 \nLEFT JOIN IBZEMP t11 ON t1.EMPID = t11.USERID \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ibiz-plugin</artifactId>
+        <groupId>cn.ibizlab.plugin</groupId>
+        <version>8.1.0.570.29.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ibiz-cloud-devops-ebsx</artifactId>
+    <name>ibiz-cloud-devops-ebsx</name>
+		
+	<properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+	</properties>
+	<dependencies>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>5.12.0.202106070339-r</version>
+        </dependency>
+
+		<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-runtime</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        
+ 		<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-core</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+		<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-devops-core</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+	
+		<dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-saas-ebsx</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-model-util</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+        
+       </dependencies> 
+</project>

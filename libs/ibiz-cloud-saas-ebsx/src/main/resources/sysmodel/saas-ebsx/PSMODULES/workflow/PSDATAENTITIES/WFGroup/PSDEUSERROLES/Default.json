@@ -1,0 +1,16 @@
+{
+  "customCond" : "[ (1, '=', 1) ]",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEUSERROLES/Default.json",
+  "name" : "默认角色",
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "工作流角色(只读)",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  } ],
+  "roleTag" : "Default",
+  "userDRAction" : "READ",
+  "defaultMode" : true
+}

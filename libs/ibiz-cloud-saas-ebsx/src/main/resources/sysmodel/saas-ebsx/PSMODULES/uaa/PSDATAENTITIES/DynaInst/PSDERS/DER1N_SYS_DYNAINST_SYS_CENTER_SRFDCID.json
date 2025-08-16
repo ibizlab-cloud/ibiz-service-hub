@@ -1,0 +1,27 @@
+{
+  "codeName" : "DC",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDERS/DER1N_SYS_DYNAINST_SYS_CENTER_SRFDCID.json",
+  "fKeyName" : "FF4F21430D98CD77DA",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Center.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+  },
+  "name" : "DER1N_SYS_DYNAINST_SYS_CENTER_SRFDCID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SRFDCID",
+    "codeName" : "Srfdcid"
+  },
+  "pickupDEFName" : "SRFDCID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DC",
+  "enableFKey" : true
+}

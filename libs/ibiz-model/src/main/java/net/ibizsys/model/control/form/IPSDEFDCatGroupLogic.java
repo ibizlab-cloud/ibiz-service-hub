@@ -1,0 +1,38 @@
+package net.ibizsys.model.control.form;
+
+
+
+/**
+ * 实体表单成员分类逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFDLogicDTO}运行时对象
+ *
+ */
+public interface IPSDEFDCatGroupLogic extends net.ibizsys.model.control.form.IPSDEFDGroupLogic{
+
+	
+	
+	/**
+	 * 获取逻辑类别
+	 * <P>
+	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFDLogicDTO#FIELD_LOGICCAT}
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailLogicCat}
+	 * @return
+	 */
+	java.lang.String getLogicCat();
+	
+	
+	/**
+	 * 获取关联成员名称集合
+	 * @return
+	 */
+	java.util.List<java.lang.String> getRelatedDetailNames();
+	
+	
+	/**
+	 * 获取脚本代码
+	 * <P>
+	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFDLogicDTO#FIELD_CONDVALUE}
+	 * @return
+	 */
+	java.lang.String getScriptCode();
+}

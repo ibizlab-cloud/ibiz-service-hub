@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CREATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Create",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEACTIONS/Create.json",
+  "logicName" : "Create",
+  "name" : "Create",
+  "orderValue" : 1,
+  "getPSDEActionInput" : {
+    "name" : "CreateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "import_schema_fieldDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CreateResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

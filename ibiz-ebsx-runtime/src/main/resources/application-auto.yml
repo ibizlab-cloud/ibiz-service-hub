@@ -1,0 +1,137 @@
+# 示例：兼容spring boot默认配置，自动提取servicehub和devlopsystem，兼容spring datasource、redis、zk的配置
+rtds:
+  url: jdbc:mysql://${mysql.host:mysql}:${mysql.port:3306}/a_lab01_3f9ebc219?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=GMT%2B8&allowMultiQueries=true&useSSL=false
+  username: a_lab01_3f9ebc219
+  password: '9d@A178@'
+  driver-class-name: com.mysql.jdbc.Driver
+  defaultSchema: a_lab01_3f9ebc219
+spring:
+  datasource:
+    username: ${rtds.username}
+    password: ${rtds.password:}
+    url: ${rtds.url}
+    driver-class-name: ${rtds.driver-class-name}
+    isSyncDBSchema: false
+    defaultSchema: ${rtds.defaultSchema}
+    dynamic:
+      datasource:
+        master:
+          username: ${spring.datasource.username}
+          password: ${spring.datasource.password}
+          url: ${spring.datasource.url}
+          driver-class-name: ${spring.datasource.driver-class-name}
+ibiz:
+  tenant: true
+  cloud-devops:
+    #是否开启开发模式，开启后会同步系统指定的Git远程模型到本地并更新
+    devmode: 'true'
+    #Git版本库的用户信息，开启开发模式后需正确配置
+    gitusername: cloud_devops_gituser
+    gitpassword: cloud_devops_token
+    #SAAS默认租户中心ID，无需变更
+    devcenter: demo
+    #默认网关路由配置信息名称，无需变更
+    appgateway: default
+    #本地模型路径
+    modelpath: /app/file/datafile/model
+    dynamodelpath: /app/file/datafile/dynamicmodel
+  appgateway-default:
+    deployapps:
+      - default-ex
+  deploysystems:
+    gateway:
+      deploysystemid: gateway
+      settings:
+        sysutil:
+          #状态同步服务配置
+          unistate:
+            serviceurl: ${zookeeper.address:zoo1}:${zookeeper.port:2181}
+            servicehost: ${zookeeper.address:zoo1}
+            serviceport: ${zookeeper.port:2181}
+          #缓存服务配置
+          cache:
+            serviceurl: ${spring.redis.host:redis}:${spring.redis.port:6379}
+            servicehost: ${spring.redis.host:redis}
+            serviceport: ${spring.redis.port:6379}
+          #uaa认证配置
+          uaa:
+            newrtuaa: true
+            signature: RSA
+            secret: sec
+          #系统插件配置
+          hubextension:
+            productmarket:
+              serviceurl: https://code.ibizlab.cn/api/v4
+              mode: V2
+              projectid: plm_addons/public
+        sysdbscheme:
+          #数据源default配置
+          default:
+            datasource: rtds
+    ebsx:
+      deploysystemid: ebsx
+      #后端插件信息
+      runtimeclassname: net.ibizsys.central.cloud.saas.ebsx.EBSXSystemRuntime
+      #是否开启Liquibase版本变更控制
+      updatedbschema: true
+      #系统配置信息
+      settings:
+        sysdbscheme:
+          #数据源default配置
+          default:
+            datasource: rtds
+          #数据源db2配置
+          db2:
+            datasource: rtds
+          #数据源db3配置
+          db3:
+            datasource: rtds
+
+    extension:
+      deploysystemid: extension
+      runtimeclassname: net.ibizsys.central.cloud.saas.extension.runtime.SystemRuntime
+      updatedbschema: true
+      settings:
+        sysdbscheme:
+          default:
+            datasource: rtds
+            #dropindexfirst: true
+          db2:
+            datasource: rtds
+            #dropindexfirst: true
+          db3:
+            datasource: rtds
+            #dropindexfirst: true
+  servicehub:
+    tempfolder: ${ibiz.filePath:/app/file/}tempfile
+    filefolder: ${ibiz.filePath:/app/file/}datafile
+    # 初始化模式 initmode ，默认 manual：手动模式（手工初始化nacos和system），auto：自动模式
+    initmode: auto
+    deploysystems:
+      - gateway
+      - ebsx
+      - extension
+    datasources:
+      rtds:
+        username: ${spring.datasource.dynamic.datasource.master.username}
+        password: ${spring.datasource.dynamic.datasource.master.password}
+        url: ${spring.datasource.dynamic.datasource.master.url}
+        driver-class-name: ${spring.datasource.dynamic.datasource.master.driver-class-name}
+    systemsettings:
+      cloudossutil:
+        filepath: /app/file/oss/file
+      cloudclientutil:
+        serviceurl: ${cloud.serviceurl:lb://ebsx-oldapi}
+        accesstokenurl: ${cloud.accesstokenurl:lb://ibizcloud-uaa/v7/login}
+        clientid: ${cloud.clientid:aibizhi}
+        clientsecret: ${cloud.clientsecret:123456}
+      cloudportalutil:
+        mqttip: ${emqx.host:emqx}
+        mqttwsport: ${emqx.port:8083}
+        informagent:
+          serviceurl: ws://${emqx.host:emqx}:${emqx.port:8083}/mqtt
+          topic: portalmq
+
+
+
+

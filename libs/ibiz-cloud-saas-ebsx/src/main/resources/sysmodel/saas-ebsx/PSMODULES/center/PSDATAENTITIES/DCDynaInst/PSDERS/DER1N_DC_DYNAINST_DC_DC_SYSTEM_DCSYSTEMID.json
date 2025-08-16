@@ -1,0 +1,27 @@
+{
+  "codeName" : "DCSystem",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDERS/DER1N_DC_DYNAINST_DC_DC_SYSTEM_DCSYSTEMID.json",
+  "fKeyName" : "F7739C535C7AE71A7C",
+  "logicName" : "租户系统",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+  },
+  "name" : "DER1N_DC_DYNAINST_DC_DC_SYSTEM_DCSYSTEMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DCSYSTEMID",
+    "codeName" : "DCSystemId"
+  },
+  "pickupDEFName" : "DCSYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DCSystem"
+}

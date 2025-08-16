@@ -1,0 +1,1031 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "VKEY",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "VKEY",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "ValueKey",
+    "logicName" : "标识",
+    "name" : "VKEY",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "CatalogId",
+    "logicName" : "目录代码",
+    "name" : "CID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "CatalogName",
+    "logicName" : "目录",
+    "name" : "CNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Value",
+    "logicName" : "代码值",
+    "name" : "VAL",
+    "stdDataType" : 25,
+    "stringLength" : 40
+  }, {
+    "codeName" : "Label",
+    "logicName" : "名称",
+    "name" : "LABEL",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "Parent",
+    "logicName" : "父代码值",
+    "name" : "PVAL",
+    "stdDataType" : 25,
+    "stringLength" : 40
+  }, {
+    "codeName" : "Filter",
+    "logicName" : "过滤项",
+    "name" : "VFILTER",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "Cls",
+    "logicName" : "栏目样式",
+    "name" : "CLS",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "IconClass",
+    "logicName" : "图标",
+    "name" : "ICONCLS",
+    "stdDataType" : 25,
+    "stringLength" : 255
+  }, {
+    "codeName" : "Disabled",
+    "logicName" : "是否禁用",
+    "name" : "DISABLED",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Expired",
+    "logicName" : "过期/失效",
+    "name" : "EXPIRED",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "ShowOrder",
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Extension",
+    "logicName" : "扩展",
+    "name" : "EXTENSION",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "最后修改时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "创建时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "DictOptionDTO",
+    "name" : "DictOptionDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "ValueKey",
+      "logicName" : "标识",
+      "name" : "ValueKey",
+      "getPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CatalogId",
+      "logicName" : "目录代码",
+      "name" : "CatalogId",
+      "getPSAppDEField" : {
+        "name" : "CID",
+        "codeName" : "CatalogId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CatalogName",
+      "logicName" : "目录",
+      "name" : "CatalogName",
+      "getPSAppDEField" : {
+        "name" : "CNAME",
+        "codeName" : "CatalogName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Value",
+      "logicName" : "代码值",
+      "name" : "Value",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Label",
+      "logicName" : "名称",
+      "name" : "Label",
+      "getPSAppDEField" : {
+        "name" : "LABEL",
+        "codeName" : "Label"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Parent",
+      "logicName" : "父代码值",
+      "name" : "Parent",
+      "getPSAppDEField" : {
+        "name" : "PVAL",
+        "codeName" : "Parent"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Filter",
+      "logicName" : "过滤项",
+      "name" : "Filter",
+      "getPSAppDEField" : {
+        "name" : "VFILTER",
+        "codeName" : "Filter"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Cls",
+      "logicName" : "栏目样式",
+      "name" : "Cls",
+      "getPSAppDEField" : {
+        "name" : "CLS",
+        "codeName" : "Cls"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IconClass",
+      "logicName" : "图标",
+      "name" : "IconClass",
+      "getPSAppDEField" : {
+        "name" : "ICONCLS",
+        "codeName" : "IconClass"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Disabled",
+      "logicName" : "是否禁用",
+      "name" : "Disabled",
+      "getPSAppDEField" : {
+        "name" : "DISABLED",
+        "codeName" : "Disabled"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Expired",
+      "logicName" : "过期/失效",
+      "name" : "Expired",
+      "getPSAppDEField" : {
+        "name" : "EXPIRED",
+        "codeName" : "Expired"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ShowOrder",
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Extension",
+      "logicName" : "扩展",
+      "name" : "Extension",
+      "getPSAppDEField" : {
+        "name" : "EXTENSION",
+        "codeName" : "Extension"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "最后修改时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "创建时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "DictOptionFilterDTO",
+    "name" : "DictOptionFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_CID_EQ",
+      "logicName" : "目录代码",
+      "name" : "N_CID_EQ",
+      "getPSAppDEField" : {
+        "name" : "CID",
+        "codeName" : "CatalogId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CID_IN",
+      "logicName" : "目录代码",
+      "name" : "N_CID_IN",
+      "getPSAppDEField" : {
+        "name" : "CID",
+        "codeName" : "CatalogId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CID_LIKE",
+      "logicName" : "目录代码",
+      "name" : "N_CID_LIKE",
+      "getPSAppDEField" : {
+        "name" : "CID",
+        "codeName" : "CatalogId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CNAME_EQ",
+      "logicName" : "目录",
+      "name" : "N_CNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "CNAME",
+        "codeName" : "CatalogName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CNAME_LIKE",
+      "logicName" : "目录",
+      "name" : "N_CNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "CNAME",
+        "codeName" : "CatalogName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_LABEL_LIKE",
+      "logicName" : "名称",
+      "name" : "N_LABEL_LIKE",
+      "getPSAppDEField" : {
+        "name" : "LABEL",
+        "codeName" : "Label"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PVAL_EQ",
+      "logicName" : "父代码值",
+      "name" : "N_PVAL_EQ",
+      "getPSAppDEField" : {
+        "name" : "PVAL",
+        "codeName" : "Parent"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PVAL_IN",
+      "logicName" : "父代码值",
+      "name" : "N_PVAL_IN",
+      "getPSAppDEField" : {
+        "name" : "PVAL",
+        "codeName" : "Parent"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PVAL_ISNULL",
+      "logicName" : "父代码值",
+      "name" : "N_PVAL_ISNULL",
+      "getPSAppDEField" : {
+        "name" : "PVAL",
+        "codeName" : "Parent"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PVAL_NOTIN",
+      "logicName" : "父代码值",
+      "name" : "N_PVAL_NOTIN",
+      "getPSAppDEField" : {
+        "name" : "PVAL",
+        "codeName" : "Parent"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VAL_EQ",
+      "logicName" : "代码值",
+      "name" : "N_VAL_EQ",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VAL_IN",
+      "logicName" : "代码值",
+      "name" : "N_VAL_IN",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VAL_LEFTLIKE",
+      "logicName" : "代码值",
+      "name" : "N_VAL_LEFTLIKE",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VAL_LIKE",
+      "logicName" : "代码值",
+      "name" : "N_VAL_LIKE",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VAL_NOTIN",
+      "logicName" : "代码值",
+      "name" : "N_VAL_NOTIN",
+      "getPSAppDEField" : {
+        "name" : "VAL",
+        "codeName" : "Value"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VFILTER_EQ",
+      "logicName" : "过滤项",
+      "name" : "N_VFILTER_EQ",
+      "getPSAppDEField" : {
+        "name" : "VFILTER",
+        "codeName" : "Filter"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VFILTER_IN",
+      "logicName" : "过滤项",
+      "name" : "N_VFILTER_IN",
+      "getPSAppDEField" : {
+        "name" : "VFILTER",
+        "codeName" : "Filter"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VFILTER_LEFTLIKE",
+      "logicName" : "过滤项",
+      "name" : "N_VFILTER_LEFTLIKE",
+      "getPSAppDEField" : {
+        "name" : "VFILTER",
+        "codeName" : "Filter"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VFILTER_LIKE",
+      "logicName" : "过滤项",
+      "name" : "N_VFILTER_LIKE",
+      "getPSAppDEField" : {
+        "name" : "VFILTER",
+        "codeName" : "Filter"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_VKEY_EQ",
+      "logicName" : "标识",
+      "name" : "N_VKEY_EQ",
+      "getPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "VKEY",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "VKEY",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DictOptionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "DictOption",
+  "dEAPICodeName" : "dictoption",
+  "dEAPICodeName2" : "dictoptions",
+  "dEAPITag" : "DICT_OPTION",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictOption.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "VKEY",
+    "codeName" : "ValueKey"
+  },
+  "logicName" : "字典项",
+  "getMajorPSAppDEField" : {
+    "name" : "LABEL",
+    "codeName" : "Label"
+  },
+  "getMinorPSAppDERSs" : [ {
+    "actionRSMode" : 1,
+    "codeName" : "Options",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "DictCatalog",
+    "majorDEName" : "DICT_CATALOG",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog.json"
+    },
+    "minorDECodeName" : "DictOption",
+    "minorDEName" : "DICT_OPTION",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictOption.json"
+    },
+    "name" : "CATALOG_OPTIONS",
+    "getParentPSAppDEField" : {
+      "name" : "CID",
+      "codeName" : "CatalogId"
+    },
+    "rSMode" : 2
+  } ],
+  "name" : "DICT_OPTION",
+  "getPSDEName" : "DICT_OPTION",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "LABEL",
+    "codeName" : "Label"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "getUnionKeyValuePSAppDEFields" : [ {
+    "name" : "CID",
+    "codeName" : "CatalogId"
+  }, {
+    "name" : "VAL",
+    "codeName" : "Value"
+  } ],
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+  }
+}

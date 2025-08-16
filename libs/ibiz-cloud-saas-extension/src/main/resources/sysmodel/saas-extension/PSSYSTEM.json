@@ -1,0 +1,1270 @@
+{
+  "getAllPSApps" : [ {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/WebApp/PSSYSAPP.json"
+  } ],
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList64.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList75.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList68.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList95.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList27.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList118.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList42.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList60.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList81.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList83.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList94.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList79.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList30.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList113.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList11.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList116.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList84.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList65.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/WFStates.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList77.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList70.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList48.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList38.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList5.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList24.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList114.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList41.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/TrueFalse.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList37.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList111.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/ImportSchemaType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList34.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList28.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/bi_cube_extension_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList62.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList6.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList46.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList23.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList86.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList89.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList90.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList19.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList67.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_status.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList4.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList102.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList20.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList50.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList9.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList29.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList45.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList74.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList39.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList101.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList3.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList1.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList32.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList87.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList57.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList16.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList7.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_owner_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList40.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList58.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList10.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList36.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList93.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/import_schema_owner_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList92.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList107.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList88.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList80.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList52.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList8.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList103.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_apply_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList35.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList55.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/data_source_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList33.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList59.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList104.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList99.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList21.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList108.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList96.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList112.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList14.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList56.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList100.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList117.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList66.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/YesNo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/SysOperator.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList13.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList54.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSCODELISTS/importStage.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_scope_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList12.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList71.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList98.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList31.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList105.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList22.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList17.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList47.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList61.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList106.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList97.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList18.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList69.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList115.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList63.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList49.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList26.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList91.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList85.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList82.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList72.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList110.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList78.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList109.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_content_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/SortDir.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_source_state.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList15.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList53.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSCODELISTS/CodeList76.json"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "拒绝",
+    "name" : "DENY"
+  }, {
+    "logicName" : "无控制",
+    "name" : "NONE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "流程启动",
+    "name" : "WFSTART"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json",
+    "name" : "APP_VIEW_THEME"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source.json",
+    "name" : "DATA_SOURCE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json",
+    "name" : "DEPLOY_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json",
+    "name" : "DEPLOY_SYSTEM_DATA_SOURCE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json",
+    "name" : "DEPLOY_SYSTEM_SETTING"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json",
+    "name" : "IMPORT_ACTION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json",
+    "name" : "IMPORT_SCHEMA"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json",
+    "name" : "IMPORT_SCHEMA_FIELD"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json",
+    "name" : "INTERNAL_MESSAGE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/notify_event.json",
+    "name" : "NOTIFY_EVENT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub.json",
+    "name" : "SERVICE_HUB"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json",
+    "name" : "SERVICE_HUB_DEPLOY_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json",
+    "name" : "SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json",
+    "name" : "SYSTEM_EXTENSION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_action_attach.json",
+    "name" : "SYSTEM_EXTENSION_ACTION_ATTACH"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_backend_task.json",
+    "name" : "SYSTEM_EXTENSION_BACKEND_TASK"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json",
+    "name" : "SYSTEM_EXTENSION_BI_CUBE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_dataflow.json",
+    "name" : "SYSTEM_EXTENSION_DATAFLOW"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_detail.json",
+    "name" : "SYSTEM_EXTENSION_DETAIL"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_field.json",
+    "name" : "SYSTEM_EXTENSION_FIELD"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form.json",
+    "name" : "SYSTEM_EXTENSION_FORM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_grid.json",
+    "name" : "SYSTEM_EXTENSION_GRID"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_logic.json",
+    "name" : "SYSTEM_EXTENSION_LOGIC"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_main_state.json",
+    "name" : "SYSTEM_EXTENSION_MAIN_STATE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify.json",
+    "name" : "SYSTEM_EXTENSION_NOTIFY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json",
+    "name" : "SYSTEM_EXTENSION_NOTIFY_SETTING"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_template.json",
+    "name" : "SYSTEM_EXTENSION_NOTIFY_TEMPLATE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_portlet.json",
+    "name" : "SYSTEM_EXTENSION_PORTLET"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_suite.json",
+    "name" : "SYSTEM_EXTENSION_SUITE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow.json",
+    "name" : "SYSTEM_EXTENSION_WORKFLOW"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow_definition.json",
+    "name" : "SYSTEM_EXTENSION_WORKFLOW_DEFINITION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_merge.json",
+    "name" : "SYSTEM_MERGE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json",
+    "name" : "SYSTEM_SOURCE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json",
+    "name" : "SYSTEM_VERSION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source.json",
+    "name" : "SYSTEM_VERSION_SOURCE"
+  } ],
+  "getAllPSSysBackServices" : [ {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/DENotifyDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/SysDataSyncAgentDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/WFCallbackDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/SysAdminDeamon.json"
+  } ],
+  "getAllPSSysCounters" : [ {
+    "codeName" : "WFExpBar",
+    "counterType" : "CUSTOM",
+    "dynaModelFilePath" : "PSSYSCOUNTERS/WFExpBar.json",
+    "name" : "流程导航栏计数器",
+    "getPSCounterId" : "WFEXPBAR",
+    "timer" : 60000,
+    "uniqueTag" : "WFExpBar"
+  }, {
+    "codeName" : "Portal",
+    "counterType" : "CUSTOM",
+    "dynaModelFilePath" : "PSSYSCOUNTERS/Portal.json",
+    "name" : "门户界面计数器",
+    "getPSCounterId" : "PORTAL",
+    "timer" : 60000,
+    "uniqueTag" : "Portal"
+  } ],
+  "getAllPSSysDBSchemes" : [ {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  } ],
+  "getAllPSSysDBValueFuncs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/DATEDIFFNOW2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/DATEDIFFNOW.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/STRLEN.json"
+  } ],
+  "getAllPSSysERMaps" : [ {
+    "modelref" : true,
+    "path" : "PSSYSERMAPS/notify.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSERMAPS/SystemManagement.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSERMAPS/AppPersonalization.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSERMAPS/Import.json"
+  } ],
+  "getAllPSSysEditorStyles" : [ {
+    "codeName" : "A3db8f2f369ff51395a",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/A3db8f2f369ff51395a.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到小时",
+    "styleCode" : "A3db8f2f369ff51395a",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "A8e25807ee9795aff94",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/A8e25807ee9795aff94.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "电话号码",
+    "styleCode" : "A8e25807ee9795aff94",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Ad92efdf150be73b553",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Ad92efdf150be73b553.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "数字",
+    "styleCode" : "Ad92efdf150be73b553",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "A3b311448b3c77b1116",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/A3b311448b3c77b1116.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "网址",
+    "styleCode" : "A3b311448b3c77b1116",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Afe299e4725e315af5c",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Afe299e4725e315af5c.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "只有小时分钟",
+    "styleCode" : "Afe299e4725e315af5c",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Af77981cb7cacfab434",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Af77981cb7cacfab434.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "密码框",
+    "styleCode" : "Af77981cb7cacfab434",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "A077fcdf942a132fedd",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/A077fcdf942a132fedd.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "邮箱",
+    "styleCode" : "A077fcdf942a132fedd",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Aa708288b814c6529c0",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Aa708288b814c6529c0.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到分钟",
+    "styleCode" : "Aa708288b814c6529c0",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Aaa73b9bd3be66e7778",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Aaa73b9bd3be66e7778.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到天",
+    "styleCode" : "Aaa73b9bd3be66e7778",
+    "replaceDefault" : false
+  } ],
+  "getAllPSSysI18Ns" : [ {
+    "modelref" : true,
+    "path" : "PSSYSI18NS/DEFAULT.json"
+  } ],
+  "getAllPSSysPDTViews" : [ {
+    "caption" : "流程跟踪列表视图",
+    "codeName" : "PDTView6",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView6.json",
+    "name" : "流程跟踪列表视图"
+  }, {
+    "caption" : "流程后加签操作视图",
+    "codeName" : "PDTView2",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView2.json",
+    "name" : "流程后加签操作视图"
+  }, {
+    "caption" : "流程回退操作视图",
+    "codeName" : "PDTView4",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView4.json",
+    "name" : "流程回退操作视图"
+  }, {
+    "caption" : "流程征求意见操作视图",
+    "codeName" : "PDTView9",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView9.json",
+    "name" : "流程征求意见操作视图"
+  }, {
+    "caption" : "流程前加签操作视图",
+    "codeName" : "PDTView3",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView3.json",
+    "name" : "流程前加签操作视图"
+  }, {
+    "caption" : "常规数据附件列表",
+    "codeName" : "PDTView",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView.json",
+    "name" : "常规数据附件列表"
+  }, {
+    "caption" : "流程补充信息操作视图",
+    "codeName" : "PDTView8",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView8.json",
+    "name" : "流程补充信息操作视图"
+  }, {
+    "caption" : "流程跟踪图形视图",
+    "codeName" : "PDTView7",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView7.json",
+    "name" : "流程跟踪图形视图"
+  }, {
+    "caption" : "流程催办列表视图",
+    "codeName" : "PDTView5",
+    "dynaModelFilePath" : "PSSYSPDTVIEWS/PDTView5.json",
+    "name" : "流程催办列表视图"
+  } ],
+  "getAllPSSysSFPubs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSSFPUBS/CloudV2.json"
+  } ],
+  "getAllPSSysServiceAPIs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/api.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/core.json"
+  } ],
+  "getAllPSSysUniReses" : [ {
+    "name" : "默认管理员操作",
+    "resCode" : "ADMIN",
+    "id" : "ADMIN"
+  }, {
+    "name" : "默认用户操作",
+    "resCode" : "DEFAULT",
+    "id" : "DEFAULT"
+  } ],
+  "getAllPSSysUniStates" : [ {
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSSYSUNISTATES/system_extension_form__group.json",
+    "getFolder2PSDEField" : {
+      "name" : "DATA_ENTITY_TAG",
+      "codeName" : "data_entity_tag"
+    },
+    "getFolderPSDEField" : {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    },
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "系统扩展实体表单",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement.json"
+    },
+    "pathFormat" : "ibiz-cloud-extension-form-{folder}--{folder2}",
+    "getState2PSDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
+    "getStatePSDEField" : {
+      "name" : "FORM_TAG",
+      "codeName" : "form_tag"
+    },
+    "uniStateMode" : "CACHE",
+    "uniStateParams" : {
+      "DELETEASUPDATE" : "TRUE"
+    },
+    "uniStateType" : "DE",
+    "uniqueTag" : "system_extension_form__group",
+    "deleteAsUpdate" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSSYSUNISTATES/system_extension_field__group.json",
+    "getFolder2PSDEField" : {
+      "name" : "DATA_ENTITY_TAG",
+      "codeName" : "data_entity_tag"
+    },
+    "getFolderPSDEField" : {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    },
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "系统扩展实体属性",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_field.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement.json"
+    },
+    "pathFormat" : "ibiz-cloud-extension-field-{folder}--{folder2}",
+    "getState2PSDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
+    "getStatePSDEField" : {
+      "name" : "FIELD_TAG",
+      "codeName" : "field_tag"
+    },
+    "uniStateMode" : "CACHE",
+    "uniStateParams" : {
+      "DELETEASUPDATE" : "TRUE"
+    },
+    "uniStateType" : "DE",
+    "uniqueTag" : "system_extension_field__group",
+    "deleteAsUpdate" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSSYSUNISTATES/system_extension_bi_cube__group.json",
+    "getFolder2PSDEField" : {
+      "name" : "BI_CUBE_TAG",
+      "codeName" : "bi_cube_tag"
+    },
+    "getFolderPSDEField" : {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    },
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "系统扩展BI立方体",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement.json"
+    },
+    "pathFormat" : "ibiz-cloud-extension-bicube-{folder}--{folder2}",
+    "getState2PSDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
+    "getStatePSDEField" : {
+      "name" : "ITEM_TAG",
+      "codeName" : "item_tag"
+    },
+    "uniStateMode" : "CACHE",
+    "uniStateParams" : {
+      "DELETEASUPDATE" : "TRUE"
+    },
+    "uniStateType" : "DE",
+    "uniqueTag" : "system_extension_bi_cube__group",
+    "deleteAsUpdate" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSSYSUNISTATES/system_extension_notify_setting__default.json",
+    "getFolder2PSDEField" : {
+      "name" : "OWNER_TYPE",
+      "codeName" : "owner_type"
+    },
+    "getFolder3PSDEField" : {
+      "name" : "OWNER_ID",
+      "codeName" : "owner_id"
+    },
+    "getFolderPSDEField" : {
+      "name" : "SYSTEM_TAG",
+      "codeName" : "system_tag"
+    },
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "系统扩展通知设置",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement.json"
+    },
+    "getState2PSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getState3PSDEField" : {
+      "name" : "SETTING_MODEL",
+      "codeName" : "setting_model"
+    },
+    "getStatePSDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
+    "uniStateType" : "DE",
+    "uniqueTag" : "system_extension_notify_setting__default"
+  } ],
+  "getAllPSSysUserRoles" : [ {
+    "codeName" : "cloud_user",
+    "defaultUser" : "USER",
+    "dynaModelFilePath" : "PSSYSUSERROLES/cloud_user.json",
+    "name" : "cloud用户默认",
+    "getPSSysUserRoleDatas" : [ {
+      "name" : "cloud用户默认-APP_VIEW_THEME[当前用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEUSERROLES/CurUser.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+      }
+    }, {
+      "name" : "cloud用户默认-IMPORT_SCHEMA[当前用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEUSERROLES/CurUser.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+      }
+    }, {
+      "name" : "cloud用户默认-INTERNAL_MESSAGE[当前发送用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/CurSender.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+      }
+    }, {
+      "name" : "cloud用户默认-SYSTEM_EXTENSION_NOTIFY_SETTING[当前用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEUSERROLES/CurUser.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+      }
+    }, {
+      "name" : "cloud用户默认-INTERNAL_MESSAGE[当前接收用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/CurReceiver.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+      }
+    } ],
+    "getPSSysUserRoleReses" : [ {
+      "name" : "cloud用户默认-默认用户操作",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "DEFAULT"
+      },
+      "sysUniResCode" : "DEFAULT"
+    } ],
+    "roleTag" : "CLOUD_USER",
+    "roleType" : "CUSTOM",
+    "uniResTags" : [ "DEFAULT" ],
+    "systemReserved" : true
+  }, {
+    "codeName" : "cloud_admin",
+    "defaultUser" : "ADMIN",
+    "dynaModelFilePath" : "PSSYSUSERROLES/cloud_admin.json",
+    "name" : "cloud管理员默认",
+    "getPSSysUserRoleDatas" : [ {
+      "name" : "cloud管理员默认-INTERNAL_MESSAGE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/ALL.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+      }
+    }, {
+      "name" : "cloud管理员默认-IMPORT_SCHEMA[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEUSERROLES/ALL.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+      }
+    }, {
+      "name" : "cloud管理员默认-APP_VIEW_THEME[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEUSERROLES/ALL.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+      }
+    }, {
+      "name" : "cloud管理员默认-SYSTEM_EXTENSION_NOTIFY_SETTING[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEUSERROLES/ALL.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+      }
+    } ],
+    "getPSSysUserRoleReses" : [ {
+      "name" : "cloud管理员默认-默认管理员操作",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ADMIN"
+      },
+      "sysUniResCode" : "ADMIN"
+    }, {
+      "name" : "cloud管理员默认-默认用户操作",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "DEFAULT"
+      },
+      "sysUniResCode" : "DEFAULT"
+    } ],
+    "roleTag" : "CLOUD_ADMIN",
+    "roleType" : "CUSTOM",
+    "uniResTags" : [ "ADMIN", "DEFAULT" ],
+    "systemReserved" : true
+  } ],
+  "getAllPSSystemDBConfigs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSTEMDBCFGS/MYSQL5.json"
+  } ],
+  "getAllPSSystemModules" : [ {
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+    } ],
+    "codeName" : "AppPersonalization",
+    "dynaModelFilePath" : "PSMODULES/AppPersonalization.json",
+    "name" : "应用个性化"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSCODELISTS/ImportSchemaType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSCODELISTS/import_schema_owner_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSCODELISTS/importStage.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json"
+    } ],
+    "codeName" : "DataImport",
+    "dynaModelFilePath" : "PSMODULES/DataImport.json",
+    "name" : "导入"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_status.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_owner_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_content_type.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    } ],
+    "codeName" : "Notify",
+    "dynaModelFilePath" : "PSMODULES/Notify.json",
+    "name" : "消息通知"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/bi_cube_extension_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_state.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_apply_state.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/data_source_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_extension_scope_type.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSCODELISTS/system_source_state.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/notify_event.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_action_attach.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_backend_task.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_dataflow.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_detail.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_field.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_form.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_grid.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_logic.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_main_state.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_template.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_portlet.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_suite.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_workflow_definition.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_merge.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source.json"
+    } ],
+    "codeName" : "SystemManagement",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement.json",
+    "name" : "系统管理"
+  } ],
+  "codeName" : "iBizCloudImportEx",
+  "defaultLanguage" : "ZH_CN",
+  "getDefaultPSSysI18N" : {
+    "modelref" : true,
+    "path" : "PSSYSI18NS/DEFAULT.json"
+  },
+  "getDefaultPSSysSFPub" : {
+    "codeName" : "CloudV2",
+    "contentType" : "CODE",
+    "defaultFlag" : true,
+    "dynaModelFilePath" : "PSSYSSFPUBS/CloudV2.json",
+    "groovySourceFolder" : "cloudv2-core/src/main/groovy",
+    "modelFolder" : "cloudv2-core/src/main/resources/model/net/ibizsys/central/cloud/saas/v2",
+    "name" : "CloudV2",
+    "pKGCodeName" : "net.ibizsys.central.cloud.saas.v2",
+    "versionString" : "1.0.0.0",
+    "codeMode" : true,
+    "enableModelRT" : true,
+    "mainPSSysSFPub" : true,
+    "pubModel" : true
+  },
+  "deploySysId" : "ibizcloudimportex",
+  "engineVer" : 240,
+  "logicName" : "iBizCloud导入扩展",
+  "name" : "iBizCloudImportEx",
+  "vCName" : "trunk",
+  "id" : "PSSYSTEM.json"
+}

@@ -1,0 +1,1324 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "MSGSENDQUEUEHISID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "MSGSENDQUEUEHISID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Resend",
+    "methodType" : "DEACTION",
+    "name" : "Resend",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/resend",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "Url",
+    "logicName" : "URL",
+    "name" : "URL",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "codeName" : "MobileUrl",
+    "logicName" : "移动端URL",
+    "name" : "MOBILEURL",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "codeName" : "UserData4",
+    "logicName" : "用户数据4",
+    "name" : "USERDATA4",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "WXContent",
+    "logicName" : "微信消息内容",
+    "name" : "WXCONTENT",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "IsError",
+    "logicName" : "发送失败",
+    "name" : "ISERROR",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "FileAT3",
+    "logicName" : "文件附件3",
+    "name" : "FILEAT3",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "FileAT2",
+    "logicName" : "文件附件2",
+    "name" : "FILEAT2",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "MsgType",
+    "logicName" : "消息类型",
+    "name" : "MSGTYPE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "UserData3",
+    "logicName" : "用户数据3",
+    "name" : "USERDATA3",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "MsgSendQueueHisName",
+    "logicName" : "消息名称",
+    "name" : "MSGSENDQUEUEHISNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "SMSContent",
+    "logicName" : "短消息内容",
+    "name" : "SMSCONTENT",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "ProcessTime",
+    "logicName" : "处理时间",
+    "name" : "PROCESSTIME",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Content",
+    "logicName" : "消息内容",
+    "name" : "CONTENT",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "UserData",
+    "logicName" : "用户数据",
+    "name" : "USERDATA",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "ImportanceFlag",
+    "logicName" : "重要程度",
+    "name" : "IMPORTANCEFLAG",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "TotalDstAddresses",
+    "logicName" : "全部地址",
+    "name" : "TOTALDSTADDRESSES",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "ErrorInfo",
+    "logicName" : "错误信息",
+    "name" : "ERRORINFO",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Subject",
+    "logicName" : "消息标题",
+    "name" : "SUBJECT",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "FileAT",
+    "logicName" : "文件附件",
+    "name" : "FILEAT",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "FileAT4",
+    "logicName" : "文件附件4",
+    "name" : "FILEAT4",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "codeName" : "ContentType",
+    "logicName" : "内容类型",
+    "name" : "CONTENTTYPE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "SystemId",
+    "logicName" : "系统",
+    "name" : "SYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PlanSendTime",
+    "logicName" : "计划发送时间",
+    "name" : "PLANSENDTIME",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "SendTag",
+    "logicName" : "发送者",
+    "name" : "SENDTAG",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "MsgSendQueueHisId",
+    "logicName" : "消息发送队列标识",
+    "name" : "MSGSENDQUEUEHISID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "UserData2",
+    "logicName" : "用户数据2",
+    "name" : "USERDATA2",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "DDContent",
+    "logicName" : "钉钉消息内容",
+    "name" : "DDCONTENT",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "IsSend",
+    "logicName" : "是否发送",
+    "name" : "ISSEND",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "IMContent",
+    "logicName" : "IM消息内容",
+    "name" : "IMCONTENT",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "DstUsers",
+    "logicName" : "目标用户",
+    "name" : "DSTUSERS",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "DstAddresses",
+    "logicName" : "目标地址",
+    "name" : "DSTADDRESSES",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "DCSystemName",
+    "logicName" : "系统",
+    "name" : "DCSYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "DCSystemId",
+    "logicName" : "租户系统标识",
+    "name" : "DCSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "TemplateId",
+    "logicName" : "消息模板标记",
+    "name" : "TEMPLATEID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "MsgSendQueueHisDTO",
+    "name" : "MsgSendQueueHisDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "Url",
+      "logicName" : "URL",
+      "name" : "Url",
+      "getPSAppDEField" : {
+        "name" : "URL",
+        "codeName" : "Url"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MobileUrl",
+      "logicName" : "移动端URL",
+      "name" : "MobileUrl",
+      "getPSAppDEField" : {
+        "name" : "MOBILEURL",
+        "codeName" : "MobileUrl"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Content",
+      "logicName" : "消息内容",
+      "name" : "Content",
+      "getPSAppDEField" : {
+        "name" : "CONTENT",
+        "codeName" : "Content"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ContentType",
+      "logicName" : "内容类型",
+      "name" : "ContentType",
+      "getPSAppDEField" : {
+        "name" : "CONTENTTYPE",
+        "codeName" : "ContentType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DCSystemId",
+      "logicName" : "租户系统标识",
+      "name" : "DCSystemId",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DCSystemName",
+      "logicName" : "系统",
+      "name" : "DCSystemName",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DDContent",
+      "logicName" : "钉钉消息内容",
+      "name" : "DDContent",
+      "getPSAppDEField" : {
+        "name" : "DDCONTENT",
+        "codeName" : "DDContent"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DstAddresses",
+      "logicName" : "目标地址",
+      "name" : "DstAddresses",
+      "getPSAppDEField" : {
+        "name" : "DSTADDRESSES",
+        "codeName" : "DstAddresses"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DstUsers",
+      "logicName" : "目标用户",
+      "name" : "DstUsers",
+      "getPSAppDEField" : {
+        "name" : "DSTUSERS",
+        "codeName" : "DstUsers"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ErrorInfo",
+      "logicName" : "错误信息",
+      "name" : "ErrorInfo",
+      "getPSAppDEField" : {
+        "name" : "ERRORINFO",
+        "codeName" : "ErrorInfo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FileAT",
+      "logicName" : "文件附件",
+      "name" : "FileAT",
+      "getPSAppDEField" : {
+        "name" : "FILEAT",
+        "codeName" : "FileAT"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FileAT2",
+      "logicName" : "文件附件2",
+      "name" : "FileAT2",
+      "getPSAppDEField" : {
+        "name" : "FILEAT2",
+        "codeName" : "FileAT2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FileAT3",
+      "logicName" : "文件附件3",
+      "name" : "FileAT3",
+      "getPSAppDEField" : {
+        "name" : "FILEAT3",
+        "codeName" : "FileAT3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FileAT4",
+      "logicName" : "文件附件4",
+      "name" : "FileAT4",
+      "getPSAppDEField" : {
+        "name" : "FILEAT4",
+        "codeName" : "FileAT4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IMContent",
+      "logicName" : "IM消息内容",
+      "name" : "IMContent",
+      "getPSAppDEField" : {
+        "name" : "IMCONTENT",
+        "codeName" : "IMContent"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ImportanceFlag",
+      "logicName" : "重要程度",
+      "name" : "ImportanceFlag",
+      "getPSAppDEField" : {
+        "name" : "IMPORTANCEFLAG",
+        "codeName" : "ImportanceFlag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsError",
+      "logicName" : "发送失败",
+      "name" : "IsError",
+      "getPSAppDEField" : {
+        "name" : "ISERROR",
+        "codeName" : "IsError"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsSend",
+      "logicName" : "是否发送",
+      "name" : "IsSend",
+      "getPSAppDEField" : {
+        "name" : "ISSEND",
+        "codeName" : "IsSend"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MsgSendQueueHisId",
+      "logicName" : "消息发送队列标识",
+      "name" : "MsgSendQueueHisId",
+      "getPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MsgSendQueueHisName",
+      "logicName" : "消息名称",
+      "name" : "MsgSendQueueHisName",
+      "getPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISNAME",
+        "codeName" : "MsgSendQueueHisName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MsgType",
+      "logicName" : "消息类型",
+      "name" : "MsgType",
+      "getPSAppDEField" : {
+        "name" : "MSGTYPE",
+        "codeName" : "MsgType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PlanSendTime",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "计划发送时间",
+      "name" : "PlanSendTime",
+      "getPSAppDEField" : {
+        "name" : "PLANSENDTIME",
+        "codeName" : "PlanSendTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ProcessTime",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "处理时间",
+      "name" : "ProcessTime",
+      "getPSAppDEField" : {
+        "name" : "PROCESSTIME",
+        "codeName" : "ProcessTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SMSContent",
+      "logicName" : "短消息内容",
+      "name" : "SMSContent",
+      "getPSAppDEField" : {
+        "name" : "SMSCONTENT",
+        "codeName" : "SMSContent"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SendTag",
+      "logicName" : "发送者",
+      "name" : "SendTag",
+      "getPSAppDEField" : {
+        "name" : "SENDTAG",
+        "codeName" : "SendTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Subject",
+      "logicName" : "消息标题",
+      "name" : "Subject",
+      "getPSAppDEField" : {
+        "name" : "SUBJECT",
+        "codeName" : "Subject"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemId",
+      "logicName" : "系统",
+      "name" : "SystemId",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMID",
+        "codeName" : "SystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "TemplateId",
+      "logicName" : "消息模板标记",
+      "name" : "TemplateId",
+      "getPSAppDEField" : {
+        "name" : "TEMPLATEID",
+        "codeName" : "TemplateId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "TotalDstAddresses",
+      "logicName" : "全部地址",
+      "name" : "TotalDstAddresses",
+      "getPSAppDEField" : {
+        "name" : "TOTALDSTADDRESSES",
+        "codeName" : "TotalDstAddresses"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserData",
+      "logicName" : "用户数据",
+      "name" : "UserData",
+      "getPSAppDEField" : {
+        "name" : "USERDATA",
+        "codeName" : "UserData"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserData2",
+      "logicName" : "用户数据2",
+      "name" : "UserData2",
+      "getPSAppDEField" : {
+        "name" : "USERDATA2",
+        "codeName" : "UserData2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserData3",
+      "logicName" : "用户数据3",
+      "name" : "UserData3",
+      "getPSAppDEField" : {
+        "name" : "USERDATA3",
+        "codeName" : "UserData3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserData4",
+      "logicName" : "用户数据4",
+      "name" : "UserData4",
+      "getPSAppDEField" : {
+        "name" : "USERDATA4",
+        "codeName" : "UserData4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "WXContent",
+      "logicName" : "微信消息内容",
+      "name" : "WXContent",
+      "getPSAppDEField" : {
+        "name" : "WXCONTENT",
+        "codeName" : "WXContent"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "MsgSendQueueHisFilterDTO",
+    "name" : "MsgSendQueueHisFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_DCSYSTEMID_EQ",
+      "logicName" : "租户系统标识",
+      "name" : "N_DCSYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_EQ",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_LIKE",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MSGSENDQUEUEHISID_EQ",
+      "logicName" : "消息发送队列标识",
+      "name" : "N_MSGSENDQUEUEHISID_EQ",
+      "getPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MSGSENDQUEUEHISNAME_LIKE",
+      "logicName" : "消息名称",
+      "name" : "N_MSGSENDQUEUEHISNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISNAME",
+        "codeName" : "MsgSendQueueHisName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SUBJECT_LIKE",
+      "logicName" : "消息标题",
+      "name" : "N_SUBJECT_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SUBJECT",
+        "codeName" : "Subject"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "MSGSENDQUEUEHISID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MSGSENDQUEUEHISID",
+        "codeName" : "MsgSendQueueHisId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "MSGSENDQUEUEHISID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Resend",
+    "methodType" : "DEACTION",
+    "name" : "Resend",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/resend",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgSendQueueHisDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEUIActions" : [ {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "重新发送",
+    "codeName" : "Resend",
+    "fullCodeName" : "MsgSendQueueHis_Resend",
+    "name" : "重新发送",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Resend"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+    },
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "Resend",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "id" : "Resend@MsgSendQueueHis"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "MsgSendQueueHis",
+  "dEAPICodeName" : "msgsendqueuehis",
+  "dEAPICodeName2" : "msgsendqueuehis",
+  "dEAPITag" : "MSG_SEND_QUEUE_HIS",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "MSGSENDQUEUEHISID",
+    "codeName" : "MsgSendQueueHisId"
+  },
+  "logicName" : "消息队列（历史）",
+  "getMajorPSAppDEField" : {
+    "name" : "MSGSENDQUEUEHISNAME",
+    "codeName" : "MsgSendQueueHisName"
+  },
+  "name" : "MSG_SEND_QUEUE_HIS",
+  "getPSDEName" : "MSG_SEND_QUEUE_HIS",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "MSGSENDQUEUEHISNAME",
+    "codeName" : "MsgSendQueueHisName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis.json"
+  },
+  "getAllPSAppDEUIActionGroups" : [ {
+    "codeName" : "Ab43403ae44dfbebfeb",
+    "name" : "重新发送",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+    },
+    "uniqueTag" : "MsgSendQueueHis__Ab43403ae44dfbebfeb",
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "重新发送",
+      "detailType" : "DEUIACTION",
+      "name" : "ue3555a1",
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true,
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+        },
+        "modelref" : true,
+        "id" : "Resend@MsgSendQueueHis"
+      }
+    } ]
+  } ]
+}

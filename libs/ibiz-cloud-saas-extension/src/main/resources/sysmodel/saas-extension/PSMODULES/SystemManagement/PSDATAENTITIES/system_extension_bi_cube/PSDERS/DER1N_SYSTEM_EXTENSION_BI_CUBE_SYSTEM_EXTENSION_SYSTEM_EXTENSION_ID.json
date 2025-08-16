@@ -1,0 +1,30 @@
+{
+  "codeName" : "system_extension",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube/PSDERS/DER1N_SYSTEM_EXTENSION_BI_CUBE_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID.json",
+  "fKeyName" : "FF1AE4498D8854AACD",
+  "logicName" : "系统扩展",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 5,
+  "minorCodeName" : "system_extension_bi_cubes",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube.json"
+  },
+  "minorServiceCodeName" : "system_extension_bi_cubes",
+  "name" : "DER1N_SYSTEM_EXTENSION_BI_CUBE_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYSTEM_EXTENSION_ID",
+    "codeName" : "system_extension_id"
+  },
+  "pickupDEFName" : "SYSTEM_EXTENSION_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "system_extension",
+  "enableFKey" : true
+}

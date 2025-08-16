@@ -1,0 +1,34 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BUSINESSKEY",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DEPTID",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.DUEDATE",
+    "name" : "DUEDATE"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.ID",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.MAJORTEXT",
+    "name" : "MAJORTEXT"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.TASKID",
+    "name" : "TASKID"
+  } ],
+  "queryCode" : "SELECT\nt1.BUSINESSKEY,\nt1.DCSYSTEMID,\nt1.DEPTID,\nt1.DUEDATE,\nt1.ENTITYID,\nt1.ID,\nt1.MAJORTEXT,\nt1.ORGID,\nt1.TASKID\nFROM IBZWFTIMEOUT t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFTimeout/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,21 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "codeName" : "Save",
+  "dynaModelFilePath" : "PSMODULES/dict/PSDATAENTITIES/DictOption/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DictOptionDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

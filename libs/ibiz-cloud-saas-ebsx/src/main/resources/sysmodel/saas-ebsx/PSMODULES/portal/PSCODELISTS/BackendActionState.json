@@ -1,0 +1,44 @@
+{
+  "codeListTag" : "portal__BackendActionState",
+  "codeListType" : "STATIC",
+  "codeName" : "BackendActionState",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/portal/PSCODELISTS/BackendActionState.json",
+  "emptyText" : "未定义",
+  "name" : "操作状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "NotCreated",
+    "text" : "未开始",
+    "value" : "10"
+  }, {
+    "codeName" : "Creating",
+    "color" : "Green",
+    "text" : "执行中",
+    "value" : "20"
+  }, {
+    "codeName" : "Created",
+    "color" : "Blue",
+    "text" : "已执行",
+    "value" : "30"
+  }, {
+    "codeName" : "Failed",
+    "color" : "Red",
+    "text" : "执行失败",
+    "value" : "40"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

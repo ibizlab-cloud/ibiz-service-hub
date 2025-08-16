@@ -1,0 +1,20 @@
+{
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEUSERROLES/DEPTUSER.json",
+  "name" : "当前部门人员",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "CurUserDept"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "当前部门人员（只读）",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  } ],
+  "roleTag" : "DEPTUSER",
+  "userDRAction" : "READ",
+  "defaultMode" : true,
+  "enableUserDR" : true
+}

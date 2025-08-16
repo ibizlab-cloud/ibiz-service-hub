@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Activate",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/Activate.json",
+  "logicName" : "激活",
+  "name" : "Activate",
+  "getPSDEActionInput" : {
+    "name" : "ActivateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ActivateResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "codeName" : "SysEmployee",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_EMP_USERID.json",
+  "fKeyName" : "FA9348897FDD4BEF63",
+  "logicName" : "用户",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  },
+  "name" : "DER1N_SYS_USER_ROLE_SYS_EMP_USERID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "USERID",
+    "codeName" : "UserId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "PERSONNAME",
+    "codeName" : "PersonName"
+  },
+  "pickupDEFName" : "USERID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "SysEmployee"
+}

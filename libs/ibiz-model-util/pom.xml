@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <artifactId>ibiz-plugin</artifactId>
+    <version>8.1.0.570.29.1</version>
+  </parent>
+  <artifactId>ibiz-model-util</artifactId>
+  <name>ibiz-model-util</name>
+  <properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>
+   <dependencies>	
+  	
+	<dependency>
+       	<groupId>cn.ibizlab.plugin</groupId>
+		<artifactId>ibiz-psmodel-core</artifactId>
+		<version>${ibiz.cloud.version}</version>
+	</dependency>
+	
+	
+	 <dependency>
+       	<groupId>cn.ibizlab.plugin</groupId>
+		<artifactId>ibiz-model</artifactId>
+		<version>${ibiz.cloud.version}</version>
+	</dependency>
+	
+	
+	
+	<!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.openjdk.jol</groupId> -->
+<!-- 	    <artifactId>jol-core</artifactId> -->
+<!-- 	    <version>0.17</version> -->
+<!-- 	    <scope>provided</scope> -->
+<!-- 	</dependency> -->
+
+
+
+	</dependencies>	
+</project>

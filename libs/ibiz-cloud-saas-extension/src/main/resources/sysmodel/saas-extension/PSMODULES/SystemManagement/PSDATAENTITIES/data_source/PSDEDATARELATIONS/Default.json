@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.DATA_SOURCE"
+  },
+  "formCaption" : "数据源",
+  "name" : "数据源默认关系界面组"
+}

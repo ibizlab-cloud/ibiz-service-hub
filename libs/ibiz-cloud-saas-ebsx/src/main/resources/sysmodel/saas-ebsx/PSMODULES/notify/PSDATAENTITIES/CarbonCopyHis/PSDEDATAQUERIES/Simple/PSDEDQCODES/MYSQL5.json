@@ -1,0 +1,79 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`BIZKEY`",
+    "name" : "BIZKEY"
+  }, {
+    "expression" : "t1.`BIZTYPE`",
+    "name" : "BIZTYPE"
+  }, {
+    "expression" : "t1.`CLOBPARAM01`",
+    "name" : "CLOBPARAM01"
+  }, {
+    "expression" : "t1.`CLOBPARAM02`",
+    "name" : "CLOBPARAM02"
+  }, {
+    "expression" : "t1.`CONTENT`",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DUEDATE`",
+    "name" : "DUEDATE"
+  }, {
+    "expression" : "t1.`ISREAD`",
+    "name" : "ISREAD"
+  }, {
+    "expression" : "t1.`LINKURL`",
+    "name" : "LINKURL"
+  }, {
+    "expression" : "t1.`PARAM01`",
+    "name" : "PARAM01"
+  }, {
+    "expression" : "t1.`PARAM02`",
+    "name" : "PARAM02"
+  }, {
+    "expression" : "t1.`PARAM03`",
+    "name" : "PARAM03"
+  }, {
+    "expression" : "t1.`PROCESSDATE`",
+    "name" : "PROCESSDATE"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.`TODOSTATE`",
+    "name" : "TODOSTATE"
+  }, {
+    "expression" : "t1.`TODOTYPE`",
+    "name" : "TODOTYPE"
+  }, {
+    "expression" : "t1.`USERID`",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.`TITLE`",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.`TODOID`",
+    "name" : "TODOID"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`ORGID`,\nt1.`TITLE`,\nt1.`TODOID`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `IBZCARBONCOPYHIS` t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopyHis/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

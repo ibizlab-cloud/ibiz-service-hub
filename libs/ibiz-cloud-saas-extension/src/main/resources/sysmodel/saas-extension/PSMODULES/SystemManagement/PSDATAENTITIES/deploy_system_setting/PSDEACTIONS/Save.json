@@ -1,0 +1,21 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "codeName" : "Save",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "deploy_system_settingDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

@@ -1,0 +1,2687 @@
+{
+  "getAllPSAppDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
+    } ],
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "defaultMode" : true,
+    "enablePagingBar" : false
+  } ],
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CUSTOM",
+    "codeName" : "ChangePwd",
+    "methodType" : "DEACTION",
+    "name" : "ChangePwd",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/changepwd",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "USERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitPwd",
+    "methodType" : "DEACTION",
+    "name" : "InitPwd",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/initpwd",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "USERID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "batchActionMode" : 1,
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTOS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Test",
+    "methodType" : "DEACTION",
+    "name" : "Test",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/test",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataImports" : [ {
+    "batchSize" : 1000,
+    "codeName" : "DataImport",
+    "createDataAccessAction" : "CREATE",
+    "getCreatePSAppDEAction" : {
+      "modelref" : true,
+      "id" : "Create"
+    },
+    "name" : "数据导入",
+    "getPSDEDataImportItems" : [ {
+      "caption" : "登录名",
+      "name" : "LOGINNAME",
+      "getPSAppDEField" : {
+        "name" : "LOGINNAME",
+        "codeName" : "LoginName"
+      }
+    }, {
+      "caption" : "主部门名称",
+      "name" : "MDEPTNAME",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      }
+    }, {
+      "caption" : "单位名称",
+      "name" : "ORGNAME",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      }
+    }, {
+      "caption" : "姓名",
+      "name" : "PERSONNAME",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
+    }, {
+      "caption" : "用户工号",
+      "name" : "USERCODE",
+      "getPSAppDEField" : {
+        "name" : "USERCODE",
+        "codeName" : "UserCode"
+      }
+    } ],
+    "updateDataAccessAction" : "UPDATE",
+    "getUpdatePSAppDEAction" : {
+      "modelref" : true,
+      "id" : "Update"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true,
+    "ignoreError" : false
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchCurUser",
+    "dataSetName" : "CurUser",
+    "dataSetTag" : "CurUser",
+    "methodType" : "FETCH",
+    "name" : "FetchCurUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchcuruser",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchIgnoreCenter",
+    "dataSetName" : "IgnoreCenter",
+    "dataSetTag" : "IgnoreCenter",
+    "methodType" : "FETCH",
+    "name" : "FetchIgnoreCenter",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchignorecenter",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchSystemAuth",
+    "dataSetName" : "SystemAuth",
+    "dataSetTag" : "SystemAuth",
+    "methodType" : "FETCH",
+    "name" : "FetchSystemAuth",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchsystemauth",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchWFSelect",
+    "dataSetName" : "WFSelect",
+    "dataSetTag" : "WFSelect",
+    "methodType" : "FETCH",
+    "name" : "FetchWFSelect",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchwfselect",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "UserId",
+    "logicName" : "用户标识",
+    "name" : "USERID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "UserName",
+    "logicName" : "用户全局名",
+    "name" : "USERNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PersonName",
+    "logicName" : "姓名",
+    "name" : "PERSONNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "UserCode",
+    "logicName" : "用户工号",
+    "name" : "USERCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "LoginName",
+    "logicName" : "登录名",
+    "name" : "LOGINNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Password",
+    "logicName" : "密码",
+    "name" : "PASSWORD",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Domains",
+    "logicName" : "区属",
+    "name" : "DOMAINS",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "MDeptId",
+    "logicName" : "主部门",
+    "name" : "MDEPTID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "MDeptCode",
+    "logicName" : "主部门代码",
+    "name" : "MDEPTCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "MDeptName",
+    "logicName" : "主部门名称",
+    "name" : "MDEPTNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "BCode",
+    "logicName" : "业务编码",
+    "name" : "BCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PostId",
+    "logicName" : "岗位标识",
+    "name" : "POSTID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PostCode",
+    "logicName" : "岗位代码",
+    "name" : "POSTCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PostName",
+    "logicName" : "岗位名称",
+    "name" : "POSTNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgId",
+    "logicName" : "单位",
+    "name" : "ORGID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgCode",
+    "logicName" : "单位代码",
+    "name" : "ORGCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgName",
+    "logicName" : "单位名称",
+    "name" : "ORGNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "NickName",
+    "logicName" : "昵称别名",
+    "name" : "NICKNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Sex",
+    "logicName" : "性别",
+    "name" : "SEX",
+    "stdDataType" : 25,
+    "stringLength" : 20
+  }, {
+    "codeName" : "CertCode",
+    "logicName" : "证件号码",
+    "name" : "CERTCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Phone",
+    "logicName" : "手机号",
+    "name" : "PHONE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Birthday",
+    "logicName" : "出生日期",
+    "name" : "BIRTHDAY",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD"
+  }, {
+    "codeName" : "Email",
+    "logicName" : "邮件",
+    "name" : "EMAIL",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Avatar",
+    "logicName" : "社交账号",
+    "name" : "AVATAR",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Addr",
+    "logicName" : "地址",
+    "name" : "ADDR",
+    "stdDataType" : 25,
+    "stringLength" : 255
+  }, {
+    "codeName" : "UserIcon",
+    "logicName" : "照片",
+    "name" : "USERICON",
+    "stdDataType" : 25,
+    "stringLength" : 255
+  }, {
+    "codeName" : "IPAddr",
+    "logicName" : "ip地址",
+    "name" : "IPADDR",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Theme",
+    "logicName" : "样式",
+    "name" : "THEME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Lang",
+    "logicName" : "语言",
+    "name" : "LANG",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "FontSize",
+    "logicName" : "字号",
+    "name" : "FONTSIZE",
+    "stdDataType" : 25,
+    "stringLength" : 10
+  }, {
+    "codeName" : "Memo",
+    "logicName" : "备注",
+    "name" : "MEMO",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver3",
+    "logicName" : "保留3",
+    "name" : "RESERVER3",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver2",
+    "logicName" : "保留2",
+    "name" : "RESERVER2",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver",
+    "logicName" : "保留",
+    "name" : "RESERVER",
+    "stdDataType" : 25,
+    "stringLength" : 255
+  }, {
+    "codeName" : "Reserver20",
+    "logicName" : "保留20",
+    "name" : "RESERVER20",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver19",
+    "logicName" : "保留19",
+    "name" : "RESERVER19",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver17",
+    "logicName" : "保留17",
+    "name" : "RESERVER17",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver18",
+    "logicName" : "保留18",
+    "name" : "RESERVER18",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver15",
+    "logicName" : "保留15",
+    "name" : "RESERVER15",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver14",
+    "logicName" : "保留14",
+    "name" : "RESERVER14",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver16",
+    "logicName" : "保留16",
+    "name" : "RESERVER16",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver12",
+    "logicName" : "保留12",
+    "name" : "RESERVER12",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver13",
+    "logicName" : "保留13",
+    "name" : "RESERVER13",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver11",
+    "logicName" : "保留11",
+    "name" : "RESERVER11",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver9",
+    "logicName" : "保留9",
+    "name" : "RESERVER9",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver10",
+    "logicName" : "保留10",
+    "name" : "RESERVER10",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver7",
+    "logicName" : "保留7",
+    "name" : "RESERVER7",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver8",
+    "logicName" : "保留8",
+    "name" : "RESERVER8",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver5",
+    "logicName" : "保留5",
+    "name" : "RESERVER5",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Reserver6",
+    "logicName" : "保留6",
+    "name" : "RESERVER6",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Reserver4",
+    "logicName" : "保留4",
+    "name" : "RESERVER4",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "ShowOrder",
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "SuperUser",
+    "logicName" : "管理员",
+    "name" : "SUPERUSER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Enable",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "CTRL.WFSERVICE.ERR000015"
+    },
+    "logicName" : "逻辑有效",
+    "name" : "ENABLE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "CreateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.PRINT"
+    },
+    "logicName" : "创建时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "UpdateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "OTHER.LIST.MYWF.COL.ACTOR.CAPTION"
+    },
+    "logicName" : "最后修改时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "FromOpenUserTag",
+    "logicName" : "来源开放用户标记",
+    "name" : "FROMOPENUSERTAG",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "DDUserId",
+    "logicName" : "钉钉用户标识",
+    "name" : "DDUSERID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "State",
+    "logicName" : "人员状态",
+    "name" : "STATE",
+    "stdDataType" : 25,
+    "stringLength" : 10
+  }, {
+    "codeName" : "MsgType",
+    "logicName" : "消息类型",
+    "name" : "MSGTYPE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "WXWorkUserId",
+    "logicName" : "企业微信用户标识",
+    "name" : "WXWORKUSERID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "UAAUserId",
+    "logicName" : "UAA用户标识",
+    "name" : "UAAUSERID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "WXWorkUnionId",
+    "logicName" : "微信用户标识",
+    "name" : "WXWORKUNIONID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "DDUnionId",
+    "logicName" : "钉钉用户标识",
+    "name" : "DDUNIONID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "EmployeeDTO",
+    "name" : "EmployeeDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "UserId",
+      "logicName" : "用户标识",
+      "name" : "UserId",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UserName",
+      "logicName" : "用户全局名",
+      "name" : "UserName",
+      "getPSAppDEField" : {
+        "name" : "USERNAME",
+        "codeName" : "UserName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PersonName",
+      "logicName" : "姓名",
+      "name" : "PersonName",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UserCode",
+      "logicName" : "用户工号",
+      "name" : "UserCode",
+      "getPSAppDEField" : {
+        "name" : "USERCODE",
+        "codeName" : "UserCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "LoginName",
+      "logicName" : "登录名",
+      "name" : "LoginName",
+      "getPSAppDEField" : {
+        "name" : "LOGINNAME",
+        "codeName" : "LoginName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Password",
+      "logicName" : "密码",
+      "name" : "Password",
+      "getPSAppDEField" : {
+        "name" : "PASSWORD",
+        "codeName" : "Password"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Domains",
+      "logicName" : "区属",
+      "name" : "Domains",
+      "getPSAppDEField" : {
+        "name" : "DOMAINS",
+        "codeName" : "Domains"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MDeptId",
+      "logicName" : "主部门",
+      "name" : "MDeptId",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MDeptCode",
+      "logicName" : "主部门代码",
+      "name" : "MDeptCode",
+      "getPSAppDEField" : {
+        "name" : "MDEPTCODE",
+        "codeName" : "MDeptCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MDeptName",
+      "logicName" : "主部门名称",
+      "name" : "MDeptName",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "BCode",
+      "logicName" : "业务编码",
+      "name" : "BCode",
+      "getPSAppDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PostId",
+      "logicName" : "岗位标识",
+      "name" : "PostId",
+      "getPSAppDEField" : {
+        "name" : "POSTID",
+        "codeName" : "PostId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PostCode",
+      "logicName" : "岗位代码",
+      "name" : "PostCode",
+      "getPSAppDEField" : {
+        "name" : "POSTCODE",
+        "codeName" : "PostCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PostName",
+      "logicName" : "岗位名称",
+      "name" : "PostName",
+      "getPSAppDEField" : {
+        "name" : "POSTNAME",
+        "codeName" : "PostName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgId",
+      "logicName" : "单位",
+      "name" : "OrgId",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "OrgCode",
+      "logicName" : "单位代码",
+      "name" : "OrgCode",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgName",
+      "logicName" : "单位名称",
+      "name" : "OrgName",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "NickName",
+      "logicName" : "昵称别名",
+      "name" : "NickName",
+      "getPSAppDEField" : {
+        "name" : "NICKNAME",
+        "codeName" : "NickName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CertCode",
+      "logicName" : "证件号码",
+      "name" : "CertCode",
+      "getPSAppDEField" : {
+        "name" : "CERTCODE",
+        "codeName" : "CertCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Sex",
+      "logicName" : "性别",
+      "name" : "Sex",
+      "getPSAppDEField" : {
+        "name" : "SEX",
+        "codeName" : "Sex"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Birthday",
+      "jsonFormat" : "yyyy-MM-dd",
+      "logicName" : "出生日期",
+      "name" : "Birthday",
+      "getPSAppDEField" : {
+        "name" : "BIRTHDAY",
+        "codeName" : "Birthday"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Phone",
+      "logicName" : "手机号",
+      "name" : "Phone",
+      "getPSAppDEField" : {
+        "name" : "PHONE",
+        "codeName" : "Phone"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Email",
+      "logicName" : "邮件",
+      "name" : "Email",
+      "getPSAppDEField" : {
+        "name" : "EMAIL",
+        "codeName" : "Email"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Avatar",
+      "logicName" : "社交账号",
+      "name" : "Avatar",
+      "getPSAppDEField" : {
+        "name" : "AVATAR",
+        "codeName" : "Avatar"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Addr",
+      "logicName" : "地址",
+      "name" : "Addr",
+      "getPSAppDEField" : {
+        "name" : "ADDR",
+        "codeName" : "Addr"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserIcon",
+      "logicName" : "照片",
+      "name" : "UserIcon",
+      "getPSAppDEField" : {
+        "name" : "USERICON",
+        "codeName" : "UserIcon"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IPAddr",
+      "logicName" : "ip地址",
+      "name" : "IPAddr",
+      "getPSAppDEField" : {
+        "name" : "IPADDR",
+        "codeName" : "IPAddr"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Theme",
+      "logicName" : "样式",
+      "name" : "Theme",
+      "getPSAppDEField" : {
+        "name" : "THEME",
+        "codeName" : "Theme"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Lang",
+      "logicName" : "语言",
+      "name" : "Lang",
+      "getPSAppDEField" : {
+        "name" : "LANG",
+        "codeName" : "Lang"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FontSize",
+      "logicName" : "字号",
+      "name" : "FontSize",
+      "getPSAppDEField" : {
+        "name" : "FONTSIZE",
+        "codeName" : "FontSize"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Memo",
+      "logicName" : "备注",
+      "name" : "Memo",
+      "getPSAppDEField" : {
+        "name" : "MEMO",
+        "codeName" : "Memo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver",
+      "logicName" : "保留",
+      "name" : "Reserver",
+      "getPSAppDEField" : {
+        "name" : "RESERVER",
+        "codeName" : "Reserver"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver10",
+      "logicName" : "保留10",
+      "name" : "Reserver10",
+      "getPSAppDEField" : {
+        "name" : "RESERVER10",
+        "codeName" : "Reserver10"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver11",
+      "logicName" : "保留11",
+      "name" : "Reserver11",
+      "getPSAppDEField" : {
+        "name" : "RESERVER11",
+        "codeName" : "Reserver11"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver12",
+      "logicName" : "保留12",
+      "name" : "Reserver12",
+      "getPSAppDEField" : {
+        "name" : "RESERVER12",
+        "codeName" : "Reserver12"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver13",
+      "logicName" : "保留13",
+      "name" : "Reserver13",
+      "getPSAppDEField" : {
+        "name" : "RESERVER13",
+        "codeName" : "Reserver13"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver14",
+      "logicName" : "保留14",
+      "name" : "Reserver14",
+      "getPSAppDEField" : {
+        "name" : "RESERVER14",
+        "codeName" : "Reserver14"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver15",
+      "logicName" : "保留15",
+      "name" : "Reserver15",
+      "getPSAppDEField" : {
+        "name" : "RESERVER15",
+        "codeName" : "Reserver15"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver16",
+      "logicName" : "保留16",
+      "name" : "Reserver16",
+      "getPSAppDEField" : {
+        "name" : "RESERVER16",
+        "codeName" : "Reserver16"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver17",
+      "logicName" : "保留17",
+      "name" : "Reserver17",
+      "getPSAppDEField" : {
+        "name" : "RESERVER17",
+        "codeName" : "Reserver17"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver18",
+      "logicName" : "保留18",
+      "name" : "Reserver18",
+      "getPSAppDEField" : {
+        "name" : "RESERVER18",
+        "codeName" : "Reserver18"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver19",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留19",
+      "name" : "Reserver19",
+      "getPSAppDEField" : {
+        "name" : "RESERVER19",
+        "codeName" : "Reserver19"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver2",
+      "logicName" : "保留2",
+      "name" : "Reserver2",
+      "getPSAppDEField" : {
+        "name" : "RESERVER2",
+        "codeName" : "Reserver2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver20",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留20",
+      "name" : "Reserver20",
+      "getPSAppDEField" : {
+        "name" : "RESERVER20",
+        "codeName" : "Reserver20"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver3",
+      "logicName" : "保留3",
+      "name" : "Reserver3",
+      "getPSAppDEField" : {
+        "name" : "RESERVER3",
+        "codeName" : "Reserver3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver4",
+      "logicName" : "保留4",
+      "name" : "Reserver4",
+      "getPSAppDEField" : {
+        "name" : "RESERVER4",
+        "codeName" : "Reserver4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver5",
+      "logicName" : "保留5",
+      "name" : "Reserver5",
+      "getPSAppDEField" : {
+        "name" : "RESERVER5",
+        "codeName" : "Reserver5"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver6",
+      "logicName" : "保留6",
+      "name" : "Reserver6",
+      "getPSAppDEField" : {
+        "name" : "RESERVER6",
+        "codeName" : "Reserver6"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver7",
+      "logicName" : "保留7",
+      "name" : "Reserver7",
+      "getPSAppDEField" : {
+        "name" : "RESERVER7",
+        "codeName" : "Reserver7"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver8",
+      "logicName" : "保留8",
+      "name" : "Reserver8",
+      "getPSAppDEField" : {
+        "name" : "RESERVER8",
+        "codeName" : "Reserver8"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver9",
+      "logicName" : "保留9",
+      "name" : "Reserver9",
+      "getPSAppDEField" : {
+        "name" : "RESERVER9",
+        "codeName" : "Reserver9"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ShowOrder",
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SuperUser",
+      "logicName" : "管理员",
+      "name" : "SuperUser",
+      "getPSAppDEField" : {
+        "name" : "SUPERUSER",
+        "codeName" : "SuperUser"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "创建时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "最后修改时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "FromOpenUserTag",
+      "logicName" : "来源开放用户标记",
+      "name" : "FromOpenUserTag",
+      "getPSAppDEField" : {
+        "name" : "FROMOPENUSERTAG",
+        "codeName" : "FromOpenUserTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DDUnionId",
+      "logicName" : "钉钉用户标识",
+      "name" : "DDUnionId",
+      "getPSAppDEField" : {
+        "name" : "DDUNIONID",
+        "codeName" : "DDUnionId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DDUserId",
+      "logicName" : "钉钉用户标识",
+      "name" : "DDUserId",
+      "getPSAppDEField" : {
+        "name" : "DDUSERID",
+        "codeName" : "DDUserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MsgType",
+      "logicName" : "消息类型",
+      "name" : "MsgType",
+      "getPSAppDEField" : {
+        "name" : "MSGTYPE",
+        "codeName" : "MsgType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "State",
+      "logicName" : "人员状态",
+      "name" : "State",
+      "getPSAppDEField" : {
+        "name" : "STATE",
+        "codeName" : "State"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UAAUserId",
+      "logicName" : "UAA用户标识",
+      "name" : "UAAUserId",
+      "getPSAppDEField" : {
+        "name" : "UAAUSERID",
+        "codeName" : "UAAUserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "WXWorkUnionId",
+      "logicName" : "微信用户标识",
+      "name" : "WXWorkUnionId",
+      "getPSAppDEField" : {
+        "name" : "WXWORKUNIONID",
+        "codeName" : "WXWorkUnionId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "WXWorkUserId",
+      "logicName" : "企业微信用户标识",
+      "name" : "WXWorkUserId",
+      "getPSAppDEField" : {
+        "name" : "WXWORKUSERID",
+        "codeName" : "WXWorkUserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "EmployeeFilterDTO",
+    "name" : "EmployeeFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_BCODE_LIKE",
+      "logicName" : "业务编码",
+      "name" : "N_BCODE_LIKE",
+      "getPSAppDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DDUNIONID_EQ",
+      "logicName" : "钉钉用户标识",
+      "name" : "N_DDUNIONID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DDUNIONID",
+        "codeName" : "DDUnionId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DDUSERID_EQ",
+      "logicName" : "钉钉用户标识",
+      "name" : "N_DDUSERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DDUSERID",
+        "codeName" : "DDUserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_FROMOPENUSERTAG_EQ",
+      "logicName" : "来源开放用户标记",
+      "name" : "N_FROMOPENUSERTAG_EQ",
+      "getPSAppDEField" : {
+        "name" : "FROMOPENUSERTAG",
+        "codeName" : "FromOpenUserTag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_FROMOPENUSERTAG_LIKE",
+      "logicName" : "来源开放用户标记",
+      "name" : "N_FROMOPENUSERTAG_LIKE",
+      "getPSAppDEField" : {
+        "name" : "FROMOPENUSERTAG",
+        "codeName" : "FromOpenUserTag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_LOGINNAME_EQ",
+      "logicName" : "登录名",
+      "name" : "N_LOGINNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "LOGINNAME",
+        "codeName" : "LoginName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTID_EQ",
+      "logicName" : "主部门",
+      "name" : "N_MDEPTID_EQ",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTID_IN",
+      "logicName" : "主部门",
+      "name" : "N_MDEPTID_IN",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTID_ISNOTNULL",
+      "logicName" : "主部门",
+      "name" : "N_MDEPTID_ISNOTNULL",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTNAME_EQ",
+      "logicName" : "主部门名称",
+      "name" : "N_MDEPTNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTNAME_LIKE",
+      "logicName" : "主部门名称",
+      "name" : "N_MDEPTNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGCODE_LEFTLIKE",
+      "logicName" : "单位代码",
+      "name" : "N_ORGCODE_LEFTLIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGCODE",
+        "codeName" : "OrgCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_EQ",
+      "logicName" : "单位",
+      "name" : "N_ORGID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_IN",
+      "logicName" : "单位",
+      "name" : "N_ORGID_IN",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_EQ",
+      "logicName" : "单位名称",
+      "name" : "N_ORGNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_LIKE",
+      "logicName" : "单位名称",
+      "name" : "N_ORGNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERSONNAME_EQ",
+      "logicName" : "姓名",
+      "name" : "N_PERSONNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERSONNAME_LIKE",
+      "logicName" : "姓名",
+      "name" : "N_PERSONNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_POSTID_EQ",
+      "logicName" : "岗位标识",
+      "name" : "N_POSTID_EQ",
+      "getPSAppDEField" : {
+        "name" : "POSTID",
+        "codeName" : "PostId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_POSTID_IN",
+      "logicName" : "岗位标识",
+      "name" : "N_POSTID_IN",
+      "getPSAppDEField" : {
+        "name" : "POSTID",
+        "codeName" : "PostId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_POSTNAME_EQ",
+      "logicName" : "岗位名称",
+      "name" : "N_POSTNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "POSTNAME",
+        "codeName" : "PostName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_POSTNAME_LIKE",
+      "logicName" : "岗位名称",
+      "name" : "N_POSTNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "POSTNAME",
+        "codeName" : "PostName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER14_EQ",
+      "logicName" : "保留14",
+      "name" : "N_RESERVER14_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER14",
+        "codeName" : "Reserver14"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER14_ISNULL",
+      "logicName" : "保留14",
+      "name" : "N_RESERVER14_ISNULL",
+      "getPSAppDEField" : {
+        "name" : "RESERVER14",
+        "codeName" : "Reserver14"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER2_EQ",
+      "logicName" : "保留2",
+      "name" : "N_RESERVER2_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER2",
+        "codeName" : "Reserver2"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER3_EQ",
+      "logicName" : "保留3",
+      "name" : "N_RESERVER3_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER3",
+        "codeName" : "Reserver3"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER4_EQ",
+      "logicName" : "保留4",
+      "name" : "N_RESERVER4_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER4",
+        "codeName" : "Reserver4"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER5_EQ",
+      "logicName" : "保留5",
+      "name" : "N_RESERVER5_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER5",
+        "codeName" : "Reserver5"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER6_EQ",
+      "logicName" : "保留6",
+      "name" : "N_RESERVER6_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER6",
+        "codeName" : "Reserver6"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER6_IN",
+      "logicName" : "保留6",
+      "name" : "N_RESERVER6_IN",
+      "getPSAppDEField" : {
+        "name" : "RESERVER6",
+        "codeName" : "Reserver6"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER7_EQ",
+      "logicName" : "保留7",
+      "name" : "N_RESERVER7_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER7",
+        "codeName" : "Reserver7"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER8_EQ",
+      "logicName" : "保留8",
+      "name" : "N_RESERVER8_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER8",
+        "codeName" : "Reserver8"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_RESERVER_EQ",
+      "logicName" : "保留",
+      "name" : "N_RESERVER_EQ",
+      "getPSAppDEField" : {
+        "name" : "RESERVER",
+        "codeName" : "Reserver"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SEX_EQ",
+      "logicName" : "性别",
+      "name" : "N_SEX_EQ",
+      "getPSAppDEField" : {
+        "name" : "SEX",
+        "codeName" : "Sex"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_STATE_EQ",
+      "logicName" : "人员状态",
+      "name" : "N_STATE_EQ",
+      "getPSAppDEField" : {
+        "name" : "STATE",
+        "codeName" : "State"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_STATE_NOTEQ",
+      "logicName" : "人员状态",
+      "name" : "N_STATE_NOTEQ",
+      "getPSAppDEField" : {
+        "name" : "STATE",
+        "codeName" : "State"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_UAAUSERID_EQ",
+      "logicName" : "UAA用户标识",
+      "name" : "N_UAAUSERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "UAAUSERID",
+        "codeName" : "UAAUserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERCODE_EQ",
+      "logicName" : "用户工号",
+      "name" : "N_USERCODE_EQ",
+      "getPSAppDEField" : {
+        "name" : "USERCODE",
+        "codeName" : "UserCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERCODE_LIKE",
+      "logicName" : "用户工号",
+      "name" : "N_USERCODE_LIKE",
+      "getPSAppDEField" : {
+        "name" : "USERCODE",
+        "codeName" : "UserCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERID_EQ",
+      "logicName" : "用户标识",
+      "name" : "N_USERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERID_IN",
+      "logicName" : "用户标识",
+      "name" : "N_USERID_IN",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERNAME_EQ",
+      "logicName" : "用户全局名",
+      "name" : "N_USERNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "USERNAME",
+        "codeName" : "UserName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERNAME_IN",
+      "logicName" : "用户全局名",
+      "name" : "N_USERNAME_IN",
+      "getPSAppDEField" : {
+        "name" : "USERNAME",
+        "codeName" : "UserName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERNAME_NOTIN",
+      "logicName" : "用户全局名",
+      "name" : "N_USERNAME_NOTIN",
+      "getPSAppDEField" : {
+        "name" : "USERNAME",
+        "codeName" : "UserName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_WXWORKUNIONID_EQ",
+      "logicName" : "微信用户标识",
+      "name" : "N_WXWORKUNIONID_EQ",
+      "getPSAppDEField" : {
+        "name" : "WXWORKUNIONID",
+        "codeName" : "WXWorkUnionId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_WXWORKUSERID_EQ",
+      "logicName" : "企业微信用户标识",
+      "name" : "N_WXWORKUSERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "WXWORKUSERID",
+        "codeName" : "WXWorkUserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CUSTOM",
+    "codeName" : "ChangePwd",
+    "methodType" : "DEACTION",
+    "name" : "ChangePwd",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/changepwd",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "USERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitPwd",
+    "methodType" : "DEACTION",
+    "name" : "InitPwd",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/initpwd",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "USERID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "batchActionMode" : 1,
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTOS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Test",
+    "methodType" : "DEACTION",
+    "name" : "Test",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/test",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchCurUser",
+    "dataSetName" : "CurUser",
+    "dataSetTag" : "CurUser",
+    "methodType" : "FETCH",
+    "name" : "FetchCurUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchcuruser",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchIgnoreCenter",
+    "dataSetName" : "IgnoreCenter",
+    "dataSetTag" : "IgnoreCenter",
+    "methodType" : "FETCH",
+    "name" : "FetchIgnoreCenter",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchignorecenter",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchSystemAuth",
+    "dataSetName" : "SystemAuth",
+    "dataSetTag" : "SystemAuth",
+    "methodType" : "FETCH",
+    "name" : "FetchSystemAuth",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchsystemauth",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchWFSelect",
+    "dataSetName" : "WFSelect",
+    "dataSetTag" : "WFSelect",
+    "methodType" : "FETCH",
+    "name" : "FetchWFSelect",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "EmployeeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "URIPARAM",
+    "requestPath" : "/fetchwfselect",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEUIActions" : [ {
+    "actionTarget" : "MULTIKEY",
+    "caption" : "初始化密码",
+    "codeName" : "InitPwd",
+    "fullCodeName" : "SysEmployee_InitPwd",
+    "name" : "初始化密码",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "InitPwd"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "successMsg" : "初始化密码成功",
+    "timeout" : 60000,
+    "uIActionMode" : "BACKEND",
+    "uIActionTag" : "InitPwd",
+    "uIActionType" : "DEUIACTION",
+    "enableConfirm" : true,
+    "id" : "InitPwd@SysEmployee"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "打开主视图",
+    "codeName" : "OpenMainView",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeEditView.json",
+      "viewType" : "DEEDITVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "SysEmployee_OpenMainView",
+    "name" : "打开主视图",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "OpenMainView",
+    "uIActionType" : "DEUIACTION",
+    "id" : "OpenMainView@SysEmployee"
+  }, {
+    "actionTarget" : "NONE",
+    "caption" : "快速新建",
+    "codeName" : "OpenNewCreateView",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeOptionView.json",
+      "viewType" : "DEOPTVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "SysEmployee_OpenNewCreateView",
+    "name" : "新建数据（人员）",
+    "getNextPSUIAction" : {
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+      },
+      "modelref" : true,
+      "id" : "OpenMainView@SysEmployee"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf0f6@FontAwesome",
+      "cssClass" : "fa fa-file-text-o"
+    },
+    "refreshMode" : 1,
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "OpenNewCreateView",
+    "uIActionType" : "DEUIACTION",
+    "reloadData" : true,
+    "id" : "OpenNewCreateView@SysEmployee"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysEmployee",
+  "dEAPICodeName" : "sysemployee",
+  "dEAPICodeName2" : "sysemployees",
+  "dEAPITag" : "SYS_EMP",
+  "dECodeName" : "Employee",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "getDefaultPSAppDEDataImport" : {
+    "modelref" : true,
+    "id" : "DataImport"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "USERID",
+    "codeName" : "UserId"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "TBB.TEXT.GRIDVIEW.SAVEROW"
+  },
+  "logicName" : "人员",
+  "getMajorPSAppDEField" : {
+    "name" : "PERSONNAME",
+    "codeName" : "PersonName"
+  },
+  "name" : "SYS_EMP",
+  "getOrgIdPSAppDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getPSDEName" : "SYS_EMP",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "PERSONNAME",
+    "codeName" : "PersonName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "getAllPSAppDEUIActionGroups" : [ {
+    "codeName" : "Auto1",
+    "name" : "新建",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "uniqueTag" : "SysEmployee__Auto1",
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "快速新建",
+      "detailType" : "DEUIACTION",
+      "name" : "ud360a6b",
+      "getPSSysImage" : {
+        "glyph" : "xf0f6@FontAwesome",
+        "cssClass" : "fa fa-file-text-o"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true,
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+        },
+        "modelref" : true,
+        "id" : "OpenNewCreateView@SysEmployee"
+      }
+    } ]
+  }, {
+    "codeName" : "EMPOP",
+    "name" : "EMPOP",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "uniqueTag" : "SysEmployee__EMPOP",
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "初始化密码",
+      "detailType" : "DEUIACTION",
+      "name" : "ucf1b3df",
+      "getPSSysImage" : {
+        "glyph" : "xf021@FontAwesome",
+        "cssClass" : "fa fa-refresh"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true,
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+        },
+        "modelref" : true,
+        "id" : "InitPwd@SysEmployee"
+      }
+    } ]
+  } ]
+}

@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "task__SysBackendTaskPredefinedType",
+  "codeListType" : "STATIC",
+  "codeName" : "SysBackendTaskPredefinedType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/task/PSCODELISTS/SysBackendTaskPredefinedType.json",
+  "emptyText" : "未定义",
+  "name" : "后台任务作业预置类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Denotify",
+    "text" : "实体通知",
+    "value" : "DENOTIFY"
+  }, {
+    "codeName" : "Sysdatasyncagent",
+    "text" : "系统数据同步代理（输入）",
+    "value" : "SYSDATASYNCAGENT"
+  }, {
+    "codeName" : "Wfcallback",
+    "text" : "工作流回调",
+    "value" : "WFCALLBACK"
+  }, {
+    "codeName" : "User",
+    "text" : "自定义",
+    "value" : "USER"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,2876 @@
+{
+  "aPICodeNameMode" : "LOWER_UNDERSCORE",
+  "aPIMode" : 0,
+  "aPIType" : "RESTFUL",
+  "aPIVersion" : 1,
+  "authMode" : "NONE",
+  "codeName" : "api",
+  "dynaModelFilePath" : "PSSYSSERVICEAPIS/api.json",
+  "httpPort" : 0,
+  "name" : "api",
+  "getPSDEServiceAPIs" : [ {
+    "aPIMode" : 1,
+    "codeName" : "system_extension_notify_setting",
+    "codeName2" : "system_extension_notify_settings",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_NOTIFY_SETTING"
+    },
+    "logicName" : "系统扩展通知设置",
+    "name" : "SYSTEM_EXTENSION_NOTIFY_SETTING",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "owner_type",
+      "codeName2" : "owner_type",
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "orderValue" : 230,
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "owner_id",
+      "codeName2" : "owner_id",
+      "logicName" : "所有者标识",
+      "name" : "OWNER_ID",
+      "orderValue" : 260,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_TIME"
+      },
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.NAME"
+      },
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_MAN"
+      },
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.ID"
+      },
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "system_tag",
+      "codeName2" : "system_tag",
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "setting_model",
+      "codeName2" : "setting_model",
+      "logicName" : "设置模型",
+      "name" : "SETTING_MODEL",
+      "orderValue" : 2900,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__DEACTION__SAVE",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "fetch_cur_system",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__CUR_SYSTEM"
+    }, {
+      "codeName" : "fetch_cur_system_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system_all",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__CUR_SYSTEM_ALL"
+    }, {
+      "codeName" : "fetch_cur_user",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__CUR_USER"
+    }, {
+      "codeName" : "fetch_cur_user_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user_all",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__CUR_USER_ALL"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__DEFAULT"
+    }, {
+      "codeName" : "fetch_view",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchView",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "View"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "system_extension_notify_settingDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_view",
+      "uniqueTag" : "SYSTEM_EXTENSION_NOTIFY_SETTING__FETCH__VIEW"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 9,
+    "codeName" : "notify_event",
+    "codeName2" : "notify_events",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.NOTIFY_EVENT"
+    },
+    "logicName" : "通知事件",
+    "name" : "NOTIFY_EVENT",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "msg_type",
+      "codeName2" : "msg_type",
+      "logicName" : "消息类型",
+      "name" : "MSG_TYPE",
+      "orderValue" : 120,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "group",
+      "codeName2" : "group",
+      "logicName" : "事件分类",
+      "name" : "GROUP",
+      "orderValue" : 130,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.NAME"
+      },
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.ID"
+      },
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/notify_event.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : false,
+    "nested" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "import_schema",
+    "codeName2" : "import_schemas",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.IMPORT_SCHEMA"
+    },
+    "logicName" : "导入模式",
+    "name" : "IMPORT_SCHEMA",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "valid_flag",
+      "codeName2" : "valid_flag",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "orderValue" : 180,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "owner_type",
+      "codeName2" : "owner_type",
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "orderValue" : 230,
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.IMPORT_SCHEMAID"
+      },
+      "logicName" : "导入模式标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "导入模式名称",
+      "name" : "NAME",
+      "orderValue" : 1200,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "type",
+      "codeName2" : "type",
+      "logicName" : "导入模式类型",
+      "name" : "TYPE",
+      "orderValue" : 1400,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "fields",
+      "codeName2" : "fields",
+      "logicName" : "导入模式属性",
+      "name" : "FIELDS",
+      "orderValue" : 1400,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "system_tag",
+      "codeName2" : "system_tag",
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : false,
+      "enableModify" : false,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "data_entity_tag",
+      "codeName2" : "data_entity_tag",
+      "logicName" : "数据实体标记",
+      "name" : "DATA_ENTITY_TAG",
+      "orderValue" : 2100,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "import_tag",
+      "codeName2" : "import_tag",
+      "logicName" : "导入标记",
+      "name" : "IMPORT_TAG",
+      "orderValue" : 2200,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "schame_tag",
+      "codeName2" : "schame_tag",
+      "logicName" : "导入模式标记",
+      "name" : "SCHAME_TAG",
+      "orderValue" : 2300,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "order_value",
+      "codeName2" : "order_value",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "orderValue" : 2400,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATEMAN"
+      },
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 9900,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_date",
+      "codeName2" : "create_date",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATEDATE"
+      },
+      "logicName" : "建立时间",
+      "name" : "CREATE_DATE",
+      "orderValue" : 9910,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATEMAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 9920,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_date",
+      "codeName2" : "update_date",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATEDATE"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_DATE",
+      "orderValue" : 9930,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "IMPORT_SCHEMA__DEACTION__SAVE",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "fetch_cur_system",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system",
+      "uniqueTag" : "IMPORT_SCHEMA__FETCH__CUR_SYSTEM"
+    }, {
+      "codeName" : "fetch_cur_system_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system_all",
+      "uniqueTag" : "IMPORT_SCHEMA__FETCH__CUR_SYSTEM_ALL"
+    }, {
+      "codeName" : "fetch_cur_user",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user",
+      "uniqueTag" : "IMPORT_SCHEMA__FETCH__CUR_USER"
+    }, {
+      "codeName" : "fetch_cur_user_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_schemaDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user_all",
+      "uniqueTag" : "IMPORT_SCHEMA__FETCH__CUR_USER_ALL"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "app_view_theme",
+    "codeName2" : "app_view_themes",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.APP_VIEW_THEME"
+    },
+    "logicName" : "应用视图主题",
+    "name" : "APP_VIEW_THEME",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "valid_flag",
+      "codeName2" : "valid_flag",
+      "logicName" : "启用标记",
+      "name" : "VALID_FLAG",
+      "orderValue" : 180,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "theme_model",
+      "codeName2" : "theme_model",
+      "logicName" : "主题模型",
+      "name" : "THEME_MODEL",
+      "orderValue" : 210,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "owner_type",
+      "codeName2" : "owner_type",
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "orderValue" : 230,
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "caption",
+      "codeName2" : "caption",
+      "logicName" : "标题",
+      "name" : "CAPTION",
+      "orderValue" : 240,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_MAN"
+      },
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.ID"
+      },
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_TIME"
+      },
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.NAME"
+      },
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "system_tag",
+      "codeName2" : "system_tag",
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "app_tag",
+      "codeName2" : "app_tag",
+      "logicName" : "应用标记",
+      "name" : "APP_TAG",
+      "orderValue" : 2100,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "app_view_tag",
+      "codeName2" : "app_view_tag",
+      "logicName" : "应用视图标记",
+      "name" : "APP_VIEW_TAG",
+      "orderValue" : 2100,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "order_value",
+      "codeName2" : "order_value",
+      "logicName" : "排序值",
+      "name" : "ORDER_VALUE",
+      "orderValue" : 2400,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "APP_VIEW_THEME__DEACTION__SAVE",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "fetch_cur_system",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system",
+      "uniqueTag" : "APP_VIEW_THEME__FETCH__CUR_SYSTEM"
+    }, {
+      "codeName" : "fetch_cur_system_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system_all",
+      "uniqueTag" : "APP_VIEW_THEME__FETCH__CUR_SYSTEM_ALL"
+    }, {
+      "codeName" : "fetch_cur_user",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user",
+      "uniqueTag" : "APP_VIEW_THEME__FETCH__CUR_USER"
+    }, {
+      "codeName" : "fetch_cur_user_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user_all",
+      "uniqueTag" : "APP_VIEW_THEME__FETCH__CUR_USER_ALL"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "app_view_themeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "APP_VIEW_THEME__FETCH__DEFAULT"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "import_action",
+    "codeName2" : "import_actions",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.IMPORT_ACTION"
+    },
+    "logicName" : "数据导入行为",
+    "name" : "IMPORT_ACTION",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.IMPORT_SCHEMAID"
+      },
+      "logicName" : "导入行为标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "导入行为名称",
+      "name" : "NAME",
+      "orderValue" : 1100,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "import_stage",
+      "codeName2" : "import_stage",
+      "logicName" : "导入阶段",
+      "name" : "IMPORT_STAGE",
+      "orderValue" : 1200,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "file_id",
+      "codeName2" : "file_id",
+      "logicName" : "导入文件标识",
+      "name" : "FILEID",
+      "orderValue" : 1300,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "headers",
+      "codeName2" : "headers",
+      "logicName" : "数据列头",
+      "name" : "HEADERS",
+      "orderValue" : 1400,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "preview_data",
+      "codeName2" : "preview_data",
+      "logicName" : "预览数据",
+      "name" : "PREVIEW_DATA",
+      "orderValue" : 1500,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "import_schema_id",
+      "codeName2" : "import_schema_id",
+      "logicName" : "导入模式标识",
+      "name" : "IMPORT_SCHAME_ID",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "async_aciton_id",
+      "codeName2" : "async_aciton_id",
+      "logicName" : "异步操作标识",
+      "name" : "ASYNC_ACITON_ID",
+      "orderValue" : 2100,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATEMAN"
+      },
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 9900,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_date",
+      "codeName2" : "create_date",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATEDATE"
+      },
+      "logicName" : "建立时间",
+      "name" : "CREATE_DATE",
+      "orderValue" : 9910,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATEMAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 9920,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_date",
+      "codeName2" : "update_date",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATEDATE"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_DATE",
+      "orderValue" : 9930,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "IMPORT_ACTION__DEACTION__SAVE",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "import_actionDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "IMPORT_ACTION__FETCH__DEFAULT"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "internal_message",
+    "codeName2" : "internal_messages",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.INTERNAL_MESSAGE"
+    },
+    "logicName" : "站内信",
+    "name" : "INTERNAL_MESSAGE",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "sender",
+      "codeName2" : "sender",
+      "logicName" : "发送者",
+      "name" : "SENDER",
+      "orderValue" : 170,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "receiver",
+      "codeName2" : "receiver",
+      "logicName" : "接收者",
+      "name" : "RECEIVER",
+      "orderValue" : 180,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "short_content",
+      "codeName2" : "short_content",
+      "logicName" : "短内容",
+      "name" : "SHORT_CONTENT",
+      "orderValue" : 190,
+      "stdDataType" : 25,
+      "stringLength" : 4000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "content",
+      "codeName2" : "content",
+      "logicName" : "内容",
+      "name" : "CONTENT",
+      "orderValue" : 200,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "status",
+      "codeName2" : "status",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "orderValue" : 210,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "message_type",
+      "codeName2" : "message_type",
+      "logicName" : "消息类型",
+      "name" : "MESSAGE_TYPE",
+      "orderValue" : 220,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "timestamp",
+      "codeName2" : "timestamp",
+      "logicName" : "消息时间戳",
+      "name" : "TIMESTAMP",
+      "orderValue" : 230,
+      "stdDataType" : 5,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "owner_type",
+      "codeName2" : "owner_type",
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "orderValue" : 230,
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "from_id",
+      "codeName2" : "from_id",
+      "logicName" : "来源消息标识",
+      "name" : "FROM_ID",
+      "orderValue" : 240,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "owner_id",
+      "codeName2" : "owner_id",
+      "logicName" : "所有者标识",
+      "name" : "OWNER_ID",
+      "orderValue" : 260,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "content_type",
+      "codeName2" : "content_type",
+      "logicName" : "内容类型",
+      "name" : "CONTENT_TYPE",
+      "orderValue" : 270,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "url",
+      "codeName2" : "url",
+      "logicName" : "URL",
+      "name" : "URL",
+      "orderValue" : 280,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "mobile_url",
+      "codeName2" : "mobile_url",
+      "logicName" : "移动端URL",
+      "name" : "MOBILE_URL",
+      "orderValue" : 290,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.ID"
+      },
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_TIME"
+      },
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_MAN"
+      },
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "title",
+      "codeName2" : "title",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.NAME"
+      },
+      "logicName" : "标题",
+      "name" : "TITLE",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "system_tag",
+      "codeName2" : "system_tag",
+      "logicName" : "系统标记",
+      "name" : "SYSTEM_TAG",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "mark_all_read",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "mark_all_read",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/mark_all_read.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "NONE"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/mark_all_read",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__MARK_ALL_READ"
+    }, {
+      "codeName" : "mark_read",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "mark_read",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/mark_read.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/mark_read",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__MARK_READ",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "INTERNAL_MESSAGE__DEACTION__SAVE",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "fetch_cur_receiver",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_receiver",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_receiver"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_receiver",
+      "uniqueTag" : "INTERNAL_MESSAGE__FETCH__CUR_RECEIVER"
+    }, {
+      "codeName" : "fetch_cur_sender",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_sender",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_sender"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_sender",
+      "uniqueTag" : "INTERNAL_MESSAGE__FETCH__CUR_SENDER"
+    }, {
+      "codeName" : "fetch_cur_system_all",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_system_all",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_system_all"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_system_all",
+      "uniqueTag" : "INTERNAL_MESSAGE__FETCH__CUR_SYSTEM_ALL"
+    }, {
+      "codeName" : "fetch_cur_user",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCur_user",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "internal_messageDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user",
+      "uniqueTag" : "INTERNAL_MESSAGE__FETCH__CUR_USER"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 9,
+    "codeName" : "import_schema_field",
+    "codeName2" : "import_schema_fields",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.IMPORT_SCHEMA_FIELD"
+    },
+    "logicName" : "导入模式属性",
+    "name" : "IMPORT_SCHEMA_FIELD",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDID"
+      },
+      "logicName" : "导入模式属性标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "导入属性",
+      "name" : "NAME",
+      "orderValue" : 1200,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "caption",
+      "codeName2" : "caption",
+      "logicName" : "导入标题",
+      "name" : "CAPTION",
+      "orderValue" : 1250,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "import_schema_id",
+      "codeName2" : "import_schema_id",
+      "logicName" : "导入模式标识",
+      "name" : "IMPORT_SCHAME_ID",
+      "orderValue" : 1300,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "code_list_mappings",
+      "codeName2" : "code_list_mappings",
+      "logicName" : "代码表映射",
+      "name" : "CODE_LIST_MAPPINGS",
+      "orderValue" : 1900,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "import_format",
+      "codeName2" : "import_format",
+      "logicName" : "导入格式化",
+      "name" : "IMPORT_FORMAT",
+      "orderValue" : 2000,
+      "stdDataType" : 25,
+      "stringLength" : 1000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "index",
+      "codeName2" : "index",
+      "logicName" : "索引位置",
+      "name" : "INDEX",
+      "orderValue" : 2400,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : false,
+    "nested" : true
+  } ],
+  "serviceCodeName" : "api",
+  "serviceType" : "DEFAULT",
+  "enableServiceAPIDTO" : true,
+  "userLevel" : true
+}

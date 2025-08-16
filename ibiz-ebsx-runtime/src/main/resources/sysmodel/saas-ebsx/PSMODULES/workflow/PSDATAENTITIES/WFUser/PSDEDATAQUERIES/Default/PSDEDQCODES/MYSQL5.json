@@ -1,0 +1,37 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BCODE",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.MDEPTCODE",
+    "name" : "MDEPTCODE"
+  }, {
+    "expression" : "t1.MDEPTID",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t1.MDEPTNAME",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t1.ORGCODE",
+    "name" : "ORGCODE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.USERNAME",
+    "name" : "USERNAME"
+  } ],
+  "queryCode" : "SELECT\n    t1.BCODE,\n    t1.MDEPTCODE,\n    t1.MDEPTID,\n    t1.MDEPTNAME,\n    t1.ORGCODE,\n    t1.ORGID,\n    t1.ORGNAME,\n    t1.PERSONNAME,\n    t1.USERID,\n    t1.USERNAME\nFROM (SELECT\n          d.BUSINESS_CATEGORY as BCODE,\n          d.DEPARTMENT_NUMBER as MDEPTCODE,\n          t1.MDEPARTMENT_ID as MDEPTID,\n          d.DEPARTMENT_NAME as MDEPTNAME,\n          o.ORGANIZATION_NUMBER as ORGCODE,\n          t1.ORGANIZATION_ID as ORGID,\n          o.ORGANIZATION_NAME as ORGNAME,\n          t1.DISPLAY_NAME as PERSONNAME,\n          t1.ID as USERID,\n          t1.UID as USERNAME\n      FROM sys_person t1 left join sys_organization o on t1.ORGANIZATION_ID = o.ID\n      left join sys_department d on t1.MDEPARTMENT_ID = d.ID\n     ) t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFUser/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

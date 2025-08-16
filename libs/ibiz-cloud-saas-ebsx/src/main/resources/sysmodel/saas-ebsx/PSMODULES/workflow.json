@@ -1,0 +1,52 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSCODELISTS/WFUserGroupType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSCODELISTS/WFSystemList.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinition.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFHistory.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFModel.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTask.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTaskWay.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTimeout.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUser.json"
+  } ],
+  "codeName" : "workflow",
+  "dynaModelFilePath" : "PSMODULES/workflow.json",
+  "name" : "workflow"
+}

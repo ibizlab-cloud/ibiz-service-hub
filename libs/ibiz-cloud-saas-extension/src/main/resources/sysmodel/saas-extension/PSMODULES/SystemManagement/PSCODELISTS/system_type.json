@@ -1,0 +1,33 @@
+{
+  "codeListTag" : "SystemManagement__system_type",
+  "codeListType" : "STATIC",
+  "codeName" : "system_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSCODELISTS/system_type.json",
+  "emptyText" : "未定义",
+  "name" : "系统类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "core",
+    "text" : "核心系统",
+    "value" : "CORE"
+  }, {
+    "codeName" : "extension",
+    "text" : "扩展功能",
+    "value" : "EXTENSION"
+  }, {
+    "codeName" : "base",
+    "text" : "集成功能",
+    "value" : "BASE"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopyHis/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "抄送历史",
+  "name" : "抄送历史默认关系界面组"
+}

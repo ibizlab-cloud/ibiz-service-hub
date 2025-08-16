@@ -1,0 +1,498 @@
+{
+  "accUserMode" : 2,
+  "caption" : "部署系统",
+  "codeName" : "SystemPickupView",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/SystemPickupView.json",
+  "funcViewMode" : "PICKUPVIEW",
+  "name" : "SystemPickupView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "PickupView",
+    "name" : "engine",
+    "getPSUIEngineParams" : [ {
+      "ctrlName" : "pickupviewpanel",
+      "name" : "PICKUPVIEWPANEL",
+      "paramType" : "CTRL"
+    } ]
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "PickupViewpickupviewpanel",
+    "controlType" : "PICKUPVIEWPANEL",
+    "getEmbeddedPSAppDEView" : {
+      "accUserMode" : 2,
+      "caption" : "部署系统",
+      "codeName" : "SystemPickupGridView",
+      "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/SystemPickupGridView.json",
+      "gridRowActiveMode" : 2,
+      "name" : "SystemPickupGridView",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+      },
+      "getPSAppViewEngines" : [ {
+        "engineCat" : "VIEW",
+        "engineType" : "PickupGridView",
+        "name" : "engine",
+        "getPSUIEngineParams" : [ {
+          "ctrlName" : "grid",
+          "name" : "GRID",
+          "paramType" : "CTRL"
+        }, {
+          "ctrlName" : "searchform",
+          "name" : "SEARCHFORM",
+          "paramType" : "CTRL"
+        } ]
+      } ],
+      "getPSControls" : [ {
+        "aggMode" : "NONE",
+        "codeName" : "Main",
+        "columnEnableFilter" : 2,
+        "columnEnableLink" : 2,
+        "controlType" : "GRID",
+        "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem/PSGRIDS/Main.json",
+        "getFetchPSControlAction" : {
+          "modelref" : true,
+          "id" : "fetch"
+        },
+        "groupMode" : "NONE",
+        "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+        "logicName" : "主表格",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionName" : "Get",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "READ",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Get"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionName" : "Create",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "create",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Create"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionName" : "Update",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "UPDATE",
+            "name" : "update",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Update"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionName" : "GetDraft",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "loaddraft",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "GetDraft"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FetchDefault"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          } ],
+          "userDRAction" : "READ",
+          "enableDEFieldPrivilege" : false,
+          "id" : "数据表格处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;LOAD;BEFORELOAD",
+          "logicTag" : "grid",
+          "logicType" : "APPVIEWENGINE",
+          "name" : "engine_grid",
+          "getPSAppViewEngine" : {
+            "modelref" : true,
+            "id" : "engine"
+          }
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "GRID"
+        },
+        "getPSDEGridColumns" : [ {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "系统名称",
+          "codeName" : "pssystemname",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "pssystemname",
+          "excelCaption" : "系统名称",
+          "name" : "pssystemname",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMNAME",
+            "codeName" : "PSSystemName"
+          },
+          "width" : 250,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "系统标识",
+          "codeName" : "pssystemid",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "pssystemid",
+          "excelCaption" : "系统标识",
+          "name" : "pssystemid",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMID",
+            "codeName" : "PSSystemId"
+          },
+          "width" : 300,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "远程模型仓库",
+          "codeName" : "remotesysmodel",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "remotesysmodel",
+          "excelCaption" : "远程模型仓库",
+          "name" : "remotesysmodel",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "REMOTESYSMODEL",
+            "codeName" : "RemoteSysModel"
+          },
+          "width" : 100,
+          "widthUnit" : "STAR",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "校验",
+          "codeName" : "md5check",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "md5check",
+          "excelCaption" : "校验",
+          "name" : "md5check",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "MD5CHECK",
+            "codeName" : "MD5Check"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        } ],
+        "getPSDEGridDataItems" : [ {
+          "dataType" : 25,
+          "name" : "pssystemname",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMNAME",
+            "codeName" : "PSSystemName"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "pssystemid",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMID",
+            "codeName" : "PSSystemId"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "remotesysmodel",
+          "getPSAppDEField" : {
+            "name" : "REMOTESYSMODEL",
+            "codeName" : "RemoteSysModel"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "md5check",
+          "getPSAppDEField" : {
+            "name" : "MD5CHECK",
+            "codeName" : "MD5Check"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "srfkey",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMID",
+            "codeName" : "PSSystemId"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "srfdataaccaction",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMID",
+            "codeName" : "PSSystemId"
+          },
+          "dataAccessAction" : true
+        }, {
+          "dataType" : 25,
+          "name" : "srfmajortext",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMNAME",
+            "codeName" : "PSSystemName"
+          }
+        } ],
+        "getPSDEGridEditItems" : [ {
+          "caption" : "系统标识",
+          "codeName" : "srfkey",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "name" : "srfkey",
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMID",
+            "codeName" : "PSSystemId"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "srfkey"
+          },
+          "allowEmpty" : true
+        } ],
+        "pagingMode" : 1,
+        "pagingSize" : 20,
+        "getRemovePSControlAction" : {
+          "actionName" : "Remove",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "DELETE",
+          "name" : "remove",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "Remove"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+          }
+        },
+        "sortMode" : "REMOTE",
+        "hasWFDataItems" : false,
+        "enableColFilter" : false,
+        "enableCustomized" : true,
+        "enableGroup" : false,
+        "enablePagingBar" : true,
+        "enableRowEdit" : false,
+        "enableRowEditOrder" : false,
+        "enableRowNew" : false,
+        "forceFit" : false,
+        "hideHeader" : false,
+        "noSort" : false,
+        "singleSelect" : false,
+        "name" : "grid",
+        "modelid" : "7bd03bf467d3002c30085a90008ee35c",
+        "modeltype" : "PSDEGRID"
+      }, {
+        "codeName" : "Default",
+        "controlType" : "SEARCHFORM",
+        "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem/PSSEARCHFORMS/Default.json",
+        "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+        "logicName" : "默认搜索表单",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionType" : "FILTERACTION",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterGet"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionType" : "FILTERACTION",
+            "name" : "loaddraft",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterGetDraft"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          }, {
+            "actionType" : "FILTERACTION",
+            "name" : "search",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterSearch"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+            }
+          } ],
+          "enableDEFieldPrivilege" : false,
+          "id" : "搜索表单处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "SEARCH;LOAD;SAVE",
+          "logicTag" : "searchform",
+          "logicType" : "APPVIEWENGINE",
+          "name" : "engine_searchform",
+          "getPSAppViewEngine" : {
+            "modelref" : true,
+            "id" : "engine"
+          }
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "SEARCHFORM"
+        },
+        "getPSDEFormPages" : [ {
+          "caption" : "常规条件",
+          "codeName" : "formpage1",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMPAGE",
+          "name" : "formpage1",
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false
+        } ],
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "searchButtonStyle" : "DEFAULT",
+        "tabHeaderPos" : "TOP",
+        "enableAdvanceSearch" : false,
+        "enableAutoSearch" : false,
+        "enableFilterSave" : false,
+        "noTabHeader" : true,
+        "name" : "searchform",
+        "modelid" : "ce8d391bbd31931970e21e5eb5cd4c5a",
+        "modeltype" : "PSDEFORM_SEARCHFORM"
+      } ],
+      "getPSDEViewCodeName" : "PickupGridView",
+      "getPSDEViewId" : "725b0681c4e7aeb83ed47811529b6a30",
+      "getPSViewLayoutPanel" : {
+        "codeName" : "Layoutpanel",
+        "controlStyle" : "APPDEPICKUPGRIDVIEW",
+        "controlType" : "VIEWLAYOUTPANEL",
+        "name" : "layoutpanel",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        },
+        "getPSControlParam" : { },
+        "layoutBodyOnly" : true,
+        "layoutPanel" : true,
+        "useDefaultLayout" : true
+      },
+      "title" : "部署系统选择表格视图",
+      "viewStyle" : "DEFAULT",
+      "viewType" : "DEPICKUPGRIDVIEW",
+      "xDataControlName" : "grid",
+      "enableDP" : true,
+      "enableExport" : true,
+      "enableFilter" : true,
+      "enableImport" : true,
+      "enableRowEdit" : false,
+      "enableSearch" : true,
+      "expandSearchForm" : true,
+      "pickupMode" : true,
+      "rowEditDefault" : false,
+      "showCaptionBar" : false,
+      "modelid" : "1ec73d4817228065083349fc411cba2f",
+      "modeltype" : "PSAPPDEVIEW"
+    },
+    "hookEventNames" : [ "SELECTIONCHANGE", "LOAD", "ACTIVATED" ],
+    "name" : "pickupviewpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "SELECTIONCHANGE;LOAD;ACTIVATED",
+      "logicTag" : "pickupviewpanel",
+      "logicType" : "APPVIEWENGINE",
+      "name" : "engine_pickupviewpanel",
+      "getPSAppViewEngine" : {
+        "modelref" : true,
+        "id" : "engine"
+      }
+    } ],
+    "getPSControlParam" : {
+      "id" : "PICKUPVIEWPANEL"
+    }
+  } ],
+  "getPSDEViewCodeName" : "PickupView",
+  "getPSDEViewId" : "302c898ff2339a0e5ea39c8fe000da46",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDEPICKUPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "部署系统数据选择视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEPICKUPVIEW",
+  "enableDP" : true,
+  "showCaptionBar" : false,
+  "modelid" : "204785e1c914daf24be6aa88e1fb4fe9",
+  "modeltype" : "PSAPPDEVIEW"
+}

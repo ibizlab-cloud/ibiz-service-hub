@@ -1,0 +1,34 @@
+{
+  "codeListTag" : "uaa__CodeList65",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList65",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList65.json",
+  "emptyText" : "未定义",
+  "name" : "数据库触发器操作",
+  "getPSCodeItems" : [ {
+    "codeName" : "Before",
+    "text" : "Before",
+    "value" : "BEFORE"
+  }, {
+    "codeName" : "After",
+    "text" : "After",
+    "value" : "AFTER"
+  }, {
+    "codeName" : "Insteadof",
+    "text" : "Instead of",
+    "value" : "INSTEADOF"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00072",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

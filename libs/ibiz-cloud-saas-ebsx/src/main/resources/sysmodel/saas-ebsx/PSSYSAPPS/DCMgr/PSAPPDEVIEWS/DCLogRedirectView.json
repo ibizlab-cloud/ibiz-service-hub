@@ -1,0 +1,78 @@
+{
+  "accUserMode" : 2,
+  "caption" : "系统日志",
+  "codeName" : "DCLogRedirectView",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogRedirectView.json",
+  "funcViewMode" : "REDIRECTVIEW",
+  "getGetDataPSAppDEAction" : {
+    "modelref" : true,
+    "id" : "Get"
+  },
+  "name" : "DCLogRedirectView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysLog.json"
+  },
+  "getPSDEViewCodeName" : "RedirectView",
+  "getPSDEViewId" : "47b9110743cdfa94f9cbfbb2159d657c",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDEREDIRECTVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysLog.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "getRedirectPSAppViewRefs" : [ {
+    "name" : "DC_LOG:EDITVIEW",
+    "realTitle" : "租户日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  }, {
+    "name" : "DC_LOG:EDITVIEW:DELOGIC",
+    "realTitle" : "租户日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogDeLogicEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  }, {
+    "name" : "EDITVIEW",
+    "realTitle" : "租户日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  }, {
+    "name" : "EDITVIEW:DELOGIC",
+    "realTitle" : "租户日志编辑视图",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogDeLogicEditView.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  } ],
+  "title" : "租户日志数据重定向视图",
+  "getTypePSAppDEField" : {
+    "name" : "LOGCAT",
+    "codeName" : "LogCat"
+  },
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEREDIRECTVIEW",
+  "enableCustomGetDataAction" : false,
+  "enableDP" : true,
+  "enableWorkflow" : true,
+  "redirectView" : true,
+  "modelid" : "49bf63f76b1b6e855e93bae35cec8e94",
+  "modeltype" : "PSAPPDEVIEW"
+}

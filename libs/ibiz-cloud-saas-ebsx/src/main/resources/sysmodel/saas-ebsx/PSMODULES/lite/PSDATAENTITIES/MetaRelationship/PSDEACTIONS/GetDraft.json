@@ -1,0 +1,27 @@
+{
+  "actionMode" : "GETDRAFT",
+  "actionType" : "BUILTIN",
+  "codeName" : "GetDraft",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDEACTIONS/GetDraft.json",
+  "logicName" : "GetDraft",
+  "name" : "GetDraft",
+  "orderValue" : 41,
+  "getPSDEActionInput" : {
+    "name" : "GetDraftInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaRelationshipDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetDraftResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaRelationshipDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

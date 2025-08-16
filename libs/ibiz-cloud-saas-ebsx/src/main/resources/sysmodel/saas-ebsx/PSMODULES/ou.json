@@ -1,0 +1,40 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSCODELISTS/UserState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSCODELISTS/Gender.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/EmpBind.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Team.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/UAOrganization.json"
+  } ],
+  "codeName" : "ou",
+  "dynaModelFilePath" : "PSMODULES/ou.json",
+  "name" : "ou"
+}

@@ -1,0 +1,32 @@
+{
+  "codeName" : "Reference",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDERS/DER1N_META_RELATION_META_ENTITY_REFENTITYID.json",
+  "fKeyName" : "F5D16469B12518EA66",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "sub_entitys",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+  },
+  "minorServiceCodeName" : "sub_entitys",
+  "name" : "DER1N_META_RELATION_META_ENTITY_REFENTITYID",
+  "orderValue" : 1,
+  "getPSPickupDEField" : {
+    "name" : "REFENTITYID",
+    "codeName" : "RefEntityId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "REFENTITYNAME",
+    "codeName" : "RefEntityName"
+  },
+  "pickupDEFName" : "REFENTITYID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Reference"
+}

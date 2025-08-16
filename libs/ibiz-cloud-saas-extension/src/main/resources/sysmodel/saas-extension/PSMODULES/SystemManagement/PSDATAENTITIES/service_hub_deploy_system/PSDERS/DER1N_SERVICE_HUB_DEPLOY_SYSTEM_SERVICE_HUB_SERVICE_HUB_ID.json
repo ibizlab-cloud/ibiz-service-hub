@@ -1,0 +1,34 @@
+{
+  "codeName" : "service_hub",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system/PSDERS/DER1N_SERVICE_HUB_DEPLOY_SYSTEM_SERVICE_HUB_SERVICE_HUB_ID.json",
+  "fKeyName" : "F5717A6895BBE7C400",
+  "logicName" : "服务集成",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "service_hub_deploy_systems",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json"
+  },
+  "minorServiceCodeName" : "service_hub_deploy_systems",
+  "name" : "DER1N_SERVICE_HUB_DEPLOY_SYSTEM_SERVICE_HUB_SERVICE_HUB_ID",
+  "orderValue" : 100,
+  "getPSOne2ManyDataDEField" : {
+    "name" : "DEPLOY_SYSTEMS",
+    "codeName" : "deploy_systems"
+  },
+  "getPSPickupDEField" : {
+    "name" : "SERVICE_HUB_ID",
+    "codeName" : "service_hub_id"
+  },
+  "pickupDEFName" : "SERVICE_HUB_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "service_hub",
+  "enableFKey" : true
+}

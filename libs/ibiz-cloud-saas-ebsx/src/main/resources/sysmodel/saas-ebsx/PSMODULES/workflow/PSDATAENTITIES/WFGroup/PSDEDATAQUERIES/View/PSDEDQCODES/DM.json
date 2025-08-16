@@ -1,0 +1,22 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.GROUPCODE",
+    "name" : "GROUPCODE"
+  }, {
+    "expression" : "t1.GROUPID",
+    "name" : "GROUPID"
+  }, {
+    "expression" : "t1.GROUPNAME",
+    "name" : "GROUPNAME"
+  }, {
+    "expression" : "t1.GROUPSCOPE",
+    "name" : "GROUPSCOPE"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  } ],
+  "queryCode" : "SELECT\nt1.GROUPCODE,\nt1.GROUPID,\nt1.GROUPNAME,\nt1.GROUPSCOPE,\nt1.MEMO\nFROM IBZWFGROUP t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

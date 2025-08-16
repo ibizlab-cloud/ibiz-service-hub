@@ -1,0 +1,27 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Update",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDEACTIONS/Update.json",
+  "logicName" : "Update",
+  "name" : "Update",
+  "orderValue" : 11,
+  "getPSDEActionInput" : {
+    "name" : "UpdateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "UserRoleDTO"
+    },
+    "type" : "DTOS",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpdateResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true,
+  "enableAudit" : true
+}

@@ -1,0 +1,7 @@
+{
+  "codeName" : "workflow",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPMODULES/workflow.json",
+  "mOSFilePath" : "pssysapps/DCMgr/psappmodules/workflow",
+  "name" : "workflow",
+  "rTMOSFilePath" : "pssysapps/DCMgr/psappmodules/workflow"
+}

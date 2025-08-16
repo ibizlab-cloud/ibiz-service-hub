@@ -1,0 +1,30 @@
+{
+  "codeName" : "ImportSchame",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDERS/DER1N_IMPORT_ACTION_IMPORT_SCHEMA_IMPORT_SCHAME_ID.json",
+  "fKeyName" : "FA63322ECFDE9CFEDA",
+  "logicName" : "导入模式",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "ImportActions",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+  },
+  "minorServiceCodeName" : "ImportActions",
+  "name" : "DER1N_IMPORT_ACTION_IMPORT_SCHEMA_IMPORT_SCHAME_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "IMPORT_SCHAME_ID",
+    "codeName" : "import_schema_id"
+  },
+  "pickupDEFName" : "IMPORT_SCHAME_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "ImportSchame",
+  "enableFKey" : true
+}

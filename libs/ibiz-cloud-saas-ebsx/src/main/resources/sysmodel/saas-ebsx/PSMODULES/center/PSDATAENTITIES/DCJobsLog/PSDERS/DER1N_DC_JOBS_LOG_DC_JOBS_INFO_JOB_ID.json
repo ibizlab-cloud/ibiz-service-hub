@@ -1,0 +1,30 @@
+{
+  "codeName" : "DCJobsInfo",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDERS/DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID.json",
+  "fKeyName" : "F302F48BC216ED996E",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+  },
+  "name" : "DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "JOB_ID",
+    "codeName" : "JobId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "HANDLER",
+    "codeName" : "Handler"
+  },
+  "pickupDEFName" : "JOB_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DCJobsInfo"
+}

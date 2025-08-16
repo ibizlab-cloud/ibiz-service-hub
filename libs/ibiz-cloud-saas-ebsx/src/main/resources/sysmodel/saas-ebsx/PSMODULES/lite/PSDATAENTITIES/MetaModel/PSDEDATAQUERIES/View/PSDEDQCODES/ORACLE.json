@@ -1,0 +1,34 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.MATERIALIZEDVIEW",
+    "name" : "MATERIALIZEDVIEW"
+  }, {
+    "expression" : "t1.MODELCFG",
+    "name" : "MODELCFG"
+  }, {
+    "expression" : "t1.MODELID",
+    "name" : "MODELID"
+  }, {
+    "expression" : "t1.MODELNAME",
+    "name" : "MODELNAME"
+  }, {
+    "expression" : "t1.REFRESHTIME",
+    "name" : "REFRESHTIME"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.CODENAME,\nt1.CREATEDATE,\nt1.MATERIALIZEDVIEW,\nt1.MODELCFG,\nt1.MODELID,\nt1.MODELNAME,\nt1.REFRESHTIME,\nt1.SYSTEMID,\nt1.UPDATEDATE\nFROM IBZMODEL t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaModel/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

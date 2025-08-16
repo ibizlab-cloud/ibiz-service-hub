@@ -1,0 +1,27 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "BUILTIN",
+  "codeName" : "Get",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Get.json",
+  "logicName" : "Get",
+  "name" : "Get",
+  "orderValue" : 31,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ASYNCACITONID",
+      "codeName" : "AsyncAcitonId"
+    },
+    "name" : "GetInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PTAsyncActionDTO"
+    },
+    "type" : "DTO"
+  },
+  "builtinAction" : true
+}

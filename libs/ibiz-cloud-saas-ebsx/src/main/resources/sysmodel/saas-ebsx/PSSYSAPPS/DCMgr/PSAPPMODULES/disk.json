@@ -1,0 +1,7 @@
+{
+  "codeName" : "disk",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPMODULES/disk.json",
+  "mOSFilePath" : "pssysapps/DCMgr/psappmodules/disk",
+  "name" : "disk",
+  "rTMOSFilePath" : "pssysapps/DCMgr/psappmodules/disk"
+}

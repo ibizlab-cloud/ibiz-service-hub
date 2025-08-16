@@ -1,0 +1,144 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.ENABLE = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.RESERVER10",
+    "name" : "RESERVER10"
+  }, {
+    "expression" : "t1.RESERVER9",
+    "name" : "RESERVER9"
+  }, {
+    "expression" : "t1.BCODE",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.DDDEPTID",
+    "name" : "DDDEPTID"
+  }, {
+    "expression" : "t1.DEPTCODE",
+    "name" : "DEPTCODE"
+  }, {
+    "expression" : "t1.DEPTFULLNAME",
+    "name" : "DEPTFULLNAME"
+  }, {
+    "expression" : "t1.DEPTID",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.DEPTLEADER",
+    "name" : "DEPTLEADER"
+  }, {
+    "expression" : "t1.DEPTLEADERID",
+    "name" : "DEPTLEADERID"
+  }, {
+    "expression" : "t1.DEPTLEVEL",
+    "name" : "DEPTLEVEL"
+  }, {
+    "expression" : "t1.DEPTNAME",
+    "name" : "DEPTNAME"
+  }, {
+    "expression" : "t1.DOMAINS",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.ENABLE",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.LEADERID",
+    "name" : "LEADERID"
+  }, {
+    "expression" : "t1.LEADERNAME",
+    "name" : "LEADERNAME"
+  }, {
+    "expression" : "t1.ORGCODE",
+    "name" : "ORGCODE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PDEPTID",
+    "name" : "PDEPTID"
+  }, {
+    "expression" : "t1.PDEPTNAME",
+    "name" : "PDEPTNAME"
+  }, {
+    "expression" : "t1.RESERVER",
+    "name" : "RESERVER"
+  }, {
+    "expression" : "t1.RESERVER11",
+    "name" : "RESERVER11"
+  }, {
+    "expression" : "t1.RESERVER12",
+    "name" : "RESERVER12"
+  }, {
+    "expression" : "t1.RESERVER13",
+    "name" : "RESERVER13"
+  }, {
+    "expression" : "t1.RESERVER14",
+    "name" : "RESERVER14"
+  }, {
+    "expression" : "t1.RESERVER15",
+    "name" : "RESERVER15"
+  }, {
+    "expression" : "t1.RESERVER16",
+    "name" : "RESERVER16"
+  }, {
+    "expression" : "t1.RESERVER17",
+    "name" : "RESERVER17"
+  }, {
+    "expression" : "t1.RESERVER18",
+    "name" : "RESERVER18"
+  }, {
+    "expression" : "t1.RESERVER19",
+    "name" : "RESERVER19"
+  }, {
+    "expression" : "t1.RESERVER2",
+    "name" : "RESERVER2"
+  }, {
+    "expression" : "t1.RESERVER20",
+    "name" : "RESERVER20"
+  }, {
+    "expression" : "t1.RESERVER3",
+    "name" : "RESERVER3"
+  }, {
+    "expression" : "t1.RESERVER4",
+    "name" : "RESERVER4"
+  }, {
+    "expression" : "t1.RESERVER5",
+    "name" : "RESERVER5"
+  }, {
+    "expression" : "t1.RESERVER6",
+    "name" : "RESERVER6"
+  }, {
+    "expression" : "t1.RESERVER7",
+    "name" : "RESERVER7"
+  }, {
+    "expression" : "t1.RESERVER8",
+    "name" : "RESERVER8"
+  }, {
+    "expression" : "t1.SHORTNAME",
+    "name" : "SHORTNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.WXWORKDEPTID",
+    "name" : "WXWORKDEPTID"
+  } ],
+  "queryCode" : "SELECT\n    t1.BCODE,\n    t1.CREATEDATE,\n    t1.DDDEPTID,\n    t1.DEPTCODE,\n    t1.DEPTFULLNAME,\n    t1.DEPTID,\n    t1.DEPTLEADER,\n    t1.DEPTLEADERID,\n    t1.DEPTLEVEL,\n    t1.DEPTNAME,\n    t1.DOMAINS,\n    t1.ENABLE,\n    t1.ISVALID,\n    t1.LEADERID,\n    t1.LEADERNAME,\n    t1.ORGCODE,\n    t1.ORGID,\n    t1.ORGNAME,\n    t1.PDEPTID,\n    t1.DEPTNAME AS PDEPTNAME,\n    t1.RESERVER,\n    t1.RESERVER10,\n    t1.RESERVER11,\n    t1.RESERVER12,\n    t1.RESERVER13,\n    t1.RESERVER14,\n    t1.RESERVER15,\n    t1.RESERVER16,\n    t1.RESERVER17,\n    t1.RESERVER18,\n    t1.RESERVER19,\n    t1.RESERVER2,\n    t1.RESERVER20,\n    t1.RESERVER3,\n    t1.RESERVER4,\n    t1.RESERVER5,\n    t1.RESERVER6,\n    t1.RESERVER7,\n    t1.RESERVER8,\n    t1.RESERVER9,\n    t1.SHORTNAME,\n    t1.SHOWORDER,\n    t1.UPDATEDATE,\n    t1.WXWORKDEPTID\nFROM (SELECT t1.BUSINESS_CATEGORY    as BCODE,\n             t1.CREATE_TIME          as CREATEDATE,\n             t1.DEPARTMENT_NUMBER    as DDDEPTID,\n             t1.DEPARTMENT_NUMBER    as DEPTCODE,\n             t1.DEPARTMENT_NAME      as DEPTFULLNAME,\n             t1.ID                   as DEPTID,\n             null                    as DEPTLEADER,\n             null                    as DEPTLEADERID,\n             1                       as DEPTLEVEL,\n             t1.DEPARTMENT_NAME      as DEPTNAME,\n             t1.DC                   as DOMAINS,\n             t1.ENABLED              as ENABLE,\n             t1.ENABLED              as ISVALID,\n             null                    as LEADERID,\n             null                    as LEADERNAME,\n             t11.ORGANIZATION_NUMBER as ORGCODE,\n             t1.ORGANIZATION_ID      as ORGID,\n             t11.ORGANIZATION_NAME   as ORGNAME,\n             t1.PARENT_ID            as PDEPTID,\n             t21.DEPARTMENT_NAME     AS PDEPTNAME,\n             null                     as RESERVER,\n             null                     as RESERVER10,\n             null                     as RESERVER11,\n             null                     as RESERVER12,\n             null                     as RESERVER13,\n             null                     as RESERVER14,\n             null                     as RESERVER15,\n             null                     as RESERVER16,\n             null                     as RESERVER17,\n             null                     as RESERVER18,\n             null                     as RESERVER19,\n             null                     as RESERVER2,\n             null                     as RESERVER20,\n             null                     as RESERVER3,\n             null                     as RESERVER4,\n             null                     as RESERVER5,\n             null                     as RESERVER6,\n             null                     as RESERVER7,\n             null                     as RESERVER8,\n             null                     as RESERVER9,\n             t1.SHORT_NAME           as SHORTNAME,\n             t1.SORT                 as SHOWORDER,\n             t1.UPDATE_TIME          as UPDATEDATE,\n             t1.DEPARTMENT_NUMBER    as WXWORKDEPTID\n      FROM sys_department t1\n               LEFT JOIN sys_organization t11 ON t1.ORGANIZATION_ID = t11.ID\n               LEFT JOIN sys_department t21 ON t1.PARENT_ID = t21.ID) t1\n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

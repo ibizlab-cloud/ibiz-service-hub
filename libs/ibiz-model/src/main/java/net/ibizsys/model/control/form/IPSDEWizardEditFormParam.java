@@ -1,0 +1,25 @@
+package net.ibizsys.model.control.form;
+
+
+
+/**
+ * 实体向导编辑表单参数模型对象接口
+ *
+ */
+public interface IPSDEWizardEditFormParam extends net.ibizsys.model.control.form.IPSDEEditFormParam{
+
+	
+	
+	/**
+	 * 获取向导表单
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.wizard.IPSDEWizardForm getPSDEWizardForm();
+
+
+	/**
+	 * 获取向导表单，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.wizard.IPSDEWizardForm getPSDEWizardFormMust();
+}

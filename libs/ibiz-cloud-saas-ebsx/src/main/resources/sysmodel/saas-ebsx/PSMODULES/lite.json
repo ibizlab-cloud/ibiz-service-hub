@@ -1,0 +1,70 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DstAppList.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DynamicModelStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DstSystemList.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/ComponentType.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstApp.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstConfig.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstView.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModel.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModule.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+  } ],
+  "codeName" : "lite",
+  "dynaModelFilePath" : "PSMODULES/lite.json",
+  "name" : "lite"
+}

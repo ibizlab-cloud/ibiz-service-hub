@@ -1,0 +1,1197 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "MEMBERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "MEMBERID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SelectMultiDeptUser",
+    "methodType" : "DEACTION",
+    "name" : "SelectMultiDeptUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/selectmultideptuser",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchExclude",
+    "dataSetName" : "EXCLUDE",
+    "dataSetTag" : "Exclude",
+    "methodType" : "FETCH",
+    "name" : "FetchExclude",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchexclude",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchMultiDeptUser",
+    "dataSetName" : "MultiDeptUser",
+    "dataSetTag" : "MultiDeptUser",
+    "methodType" : "FETCH",
+    "name" : "FetchMultiDeptUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchmultideptuser",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "MemberId",
+    "logicName" : "组成员标识",
+    "name" : "MEMBERID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "MemberName",
+    "logicName" : "组成员名称",
+    "name" : "MEMBERNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "GroupId",
+    "logicName" : "组标识",
+    "name" : "GROUPID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "GroupName",
+    "logicName" : "用户组",
+    "name" : "GROUPNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "OrgId",
+    "logicName" : "单位",
+    "name" : "ORGID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "BCode",
+    "logicName" : "业务编码",
+    "name" : "BCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Enable",
+    "logicName" : "删除标识",
+    "name" : "ENABLE",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "OrgName",
+    "logicName" : "单位",
+    "name" : "ORGNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PersonName",
+    "logicName" : "用户",
+    "name" : "PERSONNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "MDeptId",
+    "logicName" : "部门",
+    "name" : "MDEPTID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "MDeptName",
+    "logicName" : "部门",
+    "name" : "MDEPTNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "GroupCode",
+    "logicName" : "组标识",
+    "name" : "GROUPCODE",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "ShowOrder",
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "UserId",
+    "logicName" : "用户标识",
+    "name" : "USERID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "WFMemberDTO",
+    "name" : "WFMemberDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "MemberId",
+      "logicName" : "组成员标识",
+      "name" : "MemberId",
+      "getPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MemberName",
+      "logicName" : "组成员名称",
+      "name" : "MemberName",
+      "getPSAppDEField" : {
+        "name" : "MEMBERNAME",
+        "codeName" : "MemberName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "GroupId",
+      "logicName" : "组标识",
+      "name" : "GroupId",
+      "getPSAppDEField" : {
+        "name" : "GROUPID",
+        "codeName" : "GroupId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "GroupName",
+      "logicName" : "用户组",
+      "name" : "GroupName",
+      "getPSAppDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "BCode",
+      "logicName" : "业务编码",
+      "name" : "BCode",
+      "getPSAppDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Enable",
+      "logicName" : "删除标识",
+      "name" : "Enable",
+      "getPSAppDEField" : {
+        "name" : "ENABLE",
+        "codeName" : "Enable"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "GroupCode",
+      "logicName" : "组标识",
+      "name" : "GroupCode",
+      "getPSAppDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MDeptId",
+      "logicName" : "部门",
+      "name" : "MDeptId",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "MDeptName",
+      "logicName" : "部门",
+      "name" : "MDeptName",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgId",
+      "logicName" : "单位",
+      "name" : "OrgId",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgName",
+      "logicName" : "单位",
+      "name" : "OrgName",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PersonName",
+      "logicName" : "用户",
+      "name" : "PersonName",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ShowOrder",
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserId",
+      "logicName" : "用户标识",
+      "name" : "UserId",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "WFMemberFilterDTO",
+    "name" : "WFMemberFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_BCODE_LIKE",
+      "logicName" : "业务编码",
+      "name" : "N_BCODE_LIKE",
+      "getPSAppDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_GROUPCODE_EQ",
+      "logicName" : "组标识",
+      "name" : "N_GROUPCODE_EQ",
+      "getPSAppDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_GROUPCODE_LIKE",
+      "logicName" : "组标识",
+      "name" : "N_GROUPCODE_LIKE",
+      "getPSAppDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_GROUPID_EQ",
+      "logicName" : "组标识",
+      "name" : "N_GROUPID_EQ",
+      "getPSAppDEField" : {
+        "name" : "GROUPID",
+        "codeName" : "GroupId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_GROUPNAME_EQ",
+      "logicName" : "用户组",
+      "name" : "N_GROUPNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_GROUPNAME_LIKE",
+      "logicName" : "用户组",
+      "name" : "N_GROUPNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTID_EQ",
+      "logicName" : "部门",
+      "name" : "N_MDEPTID_EQ",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTID_IN",
+      "logicName" : "部门",
+      "name" : "N_MDEPTID_IN",
+      "getPSAppDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MDEPTNAME_LIKE",
+      "logicName" : "部门",
+      "name" : "N_MDEPTNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MEMBERID_EQ",
+      "logicName" : "组成员标识",
+      "name" : "N_MEMBERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_MEMBERNAME_LIKE",
+      "logicName" : "组成员名称",
+      "name" : "N_MEMBERNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "MEMBERNAME",
+        "codeName" : "MemberName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_EQ",
+      "logicName" : "单位",
+      "name" : "N_ORGID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGID_IN",
+      "logicName" : "单位",
+      "name" : "N_ORGID_IN",
+      "getPSAppDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ORGNAME_LIKE",
+      "logicName" : "单位",
+      "name" : "N_ORGNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERSONNAME_EQ",
+      "logicName" : "用户",
+      "name" : "N_PERSONNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERSONNAME_LIKE",
+      "logicName" : "用户",
+      "name" : "N_PERSONNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERID_EQ",
+      "logicName" : "用户标识",
+      "name" : "N_USERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "MEMBERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "MEMBERID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "SelectMultiDeptUser",
+    "methodType" : "DEACTION",
+    "name" : "SelectMultiDeptUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/selectmultideptuser",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchExclude",
+    "dataSetName" : "EXCLUDE",
+    "dataSetTag" : "Exclude",
+    "methodType" : "FETCH",
+    "name" : "FetchExclude",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchexclude",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchMultiDeptUser",
+    "dataSetName" : "MultiDeptUser",
+    "dataSetTag" : "MultiDeptUser",
+    "methodType" : "FETCH",
+    "name" : "FetchMultiDeptUser",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchmultideptuser",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "CREATE",
+    "id" : "WFGroup__CREATE"
+  }, {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "建立",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "CREATE",
+    "id" : "SysEmployee__CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "删除",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "DELETE",
+    "id" : "WFGroup__DELETE"
+  }, {
+    "logicName" : "删除",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "DELETE",
+    "id" : "SysEmployee__DELETE"
+  }, {
+    "logicName" : "读取",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "READ",
+    "name" : "READ",
+    "id" : "WFGroup__READ"
+  }, {
+    "logicName" : "读取",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "READ",
+    "name" : "READ",
+    "id" : "SysEmployee__READ"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "更新",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "UPDATE",
+    "id" : "SysEmployee__UPDATE"
+  }, {
+    "logicName" : "更新",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "name" : "UPDATE",
+    "id" : "WFGroup__UPDATE"
+  } ],
+  "codeName" : "WFMember",
+  "dEAPICodeName" : "wfmember",
+  "dEAPICodeName2" : "wfmembers",
+  "dEAPITag" : "WF_GROUP_MEMBER",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 2,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "MEMBERID",
+    "codeName" : "MemberId"
+  },
+  "logicName" : "成员",
+  "getMajorPSAppDEField" : {
+    "name" : "MEMBERNAME",
+    "codeName" : "MemberName"
+  },
+  "getMinorPSAppDERSs" : [ {
+    "actionRSMode" : 1,
+    "codeName" : "WFMembers",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "SysEmployee",
+    "majorDEName" : "SYS_EMP",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+    },
+    "minorDECodeName" : "WFMember",
+    "minorDEName" : "WF_GROUP_MEMBER",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember.json"
+    },
+    "name" : "DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID",
+    "getParentPSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "rSMode" : 2
+  }, {
+    "actionRSMode" : 1,
+    "codeName" : "WFMembers",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "WFGroup",
+    "majorDEName" : "WF_GROUP",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFGroup.json"
+    },
+    "minorDECodeName" : "WFMember",
+    "minorDEName" : "WF_GROUP_MEMBER",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember.json"
+    },
+    "name" : "DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID",
+    "getParentPSAppDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "GroupId"
+    },
+    "rSMode" : 2
+  } ],
+  "name" : "WF_GROUP_MEMBER",
+  "getOrgIdPSAppDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getPSDEName" : "WF_GROUP_MEMBER",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "MEMBERNAME",
+    "codeName" : "MemberName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "getUnionKeyValuePSAppDEFields" : [ {
+    "name" : "GROUPID",
+    "codeName" : "GroupId"
+  }, {
+    "name" : "USERID",
+    "codeName" : "UserId"
+  } ],
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+  }
+}

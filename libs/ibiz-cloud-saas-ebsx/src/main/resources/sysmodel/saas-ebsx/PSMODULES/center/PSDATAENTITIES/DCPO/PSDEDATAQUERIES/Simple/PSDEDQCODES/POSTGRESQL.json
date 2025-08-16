@@ -1,0 +1,46 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACTION",
+    "name" : "ACTION"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DENAME",
+    "name" : "DENAME"
+  }, {
+    "expression" : "t1.LOGLEVEL",
+    "name" : "LOGLEVEL"
+  }, {
+    "expression" : "t1.POCAT",
+    "name" : "POCAT"
+  }, {
+    "expression" : "t1.POINFO",
+    "name" : "POINFO"
+  }, {
+    "expression" : "t1.TIME",
+    "name" : "TIME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.SYSPOID",
+    "name" : "SYSPOID"
+  }, {
+    "expression" : "t1.SYSPONAME",
+    "name" : "SYSPONAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.SYSPOID,\nt1.SYSPONAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZPO t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCPO/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+}

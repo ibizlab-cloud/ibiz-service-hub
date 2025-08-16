@@ -1,0 +1,3423 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true,
+    "enableAudit" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true,
+    "enableAudit" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true,
+    "enableAudit" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dataAccessAction" : "NONE",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "actionType" : "USERCUSTOM",
+    "codeName" : "SelectMultiDeptUser",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/SelectMultiDeptUser.json",
+    "logicName" : "查询部门人员",
+    "name" : "SelectMultiDeptUser",
+    "getPSDEActionInput" : {
+      "name" : "SelectMultiDeptUserInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SelectMultiDeptUserResult",
+      "type" : "VOID"
+    },
+    "enableAudit" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZWFMEMBER",
+    "tableName" : "IBZWFMEMBER",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`IBZWFMEMBER`",
+    "tableName" : "IBZWFMEMBER",
+    "valid" : true
+  }, {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZWFMEMBER",
+    "tableName" : "IBZWFMEMBER",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[IBZWFMEMBER]",
+    "tableName" : "IBZWFMEMBER",
+    "valid" : true
+  }, {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZWFMEMBER",
+    "tableName" : "IBZWFMEMBER",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "MEMBERID",
+      "codeName" : "MemberId"
+    }, {
+      "name" : "MEMBERNAME",
+      "codeName" : "MemberName"
+    }, {
+      "name" : "GROUPID",
+      "codeName" : "GroupId"
+    }, {
+      "name" : "GROUPCODE",
+      "codeName" : "GroupCode"
+    }, {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    } ],
+    "codeName" : "Table",
+    "name" : "IBZWFMEMBER",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "IBZWFMEMBER"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDRGROUPS/Auto9.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "WF_GROUP_MEMBER",
+      "getPSDEDQGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "连接条件",
+        "getPSDEDQConditions" : [ {
+          "condOp" : "EQ",
+          "condType" : "SINGLE",
+          "condValue" : "1",
+          "fieldName" : "ENABLE",
+          "name" : "ENABLE 等于(=) (1)",
+          "getPSDEField" : {
+            "name" : "ENABLE",
+            "codeName" : "Enable"
+          }
+        } ]
+      }
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Exclude/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Exclude/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Exclude/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/Exclude/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Exclude",
+    "logicName" : "排除数据",
+    "name" : "EXCLUDE",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "WF_GROUP_MEMBER",
+      "getPSDEDQGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "连接条件",
+        "getPSDEDQConditions" : [ {
+          "condOp" : "NOTEQ",
+          "condType" : "SINGLE",
+          "condValue" : "excdeptid",
+          "fieldName" : "MDEPTID",
+          "name" : "MDEPTID 不等于(<>) 网页请求上下文(excdeptid)",
+          "getPSDEField" : {
+            "name" : "MDEPTID",
+            "codeName" : "MDeptId"
+          },
+          "getPSVARTypeId" : "WEBCONTEXT",
+          "ignoreEmpty" : true
+        }, {
+          "condOp" : "NOTEQ",
+          "condType" : "SINGLE",
+          "condValue" : "excuserid",
+          "fieldName" : "USERID",
+          "name" : "USERID 不等于(<>) 网页请求上下文(excuserid)",
+          "getPSDEField" : {
+            "name" : "USERID",
+            "codeName" : "UserId"
+          },
+          "getPSVARTypeId" : "WEBCONTEXT",
+          "ignoreEmpty" : true
+        } ]
+      }
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ExcludeInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ExcludeResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTOS"
+    }
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "MultiDeptUser",
+    "logicName" : "查询多部门成员",
+    "name" : "MultiDeptUser",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "WF_GROUP_MEMBER"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "MultiDeptUserInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "MultiDeptUserResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTOS"
+    }
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "WF_GROUP_MEMBER"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  }, {
+    "codeName" : "Exclude",
+    "logicName" : "排除数据",
+    "name" : "EXCLUDE",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Exclude"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "ExcludeInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "ExcludeResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "enableBackend" : true,
+    "enableFront" : true
+  }, {
+    "codeName" : "MultiDeptUser",
+    "logicName" : "查询多部门成员",
+    "name" : "MultiDeptUser",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "MultiDeptUser"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "MultiDeptUserInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "MultiDeptUserResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "WFMemberDTO"
+      },
+      "type" : "PAGE"
+    },
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "MEMBERID",
+      "dBType" : "ORACLE",
+      "name" : "MEMBERID",
+      "queryCodeExp" : "t1.MEMBERID",
+      "standardColumnName" : "MEMBERID"
+    }, {
+      "columnName" : "MEMBERID",
+      "dBType" : "MYSQL5",
+      "name" : "MEMBERID",
+      "queryCodeExp" : "t1.`MEMBERID`",
+      "standardColumnName" : "`MEMBERID`"
+    }, {
+      "columnName" : "MEMBERID",
+      "dBType" : "POSTGRESQL",
+      "name" : "MEMBERID",
+      "queryCodeExp" : "t1.MEMBERID",
+      "standardColumnName" : "MEMBERID"
+    }, {
+      "columnName" : "MEMBERID",
+      "dBType" : "SQLSERVER",
+      "name" : "MEMBERID",
+      "standardColumnName" : "[MEMBERID]"
+    }, {
+      "columnName" : "MEMBERID",
+      "name" : "MEMBERID",
+      "standardColumnName" : "MEMBERID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_MEMBERID_EQ",
+      "name" : "N_MEMBERID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[MEMBERID][组成员标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERID][组成员标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[MEMBERID][组成员标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERID][组成员标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[MEMBERID][组成员标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERID][组成员标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[MEMBERID][组成员标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[MEMBERID][组成员标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "MEMBERID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "MemberId",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "组成员标识",
+    "name" : "MEMBERID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "MEMBERID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "MEMBERNAME",
+      "dBType" : "ORACLE",
+      "name" : "MEMBERNAME",
+      "queryCodeExp" : "t1.MEMBERNAME",
+      "standardColumnName" : "MEMBERNAME"
+    }, {
+      "columnName" : "MEMBERNAME",
+      "dBType" : "MYSQL5",
+      "name" : "MEMBERNAME",
+      "queryCodeExp" : "t1.`MEMBERNAME`",
+      "standardColumnName" : "`MEMBERNAME`"
+    }, {
+      "columnName" : "MEMBERNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "MEMBERNAME",
+      "queryCodeExp" : "t1.MEMBERNAME",
+      "standardColumnName" : "MEMBERNAME"
+    }, {
+      "columnName" : "MEMBERNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "MEMBERNAME",
+      "standardColumnName" : "[MEMBERNAME]"
+    }, {
+      "columnName" : "MEMBERNAME",
+      "name" : "MEMBERNAME",
+      "standardColumnName" : "MEMBERNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_MEMBERNAME_LIKE",
+      "name" : "N_MEMBERNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[MEMBERNAME][组成员名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[MEMBERNAME][组成员名称]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[MEMBERNAME][组成员名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERNAME][组成员名称]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[MEMBERNAME][组成员名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERNAME][组成员名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[MEMBERNAME][组成员名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[MEMBERNAME][组成员名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "MEMBERNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "MemberName",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "组成员名称",
+    "name" : "MEMBERNAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "MEMBERNAME"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "enableAudit" : true,
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "GROUPID",
+      "dBType" : "ORACLE",
+      "name" : "GROUPID",
+      "queryCodeExp" : "t1.GROUPID",
+      "standardColumnName" : "GROUPID"
+    }, {
+      "columnName" : "GROUPID",
+      "dBType" : "MYSQL5",
+      "name" : "GROUPID",
+      "queryCodeExp" : "t1.`GROUPID`",
+      "standardColumnName" : "`GROUPID`"
+    }, {
+      "columnName" : "GROUPID",
+      "dBType" : "POSTGRESQL",
+      "name" : "GROUPID",
+      "queryCodeExp" : "t1.GROUPID",
+      "standardColumnName" : "GROUPID"
+    }, {
+      "columnName" : "GROUPID",
+      "dBType" : "SQLSERVER",
+      "name" : "GROUPID",
+      "standardColumnName" : "[GROUPID]"
+    }, {
+      "columnName" : "GROUPID",
+      "name" : "GROUPID",
+      "standardColumnName" : "GROUPID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_GROUPID_EQ",
+      "name" : "N_GROUPID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[GROUPID][组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "HIDDEN",
+        "name" : "[GROUPID][组标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[GROUPID][组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "HIDDEN",
+        "name" : "[GROUPID][组标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[GROUPID][组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[GROUPID][组标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[GROUPID][组标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[GROUPID][组标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "GROUPID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "GroupId",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "组标识",
+    "name" : "GROUPID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "GROUPID"
+    },
+    "getRealPSDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "Id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "Id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "unionKeyValue" : "KEY1",
+    "valueFormat" : "%1$s",
+    "enableAudit" : true,
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "GROUPNAME",
+      "dBType" : "ORACLE",
+      "name" : "GROUPNAME",
+      "queryCodeExp" : "t11.GROUPNAME",
+      "standardColumnName" : "GROUPNAME"
+    }, {
+      "columnName" : "GROUPNAME",
+      "dBType" : "MYSQL5",
+      "name" : "GROUPNAME",
+      "queryCodeExp" : "t11.`GROUPNAME`",
+      "standardColumnName" : "`GROUPNAME`"
+    }, {
+      "columnName" : "GROUPNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "GROUPNAME",
+      "queryCodeExp" : "t11.GROUPNAME",
+      "standardColumnName" : "GROUPNAME"
+    }, {
+      "columnName" : "GROUPNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "GROUPNAME",
+      "standardColumnName" : "[GROUPNAME]"
+    }, {
+      "columnName" : "GROUPNAME",
+      "name" : "GROUPNAME",
+      "standardColumnName" : "GROUPNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_GROUPNAME_EQ",
+      "name" : "N_GROUPNAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_GROUPNAME_LIKE",
+      "name" : "N_GROUPNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[GROUPNAME][用户组]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "PICKER",
+        "name" : "[GROUPNAME][用户组]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[GROUPNAME][组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[GROUPNAME][组标识]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[GROUPNAME][用户组]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "PICKER",
+        "name" : "[GROUPNAME][用户组]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[GROUPNAME][组标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[GROUPNAME][组标识]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "GROUPNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "GroupName",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "用户组",
+    "name" : "GROUPNAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "Name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "Name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "GroupId"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ORGID",
+      "dBType" : "ORACLE",
+      "name" : "ORGID",
+      "queryCodeExp" : "t21.ORGID",
+      "standardColumnName" : "ORGID"
+    }, {
+      "columnName" : "ORGID",
+      "dBType" : "MYSQL5",
+      "name" : "ORGID",
+      "queryCodeExp" : "t21.`ORGID`",
+      "standardColumnName" : "`ORGID`"
+    }, {
+      "columnName" : "ORGID",
+      "dBType" : "POSTGRESQL",
+      "name" : "ORGID",
+      "queryCodeExp" : "t21.ORGID",
+      "standardColumnName" : "ORGID"
+    }, {
+      "columnName" : "ORGID",
+      "dBType" : "SQLSERVER",
+      "name" : "ORGID",
+      "standardColumnName" : "[ORGID]"
+    }, {
+      "columnName" : "ORGID",
+      "name" : "ORGID",
+      "standardColumnName" : "ORGID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ORGID_EQ",
+      "name" : "N_ORGID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_ORGID_IN",
+      "name" : "N_ORGID_IN",
+      "stdDataType" : 25,
+      "valueOP" : "IN"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ORGID][单位]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ORGID][单位]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ORGID][单位]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[ORGID][单位]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ORGID][单位]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ORGID][单位]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ORGID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "OrgId",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "单位",
+    "name" : "ORGID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "predefinedType" : "ORGID",
+    "getRealPSDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "BCODE",
+      "dBType" : "ORACLE",
+      "name" : "BCODE",
+      "queryCodeExp" : "t21.BCODE",
+      "standardColumnName" : "BCODE"
+    }, {
+      "columnName" : "BCODE",
+      "dBType" : "MYSQL5",
+      "name" : "BCODE",
+      "queryCodeExp" : "t21.`BCODE`",
+      "standardColumnName" : "`BCODE`"
+    }, {
+      "columnName" : "BCODE",
+      "dBType" : "POSTGRESQL",
+      "name" : "BCODE",
+      "queryCodeExp" : "t21.BCODE",
+      "standardColumnName" : "BCODE"
+    }, {
+      "columnName" : "BCODE",
+      "dBType" : "SQLSERVER",
+      "name" : "BCODE",
+      "standardColumnName" : "[BCODE]"
+    }, {
+      "columnName" : "BCODE",
+      "name" : "BCODE",
+      "standardColumnName" : "BCODE"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_BCODE_LIKE",
+      "name" : "N_BCODE_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[BCODE][业务编码]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[BCODE][业务编码]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[BCODE][业务编码]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[BCODE][业务编码]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[BCODE][业务编码]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[BCODE][业务编码]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "BCODE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "BCode",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "业务编码",
+    "name" : "BCODE",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ENABLE",
+      "dBType" : "ORACLE",
+      "name" : "ENABLE",
+      "queryCodeExp" : "t21.ENABLE",
+      "standardColumnName" : "ENABLE"
+    }, {
+      "columnName" : "ENABLE",
+      "dBType" : "MYSQL5",
+      "name" : "ENABLE",
+      "queryCodeExp" : "t21.`ENABLE`",
+      "standardColumnName" : "`ENABLE`"
+    }, {
+      "columnName" : "ENABLE",
+      "dBType" : "POSTGRESQL",
+      "name" : "ENABLE",
+      "queryCodeExp" : "t21.ENABLE",
+      "standardColumnName" : "ENABLE"
+    }, {
+      "columnName" : "ENABLE",
+      "dBType" : "SQLSERVER",
+      "name" : "ENABLE",
+      "standardColumnName" : "[ENABLE]"
+    }, {
+      "columnName" : "ENABLE",
+      "name" : "ENABLE",
+      "standardColumnName" : "ENABLE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ENABLE][删除标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ENABLE][删除标识]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ENABLE][删除标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ENABLE][删除标识]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Enable",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "logicName" : "删除标识",
+    "name" : "ENABLE",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "ENABLE",
+      "codeName" : "Enable"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ENABLE",
+      "codeName" : "Enable"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ORGNAME",
+      "dBType" : "ORACLE",
+      "name" : "ORGNAME",
+      "queryCodeExp" : "t21.ORGNAME",
+      "standardColumnName" : "ORGNAME"
+    }, {
+      "columnName" : "ORGNAME",
+      "dBType" : "MYSQL5",
+      "name" : "ORGNAME",
+      "queryCodeExp" : "t21.`ORGNAME`",
+      "standardColumnName" : "`ORGNAME`"
+    }, {
+      "columnName" : "ORGNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "ORGNAME",
+      "queryCodeExp" : "t21.ORGNAME",
+      "standardColumnName" : "ORGNAME"
+    }, {
+      "columnName" : "ORGNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "ORGNAME",
+      "standardColumnName" : "[ORGNAME]"
+    }, {
+      "columnName" : "ORGNAME",
+      "name" : "ORGNAME",
+      "standardColumnName" : "ORGNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ORGNAME_LIKE",
+      "name" : "N_ORGNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ORGNAME][组织]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ORGNAME][组织]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ORGNAME][单位]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[ORGNAME][单位]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[ORGNAME][组织]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ORGNAME][组织]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ORGNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "OrgName",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "单位",
+    "name" : "ORGNAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "predefinedType" : "ORGNAME",
+    "getRealPSDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PERSONNAME",
+      "dBType" : "ORACLE",
+      "name" : "PERSONNAME",
+      "queryCodeExp" : "t21.PERSONNAME",
+      "standardColumnName" : "PERSONNAME"
+    }, {
+      "columnName" : "PERSONNAME",
+      "dBType" : "MYSQL5",
+      "name" : "PERSONNAME",
+      "queryCodeExp" : "t21.`PERSONNAME`",
+      "standardColumnName" : "`PERSONNAME`"
+    }, {
+      "columnName" : "PERSONNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "PERSONNAME",
+      "queryCodeExp" : "t21.PERSONNAME",
+      "standardColumnName" : "PERSONNAME"
+    }, {
+      "columnName" : "PERSONNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "PERSONNAME",
+      "standardColumnName" : "[PERSONNAME]"
+    }, {
+      "columnName" : "PERSONNAME",
+      "name" : "PERSONNAME",
+      "standardColumnName" : "PERSONNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_PERSONNAME_EQ",
+      "name" : "N_PERSONNAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_PERSONNAME_LIKE",
+      "name" : "N_PERSONNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[PERSONNAME][用户]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[PERSONNAME][用户]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[PERSONNAME][用户]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "PICKER",
+        "name" : "[PERSONNAME][用户]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[PERSONNAME][用户]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[PERSONNAME][用户]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PERSONNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "PersonName",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "用户",
+    "name" : "PERSONNAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "MDEPTID",
+      "dBType" : "ORACLE",
+      "name" : "MDEPTID",
+      "queryCodeExp" : "t21.MDEPTID",
+      "standardColumnName" : "MDEPTID"
+    }, {
+      "columnName" : "MDEPTID",
+      "dBType" : "MYSQL5",
+      "name" : "MDEPTID",
+      "queryCodeExp" : "t21.`MDEPTID`",
+      "standardColumnName" : "`MDEPTID`"
+    }, {
+      "columnName" : "MDEPTID",
+      "dBType" : "POSTGRESQL",
+      "name" : "MDEPTID",
+      "queryCodeExp" : "t21.MDEPTID",
+      "standardColumnName" : "MDEPTID"
+    }, {
+      "columnName" : "MDEPTID",
+      "dBType" : "SQLSERVER",
+      "name" : "MDEPTID",
+      "standardColumnName" : "[MDEPTID]"
+    }, {
+      "columnName" : "MDEPTID",
+      "name" : "MDEPTID",
+      "standardColumnName" : "MDEPTID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_MDEPTID_EQ",
+      "name" : "N_MDEPTID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_MDEPTID_IN",
+      "name" : "N_MDEPTID_IN",
+      "stdDataType" : 25,
+      "valueOP" : "IN"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[MDEPTID][部门]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTID][部门]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[MDEPTID][部门]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTID][部门]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[MDEPTID][部门]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTID][部门]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "MDEPTID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "MDeptId",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "部门",
+    "name" : "MDEPTID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "DEPTID",
+      "codeName" : "DeptId"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "MDEPTID",
+      "codeName" : "MDeptId"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "MDEPTNAME",
+      "dBType" : "ORACLE",
+      "name" : "MDEPTNAME",
+      "queryCodeExp" : "t21.MDEPTNAME",
+      "standardColumnName" : "MDEPTNAME"
+    }, {
+      "columnName" : "MDEPTNAME",
+      "dBType" : "MYSQL5",
+      "name" : "MDEPTNAME",
+      "queryCodeExp" : "t21.`MDEPTNAME`",
+      "standardColumnName" : "`MDEPTNAME`"
+    }, {
+      "columnName" : "MDEPTNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "MDEPTNAME",
+      "queryCodeExp" : "t21.MDEPTNAME",
+      "standardColumnName" : "MDEPTNAME"
+    }, {
+      "columnName" : "MDEPTNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "MDEPTNAME",
+      "standardColumnName" : "[MDEPTNAME]"
+    }, {
+      "columnName" : "MDEPTNAME",
+      "name" : "MDEPTNAME",
+      "standardColumnName" : "MDEPTNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_MDEPTNAME_LIKE",
+      "name" : "N_MDEPTNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[MDEPTNAME][部门]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTNAME][部门]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[MDEPTNAME][部门]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTNAME][部门]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[MDEPTNAME][部门]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[MDEPTNAME][部门]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "MDEPTNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "MDeptName",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "部门",
+    "name" : "MDEPTNAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "MDEPTNAME",
+      "codeName" : "MDeptName"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "GROUPCODE",
+      "dBType" : "ORACLE",
+      "name" : "GROUPCODE",
+      "queryCodeExp" : "t1.GROUPCODE",
+      "standardColumnName" : "GROUPCODE"
+    }, {
+      "columnName" : "GROUPCODE",
+      "dBType" : "MYSQL5",
+      "name" : "GROUPCODE",
+      "queryCodeExp" : "t1.`GROUPCODE`",
+      "standardColumnName" : "`GROUPCODE`"
+    }, {
+      "columnName" : "GROUPCODE",
+      "dBType" : "POSTGRESQL",
+      "name" : "GROUPCODE",
+      "queryCodeExp" : "t1.GROUPCODE",
+      "standardColumnName" : "GROUPCODE"
+    }, {
+      "columnName" : "GROUPCODE",
+      "dBType" : "SQLSERVER",
+      "name" : "GROUPCODE",
+      "standardColumnName" : "[GROUPCODE]"
+    }, {
+      "columnName" : "GROUPCODE",
+      "name" : "GROUPCODE",
+      "standardColumnName" : "GROUPCODE"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_GROUPCODE_EQ",
+      "name" : "N_GROUPCODE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_GROUPCODE_LIKE",
+      "name" : "N_GROUPCODE_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[GROUPCODE][属性]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[GROUPCODE][属性]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[GROUPCODE][属性]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[GROUPCODE][属性]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "GROUPCODE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "GroupCode",
+    "dEFType" : 1,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "组标识",
+    "name" : "GROUPCODE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "GROUPCODE"
+    },
+    "getRealPSDEField" : {
+      "name" : "GROUPCODE",
+      "codeName" : "GroupCode"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "GROUPCODE",
+      "codeName" : "GroupCode"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "enableAudit" : true,
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SHOWORDER",
+      "dBType" : "ORACLE",
+      "name" : "SHOWORDER",
+      "queryCodeExp" : "t21.SHOWORDER",
+      "standardColumnName" : "SHOWORDER"
+    }, {
+      "columnName" : "SHOWORDER",
+      "dBType" : "MYSQL5",
+      "name" : "SHOWORDER",
+      "queryCodeExp" : "t21.`SHOWORDER`",
+      "standardColumnName" : "`SHOWORDER`"
+    }, {
+      "columnName" : "SHOWORDER",
+      "dBType" : "POSTGRESQL",
+      "name" : "SHOWORDER",
+      "queryCodeExp" : "t21.SHOWORDER",
+      "standardColumnName" : "SHOWORDER"
+    }, {
+      "columnName" : "SHOWORDER",
+      "dBType" : "SQLSERVER",
+      "name" : "SHOWORDER",
+      "standardColumnName" : "[SHOWORDER]"
+    }, {
+      "columnName" : "SHOWORDER",
+      "name" : "SHOWORDER",
+      "standardColumnName" : "SHOWORDER"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SHOWORDER][排序]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[SHOWORDER][排序]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[SHOWORDER][排序]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[SHOWORDER][排序]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[SHOWORDER][排序]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[SHOWORDER][排序]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ShowOrder",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "logicName" : "排序",
+    "name" : "SHOWORDER",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "USERID",
+      "dBType" : "ORACLE",
+      "name" : "USERID",
+      "queryCodeExp" : "t1.USERID",
+      "standardColumnName" : "USERID"
+    }, {
+      "columnName" : "USERID",
+      "dBType" : "MYSQL5",
+      "name" : "USERID",
+      "queryCodeExp" : "t1.`USERID`",
+      "standardColumnName" : "`USERID`"
+    }, {
+      "columnName" : "USERID",
+      "dBType" : "POSTGRESQL",
+      "name" : "USERID",
+      "queryCodeExp" : "t1.USERID",
+      "standardColumnName" : "USERID"
+    }, {
+      "columnName" : "USERID",
+      "dBType" : "SQLSERVER",
+      "name" : "USERID",
+      "standardColumnName" : "[USERID]"
+    }, {
+      "columnName" : "USERID",
+      "name" : "USERID",
+      "standardColumnName" : "USERID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_USERID_EQ",
+      "name" : "N_USERID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[USERID][用户标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "HIDDEN",
+        "name" : "[USERID][用户标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[USERID][用户标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[USERID][用户标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[USERID][用户标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[USERID][用户标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "USERID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "UserId",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "用户标识",
+    "name" : "USERID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "USERID"
+    },
+    "getRealPSDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "unionKeyValue" : "KEY2",
+    "valueFormat" : "%1$s",
+    "enableAudit" : true,
+    "linkDEField" : true
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "WFMemberDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "组成员标识",
+      "name" : "MemberId",
+      "getPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组成员名称",
+      "name" : "MemberName",
+      "getPSDEField" : {
+        "name" : "MEMBERNAME",
+        "codeName" : "MemberName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组标识",
+      "name" : "GroupId",
+      "getPSDEField" : {
+        "name" : "GROUPID",
+        "codeName" : "GroupId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户组",
+      "name" : "GroupName",
+      "getPSDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "业务编码",
+      "name" : "BCode",
+      "getPSDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "删除标识",
+      "name" : "Enable",
+      "getPSDEField" : {
+        "name" : "ENABLE",
+        "codeName" : "Enable"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组标识",
+      "name" : "GroupCode",
+      "getPSDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "部门",
+      "name" : "MDeptId",
+      "getPSDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "部门",
+      "name" : "MDeptName",
+      "getPSDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "单位",
+      "name" : "OrgId",
+      "getPSDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "单位",
+      "name" : "OrgName",
+      "getPSDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户",
+      "name" : "PersonName",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "排序",
+      "name" : "ShowOrder",
+      "getPSDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户标识",
+      "name" : "UserId",
+      "getPSDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "WFMemberFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "业务编码",
+      "name" : "N_BCODE_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_BCODE_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "BCODE",
+        "codeName" : "BCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组标识",
+      "name" : "N_GROUPCODE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_GROUPCODE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组标识",
+      "name" : "N_GROUPCODE_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_GROUPCODE_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "GROUPCODE",
+        "codeName" : "GroupCode"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组标识",
+      "name" : "N_GROUPID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_GROUPID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "GROUPID",
+        "codeName" : "GroupId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户组",
+      "name" : "N_GROUPNAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_GROUPNAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户组",
+      "name" : "N_GROUPNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_GROUPNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "GroupName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "部门",
+      "name" : "N_MDEPTID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_MDEPTID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "部门",
+      "name" : "N_MDEPTID_IN",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_MDEPTID_IN"
+      },
+      "getPSDEField" : {
+        "name" : "MDEPTID",
+        "codeName" : "MDeptId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "部门",
+      "name" : "N_MDEPTNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_MDEPTNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "MDEPTNAME",
+        "codeName" : "MDeptName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组成员标识",
+      "name" : "N_MEMBERID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_MEMBERID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "组成员名称",
+      "name" : "N_MEMBERNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_MEMBERNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "MEMBERNAME",
+        "codeName" : "MemberName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "单位",
+      "name" : "N_ORGID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ORGID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "单位",
+      "name" : "N_ORGID_IN",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ORGID_IN"
+      },
+      "getPSDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "单位",
+      "name" : "N_ORGNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ORGNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户",
+      "name" : "N_PERSONNAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_PERSONNAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户",
+      "name" : "N_PERSONNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_PERSONNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "用户标识",
+      "name" : "N_USERID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_USERID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "name" : "CREATE",
+    "id" : "WFGroup__CREATE"
+  }, {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "建立",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "name" : "CREATE",
+    "id" : "SysEmployee__CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "删除",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "name" : "DELETE",
+    "id" : "WFGroup__DELETE"
+  }, {
+    "logicName" : "删除",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "name" : "DELETE",
+    "id" : "SysEmployee__DELETE"
+  }, {
+    "logicName" : "读取",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "READ",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "name" : "READ",
+    "id" : "WFGroup__READ"
+  }, {
+    "logicName" : "读取",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "READ",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "name" : "READ",
+    "id" : "SysEmployee__READ"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "更新",
+    "mapPSDEName" : "SYS_EMP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "name" : "UPDATE",
+    "id" : "SysEmployee__UPDATE"
+  }, {
+    "logicName" : "更新",
+    "mapPSDEName" : "WF_GROUP",
+    "mapPSDEOPPrivName" : "UPDATE",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "name" : "UPDATE",
+    "id" : "WFGroup__UPDATE"
+  } ],
+  "getAllPSDEUserRoles" : [ {
+    "customCond" : "[ (1, '=', 1) ]",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEUSERROLES/Default.json",
+    "name" : "默认角色",
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "工作流成员(只读)",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "Default",
+    "userDRAction" : "READ",
+    "defaultMode" : true
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "PickupGridView",
+    "logicName" : "成员实体选择表格视图（部件视图）",
+    "name" : "成员实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "成员实体编辑视图（左右关系）",
+    "name" : "成员实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "MPickupView",
+    "logicName" : "成员实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "成员实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView21",
+    "logicName" : "成员实体表格视图",
+    "name" : "成员实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "UnGroupGridView",
+    "logicName" : "成员实体表格视图（无用户组）",
+    "name" : "成员实体表格视图（无用户组）",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "成员实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "成员实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView",
+    "logicName" : "成员实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "成员实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "成员实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "成员实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "auditMode" : 2,
+  "codeName" : "WFMember",
+  "dEType" : 3,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 2,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "WFMemberFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "WFMemberDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "MEMBERID",
+    "codeName" : "MemberId"
+  },
+  "logicName" : "成员",
+  "getMajorPSDEField" : {
+    "name" : "MEMBERNAME",
+    "codeName" : "MemberName"
+  },
+  "getMinorPSDERs" : [ {
+    "codeName" : "SysEmployee",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json",
+    "fKeyName" : "FF65FD2FE8283A39C9",
+    "logicName" : "用户",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    },
+    "masterOrder" : 100,
+    "masterRS" : 7,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+    },
+    "name" : "DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "pickupDEFName" : "USERID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "SysEmployee"
+  }, {
+    "codeName" : "WFGroup",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json",
+    "fKeyName" : "FF0065CB9EA7A88F28",
+    "logicName" : "用户组",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    },
+    "masterOrder" : 100,
+    "masterRS" : 15,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+    },
+    "name" : "DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "GroupId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "GroupName"
+    },
+    "pickupDEFName" : "GROUPID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "WFGroup",
+    "nestedRS" : true
+  } ],
+  "name" : "WF_GROUP_MEMBER",
+  "getOrgIdPSDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow.json"
+  },
+  "saaSDCIdColumnName" : "SRFDCID",
+  "saaSDataIdColumnName" : "SRFID",
+  "saaSMode" : 4,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "WFMember",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "IBZWFMEMBER",
+  "getUnionKeyValuePSDEFields" : [ {
+    "name" : "GROUPID",
+    "codeName" : "GroupId"
+  }, {
+    "name" : "USERID",
+    "codeName" : "UserId"
+  } ],
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

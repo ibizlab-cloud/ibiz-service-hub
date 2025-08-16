@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "TBB.TEXT.*.STARTWF"
+  },
+  "formCaption" : "系统角色",
+  "name" : "角色表默认关系界面组"
+}

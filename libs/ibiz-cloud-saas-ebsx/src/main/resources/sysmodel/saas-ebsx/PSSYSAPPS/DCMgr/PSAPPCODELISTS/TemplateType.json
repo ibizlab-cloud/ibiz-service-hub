@@ -1,0 +1,31 @@
+{
+  "codeListTag" : "notify__TemplateType",
+  "codeListType" : "STATIC",
+  "codeName" : "TemplateType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/TemplateType.json",
+  "emptyText" : "未定义",
+  "name" : "模板类型",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgTemplate.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "Aliyun_SUB_sms",
+    "text" : "阿里云短信",
+    "value" : "aliyun-sms"
+  }, {
+    "codeName" : "Aliyun_SUB_email",
+    "text" : "阿里云邮件",
+    "value" : "aliyun-email"
+  }, {
+    "codeName" : "Wechat_SUB_msg",
+    "text" : "微信消息",
+    "value" : "wechat-msg"
+  }, {
+    "codeName" : "Dingtalk_SUB_msg",
+    "text" : "钉钉通知",
+    "value" : "dingtalk-msg"
+  } ],
+  "enableCache" : true
+}

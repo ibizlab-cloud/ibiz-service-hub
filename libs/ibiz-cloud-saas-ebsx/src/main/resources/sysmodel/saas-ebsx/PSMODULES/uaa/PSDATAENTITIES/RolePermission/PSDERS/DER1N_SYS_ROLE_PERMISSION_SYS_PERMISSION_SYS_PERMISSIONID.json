@@ -1,0 +1,31 @@
+{
+  "codeName" : "SysPermission",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json",
+  "fKeyName" : "FE283EACB26C3C950C",
+  "logicName" : "资源",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission.json"
+  },
+  "name" : "DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYS_PERMISSIONID",
+    "codeName" : "PermissionId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "SYS_PERMISSIONNAME",
+    "codeName" : "PermissionName"
+  },
+  "pickupDEFName" : "SYS_PERMISSIONID",
+  "removeActionType" : 1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "SysPermission"
+}

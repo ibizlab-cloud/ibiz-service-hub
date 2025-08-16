@@ -1,0 +1,52 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ACTIVETAG`",
+    "name" : "ACTIVETAG"
+  }, {
+    "expression" : "t1.`DYNAINSTID`",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.`DYNAINSTTAG`",
+    "name" : "DYNAINSTTAG"
+  }, {
+    "expression" : "t1.`DYNAINSTTAG2`",
+    "name" : "DYNAINSTTAG2"
+  }, {
+    "expression" : "t1.`MEMO`",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.`MODELFILE`",
+    "name" : "MODELFILE"
+  }, {
+    "expression" : "t1.`PDYNAINSTID`",
+    "name" : "PDYNAINSTID"
+  }, {
+    "expression" : "t1.`STATUS`",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.`SYSDYNAINSTID`",
+    "name" : "SYSDYNAINSTID"
+  }, {
+    "expression" : "t1.`CONFIGID`",
+    "name" : "CONFIGID"
+  }, {
+    "expression" : "t1.`CONFIGNAME`",
+    "name" : "CONFIGNAME"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`CONFIGID`,\nt1.`CONFIGNAME`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `IBZDYNAMICMODEL` t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

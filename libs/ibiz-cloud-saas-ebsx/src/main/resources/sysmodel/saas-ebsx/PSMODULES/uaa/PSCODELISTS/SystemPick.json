@@ -1,0 +1,41 @@
+{
+  "codeListTag" : "uaa__SystemPick",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "SystemPick",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/SystemPick.json",
+  "emptyText" : "未定义",
+  "minorSortDir" : "ASC",
+  "getMinorSortPSDEField" : {
+    "name" : "SHOWORDER",
+    "codeName" : "ShowOrder"
+  },
+  "name" : "SystemPick",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Pick"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "getTextPSDEField" : {
+    "name" : "PSSYSTEMID",
+    "codeName" : "PSSystemId"
+  },
+  "getValuePSDEField" : {
+    "name" : "PSSYSTEMID",
+    "codeName" : "PSSystemId"
+  },
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

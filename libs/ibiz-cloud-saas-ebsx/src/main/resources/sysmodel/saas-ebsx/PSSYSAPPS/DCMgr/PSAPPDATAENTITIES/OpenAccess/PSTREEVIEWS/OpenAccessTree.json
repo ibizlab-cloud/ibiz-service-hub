@@ -1,0 +1,379 @@
+{
+  "codeName" : "OpenAccessTree",
+  "controlType" : "TREEVIEW",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess/PSTREEVIEWS/OpenAccessTree.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "SELECTIONCHANGE", "LOAD" ],
+  "logicName" : "第三方应用树",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SELECTIONCHANGE",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_selectionchange"
+  }, {
+    "eventNames" : "LOAD",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_load"
+  } ],
+  "getPSDETreeNodeRSs" : [ {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "dingtalk"
+    },
+    "name" : "默认根节点 - 钉钉",
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ROOT"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "wxwork"
+    },
+    "name" : "默认根节点 - 企业微信",
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ROOT"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  } ],
+  "getPSDETreeNodes" : [ {
+    "counterMode" : 0,
+    "name" : "默认根节点",
+    "nodeType" : "ROOT",
+    "nodeValue" : "root",
+    "text" : "默认根节点",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : true,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "ROOT"
+  }, {
+    "counterMode" : 0,
+    "dataSourceType" : "DEDATASET",
+    "getIdPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    },
+    "maxSize" : -1,
+    "name" : "第三方应用",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "OpenAccess",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "FetchDefault"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "dingtalk",
+      "rawValue" : true
+    }, {
+      "key" : "ACCESSID",
+      "name" : "ACCESSID",
+      "value" : "accessid",
+      "rawValue" : false
+    }, {
+      "key" : "ACCESSNAME",
+      "name" : "ACCESSNAME",
+      "value" : "accessname",
+      "rawValue" : false
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "dingtalk",
+      "rawValue" : true
+    } ],
+    "textFormat" : "第三方应用",
+    "getTextPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    },
+    "treeNodeType" : "DE",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "OpenAccess"
+  }, {
+    "counterMode" : 0,
+    "name" : "阿里云",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "aliyun",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "aliyun",
+      "rawValue" : true
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "aliyun",
+      "rawValue" : true
+    } ],
+    "text" : "阿里云",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "aliyun"
+  }, {
+    "counterMode" : 0,
+    "name" : "钉钉",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "dingtalk",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "dingtalk",
+      "rawValue" : true
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "dingtalk",
+      "rawValue" : true
+    } ],
+    "text" : "钉钉",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "dingtalk"
+  }, {
+    "counterMode" : 0,
+    "name" : "QQ",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "qq",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "qq",
+      "rawValue" : true
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "qq",
+      "rawValue" : true
+    } ],
+    "text" : "QQ",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "qq"
+  }, {
+    "counterMode" : 0,
+    "name" : "微信开发平台",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "wechat",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "wechat",
+      "rawValue" : true
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "wechat",
+      "rawValue" : true
+    } ],
+    "text" : "微信开发平台",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "wechat"
+  }, {
+    "counterMode" : 0,
+    "name" : "企业微信",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+      "viewType" : "DETABEXPVIEW"
+    },
+    "nodeType" : "wxwork",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "value" : "wxwork",
+      "rawValue" : true
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "n_open_type_eq",
+      "name" : "n_open_type_eq",
+      "value" : "wxwork",
+      "rawValue" : true
+    } ],
+    "text" : "企业微信",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "wxwork"
+  } ],
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "treeGridMode" : 0,
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "enableRootSelect" : false,
+  "outputIconDefault" : true,
+  "rootVisible" : false,
+  "modelid" : "64247FBA-7051-441E-AEFA-BC1BD94D3085",
+  "modeltype" : "PSDETREEVIEW"
+}

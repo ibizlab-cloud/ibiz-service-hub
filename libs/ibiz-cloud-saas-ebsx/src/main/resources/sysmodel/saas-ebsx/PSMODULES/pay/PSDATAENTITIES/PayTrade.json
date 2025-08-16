@@ -1,0 +1,2218 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "TRADEID",
+        "codeName" : "TradeId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "TRADEID",
+        "codeName" : "TradeId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZPAYTRADE",
+    "tableName" : "IBZPAYTRADE",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`IBZPAYTRADE`",
+    "tableName" : "IBZPAYTRADE",
+    "valid" : true
+  }, {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZPAYTRADE",
+    "tableName" : "IBZPAYTRADE",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[IBZPAYTRADE]",
+    "tableName" : "IBZPAYTRADE",
+    "valid" : true
+  }, {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZPAYTRADE",
+    "tableName" : "IBZPAYTRADE",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    }, {
+      "name" : "TOTALAMOUNT",
+      "codeName" : "Total_amount"
+    }, {
+      "name" : "TRADENAME",
+      "codeName" : "Trade_name"
+    }, {
+      "name" : "TRADETYPE",
+      "codeName" : "Trade_type"
+    }, {
+      "name" : "TRADESTATUS",
+      "codeName" : "Trade_status"
+    }, {
+      "name" : "OUTTRADENO",
+      "codeName" : "Out_trade_no"
+    }, {
+      "name" : "TRADEID",
+      "codeName" : "TradeId"
+    }, {
+      "name" : "APPID",
+      "codeName" : "App_id"
+    }, {
+      "name" : "ACCESSNAME",
+      "codeName" : "AccessName"
+    }, {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    } ],
+    "codeName" : "Table",
+    "name" : "IBZPAYTRADE",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "IBZPAYTRADE"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDRGROUPS/DRGroup.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "数据查询",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "PAY_TRADE"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "PAY_TRADE"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "数据集",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PayTradeDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SUBJECT",
+      "dBType" : "POSTGRESQL",
+      "name" : "SUBJECT",
+      "queryCodeExp" : "t1.SUBJECT",
+      "standardColumnName" : "SUBJECT"
+    }, {
+      "columnName" : "SUBJECT",
+      "dBType" : "MYSQL5",
+      "name" : "SUBJECT",
+      "queryCodeExp" : "t1.`SUBJECT`",
+      "standardColumnName" : "`SUBJECT`"
+    }, {
+      "columnName" : "SUBJECT",
+      "dBType" : "ORACLE",
+      "name" : "SUBJECT",
+      "queryCodeExp" : "t1.SUBJECT",
+      "standardColumnName" : "SUBJECT"
+    }, {
+      "columnName" : "SUBJECT",
+      "dBType" : "SQLSERVER",
+      "name" : "SUBJECT",
+      "standardColumnName" : "[SUBJECT]"
+    }, {
+      "columnName" : "SUBJECT",
+      "name" : "SUBJECT",
+      "standardColumnName" : "SUBJECT"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SUBJECT][订单标题]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[SUBJECT][订单标题]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SUBJECT][订单标题]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[SUBJECT][订单标题]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[SUBJECT][订单标题]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[SUBJECT][订单标题]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[SUBJECT][订单标题]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[SUBJECT][订单标题]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SUBJECT",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Subject",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "订单标题",
+    "name" : "SUBJECT",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SUBJECT"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TOTALAMOUNT",
+      "dBType" : "POSTGRESQL",
+      "name" : "TOTALAMOUNT",
+      "queryCodeExp" : "t1.TOTALAMOUNT",
+      "standardColumnName" : "TOTALAMOUNT"
+    }, {
+      "columnName" : "TOTALAMOUNT",
+      "dBType" : "MYSQL5",
+      "name" : "TOTALAMOUNT",
+      "queryCodeExp" : "t1.`TOTALAMOUNT`",
+      "standardColumnName" : "`TOTALAMOUNT`"
+    }, {
+      "columnName" : "TOTALAMOUNT",
+      "dBType" : "ORACLE",
+      "name" : "TOTALAMOUNT",
+      "queryCodeExp" : "t1.TOTALAMOUNT",
+      "standardColumnName" : "TOTALAMOUNT"
+    }, {
+      "columnName" : "TOTALAMOUNT",
+      "dBType" : "SQLSERVER",
+      "name" : "TOTALAMOUNT",
+      "standardColumnName" : "[TOTALAMOUNT]"
+    }, {
+      "columnName" : "TOTALAMOUNT",
+      "name" : "TOTALAMOUNT",
+      "standardColumnName" : "TOTALAMOUNT"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[TOTALAMOUNT][订单金额]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TOTALAMOUNT][订单金额]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TOTALAMOUNT][订单金额]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TOTALAMOUNT][订单金额]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[TOTALAMOUNT][订单金额]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[TOTALAMOUNT][订单金额]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[TOTALAMOUNT][订单金额]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[TOTALAMOUNT][订单金额]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TOTALAMOUNT",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Total_amount",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "订单金额",
+    "name" : "TOTALAMOUNT",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TOTALAMOUNT"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRADENAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRADENAME",
+      "queryCodeExp" : "t1.TRADENAME",
+      "standardColumnName" : "TRADENAME"
+    }, {
+      "columnName" : "TRADENAME",
+      "dBType" : "MYSQL5",
+      "name" : "TRADENAME",
+      "queryCodeExp" : "t1.`TRADENAME`",
+      "standardColumnName" : "`TRADENAME`"
+    }, {
+      "columnName" : "TRADENAME",
+      "dBType" : "ORACLE",
+      "name" : "TRADENAME",
+      "queryCodeExp" : "t1.TRADENAME",
+      "standardColumnName" : "TRADENAME"
+    }, {
+      "columnName" : "TRADENAME",
+      "dBType" : "SQLSERVER",
+      "name" : "TRADENAME",
+      "standardColumnName" : "[TRADENAME]"
+    }, {
+      "columnName" : "TRADENAME",
+      "name" : "TRADENAME",
+      "standardColumnName" : "TRADENAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_TRADENAME_LIKE",
+      "name" : "N_TRADENAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[TRADENAME][交易名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[TRADENAME][交易名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TRADENAME][属性2]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TRADENAME][属性2]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[TRADENAME][交易名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[TRADENAME][交易名称]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[TRADENAME][属性2]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TRADENAME][属性2]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRADENAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Trade_name",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "交易名称",
+    "name" : "TRADENAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRADENAME"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRADETYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRADETYPE",
+      "queryCodeExp" : "t1.TRADETYPE",
+      "standardColumnName" : "TRADETYPE"
+    }, {
+      "columnName" : "TRADETYPE",
+      "dBType" : "MYSQL5",
+      "name" : "TRADETYPE",
+      "queryCodeExp" : "t1.`TRADETYPE`",
+      "standardColumnName" : "`TRADETYPE`"
+    }, {
+      "columnName" : "TRADETYPE",
+      "dBType" : "ORACLE",
+      "name" : "TRADETYPE",
+      "queryCodeExp" : "t1.TRADETYPE",
+      "standardColumnName" : "TRADETYPE"
+    }, {
+      "columnName" : "TRADETYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "TRADETYPE",
+      "standardColumnName" : "[TRADETYPE]"
+    }, {
+      "columnName" : "TRADETYPE",
+      "name" : "TRADETYPE",
+      "standardColumnName" : "TRADETYPE"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_TRADETYPE_EQ",
+      "name" : "N_TRADETYPE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[TRADETYPE][支付类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[TRADETYPE][支付类型]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[TRADETYPE][支付类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADETYPE][支付类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[TRADETYPE][支付类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADETYPE][支付类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[TRADETYPE][支付类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADETYPE][支付类型]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRADETYPE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Trade_type",
+    "dEFType" : 1,
+    "dataType" : "SSCODELIST",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "支付类型",
+    "name" : "TRADETYPE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSCODELISTS/TradeType.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRADETYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRADESTATUS",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRADESTATUS",
+      "queryCodeExp" : "t1.TRADESTATUS",
+      "standardColumnName" : "TRADESTATUS"
+    }, {
+      "columnName" : "TRADESTATUS",
+      "dBType" : "MYSQL5",
+      "name" : "TRADESTATUS",
+      "queryCodeExp" : "t1.`TRADESTATUS`",
+      "standardColumnName" : "`TRADESTATUS`"
+    }, {
+      "columnName" : "TRADESTATUS",
+      "dBType" : "ORACLE",
+      "name" : "TRADESTATUS",
+      "queryCodeExp" : "t1.TRADESTATUS",
+      "standardColumnName" : "TRADESTATUS"
+    }, {
+      "columnName" : "TRADESTATUS",
+      "dBType" : "SQLSERVER",
+      "name" : "TRADESTATUS",
+      "standardColumnName" : "[TRADESTATUS]"
+    }, {
+      "columnName" : "TRADESTATUS",
+      "name" : "TRADESTATUS",
+      "standardColumnName" : "TRADESTATUS"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_TRADESTATUS_EQ",
+      "name" : "N_TRADESTATUS_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[TRADESTATUS][支付状态]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADESTATUS][支付状态]",
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[TRADESTATUS][支付状态]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADESTATUS][支付状态]",
+        "stringLength" : 60,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[TRADESTATUS][支付状态]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[TRADESTATUS][支付状态]",
+        "stringLength" : 60,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TRADESTATUS][支付状态]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[TRADESTATUS][支付状态]移动端默认",
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRADESTATUS",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Trade_status",
+    "dEFType" : 1,
+    "dataType" : "SSCODELIST",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "支付状态",
+    "name" : "TRADESTATUS",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSCODELISTS/TradeStatus.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRADESTATUS"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "OUTTRADENO",
+      "dBType" : "POSTGRESQL",
+      "name" : "OUTTRADENO",
+      "queryCodeExp" : "t1.OUTTRADENO",
+      "standardColumnName" : "OUTTRADENO"
+    }, {
+      "columnName" : "OUTTRADENO",
+      "dBType" : "MYSQL5",
+      "name" : "OUTTRADENO",
+      "queryCodeExp" : "t1.`OUTTRADENO`",
+      "standardColumnName" : "`OUTTRADENO`"
+    }, {
+      "columnName" : "OUTTRADENO",
+      "dBType" : "ORACLE",
+      "name" : "OUTTRADENO",
+      "queryCodeExp" : "t1.OUTTRADENO",
+      "standardColumnName" : "OUTTRADENO"
+    }, {
+      "columnName" : "OUTTRADENO",
+      "dBType" : "SQLSERVER",
+      "name" : "OUTTRADENO",
+      "standardColumnName" : "[OUTTRADENO]"
+    }, {
+      "columnName" : "OUTTRADENO",
+      "name" : "OUTTRADENO",
+      "standardColumnName" : "OUTTRADENO"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_OUTTRADENO_EQ",
+      "name" : "N_OUTTRADENO_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[OUTTRADENO][订单号]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[OUTTRADENO][订单号]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[OUTTRADENO][订单号]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[OUTTRADENO][订单号]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[OUTTRADENO][订单号]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[OUTTRADENO][订单号]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[OUTTRADENO][订单号]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[OUTTRADENO][订单号]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "OUTTRADENO",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Out_trade_no",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "订单号",
+    "name" : "OUTTRADENO",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "OUTTRADENO"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "unionKeyValue" : "KEY2",
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRADEID",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRADEID",
+      "queryCodeExp" : "t1.TRADEID",
+      "standardColumnName" : "TRADEID"
+    }, {
+      "columnName" : "TRADEID",
+      "dBType" : "MYSQL5",
+      "name" : "TRADEID",
+      "queryCodeExp" : "t1.`TRADEID`",
+      "standardColumnName" : "`TRADEID`"
+    }, {
+      "columnName" : "TRADEID",
+      "dBType" : "ORACLE",
+      "name" : "TRADEID",
+      "queryCodeExp" : "t1.TRADEID",
+      "standardColumnName" : "TRADEID"
+    }, {
+      "columnName" : "TRADEID",
+      "dBType" : "SQLSERVER",
+      "name" : "TRADEID",
+      "standardColumnName" : "[TRADEID]"
+    }, {
+      "columnName" : "TRADEID",
+      "name" : "TRADEID",
+      "standardColumnName" : "TRADEID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_TRADEID_EQ",
+      "name" : "N_TRADEID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[TRADEID][交易标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "SPAN",
+        "name" : "[TRADEID][交易标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TRADEID][属性]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[TRADEID][属性]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[TRADEID][属性]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[TRADEID][属性]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[TRADEID][交易标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[TRADEID][交易标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRADEID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "TradeId",
+    "dEFType" : 1,
+    "dataType" : "GUID",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "交易标识",
+    "name" : "TRADEID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRADEID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "APPID",
+      "dBType" : "POSTGRESQL",
+      "name" : "APPID",
+      "queryCodeExp" : "t1.APPID",
+      "standardColumnName" : "APPID"
+    }, {
+      "columnName" : "APPID",
+      "dBType" : "MYSQL5",
+      "name" : "APPID",
+      "queryCodeExp" : "t1.`APPID`",
+      "standardColumnName" : "`APPID`"
+    }, {
+      "columnName" : "APPID",
+      "dBType" : "ORACLE",
+      "name" : "APPID",
+      "queryCodeExp" : "t1.APPID",
+      "standardColumnName" : "APPID"
+    }, {
+      "columnName" : "APPID",
+      "dBType" : "SQLSERVER",
+      "name" : "APPID",
+      "standardColumnName" : "[APPID]"
+    }, {
+      "columnName" : "APPID",
+      "name" : "APPID",
+      "standardColumnName" : "APPID"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[APPID][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[APPID][AccessKey(AppId)]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[APPID][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[APPID][AccessKey(AppId)]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[APPID][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "SPAN",
+        "name" : "[APPID][AccessKey(AppId)]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[APPID][AccessKey(AppId)]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[APPID][AccessKey(AppId)]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "APPID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "App_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "AccessKey(AppId)",
+    "name" : "APPID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDERS/DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "APPID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ACCESS_KEY",
+      "codeName" : "AccessKey"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ACCESS_KEY",
+      "codeName" : "AccessKey"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.`ACCESSNAME`",
+      "standardColumnName" : "`ACCESSNAME`"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "ORACLE",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESSNAME",
+      "standardColumnName" : "[ACCESSNAME]"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "name" : "ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACCESSNAME_EQ",
+      "name" : "N_ACCESSNAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_ACCESSNAME_LIKE",
+      "name" : "N_ACCESSNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESSNAME][支付平台]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[ACCESSNAME][支付平台]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESSNAME][支付平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "PICKER",
+        "name" : "[ACCESSNAME][支付平台]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACCESSNAME][支付平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[ACCESSNAME][支付平台]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESSNAME][支付平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "PICKER",
+        "name" : "[ACCESSNAME][支付平台]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESSNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AccessName",
+    "dEFType" : 1,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "开放平台应用",
+    "name" : "ACCESSNAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDERS/DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESSNAME"
+    },
+    "getRealPSDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    },
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESSID",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.`ACCESSID`",
+      "standardColumnName" : "`ACCESSID`"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "ORACLE",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESSID",
+      "standardColumnName" : "[ACCESSID]"
+    }, {
+      "columnName" : "ACCESSID",
+      "name" : "ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACCESSID_EQ",
+      "name" : "N_ACCESSID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ACCESSID][开放平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[ACCESSID][开放平台接入标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESSID][开放平台接入标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[ACCESSID][开放平台接入标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESSID][支付平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "HIDDEN",
+        "name" : "[ACCESSID][支付平台接入标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESSID][支付平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "HIDDEN",
+        "name" : "[ACCESSID][支付平台接入标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESSID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AccessId",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "开放平台应用",
+    "name" : "ACCESSID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDERS/DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESSID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "unionKeyValue" : "KEY1",
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "PayTradeDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "开放平台应用",
+      "name" : "AccessId",
+      "getPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "AccessId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "开放平台应用",
+      "name" : "AccessName",
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "AccessKey(AppId)",
+      "name" : "App_id",
+      "getPSDEField" : {
+        "name" : "APPID",
+        "codeName" : "App_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "订单号",
+      "name" : "Out_trade_no",
+      "getPSDEField" : {
+        "name" : "OUTTRADENO",
+        "codeName" : "Out_trade_no"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "订单标题",
+      "name" : "Subject",
+      "getPSDEField" : {
+        "name" : "SUBJECT",
+        "codeName" : "Subject"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "订单金额",
+      "name" : "Total_amount",
+      "getPSDEField" : {
+        "name" : "TOTALAMOUNT",
+        "codeName" : "Total_amount"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "交易标识",
+      "name" : "TradeId",
+      "getPSDEField" : {
+        "name" : "TRADEID",
+        "codeName" : "TradeId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "交易名称",
+      "name" : "Trade_name",
+      "getPSDEField" : {
+        "name" : "TRADENAME",
+        "codeName" : "Trade_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "支付状态",
+      "name" : "Trade_status",
+      "getPSDEField" : {
+        "name" : "TRADESTATUS",
+        "codeName" : "Trade_status"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "支付类型",
+      "name" : "Trade_type",
+      "getPSDEField" : {
+        "name" : "TRADETYPE",
+        "codeName" : "Trade_type"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "PayTradeFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACCESSID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "AccessId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSNAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACCESSNAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "开放平台应用",
+      "name" : "N_ACCESSNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACCESSNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "AccessName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "订单号",
+      "name" : "N_OUTTRADENO_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_OUTTRADENO_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "OUTTRADENO",
+        "codeName" : "Out_trade_no"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "交易标识",
+      "name" : "N_TRADEID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_TRADEID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "TRADEID",
+        "codeName" : "TradeId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "交易名称",
+      "name" : "N_TRADENAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_TRADENAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "TRADENAME",
+        "codeName" : "Trade_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "支付状态",
+      "name" : "N_TRADESTATUS_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_TRADESTATUS_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "TRADESTATUS",
+        "codeName" : "Trade_status"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "支付类型",
+      "name" : "N_TRADETYPE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_TRADETYPE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "TRADETYPE",
+        "codeName" : "Trade_type"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "EditView",
+    "logicName" : "支付交易实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "支付交易实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "支付交易实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "支付交易实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "支付交易实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "支付交易实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "支付交易实体编辑视图（左右关系）",
+    "name" : "支付交易实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "支付交易实体选择表格视图（部件视图）",
+    "name" : "支付交易实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "MPickupView",
+    "logicName" : "支付交易实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "支付交易实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView",
+    "logicName" : "支付交易实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "支付交易实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "PayTrade",
+  "dEType" : 1,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "PayTradeFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "PayTradeDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "TRADEID",
+    "codeName" : "TradeId"
+  },
+  "logicName" : "支付交易",
+  "getMajorPSDEField" : {
+    "name" : "TRADENAME",
+    "codeName" : "Trade_name"
+  },
+  "getMinorPSDERs" : [ {
+    "codeName" : "OpenAccess",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDERS/DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID.json",
+    "fKeyName" : "FC23789B1BBD68E24F",
+    "logicName" : "接入平台",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+    },
+    "name" : "DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "AccessName"
+    },
+    "pickupDEFName" : "ACCESSID",
+    "removeActionType" : 0,
+    "removeOrder" : 0,
+    "serviceCodeName" : "OpenAccess"
+  } ],
+  "name" : "PAY_TRADE",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/pay.json"
+  },
+  "saaSDCIdColumnName" : "SRFDCID",
+  "saaSDataIdColumnName" : "SRFID",
+  "saaSMode" : 4,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "PayTrade",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "IBZPAYTRADE",
+  "getUnionKeyValuePSDEFields" : [ {
+    "name" : "ACCESSID",
+    "codeName" : "AccessId"
+  }, {
+    "name" : "OUTTRADENO",
+    "codeName" : "Out_trade_no"
+  } ],
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

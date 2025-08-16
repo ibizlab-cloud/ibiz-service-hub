@@ -1,0 +1,25 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/BackendActionState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/QoSType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/PushType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/ActionType.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTNotes.json"
+  } ],
+  "codeName" : "portal",
+  "dynaModelFilePath" : "PSMODULES/portal.json",
+  "name" : "门户"
+}

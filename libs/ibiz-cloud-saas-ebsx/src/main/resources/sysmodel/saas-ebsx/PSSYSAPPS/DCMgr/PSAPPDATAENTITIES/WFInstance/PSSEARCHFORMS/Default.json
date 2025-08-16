@@ -1,0 +1,335 @@
+{
+  "codeName" : "Default",
+  "controlType" : "SEARCHFORM",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance/PSSEARCHFORMS/Default.json",
+  "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+  "logicName" : "默认搜索表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SEARCH;LOAD;SAVE",
+    "logicTag" : "searchform",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_searchform",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "n_dcsystemid_eq",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "id" : "n_entityid_eq",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYID",
+      "codeName" : "EntityId"
+    }
+  }, {
+    "id" : "n_businesskey_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "BUSINESSKEY",
+      "codeName" : "BusinessKey"
+    }
+  }, {
+    "id" : "n_definitionname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "ProcessDefinitionName"
+    }
+  }, {
+    "id" : "n_curstepname_like",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CURSTEPNAME",
+      "codeName" : "CurStepName"
+    }
+  }, {
+    "id" : "n_starttime_gtandeq",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "STARTTIME",
+      "codeName" : "StartTime"
+    }
+  }, {
+    "id" : "n_starttime_ltandeq",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "STARTTIME",
+      "codeName" : "StartTime"
+    }
+  }, {
+    "id" : "n_wfstate_eq",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "WFSTATE",
+      "codeName" : "Wfstate"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "常规条件",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "系统标识",
+      "codeName" : "n_dcsystemid_eq",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_dcsystemid_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_dcsystemid_eq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "实体",
+      "codeName" : "n_entityid_eq",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_entityid_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ENTITYID",
+        "codeName" : "EntityId"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_entityid_eq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "业务键值",
+      "codeName" : "n_businesskey_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_businesskey_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "BUSINESSKEY",
+        "codeName" : "BusinessKey"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_businesskey_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "定义名称",
+      "codeName" : "n_definitionname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_definitionname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "DEFINITIONNAME",
+        "codeName" : "ProcessDefinitionName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_definitionname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "流程步骤",
+      "codeName" : "n_curstepname_like",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_curstepname_like",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "CURSTEPNAME",
+        "codeName" : "CurStepName"
+      },
+      "getPSEditor" : {
+        "editorType" : "TEXTBOX",
+        "name" : "n_curstepname_like"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "启动时间",
+      "codeName" : "n_starttime_gtandeq",
+      "dataType" : 5,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_starttime_gtandeq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "STARTTIME",
+        "codeName" : "StartTime"
+      },
+      "getPSEditor" : {
+        "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+        "editorParams" : {
+          "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+        },
+        "editorType" : "DATEPICKER",
+        "name" : "n_starttime_gtandeq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "启动时间",
+      "codeName" : "n_starttime_ltandeq",
+      "dataType" : 5,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_starttime_ltandeq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "STARTTIME",
+        "codeName" : "StartTime"
+      },
+      "getPSEditor" : {
+        "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+        "editorParams" : {
+          "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+        },
+        "editorType" : "DATEPICKER",
+        "name" : "n_starttime_ltandeq"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+      "allowEmpty" : true,
+      "showCaption" : true
+    }, {
+      "caption" : "流程状态",
+      "codeName" : "n_wfstate_eq",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 100,
+      "name" : "n_wfstate_eq",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "WFSTATE",
+        "codeName" : "Wfstate"
+      },
+      "getPSEditor" : {
+        "editorType" : "DROPDOWNLIST",
+        "name" : "n_wfstate_eq",
+        "getPSAppCodeList" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/WFStates.json"
+        },
+        "singleSelect" : true
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 8,
+        "colMD" : 8,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "needCodeListConfig" : true,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "searchButtonStyle" : "DEFAULT",
+  "tabHeaderPos" : "TOP",
+  "enableAdvanceSearch" : false,
+  "enableAutoSearch" : false,
+  "enableFilterSave" : false,
+  "noTabHeader" : true,
+  "modelid" : "fb50c874636ad7dfbb453518245633a1",
+  "modeltype" : "PSDEFORM_SEARCHFORM"
+}

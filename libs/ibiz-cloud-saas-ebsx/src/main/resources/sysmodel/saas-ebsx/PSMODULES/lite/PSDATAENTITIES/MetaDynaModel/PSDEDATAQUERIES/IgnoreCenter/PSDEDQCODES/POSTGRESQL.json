@@ -1,0 +1,67 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACTIVETAG",
+    "name" : "ACTIVETAG"
+  }, {
+    "expression" : "t1.CONFIGID",
+    "name" : "CONFIGID"
+  }, {
+    "expression" : "t1.CONFIGNAME",
+    "name" : "CONFIGNAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DYNAINSTID",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.DYNAINSTTAG",
+    "name" : "DYNAINSTTAG"
+  }, {
+    "expression" : "t1.DYNAINSTTAG2",
+    "name" : "DYNAINSTTAG2"
+  }, {
+    "expression" : "t11.INTERNALINST",
+    "name" : "INTERNALINST"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.MODELFILE",
+    "name" : "MODELFILE"
+  }, {
+    "expression" : "t1.PDYNAINSTID",
+    "name" : "PDYNAINSTID"
+  }, {
+    "expression" : "t11.REALDYNAINSTID",
+    "name" : "REALDYNAINSTID"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.STATUS",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.SYSDYNAINSTID",
+    "name" : "SYSDYNAINSTID"
+  }, {
+    "expression" : "t11.DYNAINSTNAME",
+    "name" : "SYSDYNAINSTNAME"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.ACTIVETAG,\nt1.CONFIGID,\nt1.CONFIGNAME,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DYNAINSTID,\nt1.DYNAINSTTAG,\nt1.DYNAINSTTAG2,\nt11.INTERNALINST,\nt1.MEMO,\nt1.MODELFILE,\nt1.PDYNAINSTID,\nt11.REALDYNAINSTID,\nt1.SRFDCID,\nt1.STATUS,\nt1.SYSDYNAINSTID,\nt11.DYNAINSTNAME AS SYSDYNAINSTNAME,\nt1.SYSTEMID,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZDYNAMICMODEL t1 \nLEFT JOIN IBZDYNAINST t11 ON t1.SYSDYNAINSTID = t11.DYNAINSTID \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEDATAQUERIES/IgnoreCenter/PSDEDQCODES/POSTGRESQL.json"
+}

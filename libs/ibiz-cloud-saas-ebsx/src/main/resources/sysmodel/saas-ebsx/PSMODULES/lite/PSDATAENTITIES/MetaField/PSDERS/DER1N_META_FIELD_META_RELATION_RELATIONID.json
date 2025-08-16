@@ -1,0 +1,30 @@
+{
+  "codeName" : "Relation",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_RELATION_RELATIONID.json",
+  "fKeyName" : "F61DC9D154BE5651F2",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+  },
+  "name" : "DER1N_META_FIELD_META_RELATION_RELATIONID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "RELATIONID",
+    "codeName" : "Relation_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "RELATIONNAME",
+    "codeName" : "Relation_name"
+  },
+  "pickupDEFName" : "RELATIONID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Relation"
+}

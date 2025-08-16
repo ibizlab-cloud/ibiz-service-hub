@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "组织系统",
+  "name" : "租户机构系统默认关系界面组"
+}

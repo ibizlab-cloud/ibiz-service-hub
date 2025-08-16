@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTNotes/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "门户备注",
+  "name" : "门户备注默认关系界面组"
+}

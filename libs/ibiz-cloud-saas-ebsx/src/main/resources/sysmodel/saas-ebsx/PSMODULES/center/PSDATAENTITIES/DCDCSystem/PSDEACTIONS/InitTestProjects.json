@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InitTestProjects",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDEACTIONS/InitTestProjects.json",
+  "logicName" : "初始化测试项目",
+  "name" : "InitTestProjects",
+  "getPSDEActionInput" : {
+    "name" : "InitTestProjectsInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCDCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InitTestProjectsResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

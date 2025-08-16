@@ -1,0 +1,2505 @@
+{
+  "getAllPSApps" : [ {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCPortal/PSSYSAPP.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSSYSAPP.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSSYSAPP.json"
+  } ],
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AppType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList64.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSCODELISTS/UserState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList75.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList68.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList95.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList27.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TemplateType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList118.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList42.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList60.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList81.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList83.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList94.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DstAppList.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList79.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList30.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DCSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList113.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList11.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList116.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList84.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList65.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/WFStates.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList77.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DR.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList70.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList48.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList38.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoSubType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList5.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList24.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList114.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList41.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/TrueFalse.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList37.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList111.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/PermissionType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList34.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList28.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList62.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList6.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList46.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList23.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList86.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AuthCode.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList89.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList90.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList19.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList67.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSCODELISTS/TradeStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList4.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSCODELISTS/WFUserGroupType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList102.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList20.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoUrlType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList50.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList9.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList29.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList45.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList74.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList39.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList101.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList3.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/JobsStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList1.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DynamicModelStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskPredefinedType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList32.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList87.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList57.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DEOPPriv.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList16.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList7.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSCODELISTS/LogCat.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/BackendActionState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList40.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList58.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SystemPick.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList10.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList36.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList93.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList92.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList107.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList88.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AppCategory.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/PermissionCat.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSCODELISTS/TradeType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/IdentityType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList80.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList52.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList8.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList103.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList35.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList55.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList33.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSCODELISTS/WFSystemList.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList59.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList104.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList99.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList21.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList108.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList96.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList112.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList14.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList56.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TemplateType2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList100.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList117.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList66.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSCODELISTS/Gender.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList13.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList54.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/UserRole.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/DstSystemList.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList12.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList71.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList98.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList31.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/QoSType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList105.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList22.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList17.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/PushType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSCODELISTS/ComponentType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList47.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList61.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList106.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList97.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList18.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList69.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList115.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList63.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList49.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList26.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSCODELISTS/ActionType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SourceType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList91.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList85.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList82.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList72.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList110.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList78.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList109.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SortDir.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList15.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList53.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/UserMode.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList76.json"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "拒绝",
+    "name" : "DENY"
+  }, {
+    "logicName" : "无控制",
+    "name" : "NONE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "流程启动",
+    "name" : "WFSTART"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc.json",
+    "name" : "SYS_PSSYSAPPFUNC"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json",
+    "name" : "SYS_PSSYSTEMAPP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog.json",
+    "name" : "SYS_AUTHLOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin.json",
+    "name" : "SYS_BULLETIN"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopy.json",
+    "name" : "SYS_CARBONCOPY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopyHis.json",
+    "name" : "SYS_CARBONCOPYHIS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Center.json",
+    "name" : "SYS_CENTER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCAudit.json",
+    "name" : "DC_AUDIT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCCenter.json",
+    "name" : "DC_CENTER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem.json",
+    "name" : "DC_DC_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json",
+    "name" : "DC_DYNAINST"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee.json",
+    "name" : "SYS_DC_EMP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCEvent.json",
+    "name" : "DC_EVENT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json",
+    "name" : "DC_JOBS_INFO"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json",
+    "name" : "DC_JOBS_LOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsRegistry.json",
+    "name" : "DC_JOBS_REGISTRY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCLog.json",
+    "name" : "DC_LOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel.json",
+    "name" : "DC_META_DYNAMICMODEL"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json",
+    "name" : "DC_ORG_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization.json",
+    "name" : "SYS_DC_ORG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCPO.json",
+    "name" : "DC_PO"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json",
+    "name" : "SYS_DC_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit.json",
+    "name" : "DATAAUDIT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json",
+    "name" : "SYS_DEPT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DeptAuth.json",
+    "name" : "SYS_DEPT_AUTH"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json",
+    "name" : "SYS_DEPTMEMBER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog.json",
+    "name" : "DICT_CATALOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json",
+    "name" : "DICT_OPTION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI.json",
+    "name" : "DST_API"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstApp.json",
+    "name" : "DST_APP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent.json",
+    "name" : "DST_COMPONENT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstConfig.json",
+    "name" : "DST_CONFIG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json",
+    "name" : "DST_DATASOURCE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice.json",
+    "name" : "DST_MS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json",
+    "name" : "DST_ROUTER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstSystem.json",
+    "name" : "DST_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstView.json",
+    "name" : "DST_VIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json",
+    "name" : "SYS_DYNAINST"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/EmpBind.json",
+    "name" : "SYS_EMPBIND"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json",
+    "name" : "SYS_EMP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard.json",
+    "name" : "SYS_INITSYSTEM_WIZARD"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo.json",
+    "name" : "JOBS_INFO"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsLock.json",
+    "name" : "JOBS_LOCK"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsLog.json",
+    "name" : "JOBS_LOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsRegistry.json",
+    "name" : "JOBS_REGISTRY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet.json",
+    "name" : "META_DATASET"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json",
+    "name" : "META_DYNAMICMODEL"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json",
+    "name" : "META_ENTITY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json",
+    "name" : "META_FIELD"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup.json",
+    "name" : "META_LOOKUP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModel.json",
+    "name" : "META_MODEL"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModule.json",
+    "name" : "META_MODULE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json",
+    "name" : "META_RELATION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount.json",
+    "name" : "MSG_ACCOUNT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgBody.json",
+    "name" : "MSG_BODY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json",
+    "name" : "MSG_OPEN_ACCESS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue.json",
+    "name" : "MSG_SEND_QUEUE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis.json",
+    "name" : "MSG_SEND_QUEUE_HIS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json",
+    "name" : "MSG_TEMPLATE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgUserAccount.json",
+    "name" : "MSG_USER_ACCOUNT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Notes.json",
+    "name" : "SYS_NOTES"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp.json",
+    "name" : "SYS_APP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess.json",
+    "name" : "SYS_OPEN_ACCESS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept.json",
+    "name" : "SYS_OPEN_DEPT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser.json",
+    "name" : "SYS_OPEN_USER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication.json",
+    "name" : "SYS_ORG_SYSTEMAPP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json",
+    "name" : "SYS_ORG_SYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json",
+    "name" : "SYS_ORG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json",
+    "name" : "PT_ASYNCACTION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTNotes.json",
+    "name" : "PT_NOTES"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json",
+    "name" : "PAY_OPEN_ACCESS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json",
+    "name" : "PAY_TRADE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json",
+    "name" : "SYS_PERMISSION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction.json",
+    "name" : "SYS_PERMISSION_ACTION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json",
+    "name" : "SYS_POST"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/rep/PSDATAENTITIES/Report.json",
+    "name" : "REP_REPORT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json",
+    "name" : "SYS_ROLE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission.json",
+    "name" : "SYS_ROLE_PERMISSION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/disk/PSDATAENTITIES/SDFile.json",
+    "name" : "SD_FILE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Schedules.json",
+    "name" : "SYS_SCHEDULES"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysAudit.json",
+    "name" : "SYS_AUDIT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysEvent.json",
+    "name" : "SYS_EVENT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysLog.json",
+    "name" : "SYS_LOG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/SysMsgSendQueue.json",
+    "name" : "SYS_MSG_SEND_QUEUE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysPO.json",
+    "name" : "SYS_PO"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json",
+    "name" : "SYS_PSSYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Team.json",
+    "name" : "SYS_TEAM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember.json",
+    "name" : "SYS_TEAMMEMBER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Todo.json",
+    "name" : "SYS_TODO"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/TodoHis.json",
+    "name" : "SYS_TODOHIS"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/UAOrganization.json",
+    "name" : "UA_ORG"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json",
+    "name" : "SYS_USER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth.json",
+    "name" : "SYS_USER_AUTH"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json",
+    "name" : "SYS_USER_ROLE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinition.json",
+    "name" : "WF_DEFINITION"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode.json",
+    "name" : "WF_DEFINITION_NODE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json",
+    "name" : "WF_GROUP"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFHistory.json",
+    "name" : "WF_HISTORY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance.json",
+    "name" : "WF_INSTANCE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json",
+    "name" : "WF_GROUP_MEMBER"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFModel.json",
+    "name" : "WF_MODEL"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFSystem.json",
+    "name" : "WF_PSSYSTEM"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTask.json",
+    "name" : "WF_TASK"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTaskWay.json",
+    "name" : "WF_TASK_WAY"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTimeout.json",
+    "name" : "WF_TIMEOUT"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask.json",
+    "name" : "WF_UNDOTASK"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUser.json",
+    "name" : "WF_USER"
+  } ],
+  "getAllPSSysBackServices" : [ {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/DENotifyDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/SysDataSyncAgentDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/WFCallbackDeamon.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSBACKSERVICES/SysAdminDeamon.json"
+  } ],
+  "getAllPSSysContentCats" : [ {
+    "modelref" : true,
+    "path" : "PSSYSCONTENTCATS/LIQUIBASE_CHANGELOGS__DEFAULT.json"
+  } ],
+  "getAllPSSysCounters" : [ {
+    "codeName" : "WFExpBar",
+    "counterType" : "CUSTOM",
+    "dynaModelFilePath" : "PSSYSCOUNTERS/WFExpBar.json",
+    "name" : "流程导航栏计数器",
+    "getPSCounterId" : "WFEXPBAR",
+    "timer" : 60000,
+    "uniqueTag" : "WFExpBar"
+  }, {
+    "codeName" : "Portal",
+    "counterType" : "CUSTOM",
+    "dynaModelFilePath" : "PSSYSCOUNTERS/Portal.json",
+    "name" : "门户界面计数器",
+    "getPSCounterId" : "PORTAL",
+    "timer" : 60000,
+    "uniqueTag" : "Portal"
+  } ],
+  "getAllPSSysDBSchemes" : [ {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DB3.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DB2.json"
+  } ],
+  "getAllPSSysDBValueFuncs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/DATEDIFFNOW2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/DATEDIFFNOW.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDBVFS/STRLEN.json"
+  } ],
+  "getAllPSSysDEGroups" : [ {
+    "codeName" : "Basic",
+    "dynaModelFilePath" : "PSSYSDEGROUPS/Basic.json",
+    "name" : "基本配置对象",
+    "getPSDEGroupDetails" : [ {
+      "codeName" : "DictCatalog",
+      "name" : "DICT_CATALOG",
+      "orderValue" : 1000,
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog.json"
+      }
+    } ],
+    "userTag" : "Basic"
+  }, {
+    "codeName" : "Line",
+    "dynaModelFilePath" : "PSSYSDEGROUPS/Line.json",
+    "name" : "行编辑数据对象",
+    "getPSDEGroupDetails" : [ {
+      "codeName" : "DictOption",
+      "name" : "DICT_OPTION",
+      "orderValue" : 1000,
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+      }
+    } ],
+    "userTag" : "Line"
+  }, {
+    "codeName" : "Master",
+    "dynaModelFilePath" : "PSSYSDEGROUPS/Master.json",
+    "name" : "主数据对象",
+    "userTag" : "Master"
+  } ],
+  "getAllPSSysDynaModels" : [ {
+    "modelref" : true,
+    "path" : "PSSYSDYNAMODELS/Line.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDYNAMODELS/Master.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSDYNAMODELS/Basic.json"
+  } ],
+  "getAllPSSysEditorStyles" : [ {
+    "codeName" : "ORGMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ORGMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多选】单位（仅含指定单位及其下级单位）",
+    "styleCode" : "ORGMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DISK_ADV",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DISK_ADV.json",
+    "editorHeight" : -1.0,
+    "editorType" : "FILEUPLOADER",
+    "editorWidth" : -1.0,
+    "name" : "ibz文件上传(高级版)",
+    "styleCode" : "DISK",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "CUSTOMAVUEFORM_JSONARRAY",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/CUSTOMAVUEFORM_JSONARRAY.json",
+    "editorHeight" : -1.0,
+    "editorType" : "USERCONTROL",
+    "editorWidth" : -1.0,
+    "name" : "动态嵌套子表单(JSONArray)",
+    "styleCode" : "CUSTOMAVUEFORM",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DISK_NOAUTH",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DISK_NOAUTH.json",
+    "editorHeight" : -1.0,
+    "editorType" : "FILEUPLOADER",
+    "editorWidth" : -1.0,
+    "name" : "ibz文件上传(免令牌简单版)",
+    "styleCode" : "DISK",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DISK_S",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DISK_S.json",
+    "editorHeight" : -1.0,
+    "editorType" : "FILEUPLOADER",
+    "editorWidth" : -1.0,
+    "name" : "ibz文件上传(简单版)",
+    "styleCode" : "DISK",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DEPATMENTMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DEPATMENTMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多选】部门（指定单位内的部门）",
+    "styleCode" : "DEPATMENTMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "EMPSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/EMPSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】人员（指定单位内人员）",
+    "styleCode" : "EMPSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto5",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto5.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "网址",
+    "styleCode" : "Auto5",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "EMPMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/EMPMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多选】人员（指定单位内人员）",
+    "styleCode" : "EMPMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto3",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto3.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "只有小时分钟",
+    "styleCode" : "Auto3",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "CUSTOMAVUEFORM_JSONOBJECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/CUSTOMAVUEFORM_JSONOBJECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "USERCONTROL",
+    "editorWidth" : -1.0,
+    "name" : "动态表单(JSONObject)",
+    "styleCode" : "CUSTOMAVUEFORM",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "EnterNodeLineP",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/EnterNodeLineP.json",
+    "editorHeight" : -1.0,
+    "editorType" : "TEXTAREA",
+    "editorWidth" : -1.0,
+    "name" : "租户日志-详细信息",
+    "getPSSysPFPlugin" : {
+      "pluginType" : "EDITOR_CUSTOMSTYLE",
+      "pluginCode" : "EnterNodeLine"
+    },
+    "styleCode" : "EnterNodeLineP",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLDEPATMENTSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLDEPATMENTSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】部门（指定单位及其下级单位的所有部门）",
+    "styleCode" : "ALLDEPATMENTSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto2",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto2.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "密码框",
+    "styleCode" : "Auto2",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto1",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto1.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到分钟",
+    "styleCode" : "Auto1",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "CUSTOMAVUEFORM_OBJ2STR",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/CUSTOMAVUEFORM_OBJ2STR.json",
+    "editorHeight" : -1.0,
+    "editorType" : "USERCONTROL",
+    "editorWidth" : -1.0,
+    "name" : "动态表单(ParseString)",
+    "styleCode" : "CUSTOMAVUEFORM",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLEMPSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLEMPSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】人员（指定单位及其下级单位所有人员）",
+    "styleCode" : "ALLEMPSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "GroupSelect",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/GroupSelect.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "数据选择（树分组选）",
+    "styleCode" : "GroupSelect",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ORGSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ORGSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】单位（仅含指定单位及其下级单位）",
+    "styleCode" : "ORGSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto9",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto9.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "数字",
+    "styleCode" : "Auto9",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "CUSTOMAVUEFORM_ARRAY2STR",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/CUSTOMAVUEFORM_ARRAY2STR.json",
+    "editorHeight" : -1.0,
+    "editorType" : "USERCONTROL",
+    "editorWidth" : -1.0,
+    "name" : "动态嵌套子表单(ParseString)",
+    "styleCode" : "CUSTOMAVUEFORM",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLEMPMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLEMPMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多选】人员（指定单位及其下级单位所有人员）",
+    "styleCode" : "ALLEMPMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "SysLogInfo",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/SysLogInfo.json",
+    "editorHeight" : -1.0,
+    "editorType" : "TEXTAREA",
+    "editorWidth" : -1.0,
+    "name" : "系统性能日志信息展示",
+    "getPSSysPFPlugin" : {
+      "pluginType" : "EDITOR_CUSTOMSTYLE",
+      "pluginCode" : "SysLogInfo"
+    },
+    "styleCode" : "SysLogInfo",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto4",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto4.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "邮箱",
+    "styleCode" : "Auto4",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "SJXXZS",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/SJXXZS.json",
+    "editorHeight" : -1.0,
+    "editorType" : "TEXTAREA",
+    "editorWidth" : -1.0,
+    "name" : "事件信息展示",
+    "getPSSysPFPlugin" : {
+      "pluginType" : "EDITOR_CUSTOMSTYLE",
+      "pluginCode" : "sjxxzsEditor"
+    },
+    "styleCode" : "SJXXZS",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DEPATMENTSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DEPATMENTSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】部门（指定单位内的部门）",
+    "styleCode" : "DEPATMENTSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto7",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto7.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBTEXT",
+    "editorWidth" : -1.0,
+    "name" : "电话号码",
+    "styleCode" : "Auto7",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLORGSELECT",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLORGSELECT.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【单选】单位（全部单位）",
+    "styleCode" : "ALLORGSELECT",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLORGMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLORGMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多选】单位（全部单位）",
+    "styleCode" : "ALLORGMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto8",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto8.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到小时",
+    "styleCode" : "Auto8",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto10",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto10.json",
+    "editorHeight" : -1.0,
+    "editorType" : "TEXTBOX",
+    "editorWidth" : -1.0,
+    "name" : "json编辑器扩展",
+    "getPSSysPFPlugin" : {
+      "pluginType" : "EDITOR_CUSTOMSTYLE",
+      "pluginCode" : "PFPlugin3"
+    },
+    "styleCode" : "Auto10",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "DISK_NOAUTHADV",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/DISK_NOAUTHADV.json",
+    "editorHeight" : -1.0,
+    "editorType" : "FILEUPLOADER",
+    "editorWidth" : -1.0,
+    "name" : "ibz文件上传(免令牌高级版)",
+    "styleCode" : "DISK",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "ALLDEPATMENTMULTIPLE",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/ALLDEPATMENTMULTIPLE.json",
+    "editorHeight" : -1.0,
+    "editorType" : "PICKER",
+    "editorWidth" : -1.0,
+    "name" : "【多择】部门（指定单位及其下级单位的所有部门）",
+    "styleCode" : "ALLDEPATMENTMULTIPLE",
+    "replaceDefault" : false
+  }, {
+    "codeName" : "Auto6",
+    "dynaModelFilePath" : "PSSYSEDITORSTYLES/Auto6.json",
+    "editorHeight" : -1.0,
+    "editorType" : "MOBDATE",
+    "editorWidth" : -1.0,
+    "name" : "精确到天",
+    "styleCode" : "Auto6",
+    "replaceDefault" : false
+  } ],
+  "getAllPSSysI18Ns" : [ {
+    "modelref" : true,
+    "path" : "PSSYSI18NS/DEFAULT.json"
+  } ],
+  "getAllPSSysLogics" : [ {
+    "codeName" : "WFState2TodoState",
+    "customObject" : "#",
+    "dynaModelFilePath" : "PSSYSDELOGICNODES/WFState2TodoState.json",
+    "name" : "工作流状态转待办",
+    "scriptCode" : "function main(sys, wfstate){\n\n    if(wfstate == '0'  || wfstate == '1'  ) return 'ACTIVE';\n    if(wfstate == '2'  ) return 'COMPLETED';\n    if(wfstate == '3'  ) return 'CANCELED';\n   \n    return '';\n}",
+    "customCode" : true
+  } ],
+  "getAllPSSysMsgQueues" : [ {
+    "codeName" : "MsgQueue",
+    "dynaModelFilePath" : "PSMODULES/notify/PSSYSMSGQUEUES/MsgQueue.json",
+    "msgQueueType" : "RUNTIME",
+    "name" : "消息队列",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify.json"
+    }
+  } ],
+  "getAllPSSysMsgTempls" : [ {
+    "codeName" : "TodoNotify",
+    "content" : "${data.toJsonString()}",
+    "contentType" : "JSON",
+    "dynaModelFilePath" : "PSMODULES/notify/PSSYSMSGTEMPLS/TodoNotify.json",
+    "name" : "待办提醒",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify.json"
+    },
+    "subject" : "${data.get('title','无标题')}",
+    "mailGroupSend" : false
+  } ],
+  "getAllPSSysSFPlugins" : [ {
+    "codeName" : "ConsoleAPIRuntime",
+    "dynaModelFilePath" : "PSSYSSFPLUGINS/ConsoleAPIRuntime.json",
+    "name" : "租户控制台服务接口",
+    "pluginCode" : "ConsoleAPIRuntime",
+    "pluginType" : "USER",
+    "rTObjectName" : "net.ibizsys.central.cloud.saas.core.service.ConsoleAPIRuntime",
+    "rTObjectSource" : 1,
+    "runtimeObject" : true
+  }, {
+    "codeName" : "UsrSFPlugin0430601784",
+    "dynaModelFilePath" : "PSSYSSFPLUGINS/UsrSFPlugin0430601784.json",
+    "name" : "TODO通知插件",
+    "pluginCode" : "UsrSFPlugin0430601784",
+    "pluginType" : "USER",
+    "rTObjectName" : "net.ibizsys.central.cloud.saas.ebsx.user.plugin.groovy.dataentity.util.NotifySettingUtilRuntimeEx",
+    "rTObjectSource" : 1,
+    "templCode" : "package net.ibizsys.central.cloud.saas.ebsx.user.plugin.groovy.dataentity.util;\n\nimport groovy.transform.CompileStatic\nimport net.ibizsys.central.dataentity.IDataEntityRuntime\nimport net.ibizsys.central.dataentity.util.DENotifySettingUtilRuntime\nimport net.ibizsys.model.dataentity.defield.IPSDEField\nimport net.ibizsys.runtime.util.IEntity\n\n@CompileStatic\npublic class NotifySettingUtilRuntimeEx extends DENotifySettingUtilRuntime {\n    private List<String> systemList = null;\n    private boolean excludeMode = false;\n\n    private String PARAM_EXCLUDEMODE = \"excludemode\";\n    private String PARAM_SYSTEMLIST = \"systemlist\";\n    private String PARAM_CONFIGFOLDER = \"ignoretodonotify\";\n\n    private IPSDEField settingOwnerTypePSDEField = null;\n\n    protected void prepareSettingDataEntityRuntime() throws Exception {\n        IDataEntityRuntime settingDataEntityRuntime = this.getDataEntityRuntime();\n        this.setSettingDataEntityRuntime(settingDataEntityRuntime);\n        this.excludeMode = settingDataEntityRuntime.getSystemRuntime().getSystemRuntimeSetting().getParam(this.getConfigFolder() + \".\" + PARAM_EXCLUDEMODE, false);\n        this.systemList = (List<String>)settingDataEntityRuntime.getSystemRuntime().getSystemRuntimeSetting().getParam(this.getConfigFolder() + \".\" + PARAM_SYSTEMLIST);\n    }\n\n    @Override\n    protected Map<String, Integer> onGetSettings(IEntity iEntity, String strNotifyTag, int nMsgType, Set<String> personIdSet) throws Throwable {\n        //存在问题，若为系统内部定时触发可能会计算到当前系统标识\n        String curSystemId = this.getSystemRuntime().getUser()getSessionParam(\"srfsystemid\");\n        Map<String, Integer> settings = new LinkedHashMap<String, Integer>();\n        for(String strPersonId : personIdSet) {\n            settings.put(strPersonId, nMsgType);\n        }\n        if(excludeMode){\n            if(systemList == null || !systemList.contains(curSystemId)){\n                settings.clear();\n            }\n        }else {\n            if(systemList != null  && systemList.contains(curSystemId)){\n                settings.clear();\n            }\n        }\n        return settings;\n    }\n\n    protected String getConfigFolder() {\n        return PARAM_CONFIGFOLDER;\n    }\n}",
+    "runtimeObject" : true
+  } ],
+  "getAllPSSysServiceAPIs" : [ {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/OldPortalAPI.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/OldCoreAPI.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/OldAPI.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/API.json"
+  } ],
+  "getAllPSSysTestDatas" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSSYSTESTDATA/TestData.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSSYSTESTDATA/TestData.json"
+  } ],
+  "getAllPSSysUniReses" : [ {
+    "name" : "RT管理员",
+    "resCode" : "RTMGR",
+    "id" : "RTMGR"
+  } ],
+  "getAllPSSysUserRoles" : [ {
+    "codeName" : "cloud_user",
+    "defaultUser" : "USER",
+    "dynaModelFilePath" : "PSSYSUSERROLES/cloud_user.json",
+    "name" : "cloud用户默认",
+    "getPSSysUserRoleDatas" : [ {
+      "name" : "cloud用户默认-SYS_AUTHLOG[当前用户（只读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog/PSDEUSERROLES/CurUser.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog.json"
+      }
+    }, {
+      "name" : "cloud用户默认-SYS_EMP[当前用户（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEUSERROLES/CurUser.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+      }
+    } ],
+    "roleTag" : "CLOUD_USER",
+    "roleType" : "CUSTOM",
+    "systemReserved" : true
+  } ],
+  "getAllPSSysUtils" : [ {
+    "codeName" : "DataAudit",
+    "dynaModelFilePath" : "PSSYSUTILDES/DataAudit.json",
+    "name" : "审计",
+    "getUtilPSDE" : {
+      "modelref" : true,
+      "path" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit.json"
+    },
+    "utilPSDEName" : "DATAAUDIT",
+    "utilType" : "DATAAUDIT",
+    "regToSys" : false
+  } ],
+  "getAllPSSysValueRules" : [ {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule3.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule10.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule4.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule7.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule19.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule14.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule16.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule9.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule13.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule15.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule18.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule6.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule5.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule11.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule17.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule8.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSVALUERULES/ValueRule12.json"
+  } ],
+  "getAllPSSystemModules" : [ {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist2.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit.json"
+    } ],
+    "codeName" : "OperationMgr",
+    "dynaModelFilePath" : "PSMODULES/OperationMgr.json",
+    "name" : "运行管理"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSCODELISTS/LogCat.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCAudit.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCCenter.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCEvent.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsRegistry.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCLog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCPO.json"
+    } ],
+    "codeName" : "center",
+    "dynaModelFilePath" : "PSMODULES/center.json",
+    "name" : "租户"
+  }, {
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+    } ],
+    "codeName" : "dict",
+    "dynaModelFilePath" : "PSMODULES/dict.json",
+    "name" : "dict"
+  }, {
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/disk/PSDATAENTITIES/SDFile.json"
+    } ],
+    "codeName" : "disk",
+    "dynaModelFilePath" : "PSMODULES/disk.json",
+    "name" : "disk"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSCODELISTS/DstAppList.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSCODELISTS/DynamicModelStatus.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSCODELISTS/DstSystemList.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSCODELISTS/ComponentType.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstApp.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstConfig.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/DstView.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModel.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModule.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+    } ],
+    "codeName" : "lite",
+    "dynaModelFilePath" : "PSMODULES/lite.json",
+    "name" : "lite"
+  }, {
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/log/PSDATAENTITIES/SysAudit.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/log/PSDATAENTITIES/SysEvent.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/log/PSDATAENTITIES/SysLog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/log/PSDATAENTITIES/SysPO.json"
+    } ],
+    "codeName" : "log",
+    "dynaModelFilePath" : "PSMODULES/log.json",
+    "name" : "log"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TemplateType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TodoSubType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TodoUrlType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TemplateType2.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TodoState.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/TodoType.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopy.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopyHis.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgBody.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgUserAccount.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/Notes.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/Schedules.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/SysMsgSendQueue.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/Todo.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/TodoHis.json"
+    } ],
+    "codeName" : "notify",
+    "dynaModelFilePath" : "PSMODULES/notify.json",
+    "name" : "notify"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSCODELISTS/UserState.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSCODELISTS/Gender.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/EmpBind.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Team.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/UAOrganization.json"
+    } ],
+    "codeName" : "ou",
+    "dynaModelFilePath" : "PSMODULES/ou.json",
+    "name" : "ou"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSCODELISTS/TradeStatus.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSCODELISTS/TradeType.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+    } ],
+    "codeName" : "pay",
+    "dynaModelFilePath" : "PSMODULES/pay.json",
+    "name" : "pay"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/BackendActionState.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/QoSType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/PushType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/ActionType.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTNotes.json"
+    } ],
+    "codeName" : "portal",
+    "dynaModelFilePath" : "PSMODULES/portal.json",
+    "name" : "门户"
+  }, {
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/rep/PSDATAENTITIES/Report.json"
+    } ],
+    "codeName" : "rep",
+    "dynaModelFilePath" : "PSMODULES/rep.json",
+    "name" : "rep"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSCODELISTS/JobsStatus.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskPredefinedType.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSDATAENTITIES/JobsLock.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSDATAENTITIES/JobsLog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/task/PSDATAENTITIES/JobsRegistry.json"
+    } ],
+    "codeName" : "task",
+    "dynaModelFilePath" : "PSMODULES/task.json",
+    "name" : "task"
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/AppType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList64.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList75.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList68.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList95.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList27.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList118.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList42.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList60.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList81.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList83.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList94.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList79.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList30.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/DCSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList113.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList11.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList116.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList84.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList65.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/WFStates.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList77.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/DR.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList70.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList48.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList38.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList24.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList114.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList41.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/TrueFalse.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList37.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList111.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/PermissionType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList34.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList28.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList62.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList6.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList46.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList23.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList86.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/AuthCode.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList89.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList2.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList90.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList19.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList67.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList4.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList102.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList20.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList50.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList9.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList29.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList45.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList74.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList39.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList101.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList3.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList1.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList32.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList87.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList57.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/DEOPPriv.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList16.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList7.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList40.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList58.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SystemPick.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList10.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList36.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList93.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList92.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList107.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList88.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/AppCategory.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/PermissionCat.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/IdentityType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList80.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList52.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList8.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList103.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList35.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList55.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList33.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList59.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList104.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList99.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList21.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList108.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList96.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList112.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList14.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList56.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList100.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList117.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList66.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList13.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList54.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/UserRole.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList12.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList71.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList98.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList31.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList105.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList22.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList17.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList47.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList61.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList106.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList97.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList18.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList69.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList115.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList63.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList49.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList26.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SourceType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList91.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList85.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList82.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList72.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList110.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList78.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList109.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SortDir.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList15.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList53.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/UserMode.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/CodeList76.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Center.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DeptAuth.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+    } ],
+    "codeName" : "uaa",
+    "dynaModelFilePath" : "PSMODULES/uaa.json",
+    "name" : "uaa",
+    "defaultModule" : true
+  }, {
+    "getAllPSCodeLists" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSCODELISTS/WFUserGroupType.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSCODELISTS/WFSystemList.json"
+    } ],
+    "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinition.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFHistory.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFModel.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFSystem.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTask.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTaskWay.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTimeout.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFUser.json"
+    } ],
+    "codeName" : "workflow",
+    "dynaModelFilePath" : "PSMODULES/workflow.json",
+    "name" : "workflow"
+  } ],
+  "codeName" : "iBizCloudCore",
+  "defaultLanguage" : "ZH_CN",
+  "getDefaultPSSysI18N" : {
+    "modelref" : true,
+    "path" : "PSSYSI18NS/DEFAULT.json"
+  },
+  "getDefaultPSSysSFPub" : {
+    "codeName" : "Core",
+    "contentType" : "CODE",
+    "defaultFlag" : true,
+    "dynaModelFilePath" : "PSSYSSFPUBS/Core.json",
+    "modelFolder" : "core-core/src/main/resources/sysmodel/saas-ebsx",
+    "name" : "Core",
+    "pKGCodeName" : "net.ibizsys.central.cloud.saas.ebsx",
+    "getPSSysSFPubPkgs" : [ {
+      "name" : "alipay",
+      "orderValue" : 140,
+      "pkgParam" : "        <!--支付宝开放平台sdk -->\n        <dependency>\n            <groupId>com.alipay.sdk</groupId>\n            <artifactId>alipay-sdk-java</artifactId>\n            <version>4.10.90.ALL</version>\n        </dependency>",
+      "verParam" : "        <!--支付宝开放平台sdk -->\n        <dependency>\n            <groupId>com.alipay.sdk</groupId>\n            <artifactId>alipay-sdk-java</artifactId>\n            <version>4.10.90.ALL</version>\n        </dependency>"
+    }, {
+      "name" : "flowable",
+      "orderValue" : 10000,
+      "pkgParam" : "        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-spring-boot-starter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-json-converter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-conf</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-logic</artifactId>\n            <version>6.4.2</version>\n            <exclusions>\n                <exclusion>\n                    <groupId>org.apache.logging.log4j</groupId>\n                    <artifactId>log4j-slf4j-impl</artifactId>\n                </exclusion>\n            </exclusions>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-rest</artifactId>\n            <version>6.4.2</version>\n        </dependency>",
+      "verParam" : "        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-spring-boot-starter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-json-converter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-conf</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-logic</artifactId>\n            <version>6.4.2</version>\n            <exclusions>\n                <exclusion>\n                    <groupId>org.apache.logging.log4j</groupId>\n                    <artifactId>log4j-slf4j-impl</artifactId>\n                </exclusion>\n            </exclusions>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-rest</artifactId>\n            <version>6.4.2</version>\n        </dependency>"
+    }, {
+      "name" : "spring-webflux",
+      "orderValue" : 10000,
+      "pkgParam" : "<!-- webflux-->\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-webflux</artifactId>\n        </dependency>",
+      "verParam" : "<!-- webflux-->\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-webflux</artifactId>\n        </dependency>"
+    }, {
+      "name" : "unzip",
+      "orderValue" : 10000,
+      "pkgParam" : "        <dependency>\n            <groupId>org.apache.ant</groupId>\n            <artifactId>ant</artifactId>\n            <version>1.10.9</version>\n        </dependency>",
+      "verParam" : "        <dependency>\n            <groupId>org.apache.ant</groupId>\n            <artifactId>ant</artifactId>\n            <version>1.10.9</version>\n        </dependency>"
+    }, {
+      "name" : "JasperReport",
+      "orderValue" : 150,
+      "pkgParam" : "        <!-- jasperreports-->\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports</artifactId>\n            <version>6.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports-fonts</artifactId>\n            <version>6.0.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itextpdf</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-pdfa</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-asian</artifactId>\n            <version>5.2.0</version>\n        </dependency>\n        <dependency>\n            <groupId>cn.lesper</groupId>\n            <artifactId>iTextAsian</artifactId>\n            <version>3.0</version>\n        </dependency>\n        <dependency>\n            <groupId>org.codehaus.groovy</groupId>\n            <artifactId>groovy-all</artifactId>\n            <version>2.4.11</version>\n        </dependency>",
+      "verParam" : "        <!-- jasperreports-->\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports</artifactId>\n            <version>6.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports-fonts</artifactId>\n            <version>6.0.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itextpdf</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-pdfa</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-asian</artifactId>\n            <version>5.2.0</version>\n        </dependency>\n        <dependency>\n            <groupId>cn.lesper</groupId>\n            <artifactId>iTextAsian</artifactId>\n            <version>3.0</version>\n        </dependency>\n        <dependency>\n            <groupId>org.codehaus.groovy</groupId>\n            <artifactId>groovy-all</artifactId>\n            <version>2.4.11</version>\n        </dependency>"
+    }, {
+      "name" : "LDAP",
+      "orderValue" : 100,
+      "pkgParam" : "        <!--LDAP -->\n        <dependency>\n            <groupId>org.springframework.ldap</groupId>\n            <artifactId>spring-ldap-core</artifactId>\n        </dependency>",
+      "verParam" : "        <!--LDAP -->\n        <dependency>\n            <groupId>org.springframework.ldap</groupId>\n            <artifactId>spring-ldap-core</artifactId>\n        </dependency>"
+    }, {
+      "name" : "达梦",
+      "orderValue" : 10000,
+      "pkgParam" : "<dependency>\n            <groupId>com.dameng</groupId>\n            <artifactId>DmJdbcDriver18</artifactId>\n            <version>8.1.1.193</version>\n</dependency>",
+      "verParam" : "<dependency>\n            <groupId>com.dameng</groupId>\n            <artifactId>DmJdbcDriver18</artifactId>\n            <version>8.1.1.193</version>\n</dependency>"
+    }, {
+      "name" : "jGit",
+      "orderValue" : 10000,
+      "pkgParam" : "        <dependency>\n            <groupId>org.eclipse.jgit</groupId>\n            <artifactId>org.eclipse.jgit</artifactId>\n            <version>5.11.0.202103091610-r</version>\n        </dependency>",
+      "verParam" : "        <dependency>\n            <groupId>org.eclipse.jgit</groupId>\n            <artifactId>org.eclipse.jgit</artifactId>\n            <version>5.11.0.202103091610-r</version>\n        </dependency>"
+    }, {
+      "name" : "aliyun sdk",
+      "orderValue" : 130,
+      "pkgParam" : "        <!--aliyun sdk -->\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-core</artifactId>\n            <version>4.5.4</version>\n        </dependency>\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-ecs</artifactId>\n            <version>4.19.6</version>\n        </dependency>\n\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-dm</artifactId>\n            <version>3.3.1</version>\n        </dependency>",
+      "verParam" : "        <!--aliyun sdk -->\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-core</artifactId>\n            <version>4.5.4</version>\n        </dependency>\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-ecs</artifactId>\n            <version>4.19.6</version>\n        </dependency>\n\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-dm</artifactId>\n            <version>3.3.1</version>\n        </dependency>"
+    }, {
+      "name" : "解决guava  jar版本冲突",
+      "orderValue" : 180,
+      "pkgParam" : "        <dependency>\n            <groupId>com.netflix.servo</groupId>\n            <artifactId>servo-core</artifactId>\n            <version>0.12.21</version>\n        </dependency>",
+      "verParam" : "        <dependency>\n            <groupId>com.netflix.servo</groupId>\n            <artifactId>servo-core</artifactId>\n            <version>0.12.21</version>\n        </dependency>"
+    }, {
+      "name" : "oauth2",
+      "orderValue" : 120,
+      "pkgParam" : "        <!--  oauth2 -->\n        <dependency>\n            <groupId>org.springframework.security.oauth</groupId>\n            <artifactId>spring-security-oauth2</artifactId>\n            <version>2.3.6.RELEASE</version>\n        </dependency>\n\n        <dependency>\n            <groupId>org.springframework.security</groupId>\n            <artifactId>spring-security-jwt</artifactId>\n            <version>1.0.10.RELEASE</version>\n        </dependency>",
+      "verParam" : "        <!--  oauth2 -->\n        <dependency>\n            <groupId>org.springframework.security.oauth</groupId>\n            <artifactId>spring-security-oauth2</artifactId>\n            <version>2.3.6.RELEASE</version>\n        </dependency>\n\n        <dependency>\n            <groupId>org.springframework.security</groupId>\n            <artifactId>spring-security-jwt</artifactId>\n            <version>1.0.10.RELEASE</version>\n        </dependency>"
+    } ],
+    "versionString" : "1.0.0",
+    "codeMode" : true,
+    "enableModelRT" : true,
+    "mainPSSysSFPub" : true,
+    "pubModel" : true
+  },
+  "deploySysId" : "ebsx",
+  "deploySysTag" : "336d44c339448f6095f53a1fe78eb8d5",
+  "engineVer" : 240,
+  "logicName" : "iBizCloudCore",
+  "name" : "iBizCloudCore",
+  "vCName" : "trunk",
+  "id" : "PSSYSTEM.json"
+}

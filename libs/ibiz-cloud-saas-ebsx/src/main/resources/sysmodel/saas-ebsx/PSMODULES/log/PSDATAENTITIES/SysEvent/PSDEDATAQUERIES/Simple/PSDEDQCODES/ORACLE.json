@@ -1,0 +1,40 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.EVENTCAT",
+    "name" : "EVENTCAT"
+  }, {
+    "expression" : "t1.EVENTINFO",
+    "name" : "EVENTINFO"
+  }, {
+    "expression" : "t1.LOGLEVEL",
+    "name" : "LOGLEVEL"
+  }, {
+    "expression" : "t1.OPPERSONID",
+    "name" : "OPPERSONID"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.SYSEVENTID",
+    "name" : "SYSEVENTID"
+  }, {
+    "expression" : "t1.SYSEVENTNAME",
+    "name" : "SYSEVENTNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.SYSEVENTID,\nt1.SYSEVENTNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZEVENT t1 \n",
+  "id" : "PSMODULES/log/PSDATAENTITIES/SysEvent/PSDEDATAQUERIES/Simple/PSDEDQCODES/ORACLE.json"
+}

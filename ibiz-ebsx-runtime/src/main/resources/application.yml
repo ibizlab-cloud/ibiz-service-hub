@@ -1,0 +1,81 @@
+server:
+  port: 30000
+
+ibiz:
+  servicehub:
+    id: allinone
+    # 新增初始化模式 initmode ，默认 manual：手动模式（手工初始化nacos和system），auto：自动模式
+    initmode: manual
+#    register-naming-service: false
+#    publish-config: false
+  tenant: true
+
+#生产环境需要关闭
+springfox:
+  documentation:
+    enabled: true
+
+logging:
+  level: 
+    net.ibizsys.central.cloud: debug
+    net.ibizsys.central: debug
+    net.ibizsys.runtime: debug
+
+    
+spring:
+  profiles:
+    include: sys, ${ibiz.servicehub.initmode}
+  application:
+    name: ibiz-ebsx-allinone-rt
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://nacos:8848
+        group: ibiz_config_group
+      config:
+        server-addr: http://nacos:8848
+        group: ibiz_config_group
+        file-extension: yaml
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 104857600
+      max-request-size: 104857600
+  liquibase:
+    enabled: false
+  datasource:
+    username: a_lab01_3f9ebc219
+    password: '9d@A178@'
+    url: jdbc:mysql://mysql:3306/a_LAB01_3f9ebc219?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=GMT%2B8&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    isSyncDBSchema: false
+    defaultSchema: a_LAB01_3f9ebc219
+    dynamic:
+      druid: #以下是全局默认值，可以全局更改
+        filters: stat,wall,log4j2
+        #配置初始化大小/最小/最大
+        initial-size: 1
+        min-idle: 1
+        max-active: 20
+        #获取连接等待超时时间
+        max-wait: 60000
+        #间隔多久进行一次检测，检测需要关闭的空闲连接
+        time-between-eviction-runs-millis: 60000
+        #一个连接在池中最小生存的时间
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+        pool-prepared-statements: false
+        max-pool-prepared-statement-per-connection-size: 20
+      datasource:
+        master:
+          username: ${spring.datasource.username}
+          password: ${spring.datasource.password}
+          url: ${spring.datasource.url}
+          driver-class-name: ${spring.datasource.driver-class-name}
+      
+       
+       

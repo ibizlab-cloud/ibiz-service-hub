@@ -1,0 +1,14 @@
+{
+  "dBType" : "POSTGRESQL",
+  "dynaModelFilePath" : "PSSYSTEMDBCFGS/POSTGRESQL.json",
+  "mOSFilePath" : "pssystemdbcfgs/POSTGRESQL",
+  "name" : "POSTGRESQL",
+  "objNameCase" : "DEFAULT",
+  "rTMOSFilePath" : "pssystemdbcfgs/POSTGRESQL",
+  "defaultMode" : false,
+  "pubFKey" : true,
+  "pubIndex" : true,
+  "pubModel" : true,
+  "pubModelComment" : true,
+  "pubView" : true
+}

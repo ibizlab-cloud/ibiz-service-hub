@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CREATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Create",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system/PSDEACTIONS/Create.json",
+  "logicName" : "Create",
+  "name" : "Create",
+  "orderValue" : 1,
+  "getPSDEActionInput" : {
+    "name" : "CreateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "service_hub_deploy_systemDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CreateResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

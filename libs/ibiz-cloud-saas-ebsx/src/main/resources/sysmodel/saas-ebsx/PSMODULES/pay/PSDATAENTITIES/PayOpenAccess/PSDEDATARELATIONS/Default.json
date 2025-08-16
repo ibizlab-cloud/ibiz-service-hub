@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "支付平台",
+  "name" : "支付平台默认关系界面组"
+}

@@ -1,0 +1,69 @@
+{
+  "codeName" : "Core",
+  "contentType" : "CODE",
+  "defaultFlag" : true,
+  "dynaModelFilePath" : "PSSYSSFPUBS/Core.json",
+  "mOSFilePath" : "pssyssfpubs/Core",
+  "name" : "Core",
+  "pKGCodeName" : "net.ibizsys.central.cloud.saas.ebsx",
+  "getPSSysSFPubPkgs" : [ {
+    "name" : "alipay",
+    "orderValue" : 140,
+    "pkgParam" : "        <!--支付宝开放平台sdk -->\n        <dependency>\n            <groupId>com.alipay.sdk</groupId>\n            <artifactId>alipay-sdk-java</artifactId>\n            <version>4.10.90.ALL</version>\n        </dependency>",
+    "verParam" : "        <!--支付宝开放平台sdk -->\n        <dependency>\n            <groupId>com.alipay.sdk</groupId>\n            <artifactId>alipay-sdk-java</artifactId>\n            <version>4.10.90.ALL</version>\n        </dependency>"
+  }, {
+    "name" : "flowable",
+    "orderValue" : 10000,
+    "pkgParam" : "        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-spring-boot-starter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-json-converter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-conf</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-logic</artifactId>\n            <version>6.4.2</version>\n            <exclusions>\n                <exclusion>\n                    <groupId>org.apache.logging.log4j</groupId>\n                    <artifactId>log4j-slf4j-impl</artifactId>\n                </exclusion>\n            </exclusions>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-rest</artifactId>\n            <version>6.4.2</version>\n        </dependency>",
+    "verParam" : "        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-spring-boot-starter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-json-converter</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-conf</artifactId>\n            <version>6.4.2</version>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-logic</artifactId>\n            <version>6.4.2</version>\n            <exclusions>\n                <exclusion>\n                    <groupId>org.apache.logging.log4j</groupId>\n                    <artifactId>log4j-slf4j-impl</artifactId>\n                </exclusion>\n            </exclusions>\n        </dependency>\n        <dependency>\n            <groupId>org.flowable</groupId>\n            <artifactId>flowable-ui-modeler-rest</artifactId>\n            <version>6.4.2</version>\n        </dependency>"
+  }, {
+    "name" : "spring-webflux",
+    "orderValue" : 10000,
+    "pkgParam" : "<!-- webflux-->\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-webflux</artifactId>\n        </dependency>",
+    "verParam" : "<!-- webflux-->\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-webflux</artifactId>\n        </dependency>"
+  }, {
+    "name" : "unzip",
+    "orderValue" : 10000,
+    "pkgParam" : "        <dependency>\n            <groupId>org.apache.ant</groupId>\n            <artifactId>ant</artifactId>\n            <version>1.10.9</version>\n        </dependency>",
+    "verParam" : "        <dependency>\n            <groupId>org.apache.ant</groupId>\n            <artifactId>ant</artifactId>\n            <version>1.10.9</version>\n        </dependency>"
+  }, {
+    "name" : "JasperReport",
+    "orderValue" : 150,
+    "pkgParam" : "        <!-- jasperreports-->\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports</artifactId>\n            <version>6.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports-fonts</artifactId>\n            <version>6.0.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itextpdf</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-pdfa</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-asian</artifactId>\n            <version>5.2.0</version>\n        </dependency>\n        <dependency>\n            <groupId>cn.lesper</groupId>\n            <artifactId>iTextAsian</artifactId>\n            <version>3.0</version>\n        </dependency>\n        <dependency>\n            <groupId>org.codehaus.groovy</groupId>\n            <artifactId>groovy-all</artifactId>\n            <version>2.4.11</version>\n        </dependency>",
+    "verParam" : "        <!-- jasperreports-->\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports</artifactId>\n            <version>6.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>net.sf.jasperreports</groupId>\n            <artifactId>jasperreports-fonts</artifactId>\n            <version>6.0.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itextpdf</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-pdfa</artifactId>\n            <version>5.5.0</version>\n        </dependency>\n        <dependency>\n            <groupId>com.itextpdf</groupId>\n            <artifactId>itext-asian</artifactId>\n            <version>5.2.0</version>\n        </dependency>\n        <dependency>\n            <groupId>cn.lesper</groupId>\n            <artifactId>iTextAsian</artifactId>\n            <version>3.0</version>\n        </dependency>\n        <dependency>\n            <groupId>org.codehaus.groovy</groupId>\n            <artifactId>groovy-all</artifactId>\n            <version>2.4.11</version>\n        </dependency>"
+  }, {
+    "name" : "LDAP",
+    "orderValue" : 100,
+    "pkgParam" : "        <!--LDAP -->\n        <dependency>\n            <groupId>org.springframework.ldap</groupId>\n            <artifactId>spring-ldap-core</artifactId>\n        </dependency>",
+    "verParam" : "        <!--LDAP -->\n        <dependency>\n            <groupId>org.springframework.ldap</groupId>\n            <artifactId>spring-ldap-core</artifactId>\n        </dependency>"
+  }, {
+    "name" : "达梦",
+    "orderValue" : 10000,
+    "pkgParam" : "<dependency>\n            <groupId>com.dameng</groupId>\n            <artifactId>DmJdbcDriver18</artifactId>\n            <version>8.1.1.193</version>\n</dependency>",
+    "verParam" : "<dependency>\n            <groupId>com.dameng</groupId>\n            <artifactId>DmJdbcDriver18</artifactId>\n            <version>8.1.1.193</version>\n</dependency>"
+  }, {
+    "name" : "jGit",
+    "orderValue" : 10000,
+    "pkgParam" : "        <dependency>\n            <groupId>org.eclipse.jgit</groupId>\n            <artifactId>org.eclipse.jgit</artifactId>\n            <version>5.11.0.202103091610-r</version>\n        </dependency>",
+    "verParam" : "        <dependency>\n            <groupId>org.eclipse.jgit</groupId>\n            <artifactId>org.eclipse.jgit</artifactId>\n            <version>5.11.0.202103091610-r</version>\n        </dependency>"
+  }, {
+    "name" : "aliyun sdk",
+    "orderValue" : 130,
+    "pkgParam" : "        <!--aliyun sdk -->\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-core</artifactId>\n            <version>4.5.4</version>\n        </dependency>\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-ecs</artifactId>\n            <version>4.19.6</version>\n        </dependency>\n\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-dm</artifactId>\n            <version>3.3.1</version>\n        </dependency>",
+    "verParam" : "        <!--aliyun sdk -->\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-core</artifactId>\n            <version>4.5.4</version>\n        </dependency>\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-ecs</artifactId>\n            <version>4.19.6</version>\n        </dependency>\n\n        <dependency>\n            <groupId>com.aliyun</groupId>\n            <artifactId>aliyun-java-sdk-dm</artifactId>\n            <version>3.3.1</version>\n        </dependency>"
+  }, {
+    "name" : "解决guava  jar版本冲突",
+    "orderValue" : 180,
+    "pkgParam" : "        <dependency>\n            <groupId>com.netflix.servo</groupId>\n            <artifactId>servo-core</artifactId>\n            <version>0.12.21</version>\n        </dependency>",
+    "verParam" : "        <dependency>\n            <groupId>com.netflix.servo</groupId>\n            <artifactId>servo-core</artifactId>\n            <version>0.12.21</version>\n        </dependency>"
+  }, {
+    "name" : "oauth2",
+    "orderValue" : 120,
+    "pkgParam" : "        <!--  oauth2 -->\n        <dependency>\n            <groupId>org.springframework.security.oauth</groupId>\n            <artifactId>spring-security-oauth2</artifactId>\n            <version>2.3.6.RELEASE</version>\n        </dependency>\n\n        <dependency>\n            <groupId>org.springframework.security</groupId>\n            <artifactId>spring-security-jwt</artifactId>\n            <version>1.0.10.RELEASE</version>\n        </dependency>",
+    "verParam" : "        <!--  oauth2 -->\n        <dependency>\n            <groupId>org.springframework.security.oauth</groupId>\n            <artifactId>spring-security-oauth2</artifactId>\n            <version>2.3.6.RELEASE</version>\n        </dependency>\n\n        <dependency>\n            <groupId>org.springframework.security</groupId>\n            <artifactId>spring-security-jwt</artifactId>\n            <version>1.0.10.RELEASE</version>\n        </dependency>"
+  } ],
+  "rTMOSFilePath" : "pssyssfpubs/Core",
+  "versionString" : "1.0.0.0",
+  "codeMode" : true,
+  "mainPSSysSFPub" : true
+}

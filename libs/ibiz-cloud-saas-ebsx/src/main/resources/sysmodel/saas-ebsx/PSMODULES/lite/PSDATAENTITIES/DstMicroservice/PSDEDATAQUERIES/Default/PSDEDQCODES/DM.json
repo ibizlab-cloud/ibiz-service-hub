@@ -1,0 +1,22 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ADDR",
+    "name" : "ADDR"
+  }, {
+    "expression" : "t1.MSID",
+    "name" : "MSID"
+  }, {
+    "expression" : "t1.MSNAME",
+    "name" : "MSNAME"
+  }, {
+    "expression" : "t1.SERVICENAME",
+    "name" : "SERVICENAME"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  } ],
+  "queryCode" : "SELECT\nt1.ADDR,\nt1.MSID,\nt1.MSNAME,\nt1.SERVICENAME,\nt1.SYSTEMID\nFROM IBZMS t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

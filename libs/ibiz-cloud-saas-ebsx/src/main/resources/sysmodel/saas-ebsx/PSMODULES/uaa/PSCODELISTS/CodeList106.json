@@ -1,0 +1,54 @@
+{
+  "codeListTag" : "uaa__CodeList106",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList106",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList106.json",
+  "emptyText" : "未定义",
+  "name" : "实体数据操作步骤",
+  "getPSCodeItems" : [ {
+    "codeName" : "Getdefault",
+    "text" : "获取默认值",
+    "value" : "GETDEFAULT"
+  }, {
+    "codeName" : "Beforesave",
+    "text" : "保存之前",
+    "value" : "BEFORESAVE"
+  }, {
+    "codeName" : "Aftersave",
+    "text" : "保存之后",
+    "value" : "AFTERSAVE"
+  }, {
+    "codeName" : "Beforeremove",
+    "text" : "删除之前",
+    "value" : "BEFOREREMOVE"
+  }, {
+    "codeName" : "Afterremove",
+    "text" : "删除之后",
+    "value" : "AFTERREMOVE"
+  }, {
+    "codeName" : "Testsave",
+    "text" : "测试保存",
+    "value" : "TESTSAVE"
+  }, {
+    "codeName" : "Customcall",
+    "text" : "自定义操作",
+    "value" : "CUSTOMCALL"
+  }, {
+    "codeName" : "Internalcall",
+    "text" : "内部调用",
+    "value" : "INTERNALCALL"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_02002",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

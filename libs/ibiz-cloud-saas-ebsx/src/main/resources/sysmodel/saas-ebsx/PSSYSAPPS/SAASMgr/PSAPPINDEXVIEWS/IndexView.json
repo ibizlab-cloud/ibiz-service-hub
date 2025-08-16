@@ -1,0 +1,117 @@
+{
+  "accUserMode" : 0,
+  "appSwitchMode" : 0,
+  "caption" : "iBizSAAS管理平台",
+  "codeName" : "IndexView",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPINDEXVIEWS/IndexView.json",
+  "name" : "IndexView",
+  "getPSControls" : [ {
+    "codeName" : "Index",
+    "controlType" : "APPMENU",
+    "layoutMode" : "TABLE_24COL",
+    "logicName" : "iBizSAAS管理平台默认菜单",
+    "name" : "appmenu",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "机构管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem2",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc"
+      },
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "机构管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "系统管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem1",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc2"
+      },
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "系统管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "机构系统",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem4",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc4"
+      },
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "机构系统"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "用户管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem3",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc3"
+      },
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "tooltip" : "用户管理"
+    } ],
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "appmenu"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true
+    },
+    "modelid" : "7FF718A1-D5FB-4726-A683-2C38617F4F2E",
+    "modeltype" : "PSAPPMENU"
+  } ],
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPINDEXVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "iBizSAAS管理平台",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "APPINDEXVIEW",
+  "blankMode" : false,
+  "defaultPage" : true,
+  "enableAppSwitch" : false,
+  "enableDP" : true,
+  "modelid" : "07710A12-7E30-4EF3-A1FB-320C0D00F221",
+  "modeltype" : "PSAPPINDEXVIEW"
+}

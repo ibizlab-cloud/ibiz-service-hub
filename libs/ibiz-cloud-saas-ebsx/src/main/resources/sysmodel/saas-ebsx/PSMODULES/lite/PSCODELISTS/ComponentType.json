@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "lite__ComponentType",
+  "codeListType" : "STATIC",
+  "codeName" : "ComponentType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/lite/PSCODELISTS/ComponentType.json",
+  "emptyText" : "未定义",
+  "name" : "组件类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Dynamicform",
+    "text" : "动态表单",
+    "value" : "DynamicForm"
+  }, {
+    "codeName" : "Dynamicsubform",
+    "text" : "动态子表单",
+    "value" : "DynamicSubForm"
+  }, {
+    "codeName" : "Dynamicgrid",
+    "text" : "动态表格",
+    "value" : "DynamicGrid"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

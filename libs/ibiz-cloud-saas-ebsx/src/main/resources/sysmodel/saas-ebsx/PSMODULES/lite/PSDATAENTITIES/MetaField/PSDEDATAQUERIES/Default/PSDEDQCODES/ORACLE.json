@@ -1,0 +1,106 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.DATALENGTH",
+    "name" : "DATALENGTH"
+  }, {
+    "expression" : "t1.DATAPRECI",
+    "name" : "DATAPRECI"
+  }, {
+    "expression" : "t1.DATATYPE",
+    "name" : "DATATYPE"
+  }, {
+    "expression" : "t1.DICT",
+    "name" : "DICT"
+  }, {
+    "expression" : "t11.CODENAME",
+    "name" : "ENTITYCODENAME"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.EXPRESSION",
+    "name" : "EXPRESSION"
+  }, {
+    "expression" : "t1.EXTENSIONFIELD",
+    "name" : "EXTENSIONFIELD"
+  }, {
+    "expression" : "t1.FIELDID",
+    "name" : "FIELDID"
+  }, {
+    "expression" : "t1.FIELDLOGICNAME",
+    "name" : "FIELDLOGICNAME"
+  }, {
+    "expression" : "t1.FIELDNAME",
+    "name" : "FIELDNAME"
+  }, {
+    "expression" : "concat(t1.FIELDNAME,'-',t1.FIELDLOGICNAME,'[',t1.ENTITYNAME,']')",
+    "name" : "FIELDSHOWNAME"
+  }, {
+    "expression" : "t1.FIELDTYPE",
+    "name" : "FIELDTYPE"
+  }, {
+    "expression" : "concat(t1.ENTITYNAME,'.',t1.FIELDNAME)",
+    "name" : "FIELDUNINAME"
+  }, {
+    "expression" : "t1.ISENABLEAUDIT",
+    "name" : "ISENABLEAUDIT"
+  }, {
+    "expression" : "t1.KEYFIELD",
+    "name" : "KEYFIELD"
+  }, {
+    "expression" : "t1.MAJORFIELD",
+    "name" : "MAJORFIELD"
+  }, {
+    "expression" : "t1.NULLABLE",
+    "name" : "NULLABLE"
+  }, {
+    "expression" : "t1.PHYSICALFIELD",
+    "name" : "PHYSICALFIELD"
+  }, {
+    "expression" : "t1.PREDEFINED",
+    "name" : "PREDEFINED"
+  }, {
+    "expression" : "t21.REFENTITYNAME",
+    "name" : "REFENTITYNAME"
+  }, {
+    "expression" : "t1.REFFIELDID",
+    "name" : "REFFIELDID"
+  }, {
+    "expression" : "t1.REFFIELDNAME",
+    "name" : "REFFIELDNAME"
+  }, {
+    "expression" : "t21.CODENAME",
+    "name" : "RELATIONCODENAME"
+  }, {
+    "expression" : "t1.RELATIONID",
+    "name" : "RELATIONID"
+  }, {
+    "expression" : "t1.RELATIONNAME",
+    "name" : "RELATIONNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t11.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UNIONKEY",
+    "name" : "UNIONKEY"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.CODENAME,\nt1.CREATEDATE,\nt1.DATALENGTH,\nt1.DATAPRECI,\nt1.DATATYPE,\nt1.DICT,\nt11.CODENAME AS ENTITYCODENAME,\nt1.ENTITYID,\nt1.ENTITYNAME,\nt1.EXPRESSION,\nt1.EXTENSIONFIELD,\nt1.FIELDID,\nt1.FIELDLOGICNAME,\nt1.FIELDNAME,\nconcat(t1.FIELDNAME,'-',t1.FIELDLOGICNAME,'[',t1.ENTITYNAME,']') AS FIELDSHOWNAME,\nt1.FIELDTYPE,\nconcat(t1.ENTITYNAME,'.',t1.FIELDNAME) AS FIELDUNINAME,\nt1.ISENABLEAUDIT,\nt1.KEYFIELD,\nt1.MAJORFIELD,\nt1.NULLABLE,\nt1.PHYSICALFIELD,\nt1.PREDEFINED,\nt21.REFENTITYNAME,\nt1.REFFIELDID,\nt1.REFFIELDNAME,\nt21.CODENAME AS RELATIONCODENAME,\nt1.RELATIONID,\nt1.RELATIONNAME,\nt1.SHOWORDER,\nt11.SYSTEMID,\nt1.UNIONKEY,\nt1.UPDATEDATE\nFROM IBZFIELD t1 \nLEFT JOIN IBZENTITY t11 ON t1.ENTITYID = t11.ENTITYID \nLEFT JOIN IBZRELATION t21 ON t1.RELATIONID = t21.RELATIONID \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

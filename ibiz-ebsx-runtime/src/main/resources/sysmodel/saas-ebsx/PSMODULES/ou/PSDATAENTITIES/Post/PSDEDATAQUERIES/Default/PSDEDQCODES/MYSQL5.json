@@ -1,0 +1,82 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.RESERVER10",
+    "name" : "RESERVER10"
+  }, {
+    "expression" : "t1.RESERVER9",
+    "name" : "RESERVER9"
+  }, {
+    "expression" : "t1.DOMAINS",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.POSTCODE",
+    "name" : "POSTCODE"
+  }, {
+    "expression" : "t1.POSTID",
+    "name" : "POSTID"
+  }, {
+    "expression" : "t1.POSTNAME",
+    "name" : "POSTNAME"
+  }, {
+    "expression" : "t1.RESERVER",
+    "name" : "RESERVER"
+  }, {
+    "expression" : "t1.RESERVER11",
+    "name" : "RESERVER11"
+  }, {
+    "expression" : "t1.RESERVER12",
+    "name" : "RESERVER12"
+  }, {
+    "expression" : "t1.RESERVER13",
+    "name" : "RESERVER13"
+  }, {
+    "expression" : "t1.RESERVER14",
+    "name" : "RESERVER14"
+  }, {
+    "expression" : "t1.RESERVER15",
+    "name" : "RESERVER15"
+  }, {
+    "expression" : "t1.RESERVER16",
+    "name" : "RESERVER16"
+  }, {
+    "expression" : "t1.RESERVER17",
+    "name" : "RESERVER17"
+  }, {
+    "expression" : "t1.RESERVER18",
+    "name" : "RESERVER18"
+  }, {
+    "expression" : "t1.RESERVER19",
+    "name" : "RESERVER19"
+  }, {
+    "expression" : "t1.RESERVER2",
+    "name" : "RESERVER2"
+  }, {
+    "expression" : "t1.RESERVER20",
+    "name" : "RESERVER20"
+  }, {
+    "expression" : "t1.RESERVER3",
+    "name" : "RESERVER3"
+  }, {
+    "expression" : "t1.RESERVER4",
+    "name" : "RESERVER4"
+  }, {
+    "expression" : "t1.RESERVER5",
+    "name" : "RESERVER5"
+  }, {
+    "expression" : "t1.RESERVER6",
+    "name" : "RESERVER6"
+  }, {
+    "expression" : "t1.RESERVER7",
+    "name" : "RESERVER7"
+  }, {
+    "expression" : "t1.RESERVER8",
+    "name" : "RESERVER8"
+  } ],
+  "queryCode" : "SELECT\n    t1.DOMAINS,\n    t1.MEMO,\n    t1.POSTCODE,\n    t1.POSTID,\n    t1.POSTNAME,\n    t1.RESERVER,\n    t1.RESERVER10,\n    t1.RESERVER11,\n    t1.RESERVER12,\n    t1.RESERVER13,\n    t1.RESERVER14,\n    t1.RESERVER15,\n    t1.RESERVER16,\n    t1.RESERVER17,\n    t1.RESERVER18,\n    t1.RESERVER19,\n    t1.RESERVER2,\n    t1.RESERVER20,\n    t1.RESERVER3,\n    t1.RESERVER4,\n    t1.RESERVER5,\n    t1.RESERVER6,\n    t1.RESERVER7,\n    t1.RESERVER8,\n    t1.RESERVER9\nFROM ( SELECT\n           t1.DC as DOMAINS,\n           t1.DESCRIPTION as MEMO,\n           t1.ID as POSTCODE,\n           t1.ID as POSTID,\n           t1.NAME as POSTNAME,\n           null as RESERVER,\n           null as RESERVER10,\n           null as RESERVER11,\n           null as RESERVER12,\n           null as RESERVER13,\n           null as RESERVER14,\n           null as RESERVER15,\n           null as RESERVER16,\n           null as RESERVER17,\n           null as RESERVER18,\n           null as RESERVER19,\n           null as RESERVER2,\n           null as RESERVER20,\n           null as RESERVER3,\n           null as RESERVER4,\n           null as RESERVER5,\n           null as RESERVER6,\n           null as RESERVER7,\n           null as RESERVER8,\n           null as RESERVER9\n       FROM sys_organizational_role t1) t1\n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/Post/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

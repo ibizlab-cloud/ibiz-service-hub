@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Auto",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth/PSDEACTIONS/Auto.json",
+  "logicName" : "自动生成",
+  "name" : "Auto",
+  "getPSDEActionInput" : {
+    "name" : "AutoInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "UserAuthDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "AutoResult",
+    "type" : "VOID"
+  }
+}

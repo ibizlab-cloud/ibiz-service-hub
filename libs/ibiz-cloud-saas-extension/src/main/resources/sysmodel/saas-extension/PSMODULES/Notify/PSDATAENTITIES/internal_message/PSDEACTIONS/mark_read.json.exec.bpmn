@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="net.ibizsys.central.cloud.saas.v2.core.extensions.service.logic.execute" isClosed="false" isExecutable="true" name="notify_internal_message_mark_read_execLogic" processType="Private" tns:packageName="net.ibizsys.central.cloud.saas.v2.core.extensions.service.logic.execute">
+            <extensionElements>
+                <tns:import name="java.util.Map"/>
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.v2.util.helper.RuleUtils"/>
+            </extensionElements>
+            <startEvent id="begin" isInterrupting="true"/>
+            <endEvent id="prepareparam1_end" name="end"/>
+            <callActivity activiti:exclusive="true" calledElement="net.ibizsys.central.cloud.saas.v2.core.notify.service.logic.internal_messagemark_read" id="mark_read" name="mark_read.json.bpmn"/>
+            <sequenceFlow id="begin_mark_read" sourceRef="begin" targetRef="mark_read"/>
+            <sequenceFlow id="mark_read_mark_read" sourceRef="mark_read" targetRef="prepareparam1_end"/>
+        </process>
+    </definitions>

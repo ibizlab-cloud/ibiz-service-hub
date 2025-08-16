@@ -1,0 +1,30 @@
+{
+  "codeName" : "DCSystem",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/log/PSDATAENTITIES/SysEvent/PSDERS/DER1N_SYS_EVENT_SYS_DC_SYSTEM_DCSYSTEMID.json",
+  "fKeyName" : "FA2DB9A990AA0E370E",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysEvent.json"
+  },
+  "name" : "DER1N_SYS_EVENT_SYS_DC_SYSTEM_DCSYSTEMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DCSYSTEMID",
+    "codeName" : "DCSystemId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DCSYSTEMNAME",
+    "codeName" : "DCSystemName"
+  },
+  "pickupDEFName" : "DCSYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DCSystem"
+}

@@ -1,0 +1,2058 @@
+{
+  "accUserMode" : 2,
+  "caption" : "部署系统",
+  "codeName" : "SystemEditView",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/SystemEditView.json",
+  "funcViewMode" : "EDITVIEW",
+  "name" : "SystemEditView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "EditView",
+    "name" : "engine",
+    "getPSUIEngineParams" : [ {
+      "ctrlName" : "form",
+      "name" : "FORM",
+      "paramType" : "CTRL"
+    }, {
+      "name" : "P2K",
+      "paramType" : "VALUE",
+      "value" : 0
+    } ]
+  } ],
+  "getPSAppViewLogics" : [ {
+    "eventArg" : "tbitem3",
+    "eventNames" : "CLICK",
+    "logicTrigger" : "CTRLEVENT",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "toolbar_tbitem3_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "toolbar_tbitem3"
+    },
+    "getPSViewCtrlName" : "toolbar"
+  }, {
+    "eventArg" : "tbitem4",
+    "eventNames" : "CLICK",
+    "logicTrigger" : "CTRLEVENT",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "toolbar_tbitem4_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "toolbar_tbitem4"
+    },
+    "getPSViewCtrlName" : "toolbar"
+  }, {
+    "eventArg" : "tbitem5",
+    "eventNames" : "CLICK",
+    "logicTrigger" : "CTRLEVENT",
+    "logicType" : "APPVIEWUIACTION",
+    "name" : "toolbar_tbitem5_click",
+    "getPSAppViewUIAction" : {
+      "modelref" : true,
+      "id" : "toolbar_tbitem5"
+    },
+    "getPSViewCtrlName" : "toolbar"
+  } ],
+  "getPSAppViewUIActions" : [ {
+    "name" : "toolbar_tbitem3",
+    "getPSUIAction" : {
+      "modelref" : true,
+      "id" : "Save"
+    },
+    "xDataControlName" : "form"
+  }, {
+    "name" : "toolbar_tbitem4",
+    "getPSUIAction" : {
+      "modelref" : true,
+      "id" : "SaveAndNew"
+    },
+    "xDataControlName" : "form"
+  }, {
+    "name" : "toolbar_tbitem5",
+    "getPSUIAction" : {
+      "modelref" : true,
+      "id" : "SaveAndExit"
+    },
+    "xDataControlName" : "form"
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "EditViewtoolbar",
+    "controlType" : "TOOLBAR",
+    "hookEventNames" : [ "CLICK" ],
+    "logicName" : "工具栏模板（默认编辑界面）",
+    "name" : "toolbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "getPSControlLogics" : [ {
+      "eventArg" : "tbitem3",
+      "eventNames" : "CLICK",
+      "logicTag" : "toolbar",
+      "logicType" : "APPVIEWLOGIC",
+      "name" : "toolbar_tbitem3_click",
+      "getPSAppViewLogic" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem3_click"
+      }
+    }, {
+      "eventArg" : "tbitem4",
+      "eventNames" : "CLICK",
+      "logicTag" : "toolbar",
+      "logicType" : "APPVIEWLOGIC",
+      "name" : "toolbar_tbitem4_click",
+      "getPSAppViewLogic" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem4_click"
+      }
+    }, {
+      "eventArg" : "tbitem5",
+      "eventNames" : "CLICK",
+      "logicTag" : "toolbar",
+      "logicType" : "APPVIEWLOGIC",
+      "name" : "toolbar_tbitem5_click",
+      "getPSAppViewLogic" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem5_click"
+      }
+    } ],
+    "getPSControlParam" : {
+      "id" : "TOOLBAR"
+    },
+    "getPSDEToolbarItems" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.*.SAVE"
+      },
+      "caption" : "保存",
+      "groupExtractMode" : "ITEM",
+      "itemType" : "DEUIACTION",
+      "name" : "tbitem3",
+      "noPrivDisplayMode" : 2,
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem3"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0c7@FontAwesome",
+        "cssClass" : "fa fa-save"
+      },
+      "getPSUIAction" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "TBB.TEXT.*.SAVE"
+        },
+        "caption" : "保存",
+        "codeName" : "Save",
+        "fullCodeName" : "Save",
+        "name" : "编辑界面_保存操作",
+        "getPSSysImage" : {
+          "glyph" : "xf0c7@FontAwesome",
+          "cssClass" : "fa fa-save"
+        },
+        "predefinedType" : "EDITVIEW_SAVEACTION",
+        "timeout" : 60000,
+        "getTooltipPSLanguageRes" : {
+          "lanResTag" : "TBB.TOOLTIP.*.SAVE"
+        },
+        "uIActionMode" : "SYS",
+        "uIActionTag" : "Save",
+        "uIActionType" : "DEUIACTION"
+      },
+      "tooltip" : "保存",
+      "getTooltipPSLanguageRes" : {
+        "lanResTag" : "TBB.TOOLTIP.*.SAVE"
+      },
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDNEW"
+      },
+      "caption" : "保存并新建",
+      "groupExtractMode" : "ITEM",
+      "itemType" : "DEUIACTION",
+      "name" : "tbitem4",
+      "noPrivDisplayMode" : 2,
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem4"
+      },
+      "getPSSysImage" : {
+        "cssClass" : "sx-tb-saveandnew"
+      },
+      "getPSUIAction" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDNEW"
+        },
+        "caption" : "保存并新建",
+        "codeName" : "SaveAndNew",
+        "fullCodeName" : "SaveAndNew",
+        "name" : "编辑界面_保存并新建操作",
+        "getPSSysImage" : {
+          "cssClass" : "sx-tb-saveandnew"
+        },
+        "predefinedType" : "EDITVIEW_SAVEANDNEWACTION",
+        "timeout" : 60000,
+        "getTooltipPSLanguageRes" : {
+          "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDNEW"
+        },
+        "uIActionMode" : "SYS",
+        "uIActionTag" : "SaveAndNew",
+        "uIActionType" : "DEUIACTION"
+      },
+      "tooltip" : "保存并新建",
+      "getTooltipPSLanguageRes" : {
+        "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDNEW"
+      },
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDCLOSE"
+      },
+      "caption" : "保存并关闭",
+      "groupExtractMode" : "ITEM",
+      "itemType" : "DEUIACTION",
+      "name" : "tbitem5",
+      "noPrivDisplayMode" : 2,
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "toolbar_tbitem5"
+      },
+      "getPSSysImage" : {
+        "cssClass" : "sx-tb-saveandclose"
+      },
+      "getPSUIAction" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDCLOSE"
+        },
+        "caption" : "保存并关闭",
+        "codeName" : "SaveAndExit",
+        "fullCodeName" : "SaveAndExit",
+        "name" : "编辑界面_保存并退出操作",
+        "getPSSysImage" : {
+          "cssClass" : "sx-tb-saveandclose"
+        },
+        "predefinedType" : "EDITVIEW_SAVEANDEXITACTION",
+        "timeout" : 60000,
+        "getTooltipPSLanguageRes" : {
+          "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDCLOSE"
+        },
+        "uIActionMode" : "SYS",
+        "uIActionTag" : "SaveAndExit",
+        "uIActionType" : "DEUIACTION"
+      },
+      "tooltip" : "保存并关闭",
+      "getTooltipPSLanguageRes" : {
+        "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDCLOSE"
+      },
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "xDataControlName" : "form",
+    "modelid" : "a4eb00b17f8652bdf677cb4ed5231e63",
+    "modeltype" : "PSDETOOLBAR"
+  }, {
+    "codeName" : "Main",
+    "controlType" : "FORM",
+    "getCreatePSControlAction" : {
+      "modelref" : true,
+      "id" : "create"
+    },
+    "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem/PSFORMS/Main.json",
+    "getGetDraftFromPSControlAction" : {
+      "modelref" : true,
+      "id" : "loaddraftfrom"
+    },
+    "getGetDraftPSControlAction" : {
+      "modelref" : true,
+      "id" : "loaddraft"
+    },
+    "getGetPSControlAction" : {
+      "modelref" : true,
+      "id" : "load"
+    },
+    "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+    "logicName" : "主编辑表单",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "getPSControlHandler" : {
+      "getPSHandlerActions" : [ {
+        "actionName" : "GetDraft",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "CREATE",
+        "name" : "loaddraft",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "GetDraft"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      }, {
+        "actionName" : "GETDRAFTFROM",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "CREATE",
+        "name" : "loaddraftfrom",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      }, {
+        "actionName" : "Get",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "READ",
+        "name" : "load",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Get"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      }, {
+        "actionName" : "Create",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "CREATE",
+        "name" : "create",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Create"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      }, {
+        "actionName" : "Update",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "UPDATE",
+        "name" : "update",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Update"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      }, {
+        "actionName" : "Remove",
+        "actionType" : "DEACTION",
+        "dataAccessAction" : "DELETE",
+        "name" : "remove",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Remove"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        }
+      } ],
+      "enableDEFieldPrivilege" : false,
+      "id" : "编辑表单处理器"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "LOAD;SAVE;REMOVE",
+      "logicTag" : "form",
+      "logicType" : "APPVIEWENGINE",
+      "name" : "engine_form",
+      "getPSAppViewEngine" : {
+        "modelref" : true,
+        "id" : "engine"
+      }
+    } ],
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "FORM"
+    },
+    "getPSDEFormItems" : [ {
+      "id" : "srforikey",
+      "hidden" : true,
+      "dataType" : 25
+    }, {
+      "id" : "srfkey",
+      "hidden" : true,
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMID",
+        "codeName" : "PSSystemId"
+      }
+    }, {
+      "id" : "srfmajortext",
+      "hidden" : true,
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMNAME",
+        "codeName" : "PSSystemName"
+      }
+    }, {
+      "id" : "srftempmode",
+      "hidden" : true,
+      "dataType" : 25
+    }, {
+      "id" : "srfuf",
+      "hidden" : true,
+      "dataType" : 25
+    }, {
+      "id" : "srfdeid",
+      "hidden" : true,
+      "dataType" : 25
+    }, {
+      "id" : "srfsourcekey",
+      "hidden" : true,
+      "dataType" : 25
+    }, {
+      "id" : "pssystemname",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMNAME",
+        "codeName" : "PSSystemName"
+      }
+    }, {
+      "id" : "showorder",
+      "dataType" : 9,
+      "getPSAppDEField" : {
+        "name" : "SHOWORDER",
+        "codeName" : "ShowOrder"
+      }
+    }, {
+      "id" : "ipadress",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "IPADRESS",
+        "codeName" : "IPAddress"
+      }
+    }, {
+      "id" : "jobport",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "JOBPORT",
+        "codeName" : "JobPort"
+      }
+    }, {
+      "id" : "sysmodel",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "SYSMODEL",
+        "codeName" : "SysModel"
+      }
+    }, {
+      "id" : "remotesysmodel",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "REMOTESYSMODEL",
+        "codeName" : "RemoteSysModel"
+      }
+    }, {
+      "id" : "remotesysmodelbranch",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "REMOTESYSMODELBRANCH",
+        "codeName" : "RemoteSysModelBranch"
+      }
+    }, {
+      "id" : "remotesysmodelpath",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "REMOTESYSMODELPATH",
+        "codeName" : "RemoteSysModelPath"
+      }
+    }, {
+      "id" : "remotesysmodeluser",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "REMOTESYSMODELUSER",
+        "codeName" : "RemoteSysModelUser"
+      }
+    }, {
+      "id" : "remotesysmodelpwd",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "REMOTESYSMODELPWD",
+        "codeName" : "RemoteSysModelPwd"
+      }
+    }, {
+      "id" : "pssystemid",
+      "hidden" : true,
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMID",
+        "codeName" : "PSSystemId"
+      }
+    } ],
+    "getPSDEFormPages" : [ {
+      "caption" : "基本信息",
+      "codeName" : "formpage1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMPAGE",
+      "name" : "formpage1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "系统基本信息",
+        "codeName" : "group1",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "group1",
+        "getPSDEFormDetails" : [ {
+          "caption" : "系统名称",
+          "codeName" : "pssystemname",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "pssystemname",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "PSSYSTEMNAME",
+            "codeName" : "PSSystemName"
+          },
+          "getPSEditor" : {
+            "editorType" : "TEXTBOX",
+            "maxLength" : 100,
+            "name" : "pssystemname"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 6,
+            "colMD" : 6,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "排序",
+          "codeName" : "showorder",
+          "dataType" : 9,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "showorder",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SHOWORDER",
+            "codeName" : "ShowOrder"
+          },
+          "getPSEditor" : {
+            "editorType" : "TEXTBOX",
+            "name" : "showorder"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 6,
+            "colMD" : 6,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "IP地址",
+          "codeName" : "ipadress",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "ipadress",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "IPADRESS",
+            "codeName" : "IPAddress"
+          },
+          "getPSEditor" : {
+            "editorType" : "TEXTBOX",
+            "maxLength" : 100,
+            "name" : "ipadress"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 6,
+            "colMD" : 6,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "任务端口",
+          "codeName" : "jobport",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "jobport",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "JOBPORT",
+            "codeName" : "JobPort"
+          },
+          "getPSEditor" : {
+            "editorType" : "TEXTBOX",
+            "maxLength" : 100,
+            "name" : "jobport"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 6,
+            "colMD" : 6,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "系统模型配置",
+          "codeName" : "grouppanel1",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "GROUPPANEL",
+          "name" : "grouppanel1",
+          "getPSDEFormDetails" : [ {
+            "caption" : "模型本地仓库路径",
+            "codeName" : "sysmodel",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "sysmodel",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "SYSMODEL",
+              "codeName" : "SysModel"
+            },
+            "getPSEditor" : {
+              "editorType" : "TEXTBOX",
+              "maxLength" : 1000,
+              "name" : "sysmodel"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 24,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "模型远程仓库路径",
+            "codeName" : "remotesysmodel",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "LEFT",
+            "labelWidth" : 130,
+            "name" : "remotesysmodel",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "REMOTESYSMODEL",
+              "codeName" : "RemoteSysModel"
+            },
+            "getPSEditor" : {
+              "editorType" : "TEXTBOX",
+              "maxLength" : 1000,
+              "name" : "remotesysmodel"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 16,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "仓库分支",
+            "codeName" : "remotesysmodelbranch",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "NONE",
+            "labelWidth" : 0,
+            "name" : "remotesysmodelbranch",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "REMOTESYSMODELBRANCH",
+              "codeName" : "RemoteSysModelBranch"
+            },
+            "getPSEditor" : {
+              "editorType" : "TEXTBOX",
+              "maxLength" : 1000,
+              "name" : "remotesysmodelbranch"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 2,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true
+          }, {
+            "caption" : "系统模型（远程路径）",
+            "codeName" : "remotesysmodelpath",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "NONE",
+            "labelWidth" : 0,
+            "name" : "remotesysmodelpath",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "REMOTESYSMODELPATH",
+              "codeName" : "RemoteSysModelPath"
+            },
+            "getPSEditor" : {
+              "editorType" : "TEXTBOX",
+              "maxLength" : 1000,
+              "name" : "remotesysmodelpath"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 6,
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true
+          }, {
+            "caption" : "分组面板",
+            "codeName" : "grouppanel2",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "GROUPPANEL",
+            "name" : "grouppanel2",
+            "getPSDEFormDetails" : [ {
+              "caption" : "远程账户",
+              "codeName" : "remotesysmodeluser",
+              "dataType" : 25,
+              "detailStyle" : "DEFAULT",
+              "detailType" : "FORMITEM",
+              "enableCond" : 3,
+              "ignoreInput" : 0,
+              "labelPos" : "LEFT",
+              "labelWidth" : 130,
+              "name" : "remotesysmodeluser",
+              "noPrivDisplayMode" : 1,
+              "getPSAppDEField" : {
+                "name" : "REMOTESYSMODELUSER",
+                "codeName" : "RemoteSysModelUser"
+              },
+              "getPSEditor" : {
+                "editorType" : "TEXTBOX",
+                "maxLength" : 100,
+                "name" : "remotesysmodeluser"
+              },
+              "getPSLayoutPos" : {
+                "colLG" : 6,
+                "colMD" : 12,
+                "layout" : "TABLE_24COL"
+              },
+              "allowEmpty" : true,
+              "showCaption" : true
+            }, {
+              "caption" : "远程密码",
+              "codeName" : "remotesysmodelpwd",
+              "dataType" : 25,
+              "detailStyle" : "DEFAULT",
+              "detailType" : "FORMITEM",
+              "enableCond" : 3,
+              "ignoreInput" : 0,
+              "labelPos" : "LEFT",
+              "labelWidth" : 130,
+              "name" : "remotesysmodelpwd",
+              "noPrivDisplayMode" : 1,
+              "getPSAppDEField" : {
+                "name" : "REMOTESYSMODELPWD",
+                "codeName" : "RemoteSysModelPwd"
+              },
+              "getPSEditor" : {
+                "editorParams" : {
+                  "enableShowPwd" : "true"
+                },
+                "editorType" : "PASSWORD",
+                "maxLength" : 1000,
+                "name" : "remotesysmodelpwd"
+              },
+              "getPSLayoutPos" : {
+                "colLG" : 6,
+                "colMD" : 12,
+                "layout" : "TABLE_24COL"
+              },
+              "allowEmpty" : true,
+              "showCaption" : true
+            } ],
+            "getPSLayout" : {
+              "columnCount" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "getPSLayoutPos" : {
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "infoGroupMode" : false,
+            "showCaption" : false
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 24,
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "infoGroupMode" : false,
+        "showCaption" : false
+      }, {
+        "caption" : "分组面板",
+        "codeName" : "grouppanel3",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel3",
+        "getPSDEFormDetails" : [ {
+          "codeName" : "druipart2",
+          "dRItemTag" : "DRItem2",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "DRUIPART",
+          "name" : "druipart2",
+          "getPSAppView" : {
+            "accUserMode" : 2,
+            "caption" : "系统应用配置",
+            "codeName" : "ApplicationGridView",
+            "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationGridView.json",
+            "funcViewMode" : "MDATAVIEW",
+            "gridRowActiveMode" : 2,
+            "name" : "ApplicationGridView",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+            },
+            "getPSAppViewEngines" : [ {
+              "engineCat" : "VIEW",
+              "engineType" : "GridView",
+              "name" : "engine",
+              "getPSUIEngineParams" : [ {
+                "appViewLogicName" : "opendata",
+                "name" : "OPENDATA",
+                "paramType" : "LOGIC"
+              }, {
+                "appViewLogicName" : "newdata",
+                "name" : "NEWDATA",
+                "paramType" : "LOGIC"
+              }, {
+                "ctrlName" : "grid",
+                "name" : "GRID",
+                "paramType" : "CTRL"
+              }, {
+                "ctrlName" : "searchform",
+                "name" : "SEARCHFORM",
+                "paramType" : "CTRL"
+              } ]
+            } ],
+            "getPSAppViewLogics" : [ {
+              "eventArg" : "tbitem3",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem3_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem3"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem4",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem4_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem4"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem6",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem6_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem6"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem24",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem24_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem24"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem25",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem25_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem25"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem8",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem8_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem8"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem13",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem13_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem13"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem23",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem23_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem23"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "eventArg" : "tbitem11",
+              "eventNames" : "CLICK",
+              "logicTrigger" : "CTRLEVENT",
+              "logicType" : "APPVIEWUIACTION",
+              "name" : "toolbar_tbitem11_click",
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "toolbar_tbitem11"
+              },
+              "getPSViewCtrlName" : "toolbar"
+            }, {
+              "logicTrigger" : "CUSTOM",
+              "logicType" : "SYSUILOGIC",
+              "name" : "newdata",
+              "getPSAppUILogic" : {
+                "actionAfterWizard" : "DEFAULT",
+                "logicType" : "PREDEFINED",
+                "name" : "新建数据",
+                "getNewDataPSAppView" : {
+                  "openMode" : "DRAWER_RIGHT",
+                  "getRefPSAppView" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                    "viewType" : "DEEDITVIEW"
+                  }
+                },
+                "getPSAppUILogicRefViews" : [ {
+                  "openMode" : "DRAWER_RIGHT",
+                  "getRefPSAppView" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                    "viewType" : "DEEDITVIEW"
+                  }
+                } ],
+                "viewLogicType" : "APP_NEWDATA",
+                "batchAddOnly" : false,
+                "enableBatchAdd" : false,
+                "enableWizardAdd" : false
+              }
+            }, {
+              "logicTrigger" : "CUSTOM",
+              "logicType" : "SYSUILOGIC",
+              "name" : "opendata",
+              "getPSAppUILogic" : {
+                "logicType" : "PREDEFINED",
+                "name" : "打开数据",
+                "getOpenDataPSAppView" : {
+                  "openMode" : "DRAWER_RIGHT",
+                  "getRefPSAppView" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                    "viewType" : "DEEDITVIEW"
+                  }
+                },
+                "getPSAppUILogicRefViews" : [ {
+                  "openMode" : "DRAWER_RIGHT",
+                  "getRefPSAppView" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                    "viewType" : "DEEDITVIEW"
+                  }
+                } ],
+                "viewLogicType" : "APP_OPENDATA",
+                "editMode" : true
+              }
+            } ],
+            "getPSAppViewRefs" : [ {
+              "name" : "EDITDATA",
+              "realOpenMode" : "DRAWER_RIGHT",
+              "realTitle" : "系统应用编辑视图",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            }, {
+              "name" : "NEWDATA",
+              "realOpenMode" : "DRAWER_RIGHT",
+              "realTitle" : "系统应用编辑视图",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDEVIEWS/ApplicationEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "getPSAppViewUIActions" : [ {
+              "name" : "toolbar_tbitem3",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "New"
+              },
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem4",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "Edit"
+              },
+              "uIActionTarget" : "SINGLEKEY",
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem6",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "Copy"
+              },
+              "uIActionTarget" : "SINGLEKEY",
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem24",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "ToggleRowEdit"
+              },
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem25",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "NewRow"
+              },
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem8",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "Remove"
+              },
+              "uIActionTarget" : "MULTIKEY",
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem13",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "ExportExcel"
+              },
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem23",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "Import"
+              },
+              "xDataControlName" : "grid"
+            }, {
+              "name" : "toolbar_tbitem11",
+              "getPSUIAction" : {
+                "modelref" : true,
+                "id" : "Print"
+              },
+              "uIActionTarget" : "MULTIKEY",
+              "xDataControlName" : "grid"
+            } ],
+            "getPSControls" : [ {
+              "aggMode" : "NONE",
+              "codeName" : "Main",
+              "columnEnableFilter" : 2,
+              "columnEnableLink" : 2,
+              "controlType" : "GRID",
+              "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp/PSGRIDS/Main.json",
+              "getFetchPSControlAction" : {
+                "modelref" : true,
+                "id" : "fetch"
+              },
+              "groupMode" : "NONE",
+              "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+              "logicName" : "主表格",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+              },
+              "getPSControlHandler" : {
+                "getPSHandlerActions" : [ {
+                  "actionName" : "Get",
+                  "actionType" : "DEACTION",
+                  "dataAccessAction" : "READ",
+                  "name" : "load",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "Get"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionName" : "Create",
+                  "actionType" : "DEACTION",
+                  "dataAccessAction" : "CREATE",
+                  "name" : "create",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "Create"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionName" : "Update",
+                  "actionType" : "DEACTION",
+                  "dataAccessAction" : "UPDATE",
+                  "name" : "update",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "Update"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionName" : "Remove",
+                  "actionType" : "DEACTION",
+                  "dataAccessAction" : "DELETE",
+                  "name" : "remove",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "Remove"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionName" : "GetDraft",
+                  "actionType" : "DEACTION",
+                  "dataAccessAction" : "CREATE",
+                  "name" : "loaddraft",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "GetDraft"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionType" : "DEDATASET",
+                  "name" : "fetch",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "FetchDefault"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                } ],
+                "userDRAction" : "READ",
+                "enableDEFieldPrivilege" : false,
+                "id" : "数据表格处理器"
+              },
+              "getPSControlLogics" : [ {
+                "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+                "logicTag" : "grid",
+                "logicType" : "APPVIEWENGINE",
+                "name" : "engine_grid",
+                "getPSAppViewEngine" : {
+                  "modelref" : true,
+                  "id" : "engine"
+                }
+              } ],
+              "getPSControlParam" : {
+                "autoLoad" : true,
+                "showBusyIndicator" : true,
+                "id" : "GRID"
+              },
+              "getPSDEGridColumns" : [ {
+                "align" : "LEFT",
+                "cLConvertMode" : "NONE",
+                "caption" : "系统应用名称",
+                "codeName" : "pssystemappname",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "pssystemappname",
+                "excelCaption" : "系统应用名称",
+                "name" : "pssystemappname",
+                "noPrivDisplayMode" : 1,
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPNAME",
+                  "codeName" : "PSSystemAppName"
+                },
+                "width" : 200,
+                "widthUnit" : "PX",
+                "enableSort" : true
+              }, {
+                "align" : "LEFT",
+                "cLConvertMode" : "FRONT",
+                "caption" : "移动应用",
+                "codeName" : "mobileapp",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "mobileapp",
+                "excelCaption" : "移动应用",
+                "name" : "mobileapp",
+                "noPrivDisplayMode" : 1,
+                "getPSAppCodeList" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/YesNo.json"
+                },
+                "getPSAppDEField" : {
+                  "name" : "MOBILEAPP",
+                  "codeName" : "MobileApp"
+                },
+                "width" : 100,
+                "widthUnit" : "PX",
+                "enableSort" : true
+              }, {
+                "align" : "LEFT",
+                "cLConvertMode" : "FRONT",
+                "caption" : "应用类别",
+                "codeName" : "appcategory",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "appcategory",
+                "excelCaption" : "应用类别",
+                "name" : "appcategory",
+                "noPrivDisplayMode" : 1,
+                "getPSAppCodeList" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/AppCategory.json"
+                },
+                "getPSAppDEField" : {
+                  "name" : "APPCATEGORY",
+                  "codeName" : "AppCategory"
+                },
+                "width" : 150,
+                "widthUnit" : "PX",
+                "enableSort" : true
+              }, {
+                "align" : "LEFT",
+                "cLConvertMode" : "NONE",
+                "caption" : "排序",
+                "codeName" : "showorder",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "showorder",
+                "excelCaption" : "排序",
+                "name" : "showorder",
+                "noPrivDisplayMode" : 1,
+                "getPSAppDEField" : {
+                  "name" : "SHOWORDER",
+                  "codeName" : "ShowOrder"
+                },
+                "width" : 100,
+                "widthUnit" : "PX",
+                "enableSort" : true
+              }, {
+                "align" : "LEFT",
+                "cLConvertMode" : "NONE",
+                "caption" : "提示信息",
+                "codeName" : "tip",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "tip",
+                "excelCaption" : "提示信息",
+                "name" : "tip",
+                "noPrivDisplayMode" : 1,
+                "getPSAppDEField" : {
+                  "name" : "TIP",
+                  "codeName" : "Tip"
+                },
+                "width" : 150,
+                "widthUnit" : "STAR",
+                "enableSort" : true
+              }, {
+                "align" : "LEFT",
+                "cLConvertMode" : "NONE",
+                "caption" : "更新时间",
+                "codeName" : "updatedate",
+                "columnType" : "DEFGRIDCOLUMN",
+                "dataItemName" : "updatedate",
+                "excelCaption" : "更新时间",
+                "name" : "updatedate",
+                "noPrivDisplayMode" : 1,
+                "getPSAppDEField" : {
+                  "name" : "UPDATEDATE",
+                  "codeName" : "UpdateDate"
+                },
+                "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+                "width" : 160,
+                "widthUnit" : "PX",
+                "enableSort" : true
+              } ],
+              "getPSDEGridDataItems" : [ {
+                "dataType" : 25,
+                "name" : "pssystemappname",
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPNAME",
+                  "codeName" : "PSSystemAppName"
+                }
+              }, {
+                "dataType" : 9,
+                "name" : "mobileapp",
+                "getPSAppDEField" : {
+                  "name" : "MOBILEAPP",
+                  "codeName" : "MobileApp"
+                }
+              }, {
+                "dataType" : 25,
+                "name" : "appcategory",
+                "getPSAppDEField" : {
+                  "name" : "APPCATEGORY",
+                  "codeName" : "AppCategory"
+                }
+              }, {
+                "dataType" : 9,
+                "name" : "showorder",
+                "getPSAppDEField" : {
+                  "name" : "SHOWORDER",
+                  "codeName" : "ShowOrder"
+                }
+              }, {
+                "dataType" : 25,
+                "name" : "tip",
+                "getPSAppDEField" : {
+                  "name" : "TIP",
+                  "codeName" : "Tip"
+                }
+              }, {
+                "format" : "YYYY-MM-DD HH:mm:ss",
+                "dataType" : 5,
+                "name" : "updatedate",
+                "getPSAppDEField" : {
+                  "name" : "UPDATEDATE",
+                  "codeName" : "UpdateDate"
+                }
+              }, {
+                "dataType" : 25,
+                "name" : "srfkey",
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPID",
+                  "codeName" : "PSSystemAppId"
+                }
+              }, {
+                "dataType" : 25,
+                "name" : "srfdataaccaction",
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPID",
+                  "codeName" : "PSSystemAppId"
+                },
+                "dataAccessAction" : true
+              }, {
+                "dataType" : 25,
+                "name" : "systemid",
+                "getPSAppDEField" : {
+                  "name" : "SYSTEMID",
+                  "codeName" : "SystemId"
+                }
+              }, {
+                "dataType" : 25,
+                "name" : "srfmajortext",
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPNAME",
+                  "codeName" : "PSSystemAppName"
+                }
+              } ],
+              "getPSDEGridEditItems" : [ {
+                "caption" : "系统应用标识",
+                "codeName" : "srfkey",
+                "enableCond" : 3,
+                "ignoreInput" : 0,
+                "name" : "srfkey",
+                "getPSAppDEField" : {
+                  "name" : "PSSYSTEMAPPID",
+                  "codeName" : "PSSystemAppId"
+                },
+                "getPSEditor" : {
+                  "editorType" : "HIDDEN",
+                  "name" : "srfkey"
+                },
+                "allowEmpty" : true
+              } ],
+              "pagingSize" : 500,
+              "getRemovePSControlAction" : {
+                "actionName" : "Remove",
+                "actionType" : "DEACTION",
+                "dataAccessAction" : "DELETE",
+                "name" : "remove",
+                "getPSAppDEMethod" : {
+                  "modelref" : true,
+                  "id" : "Remove"
+                },
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                }
+              },
+              "sortMode" : "REMOTE",
+              "hasWFDataItems" : false,
+              "enableColFilter" : false,
+              "enableCustomized" : true,
+              "enableGroup" : false,
+              "enablePagingBar" : false,
+              "enableRowEdit" : false,
+              "enableRowEditOrder" : false,
+              "enableRowNew" : false,
+              "forceFit" : false,
+              "hideHeader" : false,
+              "noSort" : false,
+              "singleSelect" : false,
+              "name" : "grid",
+              "modelid" : "825c56075c20b2370912f31d349f604b",
+              "modeltype" : "PSDEGRID"
+            }, {
+              "codeName" : "Default",
+              "controlType" : "SEARCHFORM",
+              "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp/PSSEARCHFORMS/Default.json",
+              "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+              "logicName" : "默认搜索表单",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+              },
+              "getPSControlHandler" : {
+                "getPSHandlerActions" : [ {
+                  "actionType" : "FILTERACTION",
+                  "name" : "load",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "FilterGet"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionType" : "FILTERACTION",
+                  "name" : "loaddraft",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "FilterGetDraft"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                }, {
+                  "actionType" : "FILTERACTION",
+                  "name" : "search",
+                  "getPSAppDEMethod" : {
+                    "modelref" : true,
+                    "id" : "FilterSearch"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+                  }
+                } ],
+                "enableDEFieldPrivilege" : false,
+                "id" : "搜索表单处理器"
+              },
+              "getPSControlLogics" : [ {
+                "eventNames" : "SEARCH;LOAD;SAVE",
+                "logicTag" : "searchform",
+                "logicType" : "APPVIEWENGINE",
+                "name" : "engine_searchform",
+                "getPSAppViewEngine" : {
+                  "modelref" : true,
+                  "id" : "engine"
+                }
+              } ],
+              "getPSControlParam" : {
+                "autoLoad" : true,
+                "showBusyIndicator" : true,
+                "id" : "SEARCHFORM"
+              },
+              "getPSDEFormPages" : [ {
+                "caption" : "常规条件",
+                "codeName" : "formpage1",
+                "detailStyle" : "DEFAULT",
+                "detailType" : "FORMPAGE",
+                "name" : "formpage1",
+                "getPSLayout" : {
+                  "columnCount" : 24,
+                  "layout" : "TABLE_24COL"
+                },
+                "infoGroupMode" : false
+              } ],
+              "getPSLayout" : {
+                "columnCount" : 24,
+                "layout" : "TABLE_24COL"
+              },
+              "searchButtonStyle" : "DEFAULT",
+              "tabHeaderPos" : "TOP",
+              "enableAdvanceSearch" : false,
+              "enableAutoSearch" : false,
+              "enableFilterSave" : false,
+              "noTabHeader" : true,
+              "name" : "searchform",
+              "modelid" : "65a18e3b02e0f8257eb2e90bc02987ca",
+              "modeltype" : "PSDEFORM_SEARCHFORM"
+            }, {
+              "codeName" : "GridViewtoolbar",
+              "controlType" : "TOOLBAR",
+              "hookEventNames" : [ "CLICK" ],
+              "logicName" : "工具栏模板（默认表格界面）",
+              "name" : "toolbar",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+              },
+              "getPSControlLogics" : [ {
+                "eventArg" : "tbitem3",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem3_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem3_click"
+                }
+              }, {
+                "eventArg" : "tbitem4",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem4_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem4_click"
+                }
+              }, {
+                "eventArg" : "tbitem6",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem6_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem6_click"
+                }
+              }, {
+                "eventArg" : "tbitem24",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem24_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem24_click"
+                }
+              }, {
+                "eventArg" : "tbitem25",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem25_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem25_click"
+                }
+              }, {
+                "eventArg" : "tbitem8",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem8_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem8_click"
+                }
+              }, {
+                "eventArg" : "tbitem13",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem13_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem13_click"
+                }
+              }, {
+                "eventArg" : "tbitem23",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem23_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem23_click"
+                }
+              }, {
+                "eventArg" : "tbitem11",
+                "eventNames" : "CLICK",
+                "logicTag" : "toolbar",
+                "logicType" : "APPVIEWLOGIC",
+                "name" : "toolbar_tbitem11_click",
+                "getPSAppViewLogic" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem11_click"
+                }
+              } ],
+              "getPSControlParam" : {
+                "id" : "TOOLBAR"
+              },
+              "getPSDEToolbarItems" : [ {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.NEW"
+                },
+                "caption" : "新建",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem3",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem3"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf0f6@FontAwesome",
+                  "cssClass" : "fa fa-file-text-o"
+                },
+                "getPSUIAction" : {
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.NEW"
+                  },
+                  "caption" : "新建",
+                  "codeName" : "New",
+                  "fullCodeName" : "New",
+                  "name" : "表格界面_新建操作",
+                  "getPSSysImage" : {
+                    "glyph" : "xf0f6@FontAwesome",
+                    "cssClass" : "fa fa-file-text-o"
+                  },
+                  "predefinedType" : "GRIDVIEW_NEWACTION",
+                  "timeout" : 60000,
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.NEW"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "New",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "新建",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.NEW"
+                },
+                "showCaption" : true,
+                "showIcon" : true
+              }, {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.EDIT"
+                },
+                "caption" : "编辑",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem4",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem4"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf044@FontAwesome",
+                  "cssClass" : "fa fa-edit"
+                },
+                "getPSUIAction" : {
+                  "actionTarget" : "SINGLEKEY",
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.EDIT"
+                  },
+                  "caption" : "编辑",
+                  "codeName" : "Edit",
+                  "fullCodeName" : "Edit",
+                  "name" : "表格界面_编辑操作",
+                  "getPSSysImage" : {
+                    "glyph" : "xf044@FontAwesome",
+                    "cssClass" : "fa fa-edit"
+                  },
+                  "predefinedType" : "GRIDVIEW_EDITACTION",
+                  "timeout" : 60000,
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.EDIT"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "Edit",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "编辑",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.EDIT"
+                },
+                "uIActionTarget" : "SINGLEKEY",
+                "showCaption" : true,
+                "showIcon" : true
+              }, {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.COPY"
+                },
+                "caption" : "拷贝",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem6",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem6"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf0c5@FontAwesome",
+                  "cssClass" : "fa fa-copy"
+                },
+                "getPSUIAction" : {
+                  "actionTarget" : "SINGLEKEY",
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.COPY"
+                  },
+                  "caption" : "拷贝",
+                  "codeName" : "Copy",
+                  "fullCodeName" : "Copy",
+                  "name" : "表格界面_拷贝操作",
+                  "getPSSysImage" : {
+                    "glyph" : "xf0c5@FontAwesome",
+                    "cssClass" : "fa fa-copy"
+                  },
+                  "predefinedType" : "GRIDVIEW_COPYACTION",
+                  "timeout" : 60000,
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.COPY"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "Copy",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "拷贝",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.COPY"
+                },
+                "uIActionTarget" : "SINGLEKEY",
+                "showCaption" : true,
+                "showIcon" : true
+              }, {
+                "itemType" : "SEPERATOR",
+                "name" : "tbitem7"
+              }, {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.REMOVE"
+                },
+                "caption" : "删除",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem8",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem8"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf00d@FontAwesome",
+                  "cssClass" : "fa fa-remove"
+                },
+                "getPSUIAction" : {
+                  "actionTarget" : "MULTIKEY",
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.REMOVE"
+                  },
+                  "caption" : "删除",
+                  "codeName" : "Remove",
+                  "fullCodeName" : "Remove",
+                  "name" : "表格界面_删除操作",
+                  "getPSSysImage" : {
+                    "glyph" : "xf00d@FontAwesome",
+                    "cssClass" : "fa fa-remove"
+                  },
+                  "predefinedType" : "GRIDVIEW_REMOVEACTION",
+                  "timeout" : 60000,
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "Remove",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "删除",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+                },
+                "uIActionTarget" : "MULTIKEY",
+                "showCaption" : true,
+                "showIcon" : true
+              }, {
+                "itemType" : "SEPERATOR",
+                "name" : "tbitem9"
+              }, {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.EXPORT"
+                },
+                "caption" : "导出",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem13",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem13"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf1c3@FontAwesome",
+                  "cssClass" : "fa fa-file-excel-o"
+                },
+                "getPSUIAction" : {
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.EXPORT"
+                  },
+                  "caption" : "导出",
+                  "codeName" : "ExportExcel",
+                  "fullCodeName" : "ExportExcel",
+                  "name" : "表格界面_导出操作（Excel）",
+                  "getPSSysImage" : {
+                    "glyph" : "xf1c3@FontAwesome",
+                    "cssClass" : "fa fa-file-excel-o"
+                  },
+                  "predefinedType" : "GRIDVIEW_EXPORTACTION",
+                  "timeout" : 60000,
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.EXPORT"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "ExportExcel",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "导出",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.EXPORT"
+                },
+                "showCaption" : true,
+                "showIcon" : true
+              }, {
+                "itemType" : "SEPERATOR",
+                "name" : "tbitem10"
+              }, {
+                "caption" : "导入",
+                "groupExtractMode" : "ITEM",
+                "itemType" : "DEUIACTION",
+                "name" : "tbitem23",
+                "noPrivDisplayMode" : 2,
+                "getPSAppViewUIAction" : {
+                  "modelref" : true,
+                  "id" : "toolbar_tbitem23"
+                },
+                "getPSSysImage" : {
+                  "glyph" : "xf093@FontAwesome",
+                  "cssClass" : "fa fa-upload"
+                },
+                "getPSUIAction" : {
+                  "caption" : "数据导入",
+                  "codeName" : "Import",
+                  "fullCodeName" : "Import",
+                  "name" : "表格界面_数据导入栏",
+                  "getPSSysImage" : {
+                    "glyph" : "xf093@FontAwesome",
+                    "cssClass" : "fa fa-upload"
+                  },
+                  "predefinedType" : "GRIDVIEW_IMPORTBAR",
+                  "timeout" : 60000,
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "Import",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "导入",
+                "showCaption" : true,
+                "showIcon" : true
+              } ],
+              "xDataControlName" : "grid",
+              "modelid" : "b912ff540f5614f63914a38067d84728",
+              "modeltype" : "PSDETOOLBAR"
+            } ],
+            "getPSDEViewCodeName" : "GridView",
+            "getPSDEViewId" : "db2ea444a38cd061a413200d8c64012a",
+            "getPSViewLayoutPanel" : {
+              "codeName" : "Layoutpanel",
+              "controlStyle" : "APPDEGRIDVIEW",
+              "controlType" : "VIEWLAYOUTPANEL",
+              "name" : "layoutpanel",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+              },
+              "getPSControlParam" : { },
+              "layoutBodyOnly" : true,
+              "layoutPanel" : true,
+              "useDefaultLayout" : true
+            },
+            "title" : "系统应用表格视图",
+            "viewStyle" : "DEFAULT",
+            "viewType" : "DEGRIDVIEW",
+            "xDataControlName" : "grid",
+            "enableDP" : true,
+            "enableExport" : true,
+            "enableFilter" : true,
+            "enableImport" : true,
+            "enableQuickSearch" : true,
+            "enableRowEdit" : false,
+            "enableSearch" : true,
+            "rowEditDefault" : false,
+            "modelid" : "03996289f2864214363b74005d087c9a",
+            "modeltype" : "PSAPPDEVIEW",
+            "getPSAppDERSPaths" : [ [ {
+              "actionRSMode" : 1,
+              "codeName" : "SysPSSystemApps",
+              "dataRSMode" : 0,
+              "majorDECodeName" : "SysPSSystem",
+              "majorDEName" : "SYS_PSSYSTEM",
+              "getMajorPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+              },
+              "minorDECodeName" : "SysPSSystemApp",
+              "minorDEName" : "SYS_PSSYSTEMAPP",
+              "getMinorPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystemApp.json"
+              },
+              "name" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID",
+              "getParentPSAppDEField" : {
+                "name" : "SYSTEMID",
+                "codeName" : "SystemId"
+              },
+              "rSMode" : 2
+            } ] ]
+          },
+          "getPSLayoutPos" : {
+            "grow" : 1,
+            "layout" : "FLEX"
+          },
+          "parentDataJO" : {
+            "srfparentdefname" : "SYSTEMID",
+            "srfparentdename" : "SYS_PSSYSTEM",
+            "SRFPARENTTYPE" : "DER1N",
+            "srfparentmode" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID",
+            "SRFDER1NID" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID"
+          },
+          "needSave" : false,
+          "refreshItemsSetParamOnly" : false,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "dir" : "column",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : 1,
+          "layout" : "FLEX"
+        },
+        "infoGroupMode" : false,
+        "showCaption" : false
+      } ],
+      "getPSLayout" : {
+        "dir" : "column",
+        "layout" : "FLEX"
+      },
+      "infoGroupMode" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "getRemovePSControlAction" : {
+      "modelref" : true,
+      "id" : "remove"
+    },
+    "tabHeaderPos" : "TOP",
+    "getUpdatePSControlAction" : {
+      "modelref" : true,
+      "id" : "update"
+    },
+    "noTabHeader" : true,
+    "name" : "form",
+    "modelid" : "7bd03bf467d3002c30085a90008ee35c",
+    "modeltype" : "PSDEFORM_EDITFORM"
+  } ],
+  "getPSDEViewCodeName" : "EditView",
+  "getPSDEViewId" : "60a0cf3db58fef8116762594741ed7b8",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDEEDITVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "部署系统编辑视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEEDITVIEW",
+  "xDataControlName" : "form",
+  "enableDP" : true,
+  "showDataInfoBar" : true,
+  "modelid" : "5edb63ad2c97a156113faa5d5b8b7993",
+  "modeltype" : "PSAPPDEVIEW"
+}

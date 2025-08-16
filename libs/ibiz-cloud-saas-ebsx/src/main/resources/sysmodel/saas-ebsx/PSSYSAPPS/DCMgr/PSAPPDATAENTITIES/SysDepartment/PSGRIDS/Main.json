@@ -1,0 +1,399 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "ASC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "SHOWORDER",
+    "codeName" : "ShowOrder"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEDataImport" : {
+    "modelref" : true,
+    "id" : "DataImport"
+  },
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "CONTROL.UPLOADER.CANCEL.TIPS"
+    },
+    "caption" : "部门代码",
+    "codeName" : "deptcode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "deptcode",
+    "excelCaption" : "部门代码",
+    "name" : "deptcode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEPTCODE",
+      "codeName" : "DeptCode"
+    },
+    "width" : 130,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "CONTROL.DATAGRIDROWCOUNTLIST.PAGEFMT"
+    },
+    "caption" : "部门名称",
+    "codeName" : "deptname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "deptname",
+    "excelCaption" : "部门名称",
+    "name" : "deptname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    },
+    "width" : 240,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.OTHER"
+    },
+    "caption" : "部门简称",
+    "codeName" : "shortname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "shortname",
+    "excelCaption" : "部门简称",
+    "name" : "shortname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SHORTNAME",
+      "codeName" : "ShortName"
+    },
+    "width" : 130,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "单位",
+    "codeName" : "orgname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "orgname",
+    "excelCaption" : "单位",
+    "name" : "orgname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "width" : 240,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "上级部门",
+    "codeName" : "pdeptname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pdeptname",
+    "excelCaption" : "上级部门",
+    "name" : "pdeptname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PDEPTNAME",
+      "codeName" : "ParentDeptName"
+    },
+    "width" : 130,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.LOGIC"
+    },
+    "caption" : "业务编码",
+    "codeName" : "bcode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "bcode",
+    "excelCaption" : "业务编码",
+    "name" : "bcode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "width" : 120,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.AUDIT"
+    },
+    "caption" : "排序",
+    "codeName" : "showorder",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "showorder",
+    "excelCaption" : "排序",
+    "name" : "showorder",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "width" : 120,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "CTRL.SERVICE.CHECKFIELDREGEXRULE_INVALIDVALUE"
+    },
+    "caption" : "更新时间",
+    "codeName" : "updatedate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "updatedate",
+    "excelCaption" : "更新时间",
+    "name" : "updatedate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 200,
+    "widthUnit" : "px",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "单位",
+    "codeName" : "orgid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "orgid",
+    "excelCaption" : "单位",
+    "hideMode" : 1,
+    "name" : "orgid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true,
+    "hideDefault" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "上级部门",
+    "codeName" : "pdeptid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pdeptid",
+    "excelCaption" : "上级部门",
+    "hideMode" : 1,
+    "name" : "pdeptid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PDEPTID",
+      "codeName" : "ParentDeptId"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true,
+    "hideDefault" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "分管领导标识",
+    "codeName" : "leaderid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "leaderid",
+    "excelCaption" : "分管领导标识",
+    "hideMode" : 1,
+    "name" : "leaderid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "LEADERID",
+      "codeName" : "LeaderId"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true,
+    "hideDefault" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "deptcode",
+    "getPSAppDEField" : {
+      "name" : "DEPTCODE",
+      "codeName" : "DeptCode"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "deptname",
+    "getPSAppDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "shortname",
+    "getPSAppDEField" : {
+      "name" : "SHORTNAME",
+      "codeName" : "ShortName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "orgname",
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "pdeptname",
+    "getPSAppDEField" : {
+      "name" : "PDEPTNAME",
+      "codeName" : "ParentDeptName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "bcode",
+    "getPSAppDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "showorder",
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "updatedate",
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "orgid",
+    "getPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "pdeptid",
+    "getPSAppDEField" : {
+      "name" : "PDEPTID",
+      "codeName" : "ParentDeptId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "leaderid",
+    "getPSAppDEField" : {
+      "name" : "LEADERID",
+      "codeName" : "LeaderId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DEPTID",
+      "codeName" : "DeptId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "DEPTID",
+      "codeName" : "DeptId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "部门标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DEPTID",
+      "codeName" : "DeptId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDepartment.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "3226950797d99ce403f7cd1ae6379892",
+  "modeltype" : "PSDEGRID"
+}

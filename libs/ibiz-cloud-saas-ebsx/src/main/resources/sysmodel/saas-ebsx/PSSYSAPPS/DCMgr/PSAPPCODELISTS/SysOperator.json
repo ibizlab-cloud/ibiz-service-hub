@@ -1,0 +1,27 @@
+{
+  "cacheTimeout" : 5000,
+  "codeListTag" : "uaa__SysOperator",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "SysOperator",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/SysOperator.json",
+  "emptyText" : "未定义",
+  "name" : "云系统操作者",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "FetchDefault"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysEmployee.json"
+  },
+  "getTextPSAppDEField" : {
+    "name" : "PERSONNAME",
+    "codeName" : "PersonName"
+  },
+  "getValuePSAppDEField" : {
+    "name" : "USERCODE",
+    "codeName" : "UserCode"
+  },
+  "enableCache" : true
+}

@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList97",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList97",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList97.json",
+  "emptyText" : "未定义",
+  "name" : "数据同步方向",
+  "getPSCodeItems" : [ {
+    "codeName" : "In",
+    "text" : "输入",
+    "value" : "IN"
+  }, {
+    "codeName" : "Out",
+    "text" : "输出",
+    "value" : "OUT"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00104",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

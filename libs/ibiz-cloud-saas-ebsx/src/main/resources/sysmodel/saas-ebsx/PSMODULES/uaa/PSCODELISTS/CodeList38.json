@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList38",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList38",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList38.json",
+  "emptyText" : "未定义",
+  "name" : "服务运行状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "Start",
+    "text" : "启动",
+    "value" : "START"
+  }, {
+    "codeName" : "Stop",
+    "text" : "停止",
+    "value" : "STOP"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00047",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

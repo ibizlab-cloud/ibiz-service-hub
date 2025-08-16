@@ -1,0 +1,4840 @@
+{
+  "psappsbitems" : [ {
+    "psappviewname" : "DCPOGridView",
+    "psappsbitemname" : "租户性能日志表格视图",
+    "itemtag2" : "2a2827a0787bcd08bc93d28e92581cc9",
+    "psappviewid" : "5d31cd217137c829a9da984931d24572",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCPOGridView.json",
+    "psappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFMemberEditView",
+    "psappsbitemname" : "成员编辑视图",
+    "itemtag2" : "ff3ca13535117a3a09159432b58fa3a5",
+    "psappviewid" : "b2ae7ec987e9e58971e4644124f7d2e2",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFMemberEditView.json",
+    "psappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "EmployeeEditView",
+    "psappsbitemname" : "人员管理",
+    "itemtag2" : "33185d751e1dd1a595c33287b812d528",
+    "psappviewid" : "22c9a221f85d722be5eff7dbd4070732",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeEditView.json",
+    "psappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionMPickupView",
+    "psappsbitemname" : "权限表数据多项选择视图",
+    "itemtag2" : "85e4d2ee36c138ad44fc6b8dc53f4f3e",
+    "psappviewid" : "b8c87be060e3fe586490dcd697ad9791",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionMPickupView.json",
+    "psappsbitemid" : "1a628cbf814f36495e857e631c0e870f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenUserEditView",
+    "psappsbitemname" : "第三方用户编辑视图",
+    "itemtag2" : "907a45ae95f297de0f551c46a18cda5d",
+    "psappviewid" : "14973b0699388e29fd7a61d1816ee1fe",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenUserEditView.json",
+    "psappsbitemid" : "75f92939d28f3a816f3194237f123855",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDynaInstEditView",
+    "psappsbitemname" : "租户实例编辑视图",
+    "itemtag2" : "830d5920372549adac46c83a25d5c88e",
+    "psappviewid" : "17cc103af58e6cd446c64dd2e3d21dbc",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDynaInstEditView.json",
+    "psappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RolePermissionGridView2",
+    "psappsbitemname" : "角色权限关系表表格视图",
+    "itemtag2" : "b49b60fcf1a4f4240bd9fe942a16109b",
+    "psappviewid" : "fa514c010d01f62a6a68e34af391787b",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RolePermissionGridView2.json",
+    "psappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCMetaDynaModelDynaInstEditView",
+    "psappsbitemname" : "模型版本编辑视图",
+    "itemtag2" : "21CA3B41-6E1D-4CAF-A102-6BCDF409EEDE",
+    "psappviewid" : "709bb5a16531112d5ad633387f9d3260",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCMetaDynaModelDynaInstEditView.json",
+    "psappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RolePickupGridView",
+    "psappsbitemname" : "角色选择表格视图",
+    "itemtag2" : "55dd6568a03d7f02918a886db7db7b7b",
+    "psappviewid" : "5d236f2bd76a084ead9e586248f04c67",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RolePickupGridView.json",
+    "psappsbitemid" : "c4abad1dafcc57b1f15ccb39e687138d",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenAccessTreeExpView",
+    "psappsbitemname" : "开放应用树导航视图",
+    "itemtag2" : "7B475A32-1D27-4806-89D5-FF99EBFFB039",
+    "psappviewid" : "bbe9d1b156de1de7daf490f65f8aa643",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTreeExpView.json",
+    "psappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCLogEditView",
+    "psappsbitemname" : "租户日志编辑视图",
+    "itemtag2" : "3416894b569c54f938d0698fffc97cda",
+    "psappviewid" : "3919d1bf191b47b45928fdc15f048901",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogEditView.json",
+    "psappsbitemid" : "dbb80b56f2c7e38b148c61467cee68c9",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "TeamGridView",
+    "psappsbitemname" : "组管理",
+    "itemtag2" : "46a7c00ec586550a275f509349cd7871",
+    "psappviewid" : "4c4041f778ead7fa5b02335ea16af261",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/TeamGridView.json",
+    "psappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgSendQueueEditView",
+    "psappsbitemname" : "消息发送队列编辑视图",
+    "itemtag2" : "7d154d594985ac9826b78fa32aa74a0f",
+    "psappviewid" : "e30d8af8a91546bdea3bd90586652501",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgSendQueueEditView.json",
+    "psappsbitemid" : "08ddc035f2b46d693b6a5539695e53a8",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCLogGridView",
+    "psappsbitemname" : "租户日志表格视图",
+    "itemtag2" : "8425a8f4406340dc7705d8522ec4c615",
+    "psappviewid" : "83bc752b1f5615dac42e59937ef8e67f",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogGridView.json",
+    "psappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFInstanceEditView",
+    "psappsbitemname" : "实例编辑视图",
+    "itemtag2" : "26e3e0196fe58131847b594d831e838f",
+    "psappviewid" : "c1d242ff51d50c57541e746449d6dd9c",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFInstanceEditView.json",
+    "psappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCAuditGridView",
+    "psappsbitemname" : "租户审计日志表格视图",
+    "itemtag2" : "8a116bcabc1923da15ed8d6427c956c5",
+    "psappviewid" : "0cfbfe45c041766dc76c1cd84b319e6f",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditGridView.json",
+    "psappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PostEditView",
+    "psappsbitemname" : "岗位管理",
+    "itemtag2" : "e00d3514930673d38df04427ad0ad55c",
+    "psappviewid" : "2e43901d4596f1176dd052ec2b4343db",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PostEditView.json",
+    "psappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "TeamEditView",
+    "psappsbitemname" : "组管理",
+    "itemtag2" : "8dde06f367b72590d26e33beaf4a316c",
+    "psappviewid" : "acec47eafd8e52b896e769d0062988cc",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/TeamEditView.json",
+    "psappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCEventEditView",
+    "psappsbitemname" : "租户事件编辑视图",
+    "itemtag2" : "c0be17ae14d6032bdbe91ce35e9350f5",
+    "psappviewid" : "fccf4ec1b8b1f08e8d45c2a140b4237e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCEventEditView.json",
+    "psappsbitemid" : "78b2710060cc75ffeff8edaf53f873c8",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "AppPortalView",
+    "psappsbitemname" : "应用门户视图",
+    "psappviewid" : "A46274E6-AD2A-48E1-BD28-6A9A6F4B3647",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPPORTALVIEWS/AppPortalView.json",
+    "psappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DepartmentOptionView",
+    "psappsbitemname" : "部门快速新建",
+    "itemtag2" : "c85ae09dc35e8787d8ae633f2904d16f",
+    "psappviewid" : "23407d677a42d4f366de2b20c6de2b18",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentOptionView.json",
+    "psappsbitemid" : "33907f83242759f7febb54405d1f5dd1",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCCenterEditView",
+    "psappsbitemname" : "租户编辑视图",
+    "itemtag2" : "19168b69495aad17282feb7a138bd21a",
+    "psappviewid" : "a0f06cd68135ac36cb86273ca2ea7890",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCCenterEditView.json",
+    "psappsbitemid" : "ceebc9999f6b07c019f94d523e5761bc",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DataAuditGridView",
+    "psappsbitemname" : "访问日志表格视图",
+    "itemtag2" : "b6e51af4125dae68f8b066c97708a581",
+    "psappviewid" : "bf00cb18558fb0b8b276eec2aee3c995",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DataAuditGridView.json",
+    "psappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCOrgSystemGridView",
+    "psappsbitemname" : "租户机构系统表格视图",
+    "itemtag2" : "5bdd2053ebd6aaf32bfbe7398d2c4f60",
+    "psappviewid" : "0b5e17800dba8e10673e7cf9dac52d4d",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCOrgSystemGridView.json",
+    "psappsbitemid" : "66bba92424a1a450590d755601785569",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFGroupPickupGridView",
+    "psappsbitemname" : "角色/用户组选择表格视图",
+    "itemtag2" : "acf36cb44a0ea0223d99a3f91c432bf1",
+    "psappviewid" : "bcad6fc1fb3decf5862faa727aa90aef",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFGroupPickupGridView.json",
+    "psappsbitemid" : "322e93cfbc6b2db8b161e3b72a3d2fd1",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DictOptionGridView",
+    "psappsbitemname" : "字典项表格视图",
+    "itemtag2" : "3507d66a5c5b06a5db7a00f46439c1af",
+    "psappviewid" : "75d139d40711edc3d8a9c10465130173",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictOptionGridView.json",
+    "psappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DictCatalogGridView",
+    "psappsbitemname" : "字典表格视图",
+    "itemtag2" : "4d5a82fe7c43f84378f439ae0f8a6bd1",
+    "psappviewid" : "131bf15357386405b3c9ca501b623207",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictCatalogGridView.json",
+    "psappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DeptMemberEditView",
+    "psappsbitemname" : "部门成员编辑视图",
+    "itemtag2" : "644898789d464311ed489848d07d8a77",
+    "psappviewid" : "aee161db2c2bf446be4c7944ba20cebd",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DeptMemberEditView.json",
+    "psappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "TeamMemberGridView",
+    "psappsbitemname" : "组成员表格视图",
+    "itemtag2" : "726cd26a7f29e91bf2409f65613b2e6b",
+    "psappviewid" : "215794eac1eb7414dd6f5133e29df0b2",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/TeamMemberGridView.json",
+    "psappsbitemid" : "78b922af2c40c045386047519c875379",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenAccessGridView",
+    "psappsbitemname" : "开放应用",
+    "itemtag2" : "1aaf023494486832f8376631d9904586",
+    "psappviewid" : "cff607a7079ee90f21ef2d6a7859f899",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessGridView.json",
+    "psappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RoleGridView",
+    "psappsbitemname" : "角色",
+    "itemtag2" : "f69d298b92896e11e6d7239fad2acd32",
+    "psappviewid" : "300d7f44e44397a72e13eed03116afad",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RoleGridView.json",
+    "psappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DataAuditRecentView",
+    "psappsbitemname" : "访问日志日历视图",
+    "itemtag2" : "08adbb6571e6537f495747ec9477ac15",
+    "psappviewid" : "6b6b2dbeca04e285b3fff4f35036616b",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DataAuditRecentView.json",
+    "psappsbitemid" : "40229ff9da317ce0f1a0f2c44bc04634",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "UserRoleEditView",
+    "psappsbitemname" : "用户",
+    "itemtag2" : "c5f234ff13dd92eaf31ae077862f4b6e",
+    "psappviewid" : "63c8c921413614661a2d2ad4776076d3",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/UserRoleEditView.json",
+    "psappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "UserRoleGridView3",
+    "psappsbitemname" : "用户角色关系表表格视图",
+    "itemtag2" : "84248467e6872a437b9c3e1cc4e5a97d",
+    "psappviewid" : "3fa79c012dc8a46b22c55baf589e9546",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/UserRoleGridView3.json",
+    "psappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCJobsInfoEditView",
+    "psappsbitemname" : "租户作业编辑视图",
+    "itemtag2" : "8545b06ca256846348be93f6aedf641d",
+    "psappviewid" : "8fac911a84d56bee3a552a7ca30012d1",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsInfoEditView.json",
+    "psappsbitemid" : "50d7711c82b63dc0de4a3c0027008008",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCEventGridView",
+    "psappsbitemname" : "租户事件表格视图",
+    "itemtag2" : "b474fa94be74fd27838d115a26adcf48",
+    "psappviewid" : "77c6d6033499d812d83ebc2d60d16b99",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCEventGridView.json",
+    "psappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCAuditEditView",
+    "psappsbitemname" : "租户审计日志编辑视图",
+    "itemtag2" : "acdfaaa5cd36cd8158dae6573b7941db",
+    "psappviewid" : "88456c413c1e4f7c8162feab74b62e83",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditEditView.json",
+    "psappsbitemid" : "b3116335b38f0e0fbcfff3493adb59a3",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OrganizationTreeExpView",
+    "psappsbitemname" : "部门管理",
+    "itemtag2" : "460f1b5af10879db264ee21a2ce91188",
+    "psappviewid" : "c80090817d36be813ef2799657c4e5d9",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationTreeExpView.json",
+    "psappsbitemid" : "5942f75c0176055d4fcf9b9dffa99eca",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "EmployeeOptionView",
+    "psappsbitemname" : "人员快速新建",
+    "itemtag2" : "b77f19f08e90e50b23e81d3170635f68",
+    "psappviewid" : "18a020a6a6c51e68978a4b0b525791c0",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeOptionView.json",
+    "psappsbitemid" : "1b247e34bfcbafd1b64b6fe1543c3b4f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DepartmentEditView",
+    "psappsbitemname" : "部门管理",
+    "itemtag2" : "b22f6e5e7aa615e1c620bfe7dc8c888f",
+    "psappviewid" : "7708f9ee91b9f2a09d6e7949ac5884e3",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentEditView.json",
+    "psappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenAccessEditView",
+    "psappsbitemname" : "开放应用",
+    "itemtag2" : "c76efe34255bfd2f29e5965680c376c1",
+    "psappviewid" : "beee8849168ede3f86d14b8a3a2a2278",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessEditView.json",
+    "psappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OrganizationGridView",
+    "psappsbitemname" : "单位管理",
+    "itemtag2" : "30c260299ef200e063507e36f50b1c14",
+    "psappviewid" : "7f6f80ef5bd12a6c1419b63929543605",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationGridView.json",
+    "psappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFDefinitionEditView",
+    "psappsbitemname" : "流程定义查看",
+    "itemtag2" : "4bfd771ba7f31fd88151c3d973bb6346",
+    "psappviewid" : "e578bd2067c19248a4d6144e494fee36",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFDefinitionEditView.json",
+    "psappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RoleEditView",
+    "psappsbitemname" : "角色",
+    "itemtag2" : "7a221400f3cf5af17c16d5dba8b5e418",
+    "psappviewid" : "0e2350b2db5cee5c06738f2e5abff722",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RoleEditView.json",
+    "psappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "EmployeeGridView",
+    "psappsbitemname" : "人员表格视图",
+    "itemtag2" : "2bedc62bb2cd39e8af9bd71861d2926e",
+    "psappviewid" : "049e0b86c83d5375ecb391a263bb62f5",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeGridView.json",
+    "psappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCJobsLogEditView",
+    "psappsbitemname" : "作业日志编辑视图",
+    "itemtag2" : "3b673219019f7882caabe706d4c08703",
+    "psappviewid" : "d8a5372805d5b378a61caa3d79003824",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsLogEditView.json",
+    "psappsbitemid" : "42b619f2e6ea596271de66a5be0b83ec",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RolePermissionEditView",
+    "psappsbitemname" : "角色权限关系表编辑视图",
+    "itemtag2" : "157d5ca013c38e5ac9f88f5b84d33f66",
+    "psappviewid" : "5c487ab69c5ff1116575b9b70af5db40",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RolePermissionEditView.json",
+    "psappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionActionGridView",
+    "psappsbitemname" : "权限操作表格视图",
+    "itemtag2" : "604f5952b8023bb6106346f5c3c864a6",
+    "psappviewid" : "fbd485d92d092875aea8136cc88aca66",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionGridView.json",
+    "psappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "RoleMPickupView",
+    "psappsbitemname" : "角色数据多项选择视图",
+    "itemtag2" : "fe3467557143520c9626c7092d55ac92",
+    "psappviewid" : "9e3fa9e88dfc1d03793a8e3704d2ea9c",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/RoleMPickupView.json",
+    "psappsbitemid" : "e60a1d2eb39d6822533b545905cedc66",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "TeamMemberEditView",
+    "psappsbitemname" : "组成员编辑视图",
+    "itemtag2" : "1b09367d60fbb1a4b22b7273327b6b69",
+    "psappviewid" : "8d566b86f2ece78fd355973c0f450bc7",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/TeamMemberEditView.json",
+    "psappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DictCatalogEditView",
+    "psappsbitemname" : "字典编辑视图",
+    "itemtag2" : "e72c189f1f8d91042d8461e9b1f9c605",
+    "psappviewid" : "8aed92db2b7e1d78ebde522b6c9468ad",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictCatalogEditView.json",
+    "psappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DepartmentGridView",
+    "psappsbitemname" : "部门表格视图",
+    "itemtag2" : "159a6b10caf8f7114b1589067dac045a",
+    "psappviewid" : "50195af3e4d4190d7d461e6391df7690",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentGridView.json",
+    "psappsbitemid" : "92f546b63889c7e586484def28893255",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "IndexView",
+    "psappsbitemname" : "iBizCloud后台管理首页",
+    "rootitem" : 1,
+    "psappviewid" : "C98E3096-B36F-417C-957D-54E214D69E9F",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPINDEXVIEWS/IndexView.json",
+    "psappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFMemberUnGroupGridView",
+    "psappsbitemname" : "成员表格视图",
+    "itemtag2" : "CFFEFEB4-6DE2-4D3F-934B-1A6C9531BF2C",
+    "psappviewid" : "56b6e0337ff3ca23fa72ac6900e5ecc9",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFMemberUnGroupGridView.json",
+    "psappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFDefinitionGridView",
+    "psappsbitemname" : "流程定义",
+    "itemtag2" : "199e452f99b5ac72680afff67eea2634",
+    "psappviewid" : "836837547ddcc57cfb2911a33c5b8252",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFDefinitionGridView.json",
+    "psappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCPOEditView",
+    "psappsbitemname" : "租户性能日志编辑视图",
+    "itemtag2" : "40c0c743a1e45099f4e16cc7138958cc",
+    "psappviewid" : "01528fc4d062a493fe6d1e5d47c0c01c",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCPOEditView.json",
+    "psappsbitemid" : "8470cc1a04d75f04b60712eb4d43d5bc",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionGridView",
+    "psappsbitemname" : "权限表表格视图",
+    "itemtag2" : "753b8dd36e9a929c27df9b0feab04b09",
+    "psappviewid" : "8bb1708da58b4851da8f8449b614d73e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionGridView.json",
+    "psappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionActionEditView",
+    "psappsbitemname" : "权限操作编辑视图",
+    "itemtag2" : "c156765d397ea87e4cc48e1817079953",
+    "psappviewid" : "dbfceda6059e4c60c375b599ade2551e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionActionEditView.json",
+    "psappsbitemid" : "e0d8b0170000b1173ce62e4aacebe9c0",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFMemberGridView",
+    "psappsbitemname" : "成员表格视图",
+    "itemtag2" : "bfc496b80fc33a78e04928a441b196c1",
+    "psappviewid" : "2d2d47a88fa1a487fc3ca7ddb123ea13",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFMemberGridView.json",
+    "psappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCMetaDynaModelEditView",
+    "psappsbitemname" : "模型版本编辑视图",
+    "itemtag2" : "93b5e042b139dd4b0d38699d4ff3cc56",
+    "psappviewid" : "da1abf6098f0d9ef10e9d6387fae9e35",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCMetaDynaModelEditView.json",
+    "psappsbitemid" : "17bf9219e546ff2a87539198b8c9c94b",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFInstanceGridView",
+    "psappsbitemname" : "实例表格视图",
+    "itemtag2" : "8feb1e95b6301e620642ba92d9e3f566",
+    "psappviewid" : "31a6652fcd843e1441aa40c4506a61d4",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFInstanceGridView.json",
+    "psappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFInstanceOptionView",
+    "psappsbitemname" : " 流程实例选项操作视图",
+    "itemtag2" : "ad19032e209b8f13adecea10394cd46e",
+    "psappviewid" : "3ce2601c8782f28cc531455303d55526",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFInstanceOptionView.json",
+    "psappsbitemid" : "a8fabb30ee5ffdd5f802745a70cdbf0c",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenAccessTabExpView",
+    "psappsbitemname" : "开放应用分页导航视图",
+    "itemtag2" : "5D18870D-72F8-4B2A-9D4C-BF1A7509A23B",
+    "psappviewid" : "4048040df7de8f03a6098ba28bd4aa8a",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+    "psappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DeptMemberGridView",
+    "psappsbitemname" : "部门成员表格视图",
+    "itemtag2" : "6c02d864a6e76c4bb5d787965a6b42f0",
+    "psappviewid" : "20027ab79e25205066c43feffcc56a2e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DeptMemberGridView.json",
+    "psappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCCenterInfoView",
+    "psappsbitemname" : "租户编辑视图",
+    "itemtag2" : "206df8865562b81341f0c56aa41fb56a",
+    "psappviewid" : "cd707a2a0ce67662cec8e9cea94e612e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCCenterInfoView.json",
+    "psappsbitemid" : "7c25bab6247c85e99ff5d05e34420274",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCLogDeLogicEditView",
+    "psappsbitemname" : "租户日志编辑视图",
+    "itemtag2" : "4E6C15A1-7409-4137-A97C-AC5C19B1A5DE",
+    "psappviewid" : "1bce5ac734e75429ec54314a70e82b0c",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogDeLogicEditView.json",
+    "psappsbitemid" : "c328e2588ed8ba7ad5db17133d404048",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFGroupGridView",
+    "psappsbitemname" : "角色/用户组表格视图",
+    "itemtag2" : "721b5af469f65bccfb4277a6b92deda6",
+    "psappviewid" : "da212dc8c7bf1c6485d4fc30c3e56eee",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFGroupGridView.json",
+    "psappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDCSystemDataView_Portal",
+    "psappsbitemname" : "租户系统数据视图",
+    "itemtag2" : "77a25ce20b2e931bdc984535c3264ed6",
+    "psappviewid" : "644a9c1b4fe0df7aaa32d1051e83ac20",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemDataView_Portal.json",
+    "psappsbitemid" : "ab0c57b4e34aeb1c3e08c2351d3aea78",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDCSystemEditView",
+    "psappsbitemname" : "租户系统编辑视图",
+    "itemtag2" : "2697ad6e9ad23584d552c5c60d7e63d8",
+    "psappviewid" : "83b60b3d6cef2df46f68b8b3be1286a8",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemEditView.json",
+    "psappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCMetaDynaModelGridView",
+    "psappsbitemname" : "模型版本表格视图",
+    "itemtag2" : "9d6e419465a5b0f72b47ac68799c9bae",
+    "psappviewid" : "12cdc8c589ccee94686c95564a98493e",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCMetaDynaModelGridView.json",
+    "psappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDCSystemGridView",
+    "psappsbitemname" : "租户系统表格视图",
+    "itemtag2" : "93f35899c373a4c85279aee61c79dc8e",
+    "psappviewid" : "ea60fcb156b7f8dc68c736f987d44e7c",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemGridView.json",
+    "psappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "EmployeePickupGridView",
+    "psappsbitemname" : "人员选择表格视图",
+    "itemtag2" : "fe2e1f6c891069e4d6971cd3723b74c2",
+    "psappviewid" : "f708c94066a71d121faf9b209adb3617",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeePickupGridView.json",
+    "psappsbitemid" : "4bce5c7d9333beb2253b5cb9a656a025",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "BulletinGridView_Portal",
+    "psappsbitemname" : " 系统公告表格视图",
+    "itemtag2" : "764e9ed80d02c1d355088247464bbcc8",
+    "psappviewid" : "ff4afdda806e973ec1b17197370fd8fd",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/BulletinGridView_Portal.json",
+    "psappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFGroupEditView",
+    "psappsbitemname" : "角色/用户组编辑视图",
+    "itemtag2" : "98741f3ac0219f915482ab916ee8a62b",
+    "psappviewid" : "e8249cec95f61510df385fac1c56021b",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFGroupEditView.json",
+    "psappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCLogDeLogicGridView",
+    "psappsbitemname" : "租户日志表格视图",
+    "itemtag2" : "69917C69-8596-4EF2-90EF-9C365A1463F7",
+    "psappviewid" : "93b4d87ba791de113d4c1ae66dd84fe3",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogDeLogicGridView.json",
+    "psappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenDeptEditView",
+    "psappsbitemname" : "第三方部门编辑视图",
+    "itemtag2" : "7f2615cbd6f0cccbe5919ee6359389ce",
+    "psappviewid" : "692cbfaf75988085baf96f3e220a795a",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+    "psappsbitemid" : "a1f037c0fa9df813f481360c82aac173",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "EmployeeMPickupView",
+    "psappsbitemname" : "人员数据多项选择视图",
+    "itemtag2" : "ed34056a0e4bb0b213ce0759f2a56402",
+    "psappviewid" : "b28521d0e104ad4f26afc9f82b2b3573",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/EmployeeMPickupView.json",
+    "psappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDCSystemLogTreeExpView",
+    "psappsbitemname" : "租户系统树导航视图",
+    "itemtag2" : "FFB110FD-E52E-4637-BB97-5DCD936138D3",
+    "psappviewid" : "592bf09a8928c40174b76aa0b9f718f1",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDCSystemLogTreeExpView.json",
+    "psappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OrganizationEditView",
+    "psappsbitemname" : "单位管理",
+    "itemtag2" : "747bfd4a8ad113896206e3af463fb0b5",
+    "psappviewid" : "d857ce630b62e2eef6f24c93416df147",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationEditView.json",
+    "psappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OrganizationOptionView",
+    "psappsbitemname" : "单位快速新建",
+    "itemtag2" : "cfe5d08d1e646ccd52fd76f9c299f11c",
+    "psappviewid" : "7d895810fa31488b77a6825b64839dde",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OrganizationOptionView.json",
+    "psappsbitemid" : "0bd53f7520ae5ea49ae02a59cd12886f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DictOptionLineEdit",
+    "psappsbitemname" : "行编辑表格视图",
+    "itemtag2" : "ce3b60dda13e0fca3b3a9cf5e7ecce9c",
+    "psappviewid" : "a395c35fff89cf15ef98bf6d8c670498",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictOptionLineEdit.json",
+    "psappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCJobsLogGridView",
+    "psappsbitemname" : "作业日志表格视图",
+    "itemtag2" : "8c944090a0d21da978aecbad3f83620f",
+    "psappviewid" : "f7e299a7ab911b721fe12b564c7b7da9",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsLogGridView.json",
+    "psappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PostGridView",
+    "psappsbitemname" : "岗位管理",
+    "itemtag2" : "02e79448e0e1b2b68271e60d664a9e9f",
+    "psappviewid" : "f088bf4fb5de9e5cfcac34560925f58b",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PostGridView.json",
+    "psappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCOrgSystemEditView",
+    "psappsbitemname" : "租户机构系统编辑视图",
+    "itemtag2" : "659748b5fc6c285963b4211d09a87086",
+    "psappviewid" : "ca1bc2a4dd8b21abd61e4951a719c843",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCOrgSystemEditView.json",
+    "psappsbitemid" : "c375b9455d53af71acd221e949c08d25",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionEditView",
+    "psappsbitemname" : "权限表编辑视图",
+    "itemtag2" : "f8b075510cc667df5e1b42b5cf252bcd",
+    "psappviewid" : "15bb7f53d0c41c2b0af9a112cfb77718",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionEditView.json",
+    "psappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenUserGridView",
+    "psappsbitemname" : "第三方用户表格视图",
+    "itemtag2" : "03bd8be091b04b784e0dbda5b6caae48",
+    "psappviewid" : "2849089699554ae9f496f0831835e7a2",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenUserGridView.json",
+    "psappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCMetaDynaModelDynaInstGridView",
+    "psappsbitemname" : "动态模型表格视图",
+    "itemtag2" : "B83FAEE9-8EB7-4C0D-BA09-B446FD8158F3",
+    "psappviewid" : "190f114a5c16b7f16bda854ad5113a32",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCMetaDynaModelDynaInstGridView.json",
+    "psappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgTemplateEditView",
+    "psappsbitemname" : "消息模板编辑视图",
+    "itemtag2" : "c4c08015ec7820285166f2ea66ca3341",
+    "psappviewid" : "b920c70e92317df1facdc51641a41cff",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgTemplateEditView.json",
+    "psappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DictOptionEditView",
+    "psappsbitemname" : "字典项编辑视图",
+    "itemtag2" : "1980100690528f68962c60f3f88c136d",
+    "psappviewid" : "f7f0d594e78e424573342338b542ad83",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DictOptionEditView.json",
+    "psappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCDynaInstGridView",
+    "psappsbitemname" : "租户实例表格视图",
+    "itemtag2" : "5543afb5465c8cbc9fb0f10b1fb81978",
+    "psappviewid" : "ae4af1512eb5ac85f9f6e92ac6681237",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCDynaInstGridView.json",
+    "psappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DCJobsInfoGridView",
+    "psappsbitemname" : "租户作业表格视图",
+    "itemtag2" : "cec596b7cfb91d86408c385a0dd3a0bc",
+    "psappviewid" : "206bb75c29e58ca048b031aa7385e2dd",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsInfoGridView.json",
+    "psappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "PermissionPickupGridView",
+    "psappsbitemname" : "权限表选择表格视图",
+    "itemtag2" : "68de66a378a8f9eae0054d0972b588ca",
+    "psappviewid" : "e721e56b2109ccbd16e13114cffd91ba",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/PermissionPickupGridView.json",
+    "psappsbitemid" : "57504ef1487426874652f4ee8b2627bf",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "WFGroupMPickupView",
+    "psappsbitemname" : "角色/用户组数据多项选择视图",
+    "itemtag2" : "20812826555997c272c6b28587b65af6",
+    "psappviewid" : "1e96066251f2c52b6bd6c747f53a541f",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/WFGroupMPickupView.json",
+    "psappsbitemid" : "6d207283bd1d279ad1110457e135c890",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "DataAuditEditView",
+    "psappsbitemname" : "访问日志编辑视图",
+    "itemtag2" : "b039c04827732076c755268f1bc7b59a",
+    "psappviewid" : "4657112e1612db89e22e99e624b59867",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DataAuditEditView.json",
+    "psappsbitemid" : "000c67042871fab09c49a9257661b1ce",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgSendQueueHisGridView",
+    "psappsbitemname" : "消息队列（历史）表格视图",
+    "itemtag2" : "c0f253a9a4c1a5e27e084a2f9794093a",
+    "psappviewid" : "3ebf59398dd727203ad40ed06367a0f5",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgSendQueueHisGridView.json",
+    "psappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "UserRoleGridView2",
+    "psappsbitemname" : "用户角色关系表表格视图",
+    "itemtag2" : "b2ce027cb7966305845079223ac4d63e",
+    "psappviewid" : "42fcad4d71cffe2ddadbdbe9778b1a6b",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/UserRoleGridView2.json",
+    "psappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "BulletinEditView",
+    "psappsbitemname" : " 系统公告编辑视图",
+    "itemtag2" : "63dbe7282381b2e74be19d2a80b50f5b",
+    "psappviewid" : "c5552b564a2b10f3bc9aa513e3127d42",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/BulletinEditView.json",
+    "psappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgSendQueueGridView",
+    "psappsbitemname" : "消息发送队列表格视图",
+    "itemtag2" : "3a65b9ab821b13ad45c24ccb507b4e32",
+    "psappviewid" : "a44dc436812a3ba2a8cfaa9569f87f06",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgSendQueueGridView.json",
+    "psappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "OpenDeptGridView",
+    "psappsbitemname" : "第三方部门表格视图",
+    "itemtag2" : "176651fe269b7fdd50f3a4f78a170a7f",
+    "psappviewid" : "7ddbec863e41b30bb890c63428e0de43",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptGridView.json",
+    "psappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "BulletinGridView",
+    "psappsbitemname" : " 系统公告表格视图",
+    "itemtag2" : "4c7b97566e75f352f551a5a21be2d67e",
+    "psappviewid" : "47168340dc8e4084ff1184647cff436d",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/BulletinGridView.json",
+    "psappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgTemplateGridView",
+    "psappsbitemname" : "消息模板表格视图",
+    "itemtag2" : "50e1a7b5bbb5b41d0bbbfcf35415966f",
+    "psappviewid" : "f0da760ab2eb6f908726c8ae0924f734",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgTemplateGridView.json",
+    "psappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "itemtype" : "APPVIEW"
+  }, {
+    "psappviewname" : "MsgSendQueueHisEditView",
+    "psappsbitemname" : "消息队列（历史）编辑视图",
+    "itemtag2" : "9e14753cb568eafe72dd7be41e43e30b",
+    "psappviewid" : "e4391d2d1c63462083853da493adfaf1",
+    "itemtag" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/MsgSendQueueHisEditView.json",
+    "psappsbitemid" : "fe1ecb566bd573bb1d9064bf738e3016",
+    "itemtype" : "APPVIEW"
+  } ],
+  "psappsbitemrses" : [ {
+    "psappsbitemrsid" : "c75328a4b207f90ca0e0b3474c4f05e5",
+    "ppsappsbitemname" : "租户系统数据视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ab0c57b4e34aeb1c3e08c2351d3aea78",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d891d37b47780ea4ec1ffe7b44d4b0ff",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "发布",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "62c41b17e4266f210a365ce63e3cae03",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "初始化测试项目",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6e80733b049b9cbf41e5ede7d23b9f2f",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "运行模型测试",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5fa0ae1e8641f7cce5666d460181b7eb",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "运行单元测试",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8fcd3ef2c675802551e1b18b971b77a8",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "表格界面_查看操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ac7922d4a9e35e2aa3a9668455a08d4f",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "发布",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ca5cf2276001118fe59bf913a12f9044",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "初始化测试项目",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "02e31dd45b54c4cdff0c67a6d1b73a7f",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "运行模型测试",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "abb62c5a74779df2339f3a7893e94ce1",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "运行单元测试",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e4b630fccbfcb3e7d76f695ae8f13dd9",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d07f211f0b2c73058bb3a1ae24070fca",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bee43f414e30723f490727ba586a6687",
+    "ppsappsbitemname" : "租户机构系统表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3a50777a7826eae66b713c3eac7382d3",
+    "ppsappsbitemname" : "租户机构系统表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bc097132b0cf622020065d3b9246381c",
+    "ppsappsbitemname" : "租户机构系统表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e939d473c4642041104f6dcb5f429017",
+    "ppsappsbitemname" : "租户机构系统编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c375b9455d53af71acd221e949c08d25",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "74f56a50810187c31bebf5daf51ba3eb",
+    "ppsappsbitemname" : "租户机构系统编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c375b9455d53af71acd221e949c08d25",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户机构系统编辑视图",
+    "psappsbitemrsid" : "abdd5a40be271ddf352908def1dacc60",
+    "ppsappsbitemname" : "租户机构系统表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "cpsappsbitemid" : "c375b9455d53af71acd221e949c08d25",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户机构系统编辑视图",
+    "psappsbitemrsid" : "1a754c3ee7175b25e15c3398d3eccfb8",
+    "ppsappsbitemname" : "租户机构系统表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "cpsappsbitemid" : "c375b9455d53af71acd221e949c08d25",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户机构系统表格视图",
+    "psappsbitemrsid" : "82dcb0a08d7c31186f949f7d2350f006",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "cpsappsbitemid" : "66bba92424a1a450590d755601785569",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "2351916b736f759ffd80440ef9106c92",
+    "ppsappsbitemname" : "租户实例表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "31b201bfe1bebbb6eb8c4b0919cfd5c4",
+    "ppsappsbitemname" : "租户实例表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "47d12072afbd09a7425582c53f449e5c",
+    "ppsappsbitemname" : "租户实例编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d588063300489c7936e9de8cfc5f6de7",
+    "ppsappsbitemname" : "租户实例编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9df1834871aff1f0c9f6413115557013",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "发布动态模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "08118e46c346eebd6e47f75a4d009dea",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "同步模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ae61311e0e9b0a5e21965c200725bcd0",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "59379b744ef785e00b8d71f113110820",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "373f01133365002aa2e8ac10d99739b8",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "941bd85e8d35d5e48a204bf495d143d1",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cf07a7138d1c76538289493ef0dec6c2",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a4830ac3db6a33ca47077b880224e231",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "16c8e6bd86ebc7c9991014c4de89d98b",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "发布动态模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7a65bf5cdf19c2f3425f20cccdb6df80",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "同步模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d6a347952cb04707ce38949a639f2285",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "0ab2d3f1660f2f67b88a6ebe2ccff239",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c538a294dd798a927416a5f8738388cc",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "88b20661abce8326689fa2b4bfcacb93",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "17bf9219e546ff2a87539198b8c9c94b",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "67a279d3aa48dae512ad77b1a5742b8f",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "17bf9219e546ff2a87539198b8c9c94b",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "模型版本编辑视图",
+    "psappsbitemrsid" : "c3882b436fceb197d8c8b702c882acd4",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "cpsappsbitemid" : "17bf9219e546ff2a87539198b8c9c94b",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "模型版本编辑视图",
+    "psappsbitemrsid" : "f04b192d8fee9ea46c3d4d2aedb4c841",
+    "ppsappsbitemname" : "模型版本表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "cpsappsbitemid" : "17bf9219e546ff2a87539198b8c9c94b",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "模型版本表格视图",
+    "psappsbitemrsid" : "d921adefc6882d91f13ecd4adeb41ee4",
+    "ppsappsbitemname" : "模型版本编辑视图",
+    "ppsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "cpsappsbitemid" : "dca38c9d4a975a898b94413675d13572",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "模型版本编辑视图",
+    "psappsbitemrsid" : "808e1f5ad4bfeec487ee058751521d34",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "cpsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "模型版本编辑视图",
+    "psappsbitemrsid" : "63ca04fb846d1e02320b2dae3e9550e7",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "OPENDATA",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "cpsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "OPENDATA",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "模型版本编辑视图",
+    "psappsbitemrsid" : "39cfaa448445942dd99208928dad4e31",
+    "ppsappsbitemname" : "动态模型表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "cpsappsbitemid" : "2bc1c84446ef940b3b4ca362bab06e6b",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "动态模型表格视图",
+    "psappsbitemrsid" : "7cce48a6be09f9680a2c11329c9d8a5e",
+    "ppsappsbitemname" : "租户实例编辑视图",
+    "ppsappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "cpsappsbitemid" : "7305d111d331d219a0082c50238c8a91",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "租户实例编辑视图",
+    "psappsbitemrsid" : "05746134546720d8eb129eaa6b681d71",
+    "ppsappsbitemname" : "租户实例表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "cpsappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户实例编辑视图",
+    "psappsbitemrsid" : "3dcbc1954fe1e3a47822d40b94212bb6",
+    "ppsappsbitemname" : "租户实例表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "cpsappsbitemid" : "92158672dc2980ad85be8d0af9446dd1",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户实例表格视图",
+    "psappsbitemrsid" : "62b11d27a111b18f0c10b65d5af33342",
+    "ppsappsbitemname" : "租户系统编辑视图",
+    "ppsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "cpsappsbitemid" : "6a4171183533cc034b6ab947e3a80038",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "租户系统编辑视图",
+    "psappsbitemrsid" : "d261f2516ead4f24b9b717457ff38f8a",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "cpsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户系统编辑视图",
+    "psappsbitemrsid" : "3a0a939a9d1bef93e5ca3e33b2cf76fe",
+    "ppsappsbitemname" : "租户系统表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "cpsappsbitemid" : "2aff51bd34f24f946c3dbef7150663a6",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户系统表格视图",
+    "psappsbitemrsid" : "259442d8bd0a4734eefc5c6662f8a68c",
+    "ppsappsbitemname" : "租户系统数据视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "ab0c57b4e34aeb1c3e08c2351d3aea78",
+    "cpsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "更多",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "aa40651db09aff18696639dd14dd1a0d",
+    "ppsappsbitemname" : "租户系统数据视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ab0c57b4e34aeb1c3e08c2351d3aea78",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户系统数据视图",
+    "psappsbitemrsid" : "ba8db5c891ae86911a05259673aeb5b5",
+    "ppsappsbitemname" : "应用门户视图",
+    "ppsappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "cpsappsbitemid" : "ab0c57b4e34aeb1c3e08c2351d3aea78",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "195982260fdf4631060472eeb2672bce",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d39fcbca5745190768ab3558d5e5aa76",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d48f088d0d47dce993e0545048bb2363",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "533908bd019725277fd4fe3eaea49756",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "表格界面_保存行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "28c1e4fa39ffc86e96817f92d32af295",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "887a092d94bf7af5d771218a77506bf4",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "963bf13d1bce91c0ebfeb1d1f20dc16d",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "撤回",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2daa1f342b066a24dab631daffdbc631",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "发布",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5e598aaee28970bb705b2220957764f1",
+    "ppsappsbitemname" : " 系统公告编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d93f52a4e706bca84dccd65e6521b852",
+    "ppsappsbitemname" : " 系统公告编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : " 系统公告编辑视图",
+    "psappsbitemrsid" : "cb102a7ebaead33bfc17c6a46f9fb001",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "cpsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : " 系统公告编辑视图",
+    "psappsbitemrsid" : "fa4421bb556ba4e14911e0b6b2a5022a",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "cpsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : " 系统公告表格视图",
+    "psappsbitemrsid" : "eb8a2f6af12d9bae8b0140d5280cd29a",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "cpsappsbitemid" : "3f5fe5ce3c4ef5e69deb6565c80f6b7f",
+    "psappsbitemrsname" : "查看更多",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "fce34b5f6b1854f8dfa3fd8d437ebd17",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : " 系统公告编辑视图",
+    "psappsbitemrsid" : "e8d6ce43c865fc255dc3a76d38acef2e",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "cpsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : " 系统公告编辑视图",
+    "psappsbitemrsid" : "07d6fc7adf663ec2dd3be8b32fd575f2",
+    "ppsappsbitemname" : " 系统公告表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "cpsappsbitemid" : "0043a68d7a36ead1483681484799166e",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : " 系统公告表格视图",
+    "psappsbitemrsid" : "6fdac4662d35cd63b2890b77e5d194fa",
+    "ppsappsbitemname" : "应用门户视图",
+    "ppsappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "cpsappsbitemid" : "436655f83a2f615e8c02e981acba38b2",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "5955144660d7a6be351147137fc3f10e",
+    "ppsappsbitemname" : "租户编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ceebc9999f6b07c019f94d523e5761bc",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "94e57a167d712b150a6a56f855d2b644",
+    "ppsappsbitemname" : "租户编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ceebc9999f6b07c019f94d523e5761bc",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户编辑视图",
+    "psappsbitemrsid" : "c7ab0c976b193e564636989f60bf3543",
+    "ppsappsbitemname" : "租户编辑视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "7c25bab6247c85e99ff5d05e34420274",
+    "cpsappsbitemid" : "ceebc9999f6b07c019f94d523e5761bc",
+    "psappsbitemrsname" : "打开编辑",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户编辑视图",
+    "psappsbitemrsid" : "6779c46a5a2b0f81a840060fd4168669",
+    "ppsappsbitemname" : "应用门户视图",
+    "ppsappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "cpsappsbitemid" : "7c25bab6247c85e99ff5d05e34420274",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "访问日志日历视图",
+    "psappsbitemrsid" : "948061c013473d2ee678bcfddb3d8444",
+    "ppsappsbitemname" : "应用门户视图",
+    "ppsappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "cpsappsbitemid" : "40229ff9da317ce0f1a0f2c44bc04634",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "应用门户视图",
+    "psappsbitemrsid" : "d5ce3fe15d0acba7c8d69d03a39a6c5d",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "850f45e4f2177ab5d29557dcdd57cd9d",
+    "psappsbitemrsname" : "控制台",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "租户系统表格视图",
+    "psappsbitemrsid" : "146cdf72c22c7c41f5ac34370779c31b",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "ce3aa145b3993b6f9e905770fa8b67c2",
+    "psappsbitemrsname" : "租户系统",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "b3608c5421cc348b738285d284e235ef",
+    "ppsappsbitemname" : "第三方部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "73c427b1191ec68f30786a511a54aa30",
+    "ppsappsbitemname" : "第三方部门编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a1f037c0fa9df813f481360c82aac173",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "791c5484b1b4d10b64957bc2b2420415",
+    "ppsappsbitemname" : "第三方部门编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a1f037c0fa9df813f481360c82aac173",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "第三方部门编辑视图",
+    "psappsbitemrsid" : "606f276b2ff90173a85677fdf8c09efe",
+    "ppsappsbitemname" : "第三方部门表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "cpsappsbitemid" : "a1f037c0fa9df813f481360c82aac173",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "第三方部门编辑视图",
+    "psappsbitemrsid" : "49e55e6373f2add5e208d72ec3d92e0f",
+    "ppsappsbitemname" : "第三方部门表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "cpsappsbitemid" : "a1f037c0fa9df813f481360c82aac173",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "第三方部门表格视图",
+    "psappsbitemrsid" : "ccdc502a3dafc7772f6f9a0fca39804c",
+    "ppsappsbitemname" : "开放应用分页导航视图",
+    "rstag" : "EXPITEM:tabviewpanel",
+    "ppsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "cpsappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "psappsbitemrsname" : "[部门]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "b936fdcd8fed5131ee48cf1b0dfcc6b9",
+    "ppsappsbitemname" : "第三方用户表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1ca30a97de4d2451832af580bc8bbf20",
+    "ppsappsbitemname" : "第三方用户编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "75f92939d28f3a816f3194237f123855",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6a05d31c262009978e1aad380f18a527",
+    "ppsappsbitemname" : "第三方用户编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "75f92939d28f3a816f3194237f123855",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "第三方用户编辑视图",
+    "psappsbitemrsid" : "f681b9c91fa9ec55ddf2b3861c0c4519",
+    "ppsappsbitemname" : "第三方用户表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "cpsappsbitemid" : "75f92939d28f3a816f3194237f123855",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "第三方用户编辑视图",
+    "psappsbitemrsid" : "5d13fd7525a4e567aa5ac3dff0a7b519",
+    "ppsappsbitemname" : "第三方用户表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "cpsappsbitemid" : "75f92939d28f3a816f3194237f123855",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "第三方用户表格视图",
+    "psappsbitemrsid" : "ea26091503788bf47595d43ca2d64af0",
+    "ppsappsbitemname" : "开放应用分页导航视图",
+    "rstag" : "EXPITEM:tabviewpanel2",
+    "ppsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "cpsappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "psappsbitemrsname" : "[用户]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "ec19c4b45706f5f7eee0f11c68702f9d",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "psappsbitemrsname" : "同步数据",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "51b4df4f46622cf52ef7904f01f3174e",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "611d493e203a2b9d2360a6c1e924d216",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9fce1e981ae0acdd6a88a08258319200",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "308bcd209113069f1416b489ff426a71",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "73e327f0fa4c66839aa46034492db371",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ee356610f75681097221aa0eda38b5a7",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "第三方部门表格视图",
+    "psappsbitemrsid" : "9747fa6738265930a1a049c64d6c4b0c",
+    "ppsappsbitemname" : "开放应用",
+    "ppsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "cpsappsbitemid" : "ef5fabfe2d2fec435f7b89399b39c804",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "第三方用户表格视图",
+    "psappsbitemrsid" : "b20de64ffceb9a4e99a2612ca1e99ced",
+    "ppsappsbitemname" : "开放应用",
+    "ppsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "cpsappsbitemid" : "53650075fcbc5d831cffc337707317c8",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用",
+    "psappsbitemrsid" : "4dd778eade5f8a85ed6b890da2f6c0b8",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "cpsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "开放应用",
+    "psappsbitemrsid" : "bf26c19fbe4ab90d97bfa25a5fcddc44",
+    "ppsappsbitemname" : "开放应用",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "cpsappsbitemid" : "972d0af037d168a8e11c00ae2f3a7456",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "开放应用",
+    "psappsbitemrsid" : "0e927cf70241cdcb84526450ace47f45",
+    "ppsappsbitemname" : "开放应用分页导航视图",
+    "rstag" : "EXPITEM:tabviewpanel3",
+    "ppsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "cpsappsbitemid" : "7d665c319cd8d819b27b0f28b6941a80",
+    "psappsbitemrsname" : "[应用]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用分页导航视图",
+    "psappsbitemrsid" : "989e875b2481dce5fdc6b1b23562c266",
+    "ppsappsbitemname" : "开放应用树导航视图",
+    "rstag" : "EXPITEM:wxwork",
+    "ppsappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "cpsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "psappsbitemrsname" : "[企业微信]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用分页导航视图",
+    "psappsbitemrsid" : "5474e6b538c81be9553e9f7418b3d674",
+    "ppsappsbitemname" : "开放应用树导航视图",
+    "rstag" : "EXPITEM:dingtalk",
+    "ppsappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "cpsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "psappsbitemrsname" : "[钉钉]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用分页导航视图",
+    "psappsbitemrsid" : "f0f0c03661421318deb9614f6e07bf08",
+    "ppsappsbitemname" : "开放应用树导航视图",
+    "rstag" : "EXPITEM:OpenAccess",
+    "ppsappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "cpsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "psappsbitemrsname" : "[第三方应用]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用分页导航视图",
+    "psappsbitemrsid" : "1c14ca33f15edfb8e50dfee13862f5a1",
+    "ppsappsbitemname" : "开放应用树导航视图",
+    "rstag" : "EXPITEM:aliyun",
+    "ppsappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "cpsappsbitemid" : "4279288ab20573fcaa152bfe29b5c638",
+    "psappsbitemrsname" : "[阿里云]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "开放应用树导航视图",
+    "psappsbitemrsid" : "a6e439b80b3d828ea2ef12a3c7a3022c",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "3a28a536a3a0652b6cfccd519794ec3f",
+    "psappsbitemrsname" : "第三方应用树",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "单位快速新建",
+    "psappsbitemrsid" : "399c4e34027878bf3fee77c90b846dd6",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "cpsappsbitemid" : "0bd53f7520ae5ea49ae02a59cd12886f",
+    "psappsbitemrsname" : "数据新建（单位机构）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ab09934e6752f4317c3a27661cb8b079",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "abb0b85477ff5f2cab3ef35a7e2abda4",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f629bc35910e96344e4e2fd769195101",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "fe548d188288b9305a201b014080de6e",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dd0f038579862c4f3cd2d790c51cc65d",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "45948d949c4b8547f1d8196b37bea491",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6d11750f2f1c5579556f75f79b8ed5d1",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "201313d625a349aed61565d56f57fb42",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3625b712e18a4876176bac262b3f9779",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d6554ed78167a2b23ff1b143ca995b1d",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "0a36c3960a38a0b8b5f0ebbcbaeaa3d1",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7753f49fb22e3136cd7bd6e114a903f2",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "de08de6c11bfd8d55ffa9e3f657408d4",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "724396175bc6454ee231fea5743175a5",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "单位管理",
+    "psappsbitemrsid" : "8d25042bacbc8938c06aa52bc8428da9",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "cpsappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "单位管理",
+    "psappsbitemrsid" : "568b524ca68e88e7bd0768a06722fda4",
+    "ppsappsbitemname" : "单位管理",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "cpsappsbitemid" : "3f8eb0f32c9344f2424a251fdd88e4a4",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "单位管理",
+    "psappsbitemrsid" : "2b9f29d95cd0ec4cf8888c0817929820",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "365dcfaef0d0b310de6bc9c230c0b207",
+    "psappsbitemrsname" : "单位管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "部门快速新建",
+    "psappsbitemrsid" : "8ee8e93bae0561693a5e6511b8bb60bb",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "cpsappsbitemid" : "33907f83242759f7febb54405d1f5dd1",
+    "psappsbitemrsname" : "新建数据（部门）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7f4823f357bac1e927f2ac32f96e3950",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cb0ab2450b4b89bcdf0a58db2512ee02",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1ca01c0cc21ddf4f4f1a4fa26d04746e",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "df8c47de45982a814c52ced6888380e5",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "448cfe079c1c1185c602acccec408b1f",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d04abc0263a8d49087473d3cab4399a2",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "773577eae4052bfa4ffead0103d55504",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "93a2fdc3971bdea238166828f3ab8b18",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1707405eb33c2f907f2af78c35b5f61f",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2a41c334fb8dc196448df5470413f8ce",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2137025d204b440fd3ef2f31d9a25294",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "84978d77b53c4d35374a4438cf47b456",
+    "ppsappsbitemname" : "部门管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2d333cdf84e2927348b07a8b72751c38",
+    "ppsappsbitemname" : "部门管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c1fc8bc4ec0e0b0e68bc6611d768ac4f",
+    "ppsappsbitemname" : "部门管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "部门管理",
+    "psappsbitemrsid" : "29e30703e401248d25367a49952b4487",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "cpsappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "部门管理",
+    "psappsbitemrsid" : "acb5adca3595fe387d3d88ae7ba206cb",
+    "ppsappsbitemname" : "部门表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "cpsappsbitemid" : "98de0e31f1145966bc7fad7fa304296c",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "部门表格视图",
+    "psappsbitemrsid" : "e3fe51a6d6209c677121dcd19871b566",
+    "ppsappsbitemname" : "部门管理",
+    "rstag" : "EXPITEM:ChildTree",
+    "ppsappsbitemid" : "5942f75c0176055d4fcf9b9dffa99eca",
+    "cpsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "[子机构]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "部门表格视图",
+    "psappsbitemrsid" : "1cddff1828e7c135ddbee2f2429cf5bd",
+    "ppsappsbitemname" : "部门管理",
+    "rstag" : "EXPITEM:Org",
+    "ppsappsbitemid" : "5942f75c0176055d4fcf9b9dffa99eca",
+    "cpsappsbitemid" : "92f546b63889c7e586484def28893255",
+    "psappsbitemrsname" : "[机构树]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "部门管理",
+    "psappsbitemrsid" : "6628853dad2ce0467d7cf347bfdcf02e",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "5942f75c0176055d4fcf9b9dffa99eca",
+    "psappsbitemrsname" : "部门管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "人员快速新建",
+    "psappsbitemrsid" : "e7916cfbd538ab4f55648fe2467123b5",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "cpsappsbitemid" : "1b247e34bfcbafd1b64b6fe1543c3b4f",
+    "psappsbitemrsname" : "新建数据（人员）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "87aa2488763149f30524807cdea0fcc2",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d892a288c3dbcd2823766fb513486d7c",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e162cf6dd846890917ebcab1da50697c",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "03ac327cea71da014e3c95ef45e14d97",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "043ec5eab1d0476ac024d7e01384d889",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3c198ee99bd8c7f74040d04d017a2bb1",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a8a4249a9a030d5b1696723a60665e55",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "28a207aa53a137ccc0d217682bb104c1",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2d8ef4fc409cb9e0b111ed762dcf5c9a",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "初始化密码",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c03dad3ce088ff97ece304de0db2ea3b",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "29555c55ab2f1e5c36eb0593f6f97529",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ae774fe73d9d12e261d4a63bbe1930d7",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2f89cecd5536615c4ac712955520ead6",
+    "ppsappsbitemname" : "人员管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d436616acbfac61531c54d8cb4863a1c",
+    "ppsappsbitemname" : "人员管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "da970509775c990541f20054c27b5291",
+    "ppsappsbitemname" : "人员管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ef5de4d87afba27cddfc096539b4b838",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c431c5fc2870b171087ed0af28e16ca0",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "eb2d42661bf403839124530e1a5d557a",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "表格界面_保存行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "66c54cfb281d0a80e40a608f4d570b27",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4402957ff68aada5fc4e4427c9c81b81",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1f539d3e352dd461217bb9308fa4dfac",
+    "ppsappsbitemname" : "部门成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "13827e7eba6a48a42adfcd0e1ff63e85",
+    "ppsappsbitemname" : "部门成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b61d2f25d4699fecc806302f51d4bdd3",
+    "ppsappsbitemname" : "部门成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "部门成员编辑视图",
+    "psappsbitemrsid" : "23dd554c5e33bdfcc78b9e41428877a0",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "cpsappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "部门成员编辑视图",
+    "psappsbitemrsid" : "dad7664edfe4f7e96f384232e067a73b",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "cpsappsbitemid" : "3eb3643de3b1b9ca917918531dd343ec",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "psappsbitemrsid" : "a93eef77af4a1bd76f3b2f88f243f565",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "MPICKUPVIEW:DEPT",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "批添加多选视图|部门",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员选择表格视图",
+    "psappsbitemrsid" : "c20549dbebb3c9a0d4ba62da61e2855a",
+    "ppsappsbitemname" : "人员数据多项选择视图",
+    "ppsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "cpsappsbitemid" : "4bce5c7d9333beb2253b5cb9a656a025",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "人员数据多项选择视图",
+    "psappsbitemrsid" : "4212ff899d9d520b356ad4eb0fd66a2b",
+    "ppsappsbitemname" : "部门成员表格视图",
+    "rstag" : "MPICKUPVIEW:EMP",
+    "ppsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "cpsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "psappsbitemrsname" : "批添加多选视图|人员",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "部门成员表格视图",
+    "psappsbitemrsid" : "0ae5bef19ecbf2145b6a87922b293343",
+    "ppsappsbitemname" : "人员管理",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "cpsappsbitemid" : "1da3fe7f3439f023e9db7357aceb5d73",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "bb95863511770325318294e051ce41b4",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "43e8e10805cdb3772366d9009092a8c1",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "779847ba3ef949ce3c22ff35f65c5877",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "195009bbf256f944d05b4aa012f0f2ed",
+    "ppsappsbitemname" : "用户",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "06784e25b2bd241de8e693a9e892280d",
+    "ppsappsbitemname" : "用户",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b36fc65a4c91e524cfa6c9cc34f5cae4",
+    "ppsappsbitemname" : "用户",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "用户",
+    "psappsbitemrsid" : "45ead330197c0ea641a876ab25773eeb",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "cpsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "用户",
+    "psappsbitemrsid" : "ce515ee6ad1d959e7f7a29986bad26cf",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "cpsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员数据多项选择视图",
+    "psappsbitemrsid" : "b5107bac6017da82128c253f801f1966",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSEMPLOYEE",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "cpsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "psappsbitemrsname" : "批添加多选视图|人员",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色选择表格视图",
+    "psappsbitemrsid" : "4f4b3c4fff53b82a8b463bd821b3eb23",
+    "ppsappsbitemname" : "角色数据多项选择视图",
+    "ppsappsbitemid" : "e60a1d2eb39d6822533b545905cedc66",
+    "cpsappsbitemid" : "c4abad1dafcc57b1f15ccb39e687138d",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "角色数据多项选择视图",
+    "psappsbitemrsid" : "7fbb6743c51f4fbcfa745757245753ab",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSROLE",
+    "ppsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "cpsappsbitemid" : "e60a1d2eb39d6822533b545905cedc66",
+    "psappsbitemrsname" : "批添加多选视图|系统角色",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "用户角色关系表表格视图",
+    "psappsbitemrsid" : "4ce214b2080419457a19fc437ec9717c",
+    "ppsappsbitemname" : "人员管理",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "cpsappsbitemid" : "ed20e9cbca1e443612b9ff042cc44610",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "a61e5c848b3b20a88581a45c4be2bc30",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "60c4d7f297f4355e25eeb365da3b82bb",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b9a081b310381148227ce61e6ea3b704",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dcf422ec594cd90dd891be770095d6ec",
+    "ppsappsbitemname" : "成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c191bfb4f4f1b8f08d9ccd5b225a4d0b",
+    "ppsappsbitemname" : "成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "48cc0f189d8c8c35a6d575ea0c9f17f4",
+    "ppsappsbitemname" : "成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "成员编辑视图",
+    "psappsbitemrsid" : "2227ee23bc306758d2677a694baf6f40",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "cpsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "成员编辑视图",
+    "psappsbitemrsid" : "7343a8b8d351a3e4571bdaf18b196b5f",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "cpsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员数据多项选择视图",
+    "psappsbitemrsid" : "c37337dd439fdb66ca7955af76e26f7b",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "MPICKUPVIEW:SYSEMPLOYEE",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "cpsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "psappsbitemrsname" : "批添加多选视图|人员",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色/用户组选择表格视图",
+    "psappsbitemrsid" : "e576a2d37c1a442185e04cb2e193b5a8",
+    "ppsappsbitemname" : "角色/用户组数据多项选择视图",
+    "ppsappsbitemid" : "6d207283bd1d279ad1110457e135c890",
+    "cpsappsbitemid" : "322e93cfbc6b2db8b161e3b72a3d2fd1",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "角色/用户组数据多项选择视图",
+    "psappsbitemrsid" : "d1e10029133b0f6590003132c0ee609e",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "MPICKUPVIEW:WFGROUP",
+    "ppsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "cpsappsbitemid" : "6d207283bd1d279ad1110457e135c890",
+    "psappsbitemrsname" : "批添加多选视图|角色/用户组",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "成员表格视图",
+    "psappsbitemrsid" : "3766fd7a3a3a5bfe7a459c1ca801e0fc",
+    "ppsappsbitemname" : "人员管理",
+    "ppsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "cpsappsbitemid" : "0d843b5247c91492cbcaefba662af37f",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "人员管理",
+    "psappsbitemrsid" : "2ccf5df934cd7653231b3a2b1e93f5f8",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "cpsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员管理",
+    "psappsbitemrsid" : "3772b8be4c66d41b135770a75abc86ef",
+    "ppsappsbitemname" : "人员表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "cpsappsbitemid" : "8bfd61515f9733cadf62bfa35317e19a",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员表格视图",
+    "psappsbitemrsid" : "a74dbf0bceeccf4a9397054eb943a60d",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "036edc828a8dbe50f1cadff84e57955f",
+    "psappsbitemrsname" : "人员管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "5623eb8bbd38f2fabea93cbcde0a8bc5",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "548d48526d0a223ac365dc44bfed1588",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a24e242316f6cc3990942494cd2042fb",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d7826622b0476fbd7c2517d06a132b8f",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "75539aa4e5409419d3b1c917032fa863",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9af3c296e4138628e5c485f3daaab99f",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7b41026080ebcdaa61d413e0f29e4657",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "97a463c48da4929771ea0882d1cc33d6",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "faf8fd07c490dcb569a95ca2b473d71b",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e36d93ceb0b440bd847a4cec03bd50dc",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bf74abd65886ac3ff83f0c2b427f9479",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1a18bff102cf21bfe463259a6095c2df",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "84ccab2736c7f351c609aecfa6be8fd3",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7f7cccda822549b1baf022743af26752",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "岗位管理",
+    "psappsbitemrsid" : "cd60e8c859ed009bfc6f691b92e95b90",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "cpsappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "岗位管理",
+    "psappsbitemrsid" : "ab6ce39d42b375ecea6405af514fa326",
+    "ppsappsbitemname" : "岗位管理",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "cpsappsbitemid" : "5ccc2445f3f9961db6584cc076c6f838",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "岗位管理",
+    "psappsbitemrsid" : "f57e032bf88c8519ec29b23ff8cb0575",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "9a13272e2c9fefc836c568d34b8fe8bd",
+    "psappsbitemrsname" : "岗位管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "e4b3fa67237a37e094062f605a94abc8",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "09df1033e5db6a2a61cb70b14af79449",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "0c85096821a5f406de2db624bd00fe60",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ae59a4b2b2867da74b463fcc5220b156",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f5278ec6d9f1acad261d31ef823f0d42",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ff69391be03cfe7ce85bf0e3d62b2d30",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7865b7c129847d5197a8d7e7dffd9a0c",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5caa0f295137e59860317370bcf42aee",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dcb9c8e3f2f463a98ffb665b54c19e6c",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "418d9ceb73087976a284bc786953a7c3",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5ea91de9be1aa7e556448192c8095d76",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "224fb365610d79748912da6b49e713d5",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8ca6d55c12d732dce19f477fe4c72a59",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "367a51c552c3ba42be521e1ef69317ad",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "02027ac60adc409854138397bf711451",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7c00c3eaa9d52ee84d8d26338a511532",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bedcacf163138a7fed242af94fe483a9",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "表格界面_保存行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cc8e7d62a3a0f83104a83be37e6e5a40",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f3def8433def5c0472b96e3600d81033",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5c1b4760669e84b8c2cc30d3f1f0b8aa",
+    "ppsappsbitemname" : "组成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "17f2b2afdbed24559a9f415a4b7e3418",
+    "ppsappsbitemname" : "组成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "efdb489346251cc03c87e9f88d155cd4",
+    "ppsappsbitemname" : "组成员编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "组成员编辑视图",
+    "psappsbitemrsid" : "306765c06c0e3241dc6e3ec47febc12e",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "cpsappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "组成员编辑视图",
+    "psappsbitemrsid" : "0a16714ee6ac57b1cabf0dc6ec41c550",
+    "ppsappsbitemname" : "组成员表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "cpsappsbitemid" : "b318858ce2f34be2bb727461b0c81e79",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "组成员表格视图",
+    "psappsbitemrsid" : "1acd7e0581d882d4d517544813cdc63d",
+    "ppsappsbitemname" : "组管理",
+    "ppsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "cpsappsbitemid" : "78b922af2c40c045386047519c875379",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "组管理",
+    "psappsbitemrsid" : "b8117defe994c7b9770be79728dba176",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "cpsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "组管理",
+    "psappsbitemrsid" : "11603fc563d65ee2d2e60ca31a2fa72d",
+    "ppsappsbitemname" : "组管理",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "cpsappsbitemid" : "6dd824b11523dc291d7514d93362ef1c",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "组管理",
+    "psappsbitemrsid" : "19f9a274b22eb5db57d4ec9b05ddd8b9",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "08f7e36f90b2abab89f7dcfafe3e4b35",
+    "psappsbitemrsname" : "人员组管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "95bbcb34346c6b1f1d4ccfaee7e88e78",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6c3548b3528245c5109b7928ceb9e737",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d584b01a1dc54f01249599c276a42635",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "0211fee0d5ec0bcc614709d5e0199715",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c6a9ce33d060aec244f495cd306570fe",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "65e8d4af688aae0e2aa7481e676707ad",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "34347a9b1de017abf411582d04de7480",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "afa9617d6f985e8f9c767aae931e9d31",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "209b444cdc75203ee1db3e6bbe5130e1",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "06237aa04d392bb593fd6367e008ec38",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f3cfba0a086ad6a98e9057fb2c1094ea",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "faed37ce9774addb1894cd7e9bd1be1d",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4486d2808498da4766fc44fa433eb35d",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "aebc6da7e35ec21aa3db5677bb5dbecf",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "psappsbitemrsname" : "编辑界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e45e0ef4f2fb31fdfca3e320f9ca1c1e",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6725c4a056a390b8bff6b5a041935f5e",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "aa8eafee6086141783f4e90dc8bbf50d",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "472e9cd255fbf466283162a19233a75a",
+    "ppsappsbitemname" : "角色权限关系表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c8453e6cf300f71faae255517399088a",
+    "ppsappsbitemname" : "角色权限关系表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "951b44b0668eb7545e38ae7824326004",
+    "ppsappsbitemname" : "角色权限关系表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "角色权限关系表编辑视图",
+    "psappsbitemrsid" : "ed857d058dda2ec5bacce7c3f0fce601",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "cpsappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色权限关系表编辑视图",
+    "psappsbitemrsid" : "a11d7851b97706605a9afd767dca0489",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "cpsappsbitemid" : "3f7164767b6119b0074cebccdd212de2",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "权限表选择表格视图",
+    "psappsbitemrsid" : "4d65a2adbec567e7015fb393f1cfeeb6",
+    "ppsappsbitemname" : "权限表数据多项选择视图",
+    "ppsappsbitemid" : "1a628cbf814f36495e857e631c0e870f",
+    "cpsappsbitemid" : "57504ef1487426874652f4ee8b2627bf",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "权限表数据多项选择视图",
+    "psappsbitemrsid" : "36c27b92d677160b6749319dbdfdb434",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSPERMISSION",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "cpsappsbitemid" : "1a628cbf814f36495e857e631c0e870f",
+    "psappsbitemrsname" : "批添加多选视图|权限/资源",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色数据多项选择视图",
+    "psappsbitemrsid" : "3acfd9f0d5579339314e4773070adb12",
+    "ppsappsbitemname" : "角色权限关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSROLE",
+    "ppsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "cpsappsbitemid" : "e60a1d2eb39d6822533b545905cedc66",
+    "psappsbitemrsname" : "批添加多选视图|系统角色",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色权限关系表表格视图",
+    "psappsbitemrsid" : "56321b92b2d9db3b94d92cde8a1c6ee4",
+    "ppsappsbitemname" : "角色",
+    "ppsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "cpsappsbitemid" : "3de6271ed65bc8bc4f7424d2a5e46fd0",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "c70dad8f59a16016bd10bd8e979770c1",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7e47cc0d0f9852992964659e125bc2a3",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f2f9d6d0db043892ba50d01bbd3467c1",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "用户",
+    "psappsbitemrsid" : "aeddb10c7b58c5aa8c8bf336b437f287",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "cpsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "用户",
+    "psappsbitemrsid" : "3f0cb1025648148ed9949ecb94d18fb5",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "cpsappsbitemid" : "ef3ad0293fcf9f6f3500c1a50553b096",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员数据多项选择视图",
+    "psappsbitemrsid" : "b5b647bf7ba399530fe20c819d5f2a7e",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSEMPLOYEE",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "cpsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "psappsbitemrsname" : "批添加多选视图|人员",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色数据多项选择视图",
+    "psappsbitemrsid" : "683524d29562e5cdf81ef1d26d37bde6",
+    "ppsappsbitemname" : "用户角色关系表表格视图",
+    "rstag" : "MPICKUPVIEW:SYSROLE",
+    "ppsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "cpsappsbitemid" : "e60a1d2eb39d6822533b545905cedc66",
+    "psappsbitemrsname" : "批添加多选视图|系统角色",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "用户角色关系表表格视图",
+    "psappsbitemrsid" : "0558c52efc7bba8741815d499332f8c7",
+    "ppsappsbitemname" : "角色",
+    "ppsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "cpsappsbitemid" : "72267262d3d5a5a4ebd7cc0556c69471",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "角色",
+    "psappsbitemrsid" : "423d93b3fec291c8ca6c4744d6e1db50",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "cpsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色",
+    "psappsbitemrsid" : "76c9b6aa0ea56f9245ef44cb744ff979",
+    "ppsappsbitemname" : "角色",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "cpsappsbitemid" : "c38eabf2d5346f514ca4ee18d745f7cc",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色",
+    "psappsbitemrsid" : "8b3318c7eb27eec194efc9dd0530dc98",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "a8f92beaed37d51b6ee40c95f2f4fab1",
+    "psappsbitemrsname" : "角色管理",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "b6a7708fe94abca97a4703a71a47cb44",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ce4f93bcf6b5c2c119d59ca8c848ba13",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3a7fc506490124c95113682c5a608a89",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7293a67c9ddad5b79c0b4bb6f1d226ee",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2cf16406a45ed2ebecca35993329ec4e",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d0a05d0fd81fe47574c8d7efaac77cc7",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8d02f7dc5f2f764ffe3ce954ee49c5f8",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7b14ef52037299633c33b3a2a8f65676",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a18266f059017656104825030afcdc6a",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a89113888051793c111f35e661fd193f",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8907b5db365f8bca7a205061cc199190",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5df268c65871d338bf2f566a901a7a9b",
+    "ppsappsbitemname" : "权限表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bc0711fc1c8744f08903eed69aeffa56",
+    "ppsappsbitemname" : "权限表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7ab01e93b8faa3a1f7df1cf3f7051f89",
+    "ppsappsbitemname" : "权限表编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b625d838ea6334f1ae29918811ff6c91",
+    "ppsappsbitemname" : "权限操作表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "44af856a22e83fe4937cd91d154a4412",
+    "ppsappsbitemname" : "权限操作表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ae4a11e6afdb994cb2c164e0d1d56838",
+    "ppsappsbitemname" : "权限操作表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3e3f18904e8538152199ece5c81444b7",
+    "ppsappsbitemname" : "权限操作编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e0d8b0170000b1173ce62e4aacebe9c0",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "51a3cb27b93dc78b680ce74c89b82c33",
+    "ppsappsbitemname" : "权限操作编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "e0d8b0170000b1173ce62e4aacebe9c0",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "权限操作编辑视图",
+    "psappsbitemrsid" : "c3debaefc9c8e2c2dbd7743580fdeccb",
+    "ppsappsbitemname" : "权限操作表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "cpsappsbitemid" : "e0d8b0170000b1173ce62e4aacebe9c0",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "权限操作编辑视图",
+    "psappsbitemrsid" : "a3ad0e70a4b3d854130568f88a992276",
+    "ppsappsbitemname" : "权限操作表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "cpsappsbitemid" : "e0d8b0170000b1173ce62e4aacebe9c0",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "权限操作表格视图",
+    "psappsbitemrsid" : "852c7753a76111a8633b45d062c2a44d",
+    "ppsappsbitemname" : "权限表编辑视图",
+    "ppsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "cpsappsbitemid" : "489cb4441a827c876f7215ad43cde749",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "权限表编辑视图",
+    "psappsbitemrsid" : "22ee0327d6c7a50d52ecc18923f58b75",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "cpsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "权限表编辑视图",
+    "psappsbitemrsid" : "01ccb791bb78bb00b134469ea49ebb80",
+    "ppsappsbitemname" : "权限表表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "cpsappsbitemid" : "a393a5969dcc7359f2cbb2603d02dedd",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "权限表表格视图",
+    "psappsbitemrsid" : "eeab9d5ece063e950195d277db91885c",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "e87536636f1bb94b655f6ca725a37e63",
+    "psappsbitemrsname" : "系统能力",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "0882e02f252cd27680e1aee9aa9d6555",
+    "ppsappsbitemname" : "流程定义",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5b850ba949190e5dc7ce986983dc4981",
+    "ppsappsbitemname" : "流程定义",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5efe3e50140f576a689071302353e501",
+    "ppsappsbitemname" : "流程定义查看",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "987f3528079d572afef5103f393a86fb",
+    "ppsappsbitemname" : "流程定义查看",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dcdc60b28c85538e6737970957c1e31a",
+    "ppsappsbitemname" : "流程定义查看",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "流程定义查看",
+    "psappsbitemrsid" : "002cc1635002fc704023090da1d1c909",
+    "ppsappsbitemname" : "流程定义",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "cpsappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "流程定义查看",
+    "psappsbitemrsid" : "79ef977c69ce4316e888d588d7d7914d",
+    "ppsappsbitemname" : "流程定义",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "cpsappsbitemid" : "8d30ccc8066b8ddeca8fb54237064ae5",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "流程定义",
+    "psappsbitemrsid" : "edfdf77f13b61e6ca5a0c66115c1d2ad",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "b65e3b2bb4191c1995e450b0ea5ab46a",
+    "psappsbitemrsname" : "流程定义",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "3e31b47f87e85fcdcb7cf1d807598d61",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2b0c1a55260a767d8b7b4dbd5fe41b96",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7bc66706ac38483721f8a6177f0fe77c",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1a410b3df5e9a9f1c0c6ab3a6db790bb",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cdda5581398a4d8589c0fa159a85eb7f",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "596313899889245fc825d991efc416b6",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "188ccec3f38e3d5b6844731d65e1e0e4",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6c88936fd62b702c6c4d40611ca3156d",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9721a3b57f5de7ca0314b0351c2cbccd",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6f5dd127b96793233fc126918a53b9e7",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "230e76623c1355eb472b9fcd5db659ae",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dce86e504cb4214ec78a12aa6b2c2ce2",
+    "ppsappsbitemname" : "角色/用户组编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "351939b6ce56d821dbb071ad795b7957",
+    "ppsappsbitemname" : "角色/用户组编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d3d4b3401427572015e7aeaacfb6ee3b",
+    "ppsappsbitemname" : "角色/用户组编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "92d81ea12e67b67ab5ca57b39614f704",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "711f6cae12cd0b41495c1612864990b6",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ffb30af272feeab298205ed951c01156",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "成员编辑视图",
+    "psappsbitemrsid" : "f87ae9b3a31c0fe34e42ad63ef869648",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "cpsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "成员编辑视图",
+    "psappsbitemrsid" : "80d7213e9b563f91048fd9a380060dbd",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "cpsappsbitemid" : "3df75e9581c71a8c557572bdf9a9a19f",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "人员数据多项选择视图",
+    "psappsbitemrsid" : "483a5eab5360293b670638080a29ea21",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "MPICKUPVIEW:SYSEMPLOYEE",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "cpsappsbitemid" : "91e7c52bda26159aa8633d1d70bc10da",
+    "psappsbitemrsname" : "批添加多选视图|人员",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色/用户组数据多项选择视图",
+    "psappsbitemrsid" : "e020bcd3bf63e2de77360548986fd582",
+    "ppsappsbitemname" : "成员表格视图",
+    "rstag" : "MPICKUPVIEW:WFGROUP",
+    "ppsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "cpsappsbitemid" : "6d207283bd1d279ad1110457e135c890",
+    "psappsbitemrsname" : "批添加多选视图|角色/用户组",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "成员表格视图",
+    "psappsbitemrsid" : "100d128a24c0b3a215ed39ba517c4242",
+    "ppsappsbitemname" : "角色/用户组编辑视图",
+    "ppsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "cpsappsbitemid" : "029f984c438fa5fd25e7386931321610",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "角色/用户组编辑视图",
+    "psappsbitemrsid" : "a9be677fef5ac53eff5df43e3bc13877",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "cpsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色/用户组编辑视图",
+    "psappsbitemrsid" : "9bf4d1c67cc7a854f02e205079660a5a",
+    "ppsappsbitemname" : "角色/用户组表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "cpsappsbitemid" : "992db6c345c2e4ed2c836e4080310dac",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "角色/用户组表格视图",
+    "psappsbitemrsid" : "1152f0fb13a1941cfaf6552e7c767c93",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "6cecb6d761d16c343fa4fa973f9780a6",
+    "psappsbitemrsname" : "流程角色",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : " 流程实例选项操作视图",
+    "psappsbitemrsid" : "5cc9aa336f33745dda3db856535207ae",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "cpsappsbitemid" : "a8fabb30ee5ffdd5f802745a70cdbf0c",
+    "psappsbitemrsname" : "流程跳转",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4e9cc3f1c7542b092e438351a95cc6c8",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "psappsbitemrsname" : "重启流程",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a9a1c2b6216b56166000ba3831f7ba5c",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d23897acc2fa62447130c717d7e79a6d",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : " 流程实例选项操作视图",
+    "psappsbitemrsid" : "ab3dff3d36e3adf2f8099abdedd7e636",
+    "ppsappsbitemname" : "实例编辑视图",
+    "rstag" : "FRONT",
+    "rstag2" : "前台调用",
+    "ppsappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "cpsappsbitemid" : "a8fabb30ee5ffdd5f802745a70cdbf0c",
+    "psappsbitemrsname" : "流程跳转",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1f9ce8ce93e165ef30fb91c9020c62eb",
+    "ppsappsbitemname" : "实例编辑视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "psappsbitemrsname" : "重启流程",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d5952573167bec80b38c15173ac927fd",
+    "ppsappsbitemname" : "实例编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "实例编辑视图",
+    "psappsbitemrsid" : "ef91a28c3968c42c703728834df34e98",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "cpsappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "实例编辑视图",
+    "psappsbitemrsid" : "f40824a967d3618d3327c4874142eaa5",
+    "ppsappsbitemname" : "实例表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "cpsappsbitemid" : "513ae7ebd7fde3967326f75f695e6305",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "实例表格视图",
+    "psappsbitemrsid" : "fd2d59ec679a52479f24f4e0eb2e5296",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "c74e171f67514163c018f8f58f9d13a5",
+    "psappsbitemrsname" : "流程实例",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "f030fb82487b367797216082cc4c0ebb",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "启动",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a5e7bd0c8b3972dba0852a34aae0df86",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "停止",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8f621005f22b1642d893d7a948921d99",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "执行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8b8eb653becd78543bf3c93fbf6e3d6d",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9070dc171ffe5e498978f3cc53ff0cd2",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1ba2c03467ae2c1263386d30cf2c18bb",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "1910d057d297df752ae5fb613ebbb2bf",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "967684c304fa044b59cff6d657a16633",
+    "ppsappsbitemname" : "租户作业编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "50d7711c82b63dc0de4a3c0027008008",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "bd11266e3f5a3d31c0d48b13f6b41aac",
+    "ppsappsbitemname" : "租户作业编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "50d7711c82b63dc0de4a3c0027008008",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户作业编辑视图",
+    "psappsbitemrsid" : "7157b7c54c52f03aea797cbd1e51e34a",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "cpsappsbitemid" : "50d7711c82b63dc0de4a3c0027008008",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户作业编辑视图",
+    "psappsbitemrsid" : "dcb34c260e9b4c2fc9cfffd30ce30b40",
+    "ppsappsbitemname" : "租户作业表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "cpsappsbitemid" : "50d7711c82b63dc0de4a3c0027008008",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户作业表格视图",
+    "psappsbitemrsid" : "b9f91e15e094fd6e95f6c22610f88cd0",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "106241a7e867a2b6cbf9eb51588bc6c5",
+    "psappsbitemrsname" : "任务调度",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "c8fa02db0ba0632fc682441ffa50db4c",
+    "ppsappsbitemname" : "作业日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cdc182515f18ddffbef9ece7e188d967",
+    "ppsappsbitemname" : "作业日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "6b71b56a1673e483746b89b4833ba0c2",
+    "ppsappsbitemname" : "作业日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "42b619f2e6ea596271de66a5be0b83ec",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b47edf1bb2f031ad1d81633f482c0e4a",
+    "ppsappsbitemname" : "作业日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "42b619f2e6ea596271de66a5be0b83ec",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "作业日志编辑视图",
+    "psappsbitemrsid" : "3763ed692dded641b2143980bf592754",
+    "ppsappsbitemname" : "作业日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "cpsappsbitemid" : "42b619f2e6ea596271de66a5be0b83ec",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "作业日志编辑视图",
+    "psappsbitemrsid" : "6325f80881de03018c5c61339fa7950e",
+    "ppsappsbitemname" : "作业日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "cpsappsbitemid" : "42b619f2e6ea596271de66a5be0b83ec",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "作业日志表格视图",
+    "psappsbitemrsid" : "4cafa04dae76604117d3bc5b7ea2825f",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "5b8c1dea14353dada7a3fc21c1de07f8",
+    "psappsbitemrsname" : "调度日志",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "74faff57597f8abae33129ff2fe56c02",
+    "ppsappsbitemname" : "消息模板表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e5c43201124108f23d002d48c8b9d219",
+    "ppsappsbitemname" : "消息模板表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ab51b29e349362df69c8b2c8f58de16e",
+    "ppsappsbitemname" : "消息模板表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dc9253cf051d27a71dc82e6efece925f",
+    "ppsappsbitemname" : "消息模板编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9576f06a9067e4e0ef38608433749bfc",
+    "ppsappsbitemname" : "消息模板编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c0b4be0c108cd350292cd7c864b75771",
+    "ppsappsbitemname" : "消息模板编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "消息模板编辑视图",
+    "psappsbitemrsid" : "f3df2bdcfe5291987b5b7b234292ecaf",
+    "ppsappsbitemname" : "消息模板表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "cpsappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息模板编辑视图",
+    "psappsbitemrsid" : "d4357b4f490a944efdd79d388591f144",
+    "ppsappsbitemname" : "消息模板表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "cpsappsbitemid" : "a3280c47d2ac17ca57c9aa115d3a8ea5",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息模板表格视图",
+    "psappsbitemrsid" : "bccafb60404fa96c1e7e2310d2cce9e1",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "ebe222ff90667bd56e1c01a24c017a04",
+    "psappsbitemrsname" : "消息模板",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "e9690ef11155c5da33d2a02d0378f374",
+    "ppsappsbitemname" : "消息发送队列表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f606c6203543c8afe9ad71244042552a",
+    "ppsappsbitemname" : "消息发送队列表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "psappsbitemrsname" : "发送",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "dd4f8574f4d624b88c48004c5ca271f8",
+    "ppsappsbitemname" : "消息发送队列表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "256cd96b9e29df663bc06249657d56ef",
+    "ppsappsbitemname" : "消息发送队列编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08ddc035f2b46d693b6a5539695e53a8",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7cc4a630e0d5a9ab170aad08587e9800",
+    "ppsappsbitemname" : "消息发送队列编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "08ddc035f2b46d693b6a5539695e53a8",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "消息发送队列编辑视图",
+    "psappsbitemrsid" : "3e11a419a02458d76bad9d5840cbe137",
+    "ppsappsbitemname" : "消息发送队列表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "cpsappsbitemid" : "08ddc035f2b46d693b6a5539695e53a8",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息发送队列编辑视图",
+    "psappsbitemrsid" : "d7471f2f18ab021e20180dda33227d68",
+    "ppsappsbitemname" : "消息发送队列表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "cpsappsbitemid" : "08ddc035f2b46d693b6a5539695e53a8",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息发送队列表格视图",
+    "psappsbitemrsid" : "b3e6354986ef51a217e5318720427bc6",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "19e9f0dd8bc85cb295bdf48c98094342",
+    "psappsbitemrsname" : "发送队列",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "c18f6e40780eb41e437ac94ea019b3e3",
+    "ppsappsbitemname" : "消息队列（历史）表格视图",
+    "rstag" : "BACKEND",
+    "rstag2" : "后台调用",
+    "ppsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "psappsbitemrsname" : "重新发送",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a6102216393152a7fe60c2f18b0b5a39",
+    "ppsappsbitemname" : "消息队列（历史）表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4d84fcb957d4fd6e01038a66dfabba3d",
+    "ppsappsbitemname" : "消息队列（历史）表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d73e2b58cee699c3d0853a96c3e66dd0",
+    "ppsappsbitemname" : "消息队列（历史）编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "fe1ecb566bd573bb1d9064bf738e3016",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "消息队列（历史）编辑视图",
+    "psappsbitemrsid" : "e8b39f6386cd6fc24ab606be65f2fa02",
+    "ppsappsbitemname" : "消息队列（历史）表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "cpsappsbitemid" : "fe1ecb566bd573bb1d9064bf738e3016",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息队列（历史）编辑视图",
+    "psappsbitemrsid" : "62041764c8e8b320703b75a6fc33f35c",
+    "ppsappsbitemname" : "消息队列（历史）表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "cpsappsbitemid" : "fe1ecb566bd573bb1d9064bf738e3016",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "消息队列（历史）表格视图",
+    "psappsbitemrsid" : "989b0bfb7adb7e48b5b1a04efea5acf1",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "79abfe91325e4e5ef62ec63a3a923647",
+    "psappsbitemrsname" : "发送历史",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "cc218e00166c2afe0f884714a5f6f257",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a92ec91c01801cd77428d5764dac93d3",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "2635c011455161a5d16979cccd0ea55e",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9908428f1dd11636aa5393b96d5f7681",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "01085f685a37fbaa2f5158ba1d680948",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "e9375c4ce469375d914e684a1c5424b2",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8ee77b1537fa694c455eb797707ef2c4",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7eb70fb99e0b74336da654bd1f8c24f4",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "875233bd15d63dffb0b4d29dbb08b291",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_导出数据模型",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4a5db18ae3c4a73d401a3d6807159a4f",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_数据导入栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "d8207d9b15162206f56a4bc1822b756a",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "63c8912e8b607b1ef5c567ad56250010",
+    "ppsappsbitemname" : "字典编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "psappsbitemrsname" : "编辑界面_保存操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "4dc5685898cbc3bd8f3e17d0886c2f70",
+    "ppsappsbitemname" : "字典编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "psappsbitemrsname" : "编辑界面_保存并新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "864ef8835d426327b61f056551248b89",
+    "ppsappsbitemname" : "字典编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5ee952ca1954798caa591c8c5cc9b02c",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "f43a56f5b5755bed84f8fc89d233b588",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "55008c00b28f0b64d1512c99ec74cd51",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "表格界面_保存行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5b19c881029595836c29bbb21cf2c55a",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ebcb9400954a5153d8df4af4a7a69662",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b4b5baa7c0984b53dbe9bbeb554afa6a",
+    "ppsappsbitemname" : "字典项编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "编辑界面_保存并退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "9918a3c024907ff784a7570c80ef4af9",
+    "ppsappsbitemname" : "字典项编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "字典项编辑视图",
+    "psappsbitemrsid" : "730f79af80f0f38e47f517a358cc4c64",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "cpsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "新建视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "字典项编辑视图",
+    "psappsbitemrsid" : "2c3dc7567f959b25c2b8cfdb1ed9f737",
+    "ppsappsbitemname" : "行编辑表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "cpsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "编辑视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "行编辑表格视图",
+    "psappsbitemrsid" : "e275cca0a3dd208ae14606134270eba6",
+    "ppsappsbitemname" : "字典编辑视图",
+    "ppsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "cpsappsbitemid" : "25c284aab3f3336c3f94b2c7edb19c7e",
+    "psappsbitemrsname" : "嵌入视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "字典编辑视图",
+    "psappsbitemrsid" : "094d3f0e870050b5bab6622be5354ba7",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "cpsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "字典编辑视图",
+    "psappsbitemrsid" : "d534e4a434bd58b3e203d516de92eade",
+    "ppsappsbitemname" : "字典表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "cpsappsbitemid" : "8adc3ddb7fadd4439fcbb6b6cd716c64",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "字典表格视图",
+    "psappsbitemrsid" : "125ad03fc9472dc139a8ad26098b9c71",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "b50de47662ffcc2b6b1ab2d4f95c5a26",
+    "psappsbitemrsname" : "数据字典",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "85a57038269f1ecef076b5a64562019a",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_新建操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b3dd9828d7f9c003e53e4c87b9007c76",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3085ea9cca2107c394b3dee4bd44f4be",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_查看操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a20c20585a089b60d3f45f6124ccd8ca",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_拷贝操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b96a8648b6551f7f9f4406a93fead1bf",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_行编辑开关操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5ff0b62fb4ecda5b5a2650679d8ce6db",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_新建行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "fb2d3875cd914c7caffc67e6ccb3a57d",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_保存行",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "c3e7f7e886935bc8e2f871b2716a81a4",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_删除操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "8ca8fc016b4896d483dffc4bc57f3a2b",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_导出操作（Excel）",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "72229d2c5cc93834d895df56ad036170",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_打印操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "b1bca2548b5ba2806e659f3ea8234d1e",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "字典项编辑视图",
+    "psappsbitemrsid" : "3b9bdc911e6818d2f4507898083b1d88",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "cpsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "字典项编辑视图",
+    "psappsbitemrsid" : "5cb3cd16bd275946ace1c72a23387fb1",
+    "ppsappsbitemname" : "字典项表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "cpsappsbitemid" : "10712627d7fe414fde453ddbbb48d5d9",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "字典项表格视图",
+    "psappsbitemrsid" : "ee830edc5f0e52ccd4aed7c2be598141",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "61d67d6ef058802dcd4bafcad642e7d0",
+    "psappsbitemrsname" : "字典项",
+    "rstype" : "APPFUNC"
+  }, {
+    "psappsbitemrsid" : "73e37a53512f50fa005df6fca6c4bf5a",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "cbbc3c27fd31b5e22c9ad15f66447619",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "678b45b9ab0c7418a7e3d23f8f412846",
+    "ppsappsbitemname" : "租户日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "c328e2588ed8ba7ad5db17133d404048",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户日志编辑视图",
+    "psappsbitemrsid" : "9ab07e7feef592736e014fb15d72a214",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "cpsappsbitemid" : "c328e2588ed8ba7ad5db17133d404048",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "psappsbitemrsid" : "d8aa62c3b9c8e04ae08bf33b8abb79a9",
+    "ppsappsbitemname" : "租户日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "dbb80b56f2c7e38b148c61467cee68c9",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户日志编辑视图",
+    "psappsbitemrsid" : "c0a2d119e557a2f5077e4a229ba2ab78",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "cpsappsbitemid" : "dbb80b56f2c7e38b148c61467cee68c9",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户日志表格视图",
+    "psappsbitemrsid" : "e16331b41de6543d2f8508e160997008",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:DELOGIC",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "8cb26514db55b350843907f4c1925d55",
+    "psappsbitemrsname" : "[系统日志-处理逻辑]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "43e55c9493fbc7df1a1ab2b5409580f0",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "7ce4367e28b253add9bcc13a3775fb46",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户日志编辑视图",
+    "psappsbitemrsid" : "18f3957f7cb2937086d8807e9ba2629f",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "cpsappsbitemid" : "dbb80b56f2c7e38b148c61467cee68c9",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户日志编辑视图",
+    "psappsbitemrsid" : "309997ac6468ac5947303157803db663",
+    "ppsappsbitemname" : "租户日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "cpsappsbitemid" : "dbb80b56f2c7e38b148c61467cee68c9",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户日志表格视图",
+    "psappsbitemrsid" : "3667b511648d9fc7133f3eb834b033e0",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:DEACTION",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "[系统日志-行为]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "租户日志表格视图",
+    "psappsbitemrsid" : "20a107417ab7c61d5b49cdb3a97fb940",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:SCRIPT",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "[系统日志-脚本]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "db46a49faf2dc00cc8aa0e0de978ff60",
+    "ppsappsbitemname" : "租户性能日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "a95a444087c3cae2c0878686783111b9",
+    "ppsappsbitemname" : "租户性能日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "fa27ad8b846be0b23f8197204ebfab9d",
+    "ppsappsbitemname" : "租户性能日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "8470cc1a04d75f04b60712eb4d43d5bc",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户性能日志编辑视图",
+    "psappsbitemrsid" : "d4c00380def655ab81638ae3a4bd135b",
+    "ppsappsbitemname" : "租户性能日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "cpsappsbitemid" : "8470cc1a04d75f04b60712eb4d43d5bc",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户性能日志编辑视图",
+    "psappsbitemrsid" : "779d6cbfe9e9e4325aa89206f91047bc",
+    "ppsappsbitemname" : "租户性能日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "cpsappsbitemid" : "8470cc1a04d75f04b60712eb4d43d5bc",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户性能日志表格视图",
+    "psappsbitemrsid" : "695273e8c8d5f70960c96faeb0cc2d27",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:SysPo",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "psappsbitemrsname" : "[性能日志]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "d54d3414cd54ae11c60ac5306a9ff50b",
+    "ppsappsbitemname" : "租户审计日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "0e538fbf72ec1c634a76281e6e4f7aaf",
+    "ppsappsbitemname" : "租户审计日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "3e01f360197ecc9246fb31fe4d8b4fec",
+    "ppsappsbitemname" : "租户审计日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "b3116335b38f0e0fbcfff3493adb59a3",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户审计日志编辑视图",
+    "psappsbitemrsid" : "d3690224e89b46beb566aa6ece8c4115",
+    "ppsappsbitemname" : "租户审计日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "cpsappsbitemid" : "b3116335b38f0e0fbcfff3493adb59a3",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户审计日志编辑视图",
+    "psappsbitemrsid" : "b375e238a93b351eb73b09121f3b66f8",
+    "ppsappsbitemname" : "租户审计日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "cpsappsbitemid" : "b3116335b38f0e0fbcfff3493adb59a3",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户审计日志表格视图",
+    "psappsbitemrsid" : "9a6269f85cecb61f315b6d5a14e5f32d",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:SysAuthAudit",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "psappsbitemrsname" : "[认证日志]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "15090d8c700b3c310db3a4babcd0e4f0",
+    "ppsappsbitemname" : "租户事件表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "31fa6fef450e50c2ca40f5bbca52b240",
+    "ppsappsbitemname" : "租户事件表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "23a08f056d3db06c051cf4b7d9beedba",
+    "ppsappsbitemname" : "租户事件编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "78b2710060cc75ffeff8edaf53f873c8",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "租户事件编辑视图",
+    "psappsbitemrsid" : "a9b57050db6310116d09e3bfe5c70e41",
+    "ppsappsbitemname" : "租户事件表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "cpsappsbitemid" : "78b2710060cc75ffeff8edaf53f873c8",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户事件编辑视图",
+    "psappsbitemrsid" : "838e11d72dc816dd12623c33c243088a",
+    "ppsappsbitemname" : "租户事件表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "cpsappsbitemid" : "78b2710060cc75ffeff8edaf53f873c8",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "租户事件表格视图",
+    "psappsbitemrsid" : "e2b3aa13b3898220863491af95a930d1",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:SysEvent",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "psappsbitemrsname" : "[系统事件]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "租户日志表格视图",
+    "psappsbitemrsid" : "5438982255a22aa72e3b7aa088cbf390",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:SysLog",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "[系统日志]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "psappsbitemrsid" : "86e929172d1601853b1920e80138f6b4",
+    "ppsappsbitemname" : "访问日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "psappsbitemrsname" : "表格界面_编辑操作",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "ad812f0db4982860facb28e202851c84",
+    "ppsappsbitemname" : "访问日志表格视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "psappsbitemrsname" : "表格界面_搜索栏",
+    "rstype" : "UIACTION"
+  }, {
+    "psappsbitemrsid" : "5ac1ab2adab30a4f2c1314cfd0386951",
+    "ppsappsbitemname" : "访问日志编辑视图",
+    "rstag" : "SYS",
+    "rstag2" : "系统预定义",
+    "ppsappsbitemid" : "000c67042871fab09c49a9257661b1ce",
+    "psappsbitemrsname" : "编辑界面_退出操作",
+    "rstype" : "UIACTION"
+  }, {
+    "cpsappsbitemname" : "访问日志编辑视图",
+    "psappsbitemrsid" : "72d08d64503652001c8c3a754b7ccdd8",
+    "ppsappsbitemname" : "访问日志表格视图",
+    "rstag" : "NEWDATA",
+    "ppsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "cpsappsbitemid" : "000c67042871fab09c49a9257661b1ce",
+    "psappsbitemrsname" : "新建数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "访问日志编辑视图",
+    "psappsbitemrsid" : "cd569270a6d40eca7c2fc949ddb6a3cd",
+    "ppsappsbitemname" : "访问日志表格视图",
+    "rstag" : "EDITDATA",
+    "ppsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "cpsappsbitemid" : "000c67042871fab09c49a9257661b1ce",
+    "psappsbitemrsname" : "编辑数据视图",
+    "rstype" : "APPVIEWREF"
+  }, {
+    "cpsappsbitemname" : "访问日志表格视图",
+    "psappsbitemrsid" : "0c02cd4539d5342c35bd5757606f9959",
+    "ppsappsbitemname" : "租户系统树导航视图",
+    "rstag" : "EXPITEM:DataAudit",
+    "ppsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "cpsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "psappsbitemrsname" : "[数据审计]导航视图",
+    "rstype" : "APPVIEWEMBED"
+  }, {
+    "cpsappsbitemname" : "租户系统树导航视图",
+    "psappsbitemrsid" : "cc18f6d5ceedce740832145b8ef757f5",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "4495a085e602399ec8138b765862213a",
+    "psappsbitemrsname" : "全部日志",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "租户日志表格视图",
+    "psappsbitemrsid" : "56e454b7b5d3239a316ea3c519439143",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "f682d5f2407b98a65726af38db31a404",
+    "psappsbitemrsname" : "系统日志",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "租户事件表格视图",
+    "psappsbitemrsid" : "3707f16bdc019ec19152d39c33114442",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "752de0920ac2fb6ebd4b4af59f4da828",
+    "psappsbitemrsname" : "系统事件",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "租户性能日志表格视图",
+    "psappsbitemrsid" : "09cafcec5c0e6d546c8a2f0c6ad44bf7",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "5daa082921f1368991bb700b2c0c4e50",
+    "psappsbitemrsname" : "性能日志",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "访问日志表格视图",
+    "psappsbitemrsid" : "4ee50fc4e74538dd1c3f8eef4e17ecee",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "f03c1c5a6932b555b5a0251a80d90333",
+    "psappsbitemrsname" : "数据审计",
+    "rstype" : "APPFUNC"
+  }, {
+    "cpsappsbitemname" : "租户审计日志表格视图",
+    "psappsbitemrsid" : "56a8e6401ad15c6317a6a04834601ab0",
+    "ppsappsbitemname" : "iBizCloud后台管理首页",
+    "rstag" : "APPVIEW",
+    "rstag2" : "打开应用视图",
+    "ppsappsbitemid" : "6cdfc169ad81aecf6ea71ebb0a2dfe30",
+    "cpsappsbitemid" : "f556dfc7240169767dbbc781158685f9",
+    "psappsbitemrsname" : "认证日志",
+    "rstype" : "APPFUNC"
+  } ],
+  "rootitem" : "6cdfc169ad81aecf6ea71ebb0a2dfe30"
+}

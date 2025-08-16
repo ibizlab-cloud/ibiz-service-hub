@@ -1,0 +1,37 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BCODE",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.MDEPTCODE",
+    "name" : "MDEPTCODE"
+  }, {
+    "expression" : "t1.MDEPTID",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t1.MDEPTNAME",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t1.ORGCODE",
+    "name" : "ORGCODE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.USERNAME",
+    "name" : "USERNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.BCODE,\nt1.MDEPTCODE,\nt1.MDEPTID,\nt1.MDEPTNAME,\nt1.ORGCODE,\nt1.ORGID,\nt1.ORGNAME,\nt1.PERSONNAME,\nt1.USERID,\nt1.USERNAME\nFROM IBZUSER t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFUser/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

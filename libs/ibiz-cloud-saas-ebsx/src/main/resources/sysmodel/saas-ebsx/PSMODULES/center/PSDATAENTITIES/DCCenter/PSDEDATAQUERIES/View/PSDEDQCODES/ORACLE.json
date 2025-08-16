@@ -1,0 +1,37 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CENTERID",
+    "name" : "CENTERID"
+  }, {
+    "expression" : "t1.CENTERNAME",
+    "name" : "CENTERNAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DOMAINS",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.EXPIRATIONDATE",
+    "name" : "EXPIRATIONDATE"
+  }, {
+    "expression" : "t1.PORTALURL",
+    "name" : "PORTALURL"
+  }, {
+    "expression" : "t1.TPPROOTURL",
+    "name" : "TPPROOTURL"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CENTERID,\nt1.CENTERNAME,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DOMAINS,\nt1.EXPIRATIONDATE,\nt1.PORTALURL,\nt1.TPPROOTURL,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZCENTER t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCCenter/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

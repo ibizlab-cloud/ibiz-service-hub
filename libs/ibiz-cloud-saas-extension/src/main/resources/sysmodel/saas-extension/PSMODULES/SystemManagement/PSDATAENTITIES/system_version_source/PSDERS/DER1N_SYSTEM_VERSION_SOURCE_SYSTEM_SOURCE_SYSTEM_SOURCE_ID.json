@@ -1,0 +1,30 @@
+{
+  "codeName" : "system_source",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source/PSDERS/DER1N_SYSTEM_VERSION_SOURCE_SYSTEM_SOURCE_SYSTEM_SOURCE_ID.json",
+  "fKeyName" : "F97369188ADE540DCD",
+  "logicName" : "系统源",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_source.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "system_version_sources",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version_source.json"
+  },
+  "minorServiceCodeName" : "system_version_sources",
+  "name" : "DER1N_SYSTEM_VERSION_SOURCE_SYSTEM_SOURCE_SYSTEM_SOURCE_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYSTEM_SOURCE_ID",
+    "codeName" : "system_source_id"
+  },
+  "pickupDEFName" : "SYSTEM_SOURCE_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "system_source",
+  "enableFKey" : true
+}

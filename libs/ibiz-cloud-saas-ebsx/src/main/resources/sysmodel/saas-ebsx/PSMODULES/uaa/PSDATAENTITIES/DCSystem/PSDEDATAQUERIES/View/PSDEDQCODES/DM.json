@@ -1,0 +1,46 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t11.REALPSDEVSLNSYSID",
+    "name" : "REALPSDEVSLNSYSID"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t21.CENTERNAME",
+    "name" : "SRFDCNAME"
+  }, {
+    "expression" : "t1.SYSPERMISSION",
+    "name" : "SYSPERMISSION"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t11.PSSYSTEMNAME",
+    "name" : "SYSTEMNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt1.DCSYSTEMNAME,\nt1.MEMO,\nt11.REALPSDEVSLNSYSID,\nt1.SRFDCID,\nt21.CENTERNAME AS SRFDCNAME,\nt1.SYSPERMISSION,\nt1.SYSTEMID,\nt11.PSSYSTEMNAME AS SYSTEMNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZDCSYSTEM t1 \nLEFT JOIN IBZPSSYSTEM t11 ON t1.SYSTEMID = t11.PSSYSTEMID \nLEFT JOIN IBZCENTER t21 ON t1.SRFDCID = t21.CENTERID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

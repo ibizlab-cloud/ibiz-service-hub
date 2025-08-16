@@ -1,0 +1,28 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CFG",
+    "name" : "CFG"
+  }, {
+    "expression" : "t1.CFGID",
+    "name" : "CFGID"
+  }, {
+    "expression" : "t1.CFGTYPE",
+    "name" : "CFGTYPE"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.TARGETTYPE",
+    "name" : "TARGETTYPE"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.CFGID,\nt1.CFGTYPE,\nt1.SYSTEMID,\nt1.TARGETTYPE,\nt1.UPDATEDATE,\nt1.USERID\nFROM IBZCFG t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstConfig/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

@@ -1,0 +1,3458 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`DEPLOY_SYSTEM`",
+    "tableName" : "DEPLOY_SYSTEM",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "VER",
+      "codeName" : "ver"
+    }, {
+      "name" : "ID",
+      "codeName" : "id"
+    }, {
+      "name" : "CREATE_MAN",
+      "codeName" : "create_man"
+    }, {
+      "name" : "NAME",
+      "codeName" : "name"
+    }, {
+      "name" : "CREATE_TIME",
+      "codeName" : "create_time"
+    }, {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    }, {
+      "name" : "UPDATE_MAN",
+      "codeName" : "update_man"
+    }, {
+      "name" : "SYSTEM_ID",
+      "codeName" : "system_id"
+    }, {
+      "name" : "SYSTEM_VERSION_ID",
+      "codeName" : "system_version_id"
+    }, {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    } ],
+    "codeName" : "Table",
+    "name" : "DEPLOY_SYSTEM",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "DEPLOY_SYSTEM"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEDRGROUPS/DRGroup.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "数据查询",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DEPLOY_SYSTEM"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DEPLOY_SYSTEM"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "数据集",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_systemDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "MARKET_URL",
+      "dBType" : "MYSQL5",
+      "name" : "MARKET_URL",
+      "queryCodeExp" : "t11.`MARKET_URL`",
+      "standardColumnName" : "`MARKET_URL`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[MARKET_URL][市场地址]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[MARKET_URL][市场地址]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 1000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[MARKET_URL][市场地址]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[MARKET_URL][市场地址]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 1000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "MARKET_URL",
+          "maxValue" : 1000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "market_url",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 1000,
+    "logicName" : "市场地址",
+    "name" : "MARKET_URL",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "MARKET_URL",
+      "codeName" : "market_url"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "MARKET_URL",
+      "codeName" : "market_url"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "market_url",
+    "stdDataType" : 25,
+    "stringLength" : 1000,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PRODUCT_ID",
+      "dBType" : "MYSQL5",
+      "name" : "PRODUCT_ID",
+      "queryCodeExp" : "t11.`PRODUCT_ID`",
+      "standardColumnName" : "`PRODUCT_ID`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PRODUCT_ID][产品标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_ID][产品标识]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PRODUCT_ID][产品标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_ID][产品标识]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PRODUCT_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "product_id",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "产品标识",
+    "name" : "PRODUCT_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "PRODUCT_ID",
+      "codeName" : "product_id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "PRODUCT_ID",
+      "codeName" : "product_id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "product_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PRODUCT_GROUP_ID",
+      "dBType" : "MYSQL5",
+      "name" : "PRODUCT_GROUP_ID",
+      "queryCodeExp" : "t11.`PRODUCT_GROUP_ID`",
+      "standardColumnName" : "`PRODUCT_GROUP_ID`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[PRODUCT_GROUP_ID][产品分组标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_GROUP_ID][产品分组标识]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[PRODUCT_GROUP_ID][产品分组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_GROUP_ID][产品分组标识]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PRODUCT_GROUP_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "product_group_id",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "产品分组标识",
+    "name" : "PRODUCT_GROUP_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "PRODUCT_GROUP_ID",
+      "codeName" : "product_group_id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "PRODUCT_GROUP_ID",
+      "codeName" : "product_group_id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "product_group_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PRODUCT_BASE_GROUP_ID",
+      "dBType" : "MYSQL5",
+      "name" : "PRODUCT_BASE_GROUP_ID",
+      "queryCodeExp" : "t11.`PRODUCT_BASE_GROUP_ID`",
+      "standardColumnName" : "`PRODUCT_BASE_GROUP_ID`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PRODUCT_BASE_GROUP_ID][产品基础分组标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_BASE_GROUP_ID][产品基础分组标识]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PRODUCT_BASE_GROUP_ID][产品基础分组标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[PRODUCT_BASE_GROUP_ID][产品基础分组标识]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PRODUCT_BASE_GROUP_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "product_base_group_id",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "产品基础分组标识",
+    "name" : "PRODUCT_BASE_GROUP_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "PRODUCT_BASE_GROUP_ID",
+      "codeName" : "product_base_group_id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "PRODUCT_BASE_GROUP_ID",
+      "codeName" : "product_base_group_id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "product_base_group_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "OSS_FILE",
+      "dBType" : "MYSQL5",
+      "name" : "OSS_FILE",
+      "queryCodeExp" : "t21.`OSS_FILE`",
+      "standardColumnName" : "`OSS_FILE`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[OSS_FILE][模型文件对象]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[OSS_FILE][模型文件对象]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[OSS_FILE][模型文件对象]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[OSS_FILE][模型文件对象]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "OSS_FILE",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "oss_file",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "模型文件对象",
+    "name" : "OSS_FILE",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "OSS_FILE",
+      "codeName" : "oss_file"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "OSS_FILE",
+      "codeName" : "oss_file"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "serviceCodeName" : "oss_file",
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "OSS_FILE_DIGEST",
+      "dBType" : "MYSQL5",
+      "name" : "OSS_FILE_DIGEST",
+      "queryCodeExp" : "t21.`DIGEST`",
+      "standardColumnName" : "`OSS_FILE_DIGEST`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[OSS_FILE_DIGEST][oss文件摘要]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[OSS_FILE_DIGEST][oss文件摘要]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[OSS_FILE_DIGEST][oss文件摘要]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[OSS_FILE_DIGEST][oss文件摘要]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "OSS_FILE_DIGEST",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "oss_file_digest",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "oss文件摘要",
+    "name" : "OSS_FILE_DIGEST",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "DIGEST",
+      "codeName" : "digest"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "DIGEST",
+      "codeName" : "digest"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "serviceCodeName" : "oss_file_digest",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SETTINGS][设置集合]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SETTINGS][设置集合]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SETTINGS][设置集合]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SETTINGS][设置集合]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SETTINGS",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "settings",
+    "dEFType" : 5,
+    "dataType" : "ONE2MANYDATA",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "设置集合",
+    "name" : "SETTINGS",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting/PSDERS/DER1N_DEPLOY_SYSTEM_SETTING_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json"
+    },
+    "serviceCodeName" : "settings",
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "phisicalDEField" : false,
+    "queryColumn" : false,
+    "uIAssistDEField" : true
+  }, {
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[DATA_SOURCES][数据源集合]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[DATA_SOURCES][数据源集合]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DATA_SOURCES][数据源集合]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[DATA_SOURCES][数据源集合]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DATA_SOURCES",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "data_sources",
+    "dEFType" : 5,
+    "dataType" : "ONE2MANYDATA",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "数据源集合",
+    "name" : "DATA_SOURCES",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source/PSDERS/DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json"
+    },
+    "serviceCodeName" : "data_sources",
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "phisicalDEField" : false,
+    "queryColumn" : false,
+    "uIAssistDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "HTTP_URL_TO_REPO",
+      "dBType" : "MYSQL5",
+      "name" : "HTTP_URL_TO_REPO",
+      "queryCodeExp" : "t11.`HTTP_URL_TO_REPO`",
+      "standardColumnName" : "`HTTP_URL_TO_REPO`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[HTTP_URL_TO_REPO][系统地址]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[HTTP_URL_TO_REPO][系统地址]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 1000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[HTTP_URL_TO_REPO][系统地址]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[HTTP_URL_TO_REPO][系统地址]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 1000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "HTTP_URL_TO_REPO",
+          "maxValue" : 1000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "http_url_to_repo",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 1000,
+    "logicName" : "系统地址",
+    "name" : "HTTP_URL_TO_REPO",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "HTTP_URL_TO_REPO",
+      "codeName" : "http_url_to_repo"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "HTTP_URL_TO_REPO",
+      "codeName" : "http_url_to_repo"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "http_url_to_repo",
+    "stdDataType" : 25,
+    "stringLength" : 1000,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DEFAULT_BRANCH",
+      "dBType" : "MYSQL5",
+      "name" : "DEFAULT_BRANCH",
+      "queryCodeExp" : "t11.`DEFAULT_BRANCH`",
+      "standardColumnName" : "`DEFAULT_BRANCH`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[DEFAULT_BRANCH][默认分支]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[DEFAULT_BRANCH][默认分支]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DEFAULT_BRANCH][默认分支]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[DEFAULT_BRANCH][默认分支]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DEFAULT_BRANCH",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "default_branch",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "默认分支",
+    "name" : "DEFAULT_BRANCH",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "DEFAULT_BRANCH",
+      "codeName" : "default_branch"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "DEFAULT_BRANCH",
+      "codeName" : "default_branch"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "default_branch",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "VER",
+      "dBType" : "MYSQL5",
+      "name" : "VER",
+      "queryCodeExp" : "t1.`VER`",
+      "standardColumnName" : "`VER`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[VER][版本]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[VER][版本]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[VER][版本]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[VER][版本]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "VER",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ver",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "版本",
+    "name" : "VER",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "VER"
+    },
+    "serviceCodeName" : "ver",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ID",
+      "dBType" : "MYSQL5",
+      "name" : "ID",
+      "queryCodeExp" : "t1.`ID`",
+      "standardColumnName" : "`ID`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ID_EQ",
+      "name" : "N_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ID][标识]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.ID"
+        },
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ID][标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.ID"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ID][标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "id",
+    "dEFType" : 1,
+    "dataType" : "GUID",
+    "importOrder" : 1000,
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.ID"
+    },
+    "length" : 100,
+    "logicName" : "标识",
+    "name" : "ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ID"
+    },
+    "serviceCodeName" : "id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "CREATE_MAN",
+      "dBType" : "MYSQL5",
+      "name" : "CREATE_MAN",
+      "queryCodeExp" : "t1.`CREATE_MAN`",
+      "standardColumnName" : "`CREATE_MAN`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[CREATE_MAN][建立人]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_MAN"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[CREATE_MAN][建立人]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATE_MAN][建立人]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_MAN"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[CREATE_MAN][建立人]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "CREATE_MAN",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "create_man",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.CREATE_MAN"
+    },
+    "length" : 100,
+    "logicName" : "建立人",
+    "name" : "CREATE_MAN",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "CREATE_MAN"
+    },
+    "predefinedType" : "CREATEMAN",
+    "serviceCodeName" : "create_man",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "NAME",
+      "dBType" : "MYSQL5",
+      "name" : "NAME",
+      "queryCodeExp" : "t1.`NAME`",
+      "standardColumnName" : "`NAME`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_NAME_LIKE",
+      "name" : "N_NAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[NAME][名称]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.NAME"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[NAME][名称]",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[NAME][名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.NAME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[NAME][名称]移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "NAME",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "name",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.NAME"
+    },
+    "length" : 200,
+    "logicName" : "名称",
+    "name" : "NAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "NAME"
+    },
+    "serviceCodeName" : "name",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "CREATE_TIME",
+      "dBType" : "MYSQL5",
+      "name" : "CREATE_TIME",
+      "queryCodeExp" : "t1.`CREATE_TIME`",
+      "standardColumnName" : "`CREATE_TIME`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATE_TIME][建立时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_TIME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[CREATE_TIME][建立时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[CREATE_TIME][建立时间]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_TIME"
+        },
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[CREATE_TIME][建立时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "create_time",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.CREATE_TIME"
+    },
+    "logicName" : "建立时间",
+    "name" : "CREATE_TIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "CREATE_TIME"
+    },
+    "predefinedType" : "CREATEDATE",
+    "serviceCodeName" : "create_time",
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "UPDATE_TIME",
+      "dBType" : "MYSQL5",
+      "name" : "UPDATE_TIME",
+      "queryCodeExp" : "t1.`UPDATE_TIME`",
+      "standardColumnName" : "`UPDATE_TIME`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[UPDATE_TIME][更新时间]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+        },
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[UPDATE_TIME][更新时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATE_TIME][更新时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[UPDATE_TIME][更新时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "update_time",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+    },
+    "logicName" : "更新时间",
+    "name" : "UPDATE_TIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "UPDATE_TIME"
+    },
+    "predefinedType" : "UPDATEDATE",
+    "serviceCodeName" : "update_time",
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "UPDATE_MAN",
+      "dBType" : "MYSQL5",
+      "name" : "UPDATE_MAN",
+      "queryCodeExp" : "t1.`UPDATE_MAN`",
+      "standardColumnName" : "`UPDATE_MAN`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATE_MAN][更新人]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[UPDATE_MAN][更新人]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[UPDATE_MAN][更新人]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[UPDATE_MAN][更新人]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "UPDATE_MAN",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "update_man",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+    },
+    "length" : 100,
+    "logicName" : "更新人",
+    "name" : "UPDATE_MAN",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "UPDATE_MAN"
+    },
+    "predefinedType" : "UPDATEMAN",
+    "serviceCodeName" : "update_man",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_ID",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_ID",
+      "queryCodeExp" : "t1.`SYSTEM_ID`",
+      "standardColumnName" : "`SYSTEM_ID`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_ID_EQ",
+      "name" : "N_SYSTEM_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_ID][系统标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_ID][系统标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_ID][系统标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_ID][系统标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "系统标识",
+    "name" : "SYSTEM_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SYSTEM_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "system_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_VERSION_ID",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_VERSION_ID",
+      "queryCodeExp" : "t1.`SYSTEM_VERSION_ID`",
+      "standardColumnName" : "`SYSTEM_VERSION_ID`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_VERSION_ID_EQ",
+      "name" : "N_SYSTEM_VERSION_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_VERSION_ID][系统版本标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_VERSION_ID][系统版本标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_VERSION_ID][系统版本标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_VERSION_ID][系统版本标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_VERSION_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_version_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "系统版本标识",
+    "name" : "SYSTEM_VERSION_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SYSTEM_VERSION_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "serviceCodeName" : "system_version_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_VERSION_NAME",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_VERSION_NAME",
+      "queryCodeExp" : "t21.`NAME`",
+      "standardColumnName" : "`SYSTEM_VERSION_NAME`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_VERSION_NAME_EQ",
+      "name" : "N_SYSTEM_VERSION_NAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_SYSTEM_VERSION_NAME_LIKE",
+      "name" : "N_SYSTEM_VERSION_NAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_VERSION_NAME][名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[SYSTEM_VERSION_NAME][名称]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_VERSION_NAME][名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[SYSTEM_VERSION_NAME][名称]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_VERSION_NAME",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_version_name",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "版本名称",
+    "name" : "SYSTEM_VERSION_NAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "serviceCodeName" : "system_version_name",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "SYSTEM_VERSION_ID",
+      "codeName" : "system_version_id"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_NAME",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_NAME",
+      "queryCodeExp" : "t11.`NAME`",
+      "standardColumnName" : "`SYSTEM_NAME`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_NAME_EQ",
+      "name" : "N_SYSTEM_NAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_SYSTEM_NAME_LIKE",
+      "name" : "N_SYSTEM_NAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_NAME][名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[SYSTEM_NAME][名称]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_NAME][名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[SYSTEM_NAME][名称]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_NAME",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_name",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "系统名称",
+    "name" : "SYSTEM_NAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "serviceCodeName" : "system_name",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "SYSTEM_ID",
+      "codeName" : "system_id"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_EXTENSION_ID",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_EXTENSION_ID",
+      "queryCodeExp" : "t1.`SYSTEM_EXTENSION_ID`",
+      "standardColumnName" : "`SYSTEM_EXTENSION_ID`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_EXTENSION_ID_EQ",
+      "name" : "N_SYSTEM_EXTENSION_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_EXTENSION_ID][系统扩展标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_EXTENSION_ID][系统扩展标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_EXTENSION_ID][系统扩展标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SYSTEM_EXTENSION_ID][系统扩展标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_EXTENSION_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_extension_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "系统扩展标识",
+    "name" : "SYSTEM_EXTENSION_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SYSTEM_EXTENSION_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "serviceCodeName" : "system_extension_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SYSTEM_EXTENSION_NAME",
+      "dBType" : "MYSQL5",
+      "name" : "SYSTEM_EXTENSION_NAME",
+      "queryCodeExp" : "t31.`NAME`",
+      "standardColumnName" : "`SYSTEM_EXTENSION_NAME`"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SYSTEM_EXTENSION_NAME_EQ",
+      "name" : "N_SYSTEM_EXTENSION_NAME_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_SYSTEM_EXTENSION_NAME_LIKE",
+      "name" : "N_SYSTEM_EXTENSION_NAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SYSTEM_EXTENSION_NAME][名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[SYSTEM_EXTENSION_NAME][名称]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SYSTEM_EXTENSION_NAME][名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[SYSTEM_EXTENSION_NAME][名称]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SYSTEM_EXTENSION_NAME",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "system_extension_name",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "名称",
+    "name" : "SYSTEM_EXTENSION_NAME",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "serviceCodeName" : "system_extension_name",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "deploy_systemDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "市场地址",
+      "name" : "market_url",
+      "getPSDEField" : {
+        "name" : "MARKET_URL",
+        "codeName" : "market_url"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 1000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "产品标识",
+      "name" : "product_id",
+      "getPSDEField" : {
+        "name" : "PRODUCT_ID",
+        "codeName" : "product_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "产品分组标识",
+      "name" : "product_group_id",
+      "getPSDEField" : {
+        "name" : "PRODUCT_GROUP_ID",
+        "codeName" : "product_group_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "产品基础分组标识",
+      "name" : "product_base_group_id",
+      "getPSDEField" : {
+        "name" : "PRODUCT_BASE_GROUP_ID",
+        "codeName" : "product_base_group_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "模型文件对象",
+      "name" : "oss_file",
+      "getPSDEField" : {
+        "name" : "OSS_FILE",
+        "codeName" : "oss_file"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "oss文件摘要",
+      "name" : "oss_file_digest",
+      "getPSDEField" : {
+        "name" : "OSS_FILE_DIGEST",
+        "codeName" : "oss_file_digest"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "设置集合",
+      "name" : "settings",
+      "getPSDEField" : {
+        "name" : "SETTINGS",
+        "codeName" : "settings"
+      },
+      "getPSDER" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting/PSDERS/DER1N_DEPLOY_SYSTEM_SETTING_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json"
+      },
+      "getRefPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_system_settingDTO"
+      },
+      "getRefPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json"
+      },
+      "sourceType" : "DEFIELD",
+      "stringLength" : 1048576,
+      "type" : "DTOS"
+    }, {
+      "logicName" : "数据源集合",
+      "name" : "data_sources",
+      "getPSDEField" : {
+        "name" : "DATA_SOURCES",
+        "codeName" : "data_sources"
+      },
+      "getPSDER" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source/PSDERS/DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json"
+      },
+      "getRefPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "deploy_system_data_sourceDTO"
+      },
+      "getRefPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+      },
+      "sourceType" : "DEFIELD",
+      "stringLength" : 1048576,
+      "type" : "DTOS"
+    }, {
+      "logicName" : "系统地址",
+      "name" : "http_url_to_repo",
+      "getPSDEField" : {
+        "name" : "HTTP_URL_TO_REPO",
+        "codeName" : "http_url_to_repo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 1000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "默认分支",
+      "name" : "default_branch",
+      "getPSDEField" : {
+        "name" : "DEFAULT_BRANCH",
+        "codeName" : "default_branch"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "版本",
+      "name" : "ver",
+      "getPSDEField" : {
+        "name" : "VER",
+        "codeName" : "ver"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "建立人",
+      "name" : "create_man",
+      "getPSDEField" : {
+        "name" : "CREATE_MAN",
+        "codeName" : "create_man"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "create_time",
+      "getPSDEField" : {
+        "name" : "CREATE_TIME",
+        "codeName" : "create_time"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "标识",
+      "name" : "id",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "名称",
+      "name" : "name",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统扩展标识",
+      "name" : "system_extension_id",
+      "getPSDEField" : {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "codeName" : "system_extension_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "名称",
+      "name" : "system_extension_name",
+      "getPSDEField" : {
+        "name" : "SYSTEM_EXTENSION_NAME",
+        "codeName" : "system_extension_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统标识",
+      "name" : "system_id",
+      "getPSDEField" : {
+        "name" : "SYSTEM_ID",
+        "codeName" : "system_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统名称",
+      "name" : "system_name",
+      "getPSDEField" : {
+        "name" : "SYSTEM_NAME",
+        "codeName" : "system_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统版本标识",
+      "name" : "system_version_id",
+      "getPSDEField" : {
+        "name" : "SYSTEM_VERSION_ID",
+        "codeName" : "system_version_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "版本名称",
+      "name" : "system_version_name",
+      "getPSDEField" : {
+        "name" : "SYSTEM_VERSION_NAME",
+        "codeName" : "system_version_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "更新人",
+      "name" : "update_man",
+      "getPSDEField" : {
+        "name" : "UPDATE_MAN",
+        "codeName" : "update_man"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "update_time",
+      "getPSDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "deploy_systemFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "标识",
+      "name" : "N_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "名称",
+      "name" : "N_NAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_NAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统扩展标识",
+      "name" : "N_SYSTEM_EXTENSION_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_EXTENSION_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_EXTENSION_ID",
+        "codeName" : "system_extension_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "名称",
+      "name" : "N_SYSTEM_EXTENSION_NAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_EXTENSION_NAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_EXTENSION_NAME",
+        "codeName" : "system_extension_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "名称",
+      "name" : "N_SYSTEM_EXTENSION_NAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_EXTENSION_NAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_EXTENSION_NAME",
+        "codeName" : "system_extension_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统标识",
+      "name" : "N_SYSTEM_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_ID",
+        "codeName" : "system_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统名称",
+      "name" : "N_SYSTEM_NAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_NAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_NAME",
+        "codeName" : "system_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统名称",
+      "name" : "N_SYSTEM_NAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_NAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_NAME",
+        "codeName" : "system_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "系统版本标识",
+      "name" : "N_SYSTEM_VERSION_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_VERSION_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_VERSION_ID",
+        "codeName" : "system_version_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "版本名称",
+      "name" : "N_SYSTEM_VERSION_NAME_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_VERSION_NAME_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_VERSION_NAME",
+        "codeName" : "system_version_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "版本名称",
+      "name" : "N_SYSTEM_VERSION_NAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SYSTEM_VERSION_NAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "SYSTEM_VERSION_NAME",
+        "codeName" : "system_version_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "MPickupView",
+    "logicName" : "部署系统实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "部署系统实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "部署系统实体选择表格视图（部件视图）",
+    "name" : "部署系统实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView",
+    "logicName" : "部署系统实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "部署系统实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "部署系统实体编辑视图（左右关系）",
+    "name" : "部署系统实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "部署系统实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "部署系统实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView",
+    "logicName" : "部署系统实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "部署系统实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "部署系统实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "部署系统实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "deploy_system",
+  "dEType" : 1,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "deploy_systemFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "deploy_systemDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.DEPLOY_SYSTEM"
+  },
+  "logicName" : "部署系统",
+  "getMajorPSDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "getMajorPSDERs" : [ {
+    "codeName" : "deploy_system",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source/PSDERS/DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json",
+    "fKeyName" : "FFC5B7D89B8F438483",
+    "logicName" : "部署系统",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "deploy_system_data_sources",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+    },
+    "minorServiceCodeName" : "deploy_system_data_sources",
+    "name" : "DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+    "orderValue" : 100,
+    "getPSOne2ManyDataDEField" : {
+      "name" : "DATA_SOURCES",
+      "codeName" : "data_sources"
+    },
+    "getPSPickupDEField" : {
+      "name" : "DEPLOY_SYSTEM_ID",
+      "codeName" : "deploy_system_id"
+    },
+    "pickupDEFName" : "DEPLOY_SYSTEM_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "deploy_system",
+    "enableFKey" : true
+  }, {
+    "codeName" : "deploy_system",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting/PSDERS/DER1N_DEPLOY_SYSTEM_SETTING_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json",
+    "fKeyName" : "F4184A493C14DB9294",
+    "logicName" : "部署系统",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "deploy_system_settings",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting.json"
+    },
+    "minorServiceCodeName" : "deploy_system_settings",
+    "name" : "DER1N_DEPLOY_SYSTEM_SETTING_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+    "orderValue" : 100,
+    "getPSOne2ManyDataDEField" : {
+      "name" : "SETTINGS",
+      "codeName" : "settings"
+    },
+    "getPSPickupDEField" : {
+      "name" : "DEPLOY_SYSTEM_ID",
+      "codeName" : "deploy_system_id"
+    },
+    "pickupDEFName" : "DEPLOY_SYSTEM_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "deploy_system",
+    "enableFKey" : true
+  }, {
+    "codeName" : "deploy_system",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system/PSDERS/DER1N_SERVICE_HUB_DEPLOY_SYSTEM_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID.json",
+    "fKeyName" : "F5160FE24E5DE17D1B",
+    "logicName" : "部署系统",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "service_hub_deploy_systems",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system.json"
+    },
+    "minorServiceCodeName" : "service_hub_deploy_systems",
+    "name" : "DER1N_SERVICE_HUB_DEPLOY_SYSTEM_DEPLOY_SYSTEM_DEPLOY_SYSTEM_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "DEPLOY_SYSTEM_ID",
+      "codeName" : "deploy_system_id"
+    },
+    "pickupDEFName" : "DEPLOY_SYSTEM_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "deploy_system",
+    "enableFKey" : true
+  } ],
+  "getMinorPSDERs" : [ {
+    "codeName" : "system_extension",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID.json",
+    "fKeyName" : "F6639A410E8DEB8F94",
+    "logicName" : "系统扩展",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "deploy_systems",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "minorServiceCodeName" : "deploy_systems",
+    "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_EXTENSION_SYSTEM_EXTENSION_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "SYSTEM_EXTENSION_ID",
+      "codeName" : "system_extension_id"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "SYSTEM_EXTENSION_NAME",
+      "codeName" : "system_extension_name"
+    },
+    "pickupDEFName" : "SYSTEM_EXTENSION_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "system_extension",
+    "enableFKey" : true
+  }, {
+    "codeName" : "system",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID.json",
+    "fKeyName" : "FA2BCD5A529EE72687",
+    "logicName" : "系统",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "deploy_systems",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "minorServiceCodeName" : "deploy_systems",
+    "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_SYSTEM_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "SYSTEM_ID",
+      "codeName" : "system_id"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "SYSTEM_NAME",
+      "codeName" : "system_name"
+    },
+    "pickupDEFName" : "SYSTEM_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "system",
+    "enableFKey" : true
+  }, {
+    "codeName" : "system_version",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system/PSDERS/DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID.json",
+    "fKeyName" : "F5FB1A8146C97BE1BA",
+    "logicName" : "系统版本",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_version.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "minorCodeName" : "deploy_systems",
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system.json"
+    },
+    "minorServiceCodeName" : "deploy_systems",
+    "name" : "DER1N_DEPLOY_SYSTEM_SYSTEM_VERSION_SYSTEM_VERSION_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "SYSTEM_VERSION_ID",
+      "codeName" : "system_version_id"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "SYSTEM_VERSION_NAME",
+      "codeName" : "system_version_name"
+    },
+    "pickupDEFName" : "SYSTEM_VERSION_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "system_version",
+    "enableFKey" : true
+  } ],
+  "name" : "DEPLOY_SYSTEM",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "saaSMode" : 0,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "deploy_system",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudImportEx",
+  "tableName" : "DEPLOY_SYSTEM",
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

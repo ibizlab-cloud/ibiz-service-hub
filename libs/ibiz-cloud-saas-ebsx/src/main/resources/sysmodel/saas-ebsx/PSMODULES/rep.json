@@ -1,0 +1,9 @@
+{
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/rep/PSDATAENTITIES/Report.json"
+  } ],
+  "codeName" : "rep",
+  "dynaModelFilePath" : "PSMODULES/rep.json",
+  "name" : "rep"
+}

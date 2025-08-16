@@ -1,0 +1,15 @@
+{
+  "codeName" : "CloudV2",
+  "contentType" : "CODE",
+  "defaultFlag" : true,
+  "dynaModelFilePath" : "PSSYSSFPUBS/CloudV2.json",
+  "groovySourceFolder" : "cloudv2-core/src/main/groovy",
+  "modelFolder" : "cloudv2-core/src/main/resources/model/net/ibizsys/central/cloud/saas/v2",
+  "name" : "CloudV2",
+  "pKGCodeName" : "net.ibizsys.central.cloud.saas.v2",
+  "versionString" : "1.0.0.0",
+  "codeMode" : true,
+  "enableModelRT" : true,
+  "mainPSSysSFPub" : true,
+  "pubModel" : true
+}

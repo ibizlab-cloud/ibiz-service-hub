@@ -1,0 +1,458 @@
+{
+  "codeName" : "IndexView",
+  "controlType" : "APPMENU",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPMENUS/IndexView.json",
+  "logicName" : "iBiz租户管理首页默认菜单",
+  "getPSAppMenuItems" : [ {
+    "accUserMode" : 0,
+    "caption" : "控制台",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem34",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc27"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf0e4@FontAwesome",
+      "cssClass" : "fa fa-dashboard"
+    },
+    "tooltip" : "控制台"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "系统管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem1",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf1b3@FontAwesome",
+      "cssClass" : "fa fa-cubes"
+    },
+    "tooltip" : "系统管理"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "开放应用",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem38",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc31"
+    },
+    "tooltip" : "开放应用"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "组织管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem2",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "单位管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem3",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc2"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0e8@FontAwesome",
+        "cssClass" : "fa fa-sitemap"
+      },
+      "tooltip" : "单位管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "部门管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem4",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc3"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf1ad@FontAwesome",
+        "cssClass" : "fa fa-building"
+      },
+      "tooltip" : "部门管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "人员管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem5",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc4"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf007@FontAwesome",
+        "cssClass" : "fa fa-user"
+      },
+      "tooltip" : "人员管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "岗位管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem6",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc5"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-cog"
+      },
+      "tooltip" : "岗位管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "人员组管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem7",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc6"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf234@FontAwesome",
+        "cssClass" : "fa fa-user-plus"
+      },
+      "tooltip" : "人员组管理",
+      "hidden" : true
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf0c0@FontAwesome",
+      "cssClass" : "fa fa-users"
+    },
+    "tooltip" : "组织管理"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "权限管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem8",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "角色管理",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem9",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc7"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0f0@FontAwesome",
+        "cssClass" : "fa fa-user-md"
+      },
+      "tooltip" : "角色管理"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "系统能力",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem10",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc8"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf12e@FontAwesome",
+        "cssClass" : "fa fa-puzzle-piece"
+      },
+      "tooltip" : "系统能力"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf084@FontAwesome",
+      "cssClass" : "fa fa-key"
+    },
+    "tooltip" : "权限管理"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "流程管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem13",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "流程定义",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem18",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc11"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-gear"
+      },
+      "tooltip" : "流程定义"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "流程角色",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem19",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc12"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-gear"
+      },
+      "tooltip" : "流程角色"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "流程实例",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem20",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc13"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-gear"
+      },
+      "tooltip" : "流程实例"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf074@FontAwesome",
+      "cssClass" : "fa fa-random"
+    },
+    "tooltip" : "流程管理"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "任务管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem14",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "任务调度",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem22",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc15"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-gear"
+      },
+      "tooltip" : "任务调度"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "调度日志",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem23",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc14"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "调度日志"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf0ae@FontAwesome",
+      "cssClass" : "fa fa-tasks"
+    },
+    "tooltip" : "任务管理"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "消息管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem15",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "消息模板",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem25",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc18"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf1ea@FontAwesome",
+        "cssClass" : "fa fa-newspaper-o"
+      },
+      "tooltip" : "消息模板"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "发送队列",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem27",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc20"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0e0@FontAwesome",
+        "cssClass" : "fa fa-envelope"
+      },
+      "tooltip" : "发送队列"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "发送历史",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem28",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc21"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf1da@FontAwesome",
+        "cssClass" : "fa fa-history"
+      },
+      "tooltip" : "发送历史"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "邮件服务配置",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem39",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc32"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf013@FontAwesome",
+        "cssClass" : "fa fa-cog"
+      },
+      "tooltip" : "邮件服务配置"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf086@FontAwesome",
+      "cssClass" : "fa fa-comments"
+    },
+    "tooltip" : "消息管理"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "数据字典",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem17",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc22"
+    },
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "字典",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem11",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc22"
+      },
+      "tooltip" : "字典"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "字典项",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem33",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc26"
+      },
+      "tooltip" : "字典项"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf15d@FontAwesome",
+      "cssClass" : "fa fa-sort-alpha-asc"
+    },
+    "tooltip" : "数据字典"
+  }, {
+    "accUserMode" : 0,
+    "caption" : "日志管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem16",
+    "getPSAppMenuItems" : [ {
+      "accUserMode" : 2,
+      "caption" : "全部日志",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem35",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc28"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "全部日志"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "系统日志",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem29",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc23"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "系统日志"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "系统事件",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem30",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc24"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "系统事件"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "性能日志",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem31",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc25"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "性能日志"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "数据审计",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem36",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc29"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "数据审计"
+    }, {
+      "accUserMode" : 2,
+      "caption" : "认证日志",
+      "itemType" : "MENUITEM",
+      "name" : "menuitem37",
+      "getPSAppFunc" : {
+        "modelref" : true,
+        "id" : "AppFunc30"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf129@FontAwesome",
+        "cssClass" : "fa fa-info"
+      },
+      "tooltip" : "认证日志"
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf129@FontAwesome",
+      "cssClass" : "fa fa-info"
+    },
+    "tooltip" : "日志管理"
+  } ],
+  "name" : "indexview",
+  "modelid" : "956E1F76-1C0E-4E1E-88E6-0C7079ECCDA9",
+  "modeltype" : "PSAPPMENU"
+}

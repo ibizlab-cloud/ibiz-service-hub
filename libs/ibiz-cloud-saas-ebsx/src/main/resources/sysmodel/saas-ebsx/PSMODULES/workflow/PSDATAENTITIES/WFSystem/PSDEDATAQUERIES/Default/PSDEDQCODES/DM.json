@@ -1,0 +1,13 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.PSSYSTEMNAME",
+    "name" : "PSSYSTEMNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.PSSYSTEMID,\nt1.PSSYSTEMNAME\nFROM IBZPSSYSTEM t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFSystem/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

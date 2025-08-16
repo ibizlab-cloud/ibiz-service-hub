@@ -1,0 +1,8 @@
+{
+  "name" : "WebApp",
+  "getAllPSAppDEUIActionGroups" : [ ],
+  "getAllPSDEDRControls" : [ ],
+  "getAllPSControls" : [ ],
+  "getAllPSAppViewRefs" : [ ],
+  "id" : "PSSYSAPPS/WebApp/PSSYSAPP.json"
+}

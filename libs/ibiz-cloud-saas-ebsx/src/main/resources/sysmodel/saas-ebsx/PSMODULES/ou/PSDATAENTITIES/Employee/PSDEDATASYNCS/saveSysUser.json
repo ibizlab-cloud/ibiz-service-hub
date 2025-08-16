@@ -1,0 +1,14 @@
+{
+  "codeName" : "saveSysUser",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEDATASYNCS/saveSysUser.json",
+  "eventType" : 3,
+  "name" : "保存用户信息",
+  "getOutPSSysDataSyncAgent" : {
+    "modelref" : true,
+    "path" : "PSSYSDATASYNCAGENTS/saveSysUser.json"
+  },
+  "syncDir" : "OUT",
+  "syncTag" : "saveSysUser",
+  "exportFull" : false,
+  "inMode" : false
+}

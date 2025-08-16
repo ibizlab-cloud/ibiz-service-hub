@@ -1,0 +1,23 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Save",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MsgSendQueueDTO"
+    },
+    "type" : "DTOS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true
+}

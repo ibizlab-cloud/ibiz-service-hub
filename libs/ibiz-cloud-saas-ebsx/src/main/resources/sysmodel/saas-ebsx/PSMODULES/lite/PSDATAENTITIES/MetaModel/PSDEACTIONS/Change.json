@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Change",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaModel/PSDEACTIONS/Change.json",
+  "logicName" : "change",
+  "name" : "change",
+  "getPSDEActionInput" : {
+    "name" : "ChangeInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaModelDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ChangeResult",
+    "type" : "VOID"
+  }
+}

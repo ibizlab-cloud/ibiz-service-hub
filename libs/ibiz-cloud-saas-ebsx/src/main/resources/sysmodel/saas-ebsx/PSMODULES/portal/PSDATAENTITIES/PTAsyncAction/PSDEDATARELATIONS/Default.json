@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "门户异步操作",
+  "name" : "门户异步操作默认关系界面组"
+}

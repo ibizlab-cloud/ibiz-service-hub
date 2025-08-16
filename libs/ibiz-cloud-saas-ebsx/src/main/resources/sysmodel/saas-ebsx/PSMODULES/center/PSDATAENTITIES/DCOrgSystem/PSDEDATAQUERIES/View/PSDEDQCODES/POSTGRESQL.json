@@ -1,0 +1,49 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t21.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.DYNAINSTID",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t31.DYNAINSTNAME",
+    "name" : "DYNAINSTNAME"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t11.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.ORGSYSTEMID",
+    "name" : "ORGSYSTEMID"
+  }, {
+    "expression" : "t1.ORGSYSTEMNAME",
+    "name" : "ORGSYSTEMNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt21.DCSYSTEMNAME,\nt1.DYNAINSTID,\nt31.DYNAINSTNAME,\nt1.ISVALID,\nt1.MEMO,\nt1.ORGID,\nt11.ORGNAME,\nt1.ORGSYSTEMID,\nt1.ORGSYSTEMNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZORGSYSTEM t1 \nLEFT JOIN IBZORG t11 ON t1.ORGID = t11.ORGID \nLEFT JOIN IBZDCSYSTEM t21 ON t1.DCSYSTEMID = t21.DCSYSTEMID \nLEFT JOIN IBZDYNAINST t31 ON t1.DYNAINSTID = t31.DYNAINSTID \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

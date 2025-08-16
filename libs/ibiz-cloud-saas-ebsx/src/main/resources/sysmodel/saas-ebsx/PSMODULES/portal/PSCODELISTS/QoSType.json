@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "portal__QoSType",
+  "codeListType" : "STATIC",
+  "codeName" : "QoSType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/portal/PSCODELISTS/QoSType.json",
+  "emptyText" : "未定义",
+  "name" : "消息质量",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_0",
+    "text" : "QoS0",
+    "value" : "0"
+  }, {
+    "codeName" : "Item_1",
+    "text" : "QoS1",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "QoS2",
+    "value" : "2"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Send",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue/PSDEACTIONS/Send.json",
+  "logicName" : "发送",
+  "name" : "Send",
+  "getPSDEActionInput" : {
+    "name" : "SendInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MsgSendQueueDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SendResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

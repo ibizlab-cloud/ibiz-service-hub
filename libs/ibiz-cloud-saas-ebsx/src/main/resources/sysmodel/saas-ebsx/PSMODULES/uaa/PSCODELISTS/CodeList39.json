@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList39",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList39",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList39.json",
+  "emptyText" : "未定义",
+  "name" : "文件编码",
+  "getPSCodeItems" : [ {
+    "codeName" : "Ansi",
+    "text" : "ANSI",
+    "value" : "ANSI"
+  }, {
+    "codeName" : "Utf_SUB_8",
+    "text" : "UTF-8",
+    "value" : "UTF-8"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00048",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

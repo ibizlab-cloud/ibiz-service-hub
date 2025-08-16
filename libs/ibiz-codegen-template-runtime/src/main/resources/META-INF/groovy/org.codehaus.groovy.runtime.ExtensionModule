@@ -1,0 +1,4 @@
+moduleName=ibiz-codegen-template-runtime
+moduleVersion=1.0
+extensionClasses=net.ibizsys.codegen.template.runtime.support.PSWFVersionExtension
+#staticExtensionClasses=support.StaticStringExtension

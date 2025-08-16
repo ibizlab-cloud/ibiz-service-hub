@@ -1,0 +1,30 @@
+{
+  "codeName" : "system_extension",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension/PSDERS/DER1N_SYSTEM_EXTENSION_SYSTEM_EXTENSION_SRC_SYSTEM_EXTENSION_ID.json",
+  "fKeyName" : "FD48AD2B2A06B5EB32",
+  "logicName" : "源模型扩展-用户模型扩展",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "system_extensions",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension.json"
+  },
+  "minorServiceCodeName" : "system_extensions",
+  "name" : "DER1N_SYSTEM_EXTENSION_SYSTEM_EXTENSION_SRC_SYSTEM_EXTENSION_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SRC_SYSTEM_EXTENSION_ID",
+    "codeName" : "src_system_extension_id"
+  },
+  "pickupDEFName" : "SRC_SYSTEM_EXTENSION_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "system_extension",
+  "enableFKey" : true
+}

@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem5",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDEDRITEMS/DRItem5.json",
+  "itemType" : "DER1N",
+  "name" : "实体关系实体表格编辑视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDERS/DER1N_META_RELATION_META_ENTITY_ENTITYID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "ENTITYID",
+    "srfparentdename" : "META_ENTITY",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_META_RELATION_META_ENTITY_ENTITYID",
+    "SRFDER1NID" : "DER1N_META_RELATION_META_ENTITY_ENTITYID"
+  },
+  "viewCodeName" : "EditGridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_META_RELATION_META_ENTITY_ENTITYID"
+  }
+}

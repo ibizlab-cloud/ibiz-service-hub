@@ -1,0 +1,530 @@
+{
+  "codeName" : "LogTree",
+  "controlType" : "TREEVIEW",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem/PSTREEVIEWS/LogTree.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "SELECTIONCHANGE", "LOAD" ],
+  "logicName" : "日志树",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SELECTIONCHANGE",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_selectionchange"
+  }, {
+    "eventNames" : "LOAD",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_load"
+  } ],
+  "getPSDETreeNodeRSs" : [ {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "SysLog"
+    },
+    "name" : "租户系统 - 系统日志",
+    "getPSNavigateContexts" : [ {
+      "key" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "name" : "默认根节点 - 租户系统",
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ROOT"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "SysEvent"
+    },
+    "name" : "租户系统 - 系统事件",
+    "getPSNavigateContexts" : [ {
+      "key" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "SysPo"
+    },
+    "name" : "租户系统 - 性能日志",
+    "getPSNavigateContexts" : [ {
+      "key" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DataAudit"
+    },
+    "name" : "租户系统 - 数据审计",
+    "getPSNavigateContexts" : [ {
+      "key" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "SysAuthAudit"
+    },
+    "name" : "租户系统 - 认证日志",
+    "getPSNavigateContexts" : [ {
+      "key" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "DCSystem"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  } ],
+  "getPSDETreeNodes" : [ {
+    "counterMode" : 0,
+    "name" : "默认根节点",
+    "nodeType" : "ROOT",
+    "nodeValue" : "root",
+    "text" : "默认根节点",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : true,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "ROOT"
+  }, {
+    "counterMode" : 0,
+    "dataSourceType" : "DEDATASET",
+    "getIdPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    },
+    "maxSize" : -1,
+    "name" : "租户系统",
+    "nodeType" : "DCSystem",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "FetchDefault"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf1b3@FontAwesome",
+      "cssClass" : "fa fa-cubes"
+    },
+    "textFormat" : "租户系统",
+    "getTextPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "treeNodeType" : "DE",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : true,
+    "expanded" : true,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "DCSystem"
+  }, {
+    "counterMode" : 0,
+    "name" : "系统日志-行为",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "DEACTION",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    }, {
+      "key" : "n_logcat_eq",
+      "name" : "n_logcat_eq",
+      "value" : "DEACTION",
+      "rawValue" : true
+    } ],
+    "text" : "实体行为",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "DEACTION"
+  }, {
+    "counterMode" : 0,
+    "name" : "系统日志-处理逻辑",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogDeLogicGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "DELOGIC",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    }, {
+      "key" : "n_logcat_eq",
+      "name" : "n_logcat_eq",
+      "value" : "DELOGIC",
+      "rawValue" : true
+    } ],
+    "text" : "处理逻辑",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "DELOGIC"
+  }, {
+    "counterMode" : 0,
+    "name" : "数据审计",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DataAuditGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "DataAudit",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "text" : "数据审计",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "DataAudit"
+  }, {
+    "counterMode" : 0,
+    "name" : "系统日志-脚本",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "SCRIPT",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    }, {
+      "key" : "n_logcat_eq",
+      "name" : "n_logcat_eq",
+      "value" : "SCRIPT",
+      "rawValue" : true
+    } ],
+    "text" : "脚本",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "SCRIPT"
+  }, {
+    "counterMode" : 0,
+    "name" : "认证日志",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCAuditGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "SysAuthAudit",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "text" : "认证日志",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "SysAuthAudit"
+  }, {
+    "counterMode" : 0,
+    "name" : "系统事件",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCEventGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "SysEvent",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "text" : "系统事件",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "SysEvent"
+  }, {
+    "counterMode" : 0,
+    "name" : "系统日志",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCLogGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "SysLog",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "text" : "系统日志",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : true,
+    "selected" : true,
+    "id" : "SysLog"
+  }, {
+    "counterMode" : 0,
+    "name" : "性能日志",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCPOGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "nodeType" : "SysPo",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+    },
+    "getPSNavigateParams" : [ {
+      "key" : "n_dcsystemid_eq",
+      "name" : "n_dcsystemid_eq",
+      "value" : "dcsystemid",
+      "rawValue" : false
+    } ],
+    "text" : "性能日志",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "SysPo"
+  } ],
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "treeGridMode" : 0,
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "enableRootSelect" : false,
+  "outputIconDefault" : true,
+  "rootVisible" : false,
+  "modelid" : "29CBBCE4-A414-41EA-93E9-AE31DF4EA4C5",
+  "modeltype" : "PSDETREEVIEW"
+}

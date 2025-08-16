@@ -1,0 +1,678 @@
+{
+  "accUserMode" : 2,
+  "caption" : "租户作业",
+  "codeName" : "DCJobsInfoPickupView",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsInfoPickupView.json",
+  "funcViewMode" : "PICKUPVIEW",
+  "name" : "DCJobsInfoPickupView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "PickupView",
+    "name" : "engine",
+    "getPSUIEngineParams" : [ {
+      "ctrlName" : "pickupviewpanel",
+      "name" : "PICKUPVIEWPANEL",
+      "paramType" : "CTRL"
+    } ]
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "PickupViewpickupviewpanel",
+    "controlType" : "PICKUPVIEWPANEL",
+    "getEmbeddedPSAppDEView" : {
+      "accUserMode" : 2,
+      "caption" : "租户作业",
+      "codeName" : "DCJobsInfoPickupGridView",
+      "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCJobsInfoPickupGridView.json",
+      "gridRowActiveMode" : 2,
+      "name" : "DCJobsInfoPickupGridView",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+      },
+      "getPSAppViewEngines" : [ {
+        "engineCat" : "VIEW",
+        "engineType" : "PickupGridView",
+        "name" : "engine",
+        "getPSUIEngineParams" : [ {
+          "ctrlName" : "grid",
+          "name" : "GRID",
+          "paramType" : "CTRL"
+        }, {
+          "ctrlName" : "searchform",
+          "name" : "SEARCHFORM",
+          "paramType" : "CTRL"
+        } ]
+      } ],
+      "getPSControls" : [ {
+        "aggMode" : "NONE",
+        "codeName" : "Main",
+        "columnEnableLink" : 2,
+        "controlType" : "GRID",
+        "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo/PSGRIDS/Main.json",
+        "getFetchPSControlAction" : {
+          "modelref" : true,
+          "id" : "fetch"
+        },
+        "groupMode" : "NONE",
+        "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+        "logicName" : "主表格",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionName" : "Get",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "READ",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Get"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionName" : "Create",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "create",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Create"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionName" : "Update",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "UPDATE",
+            "name" : "update",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Update"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionName" : "GetDraft",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "loaddraft",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "GetDraft"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FetchDefault"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          } ],
+          "userDRAction" : "READ",
+          "enableDEFieldPrivilege" : false,
+          "id" : "数据表格处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;LOAD;BEFORELOAD",
+          "logicTag" : "grid",
+          "logicType" : "APPVIEWENGINE",
+          "name" : "engine_grid",
+          "getPSAppViewEngine" : {
+            "modelref" : true,
+            "id" : "engine"
+          }
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "GRID"
+        },
+        "getPSDEGridColumns" : [ {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "租户系统",
+          "codeName" : "appname",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "appname",
+          "excelCaption" : "租户系统",
+          "name" : "appname",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "APPNAME",
+            "codeName" : "AppName"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "执行器任务器",
+          "codeName" : "handler",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "handler",
+          "excelCaption" : "执行器任务器",
+          "name" : "handler",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "HANDLER",
+            "codeName" : "Handler"
+          },
+          "width" : 200,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "任务类型",
+          "codeName" : "tasktype",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "tasktype",
+          "excelCaption" : "任务类型",
+          "name" : "tasktype",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "TASKTYPE",
+            "codeName" : "TaskType"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "所有者",
+          "codeName" : "author",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "author",
+          "excelCaption" : "所有者",
+          "name" : "author",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "AUTHOR",
+            "codeName" : "Author"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "FRONT",
+          "caption" : "状态",
+          "codeName" : "status",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "status",
+          "excelCaption" : "状态",
+          "name" : "status",
+          "noPrivDisplayMode" : 1,
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/JobsStatus.json"
+          },
+          "getPSAppDEField" : {
+            "name" : "STATUS",
+            "codeName" : "Status"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "任务执行CRON",
+          "codeName" : "cron",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "cron",
+          "excelCaption" : "任务执行CRON",
+          "name" : "cron",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "CRON",
+            "codeName" : "Cron"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "任务执行超时时间（秒）",
+          "codeName" : "timeout",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "timeout",
+          "excelCaption" : "任务执行超时时间（秒）",
+          "name" : "timeout",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "TIMEOUT",
+            "codeName" : "Timeout"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "失败重试次数",
+          "codeName" : "fail_retry_count",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "fail_retry_count",
+          "excelCaption" : "失败重试次数",
+          "name" : "fail_retry_count",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "FAIL_RETRY_COUNT",
+            "codeName" : "FailRetryCount"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "上次调用时间",
+          "codeName" : "last",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "last",
+          "excelCaption" : "上次调用时间",
+          "name" : "last",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "LAST",
+            "codeName" : "Last"
+          },
+          "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+          "width" : 200,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "下次调用时间",
+          "codeName" : "next",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "next",
+          "excelCaption" : "下次调用时间",
+          "name" : "next",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "NEXT",
+            "codeName" : "Next"
+          },
+          "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+          "width" : 200,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        }, {
+          "align" : "LEFT",
+          "cLConvertMode" : "NONE",
+          "caption" : "备注",
+          "codeName" : "remark",
+          "columnType" : "DEFGRIDCOLUMN",
+          "dataItemName" : "remark",
+          "excelCaption" : "备注",
+          "name" : "remark",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "REMARK",
+            "codeName" : "Remark"
+          },
+          "width" : 100,
+          "widthUnit" : "PX",
+          "enableSort" : true
+        } ],
+        "getPSDEGridDataItems" : [ {
+          "dataType" : 25,
+          "name" : "appname",
+          "getPSAppDEField" : {
+            "name" : "APPNAME",
+            "codeName" : "AppName"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "handler",
+          "getPSAppDEField" : {
+            "name" : "HANDLER",
+            "codeName" : "Handler"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "tasktype",
+          "getPSAppDEField" : {
+            "name" : "TASKTYPE",
+            "codeName" : "TaskType"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "author",
+          "getPSAppDEField" : {
+            "name" : "AUTHOR",
+            "codeName" : "Author"
+          }
+        }, {
+          "dataType" : 9,
+          "name" : "status",
+          "getPSAppDEField" : {
+            "name" : "STATUS",
+            "codeName" : "Status"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "cron",
+          "getPSAppDEField" : {
+            "name" : "CRON",
+            "codeName" : "Cron"
+          }
+        }, {
+          "dataType" : 9,
+          "name" : "timeout",
+          "getPSAppDEField" : {
+            "name" : "TIMEOUT",
+            "codeName" : "Timeout"
+          }
+        }, {
+          "dataType" : 9,
+          "name" : "fail_retry_count",
+          "getPSAppDEField" : {
+            "name" : "FAIL_RETRY_COUNT",
+            "codeName" : "FailRetryCount"
+          }
+        }, {
+          "format" : "YYYY-MM-DD HH:mm:ss",
+          "dataType" : 5,
+          "name" : "last",
+          "getPSAppDEField" : {
+            "name" : "LAST",
+            "codeName" : "Last"
+          }
+        }, {
+          "format" : "YYYY-MM-DD HH:mm:ss",
+          "dataType" : 5,
+          "name" : "next",
+          "getPSAppDEField" : {
+            "name" : "NEXT",
+            "codeName" : "Next"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "remark",
+          "getPSAppDEField" : {
+            "name" : "REMARK",
+            "codeName" : "Remark"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "srfkey",
+          "getPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "Id"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "srfdataaccaction",
+          "getPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "Id"
+          },
+          "dataAccessAction" : true
+        }, {
+          "dataType" : 25,
+          "name" : "app",
+          "getPSAppDEField" : {
+            "name" : "APP",
+            "codeName" : "App"
+          }
+        }, {
+          "dataType" : 25,
+          "name" : "srfmajortext",
+          "getPSAppDEField" : {
+            "name" : "HANDLER",
+            "codeName" : "Handler"
+          }
+        } ],
+        "getPSDEGridEditItems" : [ {
+          "caption" : "主键ID",
+          "codeName" : "srfkey",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "name" : "srfkey",
+          "getPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "Id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "srfkey"
+          },
+          "allowEmpty" : true
+        } ],
+        "pagingSize" : 20,
+        "getRemovePSControlAction" : {
+          "actionName" : "Remove",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "DELETE",
+          "name" : "remove",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "Remove"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+          }
+        },
+        "sortMode" : "REMOTE",
+        "hasWFDataItems" : false,
+        "enableColFilter" : false,
+        "enableCustomized" : true,
+        "enableGroup" : false,
+        "enablePagingBar" : true,
+        "enableRowEdit" : false,
+        "enableRowEditOrder" : false,
+        "enableRowNew" : false,
+        "forceFit" : false,
+        "hideHeader" : false,
+        "noSort" : false,
+        "singleSelect" : false,
+        "name" : "grid",
+        "modelid" : "905501970098550193a7cd4c5a805592",
+        "modeltype" : "PSDEGRID"
+      }, {
+        "codeName" : "Default",
+        "controlType" : "SEARCHFORM",
+        "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo/PSSEARCHFORMS/Default.json",
+        "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+        "logicName" : "默认搜索表单",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionType" : "FILTERACTION",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterGet"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionType" : "FILTERACTION",
+            "name" : "loaddraft",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterGetDraft"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          }, {
+            "actionType" : "FILTERACTION",
+            "name" : "search",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "FilterSearch"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+            }
+          } ],
+          "enableDEFieldPrivilege" : false,
+          "id" : "搜索表单处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "SEARCH;LOAD;SAVE",
+          "logicTag" : "searchform",
+          "logicType" : "APPVIEWENGINE",
+          "name" : "engine_searchform",
+          "getPSAppViewEngine" : {
+            "modelref" : true,
+            "id" : "engine"
+          }
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "SEARCHFORM"
+        },
+        "getPSDEFormPages" : [ {
+          "caption" : "常规条件",
+          "codeName" : "formpage1",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMPAGE",
+          "name" : "formpage1",
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false
+        } ],
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "searchButtonStyle" : "DEFAULT",
+        "tabHeaderPos" : "TOP",
+        "enableAdvanceSearch" : false,
+        "enableAutoSearch" : false,
+        "enableFilterSave" : false,
+        "noTabHeader" : true,
+        "name" : "searchform",
+        "modelid" : "4b4dece2fec0506a288ab93be0d50492",
+        "modeltype" : "PSDEFORM_SEARCHFORM"
+      } ],
+      "getPSDEViewCodeName" : "PickupGridView",
+      "getPSDEViewId" : "87a600ca5299459e02819f50eb7f90bb",
+      "getPSViewLayoutPanel" : {
+        "codeName" : "Layoutpanel",
+        "controlStyle" : "APPDEPICKUPGRIDVIEW",
+        "controlType" : "VIEWLAYOUTPANEL",
+        "name" : "layoutpanel",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+        },
+        "getPSControlParam" : { },
+        "layoutBodyOnly" : true,
+        "layoutPanel" : true,
+        "useDefaultLayout" : true
+      },
+      "title" : "租户作业选择表格视图",
+      "viewStyle" : "DEFAULT",
+      "viewType" : "DEPICKUPGRIDVIEW",
+      "xDataControlName" : "grid",
+      "enableDP" : true,
+      "enableExport" : true,
+      "enableFilter" : true,
+      "enableImport" : true,
+      "enableRowEdit" : false,
+      "enableSearch" : true,
+      "expandSearchForm" : true,
+      "pickupMode" : true,
+      "rowEditDefault" : false,
+      "modelid" : "0f5e570718ed38e98bc86782015ddb77",
+      "modeltype" : "PSAPPDEVIEW"
+    },
+    "hookEventNames" : [ "SELECTIONCHANGE", "LOAD", "ACTIVATED" ],
+    "name" : "pickupviewpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "SELECTIONCHANGE;LOAD;ACTIVATED",
+      "logicTag" : "pickupviewpanel",
+      "logicType" : "APPVIEWENGINE",
+      "name" : "engine_pickupviewpanel",
+      "getPSAppViewEngine" : {
+        "modelref" : true,
+        "id" : "engine"
+      }
+    } ],
+    "getPSControlParam" : {
+      "id" : "PICKUPVIEWPANEL"
+    }
+  } ],
+  "getPSDEViewCodeName" : "PickupView",
+  "getPSDEViewId" : "bdb4da6cb3efa287b1fd3e41e9f54ece",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDEPICKUPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsInfo.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "title" : "租户作业数据选择视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEPICKUPVIEW",
+  "enableDP" : true,
+  "showCaptionBar" : false,
+  "modelid" : "d0362669bfddeece2a526befb596bfad",
+  "modeltype" : "PSAPPDEVIEW"
+}

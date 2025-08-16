@@ -1,0 +1,14 @@
+{
+  "dBType" : "MYSQL5",
+  "dynaModelFilePath" : "PSSYSTEMDBCFGS/MYSQL5.json",
+  "mOSFilePath" : "pssystemdbcfgs/MYSQL5",
+  "name" : "MYSQL5",
+  "objNameCase" : "DEFAULT",
+  "rTMOSFilePath" : "pssystemdbcfgs/MYSQL5",
+  "defaultMode" : true,
+  "pubFKey" : false,
+  "pubIndex" : false,
+  "pubModel" : false,
+  "pubModelComment" : false,
+  "pubView" : false
+}

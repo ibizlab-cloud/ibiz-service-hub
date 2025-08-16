@@ -1,0 +1,30 @@
+{
+  "codeName" : "Post",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDERS/DER1N_SYS_EMP_SYS_POST_POSTID.json",
+  "fKeyName" : "FEB7EE44BA19F3EFF9",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "name" : "DER1N_SYS_EMP_SYS_POST_POSTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "POSTID",
+    "codeName" : "PostId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "POSTNAME",
+    "codeName" : "PostName"
+  },
+  "pickupDEFName" : "POSTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Post"
+}

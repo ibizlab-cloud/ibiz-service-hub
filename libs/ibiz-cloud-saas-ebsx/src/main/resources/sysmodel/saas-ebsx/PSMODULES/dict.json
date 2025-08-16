@@ -1,0 +1,12 @@
+{
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+  } ],
+  "codeName" : "dict",
+  "dynaModelFilePath" : "PSMODULES/dict.json",
+  "name" : "dict"
+}

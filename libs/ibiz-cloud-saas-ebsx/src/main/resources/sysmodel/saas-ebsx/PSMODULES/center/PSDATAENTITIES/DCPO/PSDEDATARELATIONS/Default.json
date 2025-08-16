@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCPO/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统性能日志",
+  "name" : "租户性能日志默认关系界面组"
+}

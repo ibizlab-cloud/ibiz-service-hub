@@ -1,0 +1,31 @@
+{
+  "codeName" : "DCSystem",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/task/PSDATAENTITIES/JobsInfo/PSDERS/DER1N_JOBS_INFO_SYS_DC_SYSTEM_DCSYSTEMID.json",
+  "fKeyName" : "F53CE0E921B6508465",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo.json"
+  },
+  "name" : "DER1N_JOBS_INFO_SYS_DC_SYSTEM_DCSYSTEMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "APP",
+    "codeName" : "App"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "APPNAME",
+    "codeName" : "AppName"
+  },
+  "pickupDEFName" : "DCSYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DCSystem",
+  "enableFKey" : true
+}

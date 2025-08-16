@@ -1,0 +1,38 @@
+{
+  "codeListTag" : "uaa__CodeList83",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList83",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList83.json",
+  "emptyText" : "未定义",
+  "name" : "季度（1～4）",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "1季度",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "2季度",
+    "value" : "2"
+  }, {
+    "codeName" : "Item_3",
+    "text" : "3季度",
+    "value" : "3"
+  }, {
+    "codeName" : "Item_4",
+    "text" : "4季度",
+    "value" : "4"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00090",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

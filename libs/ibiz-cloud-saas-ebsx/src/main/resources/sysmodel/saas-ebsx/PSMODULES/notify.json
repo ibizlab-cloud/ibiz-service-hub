@@ -1,0 +1,76 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TemplateType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoSubType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoUrlType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TemplateType2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoState.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSCODELISTS/TodoType.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopy.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopyHis.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgBody.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgUserAccount.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Notes.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Schedules.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/SysMsgSendQueue.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Todo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/TodoHis.json"
+  } ],
+  "codeName" : "notify",
+  "dynaModelFilePath" : "PSMODULES/notify.json",
+  "name" : "notify"
+}

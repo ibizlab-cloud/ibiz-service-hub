@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统作业",
+  "name" : "租户作业默认关系界面组"
+}

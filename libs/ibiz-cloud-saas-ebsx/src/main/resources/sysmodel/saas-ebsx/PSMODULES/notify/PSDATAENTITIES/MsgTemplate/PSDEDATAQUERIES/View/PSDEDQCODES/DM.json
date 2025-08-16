@@ -1,0 +1,34 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACCESSID",
+    "name" : "ACCESSID"
+  }, {
+    "expression" : "t1.ACCESSNAME",
+    "name" : "ACCESSNAME"
+  }, {
+    "expression" : "t1.CONTENT",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.OPEN_TYPE",
+    "name" : "OPEN_TYPE"
+  }, {
+    "expression" : "t1.TEMPLATE_ID",
+    "name" : "TEMPLATE_ID"
+  }, {
+    "expression" : "t1.TEMPLATE_NAME",
+    "name" : "TEMPLATE_NAME"
+  }, {
+    "expression" : "t1.TEMPLATE_TYPE",
+    "name" : "TEMPLATE_TYPE"
+  }, {
+    "expression" : "t1.TEMPLATE_URL",
+    "name" : "TEMPLATE_URL"
+  }, {
+    "expression" : "t1.TID",
+    "name" : "TID"
+  } ],
+  "queryCode" : "SELECT\nt1.ACCESSID,\nt1.ACCESSNAME,\nt1.CONTENT,\nt1.OPEN_TYPE,\nt1.TEMPLATE_ID,\nt1.TEMPLATE_NAME,\nt1.TEMPLATE_TYPE,\nt1.TEMPLATE_URL,\nt1.TID\nFROM IBZMSGTEMPL t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

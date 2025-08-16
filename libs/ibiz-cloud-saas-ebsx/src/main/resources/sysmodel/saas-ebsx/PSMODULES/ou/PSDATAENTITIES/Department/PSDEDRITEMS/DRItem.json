@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "部门成员实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "DEPTID",
+    "srfparentdename" : "SYS_DEPT",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID",
+    "SRFDER1NID" : "DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID"
+  },
+  "viewCodeName" : "GridView22",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID"
+  }
+}

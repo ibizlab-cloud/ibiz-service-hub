@@ -1,0 +1,36 @@
+package net.ibizsys.model.control.grid;
+
+
+
+/**
+ * 实体多编辑视图面板部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridDTO}运行时对象
+ *
+ */
+public interface IPSDEMultiEditViewPanel extends net.ibizsys.model.control.grid.IPSDEGrid{
+
+	
+	
+	/**
+	 * 获取嵌入应用视图
+	 * <P>
+	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_PSDEVIEWID}
+	 * @return
+	 */
+	net.ibizsys.model.app.view.IPSAppView getEmbeddedPSAppView();
+
+
+	/**
+	 * 获取嵌入应用视图，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.app.view.IPSAppView getEmbeddedPSAppViewMust();
+	
+	
+	/**
+	 * 获取面板样式
+	 * <P>
+	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM}
+	 * @return
+	 */
+	java.lang.String getPanelStyle();
+}

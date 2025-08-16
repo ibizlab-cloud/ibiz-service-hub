@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SyncModel",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/SyncModel.json",
+  "logicName" : "同步模型",
+  "name" : "syncModel",
+  "getPSDEActionInput" : {
+    "name" : "SyncModelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaDynaModelDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SyncModelResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

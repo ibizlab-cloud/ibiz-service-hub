@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/dict/PSDATAENTITIES/DictOption/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "字典项",
+  "name" : "字典项默认关系界面组"
+}

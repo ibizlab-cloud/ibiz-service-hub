@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.ibizsys.central.plugin.mybatisplus.spring.mapper.MybatisDbDataMapper">
+
+    <insert id="insertData">
+        INSERT INTO ${schema.getStandardName()}
+        (
+        <foreach collection="param.values" item="item" separator=",">
+            ${item.name}
+        </foreach>
+        )
+        VALUES
+        (
+        <foreach collection="param.values" item="item" separator=",">
+            <if test="item.rawCode == true">${item.value}</if>
+            <if test="item.rawCode == false">#{item.value}</if>
+        </foreach>
+        )
+    </insert>
+
+    <!--批量插入-->
+    <insert id="batchInsertData">
+        <foreach collection="list" separator=";" item="param">
+            INSERT INTO ${schema.getStandardName()}
+            (
+            <foreach collection="param.values" item="item" separator=",">
+                ${item.name}
+            </foreach>
+            )
+            VALUES
+            (
+            <foreach collection="param.values" item="item" separator=",">
+                <if test="item.rawCode == true">${item.value}</if>
+                <if test="item.rawCode == false">#{item.value}</if>
+            </foreach>
+            )
+        </foreach>
+    </insert>
+
+    <!--批量插入-->
+    <insert id="batchInsertData" databaseId="oracle">
+        <choose>
+            <when test='schema.getSysDBSchemeRuntime().getRealDBType() == "GBase"'>
+                <foreach collection="list" separator=";" item="param" >
+                    INSERT INTO ${schema.getStandardName()}
+                    (
+                    <foreach collection="param.values" item="item" separator=",">
+                        ${item.name}
+                    </foreach>
+                    )
+                    VALUES
+                    (
+                    <foreach collection="param.values" item="item" separator=",">
+                        <if test="item.rawCode == true">${item.value}</if>
+                        <if test="item.rawCode == false">#{item.value}</if>
+                    </foreach>
+                    )
+                </foreach>
+            </when>
+            <otherwise>
+                <foreach collection="list" separator=";" item="param" open="BEGIN" close=";END;">
+                    INSERT INTO ${schema.getStandardName()}
+                    (
+                    <foreach collection="param.values" item="item" separator=",">
+                        ${item.name}
+                    </foreach>
+                    )
+                    VALUES
+                    (
+                    <foreach collection="param.values" item="item" separator=",">
+                        <if test="item.rawCode == true">${item.value}</if>
+                        <if test="item.rawCode == false">#{item.value}</if>
+                    </foreach>
+                    )
+                </foreach>
+            </otherwise>
+        </choose>
+    </insert>
+
+    <!--批量插入-->
+    <insert id="batchInsertDataSingleSQL">
+        INSERT INTO ${schema.getStandardName()}
+        (
+        <foreach collection="columns" item="column" separator=",">
+            ${column}
+        </foreach>
+        )
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            <foreach collection="item" item="param" separator=",">
+                <if test="param != null and param.value != null ">#{param.value}</if>
+                <if test="param == null || param.value == null">NULL</if>
+            </foreach>
+            )
+        </foreach>
+    </insert>
+
+    <!--批量插入-->
+    <insert id="batchInsertDataSingleSQL" databaseId="oracle">
+        INSERT INTO ${schema.getStandardName()}
+        (
+        <foreach collection="columns" item="column" separator=",">
+            ${column}
+        </foreach>
+        )
+        <foreach collection="list" item="item" separator="union all">
+            SELECT
+            <foreach collection="item" item="param" separator=",">
+                <if test="param != null and param.value != null ">#{param.value}</if>
+                <if test="param == null || param.value == null">NULL</if>
+            </foreach>
+            FROM DUAL
+        </foreach>
+    </insert>
+
+    <update id="updateData">
+        UPDATE ${schema.getStandardName()} SET
+        <foreach collection="param.values" item="item" separator=",">
+            ${item.name} =
+            <if test="item.rawCode == true">${item.value}</if>
+            <if test="item.rawCode == false">#{item.value}</if>
+        </foreach>
+        <where>
+            <foreach collection="param.conditions" item="item" separator="and">
+                ${item.name} =
+                <if test="item.rawCode == true">${item.value}</if>
+                <if test="item.rawCode == false">#{item.value}</if>
+            </foreach>
+        </where>
+    </update>
+
+    <!--批量更新-->
+    <update id="batchUpdateData">
+        <foreach collection="list" separator=";" item="param">
+            UPDATE ${schema.getStandardName()} SET
+            <foreach collection="param.values" item="item" separator=",">
+                ${item.name} =
+                <if test="item.rawCode == true">${item.value}</if>
+                <if test="item.rawCode == false">#{item.value}</if>
+            </foreach>
+            <where>
+                <foreach collection="param.conditions" item="item" separator="and">
+                    ${item.name} =
+                    <if test="item.rawCode == true">${item.value}</if>
+                    <if test="item.rawCode == false">#{item.value}</if>
+                </foreach>
+            </where>
+        </foreach>
+    </update>
+
+    <!--批量更新-->
+    <update id="batchUpdateData" databaseId="oracle">
+        <choose>
+            <when test='schema.getSysDBSchemeRuntime().getRealDBType() == "GBase"'>
+                <foreach collection="list" separator=";" item="param">
+                    UPDATE ${schema.getStandardName()} SET
+                    <foreach collection="param.values" item="item" separator=",">
+                        ${item.name} =
+                        <if test="item.rawCode == true">${item.value}</if>
+                        <if test="item.rawCode == false">#{item.value}</if>
+                    </foreach>
+                    <where>
+                        <foreach collection="param.conditions" item="item" separator="and">
+                            ${item.name} =
+                            <if test="item.rawCode == true">${item.value}</if>
+                            <if test="item.rawCode == false">#{item.value}</if>
+                        </foreach>
+                    </where>
+                </foreach>
+            </when>
+            <otherwise>
+                <foreach collection="list" separator=";" item="param" open="BEGIN" close=";END;">
+                    UPDATE ${schema.getStandardName()} SET
+                    <foreach collection="param.values" item="item" separator=",">
+                        ${item.name} =
+                        <if test="item.rawCode == true">${item.value}</if>
+                        <if test="item.rawCode == false">#{item.value}</if>
+                    </foreach>
+                    <where>
+                        <foreach collection="param.conditions" item="item" separator="and">
+                            ${item.name} =
+                            <if test="item.rawCode == true">${item.value}</if>
+                            <if test="item.rawCode == false">#{item.value}</if>
+                        </foreach>
+                    </where>
+                </foreach>
+            </otherwise>
+        </choose>
+    </update>
+
+    <!--批量更新-->
+    <update id="batchUpdateDataSingleSQL">
+        UPDATE ${schema.getStandardName()} SET
+        <foreach collection="map" separator="," item="value" index="key">
+            ${key} = case <foreach collection="value" item="v" index="k">when ${schema.getColumns().get(schema.getDataEntityRuntime().getKeyPSDEField().getName()).getStandardName()} = #{k} then <choose><when  test="'ORACLE'.toString()==schema.getDataEntityRuntime().getSysDBSchemeRuntime().getDBType() and v.dataType==21">to_clob(#{v.value})</when><otherwise>#{v.value}</otherwise></choose></foreach> else ${key} end
+        </foreach>
+        <where>
+            ${schema.getColumns().get(schema.getDataEntityRuntime().getKeyPSDEField().getName()).getStandardName()} IN <foreach collection="keys" separator="," item="key" open="(" close=")">#{key}</foreach>
+        </where>
+    </update>
+
+    <update id="removeData">
+        DELETE FROM ${schema.getStandardName()} WHERE
+        <foreach collection="param.conditions" item="item" separator="and">
+            ${item.name} =
+            <if test="item.rawCode == true">${item.value}</if>
+            <if test="item.rawCode == false">#{item.value}</if>
+        </foreach>
+    </update>
+
+    <update id="batchRemoveData">
+        DELETE FROM ${schema.getStandardName()} WHERE ${schema.getColumns().get(schema.getDataEntityRuntime().getKeyPSDEField().getName()).getStandardName()} IN <foreach collection="keys" separator="," item="key" open="(" close=")">#{key}</foreach>
+    </update>
+
+    <select id="selectData" resultType="java.util.Map">
+        SELECT
+        <foreach collection="param.values" item="item" separator=",">
+            ${item.name}
+        </foreach>
+        from ${schema.getStandardName()}
+        <where>
+            <foreach collection="param.conditions" item="item" separator="and">
+                ${item.name} =
+                <if test="item.rawCode == true">${item.value}</if>
+                <if test="item.rawCode == false">#{item.value}</if>
+            </foreach>
+        </where>
+    </select>
+
+    <select id="queryGroupData" resultType="java.util.Map">
+        select * from (
+        SELECT
+        <foreach collection="groupquery.resultfield" item="item" separator=",">
+            ${item}
+        </foreach>
+        FROM (
+        SELECT
+        <foreach collection="groupquery.datafield" item="item" separator=",">
+            ${item}
+        </foreach>
+        FROM (
+        <if test="groupquery.joinfields == null or groupquery.joinfields.size == 0 ">
+            ${groupquery.datasql}
+        </if>
+        <if test="groupquery.joinfields != null and groupquery.joinfields.size>0 ">
+            SELECT dataresult.*,
+            <foreach collection="groupquery.joinfields" item="item" separator=",">
+                ${item}
+            </foreach>
+            FROM (${groupquery.datasql}) dataresult
+            <if test="groupquery.datajoins != null and groupquery.datajoins.size>0 ">
+                <foreach collection="groupquery.datajoins" item="item">
+                    ${item}
+                </foreach>
+            </if>
+        </if>
+        ) dataresult
+        <if test="groupquery.dataconditions != null ">
+            <where>
+                <foreach collection="groupquery.dataconditions" item="item" separator="and">
+                    ${item}
+                </foreach>
+            </where>
+        </if>
+        ) T1
+        <if test="groupquery.group != null and groupquery.group.size>0 ">
+            GROUP BY
+            <foreach collection="groupquery.group" item="item" separator=",">
+                ${item}
+            </foreach>
+        </if>
+        ) T1
+        <if test="groupquery.resultconditions != null ">
+            <where>
+                <foreach collection="groupquery.resultconditions" item="item" separator="and">
+                    ${item}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+    <select id="selectOne">
+        SELECT
+        <foreach collection="param.values" item="item" separator=",">
+            ${item.name}
+        </foreach>
+        from ${schema.getStandardName()}
+        <where>
+            <foreach collection="param.conditions" item="item" separator="and">
+                ${item.name} =
+                <if test="item.rawCode == true">${item.value}</if>
+                <if test="item.rawCode == false">#{item.value}</if>
+            </foreach>
+        </where>
+        limit 1;
+    </select>
+
+</mapper>

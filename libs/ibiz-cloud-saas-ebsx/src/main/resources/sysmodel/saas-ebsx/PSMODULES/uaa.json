@@ -1,0 +1,473 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AppType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList64.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList75.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList68.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList95.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList27.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList118.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList42.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList60.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList81.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList83.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList94.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList79.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList30.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DCSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList113.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList11.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList116.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList84.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList65.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/WFStates.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList77.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DR.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList70.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList48.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList38.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList5.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList24.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList114.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList41.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/TrueFalse.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList37.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList111.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/PermissionType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList34.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList28.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList62.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList6.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList46.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList23.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList86.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AuthCode.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList89.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList90.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList19.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList67.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList4.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList102.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList20.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList50.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList9.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList29.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList45.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList74.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList39.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList101.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList3.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList1.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList32.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList87.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList57.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/DEOPPriv.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList16.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList7.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList40.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList58.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SystemPick.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList10.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList36.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList93.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList92.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList107.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList88.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/AppCategory.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/PermissionCat.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/IdentityType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList80.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList52.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList8.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList103.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList35.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList55.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList33.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList59.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList104.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList99.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList21.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList108.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList96.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList112.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList14.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList56.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList100.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList117.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList66.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList13.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList54.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/UserRole.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList12.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList71.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList98.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList31.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList105.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList22.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList17.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList47.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList61.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList106.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList97.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList18.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList69.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList115.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList63.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList49.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList26.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SourceType.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList91.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList85.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList82.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList72.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList110.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList78.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList109.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/SortDir.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList15.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList53.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/UserMode.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSCODELISTS/CodeList76.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Center.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DeptAuth.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  } ],
+  "codeName" : "uaa",
+  "dynaModelFilePath" : "PSMODULES/uaa.json",
+  "name" : "uaa",
+  "defaultModule" : true
+}

@@ -1,0 +1,15 @@
+{
+  "codeName" : "DRItem3",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEDRITEMS/DRItem3.json",
+  "itemType" : "CUSTOM",
+  "name" : "用户角色关系实体表格视图",
+  "parentDataJO" : {
+    "srfparentdename" : "SYS_DC_SYSTEM",
+    "SRFPARENTTYPE" : "CUSTOM"
+  },
+  "viewCodeName" : "DCSystemGridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  }
+}

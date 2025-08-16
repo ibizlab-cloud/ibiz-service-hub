@@ -1,0 +1,11 @@
+{
+  "codeName" : "ValueRule7",
+  "dynaModelFilePath" : "PSSYSVALUERULES/ValueRule7.json",
+  "name" : "整数",
+  "regExCode" : "-?\\d+",
+  "ruleInfo" : "内容必须为整数",
+  "ruleType" : "REG",
+  "uniqueTag" : "ValueRule7",
+  "enableBackend" : true,
+  "enableFront" : true
+}

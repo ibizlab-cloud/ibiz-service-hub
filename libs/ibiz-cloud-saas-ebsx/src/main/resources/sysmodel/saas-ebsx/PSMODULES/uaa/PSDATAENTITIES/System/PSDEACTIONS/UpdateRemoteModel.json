@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "UpdateRemoteModel",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/UpdateRemoteModel.json",
+  "logicName" : "获取远程模型",
+  "name" : "UpdateRemoteModel",
+  "getPSDEActionInput" : {
+    "name" : "UpdateRemoteModelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "SystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpdateRemoteModelResult",
+    "type" : "VOID"
+  }
+}

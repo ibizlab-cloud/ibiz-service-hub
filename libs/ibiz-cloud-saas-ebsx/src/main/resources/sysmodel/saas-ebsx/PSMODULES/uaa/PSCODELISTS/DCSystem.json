@@ -1,0 +1,37 @@
+{
+  "cacheTimeout" : 600,
+  "codeListTag" : "uaa__DCSystem",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "DCSystem",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/DCSystem.json",
+  "emptyText" : "未定义",
+  "name" : "租户系统",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "getTextPSDEField" : {
+    "name" : "SYSTEMNAME",
+    "codeName" : "SystemName"
+  },
+  "getValuePSDEField" : {
+    "name" : "SYSTEMID",
+    "codeName" : "SystemId"
+  },
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

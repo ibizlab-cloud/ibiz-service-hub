@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList50",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList50",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList50.json",
+  "emptyText" : "未定义",
+  "name" : "是否（蓝、红）",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "是",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_0",
+    "text" : "否",
+    "value" : "0"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00058",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

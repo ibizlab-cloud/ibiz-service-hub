@@ -1,0 +1,4279 @@
+{
+  "getAllPSLanguageReses" : [ {
+    "defaultContent" : "应用视图主题",
+    "lanResTag" : "DE.LNAME.APP_VIEW_THEME",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[APP_VIEW_THEME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据源",
+    "lanResTag" : "DE.LNAME.DATA_SOURCE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[DATA_SOURCE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "部署系统",
+    "lanResTag" : "DE.LNAME.DEPLOY_SYSTEM",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[DEPLOY_SYSTEM]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "部署系统数据源",
+    "lanResTag" : "DE.LNAME.DEPLOY_SYSTEM_DATA_SOURCE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[DEPLOY_SYSTEM_DATA_SOURCE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "部署系统配置",
+    "lanResTag" : "DE.LNAME.DEPLOY_SYSTEM_SETTING",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[DEPLOY_SYSTEM_SETTING]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "站内信",
+    "lanResTag" : "DE.LNAME.INTERNAL_MESSAGE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[INTERNAL_MESSAGE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "通知事件",
+    "lanResTag" : "DE.LNAME.NOTIFY_EVENT",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[NOTIFY_EVENT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "服务集成",
+    "lanResTag" : "DE.LNAME.SERVICE_HUB",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SERVICE_HUB]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "服务集成部署系统",
+    "lanResTag" : "DE.LNAME.SERVICE_HUB_DEPLOY_SYSTEM",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SERVICE_HUB_DEPLOY_SYSTEM]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统",
+    "lanResTag" : "DE.LNAME.SYSTEM",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展行为附加",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_ACTION_ATTACH",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_ACTION_ATTACH]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展后台任务",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_BACKEND_TASK",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_BACKEND_TASK]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展智能立方体",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_BI_CUBE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_BI_CUBE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展数据流",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_DATAFLOW",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_DATAFLOW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展明细",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_DETAIL",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_DETAIL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展属性",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_FIELD",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_FIELD]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展表单",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_FORM",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_FORM]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展表格",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_GRID",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_GRID]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展处理逻辑",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_LOGIC",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_LOGIC]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_MAINSTATE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_MAINSTATE]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_MAIN_STATE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_MAIN_STATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展通知",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_NOTIFY",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_NOTIFY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展通知设置",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_NOTIFY_SETTING",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_NOTIFY_SETTING]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展通知模板",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_NOTIFY_TEMPLATE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_NOTIFY_TEMPLATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展门户部件",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_PORTLET",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_PORTLET]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展计划任务",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_SCHEDULE_TASK",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_SCHEDULE_TASK]"
+  }, {
+    "defaultContent" : "系统扩展套件",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_SUITE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_SUITE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展工作流",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_WORKFLOW",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_WORKFLOW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统扩展工作流版本",
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_WORKFLOW_DEFINITION",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_EXTENSION_WORKFLOW_DEFINITION]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统合并",
+    "lanResTag" : "DE.LNAME.SYSTEM_MERGE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_MERGE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统源",
+    "lanResTag" : "DE.LNAME.SYSTEM_SOURCE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_SOURCE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统版本",
+    "lanResTag" : "DE.LNAME.SYSTEM_VERSION",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_VERSION]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统版本系统源",
+    "lanResTag" : "DE.LNAME.SYSTEM_VERSION_SOURCE",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[SYSTEM_VERSION_SOURCE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "建立人",
+    "lanResTag" : "DEF.LNAME.CREATE_MAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[CREATE_MAN]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "建立时间",
+    "lanResTag" : "DEF.LNAME.CREATE_TIME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[CREATE_TIME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "标识",
+    "lanResTag" : "DEF.LNAME.ID",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[ID]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "名称",
+    "lanResTag" : "DEF.LNAME.NAME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[NAME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "更新人",
+    "lanResTag" : "DEF.LNAME.UPDATE_MAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[UPDATE_MAN]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "更新时间",
+    "lanResTag" : "DEF.LNAME.UPDATE_TIME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[UPDATE_TIME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.APP_VIEW_THEME.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.APP_VIEW_THEME.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.APP_VIEW_THEME.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.APP_VIEW_THEME.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.APP_VIEW_THEME.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.APP_VIEW_THEME.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "应用视图主题基本信息",
+    "lanResTag" : "CONTROL.DEFORM.APP_VIEW_THEME.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.APP_VIEW_THEME.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.APP_VIEW_THEME.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.APP_VIEW_THEME.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.DATA_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DATA_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "数据源基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DATA_SOURCE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DATA_SOURCE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.DATA_SOURCE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DATA_SOURCE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "部署系统基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "部署系统数据源基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_DATA_SOURCE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_SETTING.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_SETTING.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "部署系统配置基本信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.DEPLOY_SYSTEM_SETTING.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.INTERNAL_MESSAGE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.INTERNAL_MESSAGE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.INTERNAL_MESSAGE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.INTERNAL_MESSAGE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.INTERNAL_MESSAGE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.INTERNAL_MESSAGE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "站内信基本信息",
+    "lanResTag" : "CONTROL.DEFORM.INTERNAL_MESSAGE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.INTERNAL_MESSAGE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.INTERNAL_MESSAGE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.INTERNAL_MESSAGE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.NOTIFY_EVENT.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.NOTIFY_EVENT.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.NOTIFY_EVENT.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.NOTIFY_EVENT.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.NOTIFY_EVENT.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.NOTIFY_EVENT.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "通知事件基本信息",
+    "lanResTag" : "CONTROL.DEFORM.NOTIFY_EVENT.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.NOTIFY_EVENT.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.NOTIFY_EVENT.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.NOTIFY_EVENT.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "服务集成基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "服务集成部署系统基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SERVICE_HUB_DEPLOY_SYSTEM.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展行为附加基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_ACTION_ATTACH.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展后台任务基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BACKEND_TASK.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BI_CUBE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BI_CUBE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_BI_CUBE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DATAFLOW.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DATAFLOW.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展数据流基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DATAFLOW.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DETAIL.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DETAIL.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展明细基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_DETAIL.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FIELD.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FIELD.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展属性基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FIELD.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FORM.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FORM.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FORM.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FORM.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FORM.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FORM.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展表单基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FORM.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FORM.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_FORM.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_FORM.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_GRID.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_GRID.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_GRID.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_GRID.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_GRID.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_GRID.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展表格基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_GRID.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_GRID.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_GRID.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_GRID.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_LOGIC.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_LOGIC.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_LOGIC.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAINSTATE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAINSTATE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAINSTATE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAIN_STATE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAIN_STATE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_MAIN_STATE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展通知基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展通知设置基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_SETTING.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展通知模板基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_PORTLET.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_PORTLET.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展门户部件基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_PORTLET.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展计划任务基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SCHEDULE_TASK.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SUITE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SUITE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展套件基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_SUITE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展工作流基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_MERGE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_MERGE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_MERGE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_MERGE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_MERGE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_MERGE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统合并基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_MERGE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_MERGE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_MERGE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_MERGE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_SOURCE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_SOURCE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_SOURCE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_SOURCE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统源基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_SOURCE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_SOURCE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_SOURCE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_SOURCE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统版本基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION_SOURCE.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION_SOURCE.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION_SOURCE.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION_SOURCE.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION_SOURCE.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "defaultContent" : "系统版本系统源基本信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION_SOURCE.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION_SOURCE.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.SYSTEM_VERSION_SOURCE.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.SYSTEM_VERSION_SOURCE.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.APP_VIEW_THEME.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.APP_VIEW_THEME.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.DATA_SOURCE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.DATA_SOURCE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.DEPLOY_SYSTEM.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.DEPLOY_SYSTEM.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.DEPLOY_SYSTEM_DATA_SOURCE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.DEPLOY_SYSTEM_DATA_SOURCE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.DEPLOY_SYSTEM_SETTING.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.DEPLOY_SYSTEM_SETTING.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.INTERNAL_MESSAGE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.INTERNAL_MESSAGE.N_NAME_LIKE]"
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.NOTIFY_EVENT.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.NOTIFY_EVENT.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SERVICE_HUB.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SERVICE_HUB.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SERVICE_HUB_DEPLOY_SYSTEM.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SERVICE_HUB_DEPLOY_SYSTEM.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_ACTION_ATTACH.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_ACTION_ATTACH.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_BACKEND_TASK.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_BACKEND_TASK.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_BI_CUBE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_BI_CUBE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_DATAFLOW.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_DATAFLOW.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_DETAIL.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_DETAIL.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_FIELD.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_FIELD.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_FORM.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_FORM.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_GRID.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_GRID.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_LOGIC.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_LOGIC.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_MAINSTATE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_MAINSTATE.N_NAME_LIKE]"
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_MAIN_STATE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_MAIN_STATE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_NOTIFY.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_NOTIFY.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_NOTIFY_SETTING.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_NOTIFY_SETTING.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_PORTLET.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_PORTLET.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_SCHEDULE_TASK.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_SCHEDULE_TASK.N_NAME_LIKE]"
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_WORKFLOW.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_WORKFLOW.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_MERGE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_MERGE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_SOURCE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_SOURCE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_VERSION.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_VERSION.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.SYSTEM_VERSION_SOURCE.N_NAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.SYSTEM_VERSION_SOURCE.N_NAME_LIKE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "应用视图主题编辑视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.EDITVIEW2]"
+  }, {
+    "defaultContent" : "应用视图主题编辑视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.EDITVIEW]"
+  }, {
+    "defaultContent" : "应用视图主题表格视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.GRIDVIEW]"
+  }, {
+    "defaultContent" : "应用视图主题数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "应用视图主题选择表格视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "应用视图主题数据选择视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "应用视图主题数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.APP_VIEW_THEME.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.APP_VIEW_THEME.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "数据源编辑视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "数据源编辑视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.EDITVIEW]"
+  }, {
+    "defaultContent" : "数据源表格视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "数据源数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "数据源选择表格视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "数据源数据选择视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "数据源数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.DATA_SOURCE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DATA_SOURCE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "部署系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.EDITVIEW2]"
+  }, {
+    "defaultContent" : "部署系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.EDITVIEW]"
+  }, {
+    "defaultContent" : "部署系统表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.GRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统选择表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "部署系统数据源编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.EDITVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源选择表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源数据选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统数据源数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_DATA_SOURCE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_DATA_SOURCE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.EDITVIEW2]"
+  }, {
+    "defaultContent" : "部署系统配置编辑视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.EDITVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.GRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置选择表格视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置数据选择视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "部署系统配置数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.DEPLOY_SYSTEM_SETTING.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.DEPLOY_SYSTEM_SETTING.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "站内信编辑视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "站内信编辑视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.EDITVIEW]"
+  }, {
+    "defaultContent" : "站内信表格视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "站内信数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "站内信选择表格视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "站内信数据选择视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "站内信数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.INTERNAL_MESSAGE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.INTERNAL_MESSAGE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "通知事件编辑视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.EDITVIEW2]"
+  }, {
+    "defaultContent" : "通知事件编辑视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.EDITVIEW]"
+  }, {
+    "defaultContent" : "通知事件表格视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.GRIDVIEW]"
+  }, {
+    "defaultContent" : "通知事件数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "通知事件选择表格视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "通知事件数据选择视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "通知事件数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.NOTIFY_EVENT.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.NOTIFY_EVENT.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "服务集成编辑视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.EDITVIEW2]"
+  }, {
+    "defaultContent" : "服务集成编辑视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.EDITVIEW]"
+  }, {
+    "defaultContent" : "服务集成表格视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.GRIDVIEW]"
+  }, {
+    "defaultContent" : "服务集成数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "服务集成选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "服务集成数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "服务集成数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.EDITVIEW2]"
+  }, {
+    "defaultContent" : "服务集成部署系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.EDITVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统表格视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.GRIDVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "服务集成部署系统数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SERVICE_HUB_DEPLOY_SYSTEM.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SERVICE_HUB_DEPLOY_SYSTEM.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展行为附加编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展行为附加数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_ACTION_ATTACH.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展后台任务编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展后台任务数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BACKEND_TASK.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BACKEND_TASK.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展智能立方体数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_BI_CUBE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_BI_CUBE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展数据流编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展数据流数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DATAFLOW.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DATAFLOW.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展明细编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展明细数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_DETAIL.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_DETAIL.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展属性编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展属性数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FIELD.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FIELD.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展表单编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表单数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_FORM.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_FORM.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展表格编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展表格数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_GRID.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_GRID.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展处理逻辑数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_LOGIC.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_LOGIC.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAINSTATE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAINSTATE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展主状态逻辑数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_MAIN_STATE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_MAIN_STATE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展通知编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展通知设置编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知设置数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_SETTING.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展通知模板编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展通知模板数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_NOTIFY_TEMPLATE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展门户部件编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展门户部件数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_PORTLET.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_PORTLET.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展计划任务编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展计划任务数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SCHEDULE_TASK.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展套件编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展套件数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_SUITE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_SUITE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展工作流编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统扩展工作流版本数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_EXTENSION_WORKFLOW_DEFINITION.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统合并编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统合并编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统合并表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统合并数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统合并选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统合并数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统合并数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_MERGE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_MERGE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统源编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统源编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统源表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统源数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统源选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统源数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统源数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_SOURCE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_SOURCE.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统版本编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统版本编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统版本表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统版本数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统版本选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统版本数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统版本数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION.REDIRECTVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.EDITVIEW2]"
+  }, {
+    "defaultContent" : "系统版本系统源编辑视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.EDITVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.GRIDVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源选择表格视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源数据选择视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "系统版本系统源数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.SYSTEM_VERSION_SOURCE.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.SYSTEM_VERSION_SOURCE.REDIRECTVIEW]"
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.PAGING.BEFOREPAGEMSG",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.PAGING.BEFOREPAGEMSG]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行操作",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000036",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000036]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.COL.ACTOR.ASSIST",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.COL.ACTOR.ASSIST]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "当前处理后续为结束处理，不存在交互操作处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000023",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000023]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.DATASAVEFAILED",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.DATASAVEFAILED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.PAGING.DISPLAYMSG",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.PAGING.DISPLAYMSG]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导出第",
+    "lanResTag" : "TBB.TEXT.*.EXPORT.SPEC",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT.SPEC]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.LT",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.LT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.LIKE",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.LIKE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "没有找到任何交互操作",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000007",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000007]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.PICTURE.UPLOAD.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[PICTURE.UPLOAD.TEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.CREATEDATE",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.CREATEDATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA_FIELD.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA_FIELD.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "当前用户不在指定的代办用户范围",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000005",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000005]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定处理[{0}]没有定义超时路径",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000032",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000032]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.INPUTERROR",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.INPUTERROR]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_ACTION.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_ACTION.DEFAULT.FORMPAGE.FORMPAGE1]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.GRIDVIEW.SUMMARY.NAME",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[GRIDVIEW.SUMMARY.NAME]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDDATASETRULE_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDDATASETRULE_INFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.1",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[1]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "页",
+    "lanResTag" : "TBB.TEXT.*.EXPORT.UNIT",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT.UNIT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.DETAIL",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.DETAIL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行撤回处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000008",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000008]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "编辑",
+    "lanResTag" : "TBB.TOOLTIP.*.EDIT",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.EDIT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "新建行",
+    "lanResTag" : "TBB.TEXT.GRIDVIEW.NEWROW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[GRIDVIEW.NEWROW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DPPAGE.OTHER",
+    "lanResType" : "COMMON",
+    "name" : "通用[DPPAGE.OTHER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "其他",
+    "lanResTag" : "TBB.TEXT.*.OTHER",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.OTHER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "建立时间",
+    "lanResTag" : "DEF.LNAME.CREATEDATE",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[CREATEDATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "将工作转移至[{0}]",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.RESUBMIT",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.RESUBMIT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "工作流用户[{0}]没有启用",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000033",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000033]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SRFDA.CANNOTFINDDEHELPER",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SRFDA.CANNOTFINDDEHELPER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.PICTURE.REMOVE.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[PICTURE.REMOVE.TIPS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "新建",
+    "lanResTag" : "TBB.TEXT.*.NEW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.NEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "拷贝",
+    "lanResTag" : "TBB.TOOLTIP.*.COPY",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.COPY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.GRIDVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.LOGIC",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.LOGIC]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.INTERNALERROR",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.INTERNALERROR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.PERIOD.MINUTES",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.PERIOD.MINUTES]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "新建",
+    "lanResTag" : "TBB.TOOLTIP.*.NEW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.NEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除",
+    "lanResTag" : "TBB.TOOLTIP.*.DELETE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.DELETE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.UNKNOWN",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.UNKNOWN]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.DATASAVEDSUCCESSFULLY",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.DATASAVEDSUCCESSFULLY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.FORM.MAXLENGTHEXCEED",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[FORM.MAXLENGTHEXCEED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.IN",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.IN]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.NOTSPECIFYKEY",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.NOTSPECIFYKEY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.SPEX.SEARCH.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.SEARCH.TIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.IMPORT_SCHEMA.N_IMPORT_SCHEMANAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.IMPORT_SCHEMA.N_IMPORT_SCHEMANAME_LIKE]"
+  }, {
+    "defaultContent" : "导入模式属性",
+    "lanResTag" : "DE.LNAME.IMPORT_SCHEMA_FIELD",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[IMPORT_SCHEMA_FIELD]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK.COL.WF.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK.COL.WF.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.SAVE_DATADELETE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.SAVE_DATADELETE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.MESSAGEVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[MESSAGEVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.GRIDVIEW.THEMELIST.USERVIEW",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[GRIDVIEW.THEMELIST.USERVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存",
+    "lanResTag" : "TBB.TEXT.*.SAVE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.SAVE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.*.MORENEW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.MORENEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK.COL.COUNT.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK.COL.COUNT.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DPGROUP.DE0001.TABLEINFO",
+    "lanResType" : "COMMON",
+    "name" : "通用[DPGROUP.DE0001.TABLEINFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.DB.DUPLICATEDATA",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[DB.DUPLICATEDATA]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.HEADER",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.HEADER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除",
+    "lanResTag" : "TBB.TOOLTIP.*.REMOVE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.REMOVE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.DUPLICATEDATA",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.DUPLICATEDATA]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.LOGICERROR",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.LOGICERROR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.SHORTCUT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.SHORTCUT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.WARNINGMSG",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.WARNINGMSG]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.GRIDVIEW.SAVEROW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[GRIDVIEW.SAVEROW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.EDITVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[EDITVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "无法对超时处理进行撤回",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000028",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000028]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.WF.INITWSFAILED",
+    "lanResType" : "ERROR.STD",
+    "name" : "标注错误[WF.INITWSFAILED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.ISNULL",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.ISNULL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "工作流上一个步骤有多个操作者，无法进行撤回处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000030",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000030]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.GTANDEQ",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.GTANDEQ]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "最大导出1000条",
+    "lanResTag" : "TBB.TEXT.*.EXPORT.MAX",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT.MAX]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "拷贝",
+    "lanResTag" : "TBB.TEXT.*.COPY",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.COPY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为",
+    "lanResTag" : "DE.LNAME.IMPORT_ACTION",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[IMPORT_ACTION]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行交互处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000003",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000003]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.WF.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.WF.CAPTION]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "取消流程",
+    "lanResTag" : "TBB.TEXT.*.CANCELWF",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.CANCELWF]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "没有找到流程开始节点",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000012",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000012]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行超时处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000010",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000010]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRIDTHEMELIST.MANAGEMYVIEW",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRIDTHEMELIST.MANAGEMYVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.ISNOTNULL",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.ISNOTNULL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导出全部",
+    "lanResTag" : "TBB.TEXT.*.EXPORT.ALL",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT.ALL]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.INTEGER",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.INTEGER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DATAANDRELATIONSHIP",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DATAANDRELATIONSHIP]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.DEID",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.DEID]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.SEARCHBUTTON.TOOLTIPS",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.SEARCHBUTTON.TOOLTIPS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行工作转移",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000011",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000011]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.PORTALVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[PORTALVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA.MAIN.GROUPPANEL.GROUP1]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.GRIDVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[GRIDVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.GRIDVIEW]"
+  }, {
+    "defaultContent" : "启动流程",
+    "lanResTag" : "TBB.TEXT.*.STARTWF",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.STARTWF]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "流程撤回",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.ROLLBACK",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.ROLLBACK]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDSIMPLERULE_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDSIMPLERULE_INFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.PICKUPVIEW.RESETBTN.TEXT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[PICKUPVIEW.RESETBTN.TEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.NOTEQ",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.NOTEQ]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "编辑行",
+    "lanResTag" : "TBB.TEXT.GRIDVIEW.EDITROW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[GRIDVIEW.EDITROW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.GRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.GRIDVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除",
+    "lanResTag" : "TBB.TEXT.*.DELETE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.DELETE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "取消",
+    "lanResTag" : "CONTROL.UPLOADER.CANCEL.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.CANCEL.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存并新建",
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDNEW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.SAVEANDNEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.WF.STARTFAILED",
+    "lanResType" : "ERROR.STD",
+    "name" : "标注错误[WF.STARTFAILED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.SPEX.STANDARDPAGE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.STANDARDPAGE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRIDTHEMELIST.NOVIEW",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRIDTHEMELIST.NOVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.PORTALVIEW.ADDWEBPART",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[PORTALVIEW.ADDWEBPART]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "回退流程",
+    "lanResTag" : "TBB.TEXT.*.ROLLBACKWF",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.ROLLBACKWF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.DATE",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.DATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定处理[{0}]不支持超时处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000031",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000031]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.DATANOTMATCH",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.DATANOTMATCH]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.IFVIEW.EMPTYINFO",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[IFVIEW.EMPTYINFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.CHAR",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.CHAR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.PERIOD.DAYS",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.PERIOD.DAYS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.LOADINGMSG",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.LOADINGMSG]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.WFEXPLOREVIEW.SECTOR.MY.NAME",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[WFEXPLOREVIEW.SECTOR.MY.NAME]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.WF.UNKNOWNCOMMAND",
+    "lanResType" : "ERROR.STD",
+    "name" : "标注错误[WF.UNKNOWNCOMMAND]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.SPEX.RESET.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.RESET.TIPS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存并关闭",
+    "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDCLOSE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[EDITVIEW.SAVEANDCLOSE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式标识",
+    "lanResTag" : "DEF.LNAME.IMPORT_SCHEMAID",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_SCHEMAID]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDSTRINGLENGTHRULE_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDSTRINGLENGTHRULE_INFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.HEADER",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.HEADER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性数据选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.PICKUPVIEW]"
+  }, {
+    "lanResTag" : "CONTROL.PICTURE.REMOVE.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[PICTURE.REMOVE.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA_FIELD.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA_FIELD.DEFAULT.FORMPAGE.FORMPAGE1]"
+  }, {
+    "lanResTag" : "PAGE.HEADER.WFEXPLOREVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[WFEXPLOREVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.COL.ACTOR.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.COL.ACTOR.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.DATAKEYERROR",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.DATAKEYERROR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.PICTURE.UPLOAD.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[PICTURE.UPLOAD.TIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.FA",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DER.FA]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式",
+    "lanResTag" : "DE.LNAME.IMPORT_SCHEMA",
+    "lanResType" : "DE.LNAME",
+    "name" : "实体逻辑名称（DE.LNAME.*）[IMPORT_SCHEMA]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.VALUE",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.VALUE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.INVALIDDATA",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.INVALIDDATA]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "没有指定工作流上一个步骤",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000029",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000029]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.REDIRECTVIEW]"
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.OTHER",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.OTHER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.UNSAVENEWDATA",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.UNSAVENEWDATA]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "[{0}][{1}]执行后，没有指定后续节点",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000013",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000013]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "未找到实体数据",
+    "lanResTag" : "ERROR.STD.NOMAJORDATAENTITY",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[NOMAJORDATAENTITY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK.HEADER",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK.HEADER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.ABSGT",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.ABSGT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "无法对撤回处理进行再撤回",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000027",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000027]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "重新启动流程",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.RESTART",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.RESTART]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导出",
+    "lanResTag" : "TBB.TOOLTIP.*.EXPORT",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.EXPORT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRIDROWCOUNTLIST.PAGEFMT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRIDROWCOUNTLIST.PAGEFMT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除",
+    "lanResTag" : "TBB.TEXT.*.REMOVE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.REMOVE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.WFSTEP",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.WFSTEP]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SRFDA.CANNOTFINDDEDATACTRL",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SRFDA.CANNOTFINDDEDATACTRL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性名称",
+    "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDNAME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_SCHEMA_FIELDNAME]"
+  }, {
+    "lanResTag" : "CONTROL.SPEXITEM.EMPTYTEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEXITEM.EMPTYTEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.SPEX.CUSTOMPAGE.高级",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.CUSTOMPAGE.高级]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA_FIELD.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA_FIELD.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.COL.WF.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.COL.WF.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.MSGEDITVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[MSGEDITVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.DECIMAL",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.DECIMAL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式数据选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.PICKUPVIEW]"
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDSTRINGLENGTHRULE_INVALIDVALUE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDSTRINGLENGTHRULE_INVALIDVALUE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "关闭",
+    "lanResTag" : "TBB.TEXT.*.CLOSE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.CLOSE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.ADDBUTTON.TEXT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.ADDBUTTON.TEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.UPDATEDATE",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.UPDATEDATE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性标识",
+    "lanResTag" : "DEF.LNAME.IMPORT_SCHEMA_FIELDID",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_SCHEMA_FIELDID]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "查看",
+    "lanResTag" : "TBB.TOOLTIP.*.VIEW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.VIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "关闭窗口",
+    "lanResTag" : "TBB.TOOLTIP.*.CLOSE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.CLOSE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行标记已读操作",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000009",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000009]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.EDITVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.UNKNOWNERROR",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.UNKNOWNERROR]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "更新人",
+    "lanResTag" : "DEF.LNAME.UPDATEMAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[UPDATEMAN]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.UPDATEMAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.UPDATEMAN]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA_FIELD.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA_FIELD.MAIN.GROUPPANEL.GROUP1]"
+  }, {
+    "defaultContent" : "打印",
+    "lanResTag" : "TBB.TEXT.*.PRINT",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.PRINT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "操作信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_ACTION.MAIN.GROUPPANEL.GROUP2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_ACTION.MAIN.GROUPPANEL.GROUP2]"
+  }, {
+    "defaultContent" : "[{0}]执行后，没有指定后续节点",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000016",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000016]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.DATAENTITY",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.DATAENTITY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.WFEXPLOREVIEW.SECTOR.ALL.NAME",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[WFEXPLOREVIEW.SECTOR.ALL.NAME]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.DB.NOTALLOWEMPTY",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[DB.NOTALLOWEMPTY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_ACTION.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_ACTION.MAIN.FORMPAGE.FORMPAGE1]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导出当前页",
+    "lanResTag" : "TBB.TEXT.*.EXPORT.CURRENT",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT.CURRENT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除并关闭",
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.REMOVEANDCLOSE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.REMOVEANDCLOSE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "提交实例[{0}]处理步骤[{1}]与当前步骤[{2}]不一致",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000004",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000004]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "建立人",
+    "lanResTag" : "DEF.LNAME.CREATEMAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[CREATEMAN]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "重启",
+    "lanResTag" : "TBB.TEXT.*.RESTARTWF",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.RESTARTWF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.PERIOD.NOW",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.PERIOD.NOW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.UPLOADER.REMOVE.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.REMOVE.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "处理已经超过[{0}]次，系统中断",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000014",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000014]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.UPLOADVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[UPLOADVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.GRIDVIEW.EDITROW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[GRIDVIEW.EDITROW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存并新建",
+    "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDNEW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[EDITVIEW.SAVEANDNEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "查找",
+    "lanResTag" : "TBB.TEXT.*.FILTER",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.FILTER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDDUPRULE_EMPTYVALUE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDDUPRULE_EMPTYVALUE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.EDITVIEW2]"
+  }, {
+    "lanResTag" : "CONTROL.UPLOADER.REMOVE.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.REMOVE.TIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.FORM.INVALIDVALUE",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[FORM.INVALIDVALUE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.COUNT.REMINDTIPS",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.COUNT.REMINDTIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.WFEXPLORERVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[WFEXPLORERVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据[{0}]流程不允许关闭",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000021",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000021]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.IFFORMVIEW.EMPTYINFO",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[IFFORMVIEW.EMPTYINFO]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式名称",
+    "lanResTag" : "DEF.LNAME.IMPORT_SCHEMANAME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_SCHEMANAME]"
+  }, {
+    "lanResTag" : "CTRL.SERVICE.IMPORTMODEL_DATADELETE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.IMPORTMODEL_DATADELETE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA_FIELD.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA_FIELD.MAIN.FORMPAGE.FORMPAGE1]"
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.NOTIMPL",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.NOTIMPL]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存并关闭",
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDCLOSE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.SAVEANDCLOSE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DPPAGE.BASICINFO",
+    "lanResType" : "COMMON",
+    "name" : "通用[DPPAGE.BASICINFO]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法进行提交处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000017",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000017]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.NOTIN",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.NOTIN]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.DENAME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.DENAME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.REDIRECTVIEW]"
+  }, {
+    "lanResTag" : "ERROR.STD.FORM.NOTALLOWEMPTY",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[FORM.NOTALLOWEMPTY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK.COL.STEP.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK.COL.STEP.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.UPLOADER.UPLOAD.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.UPLOAD.TIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.COL.ACTOR.ASSISTTIPS",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.COL.ACTOR.ASSISTTIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.ACTOR.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.ACTOR.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.RELATED",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.RELATED]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为数据选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.PICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.PICKUPVIEW]"
+  }, {
+    "defaultContent" : "关闭",
+    "lanResTag" : "TBB.TEXT.EDITVIEW.CLOSE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[EDITVIEW.CLOSE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为名称",
+    "lanResTag" : "DEF.LNAME.IMPORT_ACTIONNAME",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_ACTIONNAME]"
+  }, {
+    "lanResTag" : "CONTROL.SPEX.SEARCH.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.SEARCH.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存行",
+    "lanResTag" : "TBB.TEXT.GRIDVIEW.SAVEROW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[GRIDVIEW.SAVEROW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.DATETIME",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.DATETIME]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.GRIDVIEW.NEWROW",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[GRIDVIEW.NEWROW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "无法计算当前处理后续的交互处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000024",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000024]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.PAGING.AFTERPAGEMSG",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.PAGING.AFTERPAGEMSG]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]不存在",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000037",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000037]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.AUDIT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.AUDIT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "更新时间",
+    "lanResTag" : "DEF.LNAME.UPDATEDATE",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[UPDATEDATE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "DEF.LNAME.*.CREATEMAN",
+    "lanResType" : "DEF.LNAME",
+    "name" : "实体属性逻辑名[*.CREATEMAN]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "查看",
+    "lanResTag" : "TBB.TEXT.*.VIEW",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.VIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "取消",
+    "lanResTag" : "CONTROL.UPLOADER.CANCEL.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.CANCEL.TIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.FORM.INVALIDDATATYPE",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[FORM.INVALIDDATATYPE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据[{0}]流程已经存在",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000001",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000001]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "帮助",
+    "lanResTag" : "TBB.TOOLTIP.*.HELP",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.HELP]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA.MAIN.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA.MAIN.FORMPAGE.FORMPAGE1]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.ABSEQ",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.ABSEQ]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.UNKNOWNUSERERROR",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.UNKNOWNUSERERROR]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "当前用户不是工作流最后一次操作者，无法进行撤回处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000026",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000026]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.GRIDVIEW.SUMMARYLIST.SELECTINFO",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[GRIDVIEW.SUMMARYLIST.SELECTINFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.STEP.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.STEP.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.COUNT.REMIND",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.COUNT.REMIND]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "系统跳转处理",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.GOTO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.GOTO]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "当前处理步骤无效",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000015",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000015]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "工作流用户[{0}]不接收工作，但没有指定待办用户",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000035",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000035]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.EDITVIEW2]"
+  }, {
+    "lanResTag" : "CTRL.WFFORMAH.DATASAVEANDSTARTWF",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFFORMAH.DATASAVEANDSTARTWF]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导出",
+    "lanResTag" : "TBB.TEXT.*.EXPORT",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EXPORT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "没有指定用户数据属性",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000018",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000018]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.DB.DUPLICATEDATA2",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[DB.DUPLICATEDATA2]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.ADDBUTTON.TOOLTIPS",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.ADDBUTTON.TOOLTIPS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.INVALIDDATAKEYS",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.INVALIDDATAKEYS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "重启流程",
+    "lanResTag" : "TBB.TOOLTIP.*.RESTARTWF",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.RESTARTWF]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.EDITVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "流程回退",
+    "lanResTag" : "TBB.TOOLTIP.*.ROLLBACKWF",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.ROLLBACKWF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.CONVERTER",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.CONVERTER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "启动流程",
+    "lanResTag" : "TBB.TOOLTIP.*.STARTWF",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.STARTWF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.MOVEFIRST",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.MOVEFIRST]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "查找",
+    "lanResTag" : "TBB.TOOLTIP.*.FILTER",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.FILTER]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.MOVENEXT",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.MOVENEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "MENUITEM.CAPTION.*.EXPORTSRF",
+    "lanResType" : "MENUITEM.CAPTION",
+    "name" : "菜单项文本[*.EXPORTSRF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.PAGING.EMPTYMSG",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.PAGING.EMPTYMSG]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.GRIDVIEW.THEMELIST.SYSTEMVIEW",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[GRIDVIEW.THEMELIST.SYSTEMVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.IMPORT_ACTION.N_IMPORT_ACTIONNAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.IMPORT_ACTION.N_IMPORT_ACTIONNAME_LIKE]"
+  }, {
+    "lanResTag" : "PAGE.COMMON.PICKUPVIEW.OKBTN.TEXT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[PICKUPVIEW.OKBTN.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "当前用户不能为工作用户代办指定事项",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000006",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000006]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.UPLOADER.UPLOAD.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.UPLOAD.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "暂时不支持自定义连接",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000019",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000019]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.GETLAST_NOTCACHED",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.GETLAST_NOTCACHED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SRFDA.CANNOTFINDINDEXDEF",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SRFDA.CANNOTFINDINDEXDEF]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为数据多项选择视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.MPICKUPVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.MPICKUPVIEW]"
+  }, {
+    "defaultContent" : "帮助",
+    "lanResTag" : "TBB.TEXT.*.HELP",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.HELP]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.ACTIVEWFSTEPACTOR",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DER.ACTIVEWFSTEPACTOR]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式选择表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA.PICKUPGRIDVIEW]"
+  }, {
+    "defaultContent" : "无法获取当前处理后续的交互处理",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000025",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000025]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.DATATYPE.TIME",
+    "lanResType" : "COMMON",
+    "name" : "通用[DATATYPE.TIME]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "打印",
+    "lanResTag" : "TBB.TOOLTIP.*.PRINT",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.PRINT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.GETREMOVEREJECTMSG_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.GETREMOVEREJECTMSG_INFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.MOVEPREV",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.MOVEPREV]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.AND",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.AND]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.INPUTERROR",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.INPUTERROR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.ACCESSDENY",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.ACCESSDENY]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.PORTALVIEW.LAYOUTSTYLE",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[PORTALVIEW.LAYOUTSTYLE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DEFSFITEM.IMPORT_SCHEMA_FIELD.N_IMPORT_SCHEMA_FIELDNAME_LIKE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFSFITEM.IMPORT_SCHEMA_FIELD.N_IMPORT_SCHEMA_FIELDNAME_LIKE]"
+  }, {
+    "lanResTag" : "CONTROL.SPEX.RESET.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[SPEX.RESET.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为选择表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.PICKUPGRIDVIEW]"
+  }, {
+    "lanResTag" : "COMMON.CONDITION.OR",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.OR]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "编辑",
+    "lanResTag" : "TBB.TEXT.*.EDIT",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.EDIT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDREGEXRULE_INVALIDVALUE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDREGEXRULE_INVALIDVALUE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据[{0}]流程启动检查失败",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000002",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000002]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.PERIOD.HOURS",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.PERIOD.HOURS]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.GRIDVIEW.SUMMARY.UNSELECTINFO",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[GRIDVIEW.SUMMARY.UNSELECTINFO]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA.MAIN.FORMPAGE.FORMPAGE2]"
+  }, {
+    "lanResTag" : "COMMON.WORKFLOW.MYWORK",
+    "lanResType" : "COMMON",
+    "name" : "通用[WORKFLOW.MYWORK]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.DEFIELD",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.DEFIELD]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "保存",
+    "lanResTag" : "TBB.TOOLTIP.*.SAVE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.SAVE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据[{0}]流程不允许重启",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000022",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000022]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.MOVELAST",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.MOVELAST]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.SEARCHBUTTON.TEXT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.SEARCHBUTTON.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_ACTION.EDITVIEW2",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_ACTION.EDITVIEW2]"
+  }, {
+    "defaultContent" : "没有匹配的下一环节处理人",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000038",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000038]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.WFINFOVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[WFINFOVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.PICKUPVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[PICKUPVIEW]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWFWORK2.COL.STEP.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWFWORK2.COL.STEP.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "OTHER.LIST.MYWF.COL.COUNT.CAPTION",
+    "lanResType" : "OTHER",
+    "name" : "其它[LIST.MYWF.COL.COUNT.CAPTION]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.DUPLICATEKEY",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.DUPLICATEKEY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "空",
+    "lanResTag" : "CL.ITEM.LNAME.EMPTY",
+    "lanResType" : "CL.ITEM.LNAME",
+    "name" : "代码表空白资源[CL.ITEM.LNAME.EMPTY]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "关闭",
+    "lanResTag" : "TBB.TOOLTIP.EDITVIEW.CLOSE",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[EDITVIEW.CLOSE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "超时处理",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.TIMEOUT",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.TIMEOUT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.PICKUPVIEW.CANCELBTN.TEXT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[PICKUPVIEW.CANCELBTN.TEXT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "找不到指定工作流用户[{0}]",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000034",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000034]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.SYS.DELETEREJECT",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[SYS.DELETEREJECT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "常规条件",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_SCHEMA.DEFAULT.FORMPAGE.FORMPAGE1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_SCHEMA.DEFAULT.FORMPAGE.FORMPAGE1]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "启动流程",
+    "lanResTag" : "CTRL.WFSERVICE.STEP.START",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.STEP.START]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.HEADER.CUSTOMSPDESIGNER",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[CUSTOMSPDESIGNER]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "取消工作流",
+    "lanResTag" : "TBB.TOOLTIP.*.CANCELWF",
+    "lanResType" : "TBB.TOOLTIP",
+    "name" : "工具栏按钮提示[*.CANCELWF]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CONTROL.DATAGRID.COLUMNCELLEDITABLE",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[DATAGRID.COLUMNCELLEDITABLE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.EQ",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.EQ]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKKEYSTATE_EXIST",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKKEYSTATE_EXIST]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "流程步骤",
+    "lanResTag" : "TBB.TEXT.*.WFSTEP",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.WFSTEP]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性数据重定向视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.REDIRECTVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.REDIRECTVIEW]"
+  }, {
+    "lanResTag" : "PAGE.HEADER.WFIAACTIOVIEW",
+    "lanResType" : "PAGE.HEADER",
+    "name" : "界面头部标题[WFIAACTIOVIEW]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性选择表格视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.PICKUPGRIDVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.PICKUPGRIDVIEW]"
+  }, {
+    "lanResTag" : "CTRL.FORMAH.DATAALREADYREMOVED",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.DATAALREADYREMOVED]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.FORMAH.FORMAH.INPUTERROR2",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[FORMAH.INPUTERROR2]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "确认",
+    "lanResTag" : "CONTROL.UPLOADER.OK.TEXT",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.OK.TEXT]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.IFGRIDVIEW.EMPTYINFO",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[IFGRIDVIEW.EMPTYINFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "COMMON.CONDITION.LTANDEQ",
+    "lanResType" : "COMMON",
+    "name" : "通用[CONDITION.LTANDEQ]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.WF.DATAINPROCESS",
+    "lanResType" : "ERROR.STD",
+    "name" : "标注错误[WF.DATAINPROCESS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为标识",
+    "lanResTag" : "DEF.LNAME.IMPORT_ACTIONID",
+    "lanResType" : "DEF.LNAME",
+    "name" : "属性逻辑名称（DEF.LNAME.*）[IMPORT_ACTIONID]"
+  }, {
+    "defaultContent" : "确认",
+    "lanResTag" : "CONTROL.UPLOADER.OK.TIPS",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本[UPLOADER.OK.TIPS]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "数据导入行为基本信息",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_ACTION.MAIN.GROUPPANEL.GROUP1",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_ACTION.MAIN.GROUPPANEL.GROUP1]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDVALUERANGERULE_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDVALUERANGERULE_INFO]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKKEYSTATE_DELETE",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKKEYSTATE_DELETE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "CTRL.SERVICE.CHECKFIELDDUPRULE_INFO",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[SERVICE.CHECKFIELDDUPRULE_INFO]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "删除并关闭",
+    "lanResTag" : "TBB.TEXT.EDITVIEW.REMOVEANDCLOSE",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[EDITVIEW.REMOVEANDCLOSE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DERGROUP.ACTIVEWFSTEPACTOR",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DERGROUP.ACTIVEWFSTEPACTOR]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.MENUTREEVIEW.LEFTBARTITLE",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[MENUTREEVIEW.LEFTBARTITLE]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "ERROR.STD.FORM.INVALIDVALUE2",
+    "lanResType" : "ERROR.STD",
+    "name" : "标准错误[FORM.INVALIDVALUE2]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "导入模式属性编辑视图",
+    "lanResTag" : "PAGE.TITLE.IMPORT_SCHEMA_FIELD.EDITVIEW",
+    "lanResType" : "PAGE",
+    "name" : "界面文本（PAGE.*）[TITLE.IMPORT_SCHEMA_FIELD.EDITVIEW]"
+  }, {
+    "lanResTag" : "PAGE.COMMON.CUSTOMSPDESIGNER.LOGICGROUP",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[CUSTOMSPDESIGNER.LOGICGROUP]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.WFSTEP",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DER.WFSTEP]",
+    "refFlag" : true
+  }, {
+    "lanResTag" : "PAGE.COMMON.EDITVIEW.DER.AUDIT",
+    "lanResType" : "PAGE.COMMON",
+    "name" : "界面常规[EDITVIEW.DER.AUDIT]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "查看流程步骤",
+    "lanResTag" : "TBB.TEXT.*.VIEWWFSTEP",
+    "lanResType" : "TBB.TEXT",
+    "name" : "工具栏按钮文本[*.VIEWWFSTEP]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "指定工作流实例[{0}]已经关闭，无法再次关闭",
+    "lanResTag" : "CTRL.WFSERVICE.ERR000020",
+    "lanResType" : "CTRL",
+    "name" : "处理逻辑[WFSERVICE.ERR000020]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "更多",
+    "lanResTag" : "CONTROL.QUICKSEARCH.MORE",
+    "lanResType" : "CONTROL",
+    "name" : "快速搜索更多[QUICKSEARCH.MORE]",
+    "refFlag" : true
+  }, {
+    "defaultContent" : "其它",
+    "lanResTag" : "CONTROL.DEFORM.IMPORT_ACTION.MAIN.FORMPAGE.FORMPAGE2",
+    "lanResType" : "CONTROL",
+    "name" : "控件文本（CONTROL.*）[DEFORM.IMPORT_ACTION.MAIN.FORMPAGE.FORMPAGE2]"
+  } ],
+  "getAllPSSysLans" : [ {
+    "modelref" : true,
+    "path" : "PSSYSLANS/ZH_CN.json",
+    "name" : "简体中文",
+    "language" : "ZH_CN"
+  } ],
+  "dynaModelFilePath" : "PSSYSI18NS/DEFAULT.json",
+  "name" : "iBizCloudImportEx"
+}

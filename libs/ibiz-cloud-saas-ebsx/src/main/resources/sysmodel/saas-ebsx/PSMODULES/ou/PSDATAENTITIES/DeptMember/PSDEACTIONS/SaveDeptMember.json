@@ -1,0 +1,26 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "SaveDeptMember",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDEACTIONS/SaveDeptMember.json",
+  "logicName" : "保存部门成员",
+  "name" : "saveDeptMember",
+  "getPSDEActionInput" : {
+    "name" : "SaveDeptMemberInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DeptMemberDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveDeptMemberResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDELOGICS/saveDeptMember.json"
+  },
+  "enableFront" : false
+}

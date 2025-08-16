@@ -1,0 +1,18 @@
+{
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysAudit.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysEvent.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysLog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/log/PSDATAENTITIES/SysPO.json"
+  } ],
+  "codeName" : "log",
+  "dynaModelFilePath" : "PSMODULES/log.json",
+  "name" : "log"
+}

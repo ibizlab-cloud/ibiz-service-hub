@@ -1,0 +1,25 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetFuncUrlMob",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/GetFuncUrlMob.json",
+  "logicName" : "移动端获取快捷操作打开地址",
+  "name" : "GetFuncUrlMob",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "PSSYSAPPFUNCID",
+      "codeName" : "PSSysAppFuncId"
+    },
+    "name" : "GetFuncUrlMobInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetFuncUrlMobResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "AppFuncDTO"
+    },
+    "type" : "DTO"
+  }
+}

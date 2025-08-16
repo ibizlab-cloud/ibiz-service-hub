@@ -1,0 +1,31 @@
+{
+  "codeName" : "Fact_entity",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstComponent/PSDERS/DER1N_DST_COMPONENT_META_ENTITY_ENTITYID.json",
+  "fKeyName" : "FA4413D375A61F99EA",
+  "logicName" : "实体",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent.json"
+  },
+  "name" : "DER1N_DST_COMPONENT_META_ENTITY_ENTITYID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ENTITYID",
+    "codeName" : "EntityId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ENTITYNAME",
+    "codeName" : "EntityName"
+  },
+  "pickupDEFName" : "ENTITYID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Fact_entity"
+}

@@ -1,0 +1,72 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.`CREATEMAN` = #{ctx.sessioncontext.srfpersonid}  AND  t1.`REALINSTID` IS NULL )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`APPID`",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.`BUSINESSKEY`",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`CURSTEPID`",
+    "name" : "CURSTEPID"
+  }, {
+    "expression" : "t1.`CURSTEPNAME`",
+    "name" : "CURSTEPNAME"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DEFINITIONKEY`",
+    "name" : "DEFINITIONKEY"
+  }, {
+    "expression" : "t1.`DEFINITIONNAME`",
+    "name" : "DEFINITIONNAME"
+  }, {
+    "expression" : "t1.`ENDTIME`",
+    "name" : "ENDTIME"
+  }, {
+    "expression" : "t1.`ENTITYID`",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.`INSTANCEID`",
+    "name" : "INSTANCEID"
+  }, {
+    "expression" : "t1.`INSTANCENAME`",
+    "name" : "INSTANCENAME"
+  }, {
+    "expression" : "t1.`REALINSTID`",
+    "name" : "REALINSTID"
+  }, {
+    "expression" : "t1.`STARTTIME`",
+    "name" : "STARTTIME"
+  }, {
+    "expression" : "t1.`STARTUSERID`",
+    "name" : "STARTUSERID"
+  }, {
+    "expression" : "t1.`STARTUSERNAME`",
+    "name" : "STARTUSERNAME"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.`WFSTATE`",
+    "name" : "WFSTATE"
+  } ],
+  "queryCode" : "SELECT\nt1.`APPID`,\nt1.`BUSINESSKEY`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`CURSTEPID`,\nt1.`CURSTEPNAME`,\nt1.`DCSYSTEMID`,\nt1.`DEFINITIONKEY`,\nt1.`DEFINITIONNAME`,\nt1.`ENDTIME`,\nt1.`ENTITYID`,\nt1.`INSTANCEID`,\nt1.`INSTANCENAME`,\nt1.`REALINSTID`,\nt1.`STARTTIME`,\nt1.`STARTUSERID`,\nt1.`STARTUSERNAME`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`,\nt1.`WFSTATE`\nFROM `IBZWFINSTANCE` t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEDATAQUERIES/CurUserUndo/PSDEDQCODES/MYSQL5.json"
+}

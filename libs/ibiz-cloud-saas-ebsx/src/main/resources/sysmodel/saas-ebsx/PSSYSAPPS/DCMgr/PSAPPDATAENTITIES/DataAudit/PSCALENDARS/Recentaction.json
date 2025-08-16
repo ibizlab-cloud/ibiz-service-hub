@@ -1,0 +1,48 @@
+{
+  "calendarStyle" : "TIMELINE",
+  "codeName" : "Recentaction",
+  "controlType" : "CALENDAR",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit/PSCALENDARS/Recentaction.json",
+  "groupMode" : "NONE",
+  "legendPos" : "NONE",
+  "logicName" : "操作记录",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit.json"
+  },
+  "getPSSysCalendarItems" : [ {
+    "getBeginTimePSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "getEndTimePSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "getIdPSAppDEField" : {
+      "name" : "DATAAUDITID",
+      "codeName" : "DataAuditId"
+    },
+    "itemStyle" : "DEFAULT",
+    "itemType" : "Action",
+    "maxSize" : -1,
+    "name" : "操作记录",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "FetchDefault"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit.json"
+    },
+    "getTextPSAppDEField" : {
+      "name" : "DATAAUDITNAME",
+      "codeName" : "DataAuditName"
+    },
+    "enableQuickCreate" : false,
+    "id" : "Action"
+  } ],
+  "enableGroup" : false,
+  "modelid" : "3ABC5DB6-C394-45EB-8071-D2311C43692A",
+  "modeltype" : "PSSYSCALENDAR"
+}

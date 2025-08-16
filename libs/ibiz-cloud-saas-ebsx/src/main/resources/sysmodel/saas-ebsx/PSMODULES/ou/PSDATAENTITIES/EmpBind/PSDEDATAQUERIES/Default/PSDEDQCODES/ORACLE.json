@@ -1,0 +1,28 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DDUNIONID",
+    "name" : "DDUNIONID"
+  }, {
+    "expression" : "t1.DDUSERID",
+    "name" : "DDUSERID"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.UAAUSERID",
+    "name" : "UAAUSERID"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.WXWORKUNIONID",
+    "name" : "WXWORKUNIONID"
+  }, {
+    "expression" : "t1.WXWORKUSERID",
+    "name" : "WXWORKUSERID"
+  } ],
+  "queryCode" : "SELECT\nt1.DDUNIONID,\nt1.DDUSERID,\nt1.PERSONNAME,\nt1.UAAUSERID,\nt1.USERID,\nt1.WXWORKUNIONID,\nt1.WXWORKUSERID\nFROM IBZEMP t1 \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/EmpBind/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

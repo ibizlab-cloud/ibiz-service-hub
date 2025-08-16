@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "开放平台应用",
+  "name" : "第三方认证平台默认关系界面组"
+}

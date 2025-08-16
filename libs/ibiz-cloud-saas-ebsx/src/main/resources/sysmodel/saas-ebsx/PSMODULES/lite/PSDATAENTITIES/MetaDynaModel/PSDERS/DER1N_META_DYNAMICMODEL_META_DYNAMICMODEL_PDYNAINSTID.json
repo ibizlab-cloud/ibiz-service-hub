@@ -1,0 +1,28 @@
+{
+  "codeName" : "PDynamicInstId",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDERS/DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID.json",
+  "fKeyName" : "FFC774D53169CFEA97",
+  "logicName" : "主实例标识",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+  },
+  "name" : "DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "PDYNAINSTID",
+    "codeName" : "PDynaInstId"
+  },
+  "pickupDEFName" : "PDYNAINSTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "PDynamicInstId",
+  "enableFKey" : true
+}

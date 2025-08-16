@@ -1,0 +1,58 @@
+{
+  "codeListTag" : "uaa__CodeList108",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList108",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList108.json",
+  "emptyText" : "未定义",
+  "name" : "实体数据处理_数据操作",
+  "getPSCodeItems" : [ {
+    "codeName" : "Insert",
+    "text" : "新建",
+    "value" : "INSERT"
+  }, {
+    "codeName" : "Update",
+    "text" : "更新",
+    "value" : "UPDATE"
+  }, {
+    "codeName" : "Save",
+    "text" : "保存（自动判断）",
+    "value" : "SAVE"
+  }, {
+    "codeName" : "Delete",
+    "text" : "删除",
+    "value" : "DELETE"
+  }, {
+    "codeName" : "Customcall",
+    "text" : "自定义调用",
+    "value" : "CUSTOMCALL"
+  }, {
+    "codeName" : "Customproccall",
+    "text" : "自定义存储过程调用",
+    "value" : "CUSTOMPROCCALL"
+  }, {
+    "codeName" : "Customrawproccall",
+    "text" : "自定义存储过程调用（全称）",
+    "value" : "CUSTOMRAWPROCCALL"
+  }, {
+    "codeName" : "Get",
+    "text" : "获取(GET)",
+    "value" : "GET"
+  }, {
+    "codeName" : "Checkkeystate",
+    "text" : "检查主键状态(CHECKKEYSTATE)",
+    "value" : "CHECKKEYSTATE"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_02004",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

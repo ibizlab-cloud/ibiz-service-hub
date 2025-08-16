@@ -1,0 +1,52 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DYNAINSTID`",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t21.`DYNAINSTNAME`",
+    "name" : "DYNAINSTNAME"
+  }, {
+    "expression" : "t1.`ISVALID`",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.`MEMO`",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t11.`ORGNAME`",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.`ORGSYSTEMID`",
+    "name" : "ORGSYSTEMID"
+  }, {
+    "expression" : "t1.`ORGSYSTEMNAME`",
+    "name" : "ORGSYSTEMNAME"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t31.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`DCSYSTEMID`,\nt1.`DYNAINSTID`,\nt21.`DYNAINSTNAME`,\nt1.`ISVALID`,\nt1.`MEMO`,\nt1.`ORGID`,\nt11.`ORGNAME`,\nt1.`ORGSYSTEMID`,\nt1.`ORGSYSTEMNAME`,\nt1.`SRFDCID`,\nt31.`SYSTEMID`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `IBZORGSYSTEM` t1 \nLEFT JOIN `IBZORG` t11 ON t1.`ORGID` = t11.`ORGID` \nLEFT JOIN `IBZDYNAINST` t21 ON t1.`DYNAINSTID` = t21.`DYNAINSTID` \nLEFT JOIN `IBZDCSYSTEM` t31 ON t1.`DCSYSTEMID` = t31.`DCSYSTEMID` \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

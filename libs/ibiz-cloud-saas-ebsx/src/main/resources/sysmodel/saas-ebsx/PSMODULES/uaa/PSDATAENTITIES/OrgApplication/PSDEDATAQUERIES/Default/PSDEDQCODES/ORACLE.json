@@ -1,0 +1,43 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACCESS_KEY",
+    "name" : "ACCESS_KEY"
+  }, {
+    "expression" : "t1.ACCESS_TOKEN",
+    "name" : "ACCESS_TOKEN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.EXPIRES_TIME",
+    "name" : "EXPIRES_TIME"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.ORGSYSTEMAPPID",
+    "name" : "ORGSYSTEMAPPID"
+  }, {
+    "expression" : "t1.ORGSYSTEMAPPNAME",
+    "name" : "ORGSYSTEMAPPNAME"
+  }, {
+    "expression" : "t1.ORGSYSTEMID",
+    "name" : "ORGSYSTEMID"
+  }, {
+    "expression" : "t1.REGION_ID",
+    "name" : "REGION_ID"
+  }, {
+    "expression" : "t1.SECRET_KEY",
+    "name" : "SECRET_KEY"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  } ],
+  "queryCode" : "SELECT\nt1.ACCESS_KEY,\nt1.ACCESS_TOKEN,\nt1.DCSYSTEMID,\nt1.EXPIRES_TIME,\nt1.ORGID,\nt1.ORGSYSTEMAPPID,\nt1.ORGSYSTEMAPPNAME,\nt1.ORGSYSTEMID,\nt1.REGION_ID,\nt1.SECRET_KEY,\nt1.SRFDCID,\nt1.SYSTEMID\nFROM IBZORGSYSTEMAPP t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/OrgApplication/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

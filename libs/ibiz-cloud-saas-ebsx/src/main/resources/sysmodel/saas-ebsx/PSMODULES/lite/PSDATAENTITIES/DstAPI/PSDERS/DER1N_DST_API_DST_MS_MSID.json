@@ -1,0 +1,30 @@
+{
+  "codeName" : "Microservice",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDERS/DER1N_DST_API_DST_MS_MSID.json",
+  "fKeyName" : "F21B9976B4C179DE6A",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI.json"
+  },
+  "name" : "DER1N_DST_API_DST_MS_MSID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "MSID",
+    "codeName" : "MSId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "MSNAME",
+    "codeName" : "MSName"
+  },
+  "pickupDEFName" : "MSID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Microservice"
+}

@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.ibizlab.plugin</groupId>
+		<artifactId>ibiz-plugin</artifactId>
+		<version>8.1.0.570.29.1</version>
+    </parent>
+	<artifactId>ibiz-plugin-util</artifactId>
+	<name>ibiz-plugin-util</name>
+	<properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-cloud-core</artifactId>
+			<scope>provided</scope>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-ai</artifactId>
+			<scope>provided</scope>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-extension</artifactId>
+			<scope>provided</scope>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-poi</artifactId>
+			<scope>provided</scope>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+		
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.17.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark-html2md-converter -->
+		<dependency>
+		    <groupId>com.vladsch.flexmark</groupId>
+		    <artifactId>flexmark-html2md-converter</artifactId>
+		    <version>0.62.2</version>
+		</dependency> 
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-exec -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-exec</artifactId>
+		    <version>1.4.0</version>
+		</dependency>
+		
+		
+	</dependencies>
+</project>

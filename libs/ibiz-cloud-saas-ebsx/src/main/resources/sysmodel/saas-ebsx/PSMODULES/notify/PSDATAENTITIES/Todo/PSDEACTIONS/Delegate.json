@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Delegate",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/Delegate.json",
+  "logicName" : "委派",
+  "name" : "Delegate",
+  "getPSDEActionInput" : {
+    "name" : "DelegateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "DelegateResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

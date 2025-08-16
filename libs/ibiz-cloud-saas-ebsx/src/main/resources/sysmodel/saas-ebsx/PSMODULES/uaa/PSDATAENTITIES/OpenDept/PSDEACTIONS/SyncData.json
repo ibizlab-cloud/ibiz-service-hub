@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SyncData",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept/PSDEACTIONS/SyncData.json",
+  "logicName" : "同步数据",
+  "name" : "SyncData",
+  "getPSDEActionInput" : {
+    "name" : "SyncDataInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "OpenDeptDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SyncDataResult",
+    "type" : "VOID"
+  }
+}

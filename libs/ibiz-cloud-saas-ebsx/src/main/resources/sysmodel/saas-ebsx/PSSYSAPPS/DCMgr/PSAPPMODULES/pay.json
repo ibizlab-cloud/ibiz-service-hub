@@ -1,0 +1,7 @@
+{
+  "codeName" : "pay",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPMODULES/pay.json",
+  "mOSFilePath" : "pssysapps/DCMgr/psappmodules/pay",
+  "name" : "pay",
+  "rTMOSFilePath" : "pssysapps/DCMgr/psappmodules/pay"
+}

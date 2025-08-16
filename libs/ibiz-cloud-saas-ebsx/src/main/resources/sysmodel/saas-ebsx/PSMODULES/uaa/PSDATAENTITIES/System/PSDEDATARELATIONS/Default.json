@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "部署系统",
+  "name" : "实体默认关系界面组"
+}

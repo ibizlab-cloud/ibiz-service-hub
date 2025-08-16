@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "pay__TradeType",
+  "codeListType" : "STATIC",
+  "codeName" : "TradeType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/pay/PSCODELISTS/TradeType.json",
+  "emptyText" : "未定义",
+  "name" : "支付类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Alipay_SUB_pagepay",
+    "text" : "阿里网页支付",
+    "value" : "alipay-pagepay"
+  }, {
+    "codeName" : "Wechat_SUB_precreate",
+    "text" : "微信扫码支付",
+    "value" : "wechat-precreate"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/pay.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

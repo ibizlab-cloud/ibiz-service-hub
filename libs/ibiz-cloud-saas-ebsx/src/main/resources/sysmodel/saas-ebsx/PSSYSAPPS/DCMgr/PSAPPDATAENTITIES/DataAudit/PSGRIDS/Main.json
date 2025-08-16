@@ -1,0 +1,306 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "CREATEDATE",
+    "codeName" : "CreateDate"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统",
+    "codeName" : "dcsystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dcsystemname",
+    "excelCaption" : "系统",
+    "name" : "dcsystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "审计信息",
+    "codeName" : "dataauditname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dataauditname",
+    "excelCaption" : "审计信息",
+    "name" : "dataauditname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITNAME",
+      "codeName" : "DataAuditName"
+    },
+    "width" : 100,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "事件",
+    "codeName" : "audittype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "audittype",
+    "excelCaption" : "事件",
+    "name" : "audittype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "AUDITTYPE",
+      "codeName" : "AuditType"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "对象类型",
+    "codeName" : "objecttype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "objecttype",
+    "excelCaption" : "对象类型",
+    "name" : "objecttype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "OBJECTTYPE",
+      "codeName" : "ObjectType"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "对象编号",
+    "codeName" : "objectid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "objectid",
+    "excelCaption" : "对象编号",
+    "name" : "objectid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "OBJECTID",
+      "codeName" : "ObjectId"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "访问地址",
+    "codeName" : "ipaddress",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "ipaddress",
+    "excelCaption" : "访问地址",
+    "name" : "ipaddress",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "IPADDRESS",
+      "codeName" : "IPAddress"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "操作人",
+    "codeName" : "oppersonname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "oppersonname",
+    "excelCaption" : "操作人",
+    "name" : "oppersonname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "OPPERSONNAME",
+      "codeName" : "OPPersonName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "事件时间",
+    "codeName" : "createdate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "createdate",
+    "excelCaption" : "事件时间",
+    "name" : "createdate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemname",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "dataauditname",
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITNAME",
+      "codeName" : "DataAuditName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "audittype",
+    "getPSAppDEField" : {
+      "name" : "AUDITTYPE",
+      "codeName" : "AuditType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "objecttype",
+    "getPSAppDEField" : {
+      "name" : "OBJECTTYPE",
+      "codeName" : "ObjectType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "objectid",
+    "getPSAppDEField" : {
+      "name" : "OBJECTID",
+      "codeName" : "ObjectId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "ipaddress",
+    "getPSAppDEField" : {
+      "name" : "IPADDRESS",
+      "codeName" : "IPAddress"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "oppersonname",
+    "getPSAppDEField" : {
+      "name" : "OPPERSONNAME",
+      "codeName" : "OPPersonName"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "createdate",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITID",
+      "codeName" : "DataAuditId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITID",
+      "codeName" : "DataAuditId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITNAME",
+      "codeName" : "DataAuditName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "访问日志标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "DATAAUDITID",
+      "codeName" : "DataAuditId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DataAudit.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "d583c07ce42919da586ef4605c7f3c15",
+  "modeltype" : "PSDEGRID"
+}

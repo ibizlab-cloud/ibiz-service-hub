@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "Notify__internal_message_owner_type",
+  "codeListType" : "STATIC",
+  "codeName" : "internal_message_owner_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/Notify/PSCODELISTS/internal_message_owner_type.json",
+  "emptyText" : "未定义",
+  "name" : "内部消息所有者类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "personal",
+    "text" : "个人",
+    "value" : "PERSONAL"
+  }, {
+    "codeName" : "system",
+    "text" : "系统全局",
+    "value" : "SYSTEM"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

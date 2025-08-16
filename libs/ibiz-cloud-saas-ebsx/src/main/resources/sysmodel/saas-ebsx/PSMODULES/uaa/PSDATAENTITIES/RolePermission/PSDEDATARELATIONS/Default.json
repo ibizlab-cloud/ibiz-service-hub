@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "ERROR.STD.FORM.MAXLENGTHEXCEED"
+  },
+  "formCaption" : "角色权限关系",
+  "name" : "角色权限关系表默认关系界面组"
+}

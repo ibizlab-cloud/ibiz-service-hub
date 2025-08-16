@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "ChangePwd",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/ChangePwd.json",
+  "logicName" : "初始化密码",
+  "name" : "ChangePwd",
+  "getPSDEActionInput" : {
+    "name" : "ChangePwdInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "UserDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ChangePwdResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

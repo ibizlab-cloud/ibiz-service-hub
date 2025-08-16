@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "CTRL.FORMAH.INPUTERROR"
+  },
+  "formCaption" : "单位机构",
+  "name" : "单位机构默认关系界面组"
+}

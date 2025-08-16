@@ -1,0 +1,36 @@
+{
+  "codeListTag" : "ou__Gender",
+  "codeListType" : "STATIC",
+  "codeName" : "Gender",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ou/PSCODELISTS/Gender.json",
+  "name" : "SYS_SEX",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "男性",
+    "value" : "男"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "女性",
+    "value" : "女"
+  }, {
+    "codeName" : "Item_3",
+    "text" : "性别不详",
+    "value" : "性别不详"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

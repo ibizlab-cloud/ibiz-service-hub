@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "mark_read",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEACTIONS/mark_read.json",
+  "logicName" : "标记为已读",
+  "name" : "mark_read",
+  "getPSDEActionInput" : {
+    "name" : "Mark_readInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "internal_messageDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Mark_readResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDELOGICS/mark_read.json"
+  },
+  "enableFront" : false
+}

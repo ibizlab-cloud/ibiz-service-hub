@@ -1,0 +1,34 @@
+{
+  "codeName" : "Basic",
+  "dynaModelFilePath" : "PSSYSDYNAMODELS/Basic.json",
+  "name" : "基本配置对象",
+  "getPSDynaModelAttrs" : [ {
+    "name" : "A001/PSSYSVIEWPANEL/Basic",
+    "value" : "{\n  \"codename\": \"Basic\",\n  \"pssysviewpanelname\": \"配置列表面板\",\n  \"mobflag\": 0,\n  \"publicflag\": 1,\n  \"viewlayoutflag\": 0,\n  \"pssysviewpanelitems\": [\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A002/PSDEFORM/EF_BasicQuick",
+    "value" : "  {\n    \"codename\": \"EF_BasicQuick\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"快速新建表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#6cba647e9438204676b674b6a46835d8\",\n    \"mobflag\": 0,\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n            ]\n          }\n        ]\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A003/PSDEFORM/EF_Basic",
+    "value" : "  {\n    \"codename\": \"EF_Basic\",\n    \"formtype\": \"EDITFORM\",\n    \"dynasysrefmode\": 0,\n    \"psdeformname\": \"主编辑模式表单\",\n    \"srfmodelv2scope\": \"PSDATAENTITY#6cba647e9438204676b674b6a46835d8\",\n    \"mobflag\": 0,\n    \"psdeformdetails\": [\n      {\n        \"detailtype\": \"FORMPAGE\",\n        \"psdeformdetailname\": \"formpage1\",\n        \"caption\": \"基本信息\",\n        \"psdeformdetails\": [\n          \n            ]\n          }\n        ]\n      }\n    ]\n  }",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A004/PSDEVIEWBASE/BasicQuickView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEOPTVIEW\",\n  \"codename\": \"BasicQuickView\",\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"openmode\": \"DRAWER_RIGHT\",\n  \"caption\": \"快速新建\",\n  \"psdeviewbasename\": \"快速新建视图\",\n  \"title\": \"快速新建视图\",\n  \"psdeviewctrls\": [\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"FORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/EF_BasicQuick\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]快速新建表单\",\n      \"psdeformname\": \"快速新建表单\",\n      \"validflag\": 1,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A005/PSDEVIEWBASE/BasicEditView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEEDITVIEW\",\n  \"codename\": \"BasicEditView\",\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"caption\": \"供应商价格表\",\n  \"psdeviewbasename\": \"配置信息编辑视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"配置信息编辑视图\",\n  \"psdeviewctrls\": [\n    {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"FORM\",\n      \"psdeviewctrlname\": \"FORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/EF_Basic\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]编辑模式表单\",\n      \"psdeformname\": \"编辑模式表单\",\n      \"validflag\": 1,\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"ctrlparam5\": 1\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A006/PSDELIST/Basic",
+    "value" : "{\n  \"navpsdeviewbaseid\": \"<PSDATAENTITY>/BasicEditView\",\n  \"codename\": \"Basic\",\n  \"appenddeitems\": 1,\n  \"minorsortdir\": \"ASC\",\n  \"logicname\": \"配置导航列表\",\n  \"psdedsid\": \"<PSDATAENTITY>/DEFAULT\",\n  \"psdelistname\": \"Basic\",\n  \"pssysviewpanelid\": \"<PSDATAENTITY>/Basic\",\n  \"psdelistitems\": [\n  \n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A007/PSDEVIEWBASE/BasicListExpView",
+    "value" : "{\n  \"psdeviewbasetype\": \"DELISTEXPVIEW\",\n  \"codename\": \"BasicListExpView\",\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"配置列表导航视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"配置列表导航视图\",\n  \"psdeviewctrls\": [\n    {\n      \"psdelistid\": \"<PSDATAENTITY>/Basic\",\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"LISTEXPBAR\",\n      \"psdeviewctrlname\": \"LISTEXPBAR\",\n      \"width\": 350,\n      \"defaultflag\": 1,\n      \"configinfo\": \"[工具栏]工具栏模板（列表导航界面）;[数据列表]Basic\",\n      \"ctrlparam11\": 0,\n      \"validflag\": 1,\n      \"psdetoolbarname\": \"工具栏模板（列表导航界面）\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"ctrlparam7\": 1,\n      \"psdetoolbarid\": \"Auto16\"\n    }\n  ],\n  \"psdeviewrvs\": [\n    {\n      \"refmode\": \"NEWDATA\",\n      \"psdeviewrvname\": \"NEWDATA\",\n      \"minorpsdeviewid\": \"<PSDATAENTITY>/BasicQuickView\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  } ]
+}

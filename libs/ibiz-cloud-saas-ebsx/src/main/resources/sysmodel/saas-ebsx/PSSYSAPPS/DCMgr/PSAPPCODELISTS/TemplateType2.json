@@ -1,0 +1,27 @@
+{
+  "codeListTag" : "notify__TemplateType2",
+  "codeListType" : "STATIC",
+  "codeName" : "TemplateType2",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/TemplateType2.json",
+  "emptyText" : "未定义",
+  "name" : "模板类型（Cloud）",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgTemplate.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "Sms",
+    "text" : "短信",
+    "value" : "SMS"
+  }, {
+    "codeName" : "Email",
+    "text" : "邮件",
+    "value" : "EMAIL"
+  }, {
+    "codeName" : "Msg",
+    "text" : "即时消息",
+    "value" : "MSG"
+  } ],
+  "enableCache" : true
+}

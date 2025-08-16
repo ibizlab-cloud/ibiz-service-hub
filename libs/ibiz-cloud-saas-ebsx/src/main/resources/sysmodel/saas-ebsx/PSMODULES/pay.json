@@ -1,0 +1,19 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSCODELISTS/TradeStatus.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSCODELISTS/TradeType.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+  } ],
+  "codeName" : "pay",
+  "dynaModelFilePath" : "PSMODULES/pay.json",
+  "name" : "pay"
+}

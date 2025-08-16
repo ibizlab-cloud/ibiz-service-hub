@@ -1,0 +1,27 @@
+{
+  "codeName" : "DCSystem",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDERS/DER1N_SYS_DYNAINST_SYS_DC_SYSTEM_DC_SYSTEM_ID.json",
+  "fKeyName" : "F53D03E45C5E6EBB55",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+  },
+  "name" : "DER1N_SYS_DYNAINST_SYS_DC_SYSTEM_DC_SYSTEM_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DCSYSTEMID",
+    "codeName" : "DCSystemId"
+  },
+  "pickupDEFName" : "DC_SYSTEM_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DCSystem",
+  "enableFKey" : true
+}

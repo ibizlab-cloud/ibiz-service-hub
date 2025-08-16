@@ -1,0 +1,52 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ERRORINFO",
+    "name" : "ERRORINFO"
+  }, {
+    "expression" : "t1.TEMPLPARAMS",
+    "name" : "TEMPLPARAMS"
+  }, {
+    "expression" : "t1.CONTENT",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.ISERROR",
+    "name" : "ISERROR"
+  }, {
+    "expression" : "t1.ISSEND",
+    "name" : "ISSEND"
+  }, {
+    "expression" : "t1.MSGID",
+    "name" : "MSGID"
+  }, {
+    "expression" : "t1.MSGLINK",
+    "name" : "MSGLINK"
+  }, {
+    "expression" : "t1.MSGLINK_PC",
+    "name" : "MSGLINK_PC"
+  }, {
+    "expression" : "t1.MSGNAME",
+    "name" : "MSGNAME"
+  }, {
+    "expression" : "t1.MSGTYPE",
+    "name" : "MSGTYPE"
+  }, {
+    "expression" : "t1.SUBJECT",
+    "name" : "SUBJECT"
+  }, {
+    "expression" : "t1.TEMPLATEID",
+    "name" : "TEMPLATEID"
+  }, {
+    "expression" : "t1.TOUSERS",
+    "name" : "TOUSERS"
+  }, {
+    "expression" : "t1.USERDATA",
+    "name" : "USERDATA"
+  }, {
+    "expression" : "t1.USERDATA2",
+    "name" : "USERDATA2"
+  } ],
+  "queryCode" : "SELECT\nt1.CONTENT,\nt1.ISERROR,\nt1.ISSEND,\nt1.MSGID,\nt1.MSGLINK,\nt1.MSGLINK_PC,\nt1.MSGNAME,\nt1.MSGTYPE,\nt1.SUBJECT,\nt1.TEMPLATEID,\nt1.TOUSERS,\nt1.USERDATA,\nt1.USERDATA2\nFROM IBZMSGBODY t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgBody/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

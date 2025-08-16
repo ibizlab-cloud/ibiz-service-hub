@@ -1,0 +1,31 @@
+{
+  "codeName" : "Module",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDERS/DER1N_META_ENTITY_META_MODULE_MODULEID.json",
+  "fKeyName" : "F5347A6D5F5EE4114F",
+  "logicName" : "模型",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaModule.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "name" : "DER1N_META_ENTITY_META_MODULE_MODULEID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "MODULEID",
+    "codeName" : "ModuleId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "MODULENAME",
+    "codeName" : "ModuleName"
+  },
+  "pickupDEFName" : "MODULEID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Module"
+}

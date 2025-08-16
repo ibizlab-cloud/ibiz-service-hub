@@ -1,0 +1,42 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "动态模型实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDERS/DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID.json"
+  },
+  "getPSNavigateContexts" : [ {
+    "key" : "N_PDYNAINSTID_EQ",
+    "name" : "N_PDYNAINSTID_EQ",
+    "value" : "metadynamicmodel",
+    "rawValue" : false
+  }, {
+    "key" : "SYSID",
+    "name" : "SYSID",
+    "value" : "systemid",
+    "rawValue" : false
+  }, {
+    "key" : "PINSTID",
+    "name" : "PINSTID",
+    "value" : "metadynamicmodel",
+    "rawValue" : false
+  } ],
+  "parentDataJO" : {
+    "srfparentdefname" : "PDYNAINSTID",
+    "srfparentdename" : "META_DYNAMICMODEL",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID",
+    "SRFDER1NID" : "DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_META_DYNAMICMODEL_META_DYNAMICMODEL_PDYNAINSTID"
+  }
+}

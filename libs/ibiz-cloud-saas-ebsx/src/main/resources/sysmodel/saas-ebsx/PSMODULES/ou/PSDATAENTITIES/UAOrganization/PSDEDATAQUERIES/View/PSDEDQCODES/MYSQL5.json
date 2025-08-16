@@ -1,0 +1,33 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.ENABLE = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ENABLE`",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.`ORGNAME`",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.`PORGID`",
+    "name" : "PORGID"
+  }, {
+    "expression" : "t1.`SHORTNAME`",
+    "name" : "SHORTNAME"
+  }, {
+    "expression" : "t1.`SHOWORDER`",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  } ],
+  "queryCode" : "SELECT\nt1.`ENABLE`,\nt1.`ORGID`,\nt1.`ORGNAME`,\nt1.`PORGID`,\nt1.`SHORTNAME`,\nt1.`SHOWORDER`,\nt1.`SRFDCID`\nFROM `IBZORG` t1 \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/UAOrganization/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

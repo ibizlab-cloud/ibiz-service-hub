@@ -1,0 +1,27 @@
+{
+  "codeName" : "Emp",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Schedules/PSDERS/DER1N_SYS_SCHEDULES_SYS_EMP_EMPID.json",
+  "fKeyName" : "FD0135DA717D2064AF",
+  "logicName" : "用户",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Schedules.json"
+  },
+  "name" : "DER1N_SYS_SCHEDULES_SYS_EMP_EMPID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "EMPID",
+    "codeName" : "EmpId"
+  },
+  "pickupDEFName" : "EMPID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Emp"
+}

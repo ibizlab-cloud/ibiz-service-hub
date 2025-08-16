@@ -1,0 +1,37 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ACCESSID`",
+    "name" : "ACCESSID"
+  }, {
+    "expression" : "t1.`ACCESSNAME`",
+    "name" : "ACCESSNAME"
+  }, {
+    "expression" : "t1.`APPID`",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.`OUTTRADENO`",
+    "name" : "OUTTRADENO"
+  }, {
+    "expression" : "t1.`SUBJECT`",
+    "name" : "SUBJECT"
+  }, {
+    "expression" : "t1.`TOTALAMOUNT`",
+    "name" : "TOTALAMOUNT"
+  }, {
+    "expression" : "t1.`TRADEID`",
+    "name" : "TRADEID"
+  }, {
+    "expression" : "t1.`TRADENAME`",
+    "name" : "TRADENAME"
+  }, {
+    "expression" : "t1.`TRADESTATUS`",
+    "name" : "TRADESTATUS"
+  }, {
+    "expression" : "t1.`TRADETYPE`",
+    "name" : "TRADETYPE"
+  } ],
+  "queryCode" : "SELECT\nt1.`ACCESSID`,\nt1.`ACCESSNAME`,\nt1.`APPID`,\nt1.`OUTTRADENO`,\nt1.`SUBJECT`,\nt1.`TOTALAMOUNT`,\nt1.`TRADEID`,\nt1.`TRADENAME`,\nt1.`TRADESTATUS`,\nt1.`TRADETYPE`\nFROM `IBZPAYTRADE` t1 \n",
+  "id" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

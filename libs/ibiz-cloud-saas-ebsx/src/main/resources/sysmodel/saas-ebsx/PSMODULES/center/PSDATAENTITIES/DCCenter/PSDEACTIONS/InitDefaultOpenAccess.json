@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InitDefaultOpenAccess",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCCenter/PSDEACTIONS/InitDefaultOpenAccess.json",
+  "logicName" : "初始化默认开放平台访问",
+  "name" : "InitDefaultOpenAccess",
+  "getPSDEActionInput" : {
+    "name" : "InitDefaultOpenAccessInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCCenterDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InitDefaultOpenAccessResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

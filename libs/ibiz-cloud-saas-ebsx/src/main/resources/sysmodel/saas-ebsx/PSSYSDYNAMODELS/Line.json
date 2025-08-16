@@ -1,0 +1,22 @@
+{
+  "codeName" : "Line",
+  "dynaModelFilePath" : "PSSYSDYNAMODELS/Line.json",
+  "name" : "行编辑数据对象",
+  "getPSDynaModelAttrs" : [ {
+    "name" : "A001/PSDEGRID/LineEdit",
+    "value" : "{\n  \"codename\": \"LineEdit\",\n  \"enablepagingbar\": 0,\n  \"psdegridname\": \"明细行编辑表格\",\n  \"showheader\": 1,\n  \"psdegridcols\": [\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A002/PSDEGRID/Line",
+    "value" : "{\n  \"codename\": \"Line\",\n  \"enablepagingbar\": 0,\n  \"psdegridname\": \"明细表格\",\n  \"showheader\": 1\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A003/PSDEVIEWBASE/Line",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEGRIDVIEW\",\n  \"codename\": \"Line\",\n  \"viewparam5\": 0,\n  \"viewparam6\": 0,\n  \"viewparam10\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"主信息明细表格视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"行编辑表格视图\",\n  \"psdeviewctrls\": [\n    {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"GRID\",\n      \"psdeviewctrlname\": \"GRID\",\n      \"defaultflag\": 1,\n      \"psdegridid\": \"<PSDATAENTITY>/Line\",\n      \"configinfo\": \"[表格]明细表格;[数据集合]DEFAULT\",\n      \"psdedatasetid\": \"<PSDATAENTITY>/DEFAULT\",\n      \"validflag\": 1,\n      \"psachandlerid\": \"Auto35\",\n      \"psdegridname\": \"明细表格\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"ctrlparam6\": 0\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"SEARCHFORM\",\n      \"psdeviewctrlname\": \"SEARCHFORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/Default\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]默认搜索表单\",\n      \"psdeformname\": \"默认搜索表单\",\n      \"validflag\": 0,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ]\n}",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "A004/PSDEVIEWBASE/LineEdit",
+    "value" : "{\n  \"psdeviewbasetype\": \"DEGRIDVIEW\",\n  \"codename\": \"LineEdit\",\n  \"viewparam5\": 0,\n  \"viewparam6\": 0,\n  \"viewparam3\": 1,\n  \"viewparam10\": 0,\n  \"readonlymode\": 0,\n  \"dyncmode\": 0,\n  \"psdeviewbasename\": \"行编辑表格视图\",\n  \"showcaptionbar\": 0,\n  \"title\": \"行编辑表格视图\",\n  \"psdeviewctrls\": [\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"TOOLBAR\",\n      \"psdeviewctrlname\": \"TOOLBAR\",\n      \"defaultflag\": 0,\n      \"configinfo\": \"[工具栏]工具栏模板（行编辑表格界面）\",\n      \"validflag\": 1,\n      \"ordervalue\": 100,\n      \"psdetoolbarname\": \"工具栏模板（行编辑表格界面）\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"psdetoolbarid\": \"Auto15\"\n    },\n    {\n      \"enableviewactions\": 1,\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"GRID\",\n      \"psdeviewctrlname\": \"GRID\",\n      \"defaultflag\": 1,\n      \"psdegridid\": \"<PSDATAENTITY>/LineEdit\",\n      \"configinfo\": \"[表格]明细行编辑表格;[数据集合]DEFAULT\",\n      \"psdedatasetid\": \"<PSDATAENTITY>/DEFAULT\",\n      \"validflag\": 1,\n      \"psdegridname\": \"明细行编辑表格\",\n      \"psdeid\": \"<PSDATAENTITY>\",\n      \"ctrlparam6\": 1\n    },\n    {\n      \"enabledynasys\": 0,\n      \"psdeviewctrltype\": \"SEARCHFORM\",\n      \"psdeviewctrlname\": \"SEARCHFORM\",\n      \"psdeformid\": \"<PSDATAENTITY>/Default\",\n      \"defaultflag\": 1,\n      \"configinfo\": \"[表单]默认搜索表单\",\n      \"psdeformname\": \"默认搜索表单\",\n      \"validflag\": 0,\n      \"psdeid\": \"<PSDATAENTITY>\"\n    }\n  ],\n  \"psdeviewrvs\": [\n\n  ]\n}",
+    "valueType" : "VALUE"
+  } ]
+}

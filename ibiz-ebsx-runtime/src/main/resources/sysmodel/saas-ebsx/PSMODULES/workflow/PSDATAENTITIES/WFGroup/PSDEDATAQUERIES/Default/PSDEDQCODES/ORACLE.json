@@ -1,0 +1,22 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.GROUPCODE",
+    "name" : "GROUPCODE"
+  }, {
+    "expression" : "t1.GROUPID",
+    "name" : "GROUPID"
+  }, {
+    "expression" : "t1.GROUPNAME",
+    "name" : "GROUPNAME"
+  }, {
+    "expression" : "t1.GROUPSCOPE",
+    "name" : "GROUPSCOPE"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  } ],
+  "queryCode" : "SELECT\n    t1.GROUPCODE,\n    t1.GROUPID,\n    t1.GROUPNAME,\n    t1.GROUPSCOPE,\n    t1.MEMO\nFROM (\n         SELECT\n             t1.GROUPCODE,\n             t1.GROUPID,\n             t1.GROUPNAME,\n             t1.GROUPSCOPE,\n             t1.MEMO\n         FROM IBZWFGROUP t1\n         union\n         SELECT distinct\n             t1.ROLETAG as GROUPCODE,\n             concat(SRFDCID,concat('-',t1.ROLETAG)) as GROUPID,\n             t1.SYS_ROLENAME as GROUPNAME,\n             'USERGROUP' as GROUPSCOPE,\n             t1.MEMO\n         FROM ibzrole t1 where SRFDCID is not null and ROLETAG  not in (select GROUPCODE from ibzwfgroup)\n     ) t1\n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

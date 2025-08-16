@@ -1,0 +1,19 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DEPTAUTHID",
+    "name" : "DEPTAUTHID"
+  }, {
+    "expression" : "t1.DEPTID",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.DEPTNAME",
+    "name" : "DEPTNAME"
+  }, {
+    "expression" : "t1.SYSDEPTID",
+    "name" : "SYSDEPTID"
+  } ],
+  "queryCode" : "SELECT\nt1.DEPTAUTHID,\nt1.DEPTID,\nt1.DEPTNAME,\nt1.SYSDEPTID\nFROM IBZDEPTAUTH t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/DeptAuth/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

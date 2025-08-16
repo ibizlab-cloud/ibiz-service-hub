@@ -1,0 +1,34 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CREATE_MAN`",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.`CREATE_TIME`",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.`DATA_SOURCE_ID`",
+    "name" : "DATA_SOURCE_ID"
+  }, {
+    "expression" : "t1.`DEPLOY_SYSTEM_ID`",
+    "name" : "DEPLOY_SYSTEM_ID"
+  }, {
+    "expression" : "t1.`ID`",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.`NAME`",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.`UPDATE_MAN`",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.`UPDATE_SCHEMA`",
+    "name" : "UPDATE_SCHEMA"
+  }, {
+    "expression" : "t1.`UPDATE_TIME`",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.`CREATE_MAN`,\nt1.`CREATE_TIME`,\nt1.`DATA_SOURCE_ID`,\nt1.`DEPLOY_SYSTEM_ID`,\nt1.`ID`,\nt1.`NAME`,\nt1.`UPDATE_MAN`,\nt1.`UPDATE_SCHEMA`,\nt1.`UPDATE_TIME`\nFROM `DEPLOY_SYSTEM_DATA_SOURCE` t1 \n",
+  "id" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

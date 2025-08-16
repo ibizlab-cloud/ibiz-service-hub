@@ -1,0 +1,32 @@
+{
+  "codeName" : "Auto1",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEDRITEMS/Auto1.json",
+  "itemType" : "DER1N",
+  "name" : "部门成员实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_EMP_USERID.json"
+  },
+  "getPSNavigateContexts" : [ {
+    "key" : "SYSORGANIZATION",
+    "name" : "SYSORGANIZATION",
+    "value" : "orgid",
+    "rawValue" : false
+  } ],
+  "parentDataJO" : {
+    "srfparentdefname" : "USERID",
+    "srfparentdename" : "SYS_EMP",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_DEPTMEMBER_SYS_EMP_USERID",
+    "SRFDER1NID" : "DER1N_SYS_DEPTMEMBER_SYS_EMP_USERID"
+  },
+  "viewCodeName" : "GridView22",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_DEPTMEMBER_SYS_EMP_USERID"
+  }
+}

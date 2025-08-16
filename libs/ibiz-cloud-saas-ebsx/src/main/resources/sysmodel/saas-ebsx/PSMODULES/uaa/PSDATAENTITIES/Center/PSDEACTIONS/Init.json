@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Init",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Init.json",
+  "logicName" : "初始化中心",
+  "name" : "Init",
+  "getPSDEActionInput" : {
+    "name" : "InitInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "CenterDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InitResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

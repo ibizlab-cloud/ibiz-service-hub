@@ -1,0 +1,19 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`FIELDNAME`",
+    "name" : "FIELDNAME"
+  }, {
+    "expression" : "t1.`ID`",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.`REFFIELDNAME`",
+    "name" : "REFFIELDNAME"
+  }, {
+    "expression" : "t1.`RELATIONID`",
+    "name" : "RELATIONID"
+  } ],
+  "queryCode" : "SELECT\nt1.`FIELDNAME`,\nt1.`ID`,\nt1.`REFFIELDNAME`,\nt1.`RELATIONID`\nFROM `IBZLOOKUP` t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

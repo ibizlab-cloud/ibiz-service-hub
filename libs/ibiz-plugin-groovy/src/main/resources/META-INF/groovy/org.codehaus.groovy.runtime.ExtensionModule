@@ -1,0 +1,15 @@
+moduleName=ibiz-plugin-groovy
+moduleVersion=1.0
+extensionClasses=net.ibizsys.central.plugin.groovy.support.SearchContextDTOExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.SearchGroupCondExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.EntityDTOExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.SystemRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.DataEntityRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.DELogicRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.DataEntityModelRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.SysAIFactoryRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.SubSysServiceAPIRuntimeExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.WebClientExtension \
+                 ,net.ibizsys.central.plugin.groovy.support.StringExtension
+                 
+#staticExtensionClasses=support.StaticStringExtension

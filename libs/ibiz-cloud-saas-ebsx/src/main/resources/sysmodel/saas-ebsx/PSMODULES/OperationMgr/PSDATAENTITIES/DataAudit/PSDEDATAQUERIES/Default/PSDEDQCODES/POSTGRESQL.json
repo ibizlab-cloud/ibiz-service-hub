@@ -1,0 +1,55 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.AUDITINFO",
+    "name" : "AUDITINFO"
+  }, {
+    "expression" : "t1.AUDITTYPE",
+    "name" : "AUDITTYPE"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DATAAUDITID",
+    "name" : "DATAAUDITID"
+  }, {
+    "expression" : "t1.DATAAUDITNAME",
+    "name" : "DATAAUDITNAME"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t11.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.IPADDRESS",
+    "name" : "IPADDRESS"
+  }, {
+    "expression" : "t1.OBJECTID",
+    "name" : "OBJECTID"
+  }, {
+    "expression" : "t1.OBJECTTYPE",
+    "name" : "OBJECTTYPE"
+  }, {
+    "expression" : "t1.OPPERSONID",
+    "name" : "OPPERSONID"
+  }, {
+    "expression" : "t1.OPPERSONNAME",
+    "name" : "OPPERSONNAME"
+  }, {
+    "expression" : "t1.SESSIONID",
+    "name" : "SESSIONID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.AUDITTYPE,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DATAAUDITID,\nt1.DATAAUDITNAME,\nt1.DCSYSTEMID,\nt11.DCSYSTEMNAME,\nt1.IPADDRESS,\nt1.OBJECTID,\nt1.OBJECTTYPE,\nt1.OPPERSONID,\nt1.OPPERSONNAME,\nt1.SESSIONID,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM T_DATAAUDIT t1 \nLEFT JOIN IBZDCSYSTEM t11 ON t1.DCSYSTEMID = t11.DCSYSTEMID \n",
+  "id" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

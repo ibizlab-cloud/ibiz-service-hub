@@ -1,0 +1,20 @@
+{
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEUSERROLES/CurUserOrg.json",
+  "name" : "当前人员单位",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "CurUserOrg"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "当前人员单位（只读）",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  } ],
+  "roleTag" : "CurUserOrg",
+  "userDRAction" : "READ",
+  "defaultMode" : true,
+  "enableUserDR" : true
+}

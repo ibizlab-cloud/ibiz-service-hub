@@ -1,0 +1,30 @@
+{
+  "codeName" : "Data_source",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDERS/DER1N_META_ENTITY_DST_DATASOURCE_DSID.json",
+  "fKeyName" : "F3C7BD564AE63BA052",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "name" : "DER1N_META_ENTITY_DST_DATASOURCE_DSID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DSID",
+    "codeName" : "DSId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DSNAME",
+    "codeName" : "DSName"
+  },
+  "pickupDEFName" : "DSID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Data_source"
+}

@@ -1,0 +1,30 @@
+{
+  "codeName" : "Entity",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDERS/DER1N_SYS_PERMISSION_META_ENTITY_ENTITYID.json",
+  "fKeyName" : "F7368D9DB61B0E474A",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json"
+  },
+  "name" : "DER1N_SYS_PERMISSION_META_ENTITY_ENTITYID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ENTITYID",
+    "codeName" : "EntityId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ENTITYNAME",
+    "codeName" : "EntityName"
+  },
+  "pickupDEFName" : "ENTITYID",
+  "removeActionType" : 3,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Entity"
+}

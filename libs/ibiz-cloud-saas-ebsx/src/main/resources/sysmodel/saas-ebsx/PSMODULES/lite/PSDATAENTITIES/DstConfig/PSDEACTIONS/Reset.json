@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Reset",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstConfig/PSDEACTIONS/Reset.json",
+  "logicName" : "reset",
+  "name" : "reset",
+  "getPSDEActionInput" : {
+    "name" : "ResetInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DstConfigDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ResetResult",
+    "type" : "VOID"
+  }
+}

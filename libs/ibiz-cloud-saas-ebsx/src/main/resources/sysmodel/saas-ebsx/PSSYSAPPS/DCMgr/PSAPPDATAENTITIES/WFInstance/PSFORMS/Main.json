@@ -1,0 +1,459 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INSTANCENAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "instancename",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INSTANCENAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "id" : "businesskey",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "BUSINESSKEY",
+      "codeName" : "BusinessKey"
+    }
+  }, {
+    "id" : "definitionname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "ProcessDefinitionName"
+    }
+  }, {
+    "id" : "startusername",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "STARTUSERNAME",
+      "codeName" : "StartUserName"
+    }
+  }, {
+    "id" : "starttime",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "STARTTIME",
+      "codeName" : "StartTime"
+    }
+  }, {
+    "id" : "curstepname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CURSTEPNAME",
+      "codeName" : "CurStepName"
+    }
+  }, {
+    "id" : "entityid",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ENTITYID",
+      "codeName" : "EntityId"
+    }
+  }, {
+    "id" : "endtime",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "ENDTIME",
+      "codeName" : "EndTime"
+    }
+  }, {
+    "id" : "wfstate",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "WFSTATE",
+      "codeName" : "Wfstate"
+    }
+  }, {
+    "id" : "instanceid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "实例基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "业务单据名称",
+        "codeName" : "instancename",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "instancename",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "INSTANCENAME",
+          "codeName" : "Name"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "instancename",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "业务键值",
+        "codeName" : "businesskey",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "businesskey",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "BUSINESSKEY",
+          "codeName" : "BusinessKey"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "businesskey",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "流程定义名称",
+        "codeName" : "definitionname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "definitionname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DEFINITIONNAME",
+          "codeName" : "ProcessDefinitionName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "definitionname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "发起人",
+        "codeName" : "startusername",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "startusername",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "STARTUSERNAME",
+          "codeName" : "StartUserName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "startusername",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "发起时间",
+        "codeName" : "starttime",
+        "dataType" : 5,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "starttime",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "STARTTIME",
+          "codeName" : "StartTime"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "starttime",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "当前流程步骤",
+        "codeName" : "curstepname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "curstepname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CURSTEPNAME",
+          "codeName" : "CurStepName"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "curstepname",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "实体",
+        "codeName" : "entityid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "entityid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ENTITYID",
+          "codeName" : "EntityId"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "entityid",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "结束时间",
+        "codeName" : "endtime",
+        "dataType" : 5,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "endtime",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ENDTIME",
+          "codeName" : "EndTime"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "endtime",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "流程状态",
+        "codeName" : "wfstate",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 3,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "wfstate",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "WFSTATE",
+          "codeName" : "Wfstate"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "wfstate",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/WFStates.json"
+          },
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "convertToCodeItemText" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : true,
+      "showCaption" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : true
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "infoFormMode" : true,
+  "noTabHeader" : true,
+  "modelid" : "15a4259f3686966c2b298aaf7c49cdf3",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <artifactId>ibiz-plugin</artifactId>
+    <version>8.1.0.570.29.1</version>
+  </parent>
+  <artifactId>ibiz-plugin-eai</artifactId>
+	<name>ibiz-plugin-eai</name>
+  <properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+	</properties>
+	
+		<dependencies>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+		<dependency>
+		    <groupId>org.eclipse.paho</groupId>
+		    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+		    <version>1.2.5</version>
+		</dependency>
+			
+		
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-cloud-core</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+
+	</dependencies>
+	
+</project>

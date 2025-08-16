@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.IMPORT_ACTION"
+  },
+  "formCaption" : "数据导入行为",
+  "name" : "数据导入行为默认关系界面组"
+}

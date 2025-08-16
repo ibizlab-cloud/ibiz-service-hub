@@ -1,0 +1,22 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.AUTHID",
+    "name" : "AUTHID"
+  }, {
+    "expression" : "t1.CREDENTIAL",
+    "name" : "CREDENTIAL"
+  }, {
+    "expression" : "t1.IDENTIFIER",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.IDENTITY_TYPE",
+    "name" : "IDENTITY_TYPE"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.AUTHID,\nt1.CREDENTIAL,\nt1.IDENTIFIER,\nt1.IDENTITY_TYPE,\nt1.USERID\nFROM IBZUSERAUTH t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgUserAccount/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/service_hub_deploy_system/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.SERVICE_HUB_DEPLOY_SYSTEM"
+  },
+  "formCaption" : "服务集成部署系统",
+  "name" : "服务集成部署系统默认关系界面组"
+}

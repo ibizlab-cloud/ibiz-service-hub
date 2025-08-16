@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "CleanRemoteModel",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/CleanRemoteModel.json",
+  "logicName" : "清理远程模型",
+  "name" : "CleanRemoteModel",
+  "getPSDEActionInput" : {
+    "name" : "CleanRemoteModelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "SystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CleanRemoteModelResult",
+    "type" : "VOID"
+  }
+}

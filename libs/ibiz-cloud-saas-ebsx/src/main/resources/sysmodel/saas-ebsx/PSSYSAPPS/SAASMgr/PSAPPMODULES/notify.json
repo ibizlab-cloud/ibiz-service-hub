@@ -1,0 +1,7 @@
+{
+  "codeName" : "notify",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/notify.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/notify",
+  "name" : "notify",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/notify"
+}

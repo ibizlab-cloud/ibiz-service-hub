@@ -1,0 +1,55 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DSID",
+    "name" : "DSID"
+  }, {
+    "expression" : "t11.DSNAME",
+    "name" : "DSNAME"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.EXTPARAMS",
+    "name" : "EXTPARAMS"
+  }, {
+    "expression" : "t1.LOGICNAME",
+    "name" : "LOGICNAME"
+  }, {
+    "expression" : "t1.MODULEID",
+    "name" : "MODULEID"
+  }, {
+    "expression" : "t21.MODULENAME",
+    "name" : "MODULENAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.SYSTEMNAME",
+    "name" : "SYSTEMNAME"
+  }, {
+    "expression" : "t1.TABLENAME",
+    "name" : "TABLENAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.CODENAME,\nt1.CREATEDATE,\nt1.DCSYSTEMID,\nt1.DSID,\nt11.DSNAME,\nt1.ENTITYID,\nt1.ENTITYNAME,\nt1.EXTPARAMS,\nt1.LOGICNAME,\nt1.MODULEID,\nt21.MODULENAME,\nt1.SHOWORDER,\nt1.SYSTEMID,\nt1.SYSTEMNAME,\nt1.TABLENAME,\nt1.UPDATEDATE\nFROM IBZENTITY t1 \nLEFT JOIN IBZDATASOURCE t11 ON t1.DSID = t11.DSID \nLEFT JOIN IBZMODULE t21 ON t1.MODULEID = t21.MODULEID \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

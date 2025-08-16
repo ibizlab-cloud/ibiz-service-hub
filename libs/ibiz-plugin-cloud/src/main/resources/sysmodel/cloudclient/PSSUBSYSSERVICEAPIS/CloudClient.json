@@ -1,0 +1,477 @@
+{
+  "aPISource" : "NONE",
+  "aPIType" : "RESTFUL",
+  "getAllPSSubSysServiceAPIDEs" : [ {
+    "aPIMode" : 1,
+    "codeName" : "Util",
+    "logicName" : "功能对象",
+    "name" : "UTIL",
+    "getPSSubSysServiceAPIDEMethods" : [ {
+      "actionType" : "USER",
+      "codeName" : "DownloadFile",
+      "keyField" : "id",
+      "methodScriptCode" : "var ret = api.webclient().download(param);\nvar file = sys.entity();\nfile.set('filename', ret.get('body'));\nreturn file;",
+      "methodTag" : "DOWNLOADFILE",
+      "methodType" : "USER",
+      "name" : "下载文件",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "Util"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestField" : "id",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "requestPath" : "/ibizutil/download/{cat}/{id}"
+    }, {
+      "actionType" : "USER",
+      "codeName" : "UploadFile",
+      "methodScriptCode" : "var ret = api.webclient().upload(param);\nvar body = ret.get('body');\nvar file = sys.entity().from(body);\nreturn file;",
+      "methodTag" : "UPLOADFILE",
+      "methodType" : "USER",
+      "name" : "上传文件",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "Util"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/ibizutil/upload/{cat}"
+    } ],
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "sysemployee",
+    "name" : "SYSEMPLOYEE",
+    "getPSSubSysServiceAPIDEFields" : [ {
+      "codeName" : "UserId",
+      "length" : 60,
+      "logicName" : "用户标识",
+      "name" : "USERID",
+      "orderValue" : 1000,
+      "precision" : 0,
+      "stdDataType" : 25,
+      "allowEmpty" : false,
+      "keyDEField" : true,
+      "majorDEField" : false
+    }, {
+      "codeName" : "UserName",
+      "length" : 200,
+      "logicName" : "用户名称",
+      "name" : "USERNAME",
+      "orderValue" : 1000,
+      "precision" : 0,
+      "stdDataType" : 25,
+      "allowEmpty" : false,
+      "keyDEField" : false,
+      "majorDEField" : true
+    }, {
+      "codeName" : "UserCode",
+      "length" : 100,
+      "logicName" : "工号",
+      "name" : "USERCODE",
+      "orderValue" : 1000,
+      "precision" : 0,
+      "stdDataType" : 25,
+      "allowEmpty" : true,
+      "keyDEField" : false,
+      "majorDEField" : false
+    } ],
+    "getPSSubSysServiceAPIDEMethods" : [ {
+      "actionType" : "DEACTION",
+      "codeName" : "Create",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/sysemployee",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__CREATE",
+      "autoPath" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "Get",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "getKeyPSSubSysServiceAPIField" : {
+          "modelref" : true,
+          "id" : "UserId"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "requestPath" : "/sysemployee",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__GET",
+      "autoPath" : true,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "Remove",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "getKeyPSSubSysServiceAPIField" : {
+          "modelref" : true,
+          "id" : "UserId"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "requestPath" : "/sysemployee",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__REMOVE",
+      "autoPath" : true,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "Update",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/sysemployee",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__UPDATE",
+      "autoPath" : true,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "CheckKey",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "SIMPLE"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/sysemployee/checkkey",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__CHECKKEY",
+      "autoPath" : true
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchDefault",
+      "keyField" : "USERID",
+      "methodType" : "FETCH",
+      "name" : "DEFAULT",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "POST",
+      "requestPath" : "/sysemployee/fetchdefault",
+      "uniqueTag" : "SYSEMPLOYEE__FETCH__DEFAULT",
+      "autoPath" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "GetDraft",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/sysemployee/getdraft",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__GETDRAFT",
+      "autoPath" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "Save",
+      "keyField" : "USERID",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSSubSysServiceAPIDTO" : {
+          "modelref" : true,
+          "id" : "SysEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/sysemployee/save",
+      "uniqueTag" : "SYSEMPLOYEE__DEACTION__SAVE",
+      "autoPath" : true,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "SELECT",
+      "codeName" : "Select",
+      "keyField" : "USERID",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDECodeName" : "SysEmployee",
+      "getPSDELogicName" : "SYSEMPLOYEE",
+      "getPSDEName" : "SYSEMPLOYEE",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestField" : "USERID",
+      "requestMethod" : "GET",
+      "requestPath" : "/sysemployee/select",
+      "uniqueTag" : "SYSEMPLOYEE__SELECT"
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchDefault",
+      "methodType" : "FETCH",
+      "name" : "默认查询",
+      "getPSSubSysServiceAPIDE" : {
+        "modelref" : true,
+        "id" : "sysemployee"
+      },
+      "getPSSubSysServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSSubSysServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "POST",
+      "requestPath" : "/sysemployees/fetchdefault"
+    } ],
+    "major" : true
+  } ],
+  "getAllPSSubSysServiceAPIDTOs" : [ {
+    "codeName" : "SysEmployeeDTO",
+    "name" : "SysEmployeeDTO",
+    "getPSSubSysServiceAPIDTOFields" : [ {
+      "codeName" : "UserCode",
+      "name" : "UserCode",
+      "orderValue" : 1000,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UserId",
+      "name" : "UserId",
+      "orderValue" : 1000,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UserName",
+      "name" : "UserName",
+      "orderValue" : 1000,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "type" : "DEMETHODDTO"
+  }, {
+    "codeName" : "SysEmployeeFilterDTO",
+    "name" : "SysEmployeeFilterDTO",
+    "getPSSubSysServiceAPIDTOFields" : [ {
+      "codeName" : "N_USERCODE_LIKE",
+      "name" : "N_USERCODE_LIKE",
+      "orderValue" : 99999,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERID_EQ",
+      "name" : "N_USERID_EQ",
+      "orderValue" : 99999,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_USERNAME_LIKE",
+      "name" : "N_USERNAME_LIKE",
+      "orderValue" : 99999,
+      "sourceType" : "DEMETHODDTOFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "type" : "DEMETHODDTO"
+  } ],
+  "authAccessTokenUrl" : "http://172.16.240.110:33008/v7/login",
+  "authClientId" : "aibizhi",
+  "authClientSecret" : "123456",
+  "authMode" : "PASSWORD",
+  "authScriptCode" : "var client = sys.webclient();\n\nvar ret = client.post({uri:api.tokenurl, body:{loginname:api.clientid,password:api.clientsecret}});\nvar body = sys.entity().from(ret.get('body'));\n\nvar header = {};\nheader.Authorization = 'Bearer ' + body.get('token');\n//header.srforgid = body.get('user').get('orgid');\napi.header(header);\napi.expirein(body.get('expirein'));",
+  "authTimeout" : 3600,
+  "codeName" : "CloudClient",
+  "dynaModelFilePath" : "PSSUBSYSSERVICEAPIS/CloudClient.json",
+  "methodScriptCode" : "\nvar ret = api.webclient().execute(method.method, param);\nvar body = ret.get('body');\nif(method.type == 'FETCH'){\n      var page = sys.page();\n      page.total(parseInt(ret.get('header').get('x-total')));\n      page.addall(sys.list().from(body));\n      return page;\n}\nif(method.type == 'DEACTION'){\n    return body;  \n}\n\nreturn ret;",
+  "name" : "CloudClient",
+  "serviceCodeName" : "CloudClient",
+  "servicePath" : "http://172.16.240.110:33008",
+  "serviceType" : "IBIZCLOUD",
+  "enableServiceAPIDTO" : true
+}

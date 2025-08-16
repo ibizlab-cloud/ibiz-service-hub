@@ -1,0 +1,30 @@
+{
+  "codeName" : "Import",
+  "dynaModelFilePath" : "PSSYSERMAPS/Import.json",
+  "name" : "Import",
+  "getPSSysERMapNodes" : [ {
+    "leftPos" : 100,
+    "name" : "IMPORT_ACTION",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 550,
+    "name" : "IMPORT_SCHEMA",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 1000,
+    "name" : "IMPORT_SCHEMA_FIELD",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field.json"
+    },
+    "topPos" : 100
+  } ]
+}

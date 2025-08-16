@@ -1,0 +1,37 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPID",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.CFG",
+    "name" : "CFG"
+  }, {
+    "expression" : "t1.CID",
+    "name" : "CID"
+  }, {
+    "expression" : "t1.CNAME",
+    "name" : "CNAME"
+  }, {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CTYPE",
+    "name" : "CTYPE"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t11.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.APPID,\nt1.CFG,\nt1.CID,\nt1.CNAME,\nt1.CODENAME,\nt1.CTYPE,\nt1.ENTITYID,\nt11.ENTITYNAME,\nt1.SYSTEMID,\nt1.UPDATEDATE\nFROM IBZCOMPONENT t1 \nLEFT JOIN IBZENTITY t11 ON t1.ENTITYID = t11.ENTITYID \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstComponent/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

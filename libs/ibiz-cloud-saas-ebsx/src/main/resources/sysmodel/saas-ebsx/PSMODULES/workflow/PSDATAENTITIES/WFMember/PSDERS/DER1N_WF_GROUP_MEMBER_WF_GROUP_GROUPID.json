@@ -1,0 +1,32 @@
+{
+  "codeName" : "WFGroup",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json",
+  "fKeyName" : "FF0065CB9EA7A88F28",
+  "logicName" : "用户组",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 15,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember.json"
+  },
+  "name" : "DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "GROUPID",
+    "codeName" : "GroupId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "GROUPNAME",
+    "codeName" : "GroupName"
+  },
+  "pickupDEFName" : "GROUPID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "WFGroup",
+  "nestedRS" : true
+}

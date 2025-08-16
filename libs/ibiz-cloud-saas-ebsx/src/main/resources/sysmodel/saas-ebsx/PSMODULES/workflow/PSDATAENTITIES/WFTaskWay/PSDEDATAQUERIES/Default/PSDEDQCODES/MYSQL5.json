@@ -1,0 +1,31 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`BUSINESSKEY`",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.`DEFINITIONKEY`",
+    "name" : "DEFINITIONKEY"
+  }, {
+    "expression" : "t1.`INSTANCEID`",
+    "name" : "INSTANCEID"
+  }, {
+    "expression" : "t1.`REFVIEWKEY`",
+    "name" : "REFVIEWKEY"
+  }, {
+    "expression" : "t1.`TASKDEFINITIONKEY`",
+    "name" : "TASKDEFINITIONKEY"
+  }, {
+    "expression" : "t1.`TASKID`",
+    "name" : "TASKID"
+  }, {
+    "expression" : "t1.`WAYID`",
+    "name" : "WAYID"
+  }, {
+    "expression" : "t1.`WAYNAME`",
+    "name" : "WAYNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.`BUSINESSKEY`,\nt1.`DEFINITIONKEY`,\nt1.`INSTANCEID`,\nt1.`REFVIEWKEY`,\nt1.`TASKDEFINITIONKEY`,\nt1.`TASKID`,\nt1.`WAYID`,\nt1.`WAYNAME`\nFROM `IBZWFTASKWAY` t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFTaskWay/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

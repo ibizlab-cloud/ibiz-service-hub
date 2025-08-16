@@ -1,0 +1,31 @@
+{
+  "codeName" : "Dept",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID.json",
+  "fKeyName" : "FC8404EDA6011E00D4",
+  "logicName" : "部门",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember.json"
+  },
+  "name" : "DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DEPTID",
+    "codeName" : "DeptId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DEPTNAME",
+    "codeName" : "DeptName"
+  },
+  "pickupDEFName" : "DEPTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Dept"
+}

@@ -1,0 +1,30 @@
+{
+  "customCond" : "[ (1, '=', 1) ]",
+  "dynaModelFilePath" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit/PSDEUSERROLES/AL_U.json",
+  "name" : "全部数据读写",
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  }, {
+    "dataAccessAction" : "UPDATE",
+    "name" : "UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "CREATE",
+    "name" : "CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  } ],
+  "roleTag" : "AL_U",
+  "userDRAction" : "READ",
+  "defaultMode" : true
+}

@@ -1,0 +1,26 @@
+{
+  "codeName" : "Auto2",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Team/PSDEDRITEMS/Auto2.json",
+  "itemType" : "DER1N",
+  "name" : "组成员实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "TEAMID",
+    "srfparentdename" : "SYS_TEAM",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID",
+    "SRFDER1NID" : "DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID"
+  }
+}

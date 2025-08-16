@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Publish",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEACTIONS/Publish.json",
+  "logicName" : "发布",
+  "name" : "Publish",
+  "getPSDEActionInput" : {
+    "name" : "PublishInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "BulletinDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "PublishResult",
+    "type" : "VOID"
+  }
+}

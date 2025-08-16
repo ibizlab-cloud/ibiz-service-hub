@@ -1,0 +1,19 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_status.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_owner_type.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSCODELISTS/internal_message_content_type.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+  } ],
+  "codeName" : "Notify",
+  "dynaModelFilePath" : "PSMODULES/Notify.json",
+  "name" : "消息通知"
+}

@@ -1,0 +1,20 @@
+{
+  "codeListTag" : "SystemManagement__system_source_state",
+  "codeListType" : "STATIC",
+  "codeName" : "system_source_state",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSCODELISTS/system_source_state.json",
+  "emptyText" : "未定义",
+  "name" : "系统源状态",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

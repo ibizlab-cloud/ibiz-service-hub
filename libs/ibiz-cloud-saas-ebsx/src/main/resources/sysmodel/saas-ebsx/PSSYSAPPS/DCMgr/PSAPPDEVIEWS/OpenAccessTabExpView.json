@@ -1,0 +1,767 @@
+{
+  "accUserMode" : 2,
+  "caption" : "开放应用",
+  "codeName" : "OpenAccessTabExpView",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessTabExpView.json",
+  "name" : "OpenAccessTabExpView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "TabExpView",
+    "name" : "engine",
+    "getPSUIEngineParams" : [ {
+      "ctrlName" : "tabviewpanel",
+      "name" : "TABVIEWPANEL",
+      "paramType" : "CTRL"
+    }, {
+      "ctrlName" : "tabviewpanel2",
+      "name" : "TABVIEWPANEL2",
+      "paramType" : "CTRL"
+    } ]
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "TabExpViewtabexppanel",
+    "controlType" : "TABEXPPANEL",
+    "name" : "tabexppanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSAppViewRefs" : [ {
+      "name" : "EXPITEM:tabviewpanel",
+      "realTitle" : "第三方部门表格视图",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptGridView.json",
+        "viewType" : "DEGRIDVIEW"
+      }
+    }, {
+      "name" : "EXPITEM:tabviewpanel2",
+      "realTitle" : "第三方用户表格视图",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenUserGridView.json",
+        "viewType" : "DEGRIDVIEW"
+      }
+    }, {
+      "name" : "EXPITEM:tabviewpanel3",
+      "realTitle" : "开放应用",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessGridView.json",
+        "viewType" : "DEGRIDVIEW"
+      }
+    } ],
+    "getPSControlParam" : { },
+    "getPSControls" : [ {
+      "caption" : "部门",
+      "codeName" : "TabExpViewtabviewpanel",
+      "controlType" : "TABVIEWPANEL",
+      "hookEventNames" : [ "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+      "name" : "tabviewpanel",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+      },
+      "getPSControlLogics" : [ {
+        "eventNames" : "SELECTIONCHANGE;LOAD;BEFORELOAD",
+        "logicTag" : "tabviewpanel",
+        "logicType" : "APPVIEWENGINE",
+        "name" : "engine_tabviewpanel",
+        "getPSAppViewEngine" : {
+          "modelref" : true,
+          "id" : "engine"
+        }
+      } ],
+      "getPSControlParam" : {
+        "id" : "TABVIEWPANEL"
+      },
+      "modelid" : "4048040df7de8f03a6098ba28bd4aa8a_tabviewpanel",
+      "modeltype" : "PSVIEWPANEL",
+      "getEmbeddedPSAppDEView" : {
+        "accUserMode" : 2,
+        "caption" : "开放平台部门",
+        "codeName" : "OpenDeptGridView",
+        "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptGridView.json",
+        "funcViewMode" : "MDATAVIEW",
+        "gridRowActiveMode" : 2,
+        "name" : "OpenDeptGridView",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+        },
+        "getPSAppViewEngines" : [ {
+          "engineCat" : "VIEW",
+          "engineType" : "GridView",
+          "name" : "engine",
+          "getPSUIEngineParams" : [ {
+            "appViewLogicName" : "opendata",
+            "name" : "OPENDATA",
+            "paramType" : "LOGIC"
+          }, {
+            "appViewLogicName" : "newdata",
+            "name" : "NEWDATA",
+            "paramType" : "LOGIC"
+          }, {
+            "ctrlName" : "grid",
+            "name" : "GRID",
+            "paramType" : "CTRL"
+          }, {
+            "ctrlName" : "searchform",
+            "name" : "SEARCHFORM",
+            "paramType" : "CTRL"
+          } ]
+        } ],
+        "getPSAppViewLogics" : [ {
+          "eventArg" : "tbitem4",
+          "eventNames" : "CLICK",
+          "logicTrigger" : "CTRLEVENT",
+          "logicType" : "APPVIEWUIACTION",
+          "name" : "toolbar_tbitem4_click",
+          "getPSAppViewUIAction" : {
+            "modelref" : true,
+            "id" : "toolbar_tbitem4"
+          },
+          "getPSViewCtrlName" : "toolbar"
+        }, {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "SYSUILOGIC",
+          "name" : "newdata",
+          "getPSAppUILogic" : {
+            "actionAfterWizard" : "DEFAULT",
+            "logicType" : "PREDEFINED",
+            "name" : "新建数据",
+            "getNewDataPSAppView" : {
+              "openMode" : "DRAWER_RIGHT",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "openMode" : "DRAWER_RIGHT",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_NEWDATA",
+            "batchAddOnly" : false,
+            "enableBatchAdd" : false,
+            "enableWizardAdd" : false
+          }
+        }, {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "SYSUILOGIC",
+          "name" : "opendata",
+          "getPSAppUILogic" : {
+            "logicType" : "PREDEFINED",
+            "name" : "打开数据",
+            "getOpenDataPSAppView" : {
+              "openMode" : "DRAWER_RIGHT",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "openMode" : "DRAWER_RIGHT",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_OPENDATA",
+            "editMode" : true
+          }
+        } ],
+        "getPSAppViewRefs" : [ {
+          "name" : "EDITDATA",
+          "realOpenMode" : "DRAWER_RIGHT",
+          "realTitle" : "第三方部门编辑视图",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        }, {
+          "name" : "NEWDATA",
+          "realOpenMode" : "DRAWER_RIGHT",
+          "realTitle" : "第三方部门编辑视图",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenDeptEditView.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        } ],
+        "getPSAppViewUIActions" : [ {
+          "name" : "toolbar_tbitem4",
+          "getPSUIAction" : {
+            "modelref" : true,
+            "id" : "Remove"
+          },
+          "uIActionTarget" : "MULTIKEY",
+          "xDataControlName" : "grid"
+        } ],
+        "getPSControls" : [ {
+          "aggMode" : "NONE",
+          "codeName" : "Main",
+          "columnEnableFilter" : 2,
+          "columnEnableLink" : 2,
+          "controlType" : "GRID",
+          "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept/PSGRIDS/Main.json",
+          "getFetchPSControlAction" : {
+            "modelref" : true,
+            "id" : "fetch"
+          },
+          "groupMode" : "NONE",
+          "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+          "logicName" : "主表格",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionName" : "Get",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "READ",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Get"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionName" : "Create",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "create",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Create"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionName" : "Update",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "UPDATE",
+              "name" : "update",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Update"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionName" : "Remove",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "DELETE",
+              "name" : "remove",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "Remove"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionName" : "GetDraft",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "GetDraft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionType" : "DEDATASET",
+              "name" : "fetch",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FetchDefault"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            } ],
+            "userDRAction" : "READ",
+            "enableDEFieldPrivilege" : false,
+            "id" : "数据表格处理器"
+          },
+          "getPSControlLogics" : [ {
+            "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+            "logicTag" : "grid",
+            "logicType" : "APPVIEWENGINE",
+            "name" : "engine_grid",
+            "getPSAppViewEngine" : {
+              "modelref" : true,
+              "id" : "engine"
+            }
+          } ],
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "GRID"
+          },
+          "getPSDEGridColumns" : [ {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "部门名称",
+            "codeName" : "opendeptname",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "opendeptname",
+            "excelCaption" : "部门名称",
+            "name" : "opendeptname",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTNAME",
+              "codeName" : "OpenDeptName"
+            },
+            "width" : 200,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "部门编码",
+            "codeName" : "opendeptcode",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "opendeptcode",
+            "excelCaption" : "部门编码",
+            "name" : "opendeptcode",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTCODE",
+              "codeName" : "OpenDeptCode"
+            },
+            "width" : 150,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "FRONT",
+            "caption" : "绑定状态",
+            "codeName" : "isbinding",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "isbinding",
+            "excelCaption" : "绑定状态",
+            "name" : "isbinding",
+            "noPrivDisplayMode" : 1,
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+            },
+            "getPSAppDEField" : {
+              "name" : "ISBINDING",
+              "codeName" : "IsBinding"
+            },
+            "width" : 100,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          } ],
+          "getPSDEGridDataItems" : [ {
+            "dataType" : 25,
+            "name" : "opendeptname",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTNAME",
+              "codeName" : "OpenDeptName"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "opendeptcode",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTCODE",
+              "codeName" : "OpenDeptCode"
+            }
+          }, {
+            "dataType" : 9,
+            "name" : "isbinding",
+            "getPSAppDEField" : {
+              "name" : "ISBINDING",
+              "codeName" : "IsBinding"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTID",
+              "codeName" : "OpenDeptId"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfdataaccaction",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTID",
+              "codeName" : "OpenDeptId"
+            },
+            "dataAccessAction" : true
+          }, {
+            "dataType" : 25,
+            "name" : "accessid",
+            "getPSAppDEField" : {
+              "name" : "ACCESSID",
+              "codeName" : "AccessId"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfmajortext",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTNAME",
+              "codeName" : "OpenDeptName"
+            }
+          } ],
+          "getPSDEGridEditItems" : [ {
+            "caption" : "部门标识",
+            "codeName" : "srfkey",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "OPENDEPTID",
+              "codeName" : "OpenDeptId"
+            },
+            "getPSEditor" : {
+              "editorType" : "HIDDEN",
+              "name" : "srfkey"
+            },
+            "allowEmpty" : true
+          } ],
+          "pagingMode" : 1,
+          "pagingSize" : 20,
+          "getRemovePSControlAction" : {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "Remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+            }
+          },
+          "sortMode" : "REMOTE",
+          "hasWFDataItems" : false,
+          "enableColFilter" : false,
+          "enableCustomized" : true,
+          "enableGroup" : false,
+          "enablePagingBar" : true,
+          "enableRowEdit" : false,
+          "enableRowEditOrder" : false,
+          "enableRowNew" : false,
+          "forceFit" : false,
+          "hideHeader" : false,
+          "noSort" : false,
+          "singleSelect" : false,
+          "name" : "grid",
+          "modelid" : "9fe71392c8b7c991ced07e012a81b80c",
+          "modeltype" : "PSDEGRID"
+        }, {
+          "codeName" : "Default",
+          "controlType" : "SEARCHFORM",
+          "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept/PSSEARCHFORMS/Default.json",
+          "hookEventNames" : [ "SEARCH", "LOAD", "SAVE" ],
+          "logicName" : "默认搜索表单",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionType" : "FILTERACTION",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGet"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGetDraft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "search",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterSearch"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+              }
+            } ],
+            "enableDEFieldPrivilege" : false,
+            "id" : "搜索表单处理器"
+          },
+          "getPSControlLogics" : [ {
+            "eventNames" : "SEARCH;LOAD;SAVE",
+            "logicTag" : "searchform",
+            "logicType" : "APPVIEWENGINE",
+            "name" : "engine_searchform",
+            "getPSAppViewEngine" : {
+              "modelref" : true,
+              "id" : "engine"
+            }
+          } ],
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "SEARCHFORM"
+          },
+          "getPSDEFormPages" : [ {
+            "caption" : "常规条件",
+            "codeName" : "formpage1",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMPAGE",
+            "name" : "formpage1",
+            "getPSLayout" : {
+              "columnCount" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "infoGroupMode" : false
+          } ],
+          "getPSLayout" : {
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "searchButtonStyle" : "DEFAULT",
+          "tabHeaderPos" : "TOP",
+          "enableAdvanceSearch" : false,
+          "enableAutoSearch" : false,
+          "enableFilterSave" : false,
+          "noTabHeader" : true,
+          "name" : "searchform",
+          "modelid" : "ad302ed0b0e148650d35821edf8b34fc",
+          "modeltype" : "PSDEFORM_SEARCHFORM"
+        }, {
+          "codeName" : "GridViewtoolbar",
+          "controlType" : "TOOLBAR",
+          "hookEventNames" : [ "CLICK" ],
+          "logicName" : "表格界面（组1、删除、组2）",
+          "name" : "toolbar",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+          },
+          "getPSControlLogics" : [ {
+            "eventArg" : "tbitem4",
+            "eventNames" : "CLICK",
+            "logicTag" : "toolbar",
+            "logicType" : "APPVIEWLOGIC",
+            "name" : "toolbar_tbitem4_click",
+            "getPSAppViewLogic" : {
+              "modelref" : true,
+              "id" : "toolbar_tbitem4_click"
+            }
+          } ],
+          "getPSControlParam" : {
+            "id" : "TOOLBAR"
+          },
+          "getPSDEToolbarItems" : [ {
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "TBB.TEXT.*.REMOVE"
+            },
+            "caption" : "删除",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "tbitem4",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "toolbar_tbitem4"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf00d@FontAwesome",
+              "cssClass" : "fa fa-remove"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "MULTIKEY",
+              "getCapPSLanguageRes" : {
+                "lanResTag" : "TBB.TEXT.*.REMOVE"
+              },
+              "caption" : "删除",
+              "codeName" : "Remove",
+              "fullCodeName" : "Remove",
+              "name" : "表格界面_删除操作",
+              "getPSSysImage" : {
+                "glyph" : "xf00d@FontAwesome",
+                "cssClass" : "fa fa-remove"
+              },
+              "predefinedType" : "GRIDVIEW_REMOVEACTION",
+              "timeout" : 60000,
+              "getTooltipPSLanguageRes" : {
+                "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+              },
+              "uIActionMode" : "SYS",
+              "uIActionTag" : "Remove",
+              "uIActionType" : "DEUIACTION"
+            },
+            "tooltip" : "删除",
+            "getTooltipPSLanguageRes" : {
+              "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+            },
+            "uIActionTarget" : "MULTIKEY",
+            "showCaption" : true,
+            "showIcon" : true
+          } ],
+          "xDataControlName" : "grid",
+          "modelid" : "41ec2a0b8e2256c9eee112003a6acd60",
+          "modeltype" : "PSDETOOLBAR"
+        } ],
+        "getPSDEViewCodeName" : "GridView",
+        "getPSDEViewId" : "176651fe269b7fdd50f3a4f78a170a7f",
+        "getPSViewLayoutPanel" : {
+          "codeName" : "Layoutpanel",
+          "controlStyle" : "APPDEGRIDVIEW",
+          "controlType" : "VIEWLAYOUTPANEL",
+          "name" : "layoutpanel",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenDept.json"
+          },
+          "getPSControlParam" : { },
+          "layoutBodyOnly" : true,
+          "layoutPanel" : true,
+          "useDefaultLayout" : true
+        },
+        "title" : "第三方部门表格视图",
+        "viewStyle" : "DEFAULT",
+        "viewType" : "DEGRIDVIEW",
+        "xDataControlName" : "grid",
+        "enableDP" : true,
+        "enableExport" : true,
+        "enableFilter" : true,
+        "enableImport" : true,
+        "enableQuickSearch" : true,
+        "enableRowEdit" : false,
+        "enableSearch" : true,
+        "rowEditDefault" : false,
+        "modelid" : "7ddbec863e41b30bb890c63428e0de43",
+        "modeltype" : "PSAPPDEVIEW"
+      }
+    }, {
+      "caption" : "用户",
+      "codeName" : "TabExpViewtabviewpanel2",
+      "controlType" : "TABVIEWPANEL",
+      "getEmbeddedPSAppDEView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenUserGridView.json",
+        "viewType" : "DEGRIDVIEW"
+      },
+      "hookEventNames" : [ "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+      "name" : "tabviewpanel2",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenUser.json"
+      },
+      "getPSControlLogics" : [ {
+        "eventNames" : "SELECTIONCHANGE;LOAD;BEFORELOAD",
+        "logicTag" : "tabviewpanel2",
+        "logicType" : "APPVIEWENGINE",
+        "name" : "engine_tabviewpanel2",
+        "getPSAppViewEngine" : {
+          "modelref" : true,
+          "id" : "engine"
+        }
+      } ],
+      "getPSControlParam" : {
+        "id" : "TABVIEWPANEL2"
+      },
+      "modelid" : "4048040df7de8f03a6098ba28bd4aa8a_tabviewpanel2",
+      "modeltype" : "PSVIEWPANEL"
+    }, {
+      "caption" : "应用",
+      "codeName" : "TabExpViewtabviewpanel3",
+      "controlType" : "TABVIEWPANEL",
+      "getEmbeddedPSAppDEView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/OpenAccessGridView.json",
+        "viewType" : "DEGRIDVIEW"
+      },
+      "name" : "tabviewpanel3",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+      },
+      "getPSControlParam" : {
+        "id" : "TABVIEWPANEL3"
+      },
+      "modelid" : "4048040df7de8f03a6098ba28bd4aa8a_tabviewpanel3",
+      "modeltype" : "PSVIEWPANEL"
+    } ],
+    "getPSTabExpPages" : [ {
+      "name" : "tabviewpanel"
+    }, {
+      "name" : "tabviewpanel2"
+    }, {
+      "name" : "tabviewpanel3"
+    } ],
+    "tabLayout" : "TOP",
+    "uniqueTag" : "OpenAccessTabExpView__tabexppanel",
+    "modelid" : "4048040df7de8f03a6098ba28bd4aa8a_tabexppanel",
+    "modeltype" : "PSTABEXPPANEL"
+  } ],
+  "getPSDEViewCodeName" : "TabExpView",
+  "getPSDEViewId" : "5D18870D-72F8-4B2A-9D4C-BF1A7509A23B",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "Layoutpanel",
+    "controlStyle" : "APPDETABEXPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "tabLayout" : "TOP",
+  "title" : "开放应用分页导航视图",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DETABEXPVIEW",
+  "enableDP" : true,
+  "enableQuickSearch" : false,
+  "enableSearch" : false,
+  "expandSearchForm" : false,
+  "loadDefault" : true,
+  "showDataInfoBar" : true,
+  "modelid" : "4048040df7de8f03a6098ba28bd4aa8a",
+  "modeltype" : "PSAPPDEVIEW"
+}

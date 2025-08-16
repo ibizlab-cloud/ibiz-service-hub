@@ -1,0 +1,7 @@
+{
+  "codeName" : "center",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/center.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/center",
+  "name" : "租户",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/center"
+}

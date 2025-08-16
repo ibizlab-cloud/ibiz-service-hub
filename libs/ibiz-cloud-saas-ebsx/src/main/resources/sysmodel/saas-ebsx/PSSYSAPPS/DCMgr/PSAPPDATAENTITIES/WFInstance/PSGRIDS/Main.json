@@ -1,0 +1,275 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "STARTTIME",
+    "codeName" : "StartTime"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "业务单据名称",
+    "codeName" : "instancename",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "instancename",
+    "excelCaption" : "业务单据名称",
+    "name" : "instancename",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "INSTANCENAME",
+      "codeName" : "Name"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "业务键值",
+    "codeName" : "businesskey",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "businesskey",
+    "excelCaption" : "业务键值",
+    "name" : "businesskey",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "BUSINESSKEY",
+      "codeName" : "BusinessKey"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "流程定义",
+    "codeName" : "definitionname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "definitionname",
+    "excelCaption" : "流程定义",
+    "name" : "definitionname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "ProcessDefinitionName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "发起人",
+    "codeName" : "startusername",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "startusername",
+    "excelCaption" : "发起人",
+    "name" : "startusername",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "STARTUSERNAME",
+      "codeName" : "StartUserName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "发起时间",
+    "codeName" : "starttime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "starttime",
+    "excelCaption" : "发起时间",
+    "name" : "starttime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "STARTTIME",
+      "codeName" : "StartTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "当前流程步骤",
+    "codeName" : "curstepname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "curstepname",
+    "excelCaption" : "当前流程步骤",
+    "name" : "curstepname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CURSTEPNAME",
+      "codeName" : "CurStepName"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "流程引擎实例标识",
+    "codeName" : "realinstid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "realinstid",
+    "excelCaption" : "流程引擎实例标识",
+    "name" : "realinstid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "REALINSTID",
+      "codeName" : "RealInstId"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "instancename",
+    "getPSAppDEField" : {
+      "name" : "INSTANCENAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "businesskey",
+    "getPSAppDEField" : {
+      "name" : "BUSINESSKEY",
+      "codeName" : "BusinessKey"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "definitionname",
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "ProcessDefinitionName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "startusername",
+    "getPSAppDEField" : {
+      "name" : "STARTUSERNAME",
+      "codeName" : "StartUserName"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "starttime",
+    "getPSAppDEField" : {
+      "name" : "STARTTIME",
+      "codeName" : "StartTime"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "curstepname",
+    "getPSAppDEField" : {
+      "name" : "CURSTEPNAME",
+      "codeName" : "CurStepName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "realinstid",
+    "getPSAppDEField" : {
+      "name" : "REALINSTID",
+      "codeName" : "RealInstId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "INSTANCENAME",
+      "codeName" : "Name"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "实例标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "INSTANCEID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFInstance.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "15a4259f3686966c2b298aaf7c49cdf3",
+  "modeltype" : "PSDEGRID"
+}

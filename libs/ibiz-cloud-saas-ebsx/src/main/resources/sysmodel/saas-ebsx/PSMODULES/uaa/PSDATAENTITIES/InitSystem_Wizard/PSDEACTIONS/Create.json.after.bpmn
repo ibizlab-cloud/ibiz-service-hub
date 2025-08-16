@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="net.ibizsys.central.cloud.saas.ebsx.core.uaa.initsystem_wizard.create.afterLogic" isClosed="false" isExecutable="true" name="uaa_initsystem_wizard_create_afterLogic" processType="Private" tns:packageName="net.ibizsys.central.cloud.saas.ebsx.core.uaa.initsystem_wizard.create.afterLogic">
+            <extensionElements>
+                <tns:import name="java.util.Map"/>
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.ebsx.util.helper.RuleUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.InitSystem_Wizard"/>
+                            <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IInitSystem_WizardService))" name="initsystemWizardService" type="service"/>
+                    <tns:metaData express="" name="et" type="entity"/>
+            </extensionElements>
+                <startEvent id="begin" isInterrupting="true"/>
+                <endEvent id="prepareparam1_end" name="end"/>
+                            <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="7624d896cd532ad2bcc511eaf276088e" id="7624d896cd532ad2bcc511eaf276088e" implementation="http://www.jboss.org/drools/rule" name="initsystem_wizardinstall"/>
+                        <sequenceFlow id="begin_7624d896cd532ad2bcc511eaf276088e" sourceRef="begin" targetRef="7624d896cd532ad2bcc511eaf276088e"/>
+                            <sequenceFlow id="7624d896cd532ad2bcc511eaf276088e_prepareparam1_end" sourceRef="7624d896cd532ad2bcc511eaf276088e" targetRef="prepareparam1_end"/>
+        </process>
+    </definitions>

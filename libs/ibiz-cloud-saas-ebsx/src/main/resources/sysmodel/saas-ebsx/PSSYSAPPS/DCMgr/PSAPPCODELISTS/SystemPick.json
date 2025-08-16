@@ -1,0 +1,11 @@
+{
+  "codeListTag" : "uaa__SystemPick",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "SystemPick",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/SystemPick.json",
+  "emptyText" : "未定义",
+  "minorSortDir" : "ASC",
+  "name" : "SystemPick",
+  "enableCache" : true
+}

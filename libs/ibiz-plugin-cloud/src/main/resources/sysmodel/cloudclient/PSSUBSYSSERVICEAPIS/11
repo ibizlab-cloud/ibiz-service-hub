@@ -1,0 +1,10 @@
+var client = sys.webclient();
+
+var ret = client.post({uri:api.tokenurl, body:{loginname:api.clientid,password:api.clientsecret}});
+var body = sys.entity().from(ret.get('body'));
+
+var header = {};
+header.Authorization = 'Bearer ' + body.get('token');
+//header.srforgid = body.get('user').get('orgid');
+api.header(header);
+api.expirein(body.get('expirein'));

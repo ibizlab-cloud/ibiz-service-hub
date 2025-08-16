@@ -1,0 +1,52 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACCESSID",
+    "name" : "ACCESSID"
+  }, {
+    "expression" : "t1.ACCESSNAME",
+    "name" : "ACCESSNAME"
+  }, {
+    "expression" : "t1.ACCESS_KEY",
+    "name" : "ACCESS_KEY"
+  }, {
+    "expression" : "t1.ACCESS_TOKEN",
+    "name" : "ACCESS_TOKEN"
+  }, {
+    "expression" : "t1.AGENT_ID",
+    "name" : "AGENT_ID"
+  }, {
+    "expression" : "t1.DISABLED",
+    "name" : "DISABLED"
+  }, {
+    "expression" : "t1.EXPIRES_TIME",
+    "name" : "EXPIRES_TIME"
+  }, {
+    "expression" : "t1.ISMOBACCAPP",
+    "name" : "ISMOBACCAPP"
+  }, {
+    "expression" : "t1.NOTIFY_URL",
+    "name" : "NOTIFY_URL"
+  }, {
+    "expression" : "t1.OPEN_TYPE",
+    "name" : "OPEN_TYPE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.REDIRECT_URI",
+    "name" : "REDIRECT_URI"
+  }, {
+    "expression" : "t1.REGION_ID",
+    "name" : "REGION_ID"
+  }, {
+    "expression" : "t1.SECRET_KEY",
+    "name" : "SECRET_KEY"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  } ],
+  "queryCode" : "SELECT\nt1.ACCESSID,\nt1.ACCESSNAME,\nt1.ACCESS_KEY,\nt1.ACCESS_TOKEN,\nt1.AGENT_ID,\nt1.DISABLED,\nt1.EXPIRES_TIME,\nt1.ISMOBACCAPP,\nt1.NOTIFY_URL,\nt1.OPEN_TYPE,\nt1.ORGID,\nt1.REDIRECT_URI,\nt1.REGION_ID,\nt1.SECRET_KEY,\nt1.SRFDCID\nFROM IBZOPENACCESS t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

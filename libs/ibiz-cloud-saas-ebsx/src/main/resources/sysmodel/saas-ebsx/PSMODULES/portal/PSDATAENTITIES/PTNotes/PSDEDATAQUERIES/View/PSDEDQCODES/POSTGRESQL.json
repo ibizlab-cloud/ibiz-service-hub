@@ -1,0 +1,43 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BEGINTIME",
+    "name" : "BEGINTIME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.ENDTIME",
+    "name" : "ENDTIME"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.NOTESID",
+    "name" : "NOTESID"
+  }, {
+    "expression" : "t1.NOTESNAME",
+    "name" : "NOTESNAME"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.BEGINTIME,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.ENDTIME,\nt1.MEMO,\nt1.NOTESID,\nt1.NOTESNAME,\nt1.ORGID,\nt1.SRFDCID,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt1.USERID\nFROM IBZNOTE t1 \n",
+  "id" : "PSMODULES/portal/PSDATAENTITIES/PTNotes/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

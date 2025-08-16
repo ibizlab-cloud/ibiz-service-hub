@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.INTERNAL_MESSAGE"
+  },
+  "formCaption" : "站内信",
+  "name" : "站内信默认关系界面组"
+}

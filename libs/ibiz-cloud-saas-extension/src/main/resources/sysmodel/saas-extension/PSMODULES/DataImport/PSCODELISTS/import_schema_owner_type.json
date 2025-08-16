@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "DataImport__import_schema_owner_type",
+  "codeListType" : "STATIC",
+  "codeName" : "import_schema_owner_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSCODELISTS/import_schema_owner_type.json",
+  "emptyText" : "未定义",
+  "name" : "导入模式所有者类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "personal",
+    "text" : "个人",
+    "value" : "PERSONAL"
+  }, {
+    "codeName" : "system",
+    "text" : "系统全局",
+    "value" : "SYSTEM"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

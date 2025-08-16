@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CID",
+    "name" : "CID"
+  }, {
+    "expression" : "t1.CLS",
+    "name" : "CLS"
+  }, {
+    "expression" : "t1.CNAME",
+    "name" : "CNAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.DISABLED",
+    "name" : "DISABLED"
+  }, {
+    "expression" : "t1.EXPIRED",
+    "name" : "EXPIRED"
+  }, {
+    "expression" : "t1.EXTENSION",
+    "name" : "EXTENSION"
+  }, {
+    "expression" : "t1.ICONCLS",
+    "name" : "ICONCLS"
+  }, {
+    "expression" : "t1.LABEL",
+    "name" : "LABEL"
+  }, {
+    "expression" : "t1.PVAL",
+    "name" : "PVAL"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.VAL",
+    "name" : "VAL"
+  }, {
+    "expression" : "t1.VFILTER",
+    "name" : "VFILTER"
+  }, {
+    "expression" : "t1.VKEY",
+    "name" : "VKEY"
+  } ],
+  "queryCode" : "SELECT\nt1.CID,\nt1.CLS,\nt1.CNAME,\nt1.CREATEDATE,\nt1.DISABLED,\nt1.EXPIRED,\nt1.EXTENSION,\nt1.ICONCLS,\nt1.LABEL,\nt1.PVAL,\nt1.SHOWORDER,\nt1.UPDATEDATE,\nt1.VAL,\nt1.VFILTER,\nt1.VKEY\nFROM IBZDICTOPTION t1 \n",
+  "id" : "PSMODULES/dict/PSDATAENTITIES/DictOption/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

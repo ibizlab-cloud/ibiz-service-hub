@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Resend",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis/PSDEACTIONS/Resend.json",
+  "logicName" : "重新发送",
+  "name" : "Resend",
+  "getPSDEActionInput" : {
+    "name" : "ResendInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MsgSendQueueHisDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ResendResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,150 @@
+{
+  "codeName" : "DefautCheck",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDELOGICS/DefautCheck.json",
+  "logicName" : "默认实例存在判断",
+  "name" : "默认实例存在判断",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -424,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      },
+      "name" : "连接4198",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -152,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Prepareparam1",
+    "leftPos" : -426,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "填充dcsystem",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Rawsqlcall1"
+      },
+      "name" : "连接6958",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "DCSYSTEMID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "name" : "Default[DCSYSTEMID] ==> Default[DCSYSTEMID]",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "DCSYSTEMID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 56,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Rawsqlcall1",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -436,
+    "logicNodeType" : "RAWSQLCALL",
+    "name" : "判断是否存在默认实例",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam2"
+      },
+      "name" : "连接4511",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "name" : "AND",
+          "getPSDELogicLinkConds" : [ {
+            "condOP" : "GTANDEQ",
+            "dstFieldName" : "ct",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[ct] 大于等于(>=) (1)",
+            "paramType" : "ENTITYFIELD",
+            "paramValue" : "1"
+          } ]
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Rawsqlcall1"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "name" : "Default[DCSYSTEMID]",
+      "paramAction" : "SQLPARAM",
+      "srcFieldName" : "DCSYSTEMID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "sql" : "select count(1) as ct from ibzdynainst where  defaultinst = 1 and DCSYSTEMID = ?",
+    "topPos" : 310,
+    "fillDstLogicParam" : true,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Prepareparam2",
+    "leftPos" : -436,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "填充默认值",
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "DEFAULTINST",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "name" : "直接值[0] ==> Default[DEFAULTINST]",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "0",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 512,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

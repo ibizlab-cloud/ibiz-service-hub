@@ -1,0 +1,14 @@
+{
+  "dBType" : "ORACLE",
+  "dynaModelFilePath" : "PSSYSTEMDBCFGS/ORACLE.json",
+  "mOSFilePath" : "pssystemdbcfgs/ORACLE",
+  "name" : "ORACLE",
+  "objNameCase" : "DEFAULT",
+  "rTMOSFilePath" : "pssystemdbcfgs/ORACLE",
+  "defaultMode" : false,
+  "pubFKey" : true,
+  "pubIndex" : true,
+  "pubModel" : true,
+  "pubModelComment" : true,
+  "pubView" : true
+}

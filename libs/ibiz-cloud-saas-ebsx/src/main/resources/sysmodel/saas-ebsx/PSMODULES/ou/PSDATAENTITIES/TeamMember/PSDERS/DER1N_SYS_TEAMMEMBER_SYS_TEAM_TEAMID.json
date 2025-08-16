@@ -1,0 +1,30 @@
+{
+  "codeName" : "Team",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID.json",
+  "fKeyName" : "FBDBA58D8D079D21EC",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Team.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember.json"
+  },
+  "name" : "DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "TEAMID",
+    "codeName" : "TeamId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "TEAMNAME",
+    "codeName" : "TeamName"
+  },
+  "pickupDEFName" : "TEAMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Team"
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFHistory/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "历史",
+  "name" : "历史默认关系界面组"
+}

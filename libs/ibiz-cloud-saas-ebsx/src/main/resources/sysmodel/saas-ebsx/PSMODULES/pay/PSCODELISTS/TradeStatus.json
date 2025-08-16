@@ -1,0 +1,49 @@
+{
+  "codeListTag" : "pay__TradeStatus",
+  "codeListType" : "STATIC",
+  "codeName" : "TradeStatus",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/pay/PSCODELISTS/TradeStatus.json",
+  "emptyText" : "未定义",
+  "name" : "支付状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "Success",
+    "text" : "支付成功",
+    "value" : "SUCCESS"
+  }, {
+    "codeName" : "Refund",
+    "text" : "转入退款",
+    "value" : "REFUND"
+  }, {
+    "codeName" : "Notpay",
+    "text" : "未支付",
+    "value" : "NOTPAY"
+  }, {
+    "codeName" : "Closed",
+    "text" : "已关闭",
+    "value" : "CLOSED"
+  }, {
+    "codeName" : "Revoked",
+    "text" : "已撤销",
+    "value" : "REVOKED"
+  }, {
+    "codeName" : "Userpaying",
+    "text" : "支付中",
+    "value" : "USERPAYING"
+  }, {
+    "codeName" : "Payerror",
+    "text" : "支付失败",
+    "value" : "PAYERROR"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/pay.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,24 @@
+{
+  "codeListTag" : "portal__AddtionType",
+  "codeListType" : "STATIC",
+  "codeName" : "AddtionType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/portal/PSCODELISTS/AddtionType.json",
+  "emptyText" : "未定义",
+  "name" : "附加执行类型",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

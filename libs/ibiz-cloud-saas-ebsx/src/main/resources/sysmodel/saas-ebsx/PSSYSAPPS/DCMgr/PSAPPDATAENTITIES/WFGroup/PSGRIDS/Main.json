@@ -1,0 +1,172 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFGroup/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFGroup.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "流程角色名称",
+    "codeName" : "groupname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "groupname",
+    "excelCaption" : "流程角色名称",
+    "name" : "groupname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "Name"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "组标识",
+    "codeName" : "groupcode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "groupcode",
+    "excelCaption" : "组标识",
+    "name" : "groupcode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "GROUPCODE",
+      "codeName" : "GroupCode"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "范围",
+    "codeName" : "groupscope",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "groupscope",
+    "excelCaption" : "范围",
+    "name" : "groupscope",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "GROUPSCOPE",
+      "codeName" : "GroupScope"
+    },
+    "width" : 250,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "groupname",
+    "getPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "groupcode",
+    "getPSAppDEField" : {
+      "name" : "GROUPCODE",
+      "codeName" : "GroupCode"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "groupscope",
+    "getPSAppDEField" : {
+      "name" : "GROUPSCOPE",
+      "codeName" : "GroupScope"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "Name"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "流程角色标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFGroup.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "85eef96b552f971f116c2d997b5ba2bb",
+  "modeltype" : "PSDEGRID"
+}

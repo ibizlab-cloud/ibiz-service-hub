@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "COMMON.CONDITION.NOTEQ"
+  },
+  "formCaption" : "权限/资源",
+  "name" : "权限表默认关系界面组"
+}

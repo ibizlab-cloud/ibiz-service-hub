@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Rollback",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/Rollback.json",
+  "logicName" : "回滚",
+  "name" : "Rollback",
+  "getPSDEActionInput" : {
+    "name" : "RollbackInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RollbackResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

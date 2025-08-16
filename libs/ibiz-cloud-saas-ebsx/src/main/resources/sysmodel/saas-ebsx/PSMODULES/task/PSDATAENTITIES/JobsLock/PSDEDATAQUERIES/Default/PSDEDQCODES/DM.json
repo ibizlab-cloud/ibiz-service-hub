@@ -1,0 +1,19 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATE_TIME",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.ID",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.NAME",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.OWNER",
+    "name" : "OWNER"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATE_TIME,\nt1.ID,\nt1.NAME,\nt1.OWNER\nFROM JOBS_LOCK t1 \n",
+  "id" : "PSMODULES/task/PSDATAENTITIES/JobsLock/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

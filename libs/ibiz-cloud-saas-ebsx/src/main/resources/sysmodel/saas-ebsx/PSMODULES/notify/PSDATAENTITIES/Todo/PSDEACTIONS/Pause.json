@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Pause",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/Pause.json",
+  "logicName" : "挂起",
+  "name" : "Pause",
+  "getPSDEActionInput" : {
+    "name" : "PauseInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "PauseResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.BSCOPE",
+    "name" : "BSCOPE"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t21.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.DEPTBC",
+    "name" : "DEPTBC"
+  }, {
+    "expression" : "t1.DEPTDR",
+    "name" : "DEPTDR"
+  }, {
+    "expression" : "t1.DYNAINSTID",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.ENABLEDEPTBC",
+    "name" : "ENABLEDEPTBC"
+  }, {
+    "expression" : "t1.ENABLEDEPTDR",
+    "name" : "ENABLEDEPTDR"
+  }, {
+    "expression" : "t1.ENABLEORGDR",
+    "name" : "ENABLEORGDR"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t11.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.ISALLDATA",
+    "name" : "ISALLDATA"
+  }, {
+    "expression" : "t1.ORGDR",
+    "name" : "ORGDR"
+  }, {
+    "expression" : "t1.PERMISSIONTAG",
+    "name" : "PERMISSIONTAG"
+  }, {
+    "expression" : "t1.PERMISSIONTYPE",
+    "name" : "PERMISSIONTYPE"
+  }, {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.PSYS_PERMISSIONID",
+    "name" : "PSYS_PERMISSIONID"
+  }, {
+    "expression" : "t31.SYS_PERMISSIONNAME",
+    "name" : "PSYS_PERMISSIONNAME"
+  }, {
+    "expression" : "t1.SYSTEMFLAG",
+    "name" : "SYSTEMFLAG"
+  }, {
+    "expression" : "t1.SYS_PERMISSIONID",
+    "name" : "SYS_PERMISSIONID"
+  }, {
+    "expression" : "t1.SYS_PERMISSIONNAME",
+    "name" : "SYS_PERMISSIONNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.BSCOPE,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt21.DCSYSTEMNAME,\nt1.DEPTBC,\nt1.DEPTDR,\nt1.DYNAINSTID,\nt1.ENABLEDEPTBC,\nt1.ENABLEDEPTDR,\nt1.ENABLEORGDR,\nt1.ENTITYID,\nt11.ENTITYNAME,\nt1.ISALLDATA,\nt1.ORGDR,\nt1.PERMISSIONTAG,\nt1.PERMISSIONTYPE,\nt1.PSSYSTEMID,\nt1.PSYS_PERMISSIONID,\nt31.SYS_PERMISSIONNAME AS PSYS_PERMISSIONNAME,\nt1.SYSTEMFLAG,\nt1.SYS_PERMISSIONID,\nt1.SYS_PERMISSIONNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZPERMISSION t1 \nLEFT JOIN IBZENTITY t11 ON t1.ENTITYID = t11.ENTITYID \nLEFT JOIN IBZDCSYSTEM t21 ON t1.DCSYSTEMID = t21.DCSYSTEMID \nLEFT JOIN IBZPERMISSION t31 ON t1.PSYS_PERMISSIONID = t31.SYS_PERMISSIONID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

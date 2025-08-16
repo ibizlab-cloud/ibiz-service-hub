@@ -1,0 +1,1231 @@
+{
+  "getAllPSAppDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONNAME",
+        "codeName" : "PermissionName"
+      }
+    } ],
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "SYS_PERMISSIONID",
+      "codeName" : "PermissionId"
+    },
+    "defaultMode" : true,
+    "enablePagingBar" : false
+  } ],
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "SYS_PERMISSIONID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "SYS_PERMISSIONID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchAuthority",
+    "dataSetName" : "Authority",
+    "dataSetTag" : "Authority",
+    "methodType" : "FETCH",
+    "name" : "FetchAuthority",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchauthority",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "PermissionId",
+    "logicName" : "资源标识",
+    "name" : "SYS_PERMISSIONID",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "keyField" : true
+  }, {
+    "codeName" : "PermissionName",
+    "logicName" : "资源名称",
+    "name" : "SYS_PERMISSIONNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "PermissionType",
+    "logicName" : "权限类别",
+    "name" : "PERMISSIONTYPE",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "PermissionTag",
+    "logicName" : "权限标识",
+    "name" : "PERMISSIONTAG",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "PSSystemId",
+    "logicName" : "系统",
+    "name" : "PSSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "CreateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "COMMON.CONDITION.ABSGT"
+    },
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "UpdateDate",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "CONTROL.PICTURE.UPLOAD.TEXT"
+    },
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "EnableOrgDR",
+    "logicName" : "启用机构范围",
+    "name" : "ENABLEORGDR",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "DynaInstId",
+    "logicName" : "实例标识",
+    "name" : "DYNAINSTID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "BScope",
+    "logicName" : "业务数据范围",
+    "name" : "BSCOPE",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "codeName" : "OrgDR",
+    "logicName" : "机构数据范围",
+    "name" : "ORGDR",
+    "stdDataType" : 1
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "EnableDeptDR",
+    "logicName" : "启用部门范围",
+    "name" : "ENABLEDEPTDR",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "DeptBC",
+    "logicName" : "部门业务代码",
+    "name" : "DEPTBC",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "DeptDR",
+    "logicName" : "部门数据范围",
+    "name" : "DEPTDR",
+    "stdDataType" : 1
+  }, {
+    "codeName" : "SystemFlag",
+    "logicName" : "系统标记",
+    "name" : "SYSTEMFLAG",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "EnableDeptBC",
+    "logicName" : "启用部门代码",
+    "name" : "ENABLEDEPTBC",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "EntityName",
+    "logicName" : "实体名",
+    "name" : "ENTITYNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true
+  }, {
+    "codeName" : "DCSystemName",
+    "logicName" : "系统",
+    "name" : "DCSYSTEMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "PPermissionName",
+    "logicName" : "权限名称",
+    "name" : "PSYS_PERMISSIONNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "DCSystemId",
+    "logicName" : "租户系统标识",
+    "name" : "DCSYSTEMID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PPermissionId",
+    "logicName" : "资源标识",
+    "name" : "PSYS_PERMISSIONID",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "EntityId",
+    "logicName" : "标识",
+    "name" : "ENTITYID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "IsAllData",
+    "logicName" : "全部数据",
+    "name" : "ISALLDATA",
+    "stdDataType" : 9
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "PermissionDTO",
+    "name" : "PermissionDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "PermissionId",
+      "logicName" : "资源标识",
+      "name" : "PermissionId",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "PermissionName",
+      "logicName" : "资源名称",
+      "name" : "PermissionName",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONNAME",
+        "codeName" : "PermissionName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PermissionTag",
+      "logicName" : "权限标识",
+      "name" : "PermissionTag",
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTAG",
+        "codeName" : "PermissionTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PermissionType",
+      "logicName" : "权限类别",
+      "name" : "PermissionType",
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTYPE",
+        "codeName" : "PermissionType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PSSystemId",
+      "logicName" : "系统",
+      "name" : "PSSystemId",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMID",
+        "codeName" : "PSSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "BScope",
+      "logicName" : "业务数据范围",
+      "name" : "BScope",
+      "getPSAppDEField" : {
+        "name" : "BSCOPE",
+        "codeName" : "BScope"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "DCSystemId",
+      "logicName" : "租户系统标识",
+      "name" : "DCSystemId",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DCSystemName",
+      "logicName" : "系统",
+      "name" : "DCSystemName",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DeptBC",
+      "logicName" : "部门业务代码",
+      "name" : "DeptBC",
+      "getPSAppDEField" : {
+        "name" : "DEPTBC",
+        "codeName" : "DeptBC"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DeptDR",
+      "logicName" : "部门数据范围",
+      "name" : "DeptDR",
+      "getPSAppDEField" : {
+        "name" : "DEPTDR",
+        "codeName" : "DeptDR"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 1,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "DynaInstId",
+      "logicName" : "实例标识",
+      "name" : "DynaInstId",
+      "getPSAppDEField" : {
+        "name" : "DYNAINSTID",
+        "codeName" : "DynaInstId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "EnableDeptBC",
+      "logicName" : "启用部门代码",
+      "name" : "EnableDeptBC",
+      "getPSAppDEField" : {
+        "name" : "ENABLEDEPTBC",
+        "codeName" : "EnableDeptBC"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "EnableDeptDR",
+      "logicName" : "启用部门范围",
+      "name" : "EnableDeptDR",
+      "getPSAppDEField" : {
+        "name" : "ENABLEDEPTDR",
+        "codeName" : "EnableDeptDR"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "EnableOrgDR",
+      "logicName" : "启用机构范围",
+      "name" : "EnableOrgDR",
+      "getPSAppDEField" : {
+        "name" : "ENABLEORGDR",
+        "codeName" : "EnableOrgDR"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "EntityId",
+      "logicName" : "标识",
+      "name" : "EntityId",
+      "getPSAppDEField" : {
+        "name" : "ENTITYID",
+        "codeName" : "EntityId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "EntityName",
+      "logicName" : "实体名",
+      "name" : "EntityName",
+      "getPSAppDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "IsAllData",
+      "logicName" : "全部数据",
+      "name" : "IsAllData",
+      "getPSAppDEField" : {
+        "name" : "ISALLDATA",
+        "codeName" : "IsAllData"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "OrgDR",
+      "logicName" : "机构数据范围",
+      "name" : "OrgDR",
+      "getPSAppDEField" : {
+        "name" : "ORGDR",
+        "codeName" : "OrgDR"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 1,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PPermissionId",
+      "logicName" : "资源标识",
+      "name" : "PPermissionId",
+      "getPSAppDEField" : {
+        "name" : "PSYS_PERMISSIONID",
+        "codeName" : "PPermissionId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PPermissionName",
+      "logicName" : "权限名称",
+      "name" : "PPermissionName",
+      "getPSAppDEField" : {
+        "name" : "PSYS_PERMISSIONNAME",
+        "codeName" : "PPermissionName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SystemFlag",
+      "logicName" : "系统标记",
+      "name" : "SystemFlag",
+      "getPSAppDEField" : {
+        "name" : "SYSTEMFLAG",
+        "codeName" : "SystemFlag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "PermissionFilterDTO",
+    "name" : "PermissionFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_BSCOPE_EQ",
+      "logicName" : "业务数据范围",
+      "name" : "N_BSCOPE_EQ",
+      "getPSAppDEField" : {
+        "name" : "BSCOPE",
+        "codeName" : "BScope"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMID_EQ",
+      "logicName" : "租户系统标识",
+      "name" : "N_DCSYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_EQ",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_DCSYSTEMNAME_LIKE",
+      "logicName" : "系统",
+      "name" : "N_DCSYSTEMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "DCSYSTEMNAME",
+        "codeName" : "DCSystemName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ENTITYID_EQ",
+      "logicName" : "标识",
+      "name" : "N_ENTITYID_EQ",
+      "getPSAppDEField" : {
+        "name" : "ENTITYID",
+        "codeName" : "EntityId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ENTITYNAME_EQ",
+      "logicName" : "实体名",
+      "name" : "N_ENTITYNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ENTITYNAME_LIKE",
+      "logicName" : "实体名",
+      "name" : "N_ENTITYNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_ISALLDATA_EQ",
+      "logicName" : "全部数据",
+      "name" : "N_ISALLDATA_EQ",
+      "getPSAppDEField" : {
+        "name" : "ISALLDATA",
+        "codeName" : "IsAllData"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERMISSIONTAG_EQ",
+      "logicName" : "权限标识",
+      "name" : "N_PERMISSIONTAG_EQ",
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTAG",
+        "codeName" : "PermissionTag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PERMISSIONTYPE_EQ",
+      "logicName" : "权限类别",
+      "name" : "N_PERMISSIONTYPE_EQ",
+      "getPSAppDEField" : {
+        "name" : "PERMISSIONTYPE",
+        "codeName" : "PermissionType"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSSYSTEMID_EQ",
+      "logicName" : "系统",
+      "name" : "N_PSSYSTEMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "PSSYSTEMID",
+        "codeName" : "PSSystemId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSYS_PERMISSIONID_EQ",
+      "logicName" : "资源标识",
+      "name" : "N_PSYS_PERMISSIONID_EQ",
+      "getPSAppDEField" : {
+        "name" : "PSYS_PERMISSIONID",
+        "codeName" : "PPermissionId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSYS_PERMISSIONNAME_EQ",
+      "logicName" : "权限名称",
+      "name" : "N_PSYS_PERMISSIONNAME_EQ",
+      "getPSAppDEField" : {
+        "name" : "PSYS_PERMISSIONNAME",
+        "codeName" : "PPermissionName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_PSYS_PERMISSIONNAME_LIKE",
+      "logicName" : "权限名称",
+      "name" : "N_PSYS_PERMISSIONNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "PSYS_PERMISSIONNAME",
+        "codeName" : "PPermissionName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYS_PERMISSIONID_EQ",
+      "logicName" : "资源标识",
+      "name" : "N_SYS_PERMISSIONID_EQ",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYS_PERMISSIONID_LIKE",
+      "logicName" : "资源标识",
+      "name" : "N_SYS_PERMISSIONID_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_SYS_PERMISSIONNAME_LIKE",
+      "logicName" : "资源名称",
+      "name" : "N_SYS_PERMISSIONNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "SYS_PERMISSIONNAME",
+        "codeName" : "PermissionName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "SYS_PERMISSIONID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "SYS_PERMISSIONID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchAuthority",
+    "dataSetName" : "Authority",
+    "dataSetTag" : "Authority",
+    "methodType" : "FETCH",
+    "name" : "FetchAuthority",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchauthority",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PermissionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysPermission",
+  "dEAPICodeName" : "syspermission",
+  "dEAPICodeName2" : "syspermissions",
+  "dEAPITag" : "SYS_PERMISSION",
+  "dECodeName" : "Permission",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysPermission.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "SYS_PERMISSIONID",
+    "codeName" : "PermissionId"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "COMMON.CONDITION.NOTEQ"
+  },
+  "logicName" : "权限/资源",
+  "getMajorPSAppDEField" : {
+    "name" : "SYS_PERMISSIONNAME",
+    "codeName" : "PermissionName"
+  },
+  "name" : "SYS_PERMISSION",
+  "getPSDEName" : "SYS_PERMISSION",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "SYS_PERMISSIONNAME",
+    "codeName" : "PermissionName"
+  }, {
+    "name" : "ENTITYNAME",
+    "codeName" : "EntityName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission.json"
+  }
+}

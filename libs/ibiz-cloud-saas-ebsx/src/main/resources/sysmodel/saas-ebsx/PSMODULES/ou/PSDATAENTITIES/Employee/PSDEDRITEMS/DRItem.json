@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "用户角色关系表实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_EMP_USERID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "USERID",
+    "srfparentdename" : "SYS_EMP",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_USER_ROLE_SYS_EMP_USERID",
+    "SRFDER1NID" : "DER1N_SYS_USER_ROLE_SYS_EMP_USERID"
+  },
+  "viewCodeName" : "GridView3",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_USER_ROLE_SYS_EMP_USERID"
+  }
+}

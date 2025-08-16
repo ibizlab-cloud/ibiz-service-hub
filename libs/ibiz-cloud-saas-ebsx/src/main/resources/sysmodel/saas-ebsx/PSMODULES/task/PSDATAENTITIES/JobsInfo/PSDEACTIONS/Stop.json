@@ -1,0 +1,52 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "USERUPDATE",
+  "codeName" : "Stop",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/task/PSDATAENTITIES/JobsInfo/PSDEACTIONS/Stop.json",
+  "logicName" : "停止",
+  "name" : "Stop",
+  "getPSDEActionInput" : {
+    "name" : "StopInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "JobsInfoDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionParams" : [ {
+    "name" : "STATUS",
+    "getPSDEField" : {
+      "name" : "STATUS",
+      "codeName" : "Status"
+    },
+    "stdDataType" : 9,
+    "value" : "1",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "LAST_TIME",
+    "getPSDEField" : {
+      "name" : "LAST_TIME",
+      "codeName" : "LastTime"
+    },
+    "stdDataType" : 1,
+    "value" : "0",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "NEXT_TIME",
+    "getPSDEField" : {
+      "name" : "NEXT_TIME",
+      "codeName" : "NextTime"
+    },
+    "stdDataType" : 1,
+    "value" : "0",
+    "valueType" : "VALUE"
+  } ],
+  "getPSDEActionReturn" : {
+    "name" : "StopResult",
+    "type" : "VOID"
+  },
+  "paramMode" : 2,
+  "customParam" : true
+}

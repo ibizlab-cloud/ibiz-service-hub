@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CREATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Create",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEACTIONS/Create.json",
+  "logicName" : "Create",
+  "name" : "Create",
+  "orderValue" : 1,
+  "getPSDEActionInput" : {
+    "name" : "CreateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "BulletinDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CreateResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

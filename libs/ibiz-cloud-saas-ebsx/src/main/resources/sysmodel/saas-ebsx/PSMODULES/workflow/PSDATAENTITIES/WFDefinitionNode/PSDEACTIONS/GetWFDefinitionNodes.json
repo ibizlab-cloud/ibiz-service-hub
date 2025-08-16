@@ -1,0 +1,25 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetWFDefinitionNodes",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode/PSDEACTIONS/GetWFDefinitionNodes.json",
+  "logicName" : "获取流程定义节点",
+  "name" : "getWFDefinitionNodes",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "NODEID",
+      "codeName" : "UserTaskId"
+    },
+    "name" : "GetWFDefinitionNodesInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetWFDefinitionNodesResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFDefinitionNodeDTO"
+    },
+    "type" : "DTO"
+  }
+}

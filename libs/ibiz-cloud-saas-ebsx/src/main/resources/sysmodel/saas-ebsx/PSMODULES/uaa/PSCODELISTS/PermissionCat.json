@@ -1,0 +1,41 @@
+{
+  "codeListTag" : "uaa__PermissionCat",
+  "codeListType" : "STATIC",
+  "codeName" : "PermissionCat",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/PermissionCat.json",
+  "emptyText" : "未定义",
+  "name" : "系统权限分类",
+  "getPSCodeItems" : [ {
+    "codeName" : "ALL",
+    "text" : "全部用户",
+    "value" : "ALL"
+  }, {
+    "codeName" : "Org",
+    "text" : "指定单位",
+    "value" : "Org"
+  }, {
+    "codeName" : "UserRole",
+    "text" : "指定用户角色",
+    "value" : "UserRole"
+  }, {
+    "codeName" : "DCADMIN",
+    "text" : "仅管理员",
+    "value" : "DCADMIN"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

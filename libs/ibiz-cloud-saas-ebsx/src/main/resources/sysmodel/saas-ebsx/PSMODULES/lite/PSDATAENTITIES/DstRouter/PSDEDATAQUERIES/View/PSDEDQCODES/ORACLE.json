@@ -1,0 +1,34 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPID",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.COMPONENT",
+    "name" : "COMPONENT"
+  }, {
+    "expression" : "t1.META",
+    "name" : "META"
+  }, {
+    "expression" : "t1.PARENTID",
+    "name" : "PARENTID"
+  }, {
+    "expression" : "t1.ROUTERID",
+    "name" : "ROUTERID"
+  }, {
+    "expression" : "t1.ROUTERNAME",
+    "name" : "ROUTERNAME"
+  }, {
+    "expression" : "t1.ROUTERPATH",
+    "name" : "ROUTERPATH"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.APPID,\nt1.COMPONENT,\nt1.META,\nt1.PARENTID,\nt1.ROUTERID,\nt1.ROUTERNAME,\nt1.ROUTERPATH,\nt1.SYSTEMID,\nt1.UPDATEDATE\nFROM IBZROUTER t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstRouter/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

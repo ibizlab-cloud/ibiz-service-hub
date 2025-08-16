@@ -1,0 +1,30 @@
+{
+  "codeName" : "cloud_user",
+  "defaultUser" : "USER",
+  "dynaModelFilePath" : "PSSYSUSERROLES/cloud_user.json",
+  "name" : "cloud用户默认",
+  "getPSSysUserRoleDatas" : [ {
+    "name" : "cloud用户默认-SYS_AUTHLOG[当前用户（只读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog/PSDEUSERROLES/CurUser.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog.json"
+    }
+  }, {
+    "name" : "cloud用户默认-SYS_EMP[当前用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEUSERROLES/CurUser.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+    }
+  } ],
+  "roleTag" : "CLOUD_USER",
+  "roleType" : "CUSTOM",
+  "systemReserved" : true
+}

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "微服务",
+  "name" : "微服务默认关系界面组"
+}

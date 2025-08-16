@@ -1,0 +1,55 @@
+{
+  "codeListTag" : "notify__MsgType",
+  "codeListType" : "STATIC",
+  "codeName" : "MsgType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/MsgType.json",
+  "emptyText" : "未定义",
+  "name" : "消息类型",
+  "orMode" : "NUM",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "系统消息",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "电子邮件",
+    "value" : "2"
+  }, {
+    "codeName" : "Item_4",
+    "text" : "手机短信",
+    "value" : "4"
+  }, {
+    "codeName" : "Item_32",
+    "text" : "微信",
+    "value" : "32"
+  }, {
+    "codeName" : "Item_64",
+    "text" : "钉钉",
+    "value" : "64"
+  }, {
+    "codeName" : "Item_128",
+    "text" : "企业微信",
+    "value" : "128"
+  }, {
+    "codeName" : "Item_256",
+    "text" : "门户消息",
+    "value" : "256"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "textSeparator" : "、",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

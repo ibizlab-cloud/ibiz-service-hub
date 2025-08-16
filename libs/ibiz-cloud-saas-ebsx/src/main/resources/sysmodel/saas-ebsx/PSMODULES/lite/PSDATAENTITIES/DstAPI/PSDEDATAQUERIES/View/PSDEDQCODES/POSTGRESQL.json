@@ -1,0 +1,25 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APIID",
+    "name" : "APIID"
+  }, {
+    "expression" : "t1.APINAME",
+    "name" : "APINAME"
+  }, {
+    "expression" : "t1.APIPATH",
+    "name" : "APIPATH"
+  }, {
+    "expression" : "t1.MSID",
+    "name" : "MSID"
+  }, {
+    "expression" : "t1.MSNAME",
+    "name" : "MSNAME"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  } ],
+  "queryCode" : "SELECT\nt1.APIID,\nt1.APINAME,\nt1.APIPATH,\nt1.MSID,\nt1.MSNAME,\nt1.SYSTEMID\nFROM  t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

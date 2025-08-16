@@ -1,0 +1,28 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`DSCODE`",
+    "name" : "DSCODE"
+  }, {
+    "expression" : "t1.`DSMODEL`",
+    "name" : "DSMODEL"
+  }, {
+    "expression" : "t1.`CODENAME`",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.`DATASETID`",
+    "name" : "DATASETID"
+  }, {
+    "expression" : "t1.`DATASETNAME`",
+    "name" : "DATASETNAME"
+  }, {
+    "expression" : "t1.`ENTITYID`",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.`ENTITYNAME`",
+    "name" : "ENTITYNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.`CODENAME`,\nt1.`DATASETID`,\nt1.`DATASETNAME`,\nt1.`ENTITYID`,\nt1.`ENTITYNAME`\nFROM `IBZDATASET` t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

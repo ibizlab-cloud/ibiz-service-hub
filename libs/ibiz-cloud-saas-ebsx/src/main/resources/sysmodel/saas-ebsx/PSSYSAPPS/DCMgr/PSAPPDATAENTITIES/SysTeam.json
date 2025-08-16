@@ -1,0 +1,960 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "TEAMID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "TEAMID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "TeamId",
+    "logicName" : "组标识",
+    "name" : "TEAMID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "TeamName",
+    "logicName" : "组名称",
+    "name" : "TEAMNAME",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "Memo",
+    "logicName" : "备注",
+    "name" : "MEMO",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Domains",
+    "logicName" : "区属",
+    "name" : "DOMAINS",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver",
+    "logicName" : "保留",
+    "name" : "RESERVER",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver3",
+    "logicName" : "保留3",
+    "name" : "RESERVER3",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver2",
+    "logicName" : "保留2",
+    "name" : "RESERVER2",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver18",
+    "logicName" : "保留18",
+    "name" : "RESERVER18",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver17",
+    "logicName" : "保留17",
+    "name" : "RESERVER17",
+    "stdDataType" : 29
+  }, {
+    "codeName" : "Reserver20",
+    "logicName" : "保留20",
+    "name" : "RESERVER20",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver15",
+    "logicName" : "保留15",
+    "name" : "RESERVER15",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver19",
+    "logicName" : "保留19",
+    "name" : "RESERVER19",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "Reserver14",
+    "logicName" : "保留14",
+    "name" : "RESERVER14",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver12",
+    "logicName" : "保留12",
+    "name" : "RESERVER12",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver16",
+    "logicName" : "保留16",
+    "name" : "RESERVER16",
+    "stdDataType" : 6
+  }, {
+    "codeName" : "Reserver13",
+    "logicName" : "保留13",
+    "name" : "RESERVER13",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver9",
+    "logicName" : "保留9",
+    "name" : "RESERVER9",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver10",
+    "logicName" : "保留10",
+    "name" : "RESERVER10",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "codeName" : "Reserver7",
+    "logicName" : "保留7",
+    "name" : "RESERVER7",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver8",
+    "logicName" : "保留8",
+    "name" : "RESERVER8",
+    "stdDataType" : 25,
+    "stringLength" : 1000
+  }, {
+    "codeName" : "Reserver11",
+    "logicName" : "保留11",
+    "name" : "RESERVER11",
+    "stdDataType" : 9
+  }, {
+    "codeName" : "Reserver6",
+    "logicName" : "保留6",
+    "name" : "RESERVER6",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "codeName" : "Reserver4",
+    "logicName" : "保留4",
+    "name" : "RESERVER4",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Reserver5",
+    "logicName" : "保留5",
+    "name" : "RESERVER5",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "TeamDTO",
+    "name" : "TeamDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "TeamId",
+      "logicName" : "组标识",
+      "name" : "TeamId",
+      "getPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "TeamName",
+      "logicName" : "组名称",
+      "name" : "TeamName",
+      "getPSAppDEField" : {
+        "name" : "TEAMNAME",
+        "codeName" : "TeamName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Memo",
+      "logicName" : "备注",
+      "name" : "Memo",
+      "getPSAppDEField" : {
+        "name" : "MEMO",
+        "codeName" : "Memo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Domains",
+      "logicName" : "区属",
+      "name" : "Domains",
+      "getPSAppDEField" : {
+        "name" : "DOMAINS",
+        "codeName" : "Domains"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver",
+      "logicName" : "保留",
+      "name" : "Reserver",
+      "getPSAppDEField" : {
+        "name" : "RESERVER",
+        "codeName" : "Reserver"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver10",
+      "logicName" : "保留10",
+      "name" : "Reserver10",
+      "getPSAppDEField" : {
+        "name" : "RESERVER10",
+        "codeName" : "Reserver10"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver11",
+      "logicName" : "保留11",
+      "name" : "Reserver11",
+      "getPSAppDEField" : {
+        "name" : "RESERVER11",
+        "codeName" : "Reserver11"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver12",
+      "logicName" : "保留12",
+      "name" : "Reserver12",
+      "getPSAppDEField" : {
+        "name" : "RESERVER12",
+        "codeName" : "Reserver12"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver13",
+      "logicName" : "保留13",
+      "name" : "Reserver13",
+      "getPSAppDEField" : {
+        "name" : "RESERVER13",
+        "codeName" : "Reserver13"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver14",
+      "logicName" : "保留14",
+      "name" : "Reserver14",
+      "getPSAppDEField" : {
+        "name" : "RESERVER14",
+        "codeName" : "Reserver14"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver15",
+      "logicName" : "保留15",
+      "name" : "Reserver15",
+      "getPSAppDEField" : {
+        "name" : "RESERVER15",
+        "codeName" : "Reserver15"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver16",
+      "logicName" : "保留16",
+      "name" : "Reserver16",
+      "getPSAppDEField" : {
+        "name" : "RESERVER16",
+        "codeName" : "Reserver16"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver17",
+      "logicName" : "保留17",
+      "name" : "Reserver17",
+      "getPSAppDEField" : {
+        "name" : "RESERVER17",
+        "codeName" : "Reserver17"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver18",
+      "logicName" : "保留18",
+      "name" : "Reserver18",
+      "getPSAppDEField" : {
+        "name" : "RESERVER18",
+        "codeName" : "Reserver18"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 29,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver19",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留19",
+      "name" : "Reserver19",
+      "getPSAppDEField" : {
+        "name" : "RESERVER19",
+        "codeName" : "Reserver19"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver2",
+      "logicName" : "保留2",
+      "name" : "Reserver2",
+      "getPSAppDEField" : {
+        "name" : "RESERVER2",
+        "codeName" : "Reserver2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver20",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "保留20",
+      "name" : "Reserver20",
+      "getPSAppDEField" : {
+        "name" : "RESERVER20",
+        "codeName" : "Reserver20"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver3",
+      "logicName" : "保留3",
+      "name" : "Reserver3",
+      "getPSAppDEField" : {
+        "name" : "RESERVER3",
+        "codeName" : "Reserver3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver4",
+      "logicName" : "保留4",
+      "name" : "Reserver4",
+      "getPSAppDEField" : {
+        "name" : "RESERVER4",
+        "codeName" : "Reserver4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver5",
+      "logicName" : "保留5",
+      "name" : "Reserver5",
+      "getPSAppDEField" : {
+        "name" : "RESERVER5",
+        "codeName" : "Reserver5"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver6",
+      "logicName" : "保留6",
+      "name" : "Reserver6",
+      "getPSAppDEField" : {
+        "name" : "RESERVER6",
+        "codeName" : "Reserver6"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver7",
+      "logicName" : "保留7",
+      "name" : "Reserver7",
+      "getPSAppDEField" : {
+        "name" : "RESERVER7",
+        "codeName" : "Reserver7"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver8",
+      "logicName" : "保留8",
+      "name" : "Reserver8",
+      "getPSAppDEField" : {
+        "name" : "RESERVER8",
+        "codeName" : "Reserver8"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Reserver9",
+      "logicName" : "保留9",
+      "name" : "Reserver9",
+      "getPSAppDEField" : {
+        "name" : "RESERVER9",
+        "codeName" : "Reserver9"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "TeamFilterDTO",
+    "name" : "TeamFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_TEAMID_EQ",
+      "logicName" : "组标识",
+      "name" : "N_TEAMID_EQ",
+      "getPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_TEAMID_LIKE",
+      "logicName" : "组标识",
+      "name" : "N_TEAMID_LIKE",
+      "getPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_TEAMNAME_LIKE",
+      "logicName" : "组名称",
+      "name" : "N_TEAMNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "TEAMNAME",
+        "codeName" : "TeamName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/checkkey",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "TEAMID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "TEAMID",
+        "codeName" : "TeamId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestField" : "TEAMID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "FetchDefault",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "TeamDTO"
+      },
+      "type" : "PAGE"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetchdefault",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "Select",
+    "methodType" : "SELECT",
+    "name" : "Select",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "type" : "UNKNOWN"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "UNKNOWN"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/select",
+    "builtinMethod" : false
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysTeam",
+  "dEAPICodeName" : "systeam",
+  "dEAPICodeName2" : "systeams",
+  "dEAPITag" : "SYS_TEAM",
+  "dECodeName" : "Team",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysTeam.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "TEAMID",
+    "codeName" : "TeamId"
+  },
+  "logicName" : "组",
+  "getMajorPSAppDEField" : {
+    "name" : "TEAMNAME",
+    "codeName" : "TeamName"
+  },
+  "name" : "SYS_TEAM",
+  "getPSDEName" : "SYS_TEAM",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "TEAMNAME",
+    "codeName" : "TeamName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Team.json"
+  }
+}

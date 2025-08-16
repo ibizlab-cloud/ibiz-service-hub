@@ -1,0 +1,2258 @@
+{
+  "getAllPSSysDBTables" : [ {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDRESS",
+      "length" : 500,
+      "logicName" : "访问地址",
+      "name" : "ADDRESS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "AUDITCAT",
+      "length" : 60,
+      "logicName" : "审计类别",
+      "name" : "AUDITCAT",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "AUDITINFO",
+      "length" : 1048576,
+      "logicName" : "审计信息",
+      "name" : "AUDITINFO",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "审计时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGLEVEL",
+      "length" : 60,
+      "logicName" : "日志级别",
+      "name" : "LOGLEVEL",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "OPPERSONID",
+      "length" : 100,
+      "logicName" : "操作人",
+      "name" : "OPPERSONID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OPPERSONNAME",
+      "length" : 100,
+      "logicName" : "操作人",
+      "name" : "OPPERSONNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSAUDITID",
+      "length" : 100,
+      "logicName" : "系统审计标识",
+      "name" : "SYSAUDITID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "SYSAUDITNAME",
+      "length" : 200,
+      "logicName" : "审计名称",
+      "name" : "SYSAUDITNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F101F4E595C9B4B",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_AUDIT_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_71A9556BAA07381",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZAUDIT",
+    "logicName" : "租户审计日志",
+    "name" : "IBZAUDIT",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CENTERID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "CENTERID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "CENTERNAME",
+      "length" : 200,
+      "logicName" : "租户名称",
+      "name" : "CENTERNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DOMAINS",
+      "length" : 100,
+      "logicName" : "域名",
+      "name" : "DOMAINS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXPIRATIONDATE",
+      "length" : 100,
+      "logicName" : "到期时间",
+      "name" : "EXPIRATIONDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "PORTALURL",
+      "length" : 100,
+      "logicName" : "门户地址",
+      "name" : "PORTALURL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TPPROOTURL",
+      "length" : 100,
+      "logicName" : "第三方插件服务地址",
+      "name" : "TPPROOTURL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "codeName" : "IBZCENTER",
+    "logicName" : "租户中心",
+    "name" : "IBZCENTER",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACCESSID",
+      "length" : 100,
+      "logicName" : "开放平台接入标识",
+      "name" : "ACCESSID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "DCSYSTEMNAME",
+      "length" : 200,
+      "logicName" : "租户系统名称",
+      "name" : "DCSYSTEMNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MEMO",
+      "length" : 1000,
+      "logicName" : "备注",
+      "name" : "MEMO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSPERMISSION",
+      "length" : 60,
+      "logicName" : "系统权限",
+      "name" : "SYSPERMISSION",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSTEMID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "SYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "ACCESSID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "ACCESSID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F3711474CF346C0",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_DC_SYSTEM_SYS_OPEN_ACCESS_ACCESSID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2FEC70A1C8823067",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_DC_SYSTEM_SYS_PSSYSTEM_SYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_41B1ABAC3317F9B",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZDCSYSTEM",
+    "logicName" : "租户系统",
+    "name" : "IBZDCSYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DEFAULTINST",
+      "logicName" : "默认实例",
+      "name" : "DEFAULTINST",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "DYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识",
+      "name" : "DYNAINSTID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "DYNAINSTNAME",
+      "length" : 200,
+      "logicName" : "动态实例名称",
+      "name" : "DYNAINSTNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "INSTALLDYNAINST",
+      "logicName" : "已安装实例数据",
+      "name" : "INSTALLDYNAINST",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "INTERNALINST",
+      "logicName" : "预置实例",
+      "name" : "INTERNALINST",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ISVALID",
+      "length" : 100,
+      "logicName" : "启用标志",
+      "name" : "ISVALID",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "MEMO",
+      "length" : 1000,
+      "logicName" : "备注",
+      "name" : "MEMO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "REALDYNAINSTID",
+      "length" : 100,
+      "logicName" : "真实实例标识",
+      "name" : "REALDYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F7739C535C7AE71",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_DYNAINST_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_3F9A851DE2BFA4D",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZDYNAINST",
+    "logicName" : "租户实例",
+    "name" : "IBZDYNAINST",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACTIVETAG",
+      "length" : 100,
+      "logicName" : "实例版本激活标记",
+      "name" : "ACTIVETAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CONFIGID",
+      "length" : 100,
+      "logicName" : "配置标识",
+      "name" : "CONFIGID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "CONFIGNAME",
+      "length" : 100,
+      "logicName" : "配置名称",
+      "name" : "CONFIGNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识（动态设计工具）",
+      "name" : "DYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DYNAINSTTAG",
+      "length" : 200,
+      "logicName" : "动态实例标记（动态设计工具）",
+      "name" : "DYNAINSTTAG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DYNAINSTTAG2",
+      "length" : 200,
+      "logicName" : "动态实例标记2（动态设计工具）",
+      "name" : "DYNAINSTTAG2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MEMO",
+      "length" : 1000,
+      "logicName" : "备注",
+      "name" : "MEMO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MODELFILE",
+      "length" : 1000,
+      "logicName" : "文件",
+      "name" : "MODELFILE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PDYNAINSTID",
+      "length" : 100,
+      "logicName" : "配置标识",
+      "name" : "PDYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "length" : 60,
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSDYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识（RT）",
+      "name" : "SYSDYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SYSDYNAINSTID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SYSDYNAINSTID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F2E15ABADEBA7E5",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "PDYNAINSTID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "PDYNAINSTID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2FE55C49237C20AD",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_META_DYNAMICMODEL_DC_META_DYNAMICMODEL_PDYNAINSTID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_1CD1E53F0C57132",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZDYNAMICMODEL",
+    "logicName" : "模型版本",
+    "name" : "IBZDYNAMICMODEL",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDR",
+      "length" : 255,
+      "logicName" : "地址",
+      "name" : "ADDR",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ADMINUSER",
+      "logicName" : "管理员",
+      "name" : "ADMINUSER",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "AVATAR",
+      "length" : 100,
+      "logicName" : "社交账号",
+      "name" : "AVATAR",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "BCODE",
+      "length" : 100,
+      "logicName" : "业务编码",
+      "name" : "BCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "BIRTHDAY",
+      "logicName" : "出生日期",
+      "name" : "BIRTHDAY",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CERTCODE",
+      "length" : 100,
+      "logicName" : "证件号码",
+      "name" : "CERTCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "logicName" : "创建时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DDUNIONID",
+      "length" : 100,
+      "logicName" : "钉钉用户标识",
+      "name" : "DDUNIONID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DDUSERID",
+      "length" : 100,
+      "logicName" : "钉钉用户标识",
+      "name" : "DDUSERID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DOMAINS",
+      "length" : 100,
+      "logicName" : "区属",
+      "name" : "DOMAINS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EMAIL",
+      "length" : 100,
+      "logicName" : "邮件",
+      "name" : "EMAIL",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ENABLE",
+      "logicName" : "逻辑有效",
+      "name" : "ENABLE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "FONTSIZE",
+      "length" : 10,
+      "logicName" : "字号",
+      "name" : "FONTSIZE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "IPADDR",
+      "length" : 100,
+      "logicName" : "ip地址",
+      "name" : "IPADDR",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LANG",
+      "length" : 100,
+      "logicName" : "语言",
+      "name" : "LANG",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGINNAME",
+      "length" : 100,
+      "logicName" : "登录名",
+      "name" : "LOGINNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MDEPTCODE",
+      "length" : 100,
+      "logicName" : "主部门代码",
+      "name" : "MDEPTCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MDEPTID",
+      "length" : 100,
+      "logicName" : "主部门标识",
+      "name" : "MDEPTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MDEPTNAME",
+      "length" : 200,
+      "logicName" : "主部门名称",
+      "name" : "MDEPTNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MEMO",
+      "length" : 1000,
+      "logicName" : "备注",
+      "name" : "MEMO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "MSGTYPE",
+      "logicName" : "消息类型",
+      "name" : "MSGTYPE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "NICKNAME",
+      "length" : 100,
+      "logicName" : "昵称别名",
+      "name" : "NICKNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGCODE",
+      "length" : 100,
+      "logicName" : "组织代码",
+      "name" : "ORGCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGID",
+      "length" : 100,
+      "logicName" : "单位标识",
+      "name" : "ORGID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGNAME",
+      "length" : 100,
+      "logicName" : "名称",
+      "name" : "ORGNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PASSWORD",
+      "length" : 100,
+      "logicName" : "密码",
+      "name" : "PASSWORD",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PERSONNAME",
+      "length" : 100,
+      "logicName" : "姓名",
+      "name" : "PERSONNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PHONE",
+      "length" : 100,
+      "logicName" : "联系方式",
+      "name" : "PHONE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "RESERVER",
+      "length" : 255,
+      "logicName" : "保留",
+      "name" : "RESERVER",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "RESERVER2",
+      "length" : 100,
+      "logicName" : "保留2",
+      "name" : "RESERVER2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "RESERVER3",
+      "length" : 100,
+      "logicName" : "保留3",
+      "name" : "RESERVER3",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SEX",
+      "length" : 20,
+      "logicName" : "性别",
+      "name" : "SEX",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SHOWORDER",
+      "logicName" : "排序",
+      "name" : "SHOWORDER",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATE",
+      "length" : 10,
+      "logicName" : "人员状态",
+      "name" : "STATE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SUPERUSER",
+      "logicName" : "超级管理员",
+      "name" : "SUPERUSER",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "THEME",
+      "length" : 100,
+      "logicName" : "样式",
+      "name" : "THEME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UAAUSERID",
+      "length" : 100,
+      "logicName" : "UAA用户标识",
+      "name" : "UAAUSERID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "logicName" : "最后修改时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "USERCODE",
+      "length" : 100,
+      "logicName" : "用户工号",
+      "name" : "USERCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "USERICON",
+      "length" : 255,
+      "logicName" : "照片",
+      "name" : "USERICON",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "USERID",
+      "length" : 100,
+      "logicName" : "用户标识",
+      "name" : "USERID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "USERNAME",
+      "length" : 100,
+      "logicName" : "用户全局名",
+      "name" : "USERNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "WXWORKUNIONID",
+      "length" : 100,
+      "logicName" : "微信用户标识",
+      "name" : "WXWORKUNIONID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "WXWORKUSERID",
+      "length" : 100,
+      "logicName" : "企业微信用户标识",
+      "name" : "WXWORKUSERID",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "codeName" : "IBZEMP",
+    "logicName" : "机构用户",
+    "name" : "IBZEMP",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "事件时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EVENTCAT",
+      "length" : 60,
+      "logicName" : "事件类别",
+      "name" : "EVENTCAT",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EVENTINFO",
+      "length" : 1048576,
+      "logicName" : "事件信息",
+      "name" : "EVENTINFO",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGLEVEL",
+      "length" : 60,
+      "logicName" : "日志级别",
+      "name" : "LOGLEVEL",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "OPPERSONID",
+      "length" : 100,
+      "logicName" : "操作人",
+      "name" : "OPPERSONID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSEVENTID",
+      "length" : 100,
+      "logicName" : "事件标识",
+      "name" : "SYSEVENTID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "SYSEVENTNAME",
+      "length" : 200,
+      "logicName" : "事件名称",
+      "name" : "SYSEVENTNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F31407BAC338EB1",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_EVENT_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_4B8F5DACB715DE9",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZEVENT",
+    "logicName" : "租户事件",
+    "name" : "IBZEVENT",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "logicName" : "日志时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DEPTID",
+      "length" : 60,
+      "logicName" : "组织部门标识",
+      "name" : "DEPTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGCAT",
+      "length" : 60,
+      "logicName" : "日志类别",
+      "name" : "LOGCAT",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGINFO",
+      "length" : 1048576,
+      "logicName" : "日志信息",
+      "name" : "LOGINFO",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGLEVEL",
+      "length" : 60,
+      "logicName" : "日志级别",
+      "name" : "LOGLEVEL",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "OPPERSONID",
+      "length" : 100,
+      "logicName" : "操作人",
+      "name" : "OPPERSONID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGID",
+      "length" : 60,
+      "logicName" : "组织机构标识",
+      "name" : "ORGID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSLOGID",
+      "length" : 60,
+      "logicName" : "日志标识",
+      "name" : "SYSLOGID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "SYSLOGNAME",
+      "length" : 200,
+      "logicName" : "日志信息",
+      "name" : "SYSLOGNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "USERDATA",
+      "length" : 200,
+      "logicName" : "用户数据",
+      "name" : "USERDATA",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "USERDATA2",
+      "length" : 200,
+      "logicName" : "用户数据2",
+      "name" : "USERDATA2",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F292A8D58F14676",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_LOG_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_95495D8ACB0999E",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZLOG",
+    "logicName" : "租户日志",
+    "name" : "IBZLOG",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "logicName" : "创建时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DOMAINS",
+      "length" : 100,
+      "logicName" : "区属",
+      "name" : "DOMAINS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ENABLE",
+      "logicName" : "逻辑有效",
+      "name" : "ENABLE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ISVALID",
+      "length" : 100,
+      "logicName" : "启用标志",
+      "name" : "ISVALID",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGCODE",
+      "length" : 100,
+      "logicName" : "单位代码",
+      "name" : "ORGCODE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGID",
+      "length" : 100,
+      "logicName" : "单位标识",
+      "name" : "ORGID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "ORGLEVEL",
+      "logicName" : "单位级别",
+      "name" : "ORGLEVEL",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGNAME",
+      "length" : 100,
+      "logicName" : "名称",
+      "name" : "ORGNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SAASMODE",
+      "logicName" : "支持Saas",
+      "name" : "SAASMODE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SHORTNAME",
+      "length" : 100,
+      "logicName" : "单位简称",
+      "name" : "SHORTNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SHOWORDER",
+      "logicName" : "排序",
+      "name" : "SHOWORDER",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "logicName" : "最后修改时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "IBZORG",
+    "logicName" : "租户组织",
+    "name" : "IBZORG",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识",
+      "name" : "DYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ISVALID",
+      "length" : 100,
+      "logicName" : "启用标志",
+      "name" : "ISVALID",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "MEMO",
+      "length" : 1000,
+      "logicName" : "备注",
+      "name" : "MEMO",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGID",
+      "length" : 100,
+      "logicName" : "单位标识",
+      "name" : "ORGID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ORGSYSTEMID",
+      "length" : 100,
+      "logicName" : "组织系统标识",
+      "name" : "ORGSYSTEMID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "ORGSYSTEMNAME",
+      "length" : 200,
+      "logicName" : "组织系统名称",
+      "name" : "ORGSYSTEMNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2FB44172099843A6",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_ORG_SYSTEM_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DYNAINSTID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DYNAINSTID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F342485CD6283DD",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_ORG_SYSTEM_DC_DYNAINST_DYNAINSTID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "ORGID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "ORGID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F1AC15EB10842ED",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_ORG_SYSTEM_SYS_ORG_ORGID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_0D2E24E94DEC1D7",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZORGSYSTEM",
+    "logicName" : "租户机构系统",
+    "name" : "IBZORGSYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACTION",
+      "length" : 100,
+      "logicName" : "操作",
+      "name" : "ACTION",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEDATE",
+      "length" : 8,
+      "logicName" : "时间",
+      "name" : "CREATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DCSYSTEMID",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "DENAME",
+      "length" : 100,
+      "logicName" : "实体",
+      "name" : "DENAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "LOGLEVEL",
+      "length" : 60,
+      "logicName" : "日志级别",
+      "name" : "LOGLEVEL",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "POCAT",
+      "length" : 60,
+      "logicName" : "优化类别",
+      "name" : "POCAT",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "POINFO",
+      "length" : 1048576,
+      "logicName" : "优化信息",
+      "name" : "POINFO",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSPOID",
+      "length" : 100,
+      "logicName" : "优化标识",
+      "name" : "SYSPOID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "SYSPONAME",
+      "length" : 200,
+      "logicName" : "优化名称",
+      "name" : "SYSPONAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TIME",
+      "length" : 20,
+      "logicName" : "优化时间（ms）",
+      "name" : "TIME",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "length" : 8,
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "DCSYSTEMID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "DCSYSTEMID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2FC727D179049798",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_PO_DC_DC_SYSTEM_DCSYSTEMID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_355515824C86A72",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "IBZPO",
+    "logicName" : "租户性能日志",
+    "name" : "IBZPO",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APPS",
+      "length" : 1048576,
+      "logicName" : "应用",
+      "name" : "APPS",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "MD5CHECK",
+      "length" : 100,
+      "logicName" : "校验",
+      "name" : "MD5CHECK",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PSSYSTEMID",
+      "length" : 100,
+      "logicName" : "系统标识",
+      "name" : "PSSYSTEMID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "PSSYSTEMNAME",
+      "length" : 100,
+      "logicName" : "系统名称",
+      "name" : "PSSYSTEMNAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SHOWORDER",
+      "logicName" : "排序",
+      "name" : "SHOWORDER",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSSTRUCTURE",
+      "length" : 1048576,
+      "logicName" : "结构",
+      "name" : "SYSSTRUCTURE",
+      "stdDataType" : 21,
+      "nullable" : true
+    } ],
+    "codeName" : "IBZPSSYSTEM",
+    "logicName" : "系统",
+    "name" : "IBZPSSYSTEM",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APP",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "APP",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "AUTHOR",
+      "length" : 30,
+      "logicName" : "所有者",
+      "name" : "AUTHOR",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CRON",
+      "length" : 100,
+      "logicName" : "任务执行CRON",
+      "name" : "CRON",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FAIL_RETRY_COUNT",
+      "logicName" : "失败重试次数",
+      "name" : "FAIL_RETRY_COUNT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "HANDLER",
+      "length" : 255,
+      "logicName" : "执行器任务HANDLER",
+      "name" : "HANDLER",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 20,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 1,
+      "pKey" : true
+    }, {
+      "codeName" : "LAST_TIME",
+      "length" : 20,
+      "logicName" : "上次调度时间",
+      "name" : "LAST_TIME",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "NEXT_TIME",
+      "length" : 20,
+      "logicName" : "下次调度时间",
+      "name" : "NEXT_TIME",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM",
+      "length" : 4000,
+      "logicName" : "执行器任务参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PREDEFINEDTYPE",
+      "length" : 100,
+      "logicName" : "预定义类型",
+      "name" : "PREDEFINEDTYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "REMARK",
+      "length" : 30,
+      "logicName" : "备注",
+      "name" : "REMARK",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSDYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识",
+      "name" : "SYSDYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TASKTYPE",
+      "length" : 100,
+      "logicName" : "任务类型",
+      "name" : "TASKTYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TENANT_ID",
+      "length" : 400,
+      "logicName" : "实例标识（真实）",
+      "name" : "TENANT_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TIMEOUT",
+      "logicName" : "任务执行超时时间（秒）",
+      "name" : "TIMEOUT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "JOBS_INFO",
+    "logicName" : "租户作业",
+    "name" : "JOBS_INFO",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "APP",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "APP",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "AUTHOR",
+      "length" : 30,
+      "logicName" : "所有者",
+      "name" : "AUTHOR",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CRON",
+      "length" : 100,
+      "logicName" : "任务执行CRON",
+      "name" : "CRON",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "FAIL_RETRY_COUNT",
+      "logicName" : "失败重试次数",
+      "name" : "FAIL_RETRY_COUNT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "HANDLER",
+      "length" : 255,
+      "logicName" : "执行器任务器",
+      "name" : "HANDLER",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "LAST_TIME",
+      "length" : 20,
+      "logicName" : "上次调度时间",
+      "name" : "LAST_TIME",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "NEXT_TIME",
+      "length" : 20,
+      "logicName" : "下次调度时间",
+      "name" : "NEXT_TIME",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM",
+      "length" : 4000,
+      "logicName" : "执行器任务参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PREDEFINEDTYPE",
+      "length" : 100,
+      "logicName" : "预定义类型",
+      "name" : "PREDEFINEDTYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "REMARK",
+      "length" : 30,
+      "logicName" : "备注",
+      "name" : "REMARK",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "SYSDYNAINSTID",
+      "length" : 100,
+      "logicName" : "动态实例标识",
+      "name" : "SYSDYNAINSTID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TASKTYPE",
+      "length" : 100,
+      "logicName" : "任务类型",
+      "name" : "TASKTYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TENANT_ID",
+      "length" : 400,
+      "logicName" : "实例标识（真实）",
+      "name" : "TENANT_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TIMEOUT",
+      "logicName" : "任务执行超时时间（秒）",
+      "name" : "TIMEOUT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "APP",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "APP"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2FD1228E0367530F",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_JOBS_INFO_DC_DC_SYSTEM_APP",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_73D5DB6F90A2E71",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "JOBS_INFO2",
+    "logicName" : "租户作业",
+    "name" : "JOBS_INFO2",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDRESS",
+      "length" : 255,
+      "logicName" : "执行地址",
+      "name" : "ADDRESS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "FAIL_RETRY_COUNT",
+      "logicName" : "失败重试次数",
+      "name" : "FAIL_RETRY_COUNT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 20,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 1,
+      "pKey" : true
+    }, {
+      "codeName" : "JOB_ID",
+      "length" : 20,
+      "logicName" : "主键ID",
+      "name" : "JOB_ID",
+      "stdDataType" : 1,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM",
+      "length" : 4000,
+      "logicName" : "执行器任务参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_CODE",
+      "logicName" : "触发器调度返回码",
+      "name" : "TRIGGER_CODE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_MSG",
+      "length" : 1048576,
+      "logicName" : "触发器调度信息",
+      "name" : "TRIGGER_MSG",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_TYPE",
+      "length" : 30,
+      "logicName" : "触发器调度类型",
+      "name" : "TRIGGER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "codeName" : "JOBS_LOG",
+    "logicName" : "作业日志",
+    "name" : "JOBS_LOG",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDRESS",
+      "length" : 255,
+      "logicName" : "执行地址",
+      "name" : "ADDRESS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "FAIL_RETRY_COUNT",
+      "logicName" : "失败重试次数",
+      "name" : "FAIL_RETRY_COUNT",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "JOB_ID",
+      "length" : 100,
+      "logicName" : "主键ID",
+      "name" : "JOB_ID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM",
+      "length" : 4000,
+      "logicName" : "执行器任务参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_CODE",
+      "logicName" : "触发器调度返回码",
+      "name" : "TRIGGER_CODE",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_MSG",
+      "length" : 1048576,
+      "logicName" : "触发器调度信息",
+      "name" : "TRIGGER_MSG",
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "TRIGGER_TYPE",
+      "length" : 30,
+      "logicName" : "触发器调度类型",
+      "name" : "TRIGGER_TYPE",
+      "stdDataType" : 25,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "JOB_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "JOB_ID"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F302F48BC216ED9",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_AFB716A76592781",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "JOBS_LOG2",
+    "logicName" : "作业日志",
+    "name" : "JOBS_LOG2",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDRESS",
+      "length" : 255,
+      "logicName" : "执行地址",
+      "name" : "ADDRESS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "APP",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "APP",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 20,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 1,
+      "pKey" : true
+    }, {
+      "codeName" : "STATUS",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "JOBS_REGISTRY",
+    "logicName" : "租户作业登记",
+    "name" : "JOBS_REGISTRY",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "ADDRESS",
+      "length" : 255,
+      "logicName" : "执行地址",
+      "name" : "ADDRESS",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "APP",
+      "length" : 100,
+      "logicName" : "租户系统标识",
+      "name" : "APP",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "SRFDCID",
+      "length" : 100,
+      "logicName" : "租户标识",
+      "name" : "SRFDCID",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "APP",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "APP"
+        }
+      }, {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IF2F03D60100452D52",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_DC_JOBS_REGISTRY_DC_DC_SYSTEM_APP",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SRFDCID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SRFDCID"
+        }
+      } ],
+      "codeName" : "IC_712CC45854CF3FD",
+      "indexType" : "NORMAL",
+      "name" : "SRFDCID",
+      "sourceType" : "DBCOLUMN"
+    } ],
+    "codeName" : "JOBS_REGISTRY2",
+    "logicName" : "租户作业登记",
+    "name" : "JOBS_REGISTRY2",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  } ],
+  "codeName" : "DS3",
+  "dSLink" : "DB3",
+  "dynaModelFilePath" : "PSSYSDBSCHEMES/DB3.json",
+  "name" : "租户模式",
+  "autoExtendModel" : true,
+  "pubIndex" : true
+}

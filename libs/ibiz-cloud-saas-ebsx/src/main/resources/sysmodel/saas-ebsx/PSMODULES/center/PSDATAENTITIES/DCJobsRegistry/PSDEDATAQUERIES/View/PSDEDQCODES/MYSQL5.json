@@ -1,0 +1,25 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ADDRESS`",
+    "name" : "ADDRESS"
+  }, {
+    "expression" : "t1.`APP`",
+    "name" : "APP"
+  }, {
+    "expression" : "t11.`DCSYSTEMNAME`",
+    "name" : "APPNAME"
+  }, {
+    "expression" : "t1.`ID`",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.`STATUS`",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.`UPDATE_TIME`",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.`ADDRESS`,\nt1.`APP`,\nt11.`DCSYSTEMNAME` AS `APPNAME`,\nt1.`ID`,\nt1.`STATUS`,\nt1.`UPDATE_TIME`\nFROM `JOBS_REGISTRY2` t1 \nLEFT JOIN `IBZDCSYSTEM` t11 ON t1.`APP` = t11.`DCSYSTEMID` \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCJobsRegistry/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

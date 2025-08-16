@@ -1,0 +1,39 @@
+{
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEUSERROLES/CurUser.json",
+  "name" : "当前用户（读写）",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "cur_user"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  }, {
+    "dataAccessAction" : "UPDATE",
+    "name" : "UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "CREATE",
+    "name" : "CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  }, {
+    "dataAccessAction" : "DELETE",
+    "name" : "DELETE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    }
+  } ],
+  "roleTag" : "CurUser",
+  "userDRAction" : "READ"
+}

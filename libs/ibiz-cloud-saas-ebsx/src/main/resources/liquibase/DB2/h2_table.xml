@@ -1,0 +1,146 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <!--输出实体[IBZCENTER]数据结构 -->
+    <changeSet author="root" id="IBZCENTER">
+        <createTable tableName="IBZCENTER" remarks="租户中心">
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZDCSYSTEM]数据结构 -->
+    <changeSet author="root" id="IBZDCSYSTEM">
+        <createTable tableName="IBZDCSYSTEM" remarks="租户系统">
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZEMP]数据结构 -->
+    <changeSet author="root" id="IBZEMP">
+        <createTable tableName="IBZEMP" remarks="机构用户">
+            <column name="ADDR" remarks="地址" type="VARCHAR(255)">
+            </column>
+            <column name="ADMINUSER" remarks="管理员" type="INT">
+            </column>
+            <column name="AVATAR" remarks="社交账号" type="VARCHAR(100)">
+            </column>
+            <column name="BCODE" remarks="业务编码" type="VARCHAR(100)">
+            </column>
+            <column name="BIRTHDAY" remarks="出生日期" type="DATETIME">
+            </column>
+            <column name="CERTCODE" remarks="证件号码" type="VARCHAR(100)">
+            </column>
+            <column name="CREATEDATE" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="DDUNIONID" remarks="钉钉用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="DDUSERID" remarks="钉钉用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="DOMAINS" remarks="区属" type="VARCHAR(100)">
+            </column>
+            <column name="EMAIL" remarks="邮件" type="VARCHAR(100)">
+            </column>
+            <column name="ENABLE" remarks="逻辑有效" type="INT">
+            </column>
+            <column name="FONTSIZE" remarks="字号" type="VARCHAR(10)">
+            </column>
+            <column name="IPADDR" remarks="ip地址" type="VARCHAR(100)">
+            </column>
+            <column name="LANG" remarks="语言" type="VARCHAR(100)">
+            </column>
+            <column name="LOGINNAME" remarks="登录名" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTCODE" remarks="主部门代码" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTID" remarks="主部门标识" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTNAME" remarks="主部门名称" type="VARCHAR(200)">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="MSGTYPE" remarks="消息类型" type="INT">
+            </column>
+            <column name="NICKNAME" remarks="昵称别名" type="VARCHAR(100)">
+            </column>
+            <column name="ORGCODE" remarks="组织代码" type="VARCHAR(100)">
+            </column>
+            <column name="ORGID" remarks="单位标识" type="VARCHAR(100)">
+            </column>
+            <column name="ORGNAME" remarks="名称" type="VARCHAR(100)">
+            </column>
+            <column name="PASSWORD" remarks="密码" type="VARCHAR(100)">
+            </column>
+            <column name="PERSONNAME" remarks="姓名" type="VARCHAR(100)">
+            </column>
+            <column name="PHONE" remarks="联系方式" type="VARCHAR(100)">
+            </column>
+            <column name="RESERVER" remarks="保留" type="VARCHAR(255)">
+            </column>
+            <column name="RESERVER2" remarks="保留2" type="VARCHAR(100)">
+            </column>
+            <column name="RESERVER3" remarks="保留3" type="VARCHAR(100)">
+            </column>
+            <column name="SEX" remarks="性别" type="VARCHAR(20)">
+            </column>
+            <column name="SHOWORDER" remarks="排序" type="INT">
+            </column>
+            <column name="SRFDCID" remarks="租户" type="VARCHAR(100)">
+            </column>
+            <column name="STATE" remarks="人员状态" type="VARCHAR(10)">
+            </column>
+            <column name="SUPERUSER" remarks="超级管理员" type="INT">
+            </column>
+            <column name="THEME" remarks="样式" type="VARCHAR(100)">
+            </column>
+            <column name="UAAUSERID" remarks="UAA用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="最后修改时间" type="DATETIME">
+            </column>
+            <column name="USERCODE" remarks="用户工号" type="VARCHAR(100)">
+            </column>
+            <column name="USERICON" remarks="照片" type="VARCHAR(255)">
+            </column>
+            <column name="USERID" remarks="用户标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZEMP_USERID"/>
+            </column>
+            <column name="USERNAME" remarks="用户全局名" type="VARCHAR(100)">
+            </column>
+            <column name="WXWORKUNIONID" remarks="微信用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="WXWORKUSERID" remarks="企业微信用户标识" type="VARCHAR(100)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZORG]数据结构 -->
+    <changeSet author="root" id="IBZORG">
+        <createTable tableName="IBZORG" remarks="租户组织">
+            <column name="CREATEDATE" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="DOMAINS" remarks="区属" type="VARCHAR(100)">
+            </column>
+            <column name="ENABLE" remarks="逻辑有效" type="INT">
+            </column>
+            <column name="ISVALID" remarks="启用标志" type="INT">
+            </column>
+            <column name="ORGCODE" remarks="单位代码" type="VARCHAR(100)">
+            </column>
+            <column name="ORGID" remarks="单位标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZORG_ORGID"/>
+            </column>
+            <column name="ORGLEVEL" remarks="单位级别" type="INT">
+            </column>
+            <column name="ORGNAME" remarks="名称" type="VARCHAR(100)">
+            </column>
+            <column name="SAASMODE" remarks="支持Saas" type="INT">
+            </column>
+            <column name="SHORTNAME" remarks="单位简称" type="VARCHAR(100)">
+            </column>
+            <column name="SHOWORDER" remarks="排序" type="INT">
+            </column>
+            <column name="SRFDCID" remarks="租户" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="最后修改时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

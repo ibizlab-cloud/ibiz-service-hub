@@ -1,0 +1,25 @@
+{
+  "actionMode" : "DELETE",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Remove",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask/PSDEACTIONS/Remove.json",
+  "logicName" : "Remove",
+  "name" : "Remove",
+  "orderValue" : 21,
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "TASKID",
+      "codeName" : "TaskId"
+    },
+    "name" : "RemoveInput",
+    "type" : "KEYFIELDS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RemoveResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true
+}

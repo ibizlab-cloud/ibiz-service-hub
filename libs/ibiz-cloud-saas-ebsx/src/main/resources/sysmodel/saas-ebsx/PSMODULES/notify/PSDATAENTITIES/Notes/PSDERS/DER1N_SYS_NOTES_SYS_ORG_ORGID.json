@@ -1,0 +1,27 @@
+{
+  "codeName" : "Org",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Notes/PSDERS/DER1N_SYS_NOTES_SYS_ORG_ORGID.json",
+  "fKeyName" : "F6ED3AF54FCEE0B2EB",
+  "logicName" : "组织",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Notes.json"
+  },
+  "name" : "DER1N_SYS_NOTES_SYS_ORG_ORGID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "pickupDEFName" : "ORGID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Org"
+}

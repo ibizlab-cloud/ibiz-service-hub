@@ -1,0 +1,67 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CONTENT`",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DDCONTENT`",
+    "name" : "DDCONTENT"
+  }, {
+    "expression" : "t1.`DSTADDRESSES`",
+    "name" : "DSTADDRESSES"
+  }, {
+    "expression" : "t1.`FILEAT2`",
+    "name" : "FILEAT2"
+  }, {
+    "expression" : "t1.`FILEAT3`",
+    "name" : "FILEAT3"
+  }, {
+    "expression" : "t1.`FILEAT4`",
+    "name" : "FILEAT4"
+  }, {
+    "expression" : "t1.`IMCONTENT`",
+    "name" : "IMCONTENT"
+  }, {
+    "expression" : "t1.`IMPORTANCEFLAG`",
+    "name" : "IMPORTANCEFLAG"
+  }, {
+    "expression" : "t1.`ISSEND`",
+    "name" : "ISSEND"
+  }, {
+    "expression" : "t1.`PLANSENDTIME`",
+    "name" : "PLANSENDTIME"
+  }, {
+    "expression" : "t1.`SMSCONTENT`",
+    "name" : "SMSCONTENT"
+  }, {
+    "expression" : "t1.`SUBJECT`",
+    "name" : "SUBJECT"
+  }, {
+    "expression" : "t1.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.`TOTALDSTADDRESSES`",
+    "name" : "TOTALDSTADDRESSES"
+  }, {
+    "expression" : "t1.`USERDATA2`",
+    "name" : "USERDATA2"
+  }, {
+    "expression" : "t1.`USERDATA4`",
+    "name" : "USERDATA4"
+  }, {
+    "expression" : "t1.`MSGSENDQUEUEID`",
+    "name" : "MSGSENDQUEUEID"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`MSGSENDQUEUEID`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `IBZMSGSENDQUEUE` t1 \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/SysMsgSendQueue/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "SystemManagement__system_version_state",
+  "codeListType" : "STATIC",
+  "codeName" : "system_version_state",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSCODELISTS/system_version_state.json",
+  "emptyText" : "未定义",
+  "name" : "系统版本状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "not_build",
+    "text" : "未构建",
+    "value" : "0"
+  }, {
+    "codeName" : "building",
+    "text" : "构建中",
+    "value" : "1"
+  }, {
+    "codeName" : "builded",
+    "text" : "已构建",
+    "value" : "2"
+  }, {
+    "codeName" : "build_failed",
+    "text" : "构建失败",
+    "value" : "3"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : true,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

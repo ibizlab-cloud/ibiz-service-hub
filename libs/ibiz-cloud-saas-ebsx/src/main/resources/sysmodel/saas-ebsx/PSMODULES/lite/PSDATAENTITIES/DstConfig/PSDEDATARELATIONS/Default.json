@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstConfig/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "配置",
+  "name" : "配置默认关系界面组"
+}

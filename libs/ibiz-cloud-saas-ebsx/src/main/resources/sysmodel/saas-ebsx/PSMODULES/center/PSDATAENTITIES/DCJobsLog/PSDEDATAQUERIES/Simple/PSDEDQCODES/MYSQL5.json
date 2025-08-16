@@ -1,0 +1,34 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ADDRESS`",
+    "name" : "ADDRESS"
+  }, {
+    "expression" : "t1.`CREATE_TIME`",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.`FAIL_RETRY_COUNT`",
+    "name" : "FAIL_RETRY_COUNT"
+  }, {
+    "expression" : "t1.`JOB_ID`",
+    "name" : "JOB_ID"
+  }, {
+    "expression" : "t1.`PARAM`",
+    "name" : "PARAM"
+  }, {
+    "expression" : "t1.`TRIGGER_CODE`",
+    "name" : "TRIGGER_CODE"
+  }, {
+    "expression" : "t1.`TRIGGER_MSG`",
+    "name" : "TRIGGER_MSG"
+  }, {
+    "expression" : "t1.`TRIGGER_TYPE`",
+    "name" : "TRIGGER_TYPE"
+  }, {
+    "expression" : "t1.`ID`",
+    "name" : "ID"
+  } ],
+  "queryCode" : "SELECT\nt1.`ID`\nFROM `JOBS_LOG2` t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

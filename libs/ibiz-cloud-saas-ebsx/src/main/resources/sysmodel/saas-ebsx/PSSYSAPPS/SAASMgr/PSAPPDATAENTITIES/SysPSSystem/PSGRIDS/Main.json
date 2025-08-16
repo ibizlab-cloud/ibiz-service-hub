@@ -1,0 +1,196 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统名称",
+    "codeName" : "pssystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pssystemname",
+    "excelCaption" : "系统名称",
+    "name" : "pssystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMNAME",
+      "codeName" : "PSSystemName"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统标识",
+    "codeName" : "pssystemid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "pssystemid",
+    "excelCaption" : "系统标识",
+    "name" : "pssystemid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    },
+    "width" : 300,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "远程模型仓库",
+    "codeName" : "remotesysmodel",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "remotesysmodel",
+    "excelCaption" : "远程模型仓库",
+    "name" : "remotesysmodel",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "REMOTESYSMODEL",
+      "codeName" : "RemoteSysModel"
+    },
+    "width" : 100,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "校验",
+    "codeName" : "md5check",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "md5check",
+    "excelCaption" : "校验",
+    "name" : "md5check",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MD5CHECK",
+      "codeName" : "MD5Check"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "pssystemname",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMNAME",
+      "codeName" : "PSSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "pssystemid",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "remotesysmodel",
+    "getPSAppDEField" : {
+      "name" : "REMOTESYSMODEL",
+      "codeName" : "RemoteSysModel"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "md5check",
+    "getPSAppDEField" : {
+      "name" : "MD5CHECK",
+      "codeName" : "MD5Check"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMNAME",
+      "codeName" : "PSSystemName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "系统标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "7bd03bf467d3002c30085a90008ee35c",
+  "modeltype" : "PSDEGRID"
+}

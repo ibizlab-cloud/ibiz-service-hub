@@ -1,0 +1,7 @@
+{
+  "codeName" : "log",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/log.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/log",
+  "name" : "log",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/log"
+}

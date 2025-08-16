@@ -1,0 +1,49 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACCESSID",
+    "name" : "ACCESSID"
+  }, {
+    "expression" : "t1.ACCESSNAME",
+    "name" : "ACCESSNAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.ISBINDING",
+    "name" : "ISBINDING"
+  }, {
+    "expression" : "t1.OPENDEPTCODE",
+    "name" : "OPENDEPTCODE"
+  }, {
+    "expression" : "t1.OPENDEPTID",
+    "name" : "OPENDEPTID"
+  }, {
+    "expression" : "t1.OPENDEPTNAME",
+    "name" : "OPENDEPTNAME"
+  }, {
+    "expression" : "t1.OPEN_TYPE",
+    "name" : "OPEN_TYPE"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.REALID",
+    "name" : "REALID"
+  }, {
+    "expression" : "t1.SYSDEPTID",
+    "name" : "SYSDEPTID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.ACCESSID,\nt1.ACCESSNAME,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.ISBINDING,\nt1.OPENDEPTCODE,\nt1.OPENDEPTID,\nt1.OPENDEPTNAME,\nt1.OPEN_TYPE,\nt1.ORGID,\nt1.REALID,\nt1.SYSDEPTID,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZOPENDEPT t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

@@ -1,0 +1,7 @@
+{
+  "codeName" : "task",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPMODULES/task.json",
+  "mOSFilePath" : "pssysapps/DCMgr/psappmodules/task",
+  "name" : "task",
+  "rTMOSFilePath" : "pssysapps/DCMgr/psappmodules/task"
+}

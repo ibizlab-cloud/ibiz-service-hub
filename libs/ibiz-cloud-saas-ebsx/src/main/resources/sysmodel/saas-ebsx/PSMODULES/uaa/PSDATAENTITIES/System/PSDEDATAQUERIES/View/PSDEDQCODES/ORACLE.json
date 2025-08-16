@@ -1,0 +1,52 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPS",
+    "name" : "APPS"
+  }, {
+    "expression" : "t1.IPADRESS",
+    "name" : "IPADRESS"
+  }, {
+    "expression" : "t1.JOBPORT",
+    "name" : "JOBPORT"
+  }, {
+    "expression" : "t1.MD5CHECK",
+    "name" : "MD5CHECK"
+  }, {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.PSSYSTEMNAME",
+    "name" : "PSSYSTEMNAME"
+  }, {
+    "expression" : "t1.REALPSDEVSLNSYSID",
+    "name" : "REALPSDEVSLNSYSID"
+  }, {
+    "expression" : "t1.REMOTESYSMODEL",
+    "name" : "REMOTESYSMODEL"
+  }, {
+    "expression" : "t1.REMOTESYSMODELBRANCH",
+    "name" : "REMOTESYSMODELBRANCH"
+  }, {
+    "expression" : "t1.REMOTESYSMODELPATH",
+    "name" : "REMOTESYSMODELPATH"
+  }, {
+    "expression" : "t1.REMOTESYSMODELPWD",
+    "name" : "REMOTESYSMODELPWD"
+  }, {
+    "expression" : "t1.REMOTESYSMODELUSER",
+    "name" : "REMOTESYSMODELUSER"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.SYSMODEL",
+    "name" : "SYSMODEL"
+  }, {
+    "expression" : "t1.SYSSTRUCTURE",
+    "name" : "SYSSTRUCTURE"
+  } ],
+  "queryCode" : "SELECT\nt1.APPS,\nt1.IPADRESS,\nt1.JOBPORT,\nt1.MD5CHECK,\nt1.PSSYSTEMID,\nt1.PSSYSTEMNAME,\nt1.REALPSDEVSLNSYSID,\nt1.REMOTESYSMODEL,\nt1.REMOTESYSMODELBRANCH,\nt1.REMOTESYSMODELPATH,\nt1.REMOTESYSMODELPWD,\nt1.REMOTESYSMODELUSER,\nt1.SHOWORDER,\nt1.SYSMODEL,\nt1.SYSSTRUCTURE\nFROM IBZPSSYSTEM t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+}

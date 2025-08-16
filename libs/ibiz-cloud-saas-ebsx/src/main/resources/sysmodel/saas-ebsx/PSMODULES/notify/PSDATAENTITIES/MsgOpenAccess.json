@@ -1,0 +1,2182 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "Id"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "Id"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZOPENACCESS",
+    "tableName" : "IBZOPENACCESS",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`IBZOPENACCESS`",
+    "tableName" : "IBZOPENACCESS",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[IBZOPENACCESS]",
+    "tableName" : "IBZOPENACCESS",
+    "valid" : true
+  }, {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZOPENACCESS",
+    "tableName" : "IBZOPENACCESS",
+    "valid" : true
+  }, {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "IBZOPENACCESS",
+    "tableName" : "IBZOPENACCESS",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    }, {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    }, {
+      "name" : "OPEN_TYPE",
+      "codeName" : "OpenType"
+    }, {
+      "name" : "ACCESS_KEY",
+      "codeName" : "AccessKey"
+    }, {
+      "name" : "SECRET_KEY",
+      "codeName" : "SecretKey"
+    }, {
+      "name" : "REGION_ID",
+      "codeName" : "RegionId"
+    }, {
+      "name" : "ACCESS_TOKEN",
+      "codeName" : "AccessToken"
+    }, {
+      "name" : "EXPIRES_TIME",
+      "codeName" : "ExpiresTime"
+    }, {
+      "name" : "DISABLED",
+      "codeName" : "Disabled"
+    }, {
+      "name" : "REDIRECT_URI",
+      "codeName" : "RedirectUri"
+    }, {
+      "name" : "NOTIFY_URL",
+      "codeName" : "NotifyUri"
+    }, {
+      "name" : "AGENT_ID",
+      "codeName" : "AgentId"
+    } ],
+    "codeName" : "Table",
+    "name" : "IBZOPENACCESS",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "IBZOPENACCESS"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDRGROUPS/Auto1.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "MSG_OPEN_ACCESS"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "MSG_OPEN_ACCESS"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "MsgOpenAccessDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESSID",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.`ACCESSID`",
+      "standardColumnName" : "`ACCESSID`"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESSID",
+      "standardColumnName" : "[ACCESSID]"
+    }, {
+      "columnName" : "ACCESSID",
+      "dBType" : "ORACLE",
+      "name" : "ACCESSID",
+      "queryCodeExp" : "t1.ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    }, {
+      "columnName" : "ACCESSID",
+      "name" : "ACCESSID",
+      "standardColumnName" : "ACCESSID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACCESSID_EQ",
+      "name" : "N_ACCESSID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ACCESSID][开放平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ACCESSID][开放平台接入标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESSID][开放平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "SPAN",
+        "name" : "[ACCESSID][开放平台接入标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESSID][开放平台接入标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ACCESSID][开放平台接入标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESSID][开放平台接入标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "SPAN",
+        "name" : "[ACCESSID][开放平台接入标识]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESSID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Id",
+    "dEFType" : 1,
+    "dataType" : "GUID",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "开放应用",
+    "name" : "ACCESSID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESSID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.`ACCESSNAME`",
+      "standardColumnName" : "`ACCESSNAME`"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESSNAME",
+      "standardColumnName" : "[ACCESSNAME]"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "dBType" : "ORACLE",
+      "name" : "ACCESSNAME",
+      "queryCodeExp" : "t1.ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    }, {
+      "columnName" : "ACCESSNAME",
+      "name" : "ACCESSNAME",
+      "standardColumnName" : "ACCESSNAME"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACCESSNAME_LIKE",
+      "name" : "N_ACCESSNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESSNAME][开放平台]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACCESSNAME][开放平台]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESSNAME][开放平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESSNAME][开放平台]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACCESSNAME][开放平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESSNAME][开放平台]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESSNAME][开放平台]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESSNAME][开放平台]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "allowEmpty" : false
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESSNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Name",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "应用名称",
+    "name" : "ACCESSNAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESSNAME"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "OPEN_TYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "OPEN_TYPE",
+      "queryCodeExp" : "t1.OPEN_TYPE",
+      "standardColumnName" : "OPEN_TYPE"
+    }, {
+      "columnName" : "OPEN_TYPE",
+      "dBType" : "MYSQL5",
+      "name" : "OPEN_TYPE",
+      "queryCodeExp" : "t1.`OPEN_TYPE`",
+      "standardColumnName" : "`OPEN_TYPE`"
+    }, {
+      "columnName" : "OPEN_TYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "OPEN_TYPE",
+      "standardColumnName" : "[OPEN_TYPE]"
+    }, {
+      "columnName" : "OPEN_TYPE",
+      "dBType" : "ORACLE",
+      "name" : "OPEN_TYPE",
+      "queryCodeExp" : "t1.OPEN_TYPE",
+      "standardColumnName" : "OPEN_TYPE"
+    }, {
+      "columnName" : "OPEN_TYPE",
+      "name" : "OPEN_TYPE",
+      "standardColumnName" : "OPEN_TYPE"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_OPEN_TYPE_EQ",
+      "name" : "N_OPEN_TYPE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode",
+      "name" : "[OPEN_TYPE][开放平台类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[OPEN_TYPE][开放平台类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[OPEN_TYPE][开放平台类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[OPEN_TYPE][开放平台类型]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[OPEN_TYPE][开放平台类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[OPEN_TYPE][开放平台类型]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[OPEN_TYPE][开放平台类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[OPEN_TYPE][开放平台类型]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "OPEN_TYPE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "OpenType",
+    "dEFType" : 1,
+    "dataType" : "SSCODELIST",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "开放平台类型",
+    "name" : "OPEN_TYPE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "OPEN_TYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESS_KEY",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESS_KEY",
+      "queryCodeExp" : "t1.ACCESS_KEY",
+      "standardColumnName" : "ACCESS_KEY"
+    }, {
+      "columnName" : "ACCESS_KEY",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESS_KEY",
+      "queryCodeExp" : "t1.`ACCESS_KEY`",
+      "standardColumnName" : "`ACCESS_KEY`"
+    }, {
+      "columnName" : "ACCESS_KEY",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESS_KEY",
+      "standardColumnName" : "[ACCESS_KEY]"
+    }, {
+      "columnName" : "ACCESS_KEY",
+      "dBType" : "ORACLE",
+      "name" : "ACCESS_KEY",
+      "queryCodeExp" : "t1.ACCESS_KEY",
+      "standardColumnName" : "ACCESS_KEY"
+    }, {
+      "columnName" : "ACCESS_KEY",
+      "name" : "ACCESS_KEY",
+      "standardColumnName" : "ACCESS_KEY"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_KEY][AccessKey(AppId)]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESS_KEY][AccessKey(AppId)]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACCESS_KEY][AccessKey(AppId)]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESS_KEY",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AccessKey",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "AccessKey(AppId)",
+    "name" : "ACCESS_KEY",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESS_KEY"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SECRET_KEY",
+      "dBType" : "POSTGRESQL",
+      "name" : "SECRET_KEY",
+      "queryCodeExp" : "t1.SECRET_KEY",
+      "standardColumnName" : "SECRET_KEY"
+    }, {
+      "columnName" : "SECRET_KEY",
+      "dBType" : "MYSQL5",
+      "name" : "SECRET_KEY",
+      "queryCodeExp" : "t1.`SECRET_KEY`",
+      "standardColumnName" : "`SECRET_KEY`"
+    }, {
+      "columnName" : "SECRET_KEY",
+      "dBType" : "SQLSERVER",
+      "name" : "SECRET_KEY",
+      "standardColumnName" : "[SECRET_KEY]"
+    }, {
+      "columnName" : "SECRET_KEY",
+      "dBType" : "ORACLE",
+      "name" : "SECRET_KEY",
+      "queryCodeExp" : "t1.SECRET_KEY",
+      "standardColumnName" : "SECRET_KEY"
+    }, {
+      "columnName" : "SECRET_KEY",
+      "name" : "SECRET_KEY",
+      "standardColumnName" : "SECRET_KEY"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[SECRET_KEY][SecretKey(AppSecret)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SECRET_KEY][SecretKey(AppSecret)]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[SECRET_KEY][SecretKey(AppSecret)]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SECRET_KEY",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "SecretKey",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "SecretKey(AppSecret)",
+    "name" : "SECRET_KEY",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SECRET_KEY"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "REGION_ID",
+      "dBType" : "POSTGRESQL",
+      "name" : "REGION_ID",
+      "queryCodeExp" : "t1.REGION_ID",
+      "standardColumnName" : "REGION_ID"
+    }, {
+      "columnName" : "REGION_ID",
+      "dBType" : "MYSQL5",
+      "name" : "REGION_ID",
+      "queryCodeExp" : "t1.`REGION_ID`",
+      "standardColumnName" : "`REGION_ID`"
+    }, {
+      "columnName" : "REGION_ID",
+      "dBType" : "SQLSERVER",
+      "name" : "REGION_ID",
+      "standardColumnName" : "[REGION_ID]"
+    }, {
+      "columnName" : "REGION_ID",
+      "dBType" : "ORACLE",
+      "name" : "REGION_ID",
+      "queryCodeExp" : "t1.REGION_ID",
+      "standardColumnName" : "REGION_ID"
+    }, {
+      "columnName" : "REGION_ID",
+      "name" : "REGION_ID",
+      "standardColumnName" : "REGION_ID"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[REGION_ID][RegionId]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[REGION_ID][RegionId]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[REGION_ID][RegionId]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[REGION_ID][RegionId]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[REGION_ID][RegionId（CorpId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[REGION_ID][RegionId（CorpId)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[REGION_ID][RegionId（CorpId)]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[REGION_ID][RegionId（CorpId)]",
+        "stringLength" : 100,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "REGION_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "RegionId",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "RegionId（CorpId)",
+    "name" : "REGION_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "REGION_ID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACCESS_TOKEN",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACCESS_TOKEN",
+      "queryCodeExp" : "t1.ACCESS_TOKEN",
+      "standardColumnName" : "ACCESS_TOKEN"
+    }, {
+      "columnName" : "ACCESS_TOKEN",
+      "dBType" : "MYSQL5",
+      "name" : "ACCESS_TOKEN",
+      "queryCodeExp" : "t1.`ACCESS_TOKEN`",
+      "standardColumnName" : "`ACCESS_TOKEN`"
+    }, {
+      "columnName" : "ACCESS_TOKEN",
+      "dBType" : "SQLSERVER",
+      "name" : "ACCESS_TOKEN",
+      "standardColumnName" : "[ACCESS_TOKEN]"
+    }, {
+      "columnName" : "ACCESS_TOKEN",
+      "dBType" : "ORACLE",
+      "name" : "ACCESS_TOKEN",
+      "queryCodeExp" : "t1.ACCESS_TOKEN",
+      "standardColumnName" : "ACCESS_TOKEN"
+    }, {
+      "columnName" : "ACCESS_TOKEN",
+      "name" : "ACCESS_TOKEN",
+      "standardColumnName" : "ACCESS_TOKEN"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACCESS_TOKEN][管理账号token]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACCESS_TOKEN][管理账号token]移动端默认",
+        "stringLength" : 1000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[ACCESS_TOKEN][管理账号token]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_TOKEN][管理账号token]",
+        "stringLength" : 1000,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[ACCESS_TOKEN][管理账号token]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_TOKEN][管理账号token]",
+        "stringLength" : 1000,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACCESS_TOKEN][管理账号token]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACCESS_TOKEN][管理账号token]",
+        "stringLength" : 1000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACCESS_TOKEN",
+          "maxValue" : 1000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AccessToken",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 1000,
+    "logicName" : "管理账号token",
+    "name" : "ACCESS_TOKEN",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACCESS_TOKEN"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 1000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "EXPIRES_TIME",
+      "dBType" : "POSTGRESQL",
+      "name" : "EXPIRES_TIME",
+      "queryCodeExp" : "t1.EXPIRES_TIME",
+      "standardColumnName" : "EXPIRES_TIME"
+    }, {
+      "columnName" : "EXPIRES_TIME",
+      "dBType" : "MYSQL5",
+      "name" : "EXPIRES_TIME",
+      "queryCodeExp" : "t1.`EXPIRES_TIME`",
+      "standardColumnName" : "`EXPIRES_TIME`"
+    }, {
+      "columnName" : "EXPIRES_TIME",
+      "dBType" : "SQLSERVER",
+      "name" : "EXPIRES_TIME",
+      "standardColumnName" : "[EXPIRES_TIME]"
+    }, {
+      "columnName" : "EXPIRES_TIME",
+      "dBType" : "ORACLE",
+      "name" : "EXPIRES_TIME",
+      "queryCodeExp" : "t1.EXPIRES_TIME",
+      "standardColumnName" : "EXPIRES_TIME"
+    }, {
+      "columnName" : "EXPIRES_TIME",
+      "name" : "EXPIRES_TIME",
+      "standardColumnName" : "EXPIRES_TIME"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[EXPIRES_TIME][管理账号token过期时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[EXPIRES_TIME][管理账号token过期时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "DATEPICKER",
+        "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+        "uIMode" : "CUSTOM",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "DATEPICKER",
+        "name" : "[EXPIRES_TIME][管理账号token过期时间]",
+        "uIMode" : "CUSTOM",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ExpiresTime",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "logicName" : "管理账号token过期时间",
+    "name" : "EXPIRES_TIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "EXPIRES_TIME"
+    },
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DISABLED",
+      "dBType" : "POSTGRESQL",
+      "name" : "DISABLED",
+      "queryCodeExp" : "t1.DISABLED",
+      "standardColumnName" : "DISABLED",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DISABLED",
+      "dBType" : "MYSQL5",
+      "name" : "DISABLED",
+      "queryCodeExp" : "t1.`DISABLED`",
+      "standardColumnName" : "`DISABLED`",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DISABLED",
+      "dBType" : "SQLSERVER",
+      "name" : "DISABLED",
+      "standardColumnName" : "[DISABLED]",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DISABLED",
+      "dBType" : "ORACLE",
+      "name" : "DISABLED",
+      "queryCodeExp" : "t1.DISABLED",
+      "standardColumnName" : "DISABLED",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "DISABLED",
+      "name" : "DISABLED",
+      "standardColumnName" : "DISABLED",
+      "valueAutoGen" : true
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[DISABLED][是否禁用]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBSWITCH",
+        "name" : "[DISABLED][是否禁用]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[DISABLED][是否禁用]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "DROPDOWNLIST_100",
+        "name" : "[DISABLED][是否禁用]",
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[DISABLED][是否禁用]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST_100",
+        "name" : "[DISABLED][是否禁用]",
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[DISABLED][是否禁用]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "DROPDOWNLIST_100",
+        "name" : "[DISABLED][是否禁用]",
+        "uIMode" : "CUSTOM",
+        "needCodeListConfig" : true
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Disabled",
+    "dEFType" : 1,
+    "dataType" : "YESNO",
+    "defaultValue" : "0",
+    "importOrder" : 1000,
+    "logicName" : "是否禁用",
+    "name" : "DISABLED",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DISABLED"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "REDIRECT_URI",
+      "dBType" : "POSTGRESQL",
+      "name" : "REDIRECT_URI",
+      "queryCodeExp" : "t1.REDIRECT_URI",
+      "standardColumnName" : "REDIRECT_URI"
+    }, {
+      "columnName" : "REDIRECT_URI",
+      "dBType" : "MYSQL5",
+      "name" : "REDIRECT_URI",
+      "queryCodeExp" : "t1.`REDIRECT_URI`",
+      "standardColumnName" : "`REDIRECT_URI`"
+    }, {
+      "columnName" : "REDIRECT_URI",
+      "dBType" : "SQLSERVER",
+      "name" : "REDIRECT_URI",
+      "standardColumnName" : "[REDIRECT_URI]"
+    }, {
+      "columnName" : "REDIRECT_URI",
+      "dBType" : "ORACLE",
+      "name" : "REDIRECT_URI",
+      "queryCodeExp" : "t1.REDIRECT_URI",
+      "standardColumnName" : "REDIRECT_URI"
+    }, {
+      "columnName" : "REDIRECT_URI",
+      "name" : "REDIRECT_URI",
+      "standardColumnName" : "REDIRECT_URI"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "UIMode2",
+      "name" : "[REDIRECT_URI][RedirectURI]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[REDIRECT_URI][RedirectURI]",
+        "stringLength" : 500,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[REDIRECT_URI][RedirectURI]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[REDIRECT_URI][RedirectURI]",
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[REDIRECT_URI][RedirectURI]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[REDIRECT_URI][RedirectURI]移动端默认",
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[REDIRECT_URI][RedirectURI]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[REDIRECT_URI][RedirectURI]",
+        "stringLength" : 500,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "REDIRECT_URI",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "RedirectUri",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "RedirectURI",
+    "name" : "REDIRECT_URI",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "REDIRECT_URI"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "NOTIFY_URL",
+      "dBType" : "POSTGRESQL",
+      "name" : "NOTIFY_URL",
+      "queryCodeExp" : "t1.NOTIFY_URL",
+      "standardColumnName" : "NOTIFY_URL"
+    }, {
+      "columnName" : "NOTIFY_URL",
+      "dBType" : "MYSQL5",
+      "name" : "NOTIFY_URL",
+      "queryCodeExp" : "t1.`NOTIFY_URL`",
+      "standardColumnName" : "`NOTIFY_URL`"
+    }, {
+      "columnName" : "NOTIFY_URL",
+      "dBType" : "SQLSERVER",
+      "name" : "NOTIFY_URL",
+      "standardColumnName" : "[NOTIFY_URL]"
+    }, {
+      "columnName" : "NOTIFY_URL",
+      "dBType" : "ORACLE",
+      "name" : "NOTIFY_URL",
+      "queryCodeExp" : "t1.NOTIFY_URL",
+      "standardColumnName" : "NOTIFY_URL"
+    }, {
+      "columnName" : "NOTIFY_URL",
+      "name" : "NOTIFY_URL",
+      "standardColumnName" : "NOTIFY_URL"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[NOTIFY_URL][NotifyUrl]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[NOTIFY_URL][NotifyUrl]移动端默认",
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[NOTIFY_URL][NotifyUrl]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[NOTIFY_URL][NotifyUrl]",
+        "stringLength" : 500,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[NOTIFY_URL][NotifyUrl]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[NOTIFY_URL][NotifyUrl]",
+        "stringLength" : 500,
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[NOTIFY_URL][NotifyUrl]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[NOTIFY_URL][NotifyUrl]",
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "NOTIFY_URL",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "NotifyUri",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "NotifyUrl",
+    "name" : "NOTIFY_URL",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "NOTIFY_URL"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "AGENT_ID",
+      "dBType" : "POSTGRESQL",
+      "name" : "AGENT_ID",
+      "queryCodeExp" : "t1.AGENT_ID",
+      "standardColumnName" : "AGENT_ID"
+    }, {
+      "columnName" : "AGENT_ID",
+      "dBType" : "MYSQL5",
+      "name" : "AGENT_ID",
+      "queryCodeExp" : "t1.`AGENT_ID`",
+      "standardColumnName" : "`AGENT_ID`"
+    }, {
+      "columnName" : "AGENT_ID",
+      "dBType" : "SQLSERVER",
+      "name" : "AGENT_ID",
+      "standardColumnName" : "[AGENT_ID]"
+    }, {
+      "columnName" : "AGENT_ID",
+      "dBType" : "ORACLE",
+      "name" : "AGENT_ID",
+      "queryCodeExp" : "t1.AGENT_ID",
+      "standardColumnName" : "AGENT_ID"
+    }, {
+      "columnName" : "AGENT_ID",
+      "name" : "AGENT_ID",
+      "standardColumnName" : "AGENT_ID"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[AGENT_ID][AGENT_ID]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[AGENT_ID][AGENT_ID]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "UIMode2",
+      "name" : "[AGENT_ID][AGENT_ID]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode2",
+        "editorType" : "TEXTBOX",
+        "name" : "[AGENT_ID][AGENT_ID]",
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    }, {
+      "codeName" : "Default",
+      "name" : "[AGENT_ID][AGENT_ID]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[AGENT_ID][AGENT_ID]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "UIMode",
+      "name" : "[AGENT_ID][AGENT_ID]",
+      "getPSDEFFormItem" : {
+        "codeName" : "UIMode",
+        "editorType" : "TEXTBOX",
+        "name" : "[AGENT_ID][AGENT_ID]",
+        "uIMode" : "CUSTOM"
+      },
+      "type" : "CUSTOM"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AgentId",
+    "dEFType" : 1,
+    "dataType" : "BIGINT",
+    "importOrder" : 1000,
+    "logicName" : "AGENT_ID",
+    "name" : "AGENT_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "AGENT_ID"
+    },
+    "stdDataType" : 1,
+    "valueFormat" : "%1$s"
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "MsgOpenAccessDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "开放应用",
+      "name" : "Id",
+      "getPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "Id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "应用名称",
+      "name" : "Name",
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "Name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "开放平台类型",
+      "name" : "OpenType",
+      "getPSDEField" : {
+        "name" : "OPEN_TYPE",
+        "codeName" : "OpenType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "AccessKey(AppId)",
+      "name" : "AccessKey",
+      "getPSDEField" : {
+        "name" : "ACCESS_KEY",
+        "codeName" : "AccessKey"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "SecretKey(AppSecret)",
+      "name" : "SecretKey",
+      "getPSDEField" : {
+        "name" : "SECRET_KEY",
+        "codeName" : "SecretKey"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "RegionId（CorpId)",
+      "name" : "RegionId",
+      "getPSDEField" : {
+        "name" : "REGION_ID",
+        "codeName" : "RegionId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "管理账号token",
+      "name" : "AccessToken",
+      "getPSDEField" : {
+        "name" : "ACCESS_TOKEN",
+        "codeName" : "AccessToken"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 1000,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "管理账号token过期时间",
+      "name" : "ExpiresTime",
+      "getPSDEField" : {
+        "name" : "EXPIRES_TIME",
+        "codeName" : "ExpiresTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "是否禁用",
+      "name" : "Disabled",
+      "getPSDEField" : {
+        "name" : "DISABLED",
+        "codeName" : "Disabled"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "RedirectURI",
+      "name" : "RedirectUri",
+      "getPSDEField" : {
+        "name" : "REDIRECT_URI",
+        "codeName" : "RedirectUri"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "NotifyUrl",
+      "name" : "NotifyUri",
+      "getPSDEField" : {
+        "name" : "NOTIFY_URL",
+        "codeName" : "NotifyUri"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "AGENT_ID",
+      "name" : "AgentId",
+      "getPSDEField" : {
+        "name" : "AGENT_ID",
+        "codeName" : "AgentId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 1,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "MsgOpenAccessFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "开放应用",
+      "name" : "N_ACCESSID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACCESSID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "Id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "应用名称",
+      "name" : "N_ACCESSNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACCESSNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "Name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "开放平台类型",
+      "name" : "N_OPEN_TYPE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_OPEN_TYPE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "OPEN_TYPE",
+        "codeName" : "OpenType"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "EditView",
+    "logicName" : "接入开放平台实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "接入开放平台实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "接入开放平台实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "接入开放平台实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "接入开放平台实体选择表格视图（部件视图）",
+    "name" : "接入开放平台实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "接入开放平台实体编辑视图（左右关系）",
+    "name" : "接入开放平台实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "接入开放平台实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "接入开放平台实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView",
+    "logicName" : "接入开放平台实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "接入开放平台实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "MPickupView",
+    "logicName" : "接入开放平台实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "接入开放平台实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "MsgOpenAccess",
+  "dEType" : 1,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "MsgOpenAccessFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "MsgOpenAccessDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "ACCESSID",
+    "codeName" : "Id"
+  },
+  "logicName" : "接入开放平台",
+  "getMajorPSDEField" : {
+    "name" : "ACCESSNAME",
+    "codeName" : "Name"
+  },
+  "getMajorPSDERs" : [ {
+    "codeName" : "OpenAccess",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate/PSDERS/DER1N_MSG_TEMPLATE_MSG_OPEN_ACCESS_ACCESSID.json",
+    "fKeyName" : "FECE93947F061CF841",
+    "logicName" : "接入平台",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgOpenAccess.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json"
+    },
+    "name" : "DER1N_MSG_TEMPLATE_MSG_OPEN_ACCESS_ACCESSID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "AccessId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "AccessName"
+    },
+    "pickupDEFName" : "ACCESSID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "OpenAccess"
+  } ],
+  "name" : "MSG_OPEN_ACCESS",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "saaSDCIdColumnName" : "SRFDCID",
+  "saaSDataIdColumnName" : "SRFID",
+  "saaSMode" : 4,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "MsgOpenAccess",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "IBZOPENACCESS",
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : true,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

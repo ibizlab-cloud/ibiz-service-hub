@@ -1,0 +1,36 @@
+{
+  "codeListTag" : "lite__DstSystemList",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "DstSystemList",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/lite/PSCODELISTS/DstSystemList.json",
+  "emptyText" : "未定义",
+  "name" : "DstSystemList",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstSystem.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "getTextPSDEField" : {
+    "name" : "PSSYSTEMNAME",
+    "codeName" : "PSSystemName"
+  },
+  "getValuePSDEField" : {
+    "name" : "PSSYSTEMID",
+    "codeName" : "PSSystemId"
+  },
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

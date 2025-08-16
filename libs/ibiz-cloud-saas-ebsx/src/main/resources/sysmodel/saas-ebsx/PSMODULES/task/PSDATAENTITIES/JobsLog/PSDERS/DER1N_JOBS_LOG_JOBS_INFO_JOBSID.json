@@ -1,0 +1,31 @@
+{
+  "codeName" : "JOBS",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/task/PSDATAENTITIES/JobsLog/PSDERS/DER1N_JOBS_LOG_JOBS_INFO_JOBSID.json",
+  "fKeyName" : "F2F62FFC5F4B40BF18",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task/PSDATAENTITIES/JobsLog.json"
+  },
+  "name" : "DER1N_JOBS_LOG_JOBS_INFO_JOBSID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "JOB_ID",
+    "codeName" : "JobId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "HANDLER",
+    "codeName" : "Handler"
+  },
+  "pickupDEFName" : "JOBSID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "JOBS",
+  "enableFKey" : true
+}

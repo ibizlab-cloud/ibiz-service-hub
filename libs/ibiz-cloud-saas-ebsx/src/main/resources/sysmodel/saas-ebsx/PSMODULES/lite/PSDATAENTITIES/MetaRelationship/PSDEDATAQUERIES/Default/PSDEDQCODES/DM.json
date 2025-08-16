@@ -1,0 +1,46 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.LOOKUP",
+    "name" : "LOOKUP"
+  }, {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.ENTITYNAME",
+    "name" : "ENTITYNAME"
+  }, {
+    "expression" : "t1.NESTEDNAME",
+    "name" : "NESTEDNAME"
+  }, {
+    "expression" : "t1.REFENTITYID",
+    "name" : "REFENTITYID"
+  }, {
+    "expression" : "t1.REFENTITYNAME",
+    "name" : "REFENTITYNAME"
+  }, {
+    "expression" : "t1.RELATIONID",
+    "name" : "RELATIONID"
+  }, {
+    "expression" : "t1.RELATIONNAME",
+    "name" : "RELATIONNAME"
+  }, {
+    "expression" : "t1.RELTYPE",
+    "name" : "RELTYPE"
+  }, {
+    "expression" : "t11.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.CODENAME,\nt1.CREATEDATE,\nt1.ENTITYID,\nt1.ENTITYNAME,\nt1.NESTEDNAME,\nt1.REFENTITYID,\nt1.REFENTITYNAME,\nt1.RELATIONID,\nt1.RELATIONNAME,\nt1.RELTYPE,\nt11.SYSTEMID,\nt1.UPDATEDATE\nFROM IBZRELATION t1 \nLEFT JOIN IBZENTITY t11 ON t1.ENTITYID = t11.ENTITYID \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDEDATAQUERIES/Default/PSDEDQCODES/DM.json"
+}

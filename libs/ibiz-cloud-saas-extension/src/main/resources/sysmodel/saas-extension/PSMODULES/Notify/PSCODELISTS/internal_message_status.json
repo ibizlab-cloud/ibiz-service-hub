@@ -1,0 +1,52 @@
+{
+  "codeListTag" : "Notify__internal_message_status",
+  "codeListType" : "STATIC",
+  "codeName" : "internal_message_status",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/Notify/PSCODELISTS/internal_message_status.json",
+  "emptyText" : "未定义",
+  "name" : "内部消息状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "sent",
+    "memo" : "表示消息已成功发送，但尚未被接收者阅读",
+    "text" : "已发送",
+    "value" : "SENT"
+  }, {
+    "codeName" : "received",
+    "text" : "已接收",
+    "value" : "RECEIVED"
+  }, {
+    "codeName" : "read",
+    "text" : "已阅读",
+    "value" : "READ"
+  }, {
+    "codeName" : "not_sent",
+    "text" : "未发送",
+    "value" : "NOT_SENT"
+  }, {
+    "codeName" : "send_failed",
+    "text" : "发送失败",
+    "value" : "SEND_FAILED"
+  }, {
+    "codeName" : "replied",
+    "memo" : "表示消息已被接收者回复",
+    "text" : "已回复",
+    "value" : "REPLIED"
+  }, {
+    "codeName" : "deleted",
+    "memo" : "表示消息已被发送者或接收者删除",
+    "text" : "已删除",
+    "value" : "DELETED"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

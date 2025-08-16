@@ -1,0 +1,187 @@
+{
+  "name" : "iBizSAAS管理平台",
+  "getAllPSAppDEUIActionGroups" : [ {
+    "codeName" : "Auto7",
+    "name" : "安装实例数据",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysDynaInst.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "安装实例数据",
+      "detailType" : "DEUIACTION",
+      "name" : "ufcb0d5c",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "安装实例数据",
+        "codeName" : "InstallDyanInst",
+        "confirmMsg" : "将自动初始化动态实例模型中配置的相关数据",
+        "fullCodeName" : "SysDynaInst_InstallDyanInst",
+        "name" : "安装实例数据",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "InstallDynaInst"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysDynaInst.json"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf1b2@FontAwesome",
+          "cssClass" : "fa fa-cube"
+        },
+        "successMsg" : "安装实例数据成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "InstallDyanInst",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "InstallDyanInst@SysDynaInst"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "SysDynaInst__Auto7"
+  }, {
+    "codeName" : "Auto1",
+    "name" : "发布动态模型",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "发布模型",
+      "detailType" : "DEUIACTION",
+      "name" : "u8fea97f",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "发布模型",
+        "codeName" : "publish",
+        "fullCodeName" : "MetaDynaModel_publish",
+        "name" : "发布动态模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Publish"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+        },
+        "refreshMode" : 1,
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "publish",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "reloadData" : true,
+        "id" : "publish@MetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "同步模型",
+      "detailType" : "DEUIACTION",
+      "name" : "u95a5ba2",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "同步模型",
+        "codeName" : "syncModel",
+        "fullCodeName" : "MetaDynaModel_syncModel",
+        "name" : "同步模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "SyncModel"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/MetaDynaModel.json"
+        },
+        "successMsg" : "同步模型成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "syncModel",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "syncModel@MetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "MetaDynaModel__Auto1"
+  }, {
+    "codeName" : "Auto1",
+    "name" : "发布动态模型",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCMetaDynaModel.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "发布模型",
+      "detailType" : "DEUIACTION",
+      "name" : "ue59b944",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "发布模型",
+        "codeName" : "publish",
+        "fullCodeName" : "DCMetaDynaModel_publish",
+        "name" : "发布动态模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "Publish"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCMetaDynaModel.json"
+        },
+        "refreshMode" : 1,
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "publish",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "reloadData" : true,
+        "id" : "publish@DCMetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "同步模型",
+      "detailType" : "DEUIACTION",
+      "name" : "ub46e553",
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "同步模型",
+        "codeName" : "syncModel",
+        "fullCodeName" : "DCMetaDynaModel_syncModel",
+        "name" : "同步模型",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "SyncModel"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/DCMetaDynaModel.json"
+        },
+        "successMsg" : "同步模型成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "syncModel",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "syncModel@DCMetaDynaModel"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "DCMetaDynaModel__Auto1"
+  } ],
+  "getAllPSDEDRControls" : [ ],
+  "getAllPSControls" : [ ],
+  "getAllPSAppViewRefs" : [ ],
+  "id" : "PSSYSAPPS/SAASMgr/PSSYSAPP.json"
+}

@@ -1,0 +1,30 @@
+{
+  "codeName" : "Org",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDERS/DER1N_SYS_EMP_SYS_ORG_ORGID.json",
+  "fKeyName" : "F5F1BC61C4BBEE09DC",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "name" : "DER1N_SYS_EMP_SYS_ORG_ORGID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ORGNAME",
+    "codeName" : "OrgName"
+  },
+  "pickupDEFName" : "ORGID",
+  "removeActionType" : 2,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Org"
+}

@@ -1,0 +1,794 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "CENTERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Init",
+    "methodType" : "DEACTION",
+    "name" : "Init",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/init",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitDefaultOpenAccess",
+    "methodType" : "DEACTION",
+    "name" : "InitDefaultOpenAccess",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/initdefaultopenaccess",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "FetchDefault",
+    "dataSetTag" : "Default",
+    "dataSetType" : "DATAQUERY",
+    "methodType" : "FETCH",
+    "name" : "DEFAULT",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "DefaultInput",
+      "name" : "DefaultInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "DefaultResult",
+      "name" : "DefaultResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "PAGE"
+    },
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "codeName" : "TPPRootUrl",
+    "logicName" : "第三方插件服务地址",
+    "name" : "TPPROOTURL",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "PortalUrl",
+    "logicName" : "门户地址",
+    "name" : "PORTALURL",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Domain",
+    "logicName" : "域名",
+    "name" : "DOMAINS",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "UpdateDate",
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "SysCenterId",
+    "logicName" : "租户标识",
+    "name" : "CENTERID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "codeName" : "CreateDate",
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "codeName" : "CenterName",
+    "logicName" : "租户名称",
+    "name" : "CENTERNAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "codeName" : "UpdateMan",
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "codeName" : "ExpirationDate",
+    "logicName" : "到期时间",
+    "name" : "EXPIRATIONDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD"
+  }, {
+    "codeName" : "CreateMan",
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "DCCenterDTO",
+    "name" : "DCCenterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "CenterName",
+      "logicName" : "租户名称",
+      "name" : "CenterName",
+      "getPSAppDEField" : {
+        "name" : "CENTERNAME",
+        "codeName" : "CenterName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "CreateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSAppDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSAppDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "Domain",
+      "logicName" : "域名",
+      "name" : "Domain",
+      "getPSAppDEField" : {
+        "name" : "DOMAINS",
+        "codeName" : "Domain"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "ExpirationDate",
+      "jsonFormat" : "yyyy-MM-dd",
+      "logicName" : "到期时间",
+      "name" : "ExpirationDate",
+      "getPSAppDEField" : {
+        "name" : "EXPIRATIONDATE",
+        "codeName" : "ExpirationDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "PortalUrl",
+      "logicName" : "门户地址",
+      "name" : "PortalUrl",
+      "getPSAppDEField" : {
+        "name" : "PORTALURL",
+        "codeName" : "PortalUrl"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "SysCenterId",
+      "logicName" : "租户标识",
+      "name" : "SysCenterId",
+      "getPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "TPPRootUrl",
+      "logicName" : "第三方插件服务地址",
+      "name" : "TPPRootUrl",
+      "getPSAppDEField" : {
+        "name" : "TPPROOTURL",
+        "codeName" : "TPPRootUrl"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "UpdateDate",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSAppDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSAppDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "DCCenterFilterDTO",
+    "name" : "DCCenterFilterDTO",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "N_CENTERID_EQ",
+      "logicName" : "租户标识",
+      "name" : "N_CENTERID_EQ",
+      "getPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "N_CENTERNAME_LIKE",
+      "logicName" : "租户名称",
+      "name" : "N_CENTERNAME_LIKE",
+      "getPSAppDEField" : {
+        "name" : "CENTERNAME",
+        "codeName" : "CenterName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CheckKeyInput",
+      "name" : "CheckKeyInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CheckKeyResult",
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "CreateInput",
+      "name" : "CreateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "CreateResult",
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "READ",
+    "codeName" : "Get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestField" : "CENTERID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "codeName" : "GetDraft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/getdraft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "Init",
+    "methodType" : "DEACTION",
+    "name" : "Init",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/init",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "InitDefaultOpenAccess",
+    "methodType" : "DEACTION",
+    "name" : "InitDefaultOpenAccess",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/initdefaultopenaccess",
+    "builtinMethod" : false,
+    "needResourceKey" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "RemoveInput",
+      "getKeyPSAppDEField" : {
+        "name" : "CENTERID",
+        "codeName" : "SysCenterId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "RemoveResult",
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true,
+    "enableBatchAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "SaveInput",
+      "name" : "SaveInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "SaveResult",
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "UpdateInput",
+      "name" : "UpdateInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "UpdateResult",
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FetchDefault",
+    "dataSetTag" : "Default",
+    "dataSetType" : "DATAQUERY",
+    "methodType" : "FETCH",
+    "name" : "DEFAULT",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "DefaultInput",
+      "name" : "DefaultInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "DefaultResult",
+      "name" : "DefaultResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCCenterDTO"
+      },
+      "type" : "PAGE"
+    },
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  } ],
+  "getAllPSAppDEUIActions" : [ {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "编辑",
+    "codeName" : "OpenEditView",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCCenterEditView.json",
+      "viewType" : "DEEDITVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "SysCenter_OpenEditView",
+    "name" : "打开编辑",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysCenter.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf044@FontAwesome",
+      "cssClass" : "fa fa-edit"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "OpenEditView",
+    "uIActionType" : "DEUIACTION",
+    "id" : "OpenEditView@SysCenter"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "codeName" : "SysCenter",
+  "dEAPICodeName" : "syscenter",
+  "dEAPICodeName2" : "syscenters",
+  "dEAPITag" : "DC_CENTER",
+  "dECodeName" : "DCCenter",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysCenter.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "CENTERID",
+    "codeName" : "SysCenterId"
+  },
+  "logicName" : "机构中心",
+  "getMajorPSAppDEField" : {
+    "name" : "CENTERNAME",
+    "codeName" : "CenterName"
+  },
+  "name" : "DC_CENTER",
+  "getPSDEName" : "DC_CENTER",
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "CENTERNAME",
+    "codeName" : "CenterName"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "OldAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true,
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCCenter.json"
+  }
+}

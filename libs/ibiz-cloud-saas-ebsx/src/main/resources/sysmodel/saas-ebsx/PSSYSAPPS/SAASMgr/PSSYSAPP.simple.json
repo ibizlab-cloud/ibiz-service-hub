@@ -1,0 +1,373 @@
+{
+  "name" : "iBizSAAS管理平台",
+  "simple" : "true",
+  "title" : "iBizSAAS管理平台",
+  "caption" : "iBizSAAS管理平台",
+  "getAllPSAppDEUIActions" : [ {
+    "caption" : "取消变更",
+    "codeName" : "CancelChanges",
+    "fullCodeName" : "CancelChanges",
+    "name" : "取消变更",
+    "predefinedType" : "DATA_CANCELCHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CancelChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.COPY"
+    },
+    "caption" : "拷贝",
+    "codeName" : "Copy",
+    "fullCodeName" : "Copy",
+    "name" : "表格界面_拷贝操作",
+    "getPSSysImage" : {
+      "glyph" : "xf0c5@FontAwesome",
+      "cssClass" : "fa fa-copy"
+    },
+    "predefinedType" : "GRIDVIEW_COPYACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.COPY"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Copy",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "建立数据",
+    "codeName" : "CreateObject",
+    "fullCodeName" : "CreateObject",
+    "name" : "建立数据",
+    "predefinedType" : "DATA_CREATEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CreateObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "actionTarget" : "SINGLEKEY",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.EDIT"
+    },
+    "caption" : "编辑",
+    "codeName" : "Edit",
+    "fullCodeName" : "Edit",
+    "name" : "表格界面_编辑操作",
+    "getPSSysImage" : {
+      "glyph" : "xf044@FontAwesome",
+      "cssClass" : "fa fa-edit"
+    },
+    "predefinedType" : "GRIDVIEW_EDITACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.EDIT"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Edit",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.EDITVIEW.CLOSE"
+    },
+    "caption" : "关闭",
+    "codeName" : "Exit",
+    "fullCodeName" : "Exit",
+    "name" : "编辑界面_退出操作",
+    "getPSSysImage" : {
+      "glyph" : "xf08b@FontAwesome",
+      "cssClass" : "fa fa-sign-out"
+    },
+    "predefinedType" : "EDITVIEW_EXITACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.EDITVIEW.CLOSE"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Exit",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.EXPORT"
+    },
+    "caption" : "导出",
+    "codeName" : "ExportExcel",
+    "fullCodeName" : "ExportExcel",
+    "name" : "表格界面_导出操作（Excel）",
+    "getPSSysImage" : {
+      "glyph" : "xf1c3@FontAwesome",
+      "cssClass" : "fa fa-file-excel-o"
+    },
+    "predefinedType" : "GRIDVIEW_EXPORTACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.EXPORT"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "ExportExcel",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "数据导入",
+    "codeName" : "Import",
+    "fullCodeName" : "Import",
+    "name" : "表格界面_数据导入栏",
+    "getPSSysImage" : {
+      "glyph" : "xf093@FontAwesome",
+      "cssClass" : "fa fa-upload"
+    },
+    "predefinedType" : "GRIDVIEW_IMPORTBAR",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Import",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登录",
+    "codeName" : "Login",
+    "fullCodeName" : "Login",
+    "name" : "应用登录",
+    "predefinedType" : "APP_LOGIN",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Login",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登出",
+    "codeName" : "Logout",
+    "fullCodeName" : "Logout",
+    "name" : "应用登出",
+    "predefinedType" : "APP_LOGOUT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Logout",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.NEW"
+    },
+    "caption" : "新建",
+    "codeName" : "New",
+    "fullCodeName" : "New",
+    "name" : "表格界面_新建操作",
+    "getPSSysImage" : {
+      "glyph" : "xf0f6@FontAwesome",
+      "cssClass" : "fa fa-file-text-o"
+    },
+    "predefinedType" : "GRIDVIEW_NEWACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.NEW"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "New",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "新建行",
+    "codeName" : "NewRow",
+    "fullCodeName" : "NewRow",
+    "name" : "表格界面_新建行",
+    "getPSSysImage" : {
+      "glyph" : "xf067@FontAwesome",
+      "cssClass" : "fa fa-plus"
+    },
+    "predefinedType" : "GRIDVIEW_NEWROWACTION",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "NewRow",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "actionTarget" : "MULTIKEY",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.PRINT"
+    },
+    "caption" : "打印",
+    "codeName" : "Print",
+    "fullCodeName" : "Print",
+    "name" : "表格界面_打印操作",
+    "getPSSysImage" : {
+      "glyph" : "xf02f@FontAwesome",
+      "cssClass" : "fa fa-print"
+    },
+    "predefinedType" : "GRIDVIEW_PRINTACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.PRINT"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Print",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "actionTarget" : "MULTIKEY",
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.REMOVE"
+    },
+    "caption" : "删除",
+    "codeName" : "Remove",
+    "fullCodeName" : "Remove",
+    "name" : "表格界面_删除操作",
+    "getPSSysImage" : {
+      "glyph" : "xf00d@FontAwesome",
+      "cssClass" : "fa fa-remove"
+    },
+    "predefinedType" : "GRIDVIEW_REMOVEACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Remove",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "删除数据",
+    "codeName" : "RemoveObject",
+    "fullCodeName" : "RemoveObject",
+    "name" : "删除数据",
+    "predefinedType" : "DATA_REMOVEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "RemoveObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.*.SAVE"
+    },
+    "caption" : "保存",
+    "codeName" : "Save",
+    "fullCodeName" : "Save",
+    "name" : "编辑界面_保存操作",
+    "getPSSysImage" : {
+      "glyph" : "xf0c7@FontAwesome",
+      "cssClass" : "fa fa-save"
+    },
+    "predefinedType" : "EDITVIEW_SAVEACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.SAVE"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Save",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDCLOSE"
+    },
+    "caption" : "保存并关闭",
+    "codeName" : "SaveAndExit",
+    "fullCodeName" : "SaveAndExit",
+    "name" : "编辑界面_保存并退出操作",
+    "getPSSysImage" : {
+      "cssClass" : "sx-tb-saveandclose"
+    },
+    "predefinedType" : "EDITVIEW_SAVEANDEXITACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDCLOSE"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveAndExit",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "TBB.TEXT.EDITVIEW.SAVEANDNEW"
+    },
+    "caption" : "保存并新建",
+    "codeName" : "SaveAndNew",
+    "fullCodeName" : "SaveAndNew",
+    "name" : "编辑界面_保存并新建操作",
+    "getPSSysImage" : {
+      "cssClass" : "sx-tb-saveandnew"
+    },
+    "predefinedType" : "EDITVIEW_SAVEANDNEWACTION",
+    "timeout" : 60000,
+    "getTooltipPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.EDITVIEW.SAVEANDNEW"
+    },
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveAndNew",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "保存变更",
+    "codeName" : "SaveChanges",
+    "fullCodeName" : "SaveChanges",
+    "name" : "保存变更",
+    "predefinedType" : "DATA_SAVECHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "保存行",
+    "codeName" : "SaveRow",
+    "fullCodeName" : "SaveRow",
+    "name" : "表格界面_保存行",
+    "getPSSysImage" : {
+      "glyph" : "xf0c7@FontAwesome",
+      "cssClass" : "fa fa-save"
+    },
+    "predefinedType" : "GRIDVIEW_SAVEROWACTION",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveRow",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "同步数据",
+    "codeName" : "Synchronize",
+    "fullCodeName" : "Synchronize",
+    "name" : "同步数据",
+    "predefinedType" : "DATA_SYNCHRONIZE",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Synchronize",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "行编辑",
+    "codeName" : "ToggleRowEdit",
+    "fullCodeName" : "ToggleRowEdit",
+    "name" : "表格界面_行编辑开关操作",
+    "getPSSysImage" : {
+      "glyph" : "xf0ce@FontAwesome",
+      "cssClass" : "fa fa-table"
+    },
+    "predefinedType" : "GRIDVIEW_ROWEDITACTION",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "ToggleRowEdit",
+    "uIActionType" : "DEUIACTION",
+    "enableToggleMode" : true
+  }, {
+    "caption" : "实体界面行为组1",
+    "codeName" : "实体界面行为组1",
+    "fullCodeName" : "实体界面行为组1",
+    "name" : "实体界面行为组1",
+    "predefinedType" : "VIEW_DEBHGROUP001",
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "ae6d784c04f360d59200ca287aec8f01",
+    "uIActionType" : "DEUIACTION",
+    "group" : true,
+    "id" : "ae6d784c04f360d59200ca287aec8f01"
+  }, {
+    "caption" : "实体界面行为组2",
+    "codeName" : "实体界面行为组2",
+    "fullCodeName" : "实体界面行为组2",
+    "name" : "实体界面行为组2",
+    "predefinedType" : "VIEW_DEBHGROUP002",
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "d25a9e58be16f27e8e61f784a1c74ea5",
+    "uIActionType" : "DEUIACTION",
+    "group" : true,
+    "id" : "d25a9e58be16f27e8e61f784a1c74ea5"
+  }, {
+    "caption" : "实体界面行为组3",
+    "codeName" : "实体界面行为组3",
+    "fullCodeName" : "实体界面行为组3",
+    "name" : "实体界面行为组3",
+    "predefinedType" : "VIEW_DEBHGROUP003",
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "756758c15b45c9cfa60a87492b52f269",
+    "uIActionType" : "DEUIACTION",
+    "group" : true,
+    "id" : "756758c15b45c9cfa60a87492b52f269"
+  } ],
+  "cache" : {
+    "getPSAppViews" : [ ]
+  },
+  "id" : "PSSYSAPPS/SAASMgr/PSSYSAPP.json"
+}

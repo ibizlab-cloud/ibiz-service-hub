@@ -1,0 +1,9 @@
+{
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/disk/PSDATAENTITIES/SDFile.json"
+  } ],
+  "codeName" : "disk",
+  "dynaModelFilePath" : "PSMODULES/disk.json",
+  "name" : "disk"
+}

@@ -1,0 +1,517 @@
+{
+  "codeName" : "TestData",
+  "data" : "personname=测试数据人员1\nusercode=TESTUSER01\nloginname=TESTUSER01\n",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSSYSTESTDATA/TestData.json",
+  "instCount" : 1,
+  "name" : "新建数据（测试数据人员1）",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "getPSSysTestDataItems" : [ {
+    "memo" : "地址",
+    "name" : "ADDR",
+    "getPSDEField" : {
+      "name" : "ADDR",
+      "codeName" : "Addr"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "社交账号",
+    "name" : "AVATAR",
+    "getPSDEField" : {
+      "name" : "AVATAR",
+      "codeName" : "Avatar"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "业务编码",
+    "name" : "BCODE",
+    "getPSDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "出生日期",
+    "name" : "BIRTHDAY",
+    "getPSDEField" : {
+      "name" : "BIRTHDAY",
+      "codeName" : "Birthday"
+    },
+    "stdDataType" : 5,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "证件号码",
+    "name" : "CERTCODE",
+    "getPSDEField" : {
+      "name" : "CERTCODE",
+      "codeName" : "CertCode"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "创建时间",
+    "name" : "CREATEDATE",
+    "getPSDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "stdDataType" : 5,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "钉钉用户标识",
+    "name" : "DDUNIONID",
+    "getPSDEField" : {
+      "name" : "DDUNIONID",
+      "codeName" : "DDUnionId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "钉钉用户标识",
+    "name" : "DDUSERID",
+    "getPSDEField" : {
+      "name" : "DDUSERID",
+      "codeName" : "DDUserId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "区属",
+    "name" : "DOMAINS",
+    "getPSDEField" : {
+      "name" : "DOMAINS",
+      "codeName" : "Domains"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "邮件",
+    "name" : "EMAIL",
+    "getPSDEField" : {
+      "name" : "EMAIL",
+      "codeName" : "Email"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "逻辑有效",
+    "name" : "ENABLE",
+    "getPSDEField" : {
+      "name" : "ENABLE",
+      "codeName" : "Enable"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "字号",
+    "name" : "FONTSIZE",
+    "getPSDEField" : {
+      "name" : "FONTSIZE",
+      "codeName" : "FontSize"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "ip地址",
+    "name" : "IPADDR",
+    "getPSDEField" : {
+      "name" : "IPADDR",
+      "codeName" : "IPAddr"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "语言",
+    "name" : "LANG",
+    "getPSDEField" : {
+      "name" : "LANG",
+      "codeName" : "Lang"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "登录名",
+    "name" : "LOGINNAME",
+    "getPSDEField" : {
+      "name" : "LOGINNAME",
+      "codeName" : "LoginName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "主部门代码",
+    "name" : "MDEPTCODE",
+    "getPSDEField" : {
+      "name" : "MDEPTCODE",
+      "codeName" : "MDeptCode"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "主部门",
+    "name" : "MDEPTID",
+    "getPSDEField" : {
+      "name" : "MDEPTID",
+      "codeName" : "MDeptId"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "主部门名称",
+    "name" : "MDEPTNAME",
+    "getPSDEField" : {
+      "name" : "MDEPTNAME",
+      "codeName" : "MDeptName"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "备注",
+    "name" : "MEMO",
+    "getPSDEField" : {
+      "name" : "MEMO",
+      "codeName" : "Memo"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "消息类型",
+    "name" : "MSGTYPE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
+    },
+    "getPSDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "昵称别名",
+    "name" : "NICKNAME",
+    "getPSDEField" : {
+      "name" : "NICKNAME",
+      "codeName" : "NickName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "单位代码",
+    "name" : "ORGCODE",
+    "getPSDEField" : {
+      "name" : "ORGCODE",
+      "codeName" : "OrgCode"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "单位",
+    "name" : "ORGID",
+    "getPSDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "单位名称",
+    "name" : "ORGNAME",
+    "getPSDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "密码",
+    "name" : "PASSWORD",
+    "getPSDEField" : {
+      "name" : "PASSWORD",
+      "codeName" : "Password"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "姓名",
+    "name" : "PERSONNAME",
+    "getPSDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "联系方式",
+    "name" : "PHONE",
+    "getPSDEField" : {
+      "name" : "PHONE",
+      "codeName" : "Phone"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "岗位代码",
+    "name" : "POSTCODE",
+    "getPSDEField" : {
+      "name" : "POSTCODE",
+      "codeName" : "PostCode"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "岗位标识",
+    "name" : "POSTID",
+    "getPSDEField" : {
+      "name" : "POSTID",
+      "codeName" : "PostId"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "岗位名称",
+    "name" : "POSTNAME",
+    "getPSDEField" : {
+      "name" : "POSTNAME",
+      "codeName" : "PostName"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Post.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "保留",
+    "name" : "RESERVER",
+    "getPSDEField" : {
+      "name" : "RESERVER",
+      "codeName" : "Reserver"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "保留2",
+    "name" : "RESERVER2",
+    "getPSDEField" : {
+      "name" : "RESERVER2",
+      "codeName" : "Reserver2"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "保留3",
+    "name" : "RESERVER3",
+    "getPSDEField" : {
+      "name" : "RESERVER3",
+      "codeName" : "Reserver3"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "性别",
+    "name" : "SEX",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSCODELISTS/Gender.json"
+    },
+    "getPSDEField" : {
+      "name" : "SEX",
+      "codeName" : "Sex"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "排序",
+    "name" : "SHOWORDER",
+    "getPSDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "人员状态",
+    "name" : "STATE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSCODELISTS/UserState.json"
+    },
+    "getPSDEField" : {
+      "name" : "STATE",
+      "codeName" : "State"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "管理员",
+    "name" : "SUPERUSER",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+    },
+    "getPSDEField" : {
+      "name" : "SUPERUSER",
+      "codeName" : "SuperUser"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "样式",
+    "name" : "THEME",
+    "getPSDEField" : {
+      "name" : "THEME",
+      "codeName" : "Theme"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "UAA用户标识",
+    "name" : "UAAUSERID",
+    "getPSDEField" : {
+      "name" : "UAAUSERID",
+      "codeName" : "UAAUserId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "最后修改时间",
+    "name" : "UPDATEDATE",
+    "getPSDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "stdDataType" : 5,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "用户工号",
+    "name" : "USERCODE",
+    "getPSDEField" : {
+      "name" : "USERCODE",
+      "codeName" : "UserCode"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "照片",
+    "name" : "USERICON",
+    "getPSDEField" : {
+      "name" : "USERICON",
+      "codeName" : "UserIcon"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "用户标识",
+    "name" : "USERID",
+    "getPSDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "用户全局名",
+    "name" : "USERNAME",
+    "getPSDEField" : {
+      "name" : "USERNAME",
+      "codeName" : "UserName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "微信用户标识",
+    "name" : "WXWORKUNIONID",
+    "getPSDEField" : {
+      "name" : "WXWORKUNIONID",
+      "codeName" : "WXWorkUnionId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "企业微信用户标识",
+    "name" : "WXWORKUSERID",
+    "getPSDEField" : {
+      "name" : "WXWORKUSERID",
+      "codeName" : "WXWorkUserId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  } ],
+  "scriptCode" : "//动态放入顶级组织标识\nvar orgid = sys.filter(\"SYS_ORG\").nvl(\"porgid\").selectone(false).get(\"orgid\");\nentity.set('orgid',orgid);",
+  "testDataType" : "CUSTOMCODE",
+  "baseMode" : false
+}

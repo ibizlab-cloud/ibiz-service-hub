@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Complete",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/Complete.json",
+  "logicName" : "完成",
+  "name" : "Complete",
+  "getPSDEActionInput" : {
+    "name" : "CompleteInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CompleteResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

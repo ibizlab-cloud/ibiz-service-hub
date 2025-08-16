@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "行编辑表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption/PSDERS/DER1N_DICT_OPTION_DICT_CATALOG_CID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "CID",
+    "srfparentdename" : "DICT_CATALOG",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_DICT_OPTION_DICT_CATALOG_CID",
+    "SRFDER1NID" : "DER1N_DICT_OPTION_DICT_CATALOG_CID"
+  },
+  "viewCodeName" : "LineEdit",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_DICT_OPTION_DICT_CATALOG_CID"
+  }
+}

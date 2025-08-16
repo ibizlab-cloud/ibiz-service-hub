@@ -1,0 +1,121 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CONTENT`",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.`DDCONTENT`",
+    "name" : "DDCONTENT"
+  }, {
+    "expression" : "t1.`DSTADDRESSES`",
+    "name" : "DSTADDRESSES"
+  }, {
+    "expression" : "t1.`DSTUSERS`",
+    "name" : "DSTUSERS"
+  }, {
+    "expression" : "t1.`ERRORINFO`",
+    "name" : "ERRORINFO"
+  }, {
+    "expression" : "t1.`IMCONTENT`",
+    "name" : "IMCONTENT"
+  }, {
+    "expression" : "t1.`TOTALDSTADDRESSES`",
+    "name" : "TOTALDSTADDRESSES"
+  }, {
+    "expression" : "t1.`WXCONTENT`",
+    "name" : "WXCONTENT"
+  }, {
+    "expression" : "t1.`CONTENTTYPE`",
+    "name" : "CONTENTTYPE"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t11.`DCSYSTEMNAME`",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.`FILEAT`",
+    "name" : "FILEAT"
+  }, {
+    "expression" : "t1.`FILEAT2`",
+    "name" : "FILEAT2"
+  }, {
+    "expression" : "t1.`FILEAT3`",
+    "name" : "FILEAT3"
+  }, {
+    "expression" : "t1.`FILEAT4`",
+    "name" : "FILEAT4"
+  }, {
+    "expression" : "t1.`IMPORTANCEFLAG`",
+    "name" : "IMPORTANCEFLAG"
+  }, {
+    "expression" : "t1.`ISERROR`",
+    "name" : "ISERROR"
+  }, {
+    "expression" : "t1.`ISSEND`",
+    "name" : "ISSEND"
+  }, {
+    "expression" : "t1.`MOBILEURL`",
+    "name" : "MOBILEURL"
+  }, {
+    "expression" : "t1.`MSGSENDQUEUEHISID`",
+    "name" : "MSGSENDQUEUEHISID"
+  }, {
+    "expression" : "t1.`MSGSENDQUEUEHISNAME`",
+    "name" : "MSGSENDQUEUEHISNAME"
+  }, {
+    "expression" : "t1.`MSGTYPE`",
+    "name" : "MSGTYPE"
+  }, {
+    "expression" : "t1.`PLANSENDTIME`",
+    "name" : "PLANSENDTIME"
+  }, {
+    "expression" : "t1.`PROCESSTIME`",
+    "name" : "PROCESSTIME"
+  }, {
+    "expression" : "t1.`SENDTAG`",
+    "name" : "SENDTAG"
+  }, {
+    "expression" : "t1.`SMSCONTENT`",
+    "name" : "SMSCONTENT"
+  }, {
+    "expression" : "t1.`SUBJECT`",
+    "name" : "SUBJECT"
+  }, {
+    "expression" : "t1.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.`TEMPLATEID`",
+    "name" : "TEMPLATEID"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.`URL`",
+    "name" : "URL"
+  }, {
+    "expression" : "t1.`USERDATA`",
+    "name" : "USERDATA"
+  }, {
+    "expression" : "t1.`USERDATA2`",
+    "name" : "USERDATA2"
+  }, {
+    "expression" : "t1.`USERDATA3`",
+    "name" : "USERDATA3"
+  }, {
+    "expression" : "t1.`USERDATA4`",
+    "name" : "USERDATA4"
+  } ],
+  "queryCode" : "SELECT\nt1.`CONTENTTYPE`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`DCSYSTEMID`,\nt11.`DCSYSTEMNAME`,\nt1.`FILEAT`,\nt1.`FILEAT2`,\nt1.`FILEAT3`,\nt1.`FILEAT4`,\nt1.`IMPORTANCEFLAG`,\nt1.`ISERROR`,\nt1.`ISSEND`,\nt1.`MOBILEURL`,\nt1.`MSGSENDQUEUEHISID`,\nt1.`MSGSENDQUEUEHISNAME`,\nt1.`MSGTYPE`,\nt1.`PLANSENDTIME`,\nt1.`PROCESSTIME`,\nt1.`SENDTAG`,\nt1.`SMSCONTENT`,\nt1.`SUBJECT`,\nt1.`SYSTEMID`,\nt1.`TEMPLATEID`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`,\nt1.`URL`,\nt1.`USERDATA`,\nt1.`USERDATA2`,\nt1.`USERDATA3`,\nt1.`USERDATA4`\nFROM `IBZMSGSENDQUEUEHIS` t1 \nLEFT JOIN `IBZDCSYSTEM` t11 ON t1.`DCSYSTEMID` = t11.`DCSYSTEMID` \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueueHis/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

@@ -1,0 +1,15 @@
+moduleName=ibiz-codegen-groovy
+moduleVersion=1.0
+extensionClasses=net.ibizsys.codegen.groovy.support.GroovyCodeGenEngineExtension \
+                ,net.ibizsys.codegen.groovy.support.PSSystemExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDEMethodDTOFieldExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDEMethodReturnExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDEMethodInputExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDELogicLinkExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDELogicNodeExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDataEntityExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDEFieldExtension \
+                ,net.ibizsys.codegen.groovy.support.PSDEActionExtension \
+                ,net.ibizsys.codegen.groovy.support.PSWFVersionExtension \
+                ,net.ibizsys.codegen.groovy.support.PSModelExtension 
+#staticExtensionClasses=support.StaticStringExtension

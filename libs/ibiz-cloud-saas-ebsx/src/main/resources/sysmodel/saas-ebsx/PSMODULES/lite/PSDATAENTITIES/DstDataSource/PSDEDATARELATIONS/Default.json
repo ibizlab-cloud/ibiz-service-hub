@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "数据源",
+  "name" : "数据源默认关系界面组"
+}

@@ -1,0 +1,62 @@
+{
+  "codeName" : "deleteSysUser",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDELOGICS/deleteSysUser.json",
+  "logicName" : "删除用户信息",
+  "name" : "删除用户信息",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 198,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Deaction1"
+      },
+      "name" : "连接7076",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 56,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Deaction1",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Remove.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+    },
+    "leftPos" : 196,
+    "logicNodeType" : "DEACTION",
+    "name" : "同步删除用户",
+    "topPos" : 268,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

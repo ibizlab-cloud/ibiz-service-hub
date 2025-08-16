@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="net.ibizsys.central.cloud.saas.ebsx.core.ou.service.logic.departmentinitdeptfullname" isClosed="false" isExecutable="true" name="ou_department_initdeptfullname_ruleFlow" processType="Private" tns:packageName="net.ibizsys.central.cloud.saas.ebsx.core.ou.service.logic.departmentinitdeptfullname">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.ebsx.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="departmentinitdeptfullnamedefault" type="entity"/>
+                                <tns:metaData express="new net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Organization()" name="departmentinitdeptfullnameorg" type="refentity"/>
+                                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IOrganizationService))" name="organizationservice" type="service"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IDepartmentService))" name="iBzSysDepartmentDefaultService" type="service"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="departmentinitdeptfullnamedefault" type="net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Department" />
+                            <tns:global identifier="departmentinitdeptfullnameorg" type="net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Organization" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="departmentinitdeptfullnameprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="填充OrgId"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="departmentinitdeptfullnamedeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="获取单位名称"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="departmentinitdeptfullnamerawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="初始化部门名称"/>
+                        <endEvent id="rawsqlcall1_end" name="end"/>
+                        <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="departmentinitdeptfullnamerawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="初始化部门名称"/>
+                        <endEvent id="rawsqlcall2_end" name="end"/>
+                        <sequenceFlow id="rawsqlcall2_end_line" sourceRef="rawsqlcall2" targetRef="rawsqlcall2_end"/>
+                    <sequenceFlow id="gateway-begin_rawsqlcall1" sourceRef="gateway-begin" targetRef="rawsqlcall1">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $departmentinitdeptfullnamedefault:Department();
+                                            $departmentinitdeptfullnameorg:Organization();
+                                    eval($departmentinitdeptfullnamedefault==departmentinitdeptfullnamedefault && $departmentinitdeptfullnameorg==departmentinitdeptfullnameorg);
+                                eval((RuleUtils.test($departmentinitdeptfullnamedefault.get("orgname"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-begin_prepareparam1" sourceRef="gateway-begin" targetRef="prepareparam1">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $departmentinitdeptfullnamedefault:Department();
+                                            $departmentinitdeptfullnameorg:Organization();
+                                    eval($departmentinitdeptfullnamedefault==departmentinitdeptfullnamedefault && $departmentinitdeptfullnameorg==departmentinitdeptfullnameorg);
+                                eval((RuleUtils.test($departmentinitdeptfullnamedefault.get("orgname"),"ISNULL",""))&&(RuleUtils.test($departmentinitdeptfullnamedefault.get("orgid"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction1_rawsqlcall2" sourceRef="deaction1" targetRef="rawsqlcall2">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+                            <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+                            <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+                            <endEvent id="gateway-begin_end" name="end"/>
+        </process>
+    </definitions>

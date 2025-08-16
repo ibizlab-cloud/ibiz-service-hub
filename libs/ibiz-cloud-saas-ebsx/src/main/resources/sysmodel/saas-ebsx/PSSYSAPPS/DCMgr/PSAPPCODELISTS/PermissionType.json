@@ -1,0 +1,23 @@
+{
+  "codeListTag" : "uaa__PermissionType",
+  "codeListType" : "STATIC",
+  "codeName" : "PermissionType",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/PermissionType.json",
+  "emptyText" : "未定义",
+  "name" : "资源类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Appmenu",
+    "text" : "应用菜单",
+    "value" : "APPMENU"
+  }, {
+    "codeName" : "Oppriv",
+    "text" : "数据能力",
+    "value" : "OPPRIV"
+  }, {
+    "codeName" : "Unires",
+    "text" : "统一资源",
+    "value" : "UNIRES"
+  } ],
+  "enableCache" : true
+}

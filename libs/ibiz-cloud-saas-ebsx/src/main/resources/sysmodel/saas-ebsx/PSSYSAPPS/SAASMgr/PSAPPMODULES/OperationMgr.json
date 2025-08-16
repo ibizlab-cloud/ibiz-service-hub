@@ -1,0 +1,7 @@
+{
+  "codeName" : "OperationMgr",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/OperationMgr.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/OperationMgr",
+  "name" : "运行管理",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/OperationMgr"
+}

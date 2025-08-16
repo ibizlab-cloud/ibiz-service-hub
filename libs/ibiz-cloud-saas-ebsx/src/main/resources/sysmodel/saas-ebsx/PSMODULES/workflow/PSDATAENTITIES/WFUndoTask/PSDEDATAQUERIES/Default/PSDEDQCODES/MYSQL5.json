@@ -1,0 +1,31 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`BUSINESSKEY`",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`DEPTID`",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.`ENTITYID`",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.`MAJORTEXT`",
+    "name" : "MAJORTEXT"
+  }, {
+    "expression" : "t1.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.`TASKID`",
+    "name" : "TASKID"
+  }, {
+    "expression" : "t1.`USERID`",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.`BUSINESSKEY`,\nt1.`DCSYSTEMID`,\nt1.`DEPTID`,\nt1.`ENTITYID`,\nt1.`MAJORTEXT`,\nt1.`ORGID`,\nt1.`TASKID`,\nt1.`USERID`\nFROM `IBZTASK` t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFUndoTask/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

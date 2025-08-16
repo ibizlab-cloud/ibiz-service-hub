@@ -1,0 +1,34 @@
+{
+  "codeName" : "Catalog",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/dict/PSDATAENTITIES/DictOption/PSDERS/DER1N_DICT_OPTION_DICT_CATALOG_CID.json",
+  "fKeyName" : "F660D0A0A78BE1C60D",
+  "logicName" : "目录",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 8,
+  "minorCodeName" : "Options",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/dict/PSDATAENTITIES/DictOption.json"
+  },
+  "minorServiceCodeName" : "Options",
+  "name" : "DER1N_DICT_OPTION_DICT_CATALOG_CID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "CID",
+    "codeName" : "CatalogId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "CNAME",
+    "codeName" : "CatalogName"
+  },
+  "pickupDEFName" : "CID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Catalog",
+  "nestedRS" : true
+}

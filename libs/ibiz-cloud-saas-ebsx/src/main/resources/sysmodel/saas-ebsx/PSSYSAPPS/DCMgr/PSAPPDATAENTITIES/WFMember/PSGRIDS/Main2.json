@@ -1,0 +1,265 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main2",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember/PSGRIDS/Main2.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格（无用户组）",
+  "minorSortDir" : "ASC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "SHOWORDER",
+    "codeName" : "ShowOrder"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户组",
+    "codeName" : "groupname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "groupname",
+    "excelCaption" : "用户组",
+    "hideMode" : 1,
+    "name" : "groupname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "GroupName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true,
+    "hideDefault" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "用户",
+    "codeName" : "personname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "personname",
+    "excelCaption" : "用户",
+    "name" : "personname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
+    "width" : 150,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "单位",
+    "codeName" : "orgname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "orgname",
+    "excelCaption" : "单位",
+    "name" : "orgname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "部门",
+    "codeName" : "mdeptname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "mdeptname",
+    "excelCaption" : "部门",
+    "name" : "mdeptname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MDEPTNAME",
+      "codeName" : "MDeptName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "业务编码",
+    "codeName" : "bcode",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "bcode",
+    "excelCaption" : "业务编码",
+    "name" : "bcode",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "排序",
+    "codeName" : "showorder",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "showorder",
+    "excelCaption" : "排序",
+    "name" : "showorder",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "groupname",
+    "getPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "GroupName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "personname",
+    "getPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "orgname",
+    "getPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "mdeptname",
+    "getPSAppDEField" : {
+      "name" : "MDEPTNAME",
+      "codeName" : "MDeptName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "bcode",
+    "getPSAppDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "showorder",
+    "getPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MEMBERID",
+      "codeName" : "MemberId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "MEMBERID",
+      "codeName" : "MemberId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "groupid",
+    "getPSAppDEField" : {
+      "name" : "GROUPID",
+      "codeName" : "GroupId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "userid",
+    "getPSAppDEField" : {
+      "name" : "USERID",
+      "codeName" : "UserId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "MEMBERNAME",
+      "codeName" : "MemberName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "组成员标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MEMBERID",
+      "codeName" : "MemberId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFMember.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "BB6D8C85-BB83-41C7-9ABE-4F2B05303723",
+  "modeltype" : "PSDEGRID"
+}

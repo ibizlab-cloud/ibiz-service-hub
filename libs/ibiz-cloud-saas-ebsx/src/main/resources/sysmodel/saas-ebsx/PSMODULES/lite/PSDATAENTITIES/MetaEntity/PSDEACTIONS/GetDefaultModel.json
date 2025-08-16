@@ -1,0 +1,25 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetDefaultModel",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDEACTIONS/GetDefaultModel.json",
+  "logicName" : "GetDefaultModel",
+  "name" : "GetDefaultModel",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ENTITYID",
+      "codeName" : "EntityId"
+    },
+    "name" : "GetDefaultModelInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetDefaultModelResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaEntityDTO"
+    },
+    "type" : "DTO"
+  }
+}

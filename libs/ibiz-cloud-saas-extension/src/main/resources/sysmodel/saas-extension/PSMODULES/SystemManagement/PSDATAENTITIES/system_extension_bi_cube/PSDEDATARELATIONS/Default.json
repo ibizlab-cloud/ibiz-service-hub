@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_bi_cube/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.SYSTEM_EXTENSION_BI_CUBE"
+  },
+  "formCaption" : "系统扩展智能立方体",
+  "name" : "系统扩展智能立方体默认关系界面组"
+}

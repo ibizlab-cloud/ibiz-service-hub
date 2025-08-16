@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "FindRole",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDEACTIONS/FindRole.json",
+  "logicName" : "查询用户角色",
+  "name" : "FindRole",
+  "getPSDEActionInput" : {
+    "name" : "FindRoleInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "UserRoleDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "FindRoleResult",
+    "type" : "VOID"
+  },
+  "enableAudit" : true,
+  "enableFront" : false
+}

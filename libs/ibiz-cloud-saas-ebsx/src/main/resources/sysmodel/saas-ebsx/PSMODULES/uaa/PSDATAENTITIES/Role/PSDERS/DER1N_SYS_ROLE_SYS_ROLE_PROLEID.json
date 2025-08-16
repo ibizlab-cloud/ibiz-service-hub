@@ -1,0 +1,35 @@
+{
+  "codeName" : "Parent",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDERS/DER1N_SYS_ROLE_SYS_ROLE_PROLEID.json",
+  "fKeyName" : "FC9A58A7D79B5CB5C3",
+  "logicName" : "父角色",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+  },
+  "name" : "DER1N_SYS_ROLE_SYS_ROLE_PROLEID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "PROLEID",
+    "codeName" : "PRoleId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "PROLENAME",
+    "codeName" : "PRoleName"
+  },
+  "pickupDEFName" : "PROLEID",
+  "getRefPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "NoRepeat"
+  },
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Parent"
+}

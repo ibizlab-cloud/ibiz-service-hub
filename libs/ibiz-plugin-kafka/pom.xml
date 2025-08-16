@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ibiz-plugin</artifactId>
+        <groupId>cn.ibizlab.plugin</groupId>
+        <version>8.1.0.570.29.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>
+	
+    <artifactId>ibiz-plugin-kafka</artifactId>
+    <name>ibiz-plugin-kafka</name>
+    <description>iBiz Kafka</description>
+
+    <dependencies>
+       
+       <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka-clients</artifactId>
+		</dependency>	
+       	
+       <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-core</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+		
+
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "旧应用",
+  "name" : "应用默认关系界面组"
+}

@@ -1,0 +1,26 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "Retract",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEACTIONS/Retract.json",
+  "logicName" : "撤回",
+  "name" : "Retract",
+  "getPSDEActionInput" : {
+    "name" : "RetractInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "BulletinDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RetractResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDELOGICS/Retract.json"
+  },
+  "enableFront" : false
+}

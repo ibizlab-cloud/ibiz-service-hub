@@ -1,0 +1,25 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetAppUrl",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrl.json",
+  "logicName" : "获取应用打开地址",
+  "name" : "GetAppUrl",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "PSSYSTEMAPPID",
+      "codeName" : "PSSystemAppId"
+    },
+    "name" : "GetAppUrlInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetAppUrlResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ApplicationDTO"
+    },
+    "type" : "DTO"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Execute",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo/PSDEACTIONS/Execute.json",
+  "logicName" : "执行",
+  "name" : "Execute",
+  "getPSDEActionInput" : {
+    "name" : "ExecuteInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCJobsInfoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ExecuteResult",
+    "type" : "VOID"
+  }
+}

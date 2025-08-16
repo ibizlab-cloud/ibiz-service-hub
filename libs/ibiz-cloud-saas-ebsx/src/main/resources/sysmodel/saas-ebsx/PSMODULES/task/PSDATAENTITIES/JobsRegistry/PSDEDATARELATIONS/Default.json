@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/task/PSDATAENTITIES/JobsRegistry/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "任务注册信息",
+  "name" : "任务注册信息默认关系界面组"
+}

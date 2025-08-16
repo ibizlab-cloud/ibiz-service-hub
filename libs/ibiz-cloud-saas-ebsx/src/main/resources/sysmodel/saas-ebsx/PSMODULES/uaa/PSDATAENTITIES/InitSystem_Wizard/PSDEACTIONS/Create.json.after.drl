@@ -1,0 +1,13 @@
+global net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IInitSystem_WizardService  initsystemWizardService;
+global net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.InitSystem_Wizard et;
+
+    no-loop
+
+    rule "initsystem_wizardinstall"
+    ruleflow-group "7624d896cd532ad2bcc511eaf276088e"
+    when
+    then
+    net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.InitSystem_Wizard actionLogicDE =new net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.InitSystem_Wizard();
+    et.copyTo(actionLogicDE,true);
+    initsystemWizardService.install(actionLogicDE);
+    end

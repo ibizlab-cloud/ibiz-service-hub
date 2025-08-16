@@ -1,0 +1,61 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ATTS",
+    "name" : "ATTS"
+  }, {
+    "expression" : "t1.AUTHORID",
+    "name" : "AUTHORID"
+  }, {
+    "expression" : "t1.BEGINTIME",
+    "name" : "BEGINTIME"
+  }, {
+    "expression" : "t1.CONTENT",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.ENDTIME",
+    "name" : "ENDTIME"
+  }, {
+    "expression" : "t1.ISTOP",
+    "name" : "ISTOP"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.NOTICEID",
+    "name" : "NOTICEID"
+  }, {
+    "expression" : "t1.NOTICENAME",
+    "name" : "NOTICENAME"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t11.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.PUBFLAG",
+    "name" : "PUBFLAG"
+  }, {
+    "expression" : "t1.PUBLISHDATE",
+    "name" : "PUBLISHDATE"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.ATTS,\nt1.AUTHORID,\nt1.BEGINTIME,\nt1.CONTENT,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.ENDTIME,\nt1.ISTOP,\nt1.MEMO,\nt1.NOTICEID,\nt1.NOTICENAME,\nt1.ORGID,\nt11.ORGNAME,\nt1.PUBFLAG,\nt1.PUBLISHDATE,\nt1.SHOWORDER,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZBULLETIN t1 \nLEFT JOIN IBZORG t11 ON t1.ORGID = t11.ORGID \n",
+  "id" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

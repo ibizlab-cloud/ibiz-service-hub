@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFSystem/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统",
+  "name" : "系统默认关系界面组"
+}

@@ -1,0 +1,85 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( ( t11.USERMODE = 'ACCESSUSER'  OR  t11.USERMODE = 'ACCESSADMIN' )  AND  t11.GLOBALFLAG = 1 )",
+    "name" : "查询条件"
+  }, {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.ISVALID = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.CREATEMANNAME",
+    "name" : "CREATEMANNAME"
+  }, {
+    "expression" : "t11.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t31.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t11.GLOBALFLAG",
+    "name" : "GLOBALFLAG"
+  }, {
+    "expression" : "t1.ISVALID",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t21.LOGINNAME",
+    "name" : "LOGINNAME"
+  }, {
+    "expression" : "t21.MDEPTID",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t21.MDEPTNAME",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t21.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t21.ORGNAME",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t21.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t11.ROLETAG",
+    "name" : "ROLETAG"
+  }, {
+    "expression" : "t21.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.SYS_ROLEID",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t11.SYS_ROLENAME",
+    "name" : "SYS_ROLENAME"
+  }, {
+    "expression" : "t1.SYS_USER_ROLEID",
+    "name" : "SYS_USER_ROLEID"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.UPDATEMANNAME",
+    "name" : "UPDATEMANNAME"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t11.USERMODE",
+    "name" : "USERMODE"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.CREATEMANNAME,\nt11.DCSYSTEMID,\nt31.DCSYSTEMNAME,\nt11.GLOBALFLAG,\nt1.ISVALID,\nt21.LOGINNAME,\nt21.MDEPTID,\nt21.MDEPTNAME,\nt21.ORGID,\nt21.ORGNAME,\nt21.PERSONNAME,\nt11.ROLETAG,\nt21.SHOWORDER,\nt1.SYS_ROLEID,\nt11.SYS_ROLENAME,\nt1.SYS_USER_ROLEID,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt1.UPDATEMANNAME,\nt1.USERID,\nt11.USERMODE\nFROM IBZUSER_ROLE t1 \nLEFT JOIN IBZROLE t11 ON t1.SYS_ROLEID = t11.SYS_ROLEID \nLEFT JOIN IBZEMP t21 ON t1.USERID = t21.USERID \nLEFT JOIN IBZDCSYSTEM t31 ON t11.DCSYSTEMID = t31.DCSYSTEMID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDEDATAQUERIES/GlobalAccessDCSystem/PSDEDQCODES/ORACLE.json"
+}

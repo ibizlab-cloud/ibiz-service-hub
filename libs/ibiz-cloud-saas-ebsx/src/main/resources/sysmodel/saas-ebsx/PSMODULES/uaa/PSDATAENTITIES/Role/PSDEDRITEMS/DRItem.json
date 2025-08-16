@@ -1,0 +1,48 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "角色权限关系表实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_ROLE_SYS_ROLEID.json"
+  },
+  "getPSNavigateContexts" : [ {
+    "key" : "GLOBALFLAG",
+    "name" : "GLOBALFLAG",
+    "value" : "globalflag",
+    "rawValue" : false
+  }, {
+    "key" : "DCSYSTEMID",
+    "name" : "DCSYSTEMID",
+    "value" : "dcsystemid",
+    "rawValue" : false
+  } ],
+  "getPSNavigateParams" : [ {
+    "key" : "globalflag",
+    "name" : "globalflag",
+    "value" : "globalflag",
+    "rawValue" : false
+  }, {
+    "key" : "dcsystemid",
+    "name" : "dcsystemid",
+    "value" : "dcsystemid",
+    "rawValue" : false
+  } ],
+  "parentDataJO" : {
+    "srfparentdefname" : "SYS_ROLEID",
+    "srfparentdename" : "SYS_ROLE",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_ROLE_PERMISSION_SYS_ROLE_SYS_ROLEID",
+    "SRFDER1NID" : "DER1N_SYS_ROLE_PERMISSION_SYS_ROLE_SYS_ROLEID"
+  },
+  "viewCodeName" : "GridView2",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_ROLE_PERMISSION_SYS_ROLE_SYS_ROLEID"
+  }
+}

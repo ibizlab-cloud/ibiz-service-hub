@@ -1,0 +1,19 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DSCFG",
+    "name" : "DSCFG"
+  }, {
+    "expression" : "t1.DSID",
+    "name" : "DSID"
+  }, {
+    "expression" : "t1.DSNAME",
+    "name" : "DSNAME"
+  }, {
+    "expression" : "t1.DSTYPE",
+    "name" : "DSTYPE"
+  } ],
+  "queryCode" : "SELECT\nt1.DSCFG,\nt1.DSID,\nt1.DSNAME,\nt1.DSTYPE\nFROM IBZDATASOURCE t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstDataSource/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

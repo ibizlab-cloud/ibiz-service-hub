@@ -1,0 +1,46 @@
+{
+  "getAllPSCodeLists" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSCODELISTS/LogCat.json"
+  } ],
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCAudit.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCCenter.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCEvent.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsRegistry.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCLog.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCPO.json"
+  } ],
+  "codeName" : "center",
+  "dynaModelFilePath" : "PSMODULES/center.json",
+  "name" : "租户"
+}

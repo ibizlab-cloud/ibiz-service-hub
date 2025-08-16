@@ -1,0 +1,64 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.PSSYSAPPFUNCNAME",
+    "name" : "PSSYSAPPFUNCNAME"
+  }, {
+    "expression" : "t1.PERMISSIONTAG",
+    "name" : "PERMISSIONTAG"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.ICON",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.ICONCSS",
+    "name" : "ICONCSS"
+  }, {
+    "expression" : "t1.URL",
+    "name" : "URL"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.APPCATEGORY",
+    "name" : "APPCATEGORY"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.PSSYSAPPFUNCID",
+    "name" : "PSSYSAPPFUNCID"
+  }, {
+    "expression" : "t1.PSSYSTEMAPPID",
+    "name" : "PSSYSTEMAPPID"
+  }, {
+    "expression" : "t1.TIP",
+    "name" : "TIP"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.MOBILEAPP",
+    "name" : "MOBILEAPP"
+  }, {
+    "expression" : "t1.VIEWPATHPARAMS",
+    "name" : "VIEWPATHPARAMS"
+  }, {
+    "expression" : "t1.PSSYSTEMAPPNAME",
+    "name" : "PSSYSTEMAPPNAME"
+  } ],
+  "queryCode" : "SELECT t1.* FROM (SELECT\nt1.APPCATEGORY,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.ICON,\nt1.ICONCSS,\nt1.MOBILEAPP,\nt1.PERMISSIONTAG,\nt1.PSSYSAPPFUNCID,\nt1.PSSYSAPPFUNCNAME,\nt1.PSSYSTEMAPPID,\nt1.PSSYSTEMAPPNAME,\nt1.SHOWORDER,\nt1.SRFDCID,\nt1.SYSTEMID,\nt1.TIP,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt1.URL,\nt1.VIEWPATHPARAMS\nFROM IBZPSSYSAPPFUNC t1 \nLEFT JOIN IBZPSSYSTEM t11 ON t1.SYSTEMID = t11.PSSYSTEMID \n\nWHERE \nEXISTS(SELECT * FROM IBZDCSYSTEM t21 \n WHERE \n( t21.SRFDCID =  ${srfsessioncontext('srfdcid','{\"defname\":\"SRFDCID\",\"dename\":\"SYS_DC_SYSTEM\"}')} ) AND\n t11.PSSYSTEMID = t21.SYSTEMID )AND ( t1.SRFDCID =  ${srfsessioncontext('srfdcid','{\"defname\":\"SRFDCID\",\"dename\":\"SYS_DC_SYSTEM\"}')}) )t1 INNER JOIN\n(SELECT \nt21.PERMISSIONTAG\n,t21.PSSYSTEMID \nFROM IBZPERMISSION t21 \nWHERE \nEXISTS (SELECT 1 FROM IBZROLE_PERMISSION t22 \nLEFT JOIN IBZUSER_ROLE t23 ON t23.SYS_ROLEID = t22.SYS_ROLEID \nWHERE \nt21.SYS_PERMISSIONID = t22.SYS_PERMISSIONID AND t22.ISVALID = 1 AND t23.ISVALID = 1 AND t23.USERID =${srfsessioncontext('srfpersonid','{\"defname\":\"USERID\",\"dename\":\"IBZEMP\"}')} ) \nAND t21.PERMISSIONTYPE='UNIRES') t2 ON t2.PSSYSTEMID=t1.SYSTEMID AND t2.PERMISSIONTAG=t1.PERMISSIONTAG",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEDATAQUERIES/AppFunc_UniRes/PSDEDQCODES/ORACLE.json"
+}

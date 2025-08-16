@@ -1,0 +1,34 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DOMAINS",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.POSTID",
+    "name" : "POSTID"
+  }, {
+    "expression" : "t1.POSTNAME",
+    "name" : "POSTNAME"
+  }, {
+    "expression" : "t1.TEAMID",
+    "name" : "TEAMID"
+  }, {
+    "expression" : "t1.TEAMMEMBERID",
+    "name" : "TEAMMEMBERID"
+  }, {
+    "expression" : "t1.TEAMNAME",
+    "name" : "TEAMNAME"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.USERNAME",
+    "name" : "USERNAME"
+  } ],
+  "queryCode" : "SELECT\n    t1.DOMAINS,\n    t1.PERSONNAME,\n    t1.POSTID,\n    t1.POSTNAME,\n    t1.TEAMID,\n    t1.TEAMMEMBERID,\n    t1.TEAMNAME,\n    t1.USERID,\n    t1.USERNAME\nFROM (SELECT\n          t1.DC as DOMAINS,\n          t21.DISPLAY_NAME as PERSONNAME,\n          null as POSTID,\n          null as POSTNAME,\n          t1.ORGANIZATIONAL_ROLE_ID as TEAMID,\n          t1.ID as TEAMMEMBERID,\n          t11.NAME as TEAMNAME,\n          t1.PERSON_ID as USERID,\n          t21.UID as USERNAME\n      FROM sys_member t1\n               LEFT JOIN sys_organizational_role t11 ON t1.ORGANIZATIONAL_ROLE_ID = t11.ID\n               LEFT JOIN sys_person t21 ON t1.PERSON_ID = t21.ID\n     ) t1\n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

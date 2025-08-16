@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem3",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDEDRITEMS/DRItem3.json",
+  "itemType" : "DER1N",
+  "name" : "数据集实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet/PSDERS/DER1N_META_DATASET_META_ENTITY_ENTITYID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "ENTITYID",
+    "srfparentdename" : "META_ENTITY",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_META_DATASET_META_ENTITY_ENTITYID",
+    "SRFDER1NID" : "DER1N_META_DATASET_META_ENTITY_ENTITYID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDataSet.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_META_DATASET_META_ENTITY_ENTITYID"
+  }
+}

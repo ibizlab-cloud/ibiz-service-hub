@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "动态实例",
+  "name" : "动态实例默认关系界面组"
+}

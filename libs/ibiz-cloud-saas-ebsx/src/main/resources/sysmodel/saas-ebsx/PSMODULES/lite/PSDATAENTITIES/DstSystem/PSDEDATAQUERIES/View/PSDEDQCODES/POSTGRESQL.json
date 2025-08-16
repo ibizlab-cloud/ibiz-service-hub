@@ -1,0 +1,25 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPS",
+    "name" : "APPS"
+  }, {
+    "expression" : "t1.MD5CHECK",
+    "name" : "MD5CHECK"
+  }, {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.PSSYSTEMNAME",
+    "name" : "PSSYSTEMNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.SYSSTRUCTURE",
+    "name" : "SYSSTRUCTURE"
+  } ],
+  "queryCode" : "SELECT\nt1.APPS,\nt1.MD5CHECK,\nt1.PSSYSTEMID,\nt1.PSSYSTEMNAME,\nt1.SHOWORDER,\nt1.SYSSTRUCTURE\nFROM IBZPSSYSTEM t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/DstSystem/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

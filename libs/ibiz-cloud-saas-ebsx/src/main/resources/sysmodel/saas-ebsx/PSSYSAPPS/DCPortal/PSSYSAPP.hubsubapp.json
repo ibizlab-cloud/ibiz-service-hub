@@ -1,0 +1,8 @@
+{
+  "name" : "租户门户",
+  "getAllPSAppDEUIActionGroups" : [ ],
+  "getAllPSDEDRControls" : [ ],
+  "getAllPSControls" : [ ],
+  "getAllPSAppViewRefs" : [ ],
+  "id" : "PSSYSAPPS/DCPortal/PSSYSAPP.json"
+}

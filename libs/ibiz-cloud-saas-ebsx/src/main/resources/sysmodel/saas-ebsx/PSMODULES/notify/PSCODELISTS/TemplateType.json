@@ -1,0 +1,41 @@
+{
+  "codeListTag" : "notify__TemplateType",
+  "codeListType" : "STATIC",
+  "codeName" : "TemplateType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/TemplateType.json",
+  "emptyText" : "未定义",
+  "name" : "模板类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Aliyun_SUB_sms",
+    "text" : "阿里云短信",
+    "value" : "aliyun-sms"
+  }, {
+    "codeName" : "Aliyun_SUB_email",
+    "text" : "阿里云邮件",
+    "value" : "aliyun-email"
+  }, {
+    "codeName" : "Wechat_SUB_msg",
+    "text" : "微信消息",
+    "value" : "wechat-msg"
+  }, {
+    "codeName" : "Dingtalk_SUB_msg",
+    "text" : "钉钉通知",
+    "value" : "dingtalk-msg"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

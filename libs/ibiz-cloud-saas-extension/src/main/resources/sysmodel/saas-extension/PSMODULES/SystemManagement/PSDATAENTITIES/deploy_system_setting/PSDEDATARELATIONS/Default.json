@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_setting/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.DEPLOY_SYSTEM_SETTING"
+  },
+  "formCaption" : "部署系统配置",
+  "name" : "部署系统配置默认关系界面组"
+}

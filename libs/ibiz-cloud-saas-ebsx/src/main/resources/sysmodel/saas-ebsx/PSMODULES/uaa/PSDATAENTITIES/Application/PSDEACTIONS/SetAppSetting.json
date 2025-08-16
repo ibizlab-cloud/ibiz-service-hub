@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SetAppSetting",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/SetAppSetting.json",
+  "logicName" : "设置常用应用",
+  "name" : "SetAppSetting",
+  "getPSDEActionInput" : {
+    "name" : "SetAppSettingInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ApplicationDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SetAppSettingResult",
+    "type" : "VOID"
+  }
+}

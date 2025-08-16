@@ -1,0 +1,34 @@
+{
+  "codeListTag" : "uaa__CodeList98",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList98",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList98.json",
+  "emptyText" : "未定义",
+  "name" : "数据通知监控行为（新建、更新、删除）",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_1",
+    "text" : "新建",
+    "value" : "1"
+  }, {
+    "codeName" : "Item_2",
+    "text" : "更新",
+    "value" : "2"
+  }, {
+    "codeName" : "Item_4",
+    "text" : "删除",
+    "value" : "4"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00105",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

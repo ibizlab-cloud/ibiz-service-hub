@@ -1,0 +1,362 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "PROCESSTIME",
+    "codeName" : "ProcessTime"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统",
+    "codeName" : "dcsystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dcsystemname",
+    "excelCaption" : "系统",
+    "name" : "dcsystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "消息标题",
+    "codeName" : "subject",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "subject",
+    "excelCaption" : "消息标题",
+    "name" : "subject",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "消息名称",
+    "codeName" : "msgsendqueuehisname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "msgsendqueuehisname",
+    "excelCaption" : "消息名称",
+    "name" : "msgsendqueuehisname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISNAME",
+      "codeName" : "MsgSendQueueHisName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "消息类型",
+    "codeName" : "msgtype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "msgtype",
+    "excelCaption" : "消息类型",
+    "name" : "msgtype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/MsgType.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "消息内容",
+    "codeName" : "content",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "content",
+    "excelCaption" : "消息内容",
+    "name" : "content",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CONTENT",
+      "codeName" : "Content"
+    },
+    "width" : 100,
+    "widthUnit" : "STAR",
+    "enableSort" : false
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "内容类型",
+    "codeName" : "contenttype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "contenttype",
+    "excelCaption" : "内容类型",
+    "name" : "contenttype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList42.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "CONTENTTYPE",
+      "codeName" : "ContentType"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "重要程度",
+    "codeName" : "importanceflag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "importanceflag",
+    "excelCaption" : "重要程度",
+    "name" : "importanceflag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "IMPORTANCEFLAG",
+      "codeName" : "ImportanceFlag"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "目标用户",
+    "codeName" : "dstusers",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dstusers",
+    "excelCaption" : "目标用户",
+    "name" : "dstusers",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DSTUSERS",
+      "codeName" : "DstUsers"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : false
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "短消息内容",
+    "codeName" : "smscontent",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "smscontent",
+    "excelCaption" : "短消息内容",
+    "name" : "smscontent",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SMSCONTENT",
+      "codeName" : "SMSContent"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "处理时间",
+    "codeName" : "processtime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "processtime",
+    "excelCaption" : "处理时间",
+    "name" : "processtime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PROCESSTIME",
+      "codeName" : "ProcessTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemname",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "subject",
+    "getPSAppDEField" : {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "msgsendqueuehisname",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISNAME",
+      "codeName" : "MsgSendQueueHisName"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "msgtype",
+    "getPSAppDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    }
+  }, {
+    "dataType" : 21,
+    "name" : "content",
+    "getPSAppDEField" : {
+      "name" : "CONTENT",
+      "codeName" : "Content"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "contenttype",
+    "getPSAppDEField" : {
+      "name" : "CONTENTTYPE",
+      "codeName" : "ContentType"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "importanceflag",
+    "getPSAppDEField" : {
+      "name" : "IMPORTANCEFLAG",
+      "codeName" : "ImportanceFlag"
+    }
+  }, {
+    "dataType" : 21,
+    "name" : "dstusers",
+    "getPSAppDEField" : {
+      "name" : "DSTUSERS",
+      "codeName" : "DstUsers"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "smscontent",
+    "getPSAppDEField" : {
+      "name" : "SMSCONTENT",
+      "codeName" : "SMSContent"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "processtime",
+    "getPSAppDEField" : {
+      "name" : "PROCESSTIME",
+      "codeName" : "ProcessTime"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISID",
+      "codeName" : "MsgSendQueueHisId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISID",
+      "codeName" : "MsgSendQueueHisId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISNAME",
+      "codeName" : "MsgSendQueueHisName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "消息发送队列标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEHISID",
+      "codeName" : "MsgSendQueueHisId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueueHis.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "49ca9054e837562eca578208c9fd2a5d",
+  "modeltype" : "PSDEGRID"
+}

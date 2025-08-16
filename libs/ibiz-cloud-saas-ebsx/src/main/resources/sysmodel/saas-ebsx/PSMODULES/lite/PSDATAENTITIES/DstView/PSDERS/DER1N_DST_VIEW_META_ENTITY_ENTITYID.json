@@ -1,0 +1,30 @@
+{
+  "codeName" : "Fact_entity",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstView/PSDERS/DER1N_DST_VIEW_META_ENTITY_ENTITYID.json",
+  "fKeyName" : "F2FFB71CC780DB2476",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstView.json"
+  },
+  "name" : "DER1N_DST_VIEW_META_ENTITY_ENTITYID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ENTITYID",
+    "codeName" : "EntityId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ENTITYNAME",
+    "codeName" : "EntityName"
+  },
+  "pickupDEFName" : "ENTITYID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Fact_entity"
+}

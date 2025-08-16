@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPS",
+    "name" : "APPS"
+  }, {
+    "expression" : "t1.IPADRESS",
+    "name" : "IPADRESS"
+  }, {
+    "expression" : "t1.JOBPORT",
+    "name" : "JOBPORT"
+  }, {
+    "expression" : "t1.MD5CHECK",
+    "name" : "MD5CHECK"
+  }, {
+    "expression" : "t1.REALPSDEVSLNSYSID",
+    "name" : "REALPSDEVSLNSYSID"
+  }, {
+    "expression" : "t1.REMOTESYSMODEL",
+    "name" : "REMOTESYSMODEL"
+  }, {
+    "expression" : "t1.REMOTESYSMODELBRANCH",
+    "name" : "REMOTESYSMODELBRANCH"
+  }, {
+    "expression" : "t1.REMOTESYSMODELPATH",
+    "name" : "REMOTESYSMODELPATH"
+  }, {
+    "expression" : "t1.REMOTESYSMODELPWD",
+    "name" : "REMOTESYSMODELPWD"
+  }, {
+    "expression" : "t1.REMOTESYSMODELUSER",
+    "name" : "REMOTESYSMODELUSER"
+  }, {
+    "expression" : "t1.SYSMODEL",
+    "name" : "SYSMODEL"
+  }, {
+    "expression" : "t1.SYSSTRUCTURE",
+    "name" : "SYSSTRUCTURE"
+  }, {
+    "expression" : "t1.PSSYSTEMID",
+    "name" : "PSSYSTEMID"
+  }, {
+    "expression" : "t1.PSSYSTEMNAME",
+    "name" : "PSSYSTEMNAME"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  } ],
+  "queryCode" : "SELECT\nt1.PSSYSTEMID,\nt1.PSSYSTEMNAME,\nt1.SHOWORDER\nFROM IBZPSSYSTEM t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEDATAQUERIES/Pick/PSDEDQCODES/POSTGRESQL.json"
+}

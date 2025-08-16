@@ -1,0 +1,61 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`ACTIONPARAM`",
+    "name" : "ACTIONPARAM"
+  }, {
+    "expression" : "t1.`ACTIONPARAM2`",
+    "name" : "ACTIONPARAM2"
+  }, {
+    "expression" : "t1.`ACTIONPARAM3`",
+    "name" : "ACTIONPARAM3"
+  }, {
+    "expression" : "t1.`ACTIONPARAM4`",
+    "name" : "ACTIONPARAM4"
+  }, {
+    "expression" : "t1.`ACTIONRESULT`",
+    "name" : "ACTIONRESULT"
+  }, {
+    "expression" : "t1.`ACTIONTYPE`",
+    "name" : "ACTIONTYPE"
+  }, {
+    "expression" : "t1.`DCSYSTEMID`",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.`FULLTOPICTAG`",
+    "name" : "FULLTOPICTAG"
+  }, {
+    "expression" : "t1.`PUSHTYPE`",
+    "name" : "PUSHTYPE"
+  }, {
+    "expression" : "t1.`QOS`",
+    "name" : "QOS"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.`TOPICTAG`",
+    "name" : "TOPICTAG"
+  }, {
+    "expression" : "t1.`ASYNCACITONID`",
+    "name" : "ASYNCACITONID"
+  }, {
+    "expression" : "t1.`ASYNCACITONNAME`",
+    "name" : "ASYNCACITONNAME"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.`ASYNCACITONID`,\nt1.`ASYNCACITONNAME`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`\nFROM `ibzasyncaction` t1 \n",
+  "id" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+}

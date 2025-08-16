@@ -1,0 +1,25 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetLinkUrlMob",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDEACTIONS/GetLinkUrlMob.json",
+  "logicName" : "移动端获取链接地址",
+  "name" : "GetLinkUrlMob",
+  "getPSDEActionInput" : {
+    "name" : "GetLinkUrlMobInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetLinkUrlMobResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "TodoDTO"
+    },
+    "type" : "DTO"
+  }
+}

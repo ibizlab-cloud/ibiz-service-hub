@@ -1,0 +1,33 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t11.`DCSYSTEMID` = #{ctx.datacontext.dcsystemid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`BSCOPE`",
+    "name" : "BSCOPE"
+  }, {
+    "expression" : "t1.`OPPRIV`",
+    "name" : "OPPRIV"
+  }, {
+    "expression" : "t1.`SYSTEMFLAG`",
+    "name" : "SYSTEMFLAG"
+  }, {
+    "expression" : "t1.`SYS_PERMISSIONID`",
+    "name" : "SYS_PERMISSIONID"
+  }, {
+    "expression" : "t11.`SYS_PERMISSIONNAME`",
+    "name" : "SYS_PERMISSIONNAME"
+  }, {
+    "expression" : "t1.`SYS_PERMISSION_ACTIONID`",
+    "name" : "SYS_PERMISSION_ACTIONID"
+  }, {
+    "expression" : "t1.`SYS_PERMISSION_ACTIONNAME`",
+    "name" : "SYS_PERMISSION_ACTIONNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.`BSCOPE`,\nt1.`OPPRIV`,\nt1.`SYSTEMFLAG`,\nt1.`SYS_PERMISSIONID`,\nt11.`SYS_PERMISSIONNAME`,\nt1.`SYS_PERMISSION_ACTIONID`,\nt1.`SYS_PERMISSION_ACTIONNAME`\nFROM `IBZPERMISSIONACTION` t1 \nLEFT JOIN `IBZPERMISSION` t11 ON t1.`SYS_PERMISSIONID` = t11.`SYS_PERMISSIONID` \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction/PSDEDATAQUERIES/CurDCSystem/PSDEDQCODES/MYSQL5.json"
+}

@@ -1,0 +1,49 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t21.`BCODE`",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t21.`ENABLE`",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.`GROUPCODE`",
+    "name" : "GROUPCODE"
+  }, {
+    "expression" : "t1.`GROUPID`",
+    "name" : "GROUPID"
+  }, {
+    "expression" : "t11.`GROUPNAME`",
+    "name" : "GROUPNAME"
+  }, {
+    "expression" : "t21.`MDEPTID`",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t21.`MDEPTNAME`",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t1.`MEMBERID`",
+    "name" : "MEMBERID"
+  }, {
+    "expression" : "t1.`MEMBERNAME`",
+    "name" : "MEMBERNAME"
+  }, {
+    "expression" : "t21.`ORGID`",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t21.`ORGNAME`",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t21.`PERSONNAME`",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t21.`SHOWORDER`",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.`USERID`",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt21.`BCODE`,\nt21.`ENABLE`,\nt1.`GROUPCODE`,\nt1.`GROUPID`,\nt11.`GROUPNAME`,\nt21.`MDEPTID`,\nt21.`MDEPTNAME`,\nt1.`MEMBERID`,\nt1.`MEMBERNAME`,\nt21.`ORGID`,\nt21.`ORGNAME`,\nt21.`PERSONNAME`,\nt21.`SHOWORDER`,\nt1.`USERID`\nFROM `IBZWFMEMBER` t1 \nLEFT JOIN `IBZWFGROUP` t11 ON t1.`GROUPID` = t11.`GROUPID` \nLEFT JOIN `IBZEMP` t21 ON t1.`USERID` = t21.`USERID` \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEDATAQUERIES/MultiDeptUser/PSDEDQCODES/MYSQL5.json"
+}

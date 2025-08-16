@@ -1,0 +1,37 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ADDRESS",
+    "name" : "ADDRESS"
+  }, {
+    "expression" : "t1.CREATE_TIME",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.FAIL_RETRY_COUNT",
+    "name" : "FAIL_RETRY_COUNT"
+  }, {
+    "expression" : "t11.HANDLER",
+    "name" : "HANDLER"
+  }, {
+    "expression" : "t1.ID",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.JOB_ID",
+    "name" : "JOB_ID"
+  }, {
+    "expression" : "t1.PARAM",
+    "name" : "PARAM"
+  }, {
+    "expression" : "t1.TRIGGER_CODE",
+    "name" : "TRIGGER_CODE"
+  }, {
+    "expression" : "t1.TRIGGER_MSG",
+    "name" : "TRIGGER_MSG"
+  }, {
+    "expression" : "t1.TRIGGER_TYPE",
+    "name" : "TRIGGER_TYPE"
+  } ],
+  "queryCode" : "SELECT\nt1.ADDRESS,\nt1.CREATE_TIME,\nt1.FAIL_RETRY_COUNT,\nt11.HANDLER,\nt1.ID,\nt1.JOB_ID,\nt1.PARAM,\nt1.TRIGGER_CODE,\nt1.TRIGGER_MSG,\nt1.TRIGGER_TYPE\nFROM JOBS_LOG2 t1 \nLEFT JOIN JOBS_INFO2 t11 ON t1.JOB_ID = t11.ID \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

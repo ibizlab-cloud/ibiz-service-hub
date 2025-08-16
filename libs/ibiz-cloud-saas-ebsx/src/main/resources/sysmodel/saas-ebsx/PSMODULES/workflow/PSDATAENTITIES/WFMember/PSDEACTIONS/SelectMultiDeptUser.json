@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SelectMultiDeptUser",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDEACTIONS/SelectMultiDeptUser.json",
+  "logicName" : "查询部门人员",
+  "name" : "SelectMultiDeptUser",
+  "getPSDEActionInput" : {
+    "name" : "SelectMultiDeptUserInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFMemberDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SelectMultiDeptUserResult",
+    "type" : "VOID"
+  },
+  "enableAudit" : true
+}

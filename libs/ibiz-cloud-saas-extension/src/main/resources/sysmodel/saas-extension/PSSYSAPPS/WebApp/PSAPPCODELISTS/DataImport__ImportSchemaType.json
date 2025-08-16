@@ -1,0 +1,19 @@
+{
+  "codeListTag" : "DataImport__ImportSchemaType",
+  "codeListType" : "STATIC",
+  "codeName" : "DataImport__ImportSchemaType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/WebApp/PSAPPCODELISTS/DataImport__ImportSchemaType.json",
+  "emptyText" : "未定义",
+  "name" : "导入模式类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "personal",
+    "text" : "个人",
+    "value" : "PERSONAL"
+  }, {
+    "codeName" : "global",
+    "text" : "全局",
+    "value" : "GLOBAL"
+  } ],
+  "enableCache" : true
+}

@@ -1,0 +1,5965 @@
+{
+  "aPILevel" : 1,
+  "aPIMode" : 0,
+  "aPIType" : "RESTFUL",
+  "aPIVersion" : 1,
+  "authMode" : "NONE",
+  "codeName" : "OldCoreAPI",
+  "dynaModelFilePath" : "PSSYSSERVICEAPIS/OldCoreAPI.json",
+  "httpPort" : 0,
+  "name" : "核心接口（兼容旧版）",
+  "getPSDEServiceAPIRSs" : [ {
+    "codeName" : "SysPSSystemApps",
+    "getMajorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "SysPSSystem"
+    },
+    "getMinorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "SysPSSystemApp"
+    },
+    "name" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDERS/DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID.json"
+    },
+    "getPSDEServiceAPIMethods" : [ {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__CREATE",
+      "enableTestMethod" : false,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__GET",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "DELETE",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__REMOVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "PUT",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__UPDATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__CHECKKEY",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "GetAppUrl",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetAppUrl",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrl.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__GETAPPURL",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "GetAppUrlMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetAppUrlMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrlMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__GETAPPURLMOB",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__GETDRAFT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__SAVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "SetAppSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetAppSetting",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/SetAppSetting.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__SETAPPSETTING",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "SetAppSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetAppSettingMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/SetAppSettingMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__DEACTION__SETAPPSETTINGMOB",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__DEFAULT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchOrgApp",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchOrgApp",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "OrgApp"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__ORGAPP",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchPersonApp",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonApp",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonApp"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__PERSONAPP",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchPersonAppMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__PERSONAPPMOB",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchPersonAppSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppSetting",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppSetting"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__PERSONAPPSETTING",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "FetchPersonAppSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppSettingMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppSettingMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__FETCH__PERSONAPPSETTINGMOB",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "SELECT",
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "tempDataMode" : 0,
+      "uniqueTag" : "SYSPSSYSTEMAPP__SELECT",
+      "enableTestMethod" : false
+    } ],
+    "getParentIdPSDEField" : {
+      "name" : "SYSTEMID",
+      "codeName" : "SystemId"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "id" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID"
+  } ],
+  "getPSDEServiceAPIs" : [ {
+    "aPIMode" : 1,
+    "codeName" : "OpenAccess",
+    "codeName2" : "OpenAccesses",
+    "logicName" : "开放平台应用",
+    "name" : "SYS_OPEN_ACCESS",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "GetIgnoreCenter",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetIgnoreCenter",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/GetIgnoreCenter.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SyncData",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SyncData",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEACTIONS/SyncData.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OpenAccessDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "Department",
+    "codeName2" : "Departments",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "TBB.TOOLTIP.*.HELP"
+    },
+    "logicName" : "部门",
+    "name" : "SYS_DEPT",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "DTOS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchCurUserDept",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCurUserDept",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "CurUserDept"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchExclude",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchExclude",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Exclude"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DepartmentDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysDynaInst",
+    "codeName2" : "SysDynaInsts",
+    "logicName" : "动态实例",
+    "name" : "SYS_DYNAINST",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "InstallDynaInst",
+      "methodType" : "DEACTION",
+      "name" : "InstallDynaInst",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/InstallDynaInst.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchIgnoreCenter",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchIgnoreCenter",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "IgnoreCenter"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DynaInstDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "Organization",
+    "codeName2" : "Organizations",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "CTRL.FORMAH.INPUTERROR"
+    },
+    "logicName" : "单位机构",
+    "name" : "SYS_ORG",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchCurUserOrg",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchCurUserOrg",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "CurUserOrg"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchRootOrg",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchRootOrg",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "RootOrg"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchRootOrg2",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchRootOrg2",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "RootOrg2"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchThirdTree",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchThirdTree",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "ThirdTree"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysUser",
+    "codeName2" : "SysUsers",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "ERROR.STD.1"
+    },
+    "logicName" : "系统用户",
+    "name" : "SYS_USER",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "ChangePwd",
+      "methodType" : "DEACTION",
+      "name" : "ChangePwd",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/ChangePwd.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "DeleteSysUser",
+      "methodType" : "DEACTION",
+      "name" : "DeleteSysUser",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/DeleteSysUser.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "GetIgnoreCenter",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetIgnoreCenter",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/GetIgnoreCenter.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "InitPwd",
+      "methodType" : "DEACTION",
+      "name" : "InitPwd",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/InitPwd.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SaveSysUser",
+      "methodType" : "DEACTION",
+      "name" : "SaveSysUser",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/SaveSysUser.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "UserDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "OldApp",
+    "codeName2" : "OldApps",
+    "logicName" : "旧应用",
+    "name" : "SYS_APP",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OldAppDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysOrgSystem",
+    "codeName2" : "SysOrgSystems",
+    "logicName" : "组织系统",
+    "name" : "SYS_ORG_SYSTEM",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchIgnoreCenter",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchIgnoreCenter",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "IgnoreCenter"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "OrgSystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysDCSystem",
+    "codeName2" : "SysDCSystems",
+    "logicName" : "机构系统",
+    "name" : "SYS_DC_SYSTEM",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "ExecuteTestCases",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "ExecuteTestCases",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/ExecuteTestCases.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FixModel",
+      "methodType" : "DEACTION",
+      "name" : "FixModel",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/FixModel.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "InstallBaseData",
+      "methodType" : "DEACTION",
+      "name" : "InstallBaseData",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/InstallBaseData.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "InstallSampleData",
+      "methodType" : "DEACTION",
+      "name" : "InstallSampleData",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/InstallSampleData.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "InstallTestData",
+      "methodType" : "DEACTION",
+      "name" : "InstallTestData",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/InstallTestData.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Publish",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Publish",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Publish.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchIgnoreCenter",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchIgnoreCenter",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "IgnoreCenter"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCSystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "DCMetaDynaModel",
+    "codeName2" : "DCMetaDynaModels",
+    "logicName" : "模型版本",
+    "name" : "DC_META_DYNAMICMODEL",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "CleanPublishPath",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "CleanPublishPath",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/CleanPublishPath.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Init",
+      "methodType" : "DEACTION",
+      "name" : "Init",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Init.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Publish",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Publish",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Publish.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SyncModel",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SyncModel",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/SyncModel.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCMetaDynaModelDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "DCDynaInst",
+    "codeName2" : "DCDynaInsts",
+    "logicName" : "机构实例",
+    "name" : "DC_DYNAINST",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCDynaInstDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysOrganization",
+    "codeName2" : "SysOrganizations",
+    "logicName" : "组织",
+    "name" : "SYS_DC_ORG",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrganizationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCOrganization.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysEmployee",
+    "codeName2" : "SysEmployees",
+    "logicName" : "机构用户",
+    "name" : "SYS_DC_EMP",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCEmployeeDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/DCEmployee.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysPSSysAppFunc",
+    "codeName2" : "SysPSSysAppFuncs",
+    "logicName" : "应用功能",
+    "name" : "SYS_PSSYSAPPFUNC",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "GetFuncUrl",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetFuncUrl",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/GetFuncUrl.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetFuncUrlMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetFuncUrlMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/GetFuncUrlMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SetFuncSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetFuncSetting",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/SetFuncSetting.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SetFuncSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetFuncSettingMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/SetFuncSettingMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchCurUserFunc",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchCurUserFunc",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "CurUserFunc"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDEFGroupDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchOrgAppFunc",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchOrgAppFunc",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "OrgAppFunc"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDEFGroupDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonFunc",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonFunc",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonFunc"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonFuncMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonFuncMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonFuncMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonFuncSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonFuncSetting",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonFuncSetting"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonFuncSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonFuncSettingMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonFuncSettingMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "AppFuncDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 0,
+    "codeName" : "SysPSSystemApp",
+    "codeName2" : "SysPSSystemApps",
+    "logicName" : "部署应用",
+    "name" : "SYS_PSSYSTEMAPP",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetAppUrl",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetAppUrl",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrl.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetAppUrlMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "GetAppUrlMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrlMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SetAppSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetAppSetting",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/SetAppSetting.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SetAppSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SetAppSettingMob",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/SetAppSettingMob.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchOrgApp",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchOrgApp",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "OrgApp"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonApp",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonApp",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonApp"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonAppMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonAppSetting",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppSetting",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppSetting"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPersonAppSettingMob",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchPersonAppSettingMob",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "PersonAppSettingMob"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ApplicationDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : false
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "MetaDynaModel",
+    "codeName2" : "MetaDynaModels",
+    "logicName" : "模型版本",
+    "name" : "META_DYNAMICMODEL",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "CleanPublishPath",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "CleanPublishPath",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/CleanPublishPath.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Init",
+      "methodType" : "DEACTION",
+      "name" : "Init",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Init.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Publish",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "Publish",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Publish.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SyncModel",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "SyncModel",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel/PSDEACTIONS/SyncModel.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchDynaInst",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDynaInst",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "DynaInst"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchIgnoreCenter",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchIgnoreCenter",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "IgnoreCenter"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "MetaDynaModelDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/lite/PSDATAENTITIES/MetaDynaModel.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysCenter",
+    "codeName2" : "SysCenters",
+    "logicName" : "机构",
+    "name" : "SYS_CENTER",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Init",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Init",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Init.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "InitDefaultOpenAccess",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "InitDefaultOpenAccess",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/InitDefaultOpenAccess.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/Center/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "CenterDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/Center.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "DCOrgSystem",
+    "codeName2" : "DCOrgSystems",
+    "logicName" : "组织系统",
+    "name" : "DC_ORG_SYSTEM",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "DCOrgSystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "SysPSSystem",
+    "codeName2" : "SysPSSystems",
+    "logicName" : "部署系统",
+    "name" : "SYS_PSSYSTEM",
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "DELETE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "CheckKey",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "CleanRemoteModel",
+      "methodType" : "DEACTION",
+      "name" : "CleanRemoteModel",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/CleanRemoteModel.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "GetDraft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "PrepareApps",
+      "methodType" : "DEACTION",
+      "name" : "PrepareApps",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/PrepareApps.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Publish",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Publish",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Publish.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "Save",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "SyncPermission",
+      "methodType" : "DEACTION",
+      "name" : "SyncPermission",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/SyncPermission.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "UpdateRemoteModel",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "UpdateRemoteModel",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEACTIONS/UpdateRemoteModel.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "needResourceKey" : true
+    }, {
+      "codeName" : "FetchDefault",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchDefault",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "FetchPick",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "FetchPick",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Pick"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "SystemDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "GET"
+    }, {
+      "codeName" : "Select",
+      "dataAccessAction" : "READ",
+      "methodType" : "SELECT",
+      "name" : "Select",
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "type" : "UNKNOWN"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "UNKNOWN"
+      },
+      "requestMethod" : "GET"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  } ],
+  "serviceCodeName" : "OldCoreAPI",
+  "serviceType" : "DEFAULT",
+  "cloudAdminLevel" : true,
+  "enableServiceAPIDTO" : true
+}

@@ -1,0 +1,36 @@
+package net.ibizsys.model.util.transpiler.control.map;
+
+
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.util.transpiler.IPSModelListTranspiler;
+import net.ibizsys.model.util.transpiler.IPSModelTranspileContext;
+import net.ibizsys.psmodel.core.util.IPSModel;
+import static net.ibizsys.model.control.map.PSSysMapImpl.*;
+
+
+
+public class PSSysMapTranspiler extends net.ibizsys.model.util.transpiler.control.map.PSMapTranspiler{
+
+	@Override
+	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
+		if(!(iPSModelObject instanceof net.ibizsys.model.control.map.PSSysMapImpl)){
+			super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
+			return;
+			
+		}
+		net.ibizsys.model.control.map.PSSysMapImpl realPSModelObject = (net.ibizsys.model.control.map.PSSysMapImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "emptytext", realPSModelObject.getEmptyText(), realPSModelObject, "getEmptyText");
+		this.setDomainValue(iPSModelTranspileContext, domain, "emptytextpslanresid", realPSModelObject.getEmptyTextPSLanguageRes(), realPSModelObject, "getEmptyTextPSLanguageRes");
+		this.setDomainValue(iPSModelTranspileContext, domain, "mapviewstyle", realPSModelObject.getMapStyle(), realPSModelObject, "getMapStyle");
+		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
+	}
+	@Override
+	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEMPTYTEXT, domain, "emptytext", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEMPTYTEXTPSLANGUAGERES, domain, "emptytextpslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAPSTYLE, domain, "mapviewstyle", java.lang.String.class);
+		super.onCompile(iPSModelTranspileContext, domain, objectNode);
+	}
+}

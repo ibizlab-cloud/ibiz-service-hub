@@ -1,0 +1,50 @@
+{
+  "codeName" : "Index",
+  "controlType" : "APPMENU",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMENUS/Index.json",
+  "logicName" : "iBizSAAS管理平台默认菜单",
+  "getPSAppMenuItems" : [ {
+    "accUserMode" : 2,
+    "caption" : "机构管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem2",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc"
+    },
+    "tooltip" : "机构管理"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "系统管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem1",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc2"
+    },
+    "tooltip" : "系统管理"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "机构系统",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem4",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc4"
+    },
+    "tooltip" : "机构系统"
+  }, {
+    "accUserMode" : 2,
+    "caption" : "用户管理",
+    "itemType" : "MENUITEM",
+    "name" : "menuitem3",
+    "getPSAppFunc" : {
+      "modelref" : true,
+      "id" : "AppFunc3"
+    },
+    "tooltip" : "用户管理"
+  } ],
+  "name" : "index",
+  "modelid" : "7FF718A1-D5FB-4726-A683-2C38617F4F2E",
+  "modeltype" : "PSAPPMENU"
+}

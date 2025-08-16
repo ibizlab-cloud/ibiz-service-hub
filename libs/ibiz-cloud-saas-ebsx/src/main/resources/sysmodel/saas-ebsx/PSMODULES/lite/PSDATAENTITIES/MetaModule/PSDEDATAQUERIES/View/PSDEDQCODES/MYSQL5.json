@@ -1,0 +1,22 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CODENAME`",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.`MODULEID`",
+    "name" : "MODULEID"
+  }, {
+    "expression" : "t1.`MODULENAME`",
+    "name" : "MODULENAME"
+  }, {
+    "expression" : "t1.`SHOWORDER`",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  } ],
+  "queryCode" : "SELECT\nt1.`CODENAME`,\nt1.`MODULEID`,\nt1.`MODULENAME`,\nt1.`SHOWORDER`,\nt1.`SYSTEMID`\nFROM `IBZMODULE` t1 \n",
+  "id" : "PSMODULES/lite/PSDATAENTITIES/MetaModule/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

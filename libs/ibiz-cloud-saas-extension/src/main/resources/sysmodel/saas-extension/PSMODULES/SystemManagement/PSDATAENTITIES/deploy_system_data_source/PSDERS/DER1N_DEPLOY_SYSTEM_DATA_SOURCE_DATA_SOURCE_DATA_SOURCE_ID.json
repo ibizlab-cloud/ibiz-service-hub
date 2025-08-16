@@ -1,0 +1,30 @@
+{
+  "codeName" : "data_source",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source/PSDERS/DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DATA_SOURCE_DATA_SOURCE_ID.json",
+  "fKeyName" : "FA20601034773DC0B7",
+  "logicName" : "数据源",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/data_source.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "minorCodeName" : "deploy_system_data_sources",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/deploy_system_data_source.json"
+  },
+  "minorServiceCodeName" : "deploy_system_data_sources",
+  "name" : "DER1N_DEPLOY_SYSTEM_DATA_SOURCE_DATA_SOURCE_DATA_SOURCE_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DATA_SOURCE_ID",
+    "codeName" : "data_source_id"
+  },
+  "pickupDEFName" : "DATA_SOURCE_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "data_source",
+  "enableFKey" : true
+}

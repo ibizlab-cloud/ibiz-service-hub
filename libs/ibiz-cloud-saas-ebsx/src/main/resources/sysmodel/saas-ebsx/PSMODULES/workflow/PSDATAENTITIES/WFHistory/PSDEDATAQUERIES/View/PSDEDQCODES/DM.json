@@ -1,0 +1,52 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACTIONTIME",
+    "name" : "ACTIONTIME"
+  }, {
+    "expression" : "t1.ACTIONTYPE",
+    "name" : "ACTIONTYPE"
+  }, {
+    "expression" : "t1.APPID",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.AUTHOR",
+    "name" : "AUTHOR"
+  }, {
+    "expression" : "t1.AUTHORNAME",
+    "name" : "AUTHORNAME"
+  }, {
+    "expression" : "t1.BUSINESSKEY",
+    "name" : "BUSINESSKEY"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.ENTITYID",
+    "name" : "ENTITYID"
+  }, {
+    "expression" : "t1.HISTID",
+    "name" : "HISTID"
+  }, {
+    "expression" : "t1.INSTANCEID",
+    "name" : "INSTANCEID"
+  }, {
+    "expression" : "t1.MESSAGE",
+    "name" : "MESSAGE"
+  }, {
+    "expression" : "t1.PROCESSDEFKEY",
+    "name" : "PROCESSDEFKEY"
+  }, {
+    "expression" : "t1.REALINSTID",
+    "name" : "REALINSTID"
+  }, {
+    "expression" : "t1.TASKDEFKEY",
+    "name" : "TASKDEFKEY"
+  }, {
+    "expression" : "t1.TASKID",
+    "name" : "TASKID"
+  } ],
+  "queryCode" : "SELECT\nt1.ACTIONTIME,\nt1.ACTIONTYPE,\nt1.APPID,\nt1.AUTHOR,\nt1.AUTHORNAME,\nt1.BUSINESSKEY,\nt1.DCSYSTEMID,\nt1.ENTITYID,\nt1.HISTID,\nt1.INSTANCEID,\nt1.MESSAGE,\nt1.PROCESSDEFKEY,\nt1.REALINSTID,\nt1.TASKDEFKEY,\nt1.TASKID\nFROM IBZWFHISTORY t1 \n",
+  "id" : "PSMODULES/workflow/PSDATAENTITIES/WFHistory/PSDEDATAQUERIES/View/PSDEDQCODES/DM.json"
+}

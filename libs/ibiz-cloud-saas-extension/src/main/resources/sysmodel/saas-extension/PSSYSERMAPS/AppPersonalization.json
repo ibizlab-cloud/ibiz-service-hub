@@ -1,0 +1,14 @@
+{
+  "codeName" : "AppPersonalization",
+  "dynaModelFilePath" : "PSSYSERMAPS/AppPersonalization.json",
+  "name" : "AppPersonalization",
+  "getPSSysERMapNodes" : [ {
+    "leftPos" : 100,
+    "name" : "APP_VIEW_THEME",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+    },
+    "topPos" : 100
+  } ]
+}

@@ -1,0 +1,70 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`APPCATEGORY`",
+    "name" : "APPCATEGORY"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`CREATEMAN`",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.`DYNAINSTID`",
+    "name" : "DYNAINSTID"
+  }, {
+    "expression" : "t1.`ICON`",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.`ICONCSS`",
+    "name" : "ICONCSS"
+  }, {
+    "expression" : "t1.`ISDEFAULT`",
+    "name" : "ISDEFAULT"
+  }, {
+    "expression" : "t1.`MOBILEAPP`",
+    "name" : "MOBILEAPP"
+  }, {
+    "expression" : "t1.`PERMISSIONTAG`",
+    "name" : "PERMISSIONTAG"
+  }, {
+    "expression" : "t1.`PSSYSAPPFUNCID`",
+    "name" : "PSSYSAPPFUNCID"
+  }, {
+    "expression" : "t1.`PSSYSAPPFUNCNAME`",
+    "name" : "PSSYSAPPFUNCNAME"
+  }, {
+    "expression" : "t1.`PSSYSTEMAPPID`",
+    "name" : "PSSYSTEMAPPID"
+  }, {
+    "expression" : "t1.`PSSYSTEMAPPNAME`",
+    "name" : "PSSYSTEMAPPNAME"
+  }, {
+    "expression" : "t1.`SHOWORDER`",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.`SRFDCID`",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.`SYSTEMID`",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.`TIP`",
+    "name" : "TIP"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.`UPDATEMAN`",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.`URL`",
+    "name" : "URL"
+  }, {
+    "expression" : "t1.`VIEWPATHPARAMS`",
+    "name" : "VIEWPATHPARAMS"
+  } ],
+  "queryCode" : "SELECT\nt1.`APPCATEGORY`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`DYNAINSTID`,\nt1.`ICON`,\nt1.`ICONCSS`,\nt1.`ISDEFAULT`,\nt1.`MOBILEAPP`,\nt1.`PERMISSIONTAG`,\nt1.`PSSYSAPPFUNCID`,\nt1.`PSSYSAPPFUNCNAME`,\nt1.`PSSYSTEMAPPID`,\nt1.`PSSYSTEMAPPNAME`,\nt1.`SHOWORDER`,\nt1.`SRFDCID`,\nt1.`SYSTEMID`,\nt1.`TIP`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`,\nt1.`URL`,\nt1.`VIEWPATHPARAMS`\nFROM `IBZPSSYSAPPFUNC` t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

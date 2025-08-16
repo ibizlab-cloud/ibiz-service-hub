@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "CleanPublishPath",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDEACTIONS/CleanPublishPath.json",
+  "logicName" : "清理模型版本目录",
+  "name" : "CleanPublishPath",
+  "getPSDEActionInput" : {
+    "name" : "CleanPublishPathInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCMetaDynaModelDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CleanPublishPathResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

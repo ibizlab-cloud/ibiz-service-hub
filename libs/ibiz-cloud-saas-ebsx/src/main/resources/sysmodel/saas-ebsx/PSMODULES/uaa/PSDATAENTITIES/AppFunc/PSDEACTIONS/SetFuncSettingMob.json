@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SetFuncSettingMob",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/SetFuncSettingMob.json",
+  "logicName" : "移动端设置快捷操作",
+  "name" : "SetFuncSettingMob",
+  "getPSDEActionInput" : {
+    "name" : "SetFuncSettingMobInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "AppFuncDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SetFuncSettingMobResult",
+    "type" : "VOID"
+  }
+}

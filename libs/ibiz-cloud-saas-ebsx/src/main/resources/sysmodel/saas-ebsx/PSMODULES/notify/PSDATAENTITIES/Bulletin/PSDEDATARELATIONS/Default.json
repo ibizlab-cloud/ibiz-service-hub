@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统公告",
+  "name" : " 系统公告默认关系界面组"
+}

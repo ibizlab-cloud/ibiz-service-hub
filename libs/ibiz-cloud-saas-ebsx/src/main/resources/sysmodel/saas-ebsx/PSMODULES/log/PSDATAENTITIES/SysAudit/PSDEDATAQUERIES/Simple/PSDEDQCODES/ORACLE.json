@@ -1,0 +1,43 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ADDRESS",
+    "name" : "ADDRESS"
+  }, {
+    "expression" : "t1.AUDITCAT",
+    "name" : "AUDITCAT"
+  }, {
+    "expression" : "t1.AUDITINFO",
+    "name" : "AUDITINFO"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.LOGLEVEL",
+    "name" : "LOGLEVEL"
+  }, {
+    "expression" : "t1.OPPERSONID",
+    "name" : "OPPERSONID"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.SYSAUDITID",
+    "name" : "SYSAUDITID"
+  }, {
+    "expression" : "t1.SYSAUDITNAME",
+    "name" : "SYSAUDITNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.SYSAUDITID,\nt1.SYSAUDITNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZAUDIT t1 \n",
+  "id" : "PSMODULES/log/PSDATAENTITIES/SysAudit/PSDEDATAQUERIES/Simple/PSDEDQCODES/ORACLE.json"
+}

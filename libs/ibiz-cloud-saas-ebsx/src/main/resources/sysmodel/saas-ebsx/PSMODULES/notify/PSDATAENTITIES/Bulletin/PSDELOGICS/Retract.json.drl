@@ -1,0 +1,40 @@
+package net.ibizsys.central.cloud.saas.ebsx.notify.logic.bulletinlogic.retract;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import net.ibizsys.central.cloud.saas.ebsx.util.errors.BadRequestAlertException;
+                global net.ibizsys.central.cloud.saas.ebsx.core.notify.domain.Bulletin bulletinretractdefault;
+                    global net.ibizsys.central.cloud.saas.ebsx.core.notify.service.IBulletinService bulletinservice;
+        global net.ibizsys.central.cloud.saas.ebsx.core.notify.service.IBulletinService iBzSysBulletinDefaultService;
+        global net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "bulletinretractbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[修改状态、清空发布时间]
+            rule "prepareparam1"
+            ruleflow-group "bulletinretractprepareparam1"
+            when
+            then
+                            bulletinretractdefault.set("pubflag","99");
+                                bulletinretractdefault.set("publishdate",null);
+                        update(bulletinretractdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[更新]
+            rule "deaction1"
+            ruleflow-group "bulletinretractdeaction1"
+            when
+            then
+                        bulletinservice.update(bulletinretractdefault);
+                        update(bulletinretractdefault);//更新fact中变量值
+            end

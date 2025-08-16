@@ -1,0 +1,7 @@
+{
+  "codeName" : "portal",
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPMODULES/portal.json",
+  "mOSFilePath" : "pssysapps/SAASMgr/psappmodules/portal",
+  "name" : "门户",
+  "rTMOSFilePath" : "pssysapps/SAASMgr/psappmodules/portal"
+}

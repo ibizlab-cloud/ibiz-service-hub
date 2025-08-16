@@ -1,0 +1,61 @@
+{
+  "dBType" : "DM",
+  "name" : "DM",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APPCATEGORY",
+    "name" : "APPCATEGORY"
+  }, {
+    "expression" : "t1.CODENAME",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.ICON",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.ICONCSS",
+    "name" : "ICONCSS"
+  }, {
+    "expression" : "t1.INDEXCODENAME",
+    "name" : "INDEXCODENAME"
+  }, {
+    "expression" : "t1.MOBILEAPP",
+    "name" : "MOBILEAPP"
+  }, {
+    "expression" : "t1.PSSYSTEMAPPID",
+    "name" : "PSSYSTEMAPPID"
+  }, {
+    "expression" : "t1.PSSYSTEMAPPNAME",
+    "name" : "PSSYSTEMAPPNAME"
+  }, {
+    "expression" : "t1.SERVICEID",
+    "name" : "SERVICEID"
+  }, {
+    "expression" : "t1.SHOWORDER",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.TIP",
+    "name" : "TIP"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.URL",
+    "name" : "URL"
+  }, {
+    "expression" : "t1.VIEWPATHFORMAT",
+    "name" : "VIEWPATHFORMAT"
+  } ],
+  "queryCode" : "SELECT\nt1.APPCATEGORY,\nt1.CODENAME,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.ICON,\nt1.ICONCSS,\nt1.INDEXCODENAME,\nt1.MOBILEAPP,\nt1.PSSYSTEMAPPID,\nt1.PSSYSTEMAPPNAME,\nt1.SERVICEID,\nt1.SHOWORDER,\nt1.SYSTEMID,\nt1.TIP,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt1.URL,\nt1.VIEWPATHFORMAT\nFROM IBZPSSYSTEMAPP t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEDATAQUERIES/PersonAppSettingMob/PSDEDQCODES/DM.json"
+}

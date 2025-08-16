@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "开放平台用户",
+  "name" : "第三方用户默认关系界面组"
+}

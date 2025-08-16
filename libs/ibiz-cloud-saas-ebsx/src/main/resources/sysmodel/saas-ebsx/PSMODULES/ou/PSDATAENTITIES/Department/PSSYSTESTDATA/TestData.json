@@ -1,0 +1,273 @@
+{
+  "codeName" : "TestData",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSSYSTESTDATA/TestData.json",
+  "instCount" : 1,
+  "name" : "测试数据01",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+  },
+  "getPSSysTestDataItems" : [ {
+    "memo" : "业务编码",
+    "name" : "BCODE",
+    "getPSDEField" : {
+      "name" : "BCODE",
+      "codeName" : "BCode"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "创建时间",
+    "name" : "CREATEDATE",
+    "getPSDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "stdDataType" : 5,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "钉钉部门标识",
+    "name" : "DDDEPTID",
+    "getPSDEField" : {
+      "name" : "DDDEPTID",
+      "codeName" : "DDDeptId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门代码",
+    "name" : "DEPTCODE",
+    "getPSDEField" : {
+      "name" : "DEPTCODE",
+      "codeName" : "DeptCode"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门全称",
+    "name" : "DEPTFULLNAME",
+    "getPSDEField" : {
+      "name" : "DEPTFULLNAME",
+      "codeName" : "DeptFullName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门标识",
+    "name" : "DEPTID",
+    "getPSDEField" : {
+      "name" : "DEPTID",
+      "codeName" : "DeptId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门领导",
+    "name" : "DEPTLEADER",
+    "getPSDEField" : {
+      "name" : "DEPTLEADER",
+      "codeName" : "DeptLeader"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门领导标识",
+    "name" : "DEPTLEADERID",
+    "getPSDEField" : {
+      "name" : "DEPTLEADERID",
+      "codeName" : "DeptLeaderId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门级别",
+    "name" : "DEPTLEVEL",
+    "getPSDEField" : {
+      "name" : "DEPTLEVEL",
+      "codeName" : "DeptLevel"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门名称",
+    "name" : "DEPTNAME",
+    "getPSDEField" : {
+      "name" : "DEPTNAME",
+      "codeName" : "DeptName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "区属",
+    "name" : "DOMAINS",
+    "getPSDEField" : {
+      "name" : "DOMAINS",
+      "codeName" : "Domains"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "逻辑有效",
+    "name" : "ENABLE",
+    "getPSDEField" : {
+      "name" : "ENABLE",
+      "codeName" : "Enable"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "启用标志",
+    "name" : "ISVALID",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
+    },
+    "getPSDEField" : {
+      "name" : "ISVALID",
+      "codeName" : "IsValid"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "分管领导标识",
+    "name" : "LEADERID",
+    "getPSDEField" : {
+      "name" : "LEADERID",
+      "codeName" : "LeaderId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "分管领导",
+    "name" : "LEADERNAME",
+    "getPSDEField" : {
+      "name" : "LEADERNAME",
+      "codeName" : "LeaderName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "组织代码",
+    "name" : "ORGCODE",
+    "getPSDEField" : {
+      "name" : "ORGCODE",
+      "codeName" : "OrgCode"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "单位",
+    "name" : "ORGID",
+    "getPSDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "单位",
+    "name" : "ORGNAME",
+    "getPSDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "上级部门",
+    "name" : "PDEPTID",
+    "getPSDEField" : {
+      "name" : "PDEPTID",
+      "codeName" : "ParentDeptId"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "上级部门",
+    "name" : "PDEPTNAME",
+    "getPSDEField" : {
+      "name" : "PDEPTNAME",
+      "codeName" : "ParentDeptName"
+    },
+    "getRefPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getRefPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "部门简称",
+    "name" : "SHORTNAME",
+    "getPSDEField" : {
+      "name" : "SHORTNAME",
+      "codeName" : "ShortName"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "排序",
+    "name" : "SHOWORDER",
+    "getPSDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "stdDataType" : 9,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "最后修改时间",
+    "name" : "UPDATEDATE",
+    "getPSDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    },
+    "stdDataType" : 5,
+    "valueType" : "VALUE"
+  }, {
+    "memo" : "企业微信部门标识",
+    "name" : "WXWORKDEPTID",
+    "getPSDEField" : {
+      "name" : "WXWORKDEPTID",
+      "codeName" : "WXWorkDeptId"
+    },
+    "stdDataType" : 25,
+    "valueType" : "VALUE"
+  } ],
+  "testDataType" : "DATA",
+  "baseMode" : false
+}

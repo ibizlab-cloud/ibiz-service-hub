@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList62",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList62",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList62.json",
+  "emptyText" : "未定义",
+  "name" : "数据通知_时间条件",
+  "getPSCodeItems" : [ {
+    "codeName" : "Before",
+    "text" : "之前",
+    "value" : "BEFORE"
+  }, {
+    "codeName" : "After",
+    "text" : "之后",
+    "value" : "AFTER"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00069",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

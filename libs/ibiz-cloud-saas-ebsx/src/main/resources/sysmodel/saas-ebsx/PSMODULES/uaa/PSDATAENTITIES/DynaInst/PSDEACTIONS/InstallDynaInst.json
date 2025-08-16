@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InstallDynaInst",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DynaInst/PSDEACTIONS/InstallDynaInst.json",
+  "logicName" : "安装实例数据",
+  "name" : "InstallDynaInst",
+  "getPSDEActionInput" : {
+    "name" : "InstallDynaInstInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DynaInstDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallDynaInstResult",
+    "type" : "VOID"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "codeName" : "initDeptFullName",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDELOGICS/initDeptFullName.json",
+  "logicName" : "初始化部门名称",
+  "name" : "初始化部门名称",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 182,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Rawsqlcall1"
+      },
+      "name" : "连接7590",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "ORGNAME",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[ORGNAME] 值不为空(NotNil)"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      },
+      "name" : "连接1335",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNULL",
+          "dstFieldName" : "ORGNAME",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[ORGNAME] 值为空(Nil)"
+        }, {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "ORGID",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[ORGID] 值不为空(NotNil)"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 75,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Prepareparam1",
+    "leftPos" : 489,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "填充OrgId",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Deaction1"
+      },
+      "name" : "连接544",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Prepareparam1"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "ORGID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ORG"
+      },
+      "name" : "Default[ORGID] ==> ORG[ORGID]",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ORGID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 80,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Deaction1",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDEACTIONS/Get.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ORG"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "leftPos" : 490,
+    "logicNodeType" : "DEACTION",
+    "name" : "获取单位名称",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Rawsqlcall2"
+      },
+      "name" : "连接9292",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Deaction1"
+      }
+    } ],
+    "topPos" : 239,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Rawsqlcall1",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 181,
+    "logicNodeType" : "RAWSQLCALL",
+    "name" : "初始化部门名称",
+    "getPSDELogicNodeParams" : [ {
+      "name" : "Default[ORGNAME]",
+      "paramAction" : "SQLPARAM",
+      "srcFieldName" : "ORGNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "name" : "Default[DEPTNAME]",
+      "paramAction" : "SQLPARAM",
+      "srcFieldName" : "DEPTNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "sql" : "select concat(?,?) as deptfullname from dual",
+    "topPos" : 390,
+    "fillDstLogicParam" : true,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "Rawsqlcall2",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 490,
+    "logicNodeType" : "RAWSQLCALL",
+    "name" : "初始化部门名称",
+    "getPSDELogicNodeParams" : [ {
+      "name" : "ORG[ORGNAME]",
+      "paramAction" : "SQLPARAM",
+      "srcFieldName" : "ORGNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ORG"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "name" : "Default[DEPTNAME]",
+      "paramAction" : "SQLPARAM",
+      "srcFieldName" : "DEPTNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "sql" : "select concat(?,?) as deptfullname from dual",
+    "topPos" : 417,
+    "fillDstLogicParam" : true,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "ORG",
+    "logicName" : "单位",
+    "name" : "单位",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Organization.json"
+    },
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

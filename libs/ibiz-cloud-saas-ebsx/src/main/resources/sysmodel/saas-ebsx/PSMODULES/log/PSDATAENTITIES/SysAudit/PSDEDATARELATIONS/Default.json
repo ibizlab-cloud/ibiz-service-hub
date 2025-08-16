@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/log/PSDATAENTITIES/SysAudit/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "系统审计",
+  "name" : "系统审计默认关系界面组"
+}

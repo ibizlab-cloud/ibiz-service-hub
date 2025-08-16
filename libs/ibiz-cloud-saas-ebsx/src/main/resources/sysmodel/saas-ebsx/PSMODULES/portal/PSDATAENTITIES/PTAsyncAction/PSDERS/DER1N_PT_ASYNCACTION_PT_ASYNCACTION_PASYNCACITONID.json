@@ -1,0 +1,27 @@
+{
+  "codeName" : "PT_ASYNVACTION",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDERS/DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID.json",
+  "fKeyName" : "FA4C11E8A1A3DDA7C1",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+  },
+  "name" : "DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "PASYNCACITONID",
+    "codeName" : "PAsyncAcitonId"
+  },
+  "pickupDEFName" : "PASYNCACITONID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "PT_ASYNVACTION",
+  "enableFKey" : true
+}

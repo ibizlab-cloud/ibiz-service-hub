@@ -1,0 +1,36 @@
+{
+  "codeListTag" : "uaa__UserRole",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "UserRole",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/UserRole.json",
+  "emptyText" : "未定义",
+  "name" : "用户角色",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "getTextPSDEField" : {
+    "name" : "SYS_ROLENAME",
+    "codeName" : "RoleName"
+  },
+  "getValuePSDEField" : {
+    "name" : "SYS_ROLEID",
+    "codeName" : "RoleId"
+  },
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : true
+}

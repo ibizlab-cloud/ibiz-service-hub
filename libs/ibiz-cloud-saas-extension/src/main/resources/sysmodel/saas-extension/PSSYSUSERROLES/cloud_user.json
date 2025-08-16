@@ -1,0 +1,69 @@
+{
+  "codeName" : "cloud_user",
+  "defaultUser" : "USER",
+  "dynaModelFilePath" : "PSSYSUSERROLES/cloud_user.json",
+  "name" : "cloud用户默认",
+  "getPSSysUserRoleDatas" : [ {
+    "name" : "cloud用户默认-APP_VIEW_THEME[当前用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme/PSDEUSERROLES/CurUser.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+    }
+  }, {
+    "name" : "cloud用户默认-IMPORT_SCHEMA[当前用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema/PSDEUSERROLES/CurUser.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema.json"
+    }
+  }, {
+    "name" : "cloud用户默认-INTERNAL_MESSAGE[当前发送用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/CurSender.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    }
+  }, {
+    "name" : "cloud用户默认-SYSTEM_EXTENSION_NOTIFY_SETTING[当前用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting/PSDEUSERROLES/CurUser.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_notify_setting.json"
+    }
+  }, {
+    "name" : "cloud用户默认-INTERNAL_MESSAGE[当前接收用户（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message/PSDEUSERROLES/CurReceiver.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Notify/PSDATAENTITIES/internal_message.json"
+    }
+  } ],
+  "getPSSysUserRoleReses" : [ {
+    "name" : "cloud用户默认-默认用户操作",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "DEFAULT"
+    },
+    "sysUniResCode" : "DEFAULT"
+  } ],
+  "roleTag" : "CLOUD_USER",
+  "roleType" : "CUSTOM",
+  "uniResTags" : [ "DEFAULT" ],
+  "systemReserved" : true
+}

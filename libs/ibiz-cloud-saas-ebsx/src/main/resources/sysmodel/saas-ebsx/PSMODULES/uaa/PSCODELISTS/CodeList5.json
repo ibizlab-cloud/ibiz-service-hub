@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList5",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList5",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList5.json",
+  "emptyText" : "未定义",
+  "name" : "用户对象类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "User",
+    "text" : "用户",
+    "value" : "USER"
+  }, {
+    "codeName" : "Usergroup",
+    "text" : "用户组",
+    "value" : "USERGROUP"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00005",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

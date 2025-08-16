@@ -1,0 +1,1940 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "JOBS_LOG2",
+    "tableName" : "JOBS_LOG2",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`JOBS_LOG2`",
+    "tableName" : "JOBS_LOG2",
+    "valid" : true
+  }, {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "JOBS_LOG2",
+    "tableName" : "JOBS_LOG2",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[JOBS_LOG2]",
+    "tableName" : "JOBS_LOG2",
+    "valid" : true
+  }, {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "JOBS_LOG2",
+    "tableName" : "JOBS_LOG2",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "ID",
+      "codeName" : "Id"
+    }, {
+      "name" : "ADDRESS",
+      "codeName" : "Address"
+    }, {
+      "name" : "PARAM",
+      "codeName" : "Param"
+    }, {
+      "name" : "FAIL_RETRY_COUNT",
+      "codeName" : "FailRetryCount"
+    }, {
+      "name" : "TRIGGER_CODE",
+      "codeName" : "TriggerCode"
+    }, {
+      "name" : "TRIGGER_TYPE",
+      "codeName" : "TriggerType"
+    }, {
+      "name" : "TRIGGER_MSG",
+      "codeName" : "TriggerMsg"
+    }, {
+      "name" : "CREATE_TIME",
+      "codeName" : "CreateTime"
+    }, {
+      "name" : "JOB_ID",
+      "codeName" : "JobId"
+    } ],
+    "codeName" : "Table",
+    "name" : "JOBS_LOG2",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "JOBS_LOG2"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDRGROUPS/DRGroup.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "数据查询",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DC_JOBS_LOG"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Simple/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Simple",
+    "dEFGroupType" : "BASEFIELDS",
+    "logicName" : "基础属性查询",
+    "name" : "SIMPLE",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DC_JOBS_LOG"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "SimpleInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "SimpleResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogSimpleDTO"
+      },
+      "type" : "DTOS"
+    },
+    "getPSDEFGroup" : {
+      "modelref" : true,
+      "id" : "Simple"
+    },
+    "viewLevel" : 100
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "DC_JOBS_LOG"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "数据集",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "DCJobsLogDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFGroups" : [ {
+    "codeName" : "Simple",
+    "groupType" : "BASEFIELDS",
+    "name" : "基础属性组",
+    "orderValue" : 99999,
+    "getPSDEFGroupDetails" : [ {
+      "codeName" : "Id",
+      "logicName" : "主键ID",
+      "name" : "ID",
+      "orderValue" : 1,
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    } ]
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ID",
+      "name" : "ID",
+      "standardColumnName" : "ID"
+    }, {
+      "columnName" : "ID",
+      "dBType" : "MYSQL5",
+      "name" : "ID",
+      "queryCodeExp" : "t1.`ID`",
+      "standardColumnName" : "`ID`"
+    }, {
+      "columnName" : "ID",
+      "dBType" : "ORACLE",
+      "name" : "ID",
+      "queryCodeExp" : "t1.ID",
+      "standardColumnName" : "ID"
+    }, {
+      "columnName" : "ID",
+      "dBType" : "SQLSERVER",
+      "name" : "ID",
+      "standardColumnName" : "[ID]"
+    }, {
+      "columnName" : "ID",
+      "dBType" : "POSTGRESQL",
+      "name" : "ID",
+      "queryCodeExp" : "t1.ID",
+      "standardColumnName" : "ID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ID_EQ",
+      "name" : "N_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ID][主键ID]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ID][主键ID]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ID][主键ID]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ID][主键ID]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Id",
+    "dEFType" : 1,
+    "dataType" : "GUID",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "主键ID",
+    "name" : "ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ADDRESS",
+      "name" : "ADDRESS",
+      "standardColumnName" : "ADDRESS"
+    }, {
+      "columnName" : "ADDRESS",
+      "dBType" : "MYSQL5",
+      "name" : "ADDRESS",
+      "queryCodeExp" : "t1.`ADDRESS`",
+      "standardColumnName" : "`ADDRESS`"
+    }, {
+      "columnName" : "ADDRESS",
+      "dBType" : "ORACLE",
+      "name" : "ADDRESS",
+      "queryCodeExp" : "t1.ADDRESS",
+      "standardColumnName" : "ADDRESS"
+    }, {
+      "columnName" : "ADDRESS",
+      "dBType" : "SQLSERVER",
+      "name" : "ADDRESS",
+      "standardColumnName" : "[ADDRESS]"
+    }, {
+      "columnName" : "ADDRESS",
+      "dBType" : "POSTGRESQL",
+      "name" : "ADDRESS",
+      "queryCodeExp" : "t1.ADDRESS",
+      "standardColumnName" : "ADDRESS"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ADDRESS][执行地址]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ADDRESS][执行地址]移动端默认",
+        "stringLength" : 255,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ADDRESS][执行地址]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ADDRESS][执行地址]",
+        "stringLength" : 255,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ADDRESS",
+          "maxValue" : 255,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[255]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[255]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[255]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Address",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 255,
+    "logicName" : "执行地址",
+    "name" : "ADDRESS",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ADDRESS"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 255,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PARAM",
+      "name" : "PARAM",
+      "standardColumnName" : "PARAM"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "MYSQL5",
+      "name" : "PARAM",
+      "queryCodeExp" : "t1.`PARAM`",
+      "standardColumnName" : "`PARAM`"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "ORACLE",
+      "name" : "PARAM",
+      "queryCodeExp" : "t1.PARAM",
+      "standardColumnName" : "PARAM"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "SQLSERVER",
+      "name" : "PARAM",
+      "standardColumnName" : "[PARAM]"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "POSTGRESQL",
+      "name" : "PARAM",
+      "queryCodeExp" : "t1.PARAM",
+      "standardColumnName" : "PARAM"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[PARAM][执行器任务参数]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[PARAM][执行器任务参数]移动端默认",
+        "stringLength" : 4000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[PARAM][执行器任务参数]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[PARAM][执行器任务参数]",
+        "stringLength" : 4000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PARAM",
+          "maxValue" : 4000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[4000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[4000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[4000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Param",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 4000,
+    "logicName" : "执行器任务参数",
+    "name" : "PARAM",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "PARAM"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 4000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "FAIL_RETRY_COUNT",
+      "name" : "FAIL_RETRY_COUNT",
+      "standardColumnName" : "FAIL_RETRY_COUNT",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "FAIL_RETRY_COUNT",
+      "dBType" : "MYSQL5",
+      "name" : "FAIL_RETRY_COUNT",
+      "queryCodeExp" : "t1.`FAIL_RETRY_COUNT`",
+      "standardColumnName" : "`FAIL_RETRY_COUNT`",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "FAIL_RETRY_COUNT",
+      "dBType" : "ORACLE",
+      "name" : "FAIL_RETRY_COUNT",
+      "queryCodeExp" : "t1.FAIL_RETRY_COUNT",
+      "standardColumnName" : "FAIL_RETRY_COUNT",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "FAIL_RETRY_COUNT",
+      "dBType" : "SQLSERVER",
+      "name" : "FAIL_RETRY_COUNT",
+      "standardColumnName" : "[FAIL_RETRY_COUNT]",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "FAIL_RETRY_COUNT",
+      "dBType" : "POSTGRESQL",
+      "name" : "FAIL_RETRY_COUNT",
+      "queryCodeExp" : "t1.FAIL_RETRY_COUNT",
+      "standardColumnName" : "FAIL_RETRY_COUNT",
+      "valueAutoGen" : true
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[FAIL_RETRY_COUNT][失败重试次数]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[FAIL_RETRY_COUNT][失败重试次数]",
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[FAIL_RETRY_COUNT][失败重试次数]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[FAIL_RETRY_COUNT][失败重试次数]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "FailRetryCount",
+    "dEFType" : 1,
+    "dataType" : "INT",
+    "defaultValue" : "0",
+    "importOrder" : 1000,
+    "logicName" : "失败重试次数",
+    "name" : "FAIL_RETRY_COUNT",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "FAIL_RETRY_COUNT"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRIGGER_CODE",
+      "name" : "TRIGGER_CODE",
+      "standardColumnName" : "TRIGGER_CODE",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "TRIGGER_CODE",
+      "dBType" : "MYSQL5",
+      "name" : "TRIGGER_CODE",
+      "queryCodeExp" : "t1.`TRIGGER_CODE`",
+      "standardColumnName" : "`TRIGGER_CODE`",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "TRIGGER_CODE",
+      "dBType" : "ORACLE",
+      "name" : "TRIGGER_CODE",
+      "queryCodeExp" : "t1.TRIGGER_CODE",
+      "standardColumnName" : "TRIGGER_CODE",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "TRIGGER_CODE",
+      "dBType" : "SQLSERVER",
+      "name" : "TRIGGER_CODE",
+      "standardColumnName" : "[TRIGGER_CODE]",
+      "valueAutoGen" : true
+    }, {
+      "columnName" : "TRIGGER_CODE",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRIGGER_CODE",
+      "queryCodeExp" : "t1.TRIGGER_CODE",
+      "standardColumnName" : "TRIGGER_CODE",
+      "valueAutoGen" : true
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[TRIGGER_CODE][触发器调度返回码]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TRIGGER_CODE][触发器调度返回码]",
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TRIGGER_CODE][触发器调度返回码]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TRIGGER_CODE][触发器调度返回码]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "TriggerCode",
+    "dEFType" : 1,
+    "dataType" : "INT",
+    "defaultValue" : "0",
+    "importOrder" : 1000,
+    "logicName" : "触发器调度返回码",
+    "name" : "TRIGGER_CODE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRIGGER_CODE"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRIGGER_TYPE",
+      "name" : "TRIGGER_TYPE",
+      "standardColumnName" : "TRIGGER_TYPE"
+    }, {
+      "columnName" : "TRIGGER_TYPE",
+      "dBType" : "MYSQL5",
+      "name" : "TRIGGER_TYPE",
+      "queryCodeExp" : "t1.`TRIGGER_TYPE`",
+      "standardColumnName" : "`TRIGGER_TYPE`"
+    }, {
+      "columnName" : "TRIGGER_TYPE",
+      "dBType" : "ORACLE",
+      "name" : "TRIGGER_TYPE",
+      "queryCodeExp" : "t1.TRIGGER_TYPE",
+      "standardColumnName" : "TRIGGER_TYPE"
+    }, {
+      "columnName" : "TRIGGER_TYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "TRIGGER_TYPE",
+      "standardColumnName" : "[TRIGGER_TYPE]"
+    }, {
+      "columnName" : "TRIGGER_TYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRIGGER_TYPE",
+      "queryCodeExp" : "t1.TRIGGER_TYPE",
+      "standardColumnName" : "TRIGGER_TYPE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[TRIGGER_TYPE][触发器调度类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TRIGGER_TYPE][触发器调度类型]",
+        "stringLength" : 30,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[TRIGGER_TYPE][触发器调度类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TRIGGER_TYPE][触发器调度类型]移动端默认",
+        "stringLength" : 30,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRIGGER_TYPE",
+          "maxValue" : 30,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[30]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[30]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[30]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "TriggerType",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 30,
+    "logicName" : "触发器调度类型",
+    "name" : "TRIGGER_TYPE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRIGGER_TYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 30,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TRIGGER_MSG",
+      "name" : "TRIGGER_MSG",
+      "standardColumnName" : "TRIGGER_MSG"
+    }, {
+      "columnName" : "TRIGGER_MSG",
+      "dBType" : "MYSQL5",
+      "name" : "TRIGGER_MSG",
+      "queryCodeExp" : "t1.`TRIGGER_MSG`",
+      "standardColumnName" : "`TRIGGER_MSG`"
+    }, {
+      "columnName" : "TRIGGER_MSG",
+      "dBType" : "ORACLE",
+      "name" : "TRIGGER_MSG",
+      "queryCodeExp" : "t1.TRIGGER_MSG",
+      "standardColumnName" : "TRIGGER_MSG"
+    }, {
+      "columnName" : "TRIGGER_MSG",
+      "dBType" : "SQLSERVER",
+      "name" : "TRIGGER_MSG",
+      "standardColumnName" : "[TRIGGER_MSG]"
+    }, {
+      "columnName" : "TRIGGER_MSG",
+      "dBType" : "POSTGRESQL",
+      "name" : "TRIGGER_MSG",
+      "queryCodeExp" : "t1.TRIGGER_MSG",
+      "standardColumnName" : "TRIGGER_MSG"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[TRIGGER_MSG][触发器调度信息]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[TRIGGER_MSG][触发器调度信息]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[TRIGGER_MSG][触发器调度信息]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[TRIGGER_MSG][触发器调度信息]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TRIGGER_MSG",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "TriggerMsg",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "触发器调度信息",
+    "name" : "TRIGGER_MSG",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TRIGGER_MSG"
+    },
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s",
+    "queryColumn" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "CREATE_TIME",
+      "name" : "CREATE_TIME",
+      "standardColumnName" : "CREATE_TIME"
+    }, {
+      "columnName" : "CREATE_TIME",
+      "dBType" : "MYSQL5",
+      "name" : "CREATE_TIME",
+      "queryCodeExp" : "t1.`CREATE_TIME`",
+      "standardColumnName" : "`CREATE_TIME`"
+    }, {
+      "columnName" : "CREATE_TIME",
+      "dBType" : "ORACLE",
+      "name" : "CREATE_TIME",
+      "queryCodeExp" : "t1.CREATE_TIME",
+      "standardColumnName" : "CREATE_TIME"
+    }, {
+      "columnName" : "CREATE_TIME",
+      "dBType" : "SQLSERVER",
+      "name" : "CREATE_TIME",
+      "standardColumnName" : "[CREATE_TIME]"
+    }, {
+      "columnName" : "CREATE_TIME",
+      "dBType" : "POSTGRESQL",
+      "name" : "CREATE_TIME",
+      "queryCodeExp" : "t1.CREATE_TIME",
+      "standardColumnName" : "CREATE_TIME"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATE_TIME][创建时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[CREATE_TIME][创建时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[CREATE_TIME][创建时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[CREATE_TIME][创建时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "CreateTime",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "logicName" : "创建时间",
+    "name" : "CREATE_TIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "CREATE_TIME"
+    },
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+    "allowEmpty" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "HANDLER",
+      "name" : "HANDLER",
+      "standardColumnName" : "HANDLER"
+    }, {
+      "columnName" : "HANDLER",
+      "dBType" : "MYSQL5",
+      "name" : "HANDLER",
+      "queryCodeExp" : "t11.`HANDLER`",
+      "standardColumnName" : "`HANDLER`"
+    }, {
+      "columnName" : "HANDLER",
+      "dBType" : "ORACLE",
+      "name" : "HANDLER",
+      "queryCodeExp" : "t11.HANDLER",
+      "standardColumnName" : "HANDLER"
+    }, {
+      "columnName" : "HANDLER",
+      "dBType" : "SQLSERVER",
+      "name" : "HANDLER",
+      "standardColumnName" : "[HANDLER]"
+    }, {
+      "columnName" : "HANDLER",
+      "dBType" : "POSTGRESQL",
+      "name" : "HANDLER",
+      "queryCodeExp" : "t11.HANDLER",
+      "standardColumnName" : "HANDLER"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_HANDLER_EQ",
+      "name" : "N_HANDLER_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_HANDLER_LIKE",
+      "name" : "N_HANDLER_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[HANDLER][处理器]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[HANDLER][处理器]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 255,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[HANDLER][处理器]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[HANDLER][处理器]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 255,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "HANDLER",
+          "maxValue" : 255,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[255]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[255]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[255]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Handler",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 255,
+    "logicName" : "处理器",
+    "name" : "HANDLER",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDERS/DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 255,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "JOB_ID",
+      "codeName" : "JobId"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "JOB_ID",
+      "name" : "JOB_ID",
+      "standardColumnName" : "JOB_ID"
+    }, {
+      "columnName" : "JOB_ID",
+      "dBType" : "MYSQL5",
+      "name" : "JOB_ID",
+      "queryCodeExp" : "t1.`JOB_ID`",
+      "standardColumnName" : "`JOB_ID`"
+    }, {
+      "columnName" : "JOB_ID",
+      "dBType" : "ORACLE",
+      "name" : "JOB_ID",
+      "queryCodeExp" : "t1.JOB_ID",
+      "standardColumnName" : "JOB_ID"
+    }, {
+      "columnName" : "JOB_ID",
+      "dBType" : "SQLSERVER",
+      "name" : "JOB_ID",
+      "standardColumnName" : "[JOB_ID]"
+    }, {
+      "columnName" : "JOB_ID",
+      "dBType" : "POSTGRESQL",
+      "name" : "JOB_ID",
+      "queryCodeExp" : "t1.JOB_ID",
+      "standardColumnName" : "JOB_ID"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_JOB_ID_EQ",
+      "name" : "N_JOB_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[JOB_ID][主键ID]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[JOB_ID][主键ID]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[JOB_ID][主键ID]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[JOB_ID][主键ID]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "JOB_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "JobId",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "主键ID",
+    "name" : "JOB_ID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDERS/DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "JOB_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "DCJobsLogDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "主键ID",
+      "name" : "Id",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "执行地址",
+      "name" : "Address",
+      "getPSDEField" : {
+        "name" : "ADDRESS",
+        "codeName" : "Address"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 255,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "执行器任务参数",
+      "name" : "Param",
+      "getPSDEField" : {
+        "name" : "PARAM",
+        "codeName" : "Param"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 4000,
+      "type" : "SIMPLE"
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "失败重试次数",
+      "name" : "FailRetryCount",
+      "getPSDEField" : {
+        "name" : "FAIL_RETRY_COUNT",
+        "codeName" : "FailRetryCount"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "触发器调度返回码",
+      "name" : "TriggerCode",
+      "getPSDEField" : {
+        "name" : "TRIGGER_CODE",
+        "codeName" : "TriggerCode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "触发器调度类型",
+      "name" : "TriggerType",
+      "getPSDEField" : {
+        "name" : "TRIGGER_TYPE",
+        "codeName" : "TriggerType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "触发器调度信息",
+      "name" : "TriggerMsg",
+      "getPSDEField" : {
+        "name" : "TRIGGER_MSG",
+        "codeName" : "TriggerMsg"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "创建时间",
+      "name" : "CreateTime",
+      "getPSDEField" : {
+        "name" : "CREATE_TIME",
+        "codeName" : "CreateTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "处理器",
+      "name" : "Handler",
+      "getPSDEField" : {
+        "name" : "HANDLER",
+        "codeName" : "Handler"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 255,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "主键ID",
+      "name" : "JobId",
+      "getPSDEField" : {
+        "name" : "JOB_ID",
+        "codeName" : "JobId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "DCJobsLogFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "处理器",
+      "name" : "N_HANDLER_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_HANDLER_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "HANDLER",
+        "codeName" : "Handler"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "处理器",
+      "name" : "N_HANDLER_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_HANDLER_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "HANDLER",
+        "codeName" : "Handler"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "主键ID",
+      "name" : "N_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "主键ID",
+      "name" : "N_JOB_ID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_JOB_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "JOB_ID",
+        "codeName" : "JobId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  }, {
+    "name" : "DCJobsLogSimpleDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "主键ID",
+      "name" : "Id",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSDEUserRoles" : [ {
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEUSERROLES/CURDEPT_R.json",
+    "name" : "当前部门（读）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURDEPT_R",
+    "secDR" : 1,
+    "userDRAction" : "READ",
+    "enableSecDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEUSERROLES/CURDEPT_RW.json",
+    "name" : "当前部门（读写）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "name" : "UPDATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "UPDATE"
+      }
+    }, {
+      "dataAccessAction" : "DELETE",
+      "name" : "DELETE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "DELETE"
+      }
+    } ],
+    "roleTag" : "CURDEPT_RW",
+    "secDR" : 1,
+    "userDRAction" : "READ",
+    "enableSecDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEUSERROLES/CURORG_R.json",
+    "name" : "当前组织（读）",
+    "orgDR" : 1,
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURORG_R",
+    "userDRAction" : "READ",
+    "enableOrgDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDEUSERROLES/CURORG_RW.json",
+    "name" : "当前组织（读写）",
+    "orgDR" : 1,
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "UPDATE",
+      "name" : "UPDATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "UPDATE"
+      }
+    }, {
+      "dataAccessAction" : "DELETE",
+      "name" : "DELETE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "DELETE"
+      }
+    }, {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURORG_RW",
+    "userDRAction" : "READ",
+    "enableOrgDR" : true
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "EditView",
+    "logicName" : "作业日志实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "作业日志实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "作业日志实体选择表格视图（部件视图）",
+    "name" : "作业日志实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "作业日志实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "作业日志实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "GridView",
+    "logicName" : "作业日志实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "作业日志实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "作业日志实体编辑视图（左右关系）",
+    "name" : "作业日志实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "MPickupView",
+    "logicName" : "作业日志实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "作业日志实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "作业日志实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "作业日志实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "DCJobsLog",
+  "dEType" : 1,
+  "dSLink" : "DB3",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "DCJobsLogFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "DCJobsLogDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "ID",
+    "codeName" : "Id"
+  },
+  "logicName" : "作业日志",
+  "getMinorPSDERs" : [ {
+    "codeName" : "DCJobsInfo",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog/PSDERS/DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID.json",
+    "fKeyName" : "F302F48BC216ED996E",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsInfo.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/center/PSDATAENTITIES/DCJobsLog.json"
+    },
+    "name" : "DER1N_DC_JOBS_LOG_DC_JOBS_INFO_JOB_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "JOB_ID",
+      "codeName" : "JobId"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    },
+    "pickupDEFName" : "JOB_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "DCJobsInfo"
+  } ],
+  "name" : "DC_JOBS_LOG",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DB3.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center.json"
+  },
+  "saaSDCIdColumnName" : "SRFDCID",
+  "saaSDataIdColumnName" : "SRFID",
+  "saaSMode" : 4,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "DCJobsLog",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "JOBS_LOG2",
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

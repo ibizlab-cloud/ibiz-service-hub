@@ -1,0 +1,9 @@
+{
+  "getAllPSDataEntities" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/AppPersonalization/PSDATAENTITIES/app_view_theme.json"
+  } ],
+  "codeName" : "AppPersonalization",
+  "dynaModelFilePath" : "PSMODULES/AppPersonalization.json",
+  "name" : "应用个性化"
+}

@@ -1,0 +1,405 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "minorSortDir" : "DESC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "CREATEDATE",
+    "codeName" : "CreateDate"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "系统",
+    "codeName" : "dcsystemname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "dcsystemname",
+    "excelCaption" : "系统",
+    "name" : "dcsystemname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "消息标题",
+    "codeName" : "subject",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "subject",
+    "excelCaption" : "消息标题",
+    "name" : "subject",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    },
+    "width" : 200,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "重要程度",
+    "codeName" : "importanceflag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "importanceflag",
+    "excelCaption" : "重要程度",
+    "name" : "importanceflag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "IMPORTANCEFLAG",
+      "codeName" : "ImportanceFlag"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "消息类型",
+    "codeName" : "msgtype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "msgtype",
+    "excelCaption" : "消息类型",
+    "name" : "msgtype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/MsgType.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "内容类型",
+    "codeName" : "contenttype",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "contenttype",
+    "excelCaption" : "内容类型",
+    "name" : "contenttype",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList42.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "CONTENTTYPE",
+      "codeName" : "ContentType"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "发送者",
+    "codeName" : "sendtag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "sendtag",
+    "excelCaption" : "发送者",
+    "name" : "sendtag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SENDTAG",
+      "codeName" : "SendTag"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "计划发送时间",
+    "codeName" : "plansendtime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "plansendtime",
+    "excelCaption" : "计划发送时间",
+    "name" : "plansendtime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PLANSENDTIME",
+      "codeName" : "PlanSendTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "处理时间",
+    "codeName" : "processtime",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "processtime",
+    "excelCaption" : "处理时间",
+    "name" : "processtime",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PROCESSTIME",
+      "codeName" : "ProcessTime"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 160,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "是否发送",
+    "codeName" : "issend",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "issend",
+    "excelCaption" : "是否发送",
+    "name" : "issend",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ISSEND",
+      "codeName" : "IsSend"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "发送失败",
+    "codeName" : "iserror",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "iserror",
+    "excelCaption" : "发送失败",
+    "name" : "iserror",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "ISERROR",
+      "codeName" : "IsError"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "建立时间",
+    "codeName" : "createdate",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "createdate",
+    "excelCaption" : "建立时间",
+    "name" : "createdate",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "dcsystemname",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "subject",
+    "getPSAppDEField" : {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "importanceflag",
+    "getPSAppDEField" : {
+      "name" : "IMPORTANCEFLAG",
+      "codeName" : "ImportanceFlag"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "msgtype",
+    "getPSAppDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "contenttype",
+    "getPSAppDEField" : {
+      "name" : "CONTENTTYPE",
+      "codeName" : "ContentType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "sendtag",
+    "getPSAppDEField" : {
+      "name" : "SENDTAG",
+      "codeName" : "SendTag"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "plansendtime",
+    "getPSAppDEField" : {
+      "name" : "PLANSENDTIME",
+      "codeName" : "PlanSendTime"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "processtime",
+    "getPSAppDEField" : {
+      "name" : "PROCESSTIME",
+      "codeName" : "ProcessTime"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "issend",
+    "getPSAppDEField" : {
+      "name" : "ISSEND",
+      "codeName" : "IsSend"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "iserror",
+    "getPSAppDEField" : {
+      "name" : "ISERROR",
+      "codeName" : "IsError"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
+    "name" : "createdate",
+    "getPSAppDEField" : {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "msgsendqueuename",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUENAME",
+      "codeName" : "MsgSendQueueName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEID",
+      "codeName" : "MsgSendQueueId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEID",
+      "codeName" : "MsgSendQueueId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "dcsystemid",
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUENAME",
+      "codeName" : "MsgSendQueueName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "消息发送队列标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEID",
+      "codeName" : "MsgSendQueueId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "5f310316398f1222612952d8d41979b3",
+  "modeltype" : "PSDEGRID"
+}

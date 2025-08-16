@@ -1,0 +1,532 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFDefinition/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFDefinition.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "DefinitionName"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "deploykey",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEPLOYKEY",
+      "codeName" : "DeployKey"
+    }
+  }, {
+    "id" : "definitionname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONNAME",
+      "codeName" : "DefinitionName"
+    }
+  }, {
+    "id" : "pssystemid",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PSSYSTEMID",
+      "codeName" : "PSSystemId"
+    }
+  }, {
+    "id" : "modelversion",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "MODELVERSION",
+      "codeName" : "ModelVersion"
+    }
+  }, {
+    "id" : "modelenable",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "MODELENABLE",
+      "codeName" : "ModelEnable"
+    }
+  }, {
+    "id" : "md5check",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MD5CHECK",
+      "codeName" : "MD5Check"
+    }
+  }, {
+    "id" : "bpmnfile",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "BPMNFILE",
+      "codeName" : "BPMNFile"
+    }
+  }, {
+    "id" : "processdiagram",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PROCESSDIAGRAM",
+      "codeName" : "ProcessDiagram"
+    }
+  }, {
+    "id" : "webserviceids",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "WEBSERVICEIDS",
+      "codeName" : "WebServiceIds"
+    }
+  }, {
+    "id" : "mobileserviceids",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MOBILESERVICEIDS",
+      "codeName" : "MobileServiceIds"
+    }
+  }, {
+    "id" : "definitionkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DEFINITIONKEY",
+      "codeName" : "DefinitionKey"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "模型基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "流程标识",
+        "codeName" : "deploykey",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "deploykey",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DEPLOYKEY",
+          "codeName" : "DeployKey"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "deploykey"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "流程名称",
+        "codeName" : "definitionname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "definitionname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DEFINITIONNAME",
+          "codeName" : "DefinitionName"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "definitionname"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "系统标识",
+        "codeName" : "pssystemid",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "pssystemid",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PSSYSTEMID",
+          "codeName" : "PSSystemId"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "pssystemid"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "模型版本",
+        "codeName" : "modelversion",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "modelversion",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MODELVERSION",
+          "codeName" : "ModelVersion"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "name" : "modelversion"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "模型是否启用",
+        "codeName" : "modelenable",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "modelenable",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MODELENABLE",
+          "codeName" : "ModelEnable"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "modelenable",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "校验",
+        "codeName" : "md5check",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "md5check",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MD5CHECK",
+          "codeName" : "MD5Check"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "md5check"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "BPMN",
+        "codeName" : "bpmnfile",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "bpmnfile",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "BPMNFILE",
+          "codeName" : "BPMNFile"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "FILEEXTS" : "",
+            "MAXFILESIZE" : "",
+            "MINFILECNT" : "",
+            "MAXFILECNT" : ""
+          },
+          "editorType" : "FILEUPLOADER",
+          "maxFileCount" : -1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "bpmnfile"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "流程图",
+        "codeName" : "processdiagram",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "processdiagram",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PROCESSDIAGRAM",
+          "codeName" : "ProcessDiagram"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "MAXCOUNT" : "1"
+          },
+          "editorType" : "PICTURE_ONE",
+          "maxFileCount" : 1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "processdiagram"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "WebServiceIds",
+        "codeName" : "webserviceids",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "webserviceids",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "WEBSERVICEIDS",
+          "codeName" : "WebServiceIds"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "webserviceids"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "MobileServiceIds",
+        "codeName" : "mobileserviceids",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "mobileserviceids",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MOBILESERVICEIDS",
+          "codeName" : "MobileServiceIds"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "mobileserviceids"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "流程标识",
+        "codeName" : "definitionkey",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "definitionkey",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DEFINITIONKEY",
+          "codeName" : "DefinitionKey"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "definitionkey"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "hidden" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : true,
+  "modelid" : "72c6b0c632bfa6ce46ea37bdc41913f5",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

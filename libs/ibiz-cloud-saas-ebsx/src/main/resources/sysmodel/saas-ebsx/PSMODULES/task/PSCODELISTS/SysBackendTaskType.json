@@ -1,0 +1,33 @@
+{
+  "codeListTag" : "task__SysBackendTaskType",
+  "codeListType" : "STATIC",
+  "codeName" : "SysBackendTaskType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/task/PSCODELISTS/SysBackendTaskType.json",
+  "emptyText" : "未定义",
+  "name" : "后台任务作业类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Predefined",
+    "text" : "预定义",
+    "value" : "PREDEFINED"
+  }, {
+    "codeName" : "Deaction",
+    "text" : "触发实体行为",
+    "value" : "DEACTION"
+  }, {
+    "codeName" : "User",
+    "text" : "自定义",
+    "value" : "USER"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/task.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

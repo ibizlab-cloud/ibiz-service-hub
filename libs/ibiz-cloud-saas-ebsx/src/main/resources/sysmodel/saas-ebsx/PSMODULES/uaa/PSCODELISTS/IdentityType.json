@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "uaa__IdentityType",
+  "codeListType" : "STATIC",
+  "codeName" : "IdentityType",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/IdentityType.json",
+  "emptyText" : "未定义",
+  "name" : "鉴别认证类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Workflow",
+    "text" : "工作流回调",
+    "value" : "workflow"
+  }, {
+    "codeName" : "Devops",
+    "text" : "DevOps回调",
+    "value" : "devops"
+  }, {
+    "codeName" : "Report",
+    "text" : "Report回调",
+    "value" : "report"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

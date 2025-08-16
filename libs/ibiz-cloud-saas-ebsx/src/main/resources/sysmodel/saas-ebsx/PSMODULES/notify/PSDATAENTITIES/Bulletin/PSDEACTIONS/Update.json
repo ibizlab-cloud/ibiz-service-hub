@@ -1,0 +1,24 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Update",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDEACTIONS/Update.json",
+  "logicName" : "Update",
+  "name" : "Update",
+  "orderValue" : 11,
+  "getPSDEActionInput" : {
+    "name" : "UpdateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "BulletinDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpdateResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

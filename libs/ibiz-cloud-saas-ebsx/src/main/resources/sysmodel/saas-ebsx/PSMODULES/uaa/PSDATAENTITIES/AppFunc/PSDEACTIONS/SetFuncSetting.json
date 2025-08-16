@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "SetFuncSetting",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/AppFunc/PSDEACTIONS/SetFuncSetting.json",
+  "logicName" : "设置快捷操作",
+  "name" : "SetFuncSetting",
+  "getPSDEActionInput" : {
+    "name" : "SetFuncSettingInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "AppFuncDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SetFuncSettingResult",
+    "type" : "VOID"
+  }
+}

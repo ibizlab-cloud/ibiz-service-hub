@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "notify__TodoType",
+  "codeListType" : "STATIC",
+  "codeName" : "TodoType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/TodoType.json",
+  "emptyText" : "未定义",
+  "name" : "待办类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Wftask",
+    "text" : "流程任务",
+    "value" : "WFTASK"
+  }, {
+    "codeName" : "Wfcc",
+    "text" : "流程抄送",
+    "value" : "WFCC"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

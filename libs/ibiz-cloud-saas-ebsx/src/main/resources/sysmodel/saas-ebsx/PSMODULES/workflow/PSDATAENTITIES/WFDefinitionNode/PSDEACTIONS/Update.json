@@ -1,0 +1,24 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "BUILTIN",
+  "codeName" : "Update",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFDefinitionNode/PSDEACTIONS/Update.json",
+  "logicName" : "Update",
+  "name" : "Update",
+  "orderValue" : 11,
+  "getPSDEActionInput" : {
+    "name" : "UpdateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFDefinitionNodeDTO"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpdateResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

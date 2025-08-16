@@ -1,0 +1,20 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InitModel",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDEACTIONS/InitModel.json",
+  "logicName" : "行为",
+  "name" : "initModel",
+  "getPSDEActionInput" : {
+    "name" : "InitModelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "MetaRelationshipDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InitModelResult",
+    "type" : "VOID"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "uaa__SourceType",
+  "codeListType" : "STATIC",
+  "codeName" : "SourceType",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/SourceType.json",
+  "emptyText" : "未定义",
+  "name" : "资源来源",
+  "getPSCodeItems" : [ {
+    "codeName" : "Deaction",
+    "text" : "实体行为",
+    "value" : "DEACTION"
+  }, {
+    "codeName" : "Dataset",
+    "text" : "数据集合",
+    "value" : "DATASET"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

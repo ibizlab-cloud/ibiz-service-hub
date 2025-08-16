@@ -1,0 +1,27 @@
+{
+  "codeListTag" : "center__LogCat",
+  "codeListType" : "STATIC",
+  "codeName" : "LogCat",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/LogCat.json",
+  "emptyText" : "未定义",
+  "name" : "系统日志类别",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysLog.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "Delogic",
+    "text" : "处理逻辑",
+    "value" : "DELOGIC"
+  }, {
+    "codeName" : "Script",
+    "text" : "脚本",
+    "value" : "SCRIPT"
+  }, {
+    "codeName" : "Deaction",
+    "text" : "实体行为",
+    "value" : "DEACTION"
+  } ],
+  "enableCache" : true
+}

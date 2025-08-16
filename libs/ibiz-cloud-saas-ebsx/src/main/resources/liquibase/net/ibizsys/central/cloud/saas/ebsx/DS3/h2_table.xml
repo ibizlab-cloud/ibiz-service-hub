@@ -1,0 +1,630 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <!--输出实体[IBZAUDIT]数据结构 -->
+    <changeSet author="root" id="IBZAUDIT">
+        <createTable tableName="IBZAUDIT" remarks="租户审计日志">
+            <column name="ADDRESS" remarks="访问地址" type="VARCHAR(500)">
+            </column>
+            <column name="AUDITCAT" remarks="审计类别" type="VARCHAR(60)">
+            </column>
+            <column name="AUDITINFO" remarks="审计信息" type="TEXT(1048576)">
+            </column>
+            <column name="CREATEDATE" remarks="审计时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="LOGLEVEL" remarks="日志级别" type="INT">
+            </column>
+            <column name="OPPERSONID" remarks="操作人" type="VARCHAR(100)">
+            </column>
+            <column name="OPPERSONNAME" remarks="操作人" type="VARCHAR(100)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="SYSAUDITID" remarks="系统审计标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZAUDIT_SYSAUDITID"/>
+            </column>
+            <column name="SYSAUDITNAME" remarks="审计名称" type="VARCHAR(200)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZCENTER]数据结构 -->
+    <changeSet author="root" id="IBZCENTER">
+        <createTable tableName="IBZCENTER" remarks="租户中心">
+            <column name="CENTERID" remarks="租户标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZCENTER_CENTERID"/>
+            </column>
+            <column name="CENTERNAME" remarks="租户名称" type="VARCHAR(200)">
+            </column>
+            <column name="CREATEDATE" remarks="建立时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DOMAINS" remarks="域名" type="VARCHAR(100)">
+            </column>
+            <column name="EXPIRATIONDATE" remarks="到期时间" type="DATETIME">
+            </column>
+            <column name="PORTALURL" remarks="门户地址" type="VARCHAR(100)">
+            </column>
+            <column name="TPPROOTURL" remarks="第三方插件服务地址" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZDCSYSTEM]数据结构 -->
+    <changeSet author="root" id="IBZDCSYSTEM">
+        <createTable tableName="IBZDCSYSTEM" remarks="租户系统">
+            <column name="ACCESSID" remarks="开放平台接入标识" type="VARCHAR(100)">
+            </column>
+            <column name="CREATEDATE" remarks="建立时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZDCSYSTEM_DCSYSTEMID"/>
+            </column>
+            <column name="DCSYSTEMNAME" remarks="租户系统名称" type="VARCHAR(200)">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="SRFDCID" remarks="租户" type="VARCHAR(100)">
+            </column>
+            <column name="SYSPERMISSION" remarks="系统权限" type="VARCHAR(60)">
+            </column>
+            <column name="SYSTEMID" remarks="系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZDYNAINST]数据结构 -->
+    <changeSet author="root" id="IBZDYNAINST">
+        <createTable tableName="IBZDYNAINST" remarks="租户实例">
+            <column name="CREATEDATE" remarks="建立时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="DEFAULTINST" remarks="默认实例" type="INT">
+            </column>
+            <column name="DYNAINSTID" remarks="动态实例标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZDYNAINST_DYNAINSTID"/>
+            </column>
+            <column name="DYNAINSTNAME" remarks="动态实例名称" type="VARCHAR(200)">
+            </column>
+            <column name="INSTALLDYNAINST" remarks="已安装实例数据" type="INT">
+            </column>
+            <column name="INTERNALINST" remarks="预置实例" type="INT">
+            </column>
+            <column name="ISVALID" remarks="启用标志" type="INT">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="REALDYNAINSTID" remarks="真实实例标识" type="VARCHAR(100)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZDYNAMICMODEL]数据结构 -->
+    <changeSet author="root" id="IBZDYNAMICMODEL">
+        <createTable tableName="IBZDYNAMICMODEL" remarks="模型版本">
+            <column name="ACTIVETAG" remarks="实例版本激活标记" type="VARCHAR(100)">
+            </column>
+            <column name="CONFIGID" remarks="配置标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZDYNAMICMODEL_CONFIGID"/>
+            </column>
+            <column name="CONFIGNAME" remarks="配置名称" type="VARCHAR(100)">
+            </column>
+            <column name="CREATEDATE" remarks="建立时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DYNAINSTID" remarks="动态实例标识（动态设计工具）" type="VARCHAR(100)">
+            </column>
+            <column name="DYNAINSTTAG" remarks="动态实例标记（动态设计工具）" type="VARCHAR(200)">
+            </column>
+            <column name="DYNAINSTTAG2" remarks="动态实例标记2（动态设计工具）" type="VARCHAR(200)">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="MODELFILE" remarks="文件" type="VARCHAR(1000)">
+            </column>
+            <column name="PDYNAINSTID" remarks="配置标识" type="VARCHAR(100)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="STATUS" remarks="状态" type="VARCHAR(60)">
+            </column>
+            <column name="SYSDYNAINSTID" remarks="动态实例标识（RT）" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZEMP]数据结构 -->
+    <changeSet author="root" id="IBZEMP">
+        <createTable tableName="IBZEMP" remarks="机构用户">
+            <column name="ADDR" remarks="地址" type="VARCHAR(255)">
+            </column>
+            <column name="ADMINUSER" remarks="管理员" type="INT">
+            </column>
+            <column name="AVATAR" remarks="社交账号" type="VARCHAR(100)">
+            </column>
+            <column name="BCODE" remarks="业务编码" type="VARCHAR(100)">
+            </column>
+            <column name="BIRTHDAY" remarks="出生日期" type="DATETIME">
+            </column>
+            <column name="CERTCODE" remarks="证件号码" type="VARCHAR(100)">
+            </column>
+            <column name="CREATEDATE" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="DDUNIONID" remarks="钉钉用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="DDUSERID" remarks="钉钉用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="DOMAINS" remarks="区属" type="VARCHAR(100)">
+            </column>
+            <column name="EMAIL" remarks="邮件" type="VARCHAR(100)">
+            </column>
+            <column name="ENABLE" remarks="逻辑有效" type="INT">
+            </column>
+            <column name="FONTSIZE" remarks="字号" type="VARCHAR(10)">
+            </column>
+            <column name="IPADDR" remarks="ip地址" type="VARCHAR(100)">
+            </column>
+            <column name="LANG" remarks="语言" type="VARCHAR(100)">
+            </column>
+            <column name="LOGINNAME" remarks="登录名" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTCODE" remarks="主部门代码" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTID" remarks="主部门标识" type="VARCHAR(100)">
+            </column>
+            <column name="MDEPTNAME" remarks="主部门名称" type="VARCHAR(200)">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="MSGTYPE" remarks="消息类型" type="INT">
+            </column>
+            <column name="NICKNAME" remarks="昵称别名" type="VARCHAR(100)">
+            </column>
+            <column name="ORGCODE" remarks="组织代码" type="VARCHAR(100)">
+            </column>
+            <column name="ORGID" remarks="单位标识" type="VARCHAR(100)">
+            </column>
+            <column name="ORGNAME" remarks="名称" type="VARCHAR(100)">
+            </column>
+            <column name="PASSWORD" remarks="密码" type="VARCHAR(100)">
+            </column>
+            <column name="PERSONNAME" remarks="姓名" type="VARCHAR(100)">
+            </column>
+            <column name="PHONE" remarks="联系方式" type="VARCHAR(100)">
+            </column>
+            <column name="RESERVER" remarks="保留" type="VARCHAR(255)">
+            </column>
+            <column name="RESERVER2" remarks="保留2" type="VARCHAR(100)">
+            </column>
+            <column name="RESERVER3" remarks="保留3" type="VARCHAR(100)">
+            </column>
+            <column name="SEX" remarks="性别" type="VARCHAR(20)">
+            </column>
+            <column name="SHOWORDER" remarks="排序" type="INT">
+            </column>
+            <column name="SRFDCID" remarks="租户" type="VARCHAR(100)">
+            </column>
+            <column name="STATE" remarks="人员状态" type="VARCHAR(10)">
+            </column>
+            <column name="SUPERUSER" remarks="超级管理员" type="INT">
+            </column>
+            <column name="THEME" remarks="样式" type="VARCHAR(100)">
+            </column>
+            <column name="UAAUSERID" remarks="UAA用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="最后修改时间" type="DATETIME">
+            </column>
+            <column name="USERCODE" remarks="用户工号" type="VARCHAR(100)">
+            </column>
+            <column name="USERICON" remarks="照片" type="VARCHAR(255)">
+            </column>
+            <column name="USERID" remarks="用户标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZEMP_USERID"/>
+            </column>
+            <column name="USERNAME" remarks="用户全局名" type="VARCHAR(100)">
+            </column>
+            <column name="WXWORKUNIONID" remarks="微信用户标识" type="VARCHAR(100)">
+            </column>
+            <column name="WXWORKUSERID" remarks="企业微信用户标识" type="VARCHAR(100)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZEVENT]数据结构 -->
+    <changeSet author="root" id="IBZEVENT">
+        <createTable tableName="IBZEVENT" remarks="租户事件">
+            <column name="CREATEDATE" remarks="事件时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="EVENTCAT" remarks="事件类别" type="VARCHAR(60)">
+            </column>
+            <column name="EVENTINFO" remarks="事件信息" type="TEXT(1048576)">
+            </column>
+            <column name="LOGLEVEL" remarks="日志级别" type="INT">
+            </column>
+            <column name="OPPERSONID" remarks="操作人" type="VARCHAR(100)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="SYSEVENTID" remarks="事件标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZEVENT_SYSEVENTID"/>
+            </column>
+            <column name="SYSEVENTNAME" remarks="事件名称" type="VARCHAR(200)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZLOG]数据结构 -->
+    <changeSet author="root" id="IBZLOG">
+        <createTable tableName="IBZLOG" remarks="租户日志">
+            <column name="CREATEDATE" remarks="日志时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(100)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="DEPTID" remarks="组织部门标识" type="VARCHAR(60)">
+            </column>
+            <column name="LOGCAT" remarks="日志类别" type="VARCHAR(60)">
+            </column>
+            <column name="LOGINFO" remarks="日志信息" type="TEXT(1048576)">
+            </column>
+            <column name="LOGLEVEL" remarks="日志级别" type="INT">
+            </column>
+            <column name="OPPERSONID" remarks="操作人" type="VARCHAR(100)">
+            </column>
+            <column name="ORGID" remarks="组织机构标识" type="VARCHAR(60)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="SYSLOGID" remarks="日志标识" type="VARCHAR(60)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZLOG_SYSLOGID"/>
+            </column>
+            <column name="SYSLOGNAME" remarks="日志信息" type="VARCHAR(200)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(100)">
+            </column>
+            <column name="USERDATA" remarks="用户数据" type="VARCHAR(200)">
+            </column>
+            <column name="USERDATA2" remarks="用户数据2" type="VARCHAR(200)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZORG]数据结构 -->
+    <changeSet author="root" id="IBZORG">
+        <createTable tableName="IBZORG" remarks="租户组织">
+            <column name="CREATEDATE" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="DOMAINS" remarks="区属" type="VARCHAR(100)">
+            </column>
+            <column name="ENABLE" remarks="逻辑有效" type="INT">
+            </column>
+            <column name="ISVALID" remarks="启用标志" type="INT">
+            </column>
+            <column name="ORGCODE" remarks="单位代码" type="VARCHAR(100)">
+            </column>
+            <column name="ORGID" remarks="单位标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZORG_ORGID"/>
+            </column>
+            <column name="ORGLEVEL" remarks="单位级别" type="INT">
+            </column>
+            <column name="ORGNAME" remarks="名称" type="VARCHAR(100)">
+            </column>
+            <column name="SAASMODE" remarks="支持Saas" type="INT">
+            </column>
+            <column name="SHORTNAME" remarks="单位简称" type="VARCHAR(100)">
+            </column>
+            <column name="SHOWORDER" remarks="排序" type="INT">
+            </column>
+            <column name="SRFDCID" remarks="租户" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="最后修改时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZORGSYSTEM]数据结构 -->
+    <changeSet author="root" id="IBZORGSYSTEM">
+        <createTable tableName="IBZORGSYSTEM" remarks="租户机构系统">
+            <column name="CREATEDATE" remarks="建立时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="DYNAINSTID" remarks="动态实例标识" type="VARCHAR(100)">
+            </column>
+            <column name="ISVALID" remarks="启用标志" type="INT">
+            </column>
+            <column name="MEMO" remarks="备注" type="VARCHAR(1000)">
+            </column>
+            <column name="ORGID" remarks="单位标识" type="VARCHAR(100)">
+            </column>
+            <column name="ORGSYSTEMID" remarks="组织系统标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZORGSYSTEM_ORGSYSTEMID"/>
+            </column>
+            <column name="ORGSYSTEMNAME" remarks="组织系统名称" type="VARCHAR(200)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZPO]数据结构 -->
+    <changeSet author="root" id="IBZPO">
+        <createTable tableName="IBZPO" remarks="租户性能日志">
+            <column name="ACTION" remarks="操作" type="VARCHAR(100)">
+            </column>
+            <column name="CREATEDATE" remarks="时间" type="DATETIME">
+            </column>
+            <column name="CREATEMAN" remarks="建立人" type="VARCHAR(60)">
+            </column>
+            <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="DENAME" remarks="实体" type="VARCHAR(100)">
+            </column>
+            <column name="LOGLEVEL" remarks="日志级别" type="INT">
+            </column>
+            <column name="POCAT" remarks="优化类别" type="VARCHAR(60)">
+            </column>
+            <column name="POINFO" remarks="优化信息" type="TEXT(1048576)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="SYSPOID" remarks="优化标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZPO_SYSPOID"/>
+            </column>
+            <column name="SYSPONAME" remarks="优化名称" type="VARCHAR(200)">
+            </column>
+            <column name="TIME" remarks="优化时间（ms）" type="BIGINT">
+            </column>
+            <column name="UPDATEDATE" remarks="更新时间" type="DATETIME">
+            </column>
+            <column name="UPDATEMAN" remarks="更新人" type="VARCHAR(60)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[IBZPSSYSTEM]数据结构 -->
+    <changeSet author="root" id="IBZPSSYSTEM">
+        <createTable tableName="IBZPSSYSTEM" remarks="系统">
+            <column name="APPS" remarks="应用" type="TEXT(1048576)">
+            </column>
+            <column name="MD5CHECK" remarks="校验" type="VARCHAR(100)">
+            </column>
+            <column name="PSSYSTEMID" remarks="系统标识" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_IBZPSSYSTEM_PSSYSTEMID"/>
+            </column>
+            <column name="PSSYSTEMNAME" remarks="系统名称" type="VARCHAR(100)">
+            </column>
+            <column name="SHOWORDER" remarks="排序" type="INT">
+            </column>
+            <column name="SYSSTRUCTURE" remarks="结构" type="TEXT(1048576)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_INFO]数据结构 -->
+    <changeSet author="root" id="JOBS_INFO">
+        <createTable tableName="JOBS_INFO" remarks="租户作业">
+            <column name="APP" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="AUTHOR" remarks="所有者" type="VARCHAR(30)">
+            </column>
+            <column name="CREATE_TIME" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="CRON" remarks="任务执行CRON" type="VARCHAR(100)">
+            </column>
+            <column name="FAIL_RETRY_COUNT" remarks="失败重试次数" type="INT">
+            </column>
+            <column name="HANDLER" remarks="执行器任务HANDLER" type="VARCHAR(255)">
+            </column>
+            <column name="ID" remarks="主键ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_INFO_ID"/>
+            </column>
+            <column name="LAST_TIME" remarks="上次调度时间" type="BIGINT">
+            </column>
+            <column name="NEXT_TIME" remarks="下次调度时间" type="BIGINT">
+            </column>
+            <column name="PARAM" remarks="执行器任务参数" type="VARCHAR(4000)">
+            </column>
+            <column name="PREDEFINEDTYPE" remarks="预定义类型" type="VARCHAR(100)">
+            </column>
+            <column name="REMARK" remarks="备注" type="VARCHAR(30)">
+            </column>
+            <column name="STATUS" remarks="状态" type="INT">
+            </column>
+            <column name="SYSDYNAINSTID" remarks="动态实例标识" type="VARCHAR(100)">
+            </column>
+            <column name="TASKTYPE" remarks="任务类型" type="VARCHAR(100)">
+            </column>
+            <column name="TENANT_ID" remarks="实例标识（真实）" type="VARCHAR(400)">
+            </column>
+            <column name="TIMEOUT" remarks="任务执行超时时间（秒）" type="INT">
+            </column>
+            <column name="UPDATE_TIME" remarks="更新时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_INFO2]数据结构 -->
+    <changeSet author="root" id="JOBS_INFO2">
+        <createTable tableName="JOBS_INFO2" remarks="租户作业">
+            <column name="APP" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="AUTHOR" remarks="所有者" type="VARCHAR(30)">
+            </column>
+            <column name="CREATE_TIME" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="CRON" remarks="任务执行CRON" type="VARCHAR(100)">
+            </column>
+            <column name="FAIL_RETRY_COUNT" remarks="失败重试次数" type="INT">
+            </column>
+            <column name="HANDLER" remarks="执行器任务器" type="VARCHAR(255)">
+            </column>
+            <column name="ID" remarks="主键ID" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_INFO2_ID"/>
+            </column>
+            <column name="LAST_TIME" remarks="上次调度时间" type="BIGINT">
+            </column>
+            <column name="NEXT_TIME" remarks="下次调度时间" type="BIGINT">
+            </column>
+            <column name="PARAM" remarks="执行器任务参数" type="VARCHAR(4000)">
+            </column>
+            <column name="PREDEFINEDTYPE" remarks="预定义类型" type="VARCHAR(100)">
+            </column>
+            <column name="REMARK" remarks="备注" type="VARCHAR(30)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="STATUS" remarks="状态" type="INT">
+            </column>
+            <column name="SYSDYNAINSTID" remarks="动态实例标识" type="VARCHAR(100)">
+            </column>
+            <column name="TASKTYPE" remarks="任务类型" type="VARCHAR(100)">
+            </column>
+            <column name="TENANT_ID" remarks="实例标识（真实）" type="VARCHAR(400)">
+            </column>
+            <column name="TIMEOUT" remarks="任务执行超时时间（秒）" type="INT">
+            </column>
+            <column name="UPDATE_TIME" remarks="更新时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_LOG]数据结构 -->
+    <changeSet author="root" id="JOBS_LOG">
+        <createTable tableName="JOBS_LOG" remarks="作业日志">
+            <column name="ADDRESS" remarks="执行地址" type="VARCHAR(255)">
+            </column>
+            <column name="CREATE_TIME" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="FAIL_RETRY_COUNT" remarks="失败重试次数" type="INT">
+            </column>
+            <column name="ID" remarks="主键ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_LOG_ID"/>
+            </column>
+            <column name="JOB_ID" remarks="主键ID" type="BIGINT">
+            </column>
+            <column name="PARAM" remarks="执行器任务参数" type="VARCHAR(4000)">
+            </column>
+            <column name="TRIGGER_CODE" remarks="触发器调度返回码" type="INT">
+            </column>
+            <column name="TRIGGER_MSG" remarks="触发器调度信息" type="TEXT(1048576)">
+            </column>
+            <column name="TRIGGER_TYPE" remarks="触发器调度类型" type="VARCHAR(30)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_LOG2]数据结构 -->
+    <changeSet author="root" id="JOBS_LOG2">
+        <createTable tableName="JOBS_LOG2" remarks="作业日志">
+            <column name="ADDRESS" remarks="执行地址" type="VARCHAR(255)">
+            </column>
+            <column name="CREATE_TIME" remarks="创建时间" type="DATETIME">
+            </column>
+            <column name="FAIL_RETRY_COUNT" remarks="失败重试次数" type="INT">
+            </column>
+            <column name="ID" remarks="主键ID" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_LOG2_ID"/>
+            </column>
+            <column name="JOB_ID" remarks="主键ID" type="VARCHAR(100)">
+            </column>
+            <column name="PARAM" remarks="执行器任务参数" type="VARCHAR(4000)">
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="TRIGGER_CODE" remarks="触发器调度返回码" type="INT">
+            </column>
+            <column name="TRIGGER_MSG" remarks="触发器调度信息" type="TEXT(1048576)">
+            </column>
+            <column name="TRIGGER_TYPE" remarks="触发器调度类型" type="VARCHAR(30)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_REGISTRY]数据结构 -->
+    <changeSet author="root" id="JOBS_REGISTRY">
+        <createTable tableName="JOBS_REGISTRY" remarks="租户作业登记">
+            <column name="ADDRESS" remarks="执行地址" type="VARCHAR(255)">
+            </column>
+            <column name="APP" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="ID" remarks="主键ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_REGISTRY_ID"/>
+            </column>
+            <column name="STATUS" remarks="状态" type="INT">
+            </column>
+            <column name="UPDATE_TIME" remarks="更新时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--输出实体[JOBS_REGISTRY2]数据结构 -->
+    <changeSet author="root" id="JOBS_REGISTRY2">
+        <createTable tableName="JOBS_REGISTRY2" remarks="租户作业登记">
+            <column name="ADDRESS" remarks="执行地址" type="VARCHAR(255)">
+            </column>
+            <column name="APP" remarks="租户系统标识" type="VARCHAR(100)">
+            </column>
+            <column name="ID" remarks="主键ID" type="VARCHAR(100)">
+                <constraints primaryKey="true" primaryKeyName="PK_JOBS_REGISTRY2_ID"/>
+            </column>
+            <column name="SRFDCID" remarks="租户标识" type="VARCHAR(100)">
+            </column>
+            <column name="STATUS" remarks="状态" type="INT">
+            </column>
+            <column name="UPDATE_TIME" remarks="更新时间" type="DATETIME">
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

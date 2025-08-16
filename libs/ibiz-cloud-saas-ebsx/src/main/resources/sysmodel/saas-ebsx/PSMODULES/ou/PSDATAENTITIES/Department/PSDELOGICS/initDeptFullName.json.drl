@@ -1,0 +1,82 @@
+package net.ibizsys.central.cloud.saas.ebsx.ou.logic.departmentlogic.initdeptfullname;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import net.ibizsys.central.cloud.saas.ebsx.util.errors.BadRequestAlertException;
+                global net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Department departmentinitdeptfullnamedefault;
+                global net.ibizsys.central.cloud.saas.ebsx.core.ou.domain.Organization departmentinitdeptfullnameorg;
+                    global net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IOrganizationService organizationservice;
+        global net.ibizsys.central.cloud.saas.ebsx.core.ou.service.IDepartmentService iBzSysDepartmentDefaultService;
+        global net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "departmentinitdeptfullnamebegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[填充orgid]
+            rule "prepareparam1"
+            ruleflow-group "departmentinitdeptfullnameprepareparam1"
+            when
+            then
+                            departmentinitdeptfullnameorg.set("orgid",departmentinitdeptfullnamedefault.get("orgid"));
+                        update(departmentinitdeptfullnamedefault);//更新fact中变量值
+                        update(departmentinitdeptfullnameorg);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取单位名称]
+            rule "deaction1"
+            ruleflow-group "departmentinitdeptfullnamedeaction1"
+            when
+            then
+                            net.ibizsys.central.cloud.saas.ebsx.util.helper.CachedBeanCopier.copy(organizationservice.get(departmentinitdeptfullnameorg.getOrgid()),departmentinitdeptfullnameorg);
+                        update(departmentinitdeptfullnamedefault);//更新fact中变量值
+                        update(departmentinitdeptfullnameorg);//更新fact中变量值
+            end
+
+            //逻辑处理节点[初始化部门名称]
+            rule "rawsqlcall1"
+            ruleflow-group "departmentinitdeptfullnamerawsqlcall1"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",departmentinitdeptfullnamedefault.get("orgname"));
+        param.put("param1",departmentinitdeptfullnamedefault.get("deptname"));
+    String strSql="select concat(#{et.param0},#{et.param1}) as deptfullname from dual";
+                        java.util.List<JSONObject> entities=iBzSysDepartmentDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    departmentinitdeptfullnamedefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(departmentinitdeptfullnamedefault);//更新fact中变量值
+                        update(departmentinitdeptfullnameorg);//更新fact中变量值
+            end
+
+            //逻辑处理节点[初始化部门名称]
+            rule "rawsqlcall2"
+            ruleflow-group "departmentinitdeptfullnamerawsqlcall2"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",departmentinitdeptfullnameorg.get("orgname"));
+        param.put("param1",departmentinitdeptfullnamedefault.get("deptname"));
+    String strSql="select concat(#{et.param0},#{et.param1}) as deptfullname from dual";
+                        java.util.List<JSONObject> entities=iBzSysDepartmentDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    departmentinitdeptfullnamedefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(departmentinitdeptfullnamedefault);//更新fact中变量值
+                        update(departmentinitdeptfullnameorg);//更新fact中变量值
+            end

@@ -1,0 +1,11 @@
+{
+  "codeName" : "ValueRule17",
+  "dynaModelFilePath" : "PSSYSVALUERULES/ValueRule17.json",
+  "name" : "URL",
+  "regExCode" : "[a-zA-z]+://(\\w+(-\\w+)*)(\\.(\\w+(-\\w+)*))*(\\?\\S*)?",
+  "ruleInfo" : "内容必须为有效URL格式",
+  "ruleType" : "REG",
+  "uniqueTag" : "ValueRule17",
+  "enableBackend" : true,
+  "enableFront" : true
+}

@@ -1,0 +1,5 @@
+{
+  "codeName" : "LIQUIBASE_CHANGELOGS__DEFAULT",
+  "dynaModelFilePath" : "PSSYSCONTENTCATS/LIQUIBASE_CHANGELOGS__DEFAULT.json",
+  "name" : "数据源（DEFAULT）初始化"
+}

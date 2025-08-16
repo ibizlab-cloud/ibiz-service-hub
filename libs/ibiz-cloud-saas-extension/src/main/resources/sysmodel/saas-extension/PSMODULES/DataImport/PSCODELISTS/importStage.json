@@ -1,0 +1,24 @@
+{
+  "codeListTag" : "DataImport__importStage",
+  "codeListType" : "STATIC",
+  "codeName" : "importStage",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSCODELISTS/importStage.json",
+  "emptyText" : "未定义",
+  "name" : "导入阶段",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport/PSDATAENTITIES/import_action.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/DataImport.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudImportEx",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

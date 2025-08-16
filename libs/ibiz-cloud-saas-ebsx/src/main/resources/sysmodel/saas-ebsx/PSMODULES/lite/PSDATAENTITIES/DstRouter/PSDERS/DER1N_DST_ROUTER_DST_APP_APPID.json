@@ -1,0 +1,26 @@
+{
+  "codeName" : "App",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstRouter/PSDERS/DER1N_DST_ROUTER_DST_APP_APPID.json",
+  "fKeyName" : "F96BAE91697A4CA1BA",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstApp.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/DstRouter.json"
+  },
+  "name" : "DER1N_DST_ROUTER_DST_APP_APPID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "APPID",
+    "codeName" : "AppId"
+  },
+  "pickupDEFName" : "APPID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "App"
+}

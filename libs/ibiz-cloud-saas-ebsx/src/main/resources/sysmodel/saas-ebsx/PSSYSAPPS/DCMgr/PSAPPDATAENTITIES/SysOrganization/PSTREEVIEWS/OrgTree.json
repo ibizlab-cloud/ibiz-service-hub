@@ -1,0 +1,310 @@
+{
+  "codeName" : "OrgTree",
+  "controlType" : "TREEVIEW",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization/PSTREEVIEWS/OrgTree.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "SELECTIONCHANGE", "LOAD" ],
+  "logicName" : "机构树",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SELECTIONCHANGE",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_selectionchange"
+  }, {
+    "eventNames" : "LOAD",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_load"
+  } ],
+  "getPSDEDataImport" : {
+    "modelref" : true,
+    "id" : "DataImport"
+  },
+  "getPSDETreeNodeRSs" : [ {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "Org"
+    },
+    "name" : "默认根节点 - 机构树",
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ROOT"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ChildTree"
+    },
+    "name" : "子机构 - 子机构",
+    "getParentPSAppDEField" : {
+      "name" : "PORGID",
+      "codeName" : "ParentOrgId"
+    },
+    "getParentPSDER1N" : {
+      "codeName" : "ParentOrg",
+      "dERType" : "DER1N",
+      "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDERS/DER1N_SYS_ORG_SYS_ORG_PORGID.json",
+      "masterOrder" : -1,
+      "masterRS" : 0,
+      "name" : "DER1N_SYS_ORG_SYS_ORG_PORGID",
+      "orderValue" : 100,
+      "pickupDEFName" : "PORGID",
+      "removeActionType" : 3,
+      "removeOrder" : 0,
+      "serviceCodeName" : "ParentOrg"
+    },
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ChildTree"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  }, {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ChildTree"
+    },
+    "name" : "机构树 - 子机构",
+    "getParentPSAppDEField" : {
+      "name" : "PORGID",
+      "codeName" : "ParentOrgId"
+    },
+    "getParentPSDER1N" : {
+      "codeName" : "ParentOrg",
+      "dERType" : "DER1N",
+      "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDERS/DER1N_SYS_ORG_SYS_ORG_PORGID.json",
+      "masterOrder" : -1,
+      "masterRS" : 0,
+      "name" : "DER1N_SYS_ORG_SYS_ORG_PORGID",
+      "orderValue" : 100,
+      "pickupDEFName" : "PORGID",
+      "removeActionType" : 3,
+      "removeOrder" : 0,
+      "serviceCodeName" : "ParentOrg"
+    },
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "Org"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  } ],
+  "getPSDETreeNodes" : [ {
+    "counterMode" : 0,
+    "name" : "默认根节点",
+    "nodeType" : "ROOT",
+    "nodeValue" : "root",
+    "text" : "默认根节点",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : true,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "ROOT"
+  }, {
+    "counterMode" : 0,
+    "dataSourceType" : "DEDATASET",
+    "getIdPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "maxSize" : -1,
+    "name" : "子机构",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "getNavPSDER" : {
+      "codeName" : "Org",
+      "dERType" : "DER1N",
+      "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDERS/DER1N_SYS_DEPT_SYS_ORG_ORGID.json",
+      "logicName" : "单位",
+      "masterOrder" : -1,
+      "masterRS" : 8,
+      "minorCodeName" : "Depts",
+      "minorServiceCodeName" : "Depts",
+      "name" : "DER1N_SYS_DEPT_SYS_ORG_ORGID",
+      "orderValue" : 100,
+      "pickupDEFName" : "ORGID",
+      "removeActionType" : 3,
+      "removeOrder" : 0,
+      "serviceCodeName" : "Org",
+      "nestedRS" : true
+    },
+    "nodeType" : "ChildTree",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "FetchDefault"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "ORGID",
+      "name" : "ORGID",
+      "value" : "orgid",
+      "rawValue" : false
+    }, {
+      "key" : "ORGNAME",
+      "name" : "ORGNAME",
+      "value" : "orgname",
+      "rawValue" : false
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf14b@FontAwesome",
+      "cssClass" : "fa fa-pencil-square"
+    },
+    "sortDir" : "ASC",
+    "getSortPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "textFormat" : "子机构",
+    "getTextPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "treeNodeType" : "DE",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "ChildTree"
+  }, {
+    "counterMode" : 0,
+    "dataSourceType" : "DEDATASET",
+    "getIdPSAppDEField" : {
+      "name" : "ORGID",
+      "codeName" : "OrgId"
+    },
+    "maxSize" : -1,
+    "name" : "机构树",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DepartmentGridView.json",
+      "viewType" : "DEGRIDVIEW"
+    },
+    "getNavPSDER" : {
+      "codeName" : "Org",
+      "dERType" : "DER1N",
+      "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDERS/DER1N_SYS_DEPT_SYS_ORG_ORGID.json",
+      "logicName" : "单位",
+      "masterOrder" : -1,
+      "masterRS" : 8,
+      "minorCodeName" : "Depts",
+      "minorServiceCodeName" : "Depts",
+      "name" : "DER1N_SYS_DEPT_SYS_ORG_ORGID",
+      "orderValue" : 100,
+      "pickupDEFName" : "ORGID",
+      "removeActionType" : 3,
+      "removeOrder" : 0,
+      "serviceCodeName" : "Org",
+      "nestedRS" : true
+    },
+    "nodeType" : "Org",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "FetchRootOrg"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysOrganization.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "ORGID",
+      "name" : "ORGID",
+      "value" : "orgid",
+      "rawValue" : false
+    }, {
+      "key" : "ORGNAME",
+      "name" : "ORGNAME",
+      "value" : "orgname",
+      "rawValue" : false
+    } ],
+    "getPSSysImage" : {
+      "glyph" : "xf14b@FontAwesome",
+      "cssClass" : "fa fa-pencil-square"
+    },
+    "sortDir" : "ASC",
+    "getSortPSAppDEField" : {
+      "name" : "SHOWORDER",
+      "codeName" : "ShowOrder"
+    },
+    "getTextPSAppDEField" : {
+      "name" : "ORGNAME",
+      "codeName" : "OrgName"
+    },
+    "treeNodeType" : "DE",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : false,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : true,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "Org"
+  } ],
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "treeGridMode" : 0,
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "enableRootSelect" : false,
+  "outputIconDefault" : true,
+  "rootVisible" : false,
+  "modelid" : "f51bfb1eebfc27a8b697cb31e6005e38",
+  "modeltype" : "PSDETREEVIEW"
+}

@@ -1,0 +1,49 @@
+{
+  "codeListTag" : "notify__TodoSubType",
+  "codeListType" : "STATIC",
+  "codeName" : "TodoSubType",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/TodoSubType.json",
+  "emptyText" : "未定义",
+  "name" : "待办子类",
+  "getPSCodeItems" : [ {
+    "codeName" : "Todo",
+    "text" : "待办",
+    "value" : "Todo"
+  }, {
+    "codeName" : "Done",
+    "text" : "已办",
+    "value" : "Done"
+  }, {
+    "codeName" : "CarbonCopy",
+    "text" : "抄送",
+    "value" : "CarbonCopy"
+  }, {
+    "codeName" : "Started",
+    "text" : "发起",
+    "value" : "Started"
+  }, {
+    "codeName" : "Undo",
+    "text" : "未提交",
+    "value" : "Undo"
+  }, {
+    "codeName" : "Finish",
+    "text" : "办结",
+    "value" : "Finish"
+  }, {
+    "codeName" : "Toread",
+    "text" : "待阅",
+    "value" : "Toread"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

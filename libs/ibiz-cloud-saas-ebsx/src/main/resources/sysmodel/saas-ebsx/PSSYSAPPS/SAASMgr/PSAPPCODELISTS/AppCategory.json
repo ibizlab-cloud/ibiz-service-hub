@@ -1,0 +1,27 @@
+{
+  "codeListTag" : "uaa__AppCategory",
+  "codeListType" : "STATIC",
+  "codeName" : "AppCategory",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/SAASMgr/PSAPPCODELISTS/AppCategory.json",
+  "emptyText" : "未定义",
+  "name" : "应用类别",
+  "getPSCodeItems" : [ {
+    "codeName" : "Item_200",
+    "text" : "业务应用",
+    "value" : "200"
+  }, {
+    "codeName" : "Item_300",
+    "text" : "设置管理",
+    "value" : "300"
+  }, {
+    "codeName" : "Item_900",
+    "text" : "未分类",
+    "value" : "900"
+  }, {
+    "codeName" : "Item_100",
+    "text" : "综合办公",
+    "value" : "100"
+  } ],
+  "enableCache" : true
+}

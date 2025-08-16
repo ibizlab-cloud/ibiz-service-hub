@@ -1,0 +1,183 @@
+{
+  "getAllPSAppDEUIActions" : [ {
+    "caption" : "取消变更",
+    "codeName" : "CancelChanges",
+    "fullCodeName" : "CancelChanges",
+    "name" : "取消变更",
+    "predefinedType" : "DATA_CANCELCHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CancelChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "建立数据",
+    "codeName" : "CreateObject",
+    "fullCodeName" : "CreateObject",
+    "name" : "建立数据",
+    "predefinedType" : "DATA_CREATEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "CreateObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登录",
+    "codeName" : "Login",
+    "fullCodeName" : "Login",
+    "name" : "应用登录",
+    "predefinedType" : "APP_LOGIN",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Login",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "登出",
+    "codeName" : "Logout",
+    "fullCodeName" : "Logout",
+    "name" : "应用登出",
+    "predefinedType" : "APP_LOGOUT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Logout",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "删除数据",
+    "codeName" : "RemoveObject",
+    "fullCodeName" : "RemoveObject",
+    "name" : "删除数据",
+    "predefinedType" : "DATA_REMOVEOBJECT",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "RemoveObject",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "保存变更",
+    "codeName" : "SaveChanges",
+    "fullCodeName" : "SaveChanges",
+    "name" : "保存变更",
+    "predefinedType" : "DATA_SAVECHANGES",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "SaveChanges",
+    "uIActionType" : "DEUIACTION"
+  }, {
+    "caption" : "同步数据",
+    "codeName" : "Synchronize",
+    "fullCodeName" : "Synchronize",
+    "name" : "同步数据",
+    "predefinedType" : "DATA_SYNCHRONIZE",
+    "timeout" : 60000,
+    "uIActionMode" : "SYS",
+    "uIActionTag" : "Synchronize",
+    "uIActionType" : "DEUIACTION"
+  } ],
+  "getAllPSAppMenuModels" : [ {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCPortal/PSAPPMENUS/IndexView.json",
+    "name" : "indexview",
+    "controlType" : "APPMENU"
+  } ],
+  "getAllPSAppViews" : [ {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCPortal/PSAPPINDEXVIEWS/IndexView.json",
+    "viewType" : "APPINDEXVIEW",
+    "view" : "IndexView"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "拒绝",
+    "name" : "DENY"
+  }, {
+    "logicName" : "无控制",
+    "name" : "NONE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "流程启动",
+    "name" : "WFSTART"
+  } ],
+  "appFolder" : "DCPortal",
+  "appMode" : "DEFAULT",
+  "appType" : "WEBAPP_HTML5",
+  "appVersion" : "1.0.0.0",
+  "caption" : "中心门户",
+  "codeName" : "DCPortal",
+  "defaultFlag" : false,
+  "getDefaultPSAppIndexView" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCPortal/PSAPPINDEXVIEWS/IndexView.json",
+    "viewType" : "APPINDEXVIEW"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCPortal/PSSYSAPP.json",
+  "dynaSysMode" : 1,
+  "engineVer" : 240,
+  "name" : "租户门户",
+  "pFStyle" : "8A9FA120-F688-44AF-B71D-3C8B745A6F0B",
+  "pFType" : "VUE_R7",
+  "pKGCodeName" : "DCPortal",
+  "serviceCodeName" : "DCPortal",
+  "sysCodeName" : "iBizCloudCore",
+  "title" : "中心门户",
+  "enableDynaDashboard" : false,
+  "enableFilterStorage" : false,
+  "enableServiceAPIDTO" : true,
+  "enableUACLogin" : false,
+  "mobileApp" : false,
+  "useServiceApi" : true,
+  "wFAppMode" : false,
+  "cache" : {
+    "getPSAppViews" : [ {
+      "accUserMode" : 0,
+      "appSwitchMode" : 0,
+      "caption" : "中心门户",
+      "codeName" : "IndexView",
+      "dynaModelFilePath" : "PSSYSAPPS/DCPortal/PSAPPINDEXVIEWS/IndexView.json",
+      "name" : "IndexView",
+      "getPSControls" : [ {
+        "codeName" : "IndexView",
+        "controlType" : "APPMENU",
+        "layoutMode" : "TABLE_24COL",
+        "logicName" : "应用首页视图默认菜单",
+        "name" : "appmenu",
+        "getPSControlHandler" : {
+          "enableDEFieldPrivilege" : false,
+          "id" : "appmenu"
+        },
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true
+        },
+        "modelid" : "DC3BACD2-470D-4BDC-A254-E1B07FED21FB",
+        "modeltype" : "PSAPPMENU"
+      } ],
+      "getPSViewLayoutPanel" : {
+        "codeName" : "Layoutpanel",
+        "controlStyle" : "APPINDEXVIEW",
+        "controlType" : "VIEWLAYOUTPANEL",
+        "name" : "layoutpanel",
+        "getPSControlParam" : { },
+        "layoutBodyOnly" : true,
+        "layoutPanel" : true,
+        "useDefaultLayout" : true
+      },
+      "title" : "中心门户",
+      "viewStyle" : "DEFAULT",
+      "viewType" : "APPINDEXVIEW",
+      "blankMode" : false,
+      "defaultPage" : true,
+      "enableAppSwitch" : false,
+      "enableDP" : true,
+      "modelid" : "E71FAF10-5567-4775-A50F-CBB4EA69FA69",
+      "modeltype" : "PSAPPINDEXVIEW"
+    } ],
+    "getPSAppDataEntities" : [ ]
+  }
+}

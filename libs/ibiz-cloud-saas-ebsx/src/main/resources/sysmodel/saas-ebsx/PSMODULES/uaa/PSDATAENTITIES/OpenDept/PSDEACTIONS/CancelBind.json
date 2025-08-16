@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "CancelBind",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenDept/PSDEACTIONS/CancelBind.json",
+  "logicName" : "取消绑定",
+  "name" : "CancelBind",
+  "getPSDEActionInput" : {
+    "name" : "CancelBindInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "OpenDeptDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CancelBindResult",
+    "type" : "VOID"
+  }
+}

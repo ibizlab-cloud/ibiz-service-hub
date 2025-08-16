@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Notes/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "备忘录",
+  "name" : "备忘录默认关系界面组"
+}

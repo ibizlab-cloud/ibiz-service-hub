@@ -1,0 +1,64 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "EXISTS(SELECT * FROM IBZUSER_ROLE t31 \n WHERE \n t1.SYS_ROLEID = t31.SYS_ROLEID  AND  ( t31.USERID = #{ctx.datacontext.userid} ) )",
+    "name" : "查询条件"
+  }, {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.AUTHORIZEALL = 1  AND  t1.DCSYSTEMID = #{ctx.sessioncontext.dcsystemid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.AUTHORIZEALL",
+    "name" : "AUTHORIZEALL"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t21.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.GLOBALFLAG",
+    "name" : "GLOBALFLAG"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.PROLEID",
+    "name" : "PROLEID"
+  }, {
+    "expression" : "t11.SYS_ROLENAME",
+    "name" : "PROLENAME"
+  }, {
+    "expression" : "t1.ROLETAG",
+    "name" : "ROLETAG"
+  }, {
+    "expression" : "t1.SYSTEMFLAG",
+    "name" : "SYSTEMFLAG"
+  }, {
+    "expression" : "t1.SYS_ROLEID",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t1.SYS_ROLENAME",
+    "name" : "SYS_ROLENAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.USERMODE",
+    "name" : "USERMODE"
+  } ],
+  "queryCode" : "SELECT\nt1.AUTHORIZEALL,\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt21.DCSYSTEMNAME,\nt1.GLOBALFLAG,\nt1.MEMO,\nt1.PROLEID,\nt11.SYS_ROLENAME AS PROLENAME,\nt1.ROLETAG,\nt1.SYSTEMFLAG,\nt1.SYS_ROLEID,\nt1.SYS_ROLENAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN,\nt1.USERMODE\nFROM IBZROLE t1 \nLEFT JOIN IBZROLE t11 ON t1.PROLEID = t11.SYS_ROLEID \nLEFT JOIN IBZDCSYSTEM t21 ON t1.DCSYSTEMID = t21.DCSYSTEMID \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEDATAQUERIES/CheckRoleAuth/PSDEDQCODES/ORACLE.json"
+}

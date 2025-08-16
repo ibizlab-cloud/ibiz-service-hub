@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "权限操作",
+  "name" : "权限操作默认关系界面组"
+}

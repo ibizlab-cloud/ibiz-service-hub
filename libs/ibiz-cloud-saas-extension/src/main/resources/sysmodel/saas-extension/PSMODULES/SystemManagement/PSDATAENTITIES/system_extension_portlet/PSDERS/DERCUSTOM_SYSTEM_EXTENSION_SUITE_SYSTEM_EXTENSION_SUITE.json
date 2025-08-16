@@ -1,0 +1,26 @@
+{
+  "codeName" : "system_extension_suite",
+  "dERSubType" : "DER1N",
+  "dERType" : "DERCUSTOM",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_portlet/PSDERS/DERCUSTOM_SYSTEM_EXTENSION_SUITE_SYSTEM_EXTENSION_SUITE.json",
+  "logicName" : "扩展套装",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_suite.json"
+  },
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_extension_portlet.json"
+  },
+  "name" : "DERCUSTOM_SYSTEM_EXTENSION_SUITE_SYSTEM_EXTENSION_SUITE",
+  "orderValue" : 100,
+  "pickupDEFName" : "SYSTEM_EXTENSION_ID",
+  "getPickupPSDEField" : {
+    "name" : "SYSTEM_EXTENSION_ID",
+    "codeName" : "system_extension_id"
+  },
+  "removeActionType" : 0,
+  "removeOrder" : -1,
+  "serviceCodeName" : "system_extension_suite"
+}

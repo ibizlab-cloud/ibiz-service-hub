@@ -1,0 +1,37 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.ACCESSID",
+    "name" : "ACCESSID"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.SYSPERMISSION",
+    "name" : "SYSPERMISSION"
+  }, {
+    "expression" : "t1.SYSTEMID",
+    "name" : "SYSTEMID"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DCSYSTEMNAME",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt1.DCSYSTEMNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZDCSYSTEM t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCDCSystem/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+}

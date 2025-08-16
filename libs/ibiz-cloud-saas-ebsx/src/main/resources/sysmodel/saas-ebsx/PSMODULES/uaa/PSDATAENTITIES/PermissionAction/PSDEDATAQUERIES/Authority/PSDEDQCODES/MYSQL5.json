@@ -1,0 +1,19 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "T2.ISVALID = 1 AND T3.ISVALID = 1",
+    "name" : "查询条件"
+  }, {
+    "condType" : "CUSTOM",
+    "customCond" : " T3.USERID = #{srf.datacontext.userid}",
+    "name" : "查询条件"
+  }, {
+    "condType" : "CUSTOM",
+    "customCond" : " ( T5.DCSYSTEMID IS NULL OR T5.DCSYSTEMID = #{srf.datacontext.dcsystemid} )",
+    "name" : "查询条件"
+  } ],
+  "queryCode" : "SELECT\n  t1.BSCOPE,\n  t1.OPPRIV,\n  t1.SYSTEMFLAG,\n  t1.SYS_PERMISSIONID,\n  t11.SYS_PERMISSIONNAME,\n  t1.SYS_PERMISSION_ACTIONID,\n  t1.SYS_PERMISSION_ACTIONNAME\nFROM\n  IBZPERMISSIONACTION t1\n  LEFT JOIN IBZPERMISSION t11\n    ON t1.SYS_PERMISSIONID = t11.SYS_PERMISSIONID\n  LEFT JOIN IBZPERMISSION t\n    ON T1.SYS_PERMISSIONID = T.SYS_PERMISSIONID\n  LEFT JOIN IBZROLE_PERMISSION T2\n    ON T.SYS_PERMISSIONID = T2.SYS_PERMISSIONID\n  LEFT JOIN IBZUSER_ROLE T3\n    ON T3.SYS_ROLEID = T2.SYS_ROLEID\n  LEFT JOIN IBZPERMISSION T4\n    ON T4.SYS_PERMISSIONID = T2.SYS_PERMISSIONID\n  LEFT JOIN IBZROLE T5\n    ON T5.SYS_ROLEID = T3.SYS_ROLEID",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction/PSDEDATAQUERIES/Authority/PSDEDQCODES/MYSQL5.json"
+}

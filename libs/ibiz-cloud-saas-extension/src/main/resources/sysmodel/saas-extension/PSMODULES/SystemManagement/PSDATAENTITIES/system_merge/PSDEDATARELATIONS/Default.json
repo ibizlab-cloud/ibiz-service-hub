@@ -1,0 +1,9 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/SystemManagement/PSDATAENTITIES/system_merge/PSDEDATARELATIONS/Default.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.SYSTEM_MERGE"
+  },
+  "formCaption" : "系统合并",
+  "name" : "系统合并默认关系界面组"
+}

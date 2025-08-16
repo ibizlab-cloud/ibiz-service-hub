@@ -1,0 +1,33 @@
+{
+  "codeName" : "Relation",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup/PSDERS/DER1N_META_LOOKUP_META_RELATION_RELATIONID.json",
+  "fKeyName" : "FEE40C6BD007352EE1",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 8,
+  "minorCodeName" : "Lookups",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup.json"
+  },
+  "minorServiceCodeName" : "Lookups",
+  "name" : "DER1N_META_LOOKUP_META_RELATION_RELATIONID",
+  "orderValue" : 100,
+  "getPSOne2ManyDataDEField" : {
+    "name" : "LOOKUP",
+    "codeName" : "Lookups"
+  },
+  "getPSPickupDEField" : {
+    "name" : "RELATIONID",
+    "codeName" : "RelationId"
+  },
+  "pickupDEFName" : "RELATIONID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Relation",
+  "nestedRS" : true
+}

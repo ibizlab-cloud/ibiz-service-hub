@@ -1,0 +1,21 @@
+{
+  "codeListTag" : "uaa__CodeList79",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList79",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList79.json",
+  "emptyText" : "未定义",
+  "name" : "系统内置菜单",
+  "getPSCodeListTemplId" : "CODELIST_00086",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

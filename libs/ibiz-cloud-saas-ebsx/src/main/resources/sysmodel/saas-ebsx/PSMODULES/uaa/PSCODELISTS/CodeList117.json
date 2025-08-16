@@ -1,0 +1,50 @@
+{
+  "codeListTag" : "uaa__CodeList117",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList117",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList117.json",
+  "emptyText" : "未定义",
+  "name" : "性能分析指标",
+  "getPSCodeItems" : [ {
+    "codeName" : "Podbaction",
+    "text" : "数据库操作性能",
+    "value" : "PODBACTION"
+  }, {
+    "codeName" : "Podbquery",
+    "text" : "数据库查询性能",
+    "value" : "PODBQUERY"
+  }, {
+    "codeName" : "Podedc",
+    "text" : "实体处理逻辑性能",
+    "value" : "PODEDC"
+  }, {
+    "codeName" : "Poworkflow",
+    "text" : "工作流性能",
+    "value" : "POWORKFLOW"
+  }, {
+    "codeName" : "Popage",
+    "text" : "页面性能",
+    "value" : "POPAGE"
+  }, {
+    "codeName" : "Popagebackend",
+    "text" : "页面性能(后台)",
+    "value" : "POPAGEBACKEND"
+  }, {
+    "codeName" : "Popagesession",
+    "text" : "并发性能",
+    "value" : "POPAGESESSION"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_02054",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

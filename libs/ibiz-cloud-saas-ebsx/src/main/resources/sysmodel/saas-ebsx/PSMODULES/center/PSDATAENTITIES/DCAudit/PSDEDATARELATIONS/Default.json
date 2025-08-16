@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCAudit/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "审计日志",
+  "name" : "租户审计日志默认关系界面组"
+}

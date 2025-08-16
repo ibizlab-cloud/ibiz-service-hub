@@ -1,0 +1,23 @@
+{
+  "actionMode" : "CHECKKEY",
+  "actionType" : "BUILTIN",
+  "codeName" : "CheckKey",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/DataImport/PSDATAENTITIES/import_action/PSDEACTIONS/CheckKey.json",
+  "logicName" : "CheckKey",
+  "name" : "CheckKey",
+  "getPSDEActionInput" : {
+    "name" : "CheckKeyInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "import_actionDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CheckKeyResult",
+    "stdDataType" : 9,
+    "type" : "SIMPLE"
+  },
+  "builtinAction" : true
+}

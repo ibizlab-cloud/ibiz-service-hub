@@ -1,0 +1,56 @@
+package net.ibizsys.central.cloud.saas.ebsx.uaa.logic.dynainstlogic.defautcheck;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import net.ibizsys.central.cloud.saas.ebsx.util.errors.BadRequestAlertException;
+                global net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.DynaInst dynainstdefautcheckdefault;
+        global net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IDynaInstService iBzSysDynainstDefaultService;
+        global net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "dynainstdefautcheckbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[填充dcsystem]
+            rule "prepareparam1"
+            ruleflow-group "dynainstdefautcheckprepareparam1"
+            when
+            then
+                            dynainstdefautcheckdefault.set("dcsystemid",dynainstdefautcheckdefault.get("dcsystemid"));
+                        update(dynainstdefautcheckdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[判断是否存在默认实例]
+            rule "rawsqlcall1"
+            ruleflow-group "dynainstdefautcheckrawsqlcall1"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",dynainstdefautcheckdefault.get("dcsystemid"));
+    String strSql="select count(1) as ct from ibzdynainst where  defaultinst = 1 and DCSYSTEMID = #{et.param0}";
+                        java.util.List<JSONObject> entities=iBzSysDynainstDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    dynainstdefautcheckdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(dynainstdefautcheckdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充默认值]
+            rule "prepareparam2"
+            ruleflow-group "dynainstdefautcheckprepareparam2"
+            when
+            then
+                            dynainstdefautcheckdefault.set("defaultinst","0");
+                        update(dynainstdefautcheckdefault);//更新fact中变量值
+            end

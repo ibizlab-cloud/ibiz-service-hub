@@ -1,0 +1,251 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Main",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgAccount/PSGRIDS/Main.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "主表格",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgAccount.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "人员",
+    "codeName" : "empname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "empname",
+    "excelCaption" : "人员",
+    "name" : "empname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "EMPNAME",
+      "codeName" : "EmpName"
+    },
+    "width" : 120,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "消息账户",
+    "codeName" : "msgaccountname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "msgaccountname",
+    "excelCaption" : "消息账户",
+    "name" : "msgaccountname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTNAME",
+      "codeName" : "MsgAccountName"
+    },
+    "width" : 120,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "手机号",
+    "codeName" : "phone",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "phone",
+    "excelCaption" : "手机号",
+    "name" : "phone",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "PHONE",
+      "codeName" : "Phone"
+    },
+    "width" : 120,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "邮箱",
+    "codeName" : "email",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "email",
+    "excelCaption" : "邮箱",
+    "name" : "email",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "EMAIL",
+      "codeName" : "Email"
+    },
+    "width" : 150,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "钉钉账户",
+    "codeName" : "ddaccountid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "ddaccountid",
+    "excelCaption" : "钉钉账户",
+    "name" : "ddaccountid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DDACCOUNTID",
+      "codeName" : "DDAccountId"
+    },
+    "width" : 120,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "微信账户",
+    "codeName" : "wxaccountid",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "wxaccountid",
+    "excelCaption" : "微信账户",
+    "name" : "wxaccountid",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "WXACCOUNTID",
+      "codeName" : "WXAccountId"
+    },
+    "width" : 120,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "empname",
+    "getPSAppDEField" : {
+      "name" : "EMPNAME",
+      "codeName" : "EmpName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "msgaccountname",
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTNAME",
+      "codeName" : "MsgAccountName"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "phone",
+    "getPSAppDEField" : {
+      "name" : "PHONE",
+      "codeName" : "Phone"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "email",
+    "getPSAppDEField" : {
+      "name" : "EMAIL",
+      "codeName" : "Email"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "ddaccountid",
+    "getPSAppDEField" : {
+      "name" : "DDACCOUNTID",
+      "codeName" : "DDAccountId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "wxaccountid",
+    "getPSAppDEField" : {
+      "name" : "WXACCOUNTID",
+      "codeName" : "WXAccountId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTID",
+      "codeName" : "MsgAccountId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTID",
+      "codeName" : "MsgAccountId"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "empid",
+    "getPSAppDEField" : {
+      "name" : "EMPID",
+      "codeName" : "EmpId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTNAME",
+      "codeName" : "MsgAccountName"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "消息账户标识",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "MSGACCOUNTID",
+      "codeName" : "MsgAccountId"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgAccount.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "81c61cb31a4c34c9f88c8d6bd34be1e9",
+  "modeltype" : "PSDEGRID"
+}

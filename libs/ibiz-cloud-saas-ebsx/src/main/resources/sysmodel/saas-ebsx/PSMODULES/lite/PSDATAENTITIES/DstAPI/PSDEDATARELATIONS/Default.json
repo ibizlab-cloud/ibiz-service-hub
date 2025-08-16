@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "接口",
+  "name" : "接口默认关系界面组"
+}

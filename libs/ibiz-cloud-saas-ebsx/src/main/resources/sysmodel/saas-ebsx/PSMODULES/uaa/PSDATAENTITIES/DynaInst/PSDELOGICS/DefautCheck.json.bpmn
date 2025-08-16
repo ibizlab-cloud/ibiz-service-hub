@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.logic.dynainstdefautcheck" isClosed="false" isExecutable="true" name="uaa_dynainst_defautcheck_ruleFlow" processType="Private" tns:packageName="net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.logic.dynainstdefautcheck">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="net.ibizsys.central.cloud.saas.ebsx.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="dynainstdefautcheckdefault" type="entity"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.SpringContextHolder).getBean(T(net.ibizsys.central.cloud.saas.ebsx.core.uaa.service.IDynaInstService))" name="iBzSysDynainstDefaultService" type="service"/>
+                    <tns:metaData express="T(net.ibizsys.central.cloud.saas.ebsx.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="dynainstdefautcheckdefault" type="net.ibizsys.central.cloud.saas.ebsx.core.uaa.domain.DynaInst" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="dynainstdefautcheckprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="填充dcsystem"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="dynainstdefautcheckrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="判断是否存在默认实例"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="dynainstdefautcheckprepareparam2" id="prepareparam2" implementation="http://www.jboss.org/drools/rule" name="填充默认值"/>
+                        <endEvent id="prepareparam2_end" name="end"/>
+                        <sequenceFlow id="prepareparam2_end_line" sourceRef="prepareparam2" targetRef="prepareparam2_end"/>
+                    <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam1_rawsqlcall1" sourceRef="prepareparam1" targetRef="rawsqlcall1">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsqlcall1_prepareparam2" sourceRef="gateway-rawsqlcall1" targetRef="prepareparam2">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $dynainstdefautcheckdefault:DynaInst();
+                                    eval($dynainstdefautcheckdefault==dynainstdefautcheckdefault);
+                                eval(((RuleUtils.test($dynainstdefautcheckdefault.get("ct"),"GTANDEQ","1"))))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-rawsqlcall1" name="Gateway" gatewayDirection="Diverging" default="gateway-rawsqlcall1_end_line"></exclusiveGateway>
+                            <sequenceFlow id="rawsqlcall1_gateway-rawsqlcall1_gatewayline" sourceRef="rawsqlcall1" targetRef="gateway-rawsqlcall1"></sequenceFlow>
+                            <sequenceFlow id="gateway-rawsqlcall1_end_line" sourceRef="gateway-rawsqlcall1" targetRef="gateway-rawsqlcall1_end"/>
+                            <endEvent id="gateway-rawsqlcall1_end" name="end"/>
+        </process>
+    </definitions>

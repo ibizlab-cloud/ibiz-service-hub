@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Install",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/Install.json",
+  "logicName" : "安装租户系统",
+  "name" : "INSTALL",
+  "getPSDEActionInput" : {
+    "name" : "InstallInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "InitSystem_WizardDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

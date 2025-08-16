@@ -1,0 +1,26 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "SaveSysUser",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEACTIONS/SaveSysUser.json",
+  "logicName" : "保存用户信息",
+  "name" : "saveSysUser",
+  "getPSDEActionInput" : {
+    "name" : "SaveSysUserInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "UserDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveSysUserResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDELOGICS/saveSysUser.json"
+  },
+  "enableFront" : false
+}

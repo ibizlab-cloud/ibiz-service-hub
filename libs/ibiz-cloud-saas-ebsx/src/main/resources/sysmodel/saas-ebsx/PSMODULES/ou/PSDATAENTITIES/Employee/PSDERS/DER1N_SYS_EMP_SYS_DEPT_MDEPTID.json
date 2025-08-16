@@ -1,0 +1,39 @@
+{
+  "codeName" : "MainDept",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDERS/DER1N_SYS_EMP_SYS_DEPT_MDEPTID.json",
+  "getERMajorPSDEF" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "getERMinorPSDEF" : {
+    "name" : "ORGID",
+    "codeName" : "OrgId"
+  },
+  "fKeyName" : "F9006D855C507EBE43",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Employee.json"
+  },
+  "name" : "DER1N_SYS_EMP_SYS_DEPT_MDEPTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "MDEPTID",
+    "codeName" : "MDeptId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "MDEPTNAME",
+    "codeName" : "MDeptName"
+  },
+  "pickupDEFName" : "MDEPTID",
+  "removeActionType" : 2,
+  "removeOrder" : 0,
+  "serviceCodeName" : "MainDept",
+  "enableExtRestrict" : true
+}

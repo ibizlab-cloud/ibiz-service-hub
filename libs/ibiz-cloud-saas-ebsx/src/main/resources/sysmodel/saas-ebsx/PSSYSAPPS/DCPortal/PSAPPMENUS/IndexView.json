@@ -1,0 +1,9 @@
+{
+  "codeName" : "IndexView",
+  "controlType" : "APPMENU",
+  "dynaModelFilePath" : "PSSYSAPPS/DCPortal/PSAPPMENUS/IndexView.json",
+  "logicName" : "应用首页视图默认菜单",
+  "name" : "indexview",
+  "modelid" : "DC3BACD2-470D-4BDC-A254-E1B07FED21FB",
+  "modeltype" : "PSAPPMENU"
+}

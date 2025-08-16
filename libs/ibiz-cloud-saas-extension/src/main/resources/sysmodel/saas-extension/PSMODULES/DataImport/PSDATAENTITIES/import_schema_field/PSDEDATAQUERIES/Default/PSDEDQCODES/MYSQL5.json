@@ -1,0 +1,28 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CODE_LIST_MAPPINGS`",
+    "name" : "CODE_LIST_MAPPINGS"
+  }, {
+    "expression" : "t1.`CAPTION`",
+    "name" : "CAPTION"
+  }, {
+    "expression" : "t1.`ID`",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.`IMPORT_FORMAT`",
+    "name" : "IMPORT_FORMAT"
+  }, {
+    "expression" : "t1.`IMPORT_SCHAME_ID`",
+    "name" : "IMPORT_SCHAME_ID"
+  }, {
+    "expression" : "t1.`INDEX`",
+    "name" : "INDEX"
+  }, {
+    "expression" : "t1.`NAME`",
+    "name" : "NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.`CAPTION`,\nt1.`ID`,\nt1.`IMPORT_FORMAT`,\nt1.`IMPORT_SCHAME_ID`,\nt1.`INDEX`,\nt1.`NAME`\nFROM `` t1 \n",
+  "id" : "PSMODULES/DataImport/PSDATAENTITIES/import_schema_field/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Install2",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/Install2.json",
+  "logicName" : "安装实例模型",
+  "name" : "INSTALL2",
+  "getPSDEActionInput" : {
+    "name" : "Install2Input",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "InitSystem_WizardDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Install2Result",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

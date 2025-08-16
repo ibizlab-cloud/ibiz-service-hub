@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Restart",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEACTIONS/Restart.json",
+  "logicName" : "重启流程",
+  "name" : "restart",
+  "getPSDEActionInput" : {
+    "name" : "RestartInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFInstanceDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RestartResult",
+    "type" : "VOID"
+  }
+}

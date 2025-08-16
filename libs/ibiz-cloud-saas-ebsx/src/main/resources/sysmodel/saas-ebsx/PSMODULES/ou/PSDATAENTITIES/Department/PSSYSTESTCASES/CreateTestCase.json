@@ -1,0 +1,19 @@
+{
+  "codeName" : "CreateTestCase",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSSYSTESTCASES/CreateTestCase.json",
+  "name" : "部门新建",
+  "getPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Create.json"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ou/PSDATAENTITIES/Department.json"
+  },
+  "getPSSysTestCaseInputs" : [ {
+    "inputType" : "DATA",
+    "name" : "input"
+  } ],
+  "testCaseType" : "DEACTION",
+  "rollbackTransaction" : false
+}

@@ -1,0 +1,31 @@
+{
+  "codeName" : "OpenAccess",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/pay/PSDATAENTITIES/PayTrade/PSDERS/DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID.json",
+  "fKeyName" : "FC23789B1BBD68E24F",
+  "logicName" : "接入平台",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayOpenAccess.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/pay/PSDATAENTITIES/PayTrade.json"
+  },
+  "name" : "DER1N_PAY_TRADE_PAY_OPEN_ACCESS_ACCESSID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ACCESSID",
+    "codeName" : "AccessId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ACCESSNAME",
+    "codeName" : "AccessName"
+  },
+  "pickupDEFName" : "ACCESSID",
+  "removeActionType" : 0,
+  "removeOrder" : 0,
+  "serviceCodeName" : "OpenAccess"
+}

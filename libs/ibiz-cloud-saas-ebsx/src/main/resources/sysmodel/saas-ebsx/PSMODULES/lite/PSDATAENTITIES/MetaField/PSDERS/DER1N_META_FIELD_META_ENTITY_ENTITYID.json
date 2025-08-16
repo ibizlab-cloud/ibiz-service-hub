@@ -1,0 +1,33 @@
+{
+  "codeName" : "Entity",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_ENTITY_ENTITYID.json",
+  "fKeyName" : "FA83B418DE2DA58B98",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 8,
+  "minorCodeName" : "fields",
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField.json"
+  },
+  "minorServiceCodeName" : "fields",
+  "name" : "DER1N_META_FIELD_META_ENTITY_ENTITYID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ENTITYID",
+    "codeName" : "EntityId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ENTITYNAME",
+    "codeName" : "EntityName"
+  },
+  "pickupDEFName" : "ENTITYID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "Entity",
+  "nestedRS" : true
+}

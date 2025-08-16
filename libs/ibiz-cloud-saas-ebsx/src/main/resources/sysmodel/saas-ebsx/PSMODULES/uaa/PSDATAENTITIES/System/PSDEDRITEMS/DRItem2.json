@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem2",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/System/PSDEDRITEMS/DRItem2.json",
+  "itemType" : "DER1N",
+  "name" : "系统应用实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDERS/DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "SYSTEMID",
+    "srfparentdename" : "SYS_PSSYSTEM",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID",
+    "SRFDER1NID" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_PSSYSTEMAPP_SYS_PSSYSTEM_SYSTEMID"
+  }
+}

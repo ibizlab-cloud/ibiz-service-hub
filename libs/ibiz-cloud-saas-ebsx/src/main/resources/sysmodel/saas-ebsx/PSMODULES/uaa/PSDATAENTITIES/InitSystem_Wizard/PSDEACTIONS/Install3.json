@@ -1,0 +1,23 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Install3",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDEACTIONS/Install3.json",
+  "logicName" : "安装实例模型（一键发布回调）",
+  "name" : "INSTALL3",
+  "getPSDEActionInput" : {
+    "name" : "Install3Input",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "InitSystem_WizardDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Install3Result",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

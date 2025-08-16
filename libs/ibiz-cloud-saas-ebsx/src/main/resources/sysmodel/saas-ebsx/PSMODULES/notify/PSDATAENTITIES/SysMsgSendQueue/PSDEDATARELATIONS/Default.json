@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/SysMsgSendQueue/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "全局发送队列",
+  "name" : "全局发送队列默认关系界面组"
+}

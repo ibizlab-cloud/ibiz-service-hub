@@ -1,0 +1,34 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t11.`BCODE`",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.`DEPTID`",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t11.`DEPTNAME`",
+    "name" : "DEPTNAME"
+  }, {
+    "expression" : "t1.`DOMAINS`",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.`MEMBERID`",
+    "name" : "MEMBERID"
+  }, {
+    "expression" : "t21.`PERSONNAME`",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.`POSTID`",
+    "name" : "POSTID"
+  }, {
+    "expression" : "t31.`POSTNAME`",
+    "name" : "POSTNAME"
+  }, {
+    "expression" : "t1.`USERID`",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt11.`BCODE`,\nt1.`DEPTID`,\nt11.`DEPTNAME`,\nt1.`DOMAINS`,\nt1.`MEMBERID`,\nt21.`PERSONNAME`,\nt1.`POSTID`,\nt31.`POSTNAME`,\nt1.`USERID`\nFROM `IBZDEPTMEMBER` t1 \nLEFT JOIN `IBZDEPT` t11 ON t1.`DEPTID` = t11.`DEPTID` \nLEFT JOIN `IBZEMP` t21 ON t1.`USERID` = t21.`USERID` \nLEFT JOIN `IBZPOST` t31 ON t1.`POSTID` = t31.`POSTID` \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+}

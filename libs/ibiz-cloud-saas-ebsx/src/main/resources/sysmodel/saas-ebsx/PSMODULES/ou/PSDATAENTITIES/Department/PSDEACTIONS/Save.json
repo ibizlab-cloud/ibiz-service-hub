@@ -1,0 +1,24 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "batchActionMode" : 1,
+  "codeName" : "Save",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/ou/PSDATAENTITIES/Department/PSDEACTIONS/Save.json",
+  "logicName" : "Save",
+  "name" : "Save",
+  "getPSDEActionInput" : {
+    "name" : "SaveInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DepartmentDTO"
+    },
+    "type" : "DTOS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "SaveResult",
+    "type" : "VOID"
+  },
+  "batchAction" : true,
+  "builtinAction" : true
+}

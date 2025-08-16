@@ -1,0 +1,366 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsLog/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/JobsLog.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "handler",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "HANDLER",
+      "codeName" : "Handler"
+    }
+  }, {
+    "id" : "address",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ADDRESS",
+      "codeName" : "Address"
+    }
+  }, {
+    "id" : "param",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "PARAM",
+      "codeName" : "Param"
+    }
+  }, {
+    "id" : "trigger_type",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_TYPE",
+      "codeName" : "TriggerType"
+    }
+  }, {
+    "id" : "trigger_code",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_CODE",
+      "codeName" : "TriggerCode"
+    }
+  }, {
+    "id" : "trigger_msg",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "TRIGGER_MSG",
+      "codeName" : "TriggerMsg"
+    }
+  }, {
+    "id" : "fail_retry_count",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "FAIL_RETRY_COUNT",
+      "codeName" : "FailRetryCount"
+    }
+  }, {
+    "id" : "id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "Id"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "作业日志基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "处理器",
+        "codeName" : "handler",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "handler",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "HANDLER",
+          "codeName" : "Handler"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "handler",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "执行地址",
+        "codeName" : "address",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "address",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ADDRESS",
+          "codeName" : "Address"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "address",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "执行器任务参数",
+        "codeName" : "param",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "param",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PARAM",
+          "codeName" : "Param"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "param",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "触发器调度类型",
+        "codeName" : "trigger_type",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "trigger_type",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "TRIGGER_TYPE",
+          "codeName" : "TriggerType"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "trigger_type",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "触发器调度返回码",
+        "codeName" : "trigger_code",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "trigger_code",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "TRIGGER_CODE",
+          "codeName" : "TriggerCode"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "trigger_code",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "触发器调度信息",
+        "codeName" : "trigger_msg",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "trigger_msg",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "TRIGGER_MSG",
+          "codeName" : "TriggerMsg"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "trigger_msg",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "失败重试次数",
+        "codeName" : "fail_retry_count",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "fail_retry_count",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "FAIL_RETRY_COUNT",
+          "codeName" : "FailRetryCount"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "fail_retry_count",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : true,
+      "showCaption" : false
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : true
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "infoFormMode" : true,
+  "noTabHeader" : true,
+  "modelid" : "c93e0d2ade8cf88bd4d1d12863633f3b",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

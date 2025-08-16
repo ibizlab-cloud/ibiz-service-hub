@@ -1,0 +1,36 @@
+{
+  "dBType" : "MYSQL5",
+  "name" : "MySQL5",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.ENABLE = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.`CCODE`",
+    "name" : "CCODE"
+  }, {
+    "expression" : "t1.`CGROUP`",
+    "name" : "CGROUP"
+  }, {
+    "expression" : "t1.`CID`",
+    "name" : "CID"
+  }, {
+    "expression" : "t1.`CNAME`",
+    "name" : "CNAME"
+  }, {
+    "expression" : "t1.`CREATEDATE`",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.`ENABLE`",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.`MEMO`",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.`UPDATEDATE`",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.`CCODE`,\nt1.`CGROUP`,\nt1.`CID`,\nt1.`CNAME`,\nt1.`CREATEDATE`,\nt1.`ENABLE`,\nt1.`MEMO`,\nt1.`UPDATEDATE`\nFROM `IBZDICTCATALOG` t1 \n",
+  "id" : "PSMODULES/dict/PSDATAENTITIES/DictCatalog/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+}

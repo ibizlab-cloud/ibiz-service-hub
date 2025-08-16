@@ -1,0 +1,31 @@
+{
+  "codeName" : "OpenAccess",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser/PSDERS/DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID.json",
+  "fKeyName" : "F711442ACEA854820A",
+  "logicName" : "开放平台",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser.json"
+  },
+  "name" : "DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "ACCESSID",
+    "codeName" : "AccessId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "ACCESSNAME",
+    "codeName" : "AccessName"
+  },
+  "pickupDEFName" : "ACCESSID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "OpenAccess"
+}

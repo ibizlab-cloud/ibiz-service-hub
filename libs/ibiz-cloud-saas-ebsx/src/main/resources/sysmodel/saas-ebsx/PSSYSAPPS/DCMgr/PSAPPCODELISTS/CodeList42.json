@@ -1,0 +1,19 @@
+{
+  "codeListTag" : "uaa__CodeList42",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList42",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/CodeList42.json",
+  "emptyText" : "未定义",
+  "name" : "消息模板内容类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "Text",
+    "text" : "纯文本",
+    "value" : "TEXT"
+  }, {
+    "codeName" : "Html",
+    "text" : "HTML网页",
+    "value" : "HTML"
+  } ],
+  "enableCache" : true
+}

@@ -1,0 +1,76 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.DIGESTCODE",
+    "name" : "DIGESTCODE"
+  }, {
+    "expression" : "t1.FILEEXT",
+    "name" : "FILEEXT"
+  }, {
+    "expression" : "t1.FILEID",
+    "name" : "FILEID"
+  }, {
+    "expression" : "t1.FILENAME",
+    "name" : "FILENAME"
+  }, {
+    "expression" : "t1.FILEPATH",
+    "name" : "FILEPATH"
+  }, {
+    "expression" : "t1.FILESIZE",
+    "name" : "FILESIZE"
+  }, {
+    "expression" : "t1.FOLDER",
+    "name" : "FOLDER"
+  }, {
+    "expression" : "t1.MEMO",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.OWNERID",
+    "name" : "OWNERID"
+  }, {
+    "expression" : "t1.OWNERTYPE",
+    "name" : "OWNERTYPE"
+  }, {
+    "expression" : "t1.RESERVER",
+    "name" : "RESERVER"
+  }, {
+    "expression" : "t1.RESERVER2",
+    "name" : "RESERVER2"
+  }, {
+    "expression" : "t1.RESERVER3",
+    "name" : "RESERVER3"
+  }, {
+    "expression" : "t1.RESERVER4",
+    "name" : "RESERVER4"
+  }, {
+    "expression" : "t1.RESERVER5",
+    "name" : "RESERVER5"
+  }, {
+    "expression" : "t1.RESERVER6",
+    "name" : "RESERVER6"
+  }, {
+    "expression" : "t1.RESERVER7",
+    "name" : "RESERVER7"
+  }, {
+    "expression" : "t1.RESERVER8",
+    "name" : "RESERVER8"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DCSYSTEMID,\nt1.DIGESTCODE,\nt1.FILEEXT,\nt1.FILEID,\nt1.FILENAME,\nt1.FILEPATH,\nt1.FILESIZE,\nt1.FOLDER,\nt1.MEMO,\nt1.OWNERID,\nt1.OWNERTYPE,\nt1.RESERVER,\nt1.RESERVER2,\nt1.RESERVER3,\nt1.RESERVER4,\nt1.RESERVER5,\nt1.RESERVER6,\nt1.RESERVER7,\nt1.RESERVER8,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZFILE t1 \n",
+  "id" : "PSMODULES/disk/PSDATAENTITIES/SDFile/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

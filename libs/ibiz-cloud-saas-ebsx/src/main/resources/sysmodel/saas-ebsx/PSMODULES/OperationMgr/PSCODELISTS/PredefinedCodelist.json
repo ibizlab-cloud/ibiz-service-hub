@@ -1,0 +1,21 @@
+{
+  "codeListTag" : "OperationMgr__PredefinedCodelist",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "PredefinedCodelist",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/OperationMgr/PSCODELISTS/PredefinedCodelist.json",
+  "emptyText" : "未定义",
+  "name" : "预定义",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/OperationMgr.json"
+  },
+  "predefinedType" : "RUNTIME",
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

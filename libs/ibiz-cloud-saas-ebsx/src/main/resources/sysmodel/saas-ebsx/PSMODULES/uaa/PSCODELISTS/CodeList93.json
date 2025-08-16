@@ -1,0 +1,30 @@
+{
+  "codeListTag" : "uaa__CodeList93",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList93",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList93.json",
+  "emptyText" : "未定义",
+  "name" : "动态面板分区缩放样式",
+  "getPSCodeItems" : [ {
+    "codeName" : "Expand",
+    "text" : "展开",
+    "value" : "EXPAND"
+  }, {
+    "codeName" : "Collapse",
+    "text" : "收缩",
+    "value" : "COLLAPSE"
+  } ],
+  "getPSCodeListTemplId" : "CODELIST_00100",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

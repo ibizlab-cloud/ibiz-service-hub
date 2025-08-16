@@ -1,0 +1,52 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DCSYSTEMID",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.LOGINFO",
+    "name" : "LOGINFO"
+  }, {
+    "expression" : "t1.LOGLEVEL",
+    "name" : "LOGLEVEL"
+  }, {
+    "expression" : "t1.OPPERSONID",
+    "name" : "OPPERSONID"
+  }, {
+    "expression" : "t1.USERDATA",
+    "name" : "USERDATA"
+  }, {
+    "expression" : "t1.USERDATA2",
+    "name" : "USERDATA2"
+  }, {
+    "expression" : "t1.CREATEDATE",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.CREATEMAN",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.DEPTID",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.LOGCAT",
+    "name" : "LOGCAT"
+  }, {
+    "expression" : "t1.ORGID",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.SYSLOGID",
+    "name" : "SYSLOGID"
+  }, {
+    "expression" : "t1.SYSLOGNAME",
+    "name" : "SYSLOGNAME"
+  }, {
+    "expression" : "t1.UPDATEDATE",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.UPDATEMAN",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.CREATEDATE,\nt1.CREATEMAN,\nt1.DEPTID,\nt1.LOGCAT,\nt1.ORGID,\nt1.SYSLOGID,\nt1.SYSLOGNAME,\nt1.UPDATEDATE,\nt1.UPDATEMAN\nFROM IBZLOG t1 \n",
+  "id" : "PSMODULES/center/PSDATAENTITIES/DCLog/PSDEDATAQUERIES/Simple/PSDEDQCODES/ORACLE.json"
+}

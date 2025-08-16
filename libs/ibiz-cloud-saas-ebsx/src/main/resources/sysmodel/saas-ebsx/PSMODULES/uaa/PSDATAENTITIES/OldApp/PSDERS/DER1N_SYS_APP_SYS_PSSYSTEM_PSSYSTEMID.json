@@ -1,0 +1,30 @@
+{
+  "codeName" : "System",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OldApp/PSDERS/DER1N_SYS_APP_SYS_PSSYSTEM_PSSYSTEMID.json",
+  "fKeyName" : "FED9AC9AB069D2DED2",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/System.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OldApp.json"
+  },
+  "name" : "DER1N_SYS_APP_SYS_PSSYSTEM_PSSYSTEMID",
+  "orderValue" : 100,
+  "getPSOne2ManyDataDEField" : {
+    "name" : "APPS",
+    "codeName" : "Apps"
+  },
+  "getPSPickupDEField" : {
+    "name" : "PSSYSTEMID",
+    "codeName" : "SystemId"
+  },
+  "pickupDEFName" : "PSSYSTEMID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "System"
+}

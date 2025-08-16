@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OrgSystem/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "组织系统",
+  "name" : "组织系统默认关系界面组"
+}

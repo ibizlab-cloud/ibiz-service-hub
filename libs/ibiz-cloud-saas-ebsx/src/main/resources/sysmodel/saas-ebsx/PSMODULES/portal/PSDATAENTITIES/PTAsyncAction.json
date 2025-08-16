@@ -1,0 +1,4049 @@
+{
+  "getAllPSDEACModes" : [ {
+    "codeName" : "Default",
+    "logicName" : "DEFAULT",
+    "name" : "DEFAULT",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value"
+    }, {
+      "dataType" : 25,
+      "name" : "text"
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACMODES/Default.json"
+  } ],
+  "getAllPSDEActions" : [ {
+    "actionMode" : "CREATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Create",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Create.json",
+    "logicName" : "Create",
+    "name" : "Create",
+    "orderValue" : 1,
+    "getPSDEActionInput" : {
+      "name" : "CreateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CreateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UPDATE",
+    "actionType" : "BUILTIN",
+    "codeName" : "Update",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Update.json",
+    "logicName" : "Update",
+    "name" : "Update",
+    "orderValue" : 11,
+    "getPSDEActionInput" : {
+      "name" : "UpdateInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSDEActionReturn" : {
+      "name" : "UpdateResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "DELETE",
+    "actionType" : "BUILTIN",
+    "batchActionMode" : 1,
+    "codeName" : "Remove",
+    "dataAccessAction" : "DELETE",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Remove.json",
+    "logicName" : "Remove",
+    "name" : "Remove",
+    "orderValue" : 21,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "name" : "RemoveInput",
+      "type" : "KEYFIELDS"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RemoveResult",
+      "type" : "VOID"
+    },
+    "batchAction" : true,
+    "builtinAction" : true
+  }, {
+    "actionMode" : "READ",
+    "actionType" : "BUILTIN",
+    "codeName" : "Get",
+    "dataAccessAction" : "READ",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Get.json",
+    "logicName" : "Get",
+    "name" : "Get",
+    "orderValue" : 31,
+    "getPSDEActionInput" : {
+      "getKeyPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "name" : "GetInput",
+      "type" : "KEYFIELD"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionType" : "BUILTIN",
+    "codeName" : "GetDraft",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/GetDraft.json",
+    "logicName" : "GetDraft",
+    "name" : "GetDraft",
+    "orderValue" : 41,
+    "getPSDEActionInput" : {
+      "name" : "GetDraftInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "GetDraftResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "CHECKKEY",
+    "actionType" : "BUILTIN",
+    "codeName" : "CheckKey",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/CheckKey.json",
+    "logicName" : "CheckKey",
+    "name" : "CheckKey",
+    "getPSDEActionInput" : {
+      "name" : "CheckKeyInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "CheckKeyResult",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "builtinAction" : true
+  }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "Save",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEACTIONS/Save.json",
+    "logicName" : "Save",
+    "name" : "Save",
+    "getPSDEActionInput" : {
+      "name" : "SaveInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "SaveResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  } ],
+  "getAllPSDEDBConfigs" : [ {
+    "dBType" : "ORACLE",
+    "name" : "ORACLE",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "ibzasyncaction",
+    "tableName" : "ibzasyncaction",
+    "valid" : true
+  }, {
+    "dBType" : "POSTGRESQL",
+    "name" : "POSTGRESQL",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "ibzasyncaction",
+    "tableName" : "ibzasyncaction",
+    "valid" : true
+  }, {
+    "dBType" : "DB2",
+    "name" : "DB2",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "ibzasyncaction",
+    "tableName" : "ibzasyncaction",
+    "valid" : true
+  }, {
+    "dBType" : "MYSQL5",
+    "name" : "MYSQL5",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "`ibzasyncaction`",
+    "tableName" : "ibzasyncaction",
+    "valid" : true
+  }, {
+    "dBType" : "SQLSERVER",
+    "name" : "SQLSERVER",
+    "objNameCase" : "DEFAULT",
+    "standardTableName" : "[ibzasyncaction]",
+    "tableName" : "ibzasyncaction",
+    "valid" : true
+  } ],
+  "getAllPSDEDBTables" : [ {
+    "getAllPSDEFields" : [ {
+      "name" : "FULLTOPICTAG",
+      "codeName" : "FullTopicTag"
+    }, {
+      "name" : "TOPICTAG",
+      "codeName" : "TopicTag"
+    }, {
+      "name" : "CREATEDATE",
+      "codeName" : "CreateDate"
+    }, {
+      "name" : "CREATEMAN",
+      "codeName" : "CreateMan"
+    }, {
+      "name" : "ACTIONPARAM2",
+      "codeName" : "ActionParam2"
+    }, {
+      "name" : "ACTIONPARAM3",
+      "codeName" : "ActionParam4"
+    }, {
+      "name" : "ACTIONPARAM",
+      "codeName" : "ActionParam"
+    }, {
+      "name" : "UPDATEMAN",
+      "codeName" : "UpdateMan"
+    }, {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }, {
+      "name" : "ACTIONPARAM4",
+      "codeName" : "ActionParam3"
+    }, {
+      "name" : "PUSHTYPE",
+      "codeName" : "PushType"
+    }, {
+      "name" : "QOS",
+      "codeName" : "QoS"
+    }, {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }, {
+      "name" : "SRFDCID",
+      "codeName" : "Srfdcid"
+    }, {
+      "name" : "ACTIONRESULT",
+      "codeName" : "ActionResult"
+    }, {
+      "name" : "ASYNCACITONID",
+      "codeName" : "AsyncAcitonId"
+    }, {
+      "name" : "ASYNCACITONNAME",
+      "codeName" : "AsyncAcitonName"
+    }, {
+      "name" : "ACTIONTYPE",
+      "codeName" : "ActionType"
+    }, {
+      "name" : "BEGINTIME",
+      "codeName" : "BeginTime"
+    }, {
+      "name" : "ACTIONSTATE",
+      "codeName" : "ActionState"
+    }, {
+      "name" : "ENDTIME",
+      "codeName" : "EndTime"
+    }, {
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "codeName" : "AsyncResultDownloadUrl"
+    }, {
+      "name" : "STEPINFO",
+      "codeName" : "StepInfo"
+    }, {
+      "name" : "FULLRESULT",
+      "codeName" : "FullResult"
+    }, {
+      "name" : "COMPLETIONRATE",
+      "codeName" : "CompletionRate"
+    }, {
+      "name" : "PASYNCACITONID",
+      "codeName" : "PAsyncAcitonId"
+    }, {
+      "name" : "FULLSTEPINFO",
+      "codeName" : "FullStepInfo"
+    } ],
+    "codeName" : "Table",
+    "name" : "IBZASYNCACTION",
+    "getPSSysDBTable" : {
+      "modelref" : true,
+      "id" : "ibzasyncaction"
+    },
+    "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRGroups" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDRGROUPS/DRGroup.json"
+  } ],
+  "getAllPSDEDataQueries" : [ {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Default/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Default",
+    "logicName" : "数据查询",
+    "name" : "DEFAULT",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "PT_ASYNCACTION"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTOS"
+    },
+    "defaultMode" : true
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Simple/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "Simple",
+    "dEFGroupType" : "BASEFIELDS",
+    "logicName" : "基础属性查询",
+    "name" : "SIMPLE",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "PT_ASYNCACTION"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "SimpleInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "SimpleResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionSimpleDTO"
+      },
+      "type" : "DTOS"
+    },
+    "getPSDEFGroup" : {
+      "modelref" : true,
+      "id" : "Simple"
+    },
+    "viewLevel" : 100
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/View/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/View/PSDEDQCODES/ORACLE.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "View",
+    "logicName" : "默认（全部数据）",
+    "name" : "VIEW",
+    "getPSDEDQMain" : {
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "PT_ASYNCACTION"
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "ViewInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "ViewResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "DTOS"
+    },
+    "viewLevel" : 0
+  } ],
+  "getAllPSDEDataRelations" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEDATARELATIONS/Default.json"
+  } ],
+  "getAllPSDEDataSets" : [ {
+    "codeName" : "Default",
+    "logicName" : "数据集",
+    "name" : "DEFAULT",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "DefaultInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionFilterDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "DefaultResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PTAsyncActionDTO"
+      },
+      "type" : "PAGE"
+    },
+    "defaultMode" : true,
+    "enableBackend" : true,
+    "enableFront" : true
+  } ],
+  "getAllPSDEFGroups" : [ {
+    "codeName" : "Simple",
+    "groupType" : "BASEFIELDS",
+    "name" : "基础属性组",
+    "orderValue" : 99999,
+    "getPSDEFGroupDetails" : [ {
+      "codeName" : "AsyncAcitonId",
+      "logicName" : "异步操作标识",
+      "name" : "ASYNCACITONID",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "AsyncAcitonName",
+      "logicName" : "异步操作名称",
+      "name" : "ASYNCACITONNAME",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "ASYNCACITONNAME",
+        "codeName" : "AsyncAcitonName"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "CreateDate",
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "CreateMan",
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "UpdateDate",
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "UpdateMan",
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    } ]
+  } ],
+  "getAllPSDEFields" : [ {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "FULLTOPICTAG",
+      "dBType" : "ORACLE",
+      "name" : "FULLTOPICTAG",
+      "queryCodeExp" : "t1.FULLTOPICTAG",
+      "standardColumnName" : "FULLTOPICTAG"
+    }, {
+      "columnName" : "FULLTOPICTAG",
+      "dBType" : "POSTGRESQL",
+      "name" : "FULLTOPICTAG",
+      "queryCodeExp" : "t1.FULLTOPICTAG",
+      "standardColumnName" : "FULLTOPICTAG"
+    }, {
+      "columnName" : "FULLTOPICTAG",
+      "name" : "FULLTOPICTAG",
+      "standardColumnName" : "FULLTOPICTAG"
+    }, {
+      "columnName" : "FULLTOPICTAG",
+      "dBType" : "MYSQL5",
+      "name" : "FULLTOPICTAG",
+      "queryCodeExp" : "t1.`FULLTOPICTAG`",
+      "standardColumnName" : "`FULLTOPICTAG`"
+    }, {
+      "columnName" : "FULLTOPICTAG",
+      "dBType" : "SQLSERVER",
+      "name" : "FULLTOPICTAG",
+      "standardColumnName" : "[FULLTOPICTAG]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[FULLTOPICTAG][完整主题标记]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[FULLTOPICTAG][完整主题标记]移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[FULLTOPICTAG][完整主题标记]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[FULLTOPICTAG][完整主题标记]",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "FULLTOPICTAG",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "FullTopicTag",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "完整主题标记",
+    "name" : "FULLTOPICTAG",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "FULLTOPICTAG"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "TOPICTAG",
+      "dBType" : "ORACLE",
+      "name" : "TOPICTAG",
+      "queryCodeExp" : "t1.TOPICTAG",
+      "standardColumnName" : "TOPICTAG"
+    }, {
+      "columnName" : "TOPICTAG",
+      "dBType" : "POSTGRESQL",
+      "name" : "TOPICTAG",
+      "queryCodeExp" : "t1.TOPICTAG",
+      "standardColumnName" : "TOPICTAG"
+    }, {
+      "columnName" : "TOPICTAG",
+      "name" : "TOPICTAG",
+      "standardColumnName" : "TOPICTAG"
+    }, {
+      "columnName" : "TOPICTAG",
+      "dBType" : "MYSQL5",
+      "name" : "TOPICTAG",
+      "queryCodeExp" : "t1.`TOPICTAG`",
+      "standardColumnName" : "`TOPICTAG`"
+    }, {
+      "columnName" : "TOPICTAG",
+      "dBType" : "SQLSERVER",
+      "name" : "TOPICTAG",
+      "standardColumnName" : "[TOPICTAG]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[TOPICTAG][主题标记]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TOPICTAG][主题标记]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[TOPICTAG][主题标记]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TOPICTAG][主题标记]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "TOPICTAG",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "TopicTag",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "主题标记",
+    "name" : "TOPICTAG",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "TOPICTAG"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "CREATEDATE",
+      "dBType" : "ORACLE",
+      "name" : "CREATEDATE",
+      "queryCodeExp" : "t1.CREATEDATE",
+      "standardColumnName" : "CREATEDATE"
+    }, {
+      "columnName" : "CREATEDATE",
+      "dBType" : "POSTGRESQL",
+      "name" : "CREATEDATE",
+      "queryCodeExp" : "t1.CREATEDATE",
+      "standardColumnName" : "CREATEDATE"
+    }, {
+      "columnName" : "CREATEDATE",
+      "name" : "CREATEDATE",
+      "standardColumnName" : "CREATEDATE"
+    }, {
+      "columnName" : "CREATEDATE",
+      "dBType" : "MYSQL5",
+      "name" : "CREATEDATE",
+      "queryCodeExp" : "t1.`CREATEDATE`",
+      "standardColumnName" : "`CREATEDATE`"
+    }, {
+      "columnName" : "CREATEDATE",
+      "dBType" : "SQLSERVER",
+      "name" : "CREATEDATE",
+      "standardColumnName" : "[CREATEDATE]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[CREATEDATE][建立时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[CREATEDATE][建立时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATEDATE][建立时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[CREATEDATE][建立时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "CreateDate",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "length" : 8,
+    "logicName" : "建立时间",
+    "name" : "CREATEDATE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "CREATEDATE"
+    },
+    "predefinedType" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "CREATEMAN",
+      "dBType" : "ORACLE",
+      "name" : "CREATEMAN",
+      "queryCodeExp" : "t1.CREATEMAN",
+      "standardColumnName" : "CREATEMAN"
+    }, {
+      "columnName" : "CREATEMAN",
+      "dBType" : "POSTGRESQL",
+      "name" : "CREATEMAN",
+      "queryCodeExp" : "t1.CREATEMAN",
+      "standardColumnName" : "CREATEMAN"
+    }, {
+      "columnName" : "CREATEMAN",
+      "name" : "CREATEMAN",
+      "standardColumnName" : "CREATEMAN"
+    }, {
+      "columnName" : "CREATEMAN",
+      "dBType" : "MYSQL5",
+      "name" : "CREATEMAN",
+      "queryCodeExp" : "t1.`CREATEMAN`",
+      "standardColumnName" : "`CREATEMAN`"
+    }, {
+      "columnName" : "CREATEMAN",
+      "dBType" : "SQLSERVER",
+      "name" : "CREATEMAN",
+      "standardColumnName" : "[CREATEMAN]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATEMAN][建立人]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[CREATEMAN][建立人]移动端默认",
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[CREATEMAN][建立人]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[CREATEMAN][建立人]",
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "CREATEMAN",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "CreateMan",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "建立人",
+    "name" : "CREATEMAN",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "CREATEMAN"
+    },
+    "predefinedType" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONPARAM2",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONPARAM2",
+      "queryCodeExp" : "t1.ACTIONPARAM2",
+      "standardColumnName" : "ACTIONPARAM2"
+    }, {
+      "columnName" : "ACTIONPARAM2",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONPARAM2",
+      "queryCodeExp" : "t1.ACTIONPARAM2",
+      "standardColumnName" : "ACTIONPARAM2"
+    }, {
+      "columnName" : "ACTIONPARAM2",
+      "name" : "ACTIONPARAM2",
+      "standardColumnName" : "ACTIONPARAM2"
+    }, {
+      "columnName" : "ACTIONPARAM2",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONPARAM2",
+      "queryCodeExp" : "t1.`ACTIONPARAM2`",
+      "standardColumnName" : "`ACTIONPARAM2`"
+    }, {
+      "columnName" : "ACTIONPARAM2",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONPARAM2",
+      "standardColumnName" : "[ACTIONPARAM2]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONPARAM2][操作参数2]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACTIONPARAM2][操作参数2]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACTIONPARAM2][操作参数2]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACTIONPARAM2][操作参数2]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONPARAM2",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionParam2",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "操作参数2",
+    "name" : "ACTIONPARAM2",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONPARAM2"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONPARAM3",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONPARAM3",
+      "queryCodeExp" : "t1.ACTIONPARAM3",
+      "standardColumnName" : "ACTIONPARAM3"
+    }, {
+      "columnName" : "ACTIONPARAM3",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONPARAM3",
+      "queryCodeExp" : "t1.ACTIONPARAM3",
+      "standardColumnName" : "ACTIONPARAM3"
+    }, {
+      "columnName" : "ACTIONPARAM3",
+      "name" : "ACTIONPARAM3",
+      "standardColumnName" : "ACTIONPARAM3"
+    }, {
+      "columnName" : "ACTIONPARAM3",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONPARAM3",
+      "queryCodeExp" : "t1.`ACTIONPARAM3`",
+      "standardColumnName" : "`ACTIONPARAM3`"
+    }, {
+      "columnName" : "ACTIONPARAM3",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONPARAM3",
+      "standardColumnName" : "[ACTIONPARAM3]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONPARAM3][操作参数3]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACTIONPARAM3][操作参数3]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACTIONPARAM3][操作参数3]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACTIONPARAM3][操作参数3]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONPARAM3",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionParam4",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "操作参数3",
+    "name" : "ACTIONPARAM3",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONPARAM3"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONPARAM",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONPARAM",
+      "queryCodeExp" : "t1.ACTIONPARAM",
+      "standardColumnName" : "ACTIONPARAM"
+    }, {
+      "columnName" : "ACTIONPARAM",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONPARAM",
+      "queryCodeExp" : "t1.ACTIONPARAM",
+      "standardColumnName" : "ACTIONPARAM"
+    }, {
+      "columnName" : "ACTIONPARAM",
+      "name" : "ACTIONPARAM",
+      "standardColumnName" : "ACTIONPARAM"
+    }, {
+      "columnName" : "ACTIONPARAM",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONPARAM",
+      "queryCodeExp" : "t1.`ACTIONPARAM`",
+      "standardColumnName" : "`ACTIONPARAM`"
+    }, {
+      "columnName" : "ACTIONPARAM",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONPARAM",
+      "standardColumnName" : "[ACTIONPARAM]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONPARAM][操作参数]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACTIONPARAM][操作参数]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACTIONPARAM][操作参数]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACTIONPARAM][操作参数]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONPARAM",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionParam",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "操作参数",
+    "name" : "ACTIONPARAM",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONPARAM"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "UPDATEMAN",
+      "dBType" : "ORACLE",
+      "name" : "UPDATEMAN",
+      "queryCodeExp" : "t1.UPDATEMAN",
+      "standardColumnName" : "UPDATEMAN"
+    }, {
+      "columnName" : "UPDATEMAN",
+      "dBType" : "POSTGRESQL",
+      "name" : "UPDATEMAN",
+      "queryCodeExp" : "t1.UPDATEMAN",
+      "standardColumnName" : "UPDATEMAN"
+    }, {
+      "columnName" : "UPDATEMAN",
+      "name" : "UPDATEMAN",
+      "standardColumnName" : "UPDATEMAN"
+    }, {
+      "columnName" : "UPDATEMAN",
+      "dBType" : "MYSQL5",
+      "name" : "UPDATEMAN",
+      "queryCodeExp" : "t1.`UPDATEMAN`",
+      "standardColumnName" : "`UPDATEMAN`"
+    }, {
+      "columnName" : "UPDATEMAN",
+      "dBType" : "SQLSERVER",
+      "name" : "UPDATEMAN",
+      "standardColumnName" : "[UPDATEMAN]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[UPDATEMAN][更新人]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[UPDATEMAN][更新人]",
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATEMAN][更新人]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[UPDATEMAN][更新人]移动端默认",
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "UPDATEMAN",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "UpdateMan",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "更新人",
+    "name" : "UPDATEMAN",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "UPDATEMAN"
+    },
+    "predefinedType" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "UPDATEDATE",
+      "dBType" : "ORACLE",
+      "name" : "UPDATEDATE",
+      "queryCodeExp" : "t1.UPDATEDATE",
+      "standardColumnName" : "UPDATEDATE"
+    }, {
+      "columnName" : "UPDATEDATE",
+      "dBType" : "POSTGRESQL",
+      "name" : "UPDATEDATE",
+      "queryCodeExp" : "t1.UPDATEDATE",
+      "standardColumnName" : "UPDATEDATE"
+    }, {
+      "columnName" : "UPDATEDATE",
+      "name" : "UPDATEDATE",
+      "standardColumnName" : "UPDATEDATE"
+    }, {
+      "columnName" : "UPDATEDATE",
+      "dBType" : "MYSQL5",
+      "name" : "UPDATEDATE",
+      "queryCodeExp" : "t1.`UPDATEDATE`",
+      "standardColumnName" : "`UPDATEDATE`"
+    }, {
+      "columnName" : "UPDATEDATE",
+      "dBType" : "SQLSERVER",
+      "name" : "UPDATEDATE",
+      "standardColumnName" : "[UPDATEDATE]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATEDATE][更新时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[UPDATEDATE][更新时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[UPDATEDATE][更新时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[UPDATEDATE][更新时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "UpdateDate",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "length" : 8,
+    "logicName" : "更新时间",
+    "name" : "UPDATEDATE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "UPDATEDATE"
+    },
+    "predefinedType" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+    "allowEmpty" : false,
+    "systemReserver" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONPARAM4",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONPARAM4",
+      "queryCodeExp" : "t1.ACTIONPARAM4",
+      "standardColumnName" : "ACTIONPARAM4"
+    }, {
+      "columnName" : "ACTIONPARAM4",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONPARAM4",
+      "queryCodeExp" : "t1.ACTIONPARAM4",
+      "standardColumnName" : "ACTIONPARAM4"
+    }, {
+      "columnName" : "ACTIONPARAM4",
+      "name" : "ACTIONPARAM4",
+      "standardColumnName" : "ACTIONPARAM4"
+    }, {
+      "columnName" : "ACTIONPARAM4",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONPARAM4",
+      "queryCodeExp" : "t1.`ACTIONPARAM4`",
+      "standardColumnName" : "`ACTIONPARAM4`"
+    }, {
+      "columnName" : "ACTIONPARAM4",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONPARAM4",
+      "standardColumnName" : "[ACTIONPARAM4]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONPARAM4][操作参数4]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ACTIONPARAM4][操作参数4]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACTIONPARAM4][操作参数4]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ACTIONPARAM4][操作参数4]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONPARAM4",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionParam3",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "操作参数4",
+    "name" : "ACTIONPARAM4",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONPARAM4"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PUSHTYPE",
+      "dBType" : "ORACLE",
+      "name" : "PUSHTYPE",
+      "queryCodeExp" : "t1.PUSHTYPE",
+      "standardColumnName" : "PUSHTYPE"
+    }, {
+      "columnName" : "PUSHTYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "PUSHTYPE",
+      "queryCodeExp" : "t1.PUSHTYPE",
+      "standardColumnName" : "PUSHTYPE"
+    }, {
+      "columnName" : "PUSHTYPE",
+      "name" : "PUSHTYPE",
+      "standardColumnName" : "PUSHTYPE"
+    }, {
+      "columnName" : "PUSHTYPE",
+      "dBType" : "MYSQL5",
+      "name" : "PUSHTYPE",
+      "queryCodeExp" : "t1.`PUSHTYPE`",
+      "standardColumnName" : "`PUSHTYPE`"
+    }, {
+      "columnName" : "PUSHTYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "PUSHTYPE",
+      "standardColumnName" : "[PUSHTYPE]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_PUSHTYPE_EQ",
+      "name" : "N_PUSHTYPE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PUSHTYPE][消息推送类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[PUSHTYPE][消息推送类型]",
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PUSHTYPE][消息推送类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[PUSHTYPE][消息推送类型]移动端默认",
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PUSHTYPE",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "PushType",
+    "dEFType" : 1,
+    "dataType" : "SSCODELIST",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "消息推送类型",
+    "name" : "PUSHTYPE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/PushType.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "PUSHTYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "QOS",
+      "dBType" : "ORACLE",
+      "name" : "QOS",
+      "queryCodeExp" : "t1.QOS",
+      "standardColumnName" : "QOS"
+    }, {
+      "columnName" : "QOS",
+      "dBType" : "POSTGRESQL",
+      "name" : "QOS",
+      "queryCodeExp" : "t1.QOS",
+      "standardColumnName" : "QOS"
+    }, {
+      "columnName" : "QOS",
+      "name" : "QOS",
+      "standardColumnName" : "QOS"
+    }, {
+      "columnName" : "QOS",
+      "dBType" : "MYSQL5",
+      "name" : "QOS",
+      "queryCodeExp" : "t1.`QOS`",
+      "standardColumnName" : "`QOS`"
+    }, {
+      "columnName" : "QOS",
+      "dBType" : "SQLSERVER",
+      "name" : "QOS",
+      "standardColumnName" : "[QOS]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_QOS_EQ",
+      "name" : "N_QOS_EQ",
+      "stdDataType" : 9,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[QOS][消息质量]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[QOS][消息质量]",
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[QOS][消息质量]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[QOS][消息质量]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "QoS",
+    "dEFType" : 1,
+    "dataType" : "NSCODELIST",
+    "importOrder" : 1000,
+    "logicName" : "消息质量",
+    "name" : "QOS",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/QoSType.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "QOS"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "DCSYSTEMID",
+      "dBType" : "ORACLE",
+      "name" : "DCSYSTEMID",
+      "queryCodeExp" : "t1.DCSYSTEMID",
+      "standardColumnName" : "DCSYSTEMID"
+    }, {
+      "columnName" : "DCSYSTEMID",
+      "dBType" : "POSTGRESQL",
+      "name" : "DCSYSTEMID",
+      "queryCodeExp" : "t1.DCSYSTEMID",
+      "standardColumnName" : "DCSYSTEMID"
+    }, {
+      "columnName" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID",
+      "standardColumnName" : "DCSYSTEMID"
+    }, {
+      "columnName" : "DCSYSTEMID",
+      "dBType" : "MYSQL5",
+      "name" : "DCSYSTEMID",
+      "queryCodeExp" : "t1.`DCSYSTEMID`",
+      "standardColumnName" : "`DCSYSTEMID`"
+    }, {
+      "columnName" : "DCSYSTEMID",
+      "dBType" : "SQLSERVER",
+      "name" : "DCSYSTEMID",
+      "standardColumnName" : "[DCSYSTEMID]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[DCSYSTEMID][租户系统标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[DCSYSTEMID][租户系统标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[DCSYSTEMID][租户系统标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[DCSYSTEMID][租户系统标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "DCSYSTEMID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "DCSystemId",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "租户系统标识",
+    "name" : "DCSYSTEMID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "DCSYSTEMID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SRFDCID",
+      "dBType" : "ORACLE",
+      "name" : "SRFDCID",
+      "queryCodeExp" : "t1.SRFDCID",
+      "standardColumnName" : "SRFDCID"
+    }, {
+      "columnName" : "SRFDCID",
+      "dBType" : "POSTGRESQL",
+      "name" : "SRFDCID",
+      "queryCodeExp" : "t1.SRFDCID",
+      "standardColumnName" : "SRFDCID"
+    }, {
+      "columnName" : "SRFDCID",
+      "name" : "SRFDCID",
+      "standardColumnName" : "SRFDCID"
+    }, {
+      "columnName" : "SRFDCID",
+      "dBType" : "MYSQL5",
+      "name" : "SRFDCID",
+      "queryCodeExp" : "t1.`SRFDCID`",
+      "standardColumnName" : "`SRFDCID`"
+    }, {
+      "columnName" : "SRFDCID",
+      "dBType" : "SQLSERVER",
+      "name" : "SRFDCID",
+      "standardColumnName" : "[SRFDCID]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[SRFDCID][租户]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[SRFDCID][租户]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[SRFDCID][租户]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[SRFDCID][租户]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SRFDCID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Srfdcid",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "租户",
+    "name" : "SRFDCID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SRFDCID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONRESULT",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONRESULT",
+      "queryCodeExp" : "t1.ACTIONRESULT",
+      "standardColumnName" : "ACTIONRESULT"
+    }, {
+      "columnName" : "ACTIONRESULT",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONRESULT",
+      "queryCodeExp" : "t1.ACTIONRESULT",
+      "standardColumnName" : "ACTIONRESULT"
+    }, {
+      "columnName" : "ACTIONRESULT",
+      "name" : "ACTIONRESULT",
+      "standardColumnName" : "ACTIONRESULT"
+    }, {
+      "columnName" : "ACTIONRESULT",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONRESULT",
+      "queryCodeExp" : "t1.`ACTIONRESULT`",
+      "standardColumnName" : "`ACTIONRESULT`"
+    }, {
+      "columnName" : "ACTIONRESULT",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONRESULT",
+      "standardColumnName" : "[ACTIONRESULT]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ACTIONRESULT][附加操作信息]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[ACTIONRESULT][附加操作信息]",
+        "stringLength" : 4000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONRESULT][附加操作信息]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[ACTIONRESULT][附加操作信息]移动端默认",
+        "stringLength" : 4000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONRESULT",
+          "maxValue" : 4000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[4000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[4000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[4000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionResult",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 4000,
+    "logicName" : "操作结果信息",
+    "name" : "ACTIONRESULT",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONRESULT"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 4000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ASYNCACITONID",
+      "dBType" : "ORACLE",
+      "name" : "ASYNCACITONID",
+      "queryCodeExp" : "t1.ASYNCACITONID",
+      "standardColumnName" : "ASYNCACITONID"
+    }, {
+      "columnName" : "ASYNCACITONID",
+      "dBType" : "POSTGRESQL",
+      "name" : "ASYNCACITONID",
+      "queryCodeExp" : "t1.ASYNCACITONID",
+      "standardColumnName" : "ASYNCACITONID"
+    }, {
+      "columnName" : "ASYNCACITONID",
+      "name" : "ASYNCACITONID",
+      "standardColumnName" : "ASYNCACITONID"
+    }, {
+      "columnName" : "ASYNCACITONID",
+      "dBType" : "MYSQL5",
+      "name" : "ASYNCACITONID",
+      "queryCodeExp" : "t1.`ASYNCACITONID`",
+      "standardColumnName" : "`ASYNCACITONID`"
+    }, {
+      "columnName" : "ASYNCACITONID",
+      "dBType" : "SQLSERVER",
+      "name" : "ASYNCACITONID",
+      "standardColumnName" : "[ASYNCACITONID]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ASYNCACITONID_EQ",
+      "name" : "N_ASYNCACITONID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ASYNCACITONID][异步操作标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ASYNCACITONID][异步操作标识]",
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ASYNCACITONID][异步操作标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ASYNCACITONID][异步操作标识]移动端默认",
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ASYNCACITONID",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AsyncAcitonId",
+    "dEFType" : 1,
+    "dataType" : "GUID",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "异步操作标识",
+    "name" : "ASYNCACITONID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ASYNCACITONID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false,
+    "keyDEField" : true,
+    "pasteReset" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ASYNCACITONNAME",
+      "dBType" : "ORACLE",
+      "name" : "ASYNCACITONNAME",
+      "queryCodeExp" : "t1.ASYNCACITONNAME",
+      "standardColumnName" : "ASYNCACITONNAME"
+    }, {
+      "columnName" : "ASYNCACITONNAME",
+      "dBType" : "POSTGRESQL",
+      "name" : "ASYNCACITONNAME",
+      "queryCodeExp" : "t1.ASYNCACITONNAME",
+      "standardColumnName" : "ASYNCACITONNAME"
+    }, {
+      "columnName" : "ASYNCACITONNAME",
+      "name" : "ASYNCACITONNAME",
+      "standardColumnName" : "ASYNCACITONNAME"
+    }, {
+      "columnName" : "ASYNCACITONNAME",
+      "dBType" : "MYSQL5",
+      "name" : "ASYNCACITONNAME",
+      "queryCodeExp" : "t1.`ASYNCACITONNAME`",
+      "standardColumnName" : "`ASYNCACITONNAME`"
+    }, {
+      "columnName" : "ASYNCACITONNAME",
+      "dBType" : "SQLSERVER",
+      "name" : "ASYNCACITONNAME",
+      "standardColumnName" : "[ASYNCACITONNAME]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ASYNCACITONNAME_LIKE",
+      "name" : "N_ASYNCACITONNAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ASYNCACITONNAME][异步操作名称]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ASYNCACITONNAME][异步操作名称]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ASYNCACITONNAME][异步操作名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ASYNCACITONNAME][异步操作名称]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ASYNCACITONNAME",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AsyncAcitonName",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "异步操作名称",
+    "name" : "ASYNCACITONNAME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ASYNCACITONNAME"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "enableQuickSearch" : true,
+    "majorDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONTYPE",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONTYPE",
+      "queryCodeExp" : "t1.ACTIONTYPE",
+      "standardColumnName" : "ACTIONTYPE"
+    }, {
+      "columnName" : "ACTIONTYPE",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONTYPE",
+      "queryCodeExp" : "t1.ACTIONTYPE",
+      "standardColumnName" : "ACTIONTYPE"
+    }, {
+      "columnName" : "ACTIONTYPE",
+      "name" : "ACTIONTYPE",
+      "standardColumnName" : "ACTIONTYPE"
+    }, {
+      "columnName" : "ACTIONTYPE",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONTYPE",
+      "queryCodeExp" : "t1.`ACTIONTYPE`",
+      "standardColumnName" : "`ACTIONTYPE`"
+    }, {
+      "columnName" : "ACTIONTYPE",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONTYPE",
+      "standardColumnName" : "[ACTIONTYPE]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACTIONTYPE_EQ",
+      "name" : "N_ACTIONTYPE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ACTIONTYPE][操作类型]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[ACTIONTYPE][操作类型]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONTYPE][操作类型]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[ACTIONTYPE][操作类型]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ACTIONTYPE",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionType",
+    "dEFType" : 1,
+    "dataType" : "SSCODELIST",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "操作类型",
+    "name" : "ACTIONTYPE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/ActionType.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONTYPE"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "BEGINTIME",
+      "dBType" : "ORACLE",
+      "name" : "BEGINTIME",
+      "queryCodeExp" : "t1.BEGINTIME",
+      "standardColumnName" : "BEGINTIME"
+    }, {
+      "columnName" : "BEGINTIME",
+      "dBType" : "POSTGRESQL",
+      "name" : "BEGINTIME",
+      "queryCodeExp" : "t1.BEGINTIME",
+      "standardColumnName" : "BEGINTIME"
+    }, {
+      "columnName" : "BEGINTIME",
+      "name" : "BEGINTIME",
+      "standardColumnName" : "BEGINTIME"
+    }, {
+      "columnName" : "BEGINTIME",
+      "dBType" : "MYSQL5",
+      "name" : "BEGINTIME",
+      "queryCodeExp" : "t1.`BEGINTIME`",
+      "standardColumnName" : "`BEGINTIME`"
+    }, {
+      "columnName" : "BEGINTIME",
+      "dBType" : "SQLSERVER",
+      "name" : "BEGINTIME",
+      "standardColumnName" : "[BEGINTIME]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[BEGINTIME][开始时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[BEGINTIME][开始时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[BEGINTIME][开始时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[BEGINTIME][开始时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "BeginTime",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "logicName" : "开始时间",
+    "name" : "BEGINTIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "BEGINTIME"
+    },
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ACTIONSTATE",
+      "dBType" : "ORACLE",
+      "name" : "ACTIONSTATE",
+      "queryCodeExp" : "t1.ACTIONSTATE",
+      "standardColumnName" : "ACTIONSTATE"
+    }, {
+      "columnName" : "ACTIONSTATE",
+      "dBType" : "POSTGRESQL",
+      "name" : "ACTIONSTATE",
+      "queryCodeExp" : "t1.ACTIONSTATE",
+      "standardColumnName" : "ACTIONSTATE"
+    }, {
+      "columnName" : "ACTIONSTATE",
+      "name" : "ACTIONSTATE",
+      "standardColumnName" : "ACTIONSTATE"
+    }, {
+      "columnName" : "ACTIONSTATE",
+      "dBType" : "MYSQL5",
+      "name" : "ACTIONSTATE",
+      "queryCodeExp" : "t1.`ACTIONSTATE`",
+      "standardColumnName" : "`ACTIONSTATE`"
+    }, {
+      "columnName" : "ACTIONSTATE",
+      "dBType" : "SQLSERVER",
+      "name" : "ACTIONSTATE",
+      "standardColumnName" : "[ACTIONSTATE]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_ACTIONSTATE_EQ",
+      "name" : "N_ACTIONSTATE_EQ",
+      "stdDataType" : 9,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ACTIONSTATE][行为状态]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[ACTIONSTATE][行为状态]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ACTIONSTATE][行为状态]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[ACTIONSTATE][行为状态]",
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false,
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ActionState",
+    "dEFType" : 1,
+    "dataType" : "NSCODELIST",
+    "importOrder" : 1000,
+    "logicName" : "行为状态",
+    "name" : "ACTIONSTATE",
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSCODELISTS/BackendActionState.json"
+    },
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ACTIONSTATE"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "allowEmpty" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ENDTIME",
+      "dBType" : "ORACLE",
+      "name" : "ENDTIME",
+      "queryCodeExp" : "t1.ENDTIME",
+      "standardColumnName" : "ENDTIME"
+    }, {
+      "columnName" : "ENDTIME",
+      "dBType" : "POSTGRESQL",
+      "name" : "ENDTIME",
+      "queryCodeExp" : "t1.ENDTIME",
+      "standardColumnName" : "ENDTIME"
+    }, {
+      "columnName" : "ENDTIME",
+      "name" : "ENDTIME",
+      "standardColumnName" : "ENDTIME"
+    }, {
+      "columnName" : "ENDTIME",
+      "dBType" : "MYSQL5",
+      "name" : "ENDTIME",
+      "queryCodeExp" : "t1.`ENDTIME`",
+      "standardColumnName" : "`ENDTIME`"
+    }, {
+      "columnName" : "ENDTIME",
+      "dBType" : "SQLSERVER",
+      "name" : "ENDTIME",
+      "standardColumnName" : "[ENDTIME]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ENDTIME][结束时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[ENDTIME][结束时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ENDTIME][结束时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[ENDTIME][结束时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "EndTime",
+    "dEFType" : 1,
+    "dataType" : "DATETIME",
+    "importOrder" : 1000,
+    "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+    "logicName" : "结束时间",
+    "name" : "ENDTIME",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ENDTIME"
+    },
+    "stdDataType" : 5,
+    "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ASYNCRESULTDOWNLOADURL",
+      "dBType" : "ORACLE",
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "queryCodeExp" : "t1.ASYNCRESULTDOWNLOADURL",
+      "standardColumnName" : "ASYNCRESULTDOWNLOADURL"
+    }, {
+      "columnName" : "ASYNCRESULTDOWNLOADURL",
+      "dBType" : "POSTGRESQL",
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "queryCodeExp" : "t1.ASYNCRESULTDOWNLOADURL",
+      "standardColumnName" : "ASYNCRESULTDOWNLOADURL"
+    }, {
+      "columnName" : "ASYNCRESULTDOWNLOADURL",
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "standardColumnName" : "ASYNCRESULTDOWNLOADURL"
+    }, {
+      "columnName" : "ASYNCRESULTDOWNLOADURL",
+      "dBType" : "MYSQL5",
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "queryCodeExp" : "t1.`ASYNCRESULTDOWNLOADURL`",
+      "standardColumnName" : "`ASYNCRESULTDOWNLOADURL`"
+    }, {
+      "columnName" : "ASYNCRESULTDOWNLOADURL",
+      "dBType" : "SQLSERVER",
+      "name" : "ASYNCRESULTDOWNLOADURL",
+      "standardColumnName" : "[ASYNCRESULTDOWNLOADURL]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ASYNCRESULTDOWNLOADURL][异步结果下载路径]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ASYNCRESULTDOWNLOADURL][异步结果下载路径]移动端默认",
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ASYNCRESULTDOWNLOADURL][异步结果下载路径]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ASYNCRESULTDOWNLOADURL][异步结果下载路径]",
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ASYNCRESULTDOWNLOADURL",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "AsyncResultDownloadUrl",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "异步结果下载路径",
+    "name" : "ASYNCRESULTDOWNLOADURL",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ASYNCRESULTDOWNLOADURL"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "STEPINFO",
+      "dBType" : "ORACLE",
+      "name" : "STEPINFO",
+      "queryCodeExp" : "t1.STEPINFO",
+      "standardColumnName" : "STEPINFO"
+    }, {
+      "columnName" : "STEPINFO",
+      "dBType" : "POSTGRESQL",
+      "name" : "STEPINFO",
+      "queryCodeExp" : "t1.STEPINFO",
+      "standardColumnName" : "STEPINFO"
+    }, {
+      "columnName" : "STEPINFO",
+      "name" : "STEPINFO",
+      "standardColumnName" : "STEPINFO"
+    }, {
+      "columnName" : "STEPINFO",
+      "dBType" : "MYSQL5",
+      "name" : "STEPINFO",
+      "queryCodeExp" : "t1.`STEPINFO`",
+      "standardColumnName" : "`STEPINFO`"
+    }, {
+      "columnName" : "STEPINFO",
+      "dBType" : "SQLSERVER",
+      "name" : "STEPINFO",
+      "standardColumnName" : "[STEPINFO]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[STEPINFO][操作步骤信息]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[STEPINFO][操作步骤信息]移动端默认",
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[STEPINFO][操作步骤信息]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[STEPINFO][操作步骤信息]",
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "STEPINFO",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "StepInfo",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "操作步骤信息",
+    "name" : "STEPINFO",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "STEPINFO"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "FULLRESULT",
+      "dBType" : "ORACLE",
+      "name" : "FULLRESULT",
+      "queryCodeExp" : "t1.FULLRESULT",
+      "standardColumnName" : "FULLRESULT"
+    }, {
+      "columnName" : "FULLRESULT",
+      "dBType" : "POSTGRESQL",
+      "name" : "FULLRESULT",
+      "queryCodeExp" : "t1.FULLRESULT",
+      "standardColumnName" : "FULLRESULT"
+    }, {
+      "columnName" : "FULLRESULT",
+      "name" : "FULLRESULT",
+      "standardColumnName" : "FULLRESULT"
+    }, {
+      "columnName" : "FULLRESULT",
+      "dBType" : "MYSQL5",
+      "name" : "FULLRESULT",
+      "queryCodeExp" : "t1.`FULLRESULT`",
+      "standardColumnName" : "`FULLRESULT`"
+    }, {
+      "columnName" : "FULLRESULT",
+      "dBType" : "SQLSERVER",
+      "name" : "FULLRESULT",
+      "standardColumnName" : "[FULLRESULT]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[FULLRESULT][完整结果]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[FULLRESULT][完整结果]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[FULLRESULT][完整结果]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[FULLRESULT][完整结果]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "FULLRESULT",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "FullResult",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "完整结果",
+    "name" : "FULLRESULT",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "FULLRESULT"
+    },
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s",
+    "queryColumn" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "COMPLETIONRATE",
+      "dBType" : "ORACLE",
+      "name" : "COMPLETIONRATE",
+      "queryCodeExp" : "t1.COMPLETIONRATE",
+      "standardColumnName" : "COMPLETIONRATE"
+    }, {
+      "columnName" : "COMPLETIONRATE",
+      "dBType" : "POSTGRESQL",
+      "name" : "COMPLETIONRATE",
+      "queryCodeExp" : "t1.COMPLETIONRATE",
+      "standardColumnName" : "COMPLETIONRATE"
+    }, {
+      "columnName" : "COMPLETIONRATE",
+      "name" : "COMPLETIONRATE",
+      "standardColumnName" : "COMPLETIONRATE"
+    }, {
+      "columnName" : "COMPLETIONRATE",
+      "dBType" : "MYSQL5",
+      "name" : "COMPLETIONRATE",
+      "queryCodeExp" : "t1.`COMPLETIONRATE`",
+      "standardColumnName" : "`COMPLETIONRATE`"
+    }, {
+      "columnName" : "COMPLETIONRATE",
+      "dBType" : "SQLSERVER",
+      "name" : "COMPLETIONRATE",
+      "standardColumnName" : "[COMPLETIONRATE]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[COMPLETIONRATE][完成lv]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[COMPLETIONRATE][完成lv]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[COMPLETIONRATE][完成lv]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[COMPLETIONRATE][完成lv]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "CompletionRate",
+    "dEFType" : 1,
+    "dataType" : "DECIMAL",
+    "importOrder" : 1000,
+    "logicName" : "完成率",
+    "name" : "COMPLETIONRATE",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "COMPLETIONRATE"
+    },
+    "stdDataType" : 6,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PASYNCACITONID",
+      "dBType" : "ORACLE",
+      "name" : "PASYNCACITONID",
+      "standardColumnName" : "PASYNCACITONID"
+    }, {
+      "columnName" : "PASYNCACITONID",
+      "dBType" : "POSTGRESQL",
+      "name" : "PASYNCACITONID",
+      "standardColumnName" : "PASYNCACITONID"
+    }, {
+      "columnName" : "PASYNCACITONID",
+      "name" : "PASYNCACITONID",
+      "standardColumnName" : "PASYNCACITONID"
+    }, {
+      "columnName" : "PASYNCACITONID",
+      "dBType" : "MYSQL5",
+      "name" : "PASYNCACITONID",
+      "queryCodeExp" : "t1.`PASYNCACITONID`",
+      "standardColumnName" : "`PASYNCACITONID`"
+    }, {
+      "columnName" : "PASYNCACITONID",
+      "dBType" : "SQLSERVER",
+      "name" : "PASYNCACITONID",
+      "standardColumnName" : "[PASYNCACITONID]"
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_PASYNCACITONID_EQ",
+      "name" : "N_PASYNCACITONID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PASYNCACITONID][异步操作标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[PASYNCACITONID][异步操作标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PASYNCACITONID][异步操作标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[PASYNCACITONID][异步操作标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PASYNCACITONID",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "PAsyncAcitonId",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "父异步操作标识",
+    "name" : "PASYNCACITONID",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDERS/DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "PASYNCACITONID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ASYNCACITONID",
+      "codeName" : "AsyncAcitonId"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ASYNCACITONID",
+      "codeName" : "AsyncAcitonId"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "FULLSTEPINFO",
+      "dBType" : "ORACLE",
+      "name" : "FULLSTEPINFO",
+      "standardColumnName" : "FULLSTEPINFO"
+    }, {
+      "columnName" : "FULLSTEPINFO",
+      "dBType" : "POSTGRESQL",
+      "name" : "FULLSTEPINFO",
+      "standardColumnName" : "FULLSTEPINFO"
+    }, {
+      "columnName" : "FULLSTEPINFO",
+      "name" : "FULLSTEPINFO",
+      "standardColumnName" : "FULLSTEPINFO"
+    }, {
+      "columnName" : "FULLSTEPINFO",
+      "dBType" : "MYSQL5",
+      "name" : "FULLSTEPINFO",
+      "standardColumnName" : "`FULLSTEPINFO`"
+    }, {
+      "columnName" : "FULLSTEPINFO",
+      "dBType" : "SQLSERVER",
+      "name" : "FULLSTEPINFO",
+      "standardColumnName" : "[FULLSTEPINFO]"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[FULLSTEPINFO][完整步骤信息]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[FULLSTEPINFO][完整步骤信息]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[FULLSTEPINFO][完整步骤信息]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[FULLSTEPINFO][完整步骤信息]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "FULLSTEPINFO",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "FullStepInfo",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "完整步骤信息",
+    "name" : "FULLSTEPINFO",
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "FULLSTEPINFO"
+    },
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s",
+    "queryColumn" : false
+  } ],
+  "getAllPSDEMethodDTOs" : [ {
+    "name" : "PTAsyncActionDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "操作参数",
+      "name" : "ActionParam",
+      "getPSDEField" : {
+        "name" : "ACTIONPARAM",
+        "codeName" : "ActionParam"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作参数2",
+      "name" : "ActionParam2",
+      "getPSDEField" : {
+        "name" : "ACTIONPARAM2",
+        "codeName" : "ActionParam2"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作参数4",
+      "name" : "ActionParam3",
+      "getPSDEField" : {
+        "name" : "ACTIONPARAM4",
+        "codeName" : "ActionParam3"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作参数3",
+      "name" : "ActionParam4",
+      "getPSDEField" : {
+        "name" : "ACTIONPARAM3",
+        "codeName" : "ActionParam4"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作结果信息",
+      "name" : "ActionResult",
+      "getPSDEField" : {
+        "name" : "ACTIONRESULT",
+        "codeName" : "ActionResult"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 4000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "行为状态",
+      "name" : "ActionState",
+      "getPSDEField" : {
+        "name" : "ACTIONSTATE",
+        "codeName" : "ActionState"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "操作类型",
+      "name" : "ActionType",
+      "getPSDEField" : {
+        "name" : "ACTIONTYPE",
+        "codeName" : "ActionType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "异步操作标识",
+      "name" : "AsyncAcitonId",
+      "getPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "异步操作名称",
+      "name" : "AsyncAcitonName",
+      "getPSDEField" : {
+        "name" : "ASYNCACITONNAME",
+        "codeName" : "AsyncAcitonName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "异步结果下载路径",
+      "name" : "AsyncResultDownloadUrl",
+      "getPSDEField" : {
+        "name" : "ASYNCRESULTDOWNLOADURL",
+        "codeName" : "AsyncResultDownloadUrl"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "开始时间",
+      "name" : "BeginTime",
+      "getPSDEField" : {
+        "name" : "BEGINTIME",
+        "codeName" : "BeginTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "完成率",
+      "name" : "CompletionRate",
+      "getPSDEField" : {
+        "name" : "COMPLETIONRATE",
+        "codeName" : "CompletionRate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "租户系统标识",
+      "name" : "DCSystemId",
+      "getPSDEField" : {
+        "name" : "DCSYSTEMID",
+        "codeName" : "DCSystemId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "结束时间",
+      "name" : "EndTime",
+      "getPSDEField" : {
+        "name" : "ENDTIME",
+        "codeName" : "EndTime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "完整结果",
+      "name" : "FullResult",
+      "getPSDEField" : {
+        "name" : "FULLRESULT",
+        "codeName" : "FullResult"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "完整步骤信息",
+      "name" : "FullStepInfo",
+      "getPSDEField" : {
+        "name" : "FULLSTEPINFO",
+        "codeName" : "FullStepInfo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "完整主题标记",
+      "name" : "FullTopicTag",
+      "getPSDEField" : {
+        "name" : "FULLTOPICTAG",
+        "codeName" : "FullTopicTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "父异步操作标识",
+      "name" : "PAsyncAcitonId",
+      "getPSDEField" : {
+        "name" : "PASYNCACITONID",
+        "codeName" : "PAsyncAcitonId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "消息推送类型",
+      "name" : "PushType",
+      "getPSDEField" : {
+        "name" : "PUSHTYPE",
+        "codeName" : "PushType"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "消息质量",
+      "name" : "QoS",
+      "getPSDEField" : {
+        "name" : "QOS",
+        "codeName" : "QoS"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "租户",
+      "name" : "Srfdcid",
+      "getPSDEField" : {
+        "name" : "SRFDCID",
+        "codeName" : "Srfdcid"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作步骤信息",
+      "name" : "StepInfo",
+      "getPSDEField" : {
+        "name" : "STEPINFO",
+        "codeName" : "StepInfo"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "主题标记",
+      "name" : "TopicTag",
+      "getPSDEField" : {
+        "name" : "TOPICTAG",
+        "codeName" : "TopicTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT",
+    "defaultMode" : true
+  }, {
+    "name" : "PTAsyncActionFilterDTO",
+    "getPSDEFilterDTOFields" : [ {
+      "logicName" : "行为状态",
+      "name" : "N_ACTIONSTATE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACTIONSTATE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ACTIONSTATE",
+        "codeName" : "ActionState"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "操作类型",
+      "name" : "N_ACTIONTYPE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ACTIONTYPE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ACTIONTYPE",
+        "codeName" : "ActionType"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "异步操作标识",
+      "name" : "N_ASYNCACITONID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ASYNCACITONID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "异步操作名称",
+      "name" : "N_ASYNCACITONNAME_LIKE",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_ASYNCACITONNAME_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "ASYNCACITONNAME",
+        "codeName" : "AsyncAcitonName"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "父异步操作标识",
+      "name" : "N_PASYNCACITONID_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_PASYNCACITONID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "PASYNCACITONID",
+        "codeName" : "PAsyncAcitonId"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "消息推送类型",
+      "name" : "N_PUSHTYPE_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_PUSHTYPE_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "PUSHTYPE",
+        "codeName" : "PushType"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "消息质量",
+      "name" : "N_QOS_EQ",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_QOS_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "QOS",
+        "codeName" : "QoS"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER",
+    "defaultMode" : true
+  }, {
+    "name" : "PTAsyncActionSimpleDTO",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "异步操作标识",
+      "name" : "AsyncAcitonId",
+      "getPSDEField" : {
+        "name" : "ASYNCACITONID",
+        "codeName" : "AsyncAcitonId"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "异步操作名称",
+      "name" : "AsyncAcitonName",
+      "getPSDEField" : {
+        "name" : "ASYNCACITONNAME",
+        "codeName" : "AsyncAcitonName"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "CreateDate",
+      "getPSDEField" : {
+        "name" : "CREATEDATE",
+        "codeName" : "CreateDate"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "建立人",
+      "name" : "CreateMan",
+      "getPSDEField" : {
+        "name" : "CREATEMAN",
+        "codeName" : "CreateMan"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "UpdateDate",
+      "getPSDEField" : {
+        "name" : "UPDATEDATE",
+        "codeName" : "UpdateDate"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "更新人",
+      "name" : "UpdateMan",
+      "getPSDEField" : {
+        "name" : "UPDATEMAN",
+        "codeName" : "UpdateMan"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  } ],
+  "getAllPSDEUserRoles" : [ {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/ALL_R.json",
+    "name" : "全部数据（读）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "ALL_R",
+    "userDRAction" : "READ",
+    "allData" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/ALL_RW.json",
+    "name" : "全部数据（读写）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "name" : "UPDATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "UPDATE"
+      }
+    }, {
+      "dataAccessAction" : "CREATE",
+      "name" : "CREATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "CREATE"
+      }
+    }, {
+      "dataAccessAction" : "DELETE",
+      "name" : "DELETE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "DELETE"
+      }
+    } ],
+    "roleTag" : "ALL_RW",
+    "userDRAction" : "READ",
+    "allData" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/CURDEPT_R.json",
+    "name" : "当前部门（读）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURDEPT_R",
+    "secDR" : 1,
+    "userDRAction" : "READ",
+    "enableSecDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/CURDEPT_RW.json",
+    "name" : "当前部门（读写）",
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "UPDATE",
+      "name" : "UPDATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "UPDATE"
+      }
+    }, {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    }, {
+      "dataAccessAction" : "CREATE",
+      "name" : "CREATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "CREATE"
+      }
+    }, {
+      "dataAccessAction" : "DELETE",
+      "name" : "DELETE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "DELETE"
+      }
+    } ],
+    "roleTag" : "CURDEPT_RW",
+    "secDR" : 1,
+    "userDRAction" : "READ",
+    "enableSecDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/CURORG_R.json",
+    "name" : "当前组织（读）",
+    "orgDR" : 1,
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURORG_R",
+    "userDRAction" : "READ",
+    "enableOrgDR" : true
+  }, {
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDEUSERROLES/CURORG_RW.json",
+    "name" : "当前组织（读写）",
+    "orgDR" : 1,
+    "getPSDEUserRoleOPPrivs" : [ {
+      "dataAccessAction" : "DELETE",
+      "name" : "DELETE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "DELETE"
+      }
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "name" : "UPDATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "UPDATE"
+      }
+    }, {
+      "dataAccessAction" : "CREATE",
+      "name" : "CREATE",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "CREATE"
+      }
+    }, {
+      "dataAccessAction" : "READ",
+      "name" : "READ",
+      "getPSDEOPPriv" : {
+        "modelref" : true,
+        "id" : "READ"
+      }
+    } ],
+    "roleTag" : "CURORG_RW",
+    "userDRAction" : "READ",
+    "enableOrgDR" : true
+  } ],
+  "getAllPSModelDatas" : [ {
+    "codeName" : "GridView",
+    "logicName" : "门户异步操作实体表格视图",
+    "modelTag" : "MDATAVIEW",
+    "name" : "门户异步操作实体表格视图",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupGridView",
+    "logicName" : "门户异步操作实体选择表格视图（部件视图）",
+    "name" : "门户异步操作实体选择表格视图（部件视图）",
+    "realModelSubType" : "DEPICKUPGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView",
+    "logicName" : "门户异步操作实体编辑视图",
+    "modelTag" : "EDITVIEW",
+    "name" : "门户异步操作实体编辑视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "EditView2",
+    "logicName" : "门户异步操作实体编辑视图（左右关系）",
+    "name" : "门户异步操作实体编辑视图（左右关系）",
+    "realModelSubType" : "DEEDITVIEW2",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "MPickupView",
+    "logicName" : "门户异步操作实体数据多项选择视图",
+    "modelTag" : "MPICKUPVIEW",
+    "name" : "门户异步操作实体数据多项选择视图",
+    "realModelSubType" : "DEMPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "PickupView",
+    "logicName" : "门户异步操作实体数据选择视图",
+    "modelTag" : "PICKUPVIEW",
+    "name" : "门户异步操作实体数据选择视图",
+    "realModelSubType" : "DEPICKUPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "RedirectView",
+    "logicName" : "门户异步操作实体数据重定向视图",
+    "modelTag" : "REDIRECTVIEW",
+    "name" : "门户异步操作实体数据重定向视图",
+    "realModelSubType" : "DEREDIRECTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main",
+    "logicName" : "主编辑表单",
+    "modelTag2" : "0",
+    "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  } ],
+  "codeName" : "PTAsyncAction",
+  "dEType" : 1,
+  "dSLink" : "DEFAULT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 1,
+  "dataChangeLogMode" : 0,
+  "dataImpExpMode" : 3,
+  "getDefaultPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getDefaultPSDEFilterDTO" : {
+    "modelref" : true,
+    "id" : "PTAsyncActionFilterDTO"
+  },
+  "getDefaultPSDEMethodDTO" : {
+    "modelref" : true,
+    "id" : "PTAsyncActionDTO"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json",
+  "enableActions" : 7,
+  "enableUIActions" : 15,
+  "enableViewLevel" : 0,
+  "extendMode" : 0,
+  "getKeyPSDEField" : {
+    "name" : "ASYNCACITONID",
+    "codeName" : "AsyncAcitonId"
+  },
+  "logicName" : "门户异步操作",
+  "getMajorPSDEField" : {
+    "name" : "ASYNCACITONNAME",
+    "codeName" : "AsyncAcitonName"
+  },
+  "getMajorPSDERs" : [ {
+    "codeName" : "PT_ASYNVACTION",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDERS/DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID.json",
+    "fKeyName" : "FA4C11E8A1A3DDA7C1",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "name" : "DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "PASYNCACITONID",
+      "codeName" : "PAsyncAcitonId"
+    },
+    "pickupDEFName" : "PASYNCACITONID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "PT_ASYNVACTION",
+    "enableFKey" : true
+  } ],
+  "getMinorPSDERs" : [ {
+    "codeName" : "PT_ASYNVACTION",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction/PSDERS/DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID.json",
+    "fKeyName" : "FA4C11E8A1A3DDA7C1",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/portal/PSDATAENTITIES/PTAsyncAction.json"
+    },
+    "name" : "DER1N_PT_ASYNCACTION_PT_ASYNCACTION_PASYNCACITONID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "PASYNCACITONID",
+      "codeName" : "PAsyncAcitonId"
+    },
+    "pickupDEFName" : "PASYNCACITONID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "PT_ASYNVACTION",
+    "enableFKey" : true
+  } ],
+  "name" : "PT_ASYNCACTION",
+  "getPSSysDBScheme" : {
+    "modelref" : true,
+    "path" : "PSSYSDBSCHEMES/DEFAULT.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/portal.json"
+  },
+  "saaSMode" : 0,
+  "serviceAPIMode" : 1,
+  "serviceCodeName" : "PTAsyncAction",
+  "storageMode" : 1,
+  "systemTag" : "iBizCloudCore",
+  "tableName" : "ibzasyncaction",
+  "getViewPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableAPIStorage" : false,
+  "enableCreate" : true,
+  "enableDataVer" : false,
+  "enableEntityCache" : false,
+  "enableModify" : true,
+  "enableMultiDS" : false,
+  "enableMultiForm" : false,
+  "enableMultiStorage" : false,
+  "enableNoSQLStorage" : false,
+  "enableRemove" : true,
+  "enableSQLStorage" : true,
+  "logicValid" : false,
+  "subSysAsCloud" : false
+}

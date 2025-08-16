@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "消息账户",
+  "name" : "消息账户默认关系界面组"
+}

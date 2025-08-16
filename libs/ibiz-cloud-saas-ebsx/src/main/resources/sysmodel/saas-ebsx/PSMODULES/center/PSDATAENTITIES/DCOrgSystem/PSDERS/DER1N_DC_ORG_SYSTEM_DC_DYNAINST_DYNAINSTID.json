@@ -1,0 +1,31 @@
+{
+  "codeName" : "DynaInst",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDERS/DER1N_DC_ORG_SYSTEM_DC_DYNAINST_DYNAINSTID.json",
+  "fKeyName" : "F342485CD6283DDC95",
+  "logicName" : "租户实例",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCDynaInst.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem.json"
+  },
+  "name" : "DER1N_DC_ORG_SYSTEM_DC_DYNAINST_DYNAINSTID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DYNAINSTID",
+    "codeName" : "DynaInstId"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DYNAINSTNAME",
+    "codeName" : "DynaInstName"
+  },
+  "pickupDEFName" : "DYNAINSTID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "DynaInst"
+}

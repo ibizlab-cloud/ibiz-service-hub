@@ -1,0 +1,34 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.AUTHID",
+    "name" : "AUTHID"
+  }, {
+    "expression" : "t1.CREDENTIAL",
+    "name" : "CREDENTIAL"
+  }, {
+    "expression" : "t1.EMPID",
+    "name" : "EMPID"
+  }, {
+    "expression" : "t1.EMPNAME",
+    "name" : "EMPNAME"
+  }, {
+    "expression" : "t1.IDENTIFIER",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.IDENTITY_TYPE",
+    "name" : "IDENTITY_TYPE"
+  }, {
+    "expression" : "t1.OPENUSERID",
+    "name" : "OPENUSERID"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.USERNAME",
+    "name" : "USERNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.AUTHID,\nt1.CREDENTIAL,\nt1.EMPID,\nt1.EMPNAME,\nt1.IDENTIFIER,\nt1.IDENTITY_TYPE,\nt1.OPENUSERID,\nt1.USERID,\nt1.USERNAME\nFROM IBZUSERAUTH t1 \n",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/UserAuth/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

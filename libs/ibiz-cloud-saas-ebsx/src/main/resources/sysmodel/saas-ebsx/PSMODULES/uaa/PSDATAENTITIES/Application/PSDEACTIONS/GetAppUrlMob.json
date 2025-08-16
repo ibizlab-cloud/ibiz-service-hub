@@ -1,0 +1,25 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "GetAppUrlMob",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/Application/PSDEACTIONS/GetAppUrlMob.json",
+  "logicName" : "移动端获取应用打开地址",
+  "name" : "GetAppUrlMob",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "PSSYSTEMAPPID",
+      "codeName" : "PSSystemAppId"
+    },
+    "name" : "GetAppUrlMobInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "GetAppUrlMobResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ApplicationDTO"
+    },
+    "type" : "DTO"
+  }
+}

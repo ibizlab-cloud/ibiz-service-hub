@@ -1,0 +1,37 @@
+{
+  "codeListTag" : "notify__TemplateType2",
+  "codeListType" : "STATIC",
+  "codeName" : "TemplateType2",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/notify/PSCODELISTS/TemplateType2.json",
+  "emptyText" : "未定义",
+  "name" : "模板类型（Cloud）",
+  "getPSCodeItems" : [ {
+    "codeName" : "Sms",
+    "text" : "短信",
+    "value" : "SMS"
+  }, {
+    "codeName" : "Email",
+    "text" : "邮件",
+    "value" : "EMAIL"
+  }, {
+    "codeName" : "Msg",
+    "text" : "即时消息",
+    "value" : "MSG"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify/PSDATAENTITIES/MsgTemplate.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/notify.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,1259 @@
+{
+  "codeName" : "Main",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create"
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue/PSFORMS/Main.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom"
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft"
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load"
+  },
+  "hookEventNames" : [ "LOAD", "SAVE", "REMOVE" ],
+  "logicName" : "主编辑表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MsgSendQueue.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "LOAD;SAVE;REMOVE",
+    "logicTag" : "form",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_form",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATEDATE",
+      "codeName" : "UpdateDate"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEID",
+      "codeName" : "MsgSendQueueId"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUENAME",
+      "codeName" : "MsgSendQueueName"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "dcsystemname",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    }
+  }, {
+    "id" : "msgsendqueuename",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUENAME",
+      "codeName" : "MsgSendQueueName"
+    }
+  }, {
+    "id" : "subject",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SUBJECT",
+      "codeName" : "Subject"
+    }
+  }, {
+    "id" : "sendtag",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SENDTAG",
+      "codeName" : "SendTag"
+    }
+  }, {
+    "id" : "contenttype",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CONTENTTYPE",
+      "codeName" : "ContentType"
+    }
+  }, {
+    "id" : "msgtype",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "MSGTYPE",
+      "codeName" : "MsgType"
+    }
+  }, {
+    "id" : "importanceflag",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "IMPORTANCEFLAG",
+      "codeName" : "ImportanceFlag"
+    }
+  }, {
+    "id" : "plansendtime",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "PLANSENDTIME",
+      "codeName" : "PlanSendTime"
+    }
+  }, {
+    "id" : "issend",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISSEND",
+      "codeName" : "IsSend"
+    }
+  }, {
+    "id" : "processtime",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "PROCESSTIME",
+      "codeName" : "ProcessTime"
+    }
+  }, {
+    "id" : "userdata",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "USERDATA",
+      "codeName" : "UserData"
+    }
+  }, {
+    "id" : "userdata2",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "USERDATA2",
+      "codeName" : "UserData2"
+    }
+  }, {
+    "id" : "userdata3",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "USERDATA3",
+      "codeName" : "UserData3"
+    }
+  }, {
+    "id" : "userdata4",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "USERDATA4",
+      "codeName" : "UserData4"
+    }
+  }, {
+    "id" : "dstusers",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "DSTUSERS",
+      "codeName" : "DstUsers"
+    }
+  }, {
+    "id" : "iserror",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "ISERROR",
+      "codeName" : "IsError"
+    }
+  }, {
+    "id" : "errorinfo",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "ERRORINFO",
+      "codeName" : "ErrorInfo"
+    }
+  }, {
+    "id" : "content",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "CONTENT",
+      "codeName" : "Content"
+    }
+  }, {
+    "id" : "smscontent",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SMSCONTENT",
+      "codeName" : "SMSContent"
+    }
+  }, {
+    "id" : "imcontent",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "IMCONTENT",
+      "codeName" : "IMContent"
+    }
+  }, {
+    "id" : "wxcontent",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "WXCONTENT",
+      "codeName" : "WXContent"
+    }
+  }, {
+    "id" : "ddcontent",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "DDCONTENT",
+      "codeName" : "DDContent"
+    }
+  }, {
+    "id" : "fileat",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FILEAT",
+      "codeName" : "FileAT"
+    }
+  }, {
+    "id" : "fileat2",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FILEAT2",
+      "codeName" : "FileAT2"
+    }
+  }, {
+    "id" : "fileat3",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FILEAT3",
+      "codeName" : "FileAT3"
+    }
+  }, {
+    "id" : "fileat4",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FILEAT4",
+      "codeName" : "FileAT4"
+    }
+  }, {
+    "id" : "msgsendqueueid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "MSGSENDQUEUEID",
+      "codeName" : "MsgSendQueueId"
+    }
+  }, {
+    "id" : "dcsystemid",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "DCSYSTEMID",
+      "codeName" : "DCSystemId"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "caption" : "消息发送队列基本信息",
+      "codeName" : "group1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "系统",
+        "codeName" : "dcsystemname",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "dcsystemname",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DCSYSTEMNAME",
+          "codeName" : "DCSystemName"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "AC" : "TRUE",
+            "PICKUPVIEW" : "TRUE"
+          },
+          "editorType" : "PICKER",
+          "handlerType" : "PickupText",
+          "name" : "dcsystemname",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "FetchDefault"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DCSystem.json"
+          },
+          "getPSEditorItems" : [ {
+            "name" : "dcsystemid"
+          } ],
+          "getPickupPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPDEVIEWS/DCSystemPickupView.json",
+            "viewType" : "DEPICKUPVIEW"
+          },
+          "valueItemName" : "dcsystemid",
+          "enableAC" : true,
+          "enablePickupView" : true,
+          "forceSelection" : true,
+          "showTrigger" : true,
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "valueItemName" : "dcsystemid",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "消息名称",
+        "codeName" : "msgsendqueuename",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "msgsendqueuename",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MSGSENDQUEUENAME",
+          "codeName" : "MsgSendQueueName"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "msgsendqueuename"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "消息标题",
+        "codeName" : "subject",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "subject",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SUBJECT",
+          "codeName" : "Subject"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "subject"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "发送者",
+        "codeName" : "sendtag",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "sendtag",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SENDTAG",
+          "codeName" : "SendTag"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "sendtag"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "内容类型",
+        "codeName" : "contenttype",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 3,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "contenttype",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CONTENTTYPE",
+          "codeName" : "ContentType"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "contenttype"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 6,
+          "colSM" : 6,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "convertToCodeItemText" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "消息类型",
+        "codeName" : "msgtype",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "msgtype",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "MSGTYPE",
+          "codeName" : "MsgType"
+        },
+        "getPSEditor" : {
+          "editorType" : "CHECKBOXLIST",
+          "name" : "msgtype",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/MsgType.json"
+          }
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 18,
+          "colMD" : 18,
+          "colSM" : 18,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "重要程度",
+        "codeName" : "importanceflag",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "importanceflag",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "IMPORTANCEFLAG",
+          "codeName" : "ImportanceFlag"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "name" : "importanceflag"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "计划发送时间",
+        "codeName" : "plansendtime",
+        "dataType" : 5,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 290.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "plansendtime",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PLANSENDTIME",
+          "codeName" : "PlanSendTime"
+        },
+        "getPSEditor" : {
+          "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+          "editorParams" : {
+            "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+          },
+          "editorType" : "DATEPICKER",
+          "editorWidth" : 160.0,
+          "name" : "plansendtime"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "是否发送",
+        "codeName" : "issend",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "issend",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ISSEND",
+          "codeName" : "IsSend"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "issend",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "处理时间",
+        "codeName" : "processtime",
+        "dataType" : 5,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "itemWidth" : 290.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "processtime",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "PROCESSTIME",
+          "codeName" : "ProcessTime"
+        },
+        "getPSEditor" : {
+          "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+          "editorParams" : {
+            "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+          },
+          "editorType" : "DATEPICKER",
+          "editorWidth" : 160.0,
+          "name" : "processtime"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "用户数据",
+        "codeName" : "userdata",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "userdata",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "USERDATA",
+          "codeName" : "UserData"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "userdata"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "用户数据2",
+        "codeName" : "userdata2",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "userdata2",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "USERDATA2",
+          "codeName" : "UserData2"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "userdata2"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "用户数据3",
+        "codeName" : "userdata3",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "userdata3",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "USERDATA3",
+          "codeName" : "UserData3"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "userdata3"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "用户数据4",
+        "codeName" : "userdata4",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "userdata4",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "USERDATA4",
+          "codeName" : "UserData4"
+        },
+        "getPSEditor" : {
+          "editorType" : "TEXTBOX",
+          "maxLength" : 200,
+          "name" : "userdata4"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 6,
+          "colMD" : 8,
+          "colSM" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "目标用户",
+        "codeName" : "dstusers",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "dstusers",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DSTUSERS",
+          "codeName" : "DstUsers"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "dstusers",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "发送失败",
+        "codeName" : "iserror",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "iserror",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ISERROR",
+          "codeName" : "IsError"
+        },
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "iserror",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "错误信息",
+        "codeName" : "errorinfo",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 1,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "errorinfo",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "ERRORINFO",
+          "codeName" : "ErrorInfo"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "errorinfo",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "colSM" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "消息内容",
+      "codeName" : "grouppanel1",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "grouppanel1",
+      "getPSDEFormDetails" : [ {
+        "caption" : "消息内容",
+        "codeName" : "content",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "content",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "CONTENT",
+          "codeName" : "Content"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "content",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "短消息内容",
+        "codeName" : "smscontent",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "smscontent",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SMSCONTENT",
+          "codeName" : "SMSContent"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1000,
+          "name" : "smscontent",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "IM消息内容",
+        "codeName" : "imcontent",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "imcontent",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "IMCONTENT",
+          "codeName" : "IMContent"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "imcontent",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "微信消息内容",
+        "codeName" : "wxcontent",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "wxcontent",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "WXCONTENT",
+          "codeName" : "WXContent"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "wxcontent",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "钉钉消息内容",
+        "codeName" : "ddcontent",
+        "dataType" : 21,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemHeight" : 80.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "ddcontent",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DDCONTENT",
+          "codeName" : "DDContent"
+        },
+        "getPSEditor" : {
+          "editorHeight" : 80.0,
+          "editorParams" : {
+            "HEIGHT" : "200"
+          },
+          "editorType" : "TEXTAREA_10",
+          "maxLength" : 1048576,
+          "name" : "ddcontent",
+          "showMaxLength" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : true
+    }, {
+      "caption" : "附件",
+      "codeName" : "grouppanel2",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "grouppanel2",
+      "getPSDEFormDetails" : [ {
+        "caption" : "文件附件",
+        "codeName" : "fileat",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "fileat",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "FILEAT",
+          "codeName" : "FileAT"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "FILEEXTS" : "",
+            "MAXFILESIZE" : "",
+            "MINFILECNT" : "",
+            "MAXFILECNT" : ""
+          },
+          "editorType" : "FILEUPLOADER",
+          "maxFileCount" : -1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "fileat"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "文件附件2",
+        "codeName" : "fileat2",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "fileat2",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "FILEAT2",
+          "codeName" : "FileAT2"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "FILEEXTS" : "",
+            "MAXFILESIZE" : "",
+            "MINFILECNT" : "",
+            "MAXFILECNT" : ""
+          },
+          "editorType" : "FILEUPLOADER",
+          "maxFileCount" : -1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "fileat2"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "文件附件3",
+        "codeName" : "fileat3",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "fileat3",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "FILEAT3",
+          "codeName" : "FileAT3"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "FILEEXTS" : "",
+            "MAXFILESIZE" : "",
+            "MINFILECNT" : "",
+            "MAXFILECNT" : ""
+          },
+          "editorType" : "FILEUPLOADER",
+          "maxFileCount" : -1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "fileat3"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "文件附件4",
+        "codeName" : "fileat4",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "fileat4",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "FILEAT4",
+          "codeName" : "FileAT4"
+        },
+        "getPSEditor" : {
+          "editorParams" : {
+            "FILEEXTS" : "",
+            "MAXFILESIZE" : "",
+            "MINFILECNT" : "",
+            "MAXFILECNT" : ""
+          },
+          "editorType" : "FILEUPLOADER",
+          "maxFileCount" : -1,
+          "maxFileSize" : -1,
+          "minFileCount" : 0,
+          "name" : "fileat4"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  }, {
+    "caption" : "其它",
+    "codeName" : "formpage2",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage2",
+    "getPSDEFormDetails" : [ {
+      "caption" : "操作信息",
+      "codeName" : "group2",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "group2",
+      "getPSLayout" : {
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : true
+    } ],
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove"
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update"
+  },
+  "noTabHeader" : false,
+  "modelid" : "5f310316398f1222612952d8d41979b3",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

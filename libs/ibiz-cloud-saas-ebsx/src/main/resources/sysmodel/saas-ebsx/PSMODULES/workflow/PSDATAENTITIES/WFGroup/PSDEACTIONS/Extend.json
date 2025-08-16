@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Extend",
+  "dynaModelFilePath" : "PSMODULES/workflow/PSDATAENTITIES/WFGroup/PSDEACTIONS/Extend.json",
+  "logicName" : "Extend",
+  "name" : "Extend",
+  "getPSDEActionInput" : {
+    "name" : "ExtendInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "WFGroupDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ExtendResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

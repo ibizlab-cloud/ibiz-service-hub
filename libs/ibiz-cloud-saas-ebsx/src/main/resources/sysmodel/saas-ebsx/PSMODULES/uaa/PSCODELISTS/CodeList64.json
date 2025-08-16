@@ -1,0 +1,21 @@
+{
+  "codeListTag" : "uaa__CodeList64",
+  "codeListType" : "STATIC",
+  "codeName" : "CodeList64",
+  "dynaInstMode" : 1,
+  "dynaModelFilePath" : "PSMODULES/uaa/PSCODELISTS/CodeList64.json",
+  "emptyText" : "未定义",
+  "name" : "页面参数",
+  "getPSCodeListTemplId" : "CODELIST_00071",
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa.json"
+  },
+  "refFlag" : false,
+  "systemTag" : "iBizCloudCore",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

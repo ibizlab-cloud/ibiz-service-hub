@@ -1,0 +1,14 @@
+{
+  "dBType" : "SQLSERVER",
+  "dynaModelFilePath" : "PSSYSTEMDBCFGS/SQLSERVER.json",
+  "mOSFilePath" : "pssystemdbcfgs/SQLSERVER",
+  "name" : "SQLSERVER",
+  "objNameCase" : "DEFAULT",
+  "rTMOSFilePath" : "pssystemdbcfgs/SQLSERVER",
+  "defaultMode" : false,
+  "pubFKey" : true,
+  "pubIndex" : true,
+  "pubModel" : true,
+  "pubModelComment" : true,
+  "pubView" : true
+}

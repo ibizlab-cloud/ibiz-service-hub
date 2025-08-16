@@ -1,0 +1,67 @@
+{
+  "dBType" : "ORACLE",
+  "name" : "Oracle",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.APP",
+    "name" : "APP"
+  }, {
+    "expression" : "t11.DCSYSTEMNAME",
+    "name" : "APPNAME"
+  }, {
+    "expression" : "t1.AUTHOR",
+    "name" : "AUTHOR"
+  }, {
+    "expression" : "t1.CREATE_TIME",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.CRON",
+    "name" : "CRON"
+  }, {
+    "expression" : "t1.FAIL_RETRY_COUNT",
+    "name" : "FAIL_RETRY_COUNT"
+  }, {
+    "expression" : "t1.HANDLER",
+    "name" : "HANDLER"
+  }, {
+    "expression" : "t1.ID",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.LAST_TIME",
+    "name" : "LAST_TIME"
+  }, {
+    "expression" : "t1.NEXT_TIME",
+    "name" : "NEXT_TIME"
+  }, {
+    "expression" : "t1.PARAM",
+    "name" : "PARAM"
+  }, {
+    "expression" : "t1.PREDEFINEDTYPE",
+    "name" : "PREDEFINEDTYPE"
+  }, {
+    "expression" : "t1.REMARK",
+    "name" : "REMARK"
+  }, {
+    "expression" : "t1.SRFDCID",
+    "name" : "SRFDCID"
+  }, {
+    "expression" : "t1.STATUS",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.SYSDYNAINSTID",
+    "name" : "SYSDYNAINSTID"
+  }, {
+    "expression" : "t1.TASKTYPE",
+    "name" : "TASKTYPE"
+  }, {
+    "expression" : "t1.TENANT_ID",
+    "name" : "TENANT_ID"
+  }, {
+    "expression" : "t1.TIMEOUT",
+    "name" : "TIMEOUT"
+  }, {
+    "expression" : "t1.UPDATE_TIME",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.APP,\nt11.DCSYSTEMNAME AS APPNAME,\nt1.AUTHOR,\nt1.CREATE_TIME,\nt1.CRON,\nt1.FAIL_RETRY_COUNT,\nt1.HANDLER,\nt1.ID,\nt1.LAST_TIME,\nt1.NEXT_TIME,\nt1.PARAM,\nt1.PREDEFINEDTYPE,\nt1.REMARK,\nt1.SRFDCID,\nt1.STATUS,\nt1.SYSDYNAINSTID,\nt1.TASKTYPE,\nt1.TENANT_ID,\nt1.TIMEOUT,\nt1.UPDATE_TIME\nFROM JOBS_INFO2 t1 \nLEFT JOIN IBZDCSYSTEM t11 ON t1.APP = t11.DCSYSTEMID \n",
+  "id" : "PSMODULES/task/PSDATAENTITIES/JobsInfo/PSDEDATAQUERIES/Default/PSDEDQCODES/ORACLE.json"
+}

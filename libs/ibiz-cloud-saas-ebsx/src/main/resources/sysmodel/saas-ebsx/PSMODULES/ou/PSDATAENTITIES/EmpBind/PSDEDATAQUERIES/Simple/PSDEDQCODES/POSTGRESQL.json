@@ -1,0 +1,28 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.DDUNIONID",
+    "name" : "DDUNIONID"
+  }, {
+    "expression" : "t1.DDUSERID",
+    "name" : "DDUSERID"
+  }, {
+    "expression" : "t1.UAAUSERID",
+    "name" : "UAAUSERID"
+  }, {
+    "expression" : "t1.WXWORKUNIONID",
+    "name" : "WXWORKUNIONID"
+  }, {
+    "expression" : "t1.WXWORKUSERID",
+    "name" : "WXWORKUSERID"
+  }, {
+    "expression" : "t1.PERSONNAME",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.USERID",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.PERSONNAME,\nt1.USERID\nFROM IBZEMP t1 \n",
+  "id" : "PSMODULES/ou/PSDATAENTITIES/EmpBind/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
+}

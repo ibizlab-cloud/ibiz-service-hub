@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/OpenAccess/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "第三方用户实体表格视图",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser/PSDERS/DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID.json"
+  },
+  "parentDataJO" : {
+    "srfparentdefname" : "ACCESSID",
+    "srfparentdename" : "SYS_OPEN_ACCESS",
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentmode" : "DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID",
+    "SRFDER1NID" : "DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID"
+  },
+  "viewCodeName" : "GridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/uaa/PSDATAENTITIES/OpenUser.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_SYS_OPEN_USER_SYS_OPEN_ACCESS_ACCESSID"
+  }
+}

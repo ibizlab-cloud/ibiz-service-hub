@@ -1,0 +1,256 @@
+{
+  "aggMode" : "NONE",
+  "codeName" : "Mail",
+  "columnEnableFilter" : 2,
+  "columnEnableLink" : 2,
+  "controlType" : "GRID",
+  "dynaModelFilePath" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess/PSGRIDS/Mail.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch"
+  },
+  "groupMode" : "NONE",
+  "hookEventNames" : [ "ROWDBLCLICK", "SELECTIONCHANGE", "REMOVE", "LOAD", "BEFORELOAD" ],
+  "logicName" : "邮件服务",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "ROWDBLCLICK;SELECTIONCHANGE;REMOVE;LOAD;BEFORELOAD",
+    "logicTag" : "grid",
+    "logicType" : "APPVIEWENGINE",
+    "name" : "engine_grid",
+    "getPSAppViewEngine" : {
+      "modelref" : true,
+      "id" : "engine"
+    }
+  } ],
+  "getPSDEGridColumns" : [ {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "邮件服务名称",
+    "codeName" : "accessname",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "accessname",
+    "excelCaption" : "邮件服务名称",
+    "name" : "accessname",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "服务地址",
+    "codeName" : "notify_url",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "notify_url",
+    "excelCaption" : "服务地址",
+    "name" : "notify_url",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "NOTIFY_URL",
+      "codeName" : "NotifyUrl"
+    },
+    "width" : 200,
+    "widthUnit" : "STAR",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "服务用户",
+    "codeName" : "secret_key",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "secret_key",
+    "excelCaption" : "服务用户",
+    "name" : "secret_key",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "SECRET_KEY",
+      "codeName" : "SecretKey"
+    },
+    "width" : 250,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "默认服务",
+    "codeName" : "defaultflag",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "defaultflag",
+    "excelCaption" : "默认服务",
+    "name" : "defaultflag",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "DEFAULTFLAG",
+      "codeName" : "Defaultflag"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "是否禁用",
+    "codeName" : "disabled",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "disabled",
+    "excelCaption" : "是否禁用",
+    "name" : "disabled",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "DISABLED",
+      "codeName" : "Disabled"
+    },
+    "width" : 100,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  } ],
+  "getPSDEGridDataItems" : [ {
+    "dataType" : 25,
+    "name" : "accessname",
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "notify_url",
+    "getPSAppDEField" : {
+      "name" : "NOTIFY_URL",
+      "codeName" : "NotifyUrl"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "secret_key",
+    "getPSAppDEField" : {
+      "name" : "SECRET_KEY",
+      "codeName" : "SecretKey"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "defaultflag",
+    "getPSAppDEField" : {
+      "name" : "DEFAULTFLAG",
+      "codeName" : "Defaultflag"
+    }
+  }, {
+    "dataType" : 9,
+    "name" : "disabled",
+    "getPSAppDEField" : {
+      "name" : "DISABLED",
+      "codeName" : "Disabled"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "access_key",
+    "getPSAppDEField" : {
+      "name" : "ACCESS_KEY",
+      "codeName" : "AccessKey"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "open_type",
+    "getPSAppDEField" : {
+      "name" : "OPEN_TYPE",
+      "codeName" : "OpenType"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "region_id",
+    "getPSAppDEField" : {
+      "name" : "REGION_ID",
+      "codeName" : "RegionId"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "redirect_uri",
+    "getPSAppDEField" : {
+      "name" : "REDIRECT_URI",
+      "codeName" : "RedirectUri"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfdataaccaction",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    },
+    "dataAccessAction" : true
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "ACCESSNAME",
+      "codeName" : "Name"
+    }
+  } ],
+  "getPSDEGridEditItems" : [ {
+    "caption" : "开放应用",
+    "codeName" : "srfkey",
+    "enableCond" : 3,
+    "ignoreInput" : 0,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "ACCESSID",
+      "codeName" : "Id"
+    },
+    "getPSEditor" : {
+      "editorType" : "HIDDEN",
+      "name" : "srfkey"
+    },
+    "allowEmpty" : true
+  } ],
+  "pagingMode" : 1,
+  "pagingSize" : 20,
+  "getRemovePSControlAction" : {
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+    }
+  },
+  "sortMode" : "REMOTE",
+  "hasWFDataItems" : false,
+  "enableColFilter" : false,
+  "enableCustomized" : true,
+  "enableGroup" : false,
+  "enablePagingBar" : true,
+  "enableRowEdit" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "forceFit" : false,
+  "hideHeader" : false,
+  "noSort" : false,
+  "singleSelect" : false,
+  "modelid" : "7EA0625C-A113-462B-9260-246C7F9ACEE6",
+  "modeltype" : "PSDEGRID"
+}

@@ -1,0 +1,24 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "MarkRead",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/CarbonCopy/PSDEACTIONS/MarkRead.json",
+  "logicName" : "设置已读",
+  "name" : "MarkRead",
+  "getPSDEActionInput" : {
+    "name" : "MarkReadInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "CarbonCopyDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "MarkReadResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "CarbonCopyDTO"
+    },
+    "type" : "DTO"
+  }
+}

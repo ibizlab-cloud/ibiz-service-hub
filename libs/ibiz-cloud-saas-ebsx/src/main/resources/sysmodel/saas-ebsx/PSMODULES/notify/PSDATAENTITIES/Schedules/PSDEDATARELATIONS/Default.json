@@ -1,0 +1,6 @@
+{
+  "codeName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/notify/PSDATAENTITIES/Schedules/PSDEDATARELATIONS/Default.json",
+  "formCaption" : "日程",
+  "name" : "日程默认关系界面组"
+}

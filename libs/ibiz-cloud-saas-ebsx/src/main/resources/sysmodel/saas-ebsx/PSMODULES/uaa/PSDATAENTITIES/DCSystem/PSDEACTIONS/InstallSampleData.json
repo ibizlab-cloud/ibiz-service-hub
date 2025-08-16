@@ -1,0 +1,22 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "InstallSampleData",
+  "dynaModelFilePath" : "PSMODULES/uaa/PSDATAENTITIES/DCSystem/PSDEACTIONS/InstallSampleData.json",
+  "logicName" : "安装示例数据",
+  "name" : "InstallSampleData",
+  "getPSDEActionInput" : {
+    "name" : "InstallSampleDataInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "DCSystemDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallSampleDataResult",
+    "type" : "VOID"
+  },
+  "enableFront" : false
+}

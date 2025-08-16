@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ibiz-service-hub</artifactId>
+        <groupId>cn.ibizlab.plugin</groupId>
+        <version>${ibiz.cloud.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ibiz-plugin</artifactId>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <version>8.1.0.570.29.1</version>
+    <name>iBiz Plugin</name>
+    <packaging>pom</packaging>
+    <description>iBiz Plugin</description>
+
+    <modules>
+        <module>ibiz-model</module>
+        <module>ibiz-runtime</module>
+        <module>ibiz-model-util</module>
+        <module>ibiz-psmodel-core</module>
+        <module>ibiz-psmodel-runtime</module>
+
+        <module>ibiz-centralstudio</module>
+   		<module>ibiz-cloud-uaa-core</module>
+	    <module>ibiz-cloud-core</module>
+	    <module>ibiz-cloud-workflow-core</module>
+	    <module>ibiz-cloud-workflow-flowable</module>
+   		<module>ibiz-cloud-oss-core</module>
+	    <module>ibiz-cloud-saas-core</module>
+   		<module>ibiz-cloud-saas-ebsx</module>
+	    <module>ibiz-cloud-gateway-core</module>
+	    <module>ibiz-cloud-portal-core</module>
+        <module>ibiz-cloud-devops-core</module>
+	    <module>ibiz-cloud-conf-core</module>
+	    <module>ibiz-cloud-notify-core</module>
+    	<module>ibiz-cloud-devops-ebsx</module>
+        <module>ibiz-cloud-uaa-spring-boot-starter</module>
+        <module>ibiz-cloud-ou-core</module>
+	    <module>ibiz-cloud-log-core</module>
+	    <module>ibiz-cloud-task-core</module>
+	    <module>ibiz-cloud-task-ebsx</module>
+	    <module>ibiz-cloud-notify-ebsx</module>
+	    <module>ibiz-cloud-open-core</module>
+	    <module>ibiz-cloud-open-ebsx</module>
+	    <module>ibiz-cloud-open-dingtalk</module>
+	    <module>ibiz-cloud-open-wxwork</module>
+		<module>ibiz-cloud-report-core</module>
+	    <module>ibiz-cloud-report-grafana</module>
+	    <module>ibiz-cloud-portal-ebsx</module>
+	    <module>ibiz-cloud-rabbitmq</module>
+	    <module>ibiz-cloud-ai-core</module>
+	    <module>ibiz-cloud-ai-openai-gpt3</module>
+    	<module>ibiz-cloud-devops-dynamodelapi</module>
+    	<module>ibiz-cloud-dataflow-core</module>
+    	<module>ibiz-cloud-ai-langchain-chatchat</module>
+    	<module>ibiz-cloud-ai-baichuanai</module>
+    	<module>ibiz-cloud-kb-core</module>
+        <module>ibiz-cloud-kb-ragflow</module>
+    	<module>ibiz-cloud-dataflow-spark</module>
+    	<module>ibiz-cloud-oss-poi</module>
+    	<module>ibiz-cloud-saas-extension</module>
+    	<module>ibiz-cloud-ai-ollama</module>
+    	<module>ibiz-cloud-saas-jenkins</module>
+    	<module>ibiz-cloud-saas-k8s</module>
+
+        <module>ibiz-codegen-core</module>
+        <module>ibiz-codegen-groovy</module>
+        <module>ibiz-codegen-template-runtime</module>
+
+        <module>ibiz-plugin-mongodb</module>
+        <module>ibiz-plugin-kafka</module>
+        <module>ibiz-plugin-spring-webflux</module>
+        <module>ibiz-plugin-druid</module>
+        <module>ibiz-plugin-poi</module>
+        <module>ibiz-plugin-zookeeper</module>
+        <module>ibiz-plugin-quartz</module>
+        <module>ibiz-plugin-mybatisplus</module>
+        <module>ibiz-plugin-redis</module>
+        <module>ibiz-plugin-solr</module>
+        <module>ibiz-plugin-elasticsearch</module>
+        <module>ibiz-plugin-cloud</module>
+
+        <module>ibiz-plugin-simple</module>
+        <module>ibiz-plugin-mybatisplus-spring-boot-starter</module>
+        <module>ibiz-plugin-liquibase</module>
+        <module>ibiz-plugin-rabbitmq</module>
+        <module>ibiz-plugin-activemq</module>
+        <module>ibizlab-plugin-groovy</module>
+        <module>ibiz-plugin-eai</module>
+        <module>ibiz-plugin-python</module>
+        <module>ibiz-plugin-gateway</module>
+        <module>ibiz-plugin-groovy</module>
+        <module>ibiz-plugin-jgit</module>
+        <module>ibiz-plugin-ai</module>
+        <module>ibiz-plugin-neo4j</module>
+        <module>ibiz-plugin-antvg6</module>
+        <module>ibiz-plugin-neo4j-report</module>
+        <module>ibiz-plugin-extension</module>
+        <module>ibiz-plugin-opml</module>
+        <module>ibiz-plugin-util</module>
+        <module>ibiz-plugin-version</module>
+        <module>ibiz-plugin-calcite</module>
+        <module>ibiz-plugin-wechat</module>
+        <module>ibiz-plugin-open</module>
+        <module>ibiz-plugin-autoconfigure</module>
+    </modules>
+
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.deploy.skip>false</maven.deploy.skip>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>gateway</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+            </properties>
+        </profile>
+        <profile>
+            <id>runtime</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+            </properties>
+        </profile>
+        <profile>
+            <id>runner</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+            </properties>
+        </profile>
+    </profiles>
+
+
+</project>
