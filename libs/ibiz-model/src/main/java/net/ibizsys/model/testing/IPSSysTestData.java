@@ -3,7 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试数据模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTestDataDTO}运行时对象
+ * 系统测试数据模型对象接口
  *
  */
 public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestDataDTO#FIELD_DATA}
 	 * @return
 	 */
 	java.lang.String getData();
@@ -70,8 +68,6 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestDataDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();

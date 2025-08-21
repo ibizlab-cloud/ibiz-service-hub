@@ -4,8 +4,6 @@ package net.ibizsys.model.dataentity.dataflow;
 
 /**
  * 实体数据流过滤器条件模型对象接口
- * <P>
- * 子接口扩展识别值 {@link #getCondType}
  *
  */
 public interface IPSDEDataFlowFilterCond extends net.ibizsys.model.IPSModelObject{

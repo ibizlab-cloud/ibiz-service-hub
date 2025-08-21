@@ -14,8 +14,6 @@ public interface IPSDEFormIFrame extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取嵌入Url路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_editorparams}
 	 * @return
 	 */
 	java.lang.String getIFrameUrl();
@@ -23,8 +21,6 @@ public interface IPSDEFormIFrame extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取链接应用视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_linkpsdeviewid}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getLinkPSAppView();
@@ -39,8 +35,6 @@ public interface IPSDEFormIFrame extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取界面刷新触发表单项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_resetitemname}
 	 * @return
 	 */
 	java.lang.String getRefreshItems();

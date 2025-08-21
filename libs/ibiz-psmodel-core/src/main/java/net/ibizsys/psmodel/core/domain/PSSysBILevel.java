@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBILEVEL</B>智能报表维度层级 模型传输对象
  * <P>
- * 
+ * 智能报表系统中定义维度层级节点的核心模型，用于构建多维分析中的层级结构（如时间维度的“年-季度-月”或实体维度的“国家-省份-城市”）。它通过关联实体属性、定义唯一性规则及层级类型，支撑数据的分层聚合与钻取分析
  */
 public class PSSysBILevel extends net.ibizsys.psmodel.core.util.PSModelBase {
 

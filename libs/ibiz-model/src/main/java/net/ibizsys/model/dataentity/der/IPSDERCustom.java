@@ -16,8 +16,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	/**
 	 * 获取关系子类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_DERSUBTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERSubType}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取嵌套成员数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MINORPSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getNestedPSDEDataSet();
@@ -70,8 +66,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取关系属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_DERFIELDNAME}
 	 * @return
 	 */
 	java.lang.String getPickupDEFName();
@@ -107,8 +101,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取引用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet();
@@ -123,8 +115,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取关系识别值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_INDEXVALUE}
 	 * @return
 	 */
 	java.lang.String getTypeValue();
@@ -132,8 +122,6 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取是否启用物理化更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_UPDATEPHYSICALDEFIELD}
 	 * @return
 	 */
 	boolean isEnablePhysicalDEFieldUpdate();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "LOGID",
+        "codeName" : "LogId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "USERNAME",
+        "codeName" : "UserName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -573,6 +581,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "LOGID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -701,6 +710,7 @@
     "length" : 100,
     "logicName" : "用户全局名",
     "name" : "USERNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -798,6 +808,7 @@
     "length" : 100,
     "logicName" : "用户全局标识",
     "name" : "USERID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -923,6 +934,7 @@
     "length" : 100,
     "logicName" : "用户名称",
     "name" : "PERSONNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1020,6 +1032,7 @@
     "length" : 100,
     "logicName" : "域",
     "name" : "DOMAINS",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1139,6 +1152,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "认证时间",
     "name" : "AUTHTIME",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1265,6 +1279,7 @@
     "length" : 100,
     "logicName" : "IP地址",
     "name" : "IPADDR",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1384,6 +1399,7 @@
     "length" : 100,
     "logicName" : "MAC地址",
     "name" : "MACADDR",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1503,6 +1519,7 @@
     "length" : 5,
     "logicName" : "客户端",
     "name" : "USERAGENT",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1598,6 +1615,7 @@
     "length" : 100,
     "logicName" : "认证方式",
     "name" : "AUTHAGENT",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1727,6 +1745,7 @@
     "length" : 15,
     "logicName" : "认证结果",
     "name" : "AUTHCODE",
+    "orderValue" : 11,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/AuthCode.json"

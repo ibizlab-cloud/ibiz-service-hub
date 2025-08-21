@@ -21,9 +21,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.data.domain.Page;
 import org.springframework.util.ObjectUtils;
 
+import net.ibizsys.central.cloud.core.dataentity.dataexport.DEDataExportRuntimeBase;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
-import net.ibizsys.central.dataentity.dataexport.DEDataExportRuntime;
 import net.ibizsys.central.util.IEntityDTO;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.model.dataentity.dataexport.IPSDEDataExportGroup;
 import net.ibizsys.model.dataentity.dataexport.IPSDEDataExportItem;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -32,7 +33,7 @@ import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.dataentity.defield.DEFDataTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
 
-public class POIDEDataExportRuntime extends DEDataExportRuntime {
+public class POIDEDataExportRuntime extends DEDataExportRuntimeBase {
 
 	private static final Log log = LogFactory.getLog(POIDEDataExportRuntime.class);
 	
@@ -340,6 +341,13 @@ public class POIDEDataExportRuntime extends DEDataExportRuntime {
 			}
 		}
 		return String.valueOf(objValue);
+	}
+	
+	@Override
+	protected ExportDataResult onExportStream2(Object objData, OutputStream outputStram) throws Throwable {
+		ExportDataResult exportDataResult = super.onExportStream2(objData, outputStram);
+		exportDataResult.setFileName("数据导出.xlsx");
+		return exportDataResult;
 	}
 	
 	

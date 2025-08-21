@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dr;
 
 
 /**
- * 实体关系数据组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO}运行时对象
+ * 实体关系数据组模型对象接口
  *
  */
 public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -19,8 +19,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取编辑项标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMCAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getFormCapPSLanguageRes();
@@ -35,8 +33,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取编辑项标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMCAPTION}
 	 * @return
 	 */
 	java.lang.String getFormCaption();
@@ -44,8 +40,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取编辑项图标资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMPSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getFormPSSysImage();
@@ -81,8 +75,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取系统计数器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_PSSYSCOUNTERID}
 	 * @return
 	 */
 	net.ibizsys.model.control.counter.IPSSysCounter getPSSysCounter();
@@ -97,8 +89,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取是否支持自定义关系项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_ENABLECUSTOMIZED}
 	 * @return
 	 */
 	boolean isEnableCustomized();
@@ -106,8 +96,6 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	
 	/**
 	 * 获取是否默认隐藏编辑项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_HIDEEDITITEM}
 	 * @return
 	 */
 	boolean isHideEditItem();

@@ -66,7 +66,7 @@ import net.ibizsys.runtime.util.KeyValueUtils;
 
 /**
  * 数据库查询引擎
- * 
+ *
  * @author Administrator
  *
  */
@@ -126,7 +126,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see net.ibizsys.paas.core.IDEDataQueryCodeExp#getShowOrder()
 		 */
 		public int getShowOrder() {
@@ -149,20 +149,20 @@ public class PSDEDQSQLCodeGenEngine {
 			return this.strCustomCond;
 		}
 	}
-	
+
 
 	public static class DEDQAlias
 	{
-	
-	
+
+
 		private IPSDataEntity iPSDataEntity = null;
-	
+
 		private List<String> derList = null;
-	
+
 		private Map<String, Integer> derAliasMap = null;
-	
+
 		private String strParentDER = "";
-	
+
 		private int nAliasIndex = -1;
 		/**
 		 * @return the iPSDataEntity
@@ -171,7 +171,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			return iPSDataEntity;
 		}
-	
+
 		/**
 		 * @return the derList
 		 */
@@ -179,7 +179,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			return derList;
 		}
-	
+
 		/**
 		 * @return the derAliasMap
 		 */
@@ -187,7 +187,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			return derAliasMap;
 		}
-	
+
 		/**
 		 * @return the strParentDER
 		 */
@@ -195,7 +195,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			return strParentDER;
 		}
-	
+
 		/**
 		 * @param helper
 		 *            the iPSDataEntity to set
@@ -204,7 +204,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			iPSDataEntity = helper;
 		}
-	
+
 		/**
 		 * @param derList
 		 *            the derList to set
@@ -213,7 +213,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			this.derList = derList;
 		}
-	
+
 		/**
 		 * @param derAliasMap
 		 *            the derAliasMap to set
@@ -222,7 +222,7 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			this.derAliasMap = derAliasMap;
 		}
-	
+
 		/**
 		 * @param strParentDER
 		 *            the strParentDER to set
@@ -231,15 +231,15 @@ public class PSDEDQSQLCodeGenEngine {
 		{
 			this.strParentDER = strParentDER;
 		}
-	
+
 		public int getAliasIndex() {
 			return nAliasIndex;
 		}
-	
+
 		public void setAliasIndex(int nAliasIndex) {
 			this.nAliasIndex = nAliasIndex;
 		}
-		
+
 	}
 
 	public class DEDQDeclare
@@ -258,7 +258,7 @@ public class PSDEDQSQLCodeGenEngine {
 			return strDeclareCode;
 		}
 
-		
+
 
 		/**
 		 * @param strDeclareCode
@@ -269,7 +269,7 @@ public class PSDEDQSQLCodeGenEngine {
 			this.strDeclareCode = strDeclareCode;
 		}
 
-	//	
+		//
 //		/**
 //		 * @return the strDeclareCode
 //		 */
@@ -279,9 +279,9 @@ public class PSDEDQSQLCodeGenEngine {
 //				return getDeclareCode();
 //			return strDeclareCode2;
 //		}
-	//
-	//	
-	//
+		//
+		//
+		//
 //		/**
 //		 * @param strDeclareCode
 //		 *            the strDeclareCode to set
@@ -290,8 +290,8 @@ public class PSDEDQSQLCodeGenEngine {
 //		{
 //			this.strDeclareCode2 = strDeclareCode2;
 //		}
-		
-		
+
+
 		/**
 		 * @return the params
 		 */
@@ -300,7 +300,7 @@ public class PSDEDQSQLCodeGenEngine {
 			return params;
 		}
 	}
-	
+
 
 	/**
 	 * 空值
@@ -402,10 +402,10 @@ public class PSDEDQSQLCodeGenEngine {
 	public PSDEDQSQLCodeGenEngine(IDataEntityRuntime iDataEntityRuntime, IDBDialect iDBDialect) throws Exception {
 		this.init(iDataEntityRuntime, iDBDialect);
 	}
-	
+
 	/**
 	 * 初始化
-	 * 
+	 *
 	 * @param iPSDataEntity
 	 */
 	public void init(IDataEntityRuntime iDataEntityRuntime, IDBDialect iDBDialect) throws Exception {
@@ -545,7 +545,7 @@ public class PSDEDQSQLCodeGenEngine {
 					}
 
 					PSDEDQSQLCodeGenEngine psDEDQEngineImpl = new PSDEDQSQLCodeGenEngine(this.getSystemRuntime().getDataEntityRuntime(iPSDERIndex.getMinorPSDataEntity().getId()), this.iDBDialect);
-				
+
 					SimplePSDEDQMainImpl simplePSDEDQMainImpl = new SimplePSDEDQMainImpl();
 					simplePSDEDQMainImpl.init(this.getSystemRuntime().getDataEntityRuntime(iPSDERIndex.getMinorPSDataEntity().getId()), psDEDQColumnList);
 					psDEDQEngineImpl.compile(simplePSDEDQMainImpl);
@@ -1287,7 +1287,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 编译直接代码模式
-	 * 
+	 *
 	 * @param strQuerySQL
 	 * @param strQueryParam
 	 * @param strQueryField
@@ -1339,7 +1339,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取查询脚本
-	 * 
+	 *
 	 * @return
 	 */
 	public String getQueryScript() {
@@ -1348,7 +1348,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取查询脚本临时
-	 * 
+	 *
 	 * @return
 	 */
 	public String getQueryScriptTemp() {
@@ -1441,7 +1441,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取查询脚本
-	 * 
+	 *
 	 * @return
 	 */
 	public String getQueryModelScript(List<String> userConditionList) {
@@ -2091,7 +2091,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 未链接，返回-1
-	 * 
+	 *
 	 * @param strDERId
 	 * @return
 	 */
@@ -2301,117 +2301,118 @@ public class PSDEDQSQLCodeGenEngine {
 						if(strCondValue == null) {
 							strCondValue = "";
 						}
-						
+
 						StringBuilder sb = new StringBuilder();
 						if (iPSDEDQFieldCondition.isIgnoreEmpty()) {
-							sb.append(String.format("<choose><when test=\"ctx.${%1$s}.${%2$s} !=null \">", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+							sb.append(String.format("<choose><when test=\"ctx.%1$s.%2$s !=null \">", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 						}
-						
+
 						sb.append(strFieldName);
 						sb.append(" ");
 						switch(iPSDEDQFieldCondition.getCondOp()) {
-						case Conditions.EQ:
-						case Conditions.ABSEQ:
-							sb.append("=");
-							break;
-						case Conditions.GT:
-							sb.append(">");
-							break;
-						case Conditions.GTANDEQ:
-							sb.append(">=");
-							break;
-						case Conditions.LT:
-							sb.append("<");
-							break;
-						case Conditions.LTANDEQ:
-							sb.append("<=");
-							break;
-						case Conditions.NOTEQ:
-							sb.append("<>");
-							break;
-						case Conditions.ISNULL:
-							sb.append("IS NULL");
-							break;
-						case Conditions.ISNOTNULL:
-							sb.append("IS NOT NULL");
-							break;
-						case Conditions.USERLIKE:
-						case Conditions.LIKE:
-						case Conditions.LEFTLIKE:
-						case Conditions.RIGHTLIKE:
-							sb.append("LIKE");
-							break;
-						case Conditions.TESTNULL:
-							sb.append("!=");
-							break;
-						case Conditions.IN:
-							sb.append("IN");
-							break;
-						case Conditions.NOTIN:
-							sb.append("NOT IN");
-							break;
-						case Conditions.CHILDOF:
-							sb.append("!=");
-							break;
-						case Conditions.PARENTOF:
-							sb.append("!=");
-							break;
+							case Conditions.EQ:
+							case Conditions.ABSEQ:
+								sb.append("=");
+								break;
+							case Conditions.GT:
+								sb.append(">");
+								break;
+							case Conditions.GTANDEQ:
+								sb.append(">=");
+								break;
+							case Conditions.LT:
+								sb.append("<");
+								break;
+							case Conditions.LTANDEQ:
+								sb.append("<=");
+								break;
+							case Conditions.NOTEQ:
+								sb.append("<>");
+								break;
+							case Conditions.ISNULL:
+								sb.append("IS NULL");
+								break;
+							case Conditions.ISNOTNULL:
+								sb.append("IS NOT NULL");
+								break;
+							case Conditions.USERLIKE:
+							case Conditions.LIKE:
+							case Conditions.LEFTLIKE:
+							case Conditions.RIGHTLIKE:
+								sb.append("LIKE");
+								break;
+							case Conditions.TESTNULL:
+								sb.append("!=");
+								break;
+							case Conditions.IN:
+								sb.append("IN");
+								break;
+							case Conditions.NOTIN:
+								sb.append("NOT IN");
+								break;
+							case Conditions.CHILDOF:
+								sb.append("!=");
+								break;
+							case Conditions.PARENTOF:
+								sb.append("!=");
+								break;
 						}
 						sb.append(" ");
 						if(StringUtils.hasLength(iPSDEDQFieldCondition.getCondValue())) {
 							switch(iPSDEDQFieldCondition.getCondOp()) {
-							case Conditions.LIKE:
-							case Conditions.USERLIKE:
-								if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-									sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
-								}
-								else
+								case Conditions.LIKE:
+								case Conditions.USERLIKE:
+									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									}
+									else
 									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
 										sb.append(String.format("'%' || #{ctx.%1$s.%2$s} || '%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
-								break;
-							case Conditions.LEFTLIKE:
-								if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-									sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
-								}
-								else
+									break;
+								case Conditions.LEFTLIKE:
+									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									}
+									else
 									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
 										sb.append(String.format("'%' || #{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
-							break;
-							case Conditions.RIGHTLIKE:
-								if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-									sb.append(String.format("CONCAT(#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
-								}
-								else
+									break;
+								case Conditions.RIGHTLIKE:
+									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("CONCAT(#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									}
+									else
 									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
 										sb.append(String.format("#{ctx.%1$s.%2$s} || '%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
-								break;
-							case Conditions.IN:
-								sb.append(String.format("({ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
-								break;
-							default:
-								sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
-								break;
+									break;
+								case Conditions.IN:
+									sb.append(String.format("({ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									break;
+								default:
+									sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									break;
 							}
 						}
 						else {
-							sb.append(String.format("#{ctx.${%1$s}.unknown}", strPSVarTypeId.toLowerCase()));							
+							sb.append(String.format("#{ctx.%1$s.unknown}", strPSVarTypeId.toLowerCase()));
 						}
 
 						if (iPSDEDQFieldCondition.isIgnoreEmpty()) {
 							sb.append(String.format("</when><otherwise>1=1</otherwise></choose>"));
 						}
+						strCode = sb.toString();
 					}
 					else {
 						return strCode;
@@ -2868,7 +2869,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 					} else if (strCurDERId.indexOf("11M:") == 0) {
 						strTempCurDERId = strCurDERId.substring(4);
-						
+
 						IPSDER11 der11 = (IPSDER11) this.getSystemRuntime().getPSDER(strTempCurDERId, false);
 
 						if (DataTypeUtils.compare(iDataEntityRuntime.getId(), der11.getMajorPSDataEntityMust().getId(), true) != 0) {
@@ -3033,7 +3034,7 @@ public class PSDEDQSQLCodeGenEngine {
 							script.append("\n");
 							IPSDEField parentType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE, true);
 							IPSDEField parentSubType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
-							
+
 							if (parentType != null) {
 								String strFieldName = String.format("%1$s.%2$s", strCurMTAlias, this.iDBDialect.getDBObjStandardName(parentType.getName()));
 								script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentType.getStdDataType(), Conditions.EQ, iDataEntityRuntime.getName(), false, null));
@@ -3046,9 +3047,9 @@ public class PSDEDQSQLCodeGenEngine {
 								}
 
 								if (!ObjectUtils.isEmpty(strTypeValue)) {
-									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null)); 
+									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null));
 								} else {
-									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null)); 
+									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null));
 								}
 							}
 						}
@@ -3083,9 +3084,9 @@ public class PSDEDQSQLCodeGenEngine {
 									}
 
 									if (!ObjectUtils.isEmpty(strTypeValue)) {
-										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null)); 
+										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null));
 									} else {
-										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null)); 
+										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null));
 									}
 								}
 							}
@@ -3119,9 +3120,9 @@ public class PSDEDQSQLCodeGenEngine {
 									}
 
 									if (!ObjectUtils.isEmpty(strTypeValue)) {
-										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null)); 
+										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.EQ, strTypeValue, false, null));
 									} else {
-										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null)); 
+										script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentSubType.getStdDataType(), Conditions.ISNULL, null, false, null));
 									}
 								}
 							}
@@ -3212,7 +3213,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 			IPSDataEntity iPSDataEntity = iPSDEField.getParentPSModelObject(IPSDataEntity.class);
 			IDataEntityRuntime iDataEntityRuntime = this.getDataEntityRuntime(iPSDataEntity.getId());
-		//	IPSDEFDTColumn iPSDEFDTColumn = iPSDEField.getPSDTColumn(this.getDBType());
+			//	IPSDEFDTColumn iPSDEFDTColumn = iPSDEField.getPSDTColumn(this.getDBType());
 			IPSFormulaDEField iPSFormulaDEField = null;
 			IPSDEField iPSDEField2 = iPSDEField;
 			if (iPSDEField.isInheritDEField()) {
@@ -3227,9 +3228,9 @@ public class PSDEDQSQLCodeGenEngine {
 				}
 			}
 			else
-				if(iPSDEField instanceof IPSFormulaDEField) {
-					iPSFormulaDEField = (IPSFormulaDEField)iPSDEField;
-				}
+			if(iPSDEField instanceof IPSFormulaDEField) {
+				iPSFormulaDEField = (IPSFormulaDEField)iPSDEField;
+			}
 
 			//iPSDEFDTColumn.isFormula() && !iPSDEFDTColumn.isFormulaPhisical()
 			if (iPSFormulaDEField != null && !iPSFormulaDEField.isPhisicalDEField()) {
@@ -3327,7 +3328,7 @@ public class PSDEDQSQLCodeGenEngine {
 						}
 					}
 				}
-				
+
 				if(realPSDataEntity != null) {
 					realDataEntityRuntime = this.getDataEntityRuntime(realPSDataEntity.getId());
 				}
@@ -3452,7 +3453,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取查询条件
-	 * 
+	 *
 	 * @param strFieldName
 	 * @param nDataType
 	 * @param strCondition
@@ -3503,7 +3504,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取属性字符串条件
-	 * 
+	 *
 	 * @param strFieldName
 	 * @param nDataType
 	 * @param strCondition
@@ -3517,7 +3518,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取字符串条件
-	 * 
+	 *
 	 * @param strFieldName
 	 * @param nDataType
 	 * @param strCondition
@@ -4059,7 +4060,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取分页的SQL语句
-	 * 
+	 *
 	 * @param strSQL
 	 * @param nStartPos
 	 * @param nPageSize
@@ -4075,7 +4076,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取分页的SQL语句
-	 * 
+	 *
 	 * @param strSQL
 	 * @param nStartPos
 	 * @param nPageSize
@@ -4094,7 +4095,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取排序语句
-	 * 
+	 *
 	 * @param strSQL
 	 * @param nStartPos
 	 * @param nPageSize
@@ -4148,7 +4149,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取表别名序号
-	 * 
+	 *
 	 * @return
 	 */
 	final private int getAliasIndex() {
@@ -4167,7 +4168,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取主实体辅助对象
-	 * 
+	 *
 	 * @return
 	 */
 	public IPSDataEntity getMajorPSDataEntity() {
@@ -4175,7 +4176,7 @@ public class PSDEDQSQLCodeGenEngine {
 	}
 
 
-	
+
 //	/**
 //	 * 获取分组语句
 //	 * 
@@ -4412,7 +4413,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 注册查询模型定义代码
-	 * 
+	 *
 	 * @param strDeclareName
 	 * @param qmDeclare
 	 */
@@ -4423,7 +4424,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 判断是否注册了查询模型定义
-	 * 
+	 *
 	 * @param strDeclareName
 	 * @return
 	 */
@@ -4434,7 +4435,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取查询模型定义代码
-	 * 
+	 *
 	 * @return
 	 */
 	public String getQMDeclareScript() {
@@ -4504,7 +4505,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 判断查询选项
-	 * 
+	 *
 	 * @param strField
 	 * @param nOption
 	 * @return
@@ -4521,7 +4522,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 设置属性
-	 * 
+	 *
 	 * @param strKey
 	 * @param objValue
 	 */
@@ -4536,7 +4537,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 获取属性
-	 * 
+	 *
 	 * @param strKey
 	 * @param objValue
 	 */
@@ -4556,7 +4557,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SA.SRFDA.PS.Core.DataEntity.DS.IPSDEDQEngine#getDEDataQueryCodeExps()
 	 */
@@ -4569,7 +4570,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SA.SRFDA.PS.Core.DataEntity.DS.IPSDEDQEngine#getDEDataQueryCodeConds()
 	 */
@@ -4631,7 +4632,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 	/**
 	 * 准备实际属性
-	 * 
+	 *
 	 * @throws Exception
 	 */
 	protected synchronized IPSDEField getRealPSDEField(IPSLinkDEField iPSDEField, boolean bFirstPhisical) throws Exception {
@@ -4690,39 +4691,39 @@ public class PSDEDQSQLCodeGenEngine {
 		IDataEntityRuntime minorDataEntityRuntime = this.getDataEntityRuntime(iPSDERInherit.getMinorPSDataEntityMust().getId());
 		return DataTypeUtils.compare(majorDataEntityRuntime.getTableName(), minorDataEntityRuntime.getTableName(), true) == 0;
 	}
-	
+
 	public IPSDEDataQueryCode generatePSDEDataQueryCode(IPSDEDataQuery iPSDEDataQuery, Map<String, Object> params) throws Throwable {
 		return this.onGeneratePSDEDataQueryCode(iPSDEDataQuery, params);
 	}
 
 	protected IPSDEDataQueryCode onGeneratePSDEDataQueryCode(IPSDEDataQuery iPSDEDataQuery, Map<String, Object> params) throws Throwable {
-		
+
 		this.compile(iPSDEDataQuery.getPSDEDQMainMust());
-		
-		
+
+
 		ObjectNode objectNode = JsonUtils.createObjectNode();
 		objectNode.put(PSDEDataQueryCodeImpl.ATTR_GETID, this.getDBType());
 		objectNode.put(PSDEDataQueryCodeImpl.ATTR_GETDBTYPE, this.getDBType());
 		objectNode.put(PSDEDataQueryCodeImpl.ATTR_GETQUERYCODE, this.getQueryScript());
-		
+
 		List<DEDataQueryCodeExp> deDataQueryCodeExpList = this.getDEDataQueryCodeExps();
 		if(!ObjectUtils.isEmpty(deDataQueryCodeExpList)) {
 			ArrayNode expArrayNode = objectNode.putArray(PSDEDataQueryCodeImpl.ATTR_GETPSDEDATAQUERYCODEEXPS);
-			
+
 			for(DEDataQueryCodeExp entry : deDataQueryCodeExpList) {
 				ObjectNode expObjectNode = expArrayNode.addObject();
 				expObjectNode.put(PSDEDataQueryCodeExpImp.ATTR_GETNAME, entry.getName());
 				expObjectNode.put(PSDEDataQueryCodeExpImp.ATTR_GETEXPRESSION, entry.getExpression());
 				//expObjectNode.put(PSDEDataQueryCodeExpImp.attr_get, entry.getExpression());
 			}
-			
+
 			java.util.List<String> aliasNames = getDEDQAliasNames();
 			if(!ObjectUtils.isEmpty(aliasNames)) {
 				for(String strAliasName : aliasNames) {
 					if(DataTypeUtils.compare(strAliasName, "MAIN", true) == 0) {
 						continue;
 					}
-					
+
 					DEDQAlias psDEDQAlias = getDEDQAlias(strAliasName, true);
 					if(psDEDQAlias != null) {
 						String strExpName = String.format("ALIAS.%1$s", strAliasName.toUpperCase());
@@ -4733,23 +4734,23 @@ public class PSDEDQSQLCodeGenEngine {
 				}
 			}
 		}
-		
-		
-		
+
+
+
 		List<DEDataQueryCodeCond> deDataQueryCodeCondList = this.getDEDataQueryCodeConds();
 		if(!ObjectUtils.isEmpty(deDataQueryCodeCondList)) {
 			ArrayNode condArrayNode = objectNode.putArray(PSDEDataQueryCodeImpl.ATTR_GETPSDEDATAQUERYCODECONDS);
-			
-			
+
+
 			for(DEDataQueryCodeCond deDataQueryCodeCond : deDataQueryCodeCondList) {
 				ObjectNode condObjectNode = condArrayNode.addObject();
 				condObjectNode.put(PSDEDataQueryCodeCondImp.ATTR_GETCONDTYPE , "CUSTOM");
 				condObjectNode.put(PSDEDataQueryCodeCondImp.ATTR_GETCUSTOMCOND, deDataQueryCodeCond.getCustomCond());
 			}
-			
-			
+
+
 		}
-		
+
 		return this.getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime)iPSDEDataQuery, IPSDEDataQueryCode.class, objectNode);
 	}
 }

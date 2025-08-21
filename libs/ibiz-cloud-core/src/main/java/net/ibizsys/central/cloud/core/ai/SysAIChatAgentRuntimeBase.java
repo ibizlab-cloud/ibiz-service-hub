@@ -9,6 +9,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import net.ibizsys.central.cloud.core.ai.util.ChatCompletionRequestHolder;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
@@ -57,6 +59,10 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 
 	@Override
 	protected void onInit() throws Exception {
+		
+		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
+			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
+		}
 		
 		if(this.getPSModelObject().getPSDataEntity() != null) {
 			this.iDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(this.getPSModelObject().getPSDataEntityMust().getId(), false);
@@ -534,6 +540,17 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 			}
 		}
 		return chatCompletionResult;
+	}
+	
+	@Override
+	public String getAgentParam(String strName, String strDefault) {
+		if(this.getPSModelObject().getAgentParams() != null) {
+			JsonNode jsonNode = this.getPSModelObject().getAgentParams().get(strName);
+			if(jsonNode != null) {
+				return jsonNode.asText(strDefault);
+			}
+		}
+		return super.getAgentParam(strName, strDefault);
 	}
 	
 	protected String getHistoriesConfigId() throws Throwable {

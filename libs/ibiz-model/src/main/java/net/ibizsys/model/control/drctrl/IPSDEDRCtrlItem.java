@@ -3,7 +3,7 @@ package net.ibizsys.model.control.drctrl;
 
 
 /**
- * 数据关系边栏部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO}运行时对象
+ * 数据关系边栏部件模型对象接口
  *
  */
 public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
@@ -14,8 +14,6 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -30,8 +28,6 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -39,8 +35,6 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -48,8 +42,6 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO#FIELD_COUNTERMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
 	 * @return
@@ -103,8 +95,6 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取关联视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_PSDEVIEWBASEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getPSAppView();

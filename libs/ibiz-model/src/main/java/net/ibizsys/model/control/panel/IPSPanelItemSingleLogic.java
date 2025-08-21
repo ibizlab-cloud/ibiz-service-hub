@@ -14,8 +14,6 @@ public interface IPSPanelItemSingleLogic extends net.ibizsys.model.control.panel
 	
 	/**
 	 * 获取条件操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSPanelItemLogicDTO#FIELD_CONDOP}
 	 * @return
 	 */
 	java.lang.String getCondOp();
@@ -23,8 +21,6 @@ public interface IPSPanelItemSingleLogic extends net.ibizsys.model.control.panel
 	
 	/**
 	 * 获取模型属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSPanelItemLogicDTO#FIELD_DSTFIELDNAME}
 	 * @return
 	 */
 	java.lang.String getDstModelField();
@@ -32,8 +28,6 @@ public interface IPSPanelItemSingleLogic extends net.ibizsys.model.control.panel
 	
 	/**
 	 * 获取条件值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSPanelItemLogicDTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getValue();

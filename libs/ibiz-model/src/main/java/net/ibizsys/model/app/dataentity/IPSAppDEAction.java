@@ -44,8 +44,6 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	
 	/**
 	 * 获取执行之后代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AFTERCODE}
 	 * @return
 	 */
 	java.lang.String getAfterCode();
@@ -62,8 +60,6 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	
 	/**
 	 * 获取执行之前代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BEFORECODE}
 	 * @return
 	 */
 	java.lang.String getBeforeCode();

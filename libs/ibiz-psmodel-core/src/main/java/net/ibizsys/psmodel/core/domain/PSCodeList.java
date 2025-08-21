@@ -3792,6 +3792,67 @@ public class PSCodeList extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSCodeList ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
      * <B>ORMODE</B>&nbsp;多项或模式，指定代码表的多项或模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DesignCodeListOrMode} 
@@ -7194,14 +7255,14 @@ public class PSCodeList extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统代码表项 成员集合
+     *  代码表项 成员集合
      */
     public final static String FIELD_PSCODEITEMS = "pscodeitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSCodeItem> pscodeitems;
 
     /**
-     * 获取 系统代码表项 成员集合
+     * 获取 代码表项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSCODEITEMS)
@@ -7210,7 +7271,7 @@ public class PSCodeList extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统代码表项 成员集合  
+     * 设置 代码表项 成员集合  
      * @param pscodeitems
      */
     @JsonProperty(FIELD_PSCODEITEMS)
@@ -7219,7 +7280,7 @@ public class PSCodeList extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统代码表项 成员集合，不存在时建立集合对象
+     * 获取 代码表项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

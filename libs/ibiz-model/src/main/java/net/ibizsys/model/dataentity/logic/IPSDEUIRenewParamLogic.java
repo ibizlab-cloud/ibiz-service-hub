@@ -14,8 +14,6 @@ public interface IPSDEUIRenewParamLogic extends net.ibizsys.model.dataentity.log
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParam();

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO}运行时对象
+ * 实体属性组模型对象接口
  *
  */
 public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityObject
@@ -27,8 +27,6 @@ public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取分组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO#FIELD_GROUPTAG}
 	 * @return
 	 */
 	java.lang.String getGroupTag();
@@ -36,8 +34,6 @@ public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取分组标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO#FIELD_GROUPTAG2}
 	 * @return
 	 */
 	java.lang.String getGroupTag2();
@@ -55,8 +51,6 @@ public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取逻辑模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO#FIELD_LOGICMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFGroupLogicMode}
 	 * @return
 	 */
@@ -65,8 +59,6 @@ public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取逻辑参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO#FIELD_LOGICPARAM}
 	 * @return
 	 */
 	java.lang.String getLogicParam();
@@ -74,8 +66,6 @@ public interface IPSDEFGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取逻辑参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDTO#FIELD_LOGICPARAM2}
 	 * @return
 	 */
 	java.lang.String getLogicParam2();

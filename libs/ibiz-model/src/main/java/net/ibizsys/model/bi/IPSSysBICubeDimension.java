@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表立方体维度模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO}运行时对象
+ * 智能报表立方体维度模型对象接口
  *
  */
 public interface IPSSysBICubeDimension extends net.ibizsys.model.bi.IPSBICubeDimension
@@ -34,8 +34,6 @@ public interface IPSSysBICubeDimension extends net.ibizsys.model.bi.IPSBICubeDim
 	
 	/**
 	 * 获取智能报表维度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_PSSYSBIDIMENSIONID}
 	 * @return
 	 */
 	net.ibizsys.model.bi.IPSSysBIDimension getPSSysBIDimension();

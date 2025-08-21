@@ -21,8 +21,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -37,8 +35,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标参数合并属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.String getDstParamMergeField();
@@ -46,8 +42,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取合并模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMergeParamMode}
 	 * @return
@@ -57,8 +51,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();
@@ -73,8 +65,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();
@@ -89,8 +79,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取源参数合并属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getSrcParamMergeField();
@@ -98,8 +86,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取是否仅拷贝不存在属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isCopyIfNotExists();
@@ -107,8 +93,6 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取是否合并到指定属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM10}
 	 * @return
 	 */
 	boolean isMergeIntoField();

@@ -4952,14 +4952,14 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEDATASETID</B>&nbsp;关联实体数据集合，指定应用属性界面模式的编辑项的引用数据集，提供自动填充能力的编辑器都需要指定引用的数据集
+     * <B>REFPSDEDATASETID</B>&nbsp;引用实体数据集，指定应用属性界面模式的编辑项的引用数据集，提供自动填充能力的编辑器都需要指定引用的数据集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_REFPSDEDATASETID = "refpsdedatasetid";
 
     /**
-     * 设置 关联实体数据集合，详细说明：{@link #FIELD_REFPSDEDATASETID}
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETID}
      * 
      * @param refPSDEDataSetId
      * 
@@ -4970,7 +4970,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体数据集合  
+     * 获取 引用实体数据集  
      * @return
      */
     @JsonIgnore
@@ -4983,7 +4983,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体数据集合 是否指定值，包括空值
+     * 判断 引用实体数据集 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -4995,7 +4995,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体数据集合
+     * 重置 引用实体数据集
      */
     @JsonIgnore
     public void resetRefPSDEDataSetId(){
@@ -5003,7 +5003,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体数据集合，详细说明：{@link #FIELD_REFPSDEDATASETID}
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETID}
      * <P>
      * 等同 {@link #setRefPSDEDataSetId}
      * @param refPSDEDataSetId
@@ -5015,7 +5015,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体数据集合，包括引用对象的其它关系属性
+     * 设置 引用实体数据集，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setRefPSDEDataSetId}
      * @param pSDEDataSet 引用对象
@@ -5034,14 +5034,14 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEDATASETNAME</B>&nbsp;关联实体数据集合，指定应用属性界面模式的编辑项的引用数据集，提供自动填充能力的编辑器都需要指定引用的数据集
+     * <B>REFPSDEDATASETNAME</B>&nbsp;引用实体数据集，指定应用属性界面模式的编辑项的引用数据集，提供自动填充能力的编辑器都需要指定引用的数据集
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_REFPSDEDATASETID}
      */
     public final static String FIELD_REFPSDEDATASETNAME = "refpsdedatasetname";
 
     /**
-     * 设置 关联实体数据集合，详细说明：{@link #FIELD_REFPSDEDATASETNAME}
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETNAME}
      * 
      * @param refPSDEDataSetName
      * 
@@ -5052,7 +5052,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体数据集合  
+     * 获取 引用实体数据集  
      * @return
      */
     @JsonIgnore
@@ -5065,7 +5065,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体数据集合 是否指定值，包括空值
+     * 判断 引用实体数据集 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -5077,7 +5077,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体数据集合
+     * 重置 引用实体数据集
      */
     @JsonIgnore
     public void resetRefPSDEDataSetName(){
@@ -5085,7 +5085,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体数据集合，详细说明：{@link #FIELD_REFPSDEDATASETNAME}
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETNAME}
      * <P>
      * 等同 {@link #setRefPSDEDataSetName}
      * @param refPSDEDataSetName
@@ -5097,14 +5097,14 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEID</B>&nbsp;关联实体，指定应用属性界面模式的编辑项的引用数据集的所在实体
+     * <B>REFPSDEID</B>&nbsp;引用实体，指定应用属性界面模式的编辑项的引用数据集的所在实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
     public final static String FIELD_REFPSDEID = "refpsdeid";
 
     /**
-     * 设置 关联实体，详细说明：{@link #FIELD_REFPSDEID}
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDEID}
      * 
      * @param refPSDEId
      * 
@@ -5115,7 +5115,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体  
+     * 获取 引用实体  
      * @return
      */
     @JsonIgnore
@@ -5128,7 +5128,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体 是否指定值，包括空值
+     * 判断 引用实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -5140,7 +5140,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体
+     * 重置 引用实体
      */
     @JsonIgnore
     public void resetRefPSDEId(){
@@ -5148,7 +5148,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体，详细说明：{@link #FIELD_REFPSDEID}
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDEID}
      * <P>
      * 等同 {@link #setRefPSDEId}
      * @param refPSDEId
@@ -5160,7 +5160,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体，包括引用对象的其它关系属性
+     * 设置 引用实体，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setRefPSDEId}
      * @param pSDataEntity 引用对象
@@ -5179,14 +5179,14 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDENAME</B>&nbsp;关联实体，指定应用属性界面模式的编辑项的引用数据集的所在实体
+     * <B>REFPSDENAME</B>&nbsp;引用实体，指定应用属性界面模式的编辑项的引用数据集的所在实体
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_REFPSDEID}
      */
     public final static String FIELD_REFPSDENAME = "refpsdename";
 
     /**
-     * 设置 关联实体，详细说明：{@link #FIELD_REFPSDENAME}
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDENAME}
      * 
      * @param refPSDEName
      * 
@@ -5197,7 +5197,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体  
+     * 获取 引用实体  
      * @return
      */
     @JsonIgnore
@@ -5210,7 +5210,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体 是否指定值，包括空值
+     * 判断 引用实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -5222,7 +5222,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体
+     * 重置 引用实体
      */
     @JsonIgnore
     public void resetRefPSDEName(){
@@ -5230,7 +5230,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体，详细说明：{@link #FIELD_REFPSDENAME}
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDENAME}
      * <P>
      * 等同 {@link #setRefPSDEName}
      * @param refPSDEName

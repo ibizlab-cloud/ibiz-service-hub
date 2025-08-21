@@ -357,12 +357,14 @@
     "codeName" : "OrgId",
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "predefinedType" : "ORGID",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
     "codeName" : "OrgName",
     "logicName" : "单位",
     "name" : "ORGNAME",
+    "predefinedType" : "ORGNAME",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
@@ -384,6 +386,7 @@
     },
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
@@ -393,30 +396,35 @@
     },
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
     "codeName" : "CreateMan",
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "predefinedType" : "CREATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
     "codeName" : "UpdateManName",
     "logicName" : "更新人",
     "name" : "UPDATEMANNAME",
+    "predefinedType" : "UPDATEMANNAME",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
     "codeName" : "UpdateMan",
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "predefinedType" : "UPDATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
     "codeName" : "CreateManName",
     "logicName" : "创建人",
     "name" : "CREATEMANNAME",
+    "predefinedType" : "CREATEMANNAME",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
@@ -1419,6 +1427,10 @@
       "name" : "USERID",
       "codeName" : "UserId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -1440,6 +1452,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYS_ROLEID",
       "codeName" : "RoleId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_ROLENAME",
+      "codeName" : "RoleName"
     },
     "rSMode" : 2
   } ],

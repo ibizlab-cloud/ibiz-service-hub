@@ -802,6 +802,69 @@ public class PSAppUITheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>THEMEURL</B>&nbsp;主题Url
+     * <P>
+     * 字符串：最大长度 500
+     */
+    public final static String FIELD_THEMEURL = "themeurl";
+
+    /**
+     * 设置 主题Url
+     * 
+     * @param themeUrl
+     * 
+     */
+    @JsonProperty(FIELD_THEMEURL)
+    public void setThemeUrl(String themeUrl){
+        this.set(FIELD_THEMEURL, themeUrl);
+    }
+    
+    /**
+     * 获取 主题Url  
+     * @return
+     */
+    @JsonIgnore
+    public String getThemeUrl(){
+        Object objValue = this.get(FIELD_THEMEURL);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 主题Url 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isThemeUrlDirty(){
+        if(this.contains(FIELD_THEMEURL)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 主题Url
+     */
+    @JsonIgnore
+    public void resetThemeUrl(){
+        this.reset(FIELD_THEMEURL);
+    }
+
+    /**
+     * 设置 主题Url
+     * <P>
+     * 等同 {@link #setThemeUrl}
+     * @param themeUrl
+     */
+    @JsonIgnore
+    public PSAppUITheme themeurl(String themeUrl){
+        this.setThemeUrl(themeUrl);
+        return this;
+    }
+
+    /**
      * <B>UPDATEDATE</B>&nbsp;更新时间
      */
     public final static String FIELD_UPDATEDATE = "updatedate";

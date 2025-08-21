@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.util.ISearchContext;
 
 public interface ICloudOSSClient {
@@ -26,4 +27,11 @@ public interface ICloudOSSClient {
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/oss/object/{db}/{table}/fetch")
 	Page<Map> fetchObjects(@PathVariable("db") String db, @PathVariable("table") String table, @RequestBody ISearchContext iSearchContext);
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/createdownloadticket/{cat}/{id}")
+	DownloadTicket createDownloadTicket(@PathVariable("cat") String cat, @PathVariable("id") String id);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/createdownloadticket/{id}")
+	DownloadTicket createDownloadTicket(@PathVariable("id") String id);
 }

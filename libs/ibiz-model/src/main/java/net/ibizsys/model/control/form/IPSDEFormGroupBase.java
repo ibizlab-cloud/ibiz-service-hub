@@ -3,7 +3,7 @@ package net.ibizsys.model.control.form;
 
 
 /**
- * 实体表单分组面板成员模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO}运行时对象
+ * 实体表单分组面板成员模型基础对象接口
  *
  */
 public interface IPSDEFormGroupBase extends net.ibizsys.model.control.form.IPSDEFormDetail{
@@ -12,8 +12,6 @@ public interface IPSDEFormGroupBase extends net.ibizsys.model.control.form.IPSDE
 	
 	/**
 	 * 获取动态标题绑定值项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_VALUEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getCaptionItemName();
@@ -50,8 +48,6 @@ public interface IPSDEFormGroupBase extends net.ibizsys.model.control.form.IPSDE
 	/**
 	 * 获取标题栏关闭模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_TITLEBARCLOSEMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupTitleBarCloseMode}
 	 * @return
 	 */
@@ -60,8 +56,6 @@ public interface IPSDEFormGroupBase extends net.ibizsys.model.control.form.IPSDE
 	
 	/**
 	 * 获取是否提供锚点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLEANCHOR}
 	 * @return
 	 */
 	boolean isEnableAnchor();

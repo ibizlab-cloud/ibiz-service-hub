@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_ROLE_PERMISSIONID",
+        "codeName" : "RolePermissionId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -609,6 +617,7 @@
     "length" : 100,
     "logicName" : "角色权限关系表标识",
     "name" : "SYS_ROLE_PERMISSIONID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -768,6 +777,7 @@
     "length" : 100,
     "logicName" : "角色表标识",
     "name" : "SYS_ROLEID",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -997,6 +1007,7 @@
     "length" : 200,
     "logicName" : "角色名称",
     "name" : "SYS_ROLENAME",
+    "orderValue" : 4,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_ROLE_SYS_ROLEID.json"
@@ -1177,6 +1188,7 @@
     "length" : 200,
     "logicName" : "权限表标识",
     "name" : "SYS_PERMISSIONID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1398,6 +1410,7 @@
     "length" : 200,
     "logicName" : "权限名称",
     "name" : "SYS_PERMISSIONNAME",
+    "orderValue" : 6,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json"
@@ -1556,6 +1569,7 @@
     "length" : 100,
     "logicName" : "实体名",
     "name" : "ENTITYNAME",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json"
@@ -1729,6 +1743,7 @@
     "length" : 60,
     "logicName" : "权限类型",
     "name" : "PERMISSIONTYPE",
+    "orderValue" : 7,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/PermissionType.json"
@@ -1891,6 +1906,7 @@
     "length" : 60,
     "logicName" : "权限标识",
     "name" : "PERMISSIONTAG",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json"
@@ -2026,6 +2042,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json"
@@ -2184,6 +2201,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2329,6 +2347,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2442,6 +2461,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2557,6 +2577,7 @@
     "importOrder" : 1000,
     "logicName" : "系统标记",
     "name" : "SYSTEMFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2664,6 +2685,7 @@
     "length" : 100,
     "logicName" : "启用标志",
     "name" : "ISVALID",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2779,6 +2801,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2905,6 +2928,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "PSSYSTEMID",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/RolePermission/PSDERS/DER1N_SYS_ROLE_PERMISSION_SYS_PERMISSION_SYS_PERMISSIONID.json"

@@ -14,8 +14,6 @@ public interface IPSPanelItemGroupLogic extends net.ibizsys.model.control.panel.
 	
 	/**
 	 * 获取组逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSPanelItemLogicDTO#FIELD_GROUPOP}
 	 * @return
 	 */
 	java.lang.String getGroupOP();
@@ -44,8 +42,6 @@ public interface IPSPanelItemGroupLogic extends net.ibizsys.model.control.panel.
 	
 	/**
 	 * 获取是否逻辑取反
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSPanelItemLogicDTO#FIELD_GROUPNOTFLAG}
 	 * @return
 	 */
 	boolean isNotMode();

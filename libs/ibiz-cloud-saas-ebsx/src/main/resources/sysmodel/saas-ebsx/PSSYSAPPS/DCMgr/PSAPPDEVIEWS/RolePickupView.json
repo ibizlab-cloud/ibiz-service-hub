@@ -527,6 +527,28 @@
             "name" : "SYS_ROLENAME",
             "codeName" : "RoleName"
           }
+        }, {
+          "id" : "n_dcsystemid_eq",
+          "hidden" : true,
+          "dataType" : 25,
+          "getPSAppDEField" : {
+            "name" : "DCSYSTEMID",
+            "codeName" : "DCSystemId"
+          }
+        }, {
+          "id" : "n_authorizeall_eq",
+          "dataType" : 9,
+          "getPSAppDEField" : {
+            "name" : "AUTHORIZEALL",
+            "codeName" : "AuthorizeAll"
+          }
+        }, {
+          "id" : "n_usermode_in",
+          "dataType" : 25,
+          "getPSAppDEField" : {
+            "name" : "USERMODE",
+            "codeName" : "UserMode"
+          }
         } ],
         "getPSDEFormPages" : [ {
           "getCapPSLanguageRes" : {
@@ -561,10 +583,104 @@
               "name" : "n_sys_rolename_like"
             },
             "getPSLayoutPos" : {
-              "colMD" : 24,
+              "colLG" : 8,
+              "colMD" : 12,
               "layout" : "TABLE_24COL"
             },
             "allowEmpty" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "租户系统标识(等于(=))",
+            "codeName" : "n_dcsystemid_eq",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "TOP",
+            "labelWidth" : 130,
+            "name" : "n_dcsystemid_eq",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "DCSYSTEMID",
+              "codeName" : "DCSystemId"
+            },
+            "getPSEditor" : {
+              "editorType" : "HIDDEN",
+              "name" : "n_dcsystemid_eq"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 8,
+              "colMD" : 12,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true,
+            "hidden" : true
+          }, {
+            "caption" : "授权全部用户(等于(=))",
+            "codeName" : "n_authorizeall_eq",
+            "dataType" : 9,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "TOP",
+            "labelWidth" : 130,
+            "name" : "n_authorizeall_eq",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "AUTHORIZEALL",
+              "codeName" : "AuthorizeAll"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST_100",
+              "name" : "n_authorizeall_eq",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 8,
+              "colMD" : 12,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "用户模式(值在范围中(In))",
+            "codeName" : "n_usermode_in",
+            "dataType" : 25,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "labelPos" : "TOP",
+            "labelWidth" : 130,
+            "name" : "n_usermode_in",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "USERMODE",
+              "codeName" : "UserMode"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST",
+              "name" : "n_usermode_in",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/UserMode.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 8,
+              "colMD" : 12,
+              "layout" : "TABLE_24COL"
+            },
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
             "showCaption" : true
           } ],
           "getPSLayout" : {

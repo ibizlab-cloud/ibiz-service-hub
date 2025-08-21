@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "PSSYSTEMID",
+        "codeName" : "PSSystemId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PSSYSTEMNAME",
+        "codeName" : "PSSystemName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -517,6 +525,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "PSSYSTEMID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -645,6 +654,7 @@
     "length" : 100,
     "logicName" : "系统名称",
     "name" : "PSSYSTEMNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -766,6 +776,7 @@
     "length" : 1048576,
     "logicName" : "结构",
     "name" : "SYSSTRUCTURE",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -885,6 +896,7 @@
     "length" : 1048576,
     "logicName" : "应用",
     "name" : "APPS",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1009,6 +1021,7 @@
     "length" : 100,
     "logicName" : "校验",
     "name" : "MD5CHECK",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1112,6 +1125,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

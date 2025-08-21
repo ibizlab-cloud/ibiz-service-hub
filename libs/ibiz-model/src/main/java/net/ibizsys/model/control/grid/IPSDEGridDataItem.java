@@ -33,8 +33,6 @@ public interface IPSDEGridDataItem extends net.ibizsys.model.data.IPSDataItem{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -51,8 +49,6 @@ public interface IPSDEGridDataItem extends net.ibizsys.model.data.IPSDataItem{
 	
 	/**
 	 * 获取是否脚本代码模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();

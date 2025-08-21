@@ -19,8 +19,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFAULTVALUE}
 	 * @return
 	 */
 	java.lang.String getDefaultValue();
@@ -28,8 +26,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFAULTVALUETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
@@ -39,8 +35,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取属性标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_FIELDTAG}
 	 * @return
 	 */
 	java.lang.String getFieldTag();
@@ -48,8 +42,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取属性标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_FIELDTAG2}
 	 * @return
 	 */
 	java.lang.String getFieldTag2();
@@ -64,8 +56,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -80,8 +70,6 @@ public interface IPSSearchDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统值转换器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getPSSysTranslator();

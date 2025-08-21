@@ -711,6 +711,10 @@
       "name" : "USERID",
       "codeName" : "UserId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
     "rSMode" : 2
   } ] ]
 }

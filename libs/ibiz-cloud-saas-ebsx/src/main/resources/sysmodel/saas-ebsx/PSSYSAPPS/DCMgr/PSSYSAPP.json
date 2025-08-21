@@ -518,6 +518,10 @@
       "name" : "USERID",
       "codeName" : "UserId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -539,6 +543,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYSDYNAINSTID",
       "codeName" : "SysDynaInstId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYSDYNAINSTNAME",
+      "codeName" : "SysDynaInstName"
     },
     "rSMode" : 2
   }, {
@@ -584,6 +592,10 @@
       "name" : "CID",
       "codeName" : "CatalogId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "CNAME",
+      "codeName" : "CatalogName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -628,6 +640,10 @@
       "name" : "DCSYSTEMID",
       "codeName" : "DCSystemId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "DCSYSTEMNAME",
+      "codeName" : "DCSystemName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -649,6 +665,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYS_PERMISSIONID",
       "codeName" : "PermissionId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
     },
     "rSMode" : 2
   }, {
@@ -672,6 +692,10 @@
       "name" : "SYS_PERMISSIONID",
       "codeName" : "PermissionId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -693,6 +717,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYS_ROLEID",
       "codeName" : "RoleId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_ROLENAME",
+      "codeName" : "RoleName"
     },
     "rSMode" : 2
   }, {
@@ -716,6 +744,10 @@
       "name" : "TEAMID",
       "codeName" : "TeamId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "TEAMNAME",
+      "codeName" : "TeamName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -737,6 +769,10 @@
     "getParentPSAppDEField" : {
       "name" : "USERID",
       "codeName" : "UserId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
     },
     "rSMode" : 2
   }, {
@@ -760,6 +796,10 @@
       "name" : "SYS_ROLEID",
       "codeName" : "RoleId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_ROLENAME",
+      "codeName" : "RoleName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -781,6 +821,10 @@
     "getParentPSAppDEField" : {
       "name" : "USERID",
       "codeName" : "UserId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
     },
     "rSMode" : 2
   }, {
@@ -804,6 +848,10 @@
       "name" : "GROUPID",
       "codeName" : "GroupId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "GroupName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -826,6 +874,10 @@
       "name" : "ENTITYID",
       "codeName" : "EntityId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -847,6 +899,10 @@
     "getParentPSAppDEField" : {
       "name" : "ENTITYID",
       "codeName" : "EntityId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
     },
     "rSMode" : 2
   } ],
@@ -3510,6 +3566,10 @@
         "getPSControlParam" : {
           "autoLoad" : true,
           "showBusyIndicator" : true
+        },
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
         },
         "modelid" : "956E1F76-1C0E-4E1E-88E6-0C7079ECCDA9",
         "modeltype" : "PSAPPMENU"
@@ -7801,6 +7861,10 @@
         "codeName" : "Default",
         "logicName" : "DEFAULT",
         "name" : "DEFAULT",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysDCSystem.json"
+        },
         "getPSDEACModeDataItems" : [ {
           "dataType" : 25,
           "name" : "value",
@@ -8157,6 +8221,7 @@
         "codeName" : "UpdateDate",
         "logicName" : "更新时间",
         "name" : "UPDATEDATE",
+        "predefinedType" : "UPDATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
@@ -8169,18 +8234,21 @@
         "codeName" : "UpdateMan",
         "logicName" : "更新人",
         "name" : "UPDATEMAN",
+        "predefinedType" : "UPDATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       }, {
         "codeName" : "CreateDate",
         "logicName" : "建立时间",
         "name" : "CREATEDATE",
+        "predefinedType" : "CREATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
         "codeName" : "CreateMan",
         "logicName" : "建立人",
         "name" : "CREATEMAN",
+        "predefinedType" : "CREATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       }, {
@@ -9019,6 +9087,10 @@
         "codeName" : "Default",
         "logicName" : "DEFAULT",
         "name" : "DEFAULT",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/OpenAccess.json"
+        },
         "getPSDEACModeDataItems" : [ {
           "dataType" : 25,
           "name" : "value",
@@ -9375,6 +9447,7 @@
         "codeName" : "OrgId",
         "logicName" : "单位",
         "name" : "ORGID",
+        "predefinedType" : "ORGID",
         "stdDataType" : 25,
         "stringLength" : 100
       }, {
@@ -10060,6 +10133,10 @@
         "codeName" : "Default",
         "logicName" : "DEFAULT",
         "name" : "DEFAULT",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/DictCatalog.json"
+        },
         "getPSDEACModeDataItems" : [ {
           "dataType" : 25,
           "name" : "value",
@@ -10327,17 +10404,20 @@
         "codeName" : "Enable",
         "logicName" : "是否有效",
         "name" : "ENABLE",
+        "predefinedType" : "LOGICVALID",
         "stdDataType" : 9
       }, {
         "codeName" : "UpdateDate",
         "logicName" : "最后修改时间",
         "name" : "UPDATEDATE",
+        "predefinedType" : "UPDATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
         "codeName" : "CreateDate",
         "logicName" : "创建时间",
         "name" : "CREATEDATE",
+        "predefinedType" : "CREATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       } ],

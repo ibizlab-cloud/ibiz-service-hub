@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSSYSUNIRES</B>系统统一资源 模型传输对象
@@ -346,151 +350,6 @@ public class PSSysUniRes extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSAPPID</B>&nbsp;前端应用
-     * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysApp} 
-     */
-    public final static String FIELD_PSSYSAPPID = "pssysappid";
-
-    /**
-     * 设置 前端应用
-     * 
-     * @param pSSysAppId
-     * 
-     */
-    @JsonProperty(FIELD_PSSYSAPPID)
-    public void setPSSysAppId(String pSSysAppId){
-        this.set(FIELD_PSSYSAPPID, pSSysAppId);
-    }
-    
-    /**
-     * 获取 前端应用  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSysAppId(){
-        Object objValue = this.get(FIELD_PSSYSAPPID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 前端应用 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSysAppIdDirty(){
-        if(this.contains(FIELD_PSSYSAPPID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 前端应用
-     */
-    @JsonIgnore
-    public void resetPSSysAppId(){
-        this.reset(FIELD_PSSYSAPPID);
-    }
-
-    /**
-     * 设置 前端应用
-     * <P>
-     * 等同 {@link #setPSSysAppId}
-     * @param pSSysAppId
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysappid(String pSSysAppId){
-        this.setPSSysAppId(pSSysAppId);
-        return this;
-    }
-
-    /**
-     * 设置 前端应用，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setPSSysAppId}
-     * @param pSSysApp 引用对象
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysappid(PSSysApp pSSysApp){
-        if(pSSysApp == null){
-            this.setPSSysAppId(null);
-            this.setPSSysAppName(null);
-        }
-        else{
-            this.setPSSysAppId(pSSysApp.getPSSysAppId());
-            this.setPSSysAppName(pSSysApp.getPSSysAppName());
-        }
-        return this;
-    }
-
-    /**
-     * <B>PSSYSAPPNAME</B>&nbsp;前端应用
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSAPPID}
-     */
-    public final static String FIELD_PSSYSAPPNAME = "pssysappname";
-
-    /**
-     * 设置 前端应用
-     * 
-     * @param pSSysAppName
-     * 
-     */
-    @JsonProperty(FIELD_PSSYSAPPNAME)
-    public void setPSSysAppName(String pSSysAppName){
-        this.set(FIELD_PSSYSAPPNAME, pSSysAppName);
-    }
-    
-    /**
-     * 获取 前端应用  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSysAppName(){
-        Object objValue = this.get(FIELD_PSSYSAPPNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 前端应用 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSysAppNameDirty(){
-        if(this.contains(FIELD_PSSYSAPPNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 前端应用
-     */
-    @JsonIgnore
-    public void resetPSSysAppName(){
-        this.reset(FIELD_PSSYSAPPNAME);
-    }
-
-    /**
-     * 设置 前端应用
-     * <P>
-     * 等同 {@link #setPSSysAppName}
-     * @param pSSysAppName
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysappname(String pSSysAppName){
-        this.setPSSysAppName(pSSysAppName);
-        return this;
-    }
-
-    /**
      * <B>PSSYSDYNAMODELID</B>&nbsp;动态系统模型
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysDynaModel} 
@@ -632,151 +491,6 @@ public class PSSysUniRes extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysUniRes pssysdynamodelname(String pSSysDynaModelName){
         this.setPSSysDynaModelName(pSSysDynaModelName);
-        return this;
-    }
-
-    /**
-     * <B>PSSYSSERVICEAPIID</B>&nbsp;服务接口
-     * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysServiceAPI} 
-     */
-    public final static String FIELD_PSSYSSERVICEAPIID = "pssysserviceapiid";
-
-    /**
-     * 设置 服务接口
-     * 
-     * @param pSSysServiceAPIId
-     * 
-     */
-    @JsonProperty(FIELD_PSSYSSERVICEAPIID)
-    public void setPSSysServiceAPIId(String pSSysServiceAPIId){
-        this.set(FIELD_PSSYSSERVICEAPIID, pSSysServiceAPIId);
-    }
-    
-    /**
-     * 获取 服务接口  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSysServiceAPIId(){
-        Object objValue = this.get(FIELD_PSSYSSERVICEAPIID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 服务接口 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSysServiceAPIIdDirty(){
-        if(this.contains(FIELD_PSSYSSERVICEAPIID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 服务接口
-     */
-    @JsonIgnore
-    public void resetPSSysServiceAPIId(){
-        this.reset(FIELD_PSSYSSERVICEAPIID);
-    }
-
-    /**
-     * 设置 服务接口
-     * <P>
-     * 等同 {@link #setPSSysServiceAPIId}
-     * @param pSSysServiceAPIId
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysserviceapiid(String pSSysServiceAPIId){
-        this.setPSSysServiceAPIId(pSSysServiceAPIId);
-        return this;
-    }
-
-    /**
-     * 设置 服务接口，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setPSSysServiceAPIId}
-     * @param pSSysServiceAPI 引用对象
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysserviceapiid(PSSysServiceAPI pSSysServiceAPI){
-        if(pSSysServiceAPI == null){
-            this.setPSSysServiceAPIId(null);
-            this.setPSSysServiceAPIName(null);
-        }
-        else{
-            this.setPSSysServiceAPIId(pSSysServiceAPI.getPSSysServiceAPIId());
-            this.setPSSysServiceAPIName(pSSysServiceAPI.getPSSysServiceAPIName());
-        }
-        return this;
-    }
-
-    /**
-     * <B>PSSYSSERVICEAPINAME</B>&nbsp;服务接口
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSSERVICEAPIID}
-     */
-    public final static String FIELD_PSSYSSERVICEAPINAME = "pssysserviceapiname";
-
-    /**
-     * 设置 服务接口
-     * 
-     * @param pSSysServiceAPIName
-     * 
-     */
-    @JsonProperty(FIELD_PSSYSSERVICEAPINAME)
-    public void setPSSysServiceAPIName(String pSSysServiceAPIName){
-        this.set(FIELD_PSSYSSERVICEAPINAME, pSSysServiceAPIName);
-    }
-    
-    /**
-     * 获取 服务接口  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSysServiceAPIName(){
-        Object objValue = this.get(FIELD_PSSYSSERVICEAPINAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 服务接口 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSysServiceAPINameDirty(){
-        if(this.contains(FIELD_PSSYSSERVICEAPINAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 服务接口
-     */
-    @JsonIgnore
-    public void resetPSSysServiceAPIName(){
-        this.reset(FIELD_PSSYSSERVICEAPINAME);
-    }
-
-    /**
-     * 设置 服务接口
-     * <P>
-     * 等同 {@link #setPSSysServiceAPIName}
-     * @param pSSysServiceAPIName
-     */
-    @JsonIgnore
-    public PSSysUniRes pssysserviceapiname(String pSSysServiceAPIName){
-        this.setPSSysServiceAPIName(pSSysServiceAPIName);
         return this;
     }
 
@@ -1377,6 +1091,147 @@ public class PSSysUniRes extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysUniRes restype(String resType){
         this.setResType(resType);
+        return this;
+    }
+
+    /**
+     * <B>TESTCUSTOMCODE</B>&nbsp;判断自定义代码
+     */
+    public final static String FIELD_TESTCUSTOMCODE = "testcustomcode";
+
+    /**
+     * 设置 判断自定义代码
+     * 
+     * @param testCustomCode
+     * 
+     */
+    @JsonProperty(FIELD_TESTCUSTOMCODE)
+    public void setTestCustomCode(String testCustomCode){
+        this.set(FIELD_TESTCUSTOMCODE, testCustomCode);
+    }
+    
+    /**
+     * 获取 判断自定义代码  
+     * @return
+     */
+    @JsonIgnore
+    public String getTestCustomCode(){
+        Object objValue = this.get(FIELD_TESTCUSTOMCODE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 判断自定义代码 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isTestCustomCodeDirty(){
+        if(this.contains(FIELD_TESTCUSTOMCODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 判断自定义代码
+     */
+    @JsonIgnore
+    public void resetTestCustomCode(){
+        this.reset(FIELD_TESTCUSTOMCODE);
+    }
+
+    /**
+     * 设置 判断自定义代码
+     * <P>
+     * 等同 {@link #setTestCustomCode}
+     * @param testCustomCode
+     */
+    @JsonIgnore
+    public PSSysUniRes testcustomcode(String testCustomCode){
+        this.setTestCustomCode(testCustomCode);
+        return this;
+    }
+
+    /**
+     * <B>TESTCUSTOMMODE</B>&nbsp;判断自定义模式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_TESTCUSTOMMODE = "testcustommode";
+
+    /**
+     * 设置 判断自定义模式
+     * 
+     * @param testCustomMode
+     * 
+     */
+    @JsonProperty(FIELD_TESTCUSTOMMODE)
+    public void setTestCustomMode(Integer testCustomMode){
+        this.set(FIELD_TESTCUSTOMMODE, testCustomMode);
+    }
+    
+    /**
+     * 获取 判断自定义模式  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getTestCustomMode(){
+        Object objValue = this.get(FIELD_TESTCUSTOMMODE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 判断自定义模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isTestCustomModeDirty(){
+        if(this.contains(FIELD_TESTCUSTOMMODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 判断自定义模式
+     */
+    @JsonIgnore
+    public void resetTestCustomMode(){
+        this.reset(FIELD_TESTCUSTOMMODE);
+    }
+
+    /**
+     * 设置 判断自定义模式
+     * <P>
+     * 等同 {@link #setTestCustomMode}
+     * @param testCustomMode
+     */
+    @JsonIgnore
+    public PSSysUniRes testcustommode(Integer testCustomMode){
+        this.setTestCustomMode(testCustomMode);
+        return this;
+    }
+
+     /**
+     * 设置 判断自定义模式
+     * <P>
+     * 等同 {@link #setTestCustomMode}
+     * @param testCustomMode
+     */
+    @JsonIgnore
+    public PSSysUniRes testcustommode(Boolean testCustomMode){
+        if(testCustomMode == null){
+            this.setTestCustomMode(null);
+        }
+        else{
+            this.setTestCustomMode(testCustomMode?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
         return this;
     }
 

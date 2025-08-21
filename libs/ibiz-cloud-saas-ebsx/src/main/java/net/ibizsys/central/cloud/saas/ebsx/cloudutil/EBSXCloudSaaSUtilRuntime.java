@@ -726,9 +726,16 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 
 					Page <UserRoleDTO> page2 = EBSXSystemRuntime.getInstance().getUserRoleService().fetchAccessDCSystem(userRoleFilter);
 					if(ObjectUtils.isEmpty(page2) || ObjectUtils.isEmpty(page2.getContent())) {
-						log.debug(String.format("系统[%1$s]未授予用户[%2$s]访问权限", dcSystem.getDCSystemName(), dcEmployeeDTO.getUserId()));
-						continue;
+						SearchContextDTO roleFilter = new SearchContextDTO().limit(1).count(false)
+								.param(IRoleService.FIELD_DCSYSTEMID, dcSystem.getDCSystemId());
+						Page <RoleDTO> page3 = EBSXSystemRuntime.getInstance().getRoleService().fetchCheckAuthorizeall(roleFilter);
+						if(ObjectUtils.isEmpty(page3) || ObjectUtils.isEmpty(page3.getContent())) {
+							log.debug(String.format("系统[%1$s]未授予用户[%2$s]访问权限", dcSystem.getDCSystemName(), dcEmployeeDTO.getUserId()));
+							continue;
+						}
 					}
+
+
 					// UserRoleSearchContext accessSearchContext = new
 					// UserRoleSearchContext();
 					//// accessSearchContext.setN_dcsystemid_eq(dcSystem.getDcsystemid());
@@ -768,6 +775,14 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 	protected User onGetUserByName(String strName) throws Throwable {
 		IUserService iUserService = EBSXSystemRuntime.getInstance().getUserService();
 		SearchContextDTO searchContextDTO = new SearchContextDTO();
+		User user = new User();
+		//先查询用户是否存在
+		searchContextDTO.eq("loginname", strName);
+		UserDTO sysUserDTO = iUserService.selectOne(searchContextDTO, true);
+		if (sysUserDTO != null) {
+			sysUserDTO.copyTo(user, true);
+			return user;
+		}
 		// QueryWrapper<User> conds = new QueryWrapper<User>();
 		String[] data = strName.split("[|,@]");
 		String loginname = "";
@@ -793,7 +808,7 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 		// sysUser.setUsername(username);
 		// }
 
-		UserDTO sysUserDTO = iUserService.selectOne(searchContextDTO, true);
+		sysUserDTO = iUserService.selectOne(searchContextDTO, true);
 		if (sysUserDTO == null) {
 			// if (bTryMode) {
 			// return null;
@@ -801,7 +816,6 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 			throw new UsernameNotFoundException("指定用户不存在");
 		}
 
-		User user = new User();
 		sysUserDTO.copyTo(user, true);
 		return user;
 	}

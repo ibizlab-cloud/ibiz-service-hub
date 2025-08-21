@@ -12,8 +12,6 @@ public interface IPSDELogicLinkSingleCondBase extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取值操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDBVALUEOPID}
 	 * @return
 	 */
 	java.lang.String getCondOP();
@@ -21,8 +19,6 @@ public interface IPSDELogicLinkSingleCondBase extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取目标属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMDSTPARAM}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEFNAME}
 	 * @return
 	 */
 	java.lang.String getDstFieldName();
@@ -35,8 +31,6 @@ net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParamMust();
 	/**
 	 * 获取参数类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRParamType}
 	 * @return
 	 */
@@ -45,8 +39,6 @@ net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParamMust();
 	
 	/**
 	 * 获取参数值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getParamValue();
@@ -54,8 +46,6 @@ net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParamMust();
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getSrcLogicParam();

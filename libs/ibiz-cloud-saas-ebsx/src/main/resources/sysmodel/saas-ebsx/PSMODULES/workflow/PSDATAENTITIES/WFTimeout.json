@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MAJORTEXT",
+        "codeName" : "MajorText"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -586,6 +594,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -689,6 +698,7 @@
     "length" : 100,
     "logicName" : "工作流任务标识",
     "name" : "TASKID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -793,6 +803,7 @@
     "length" : 100,
     "logicName" : "业务数据主键",
     "name" : "BUSINESSKEY",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -897,6 +908,7 @@
     "length" : 100,
     "logicName" : "主键标识",
     "name" : "ID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -985,6 +997,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "任务到期时间",
     "name" : "DUEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1087,6 +1100,7 @@
     "length" : 100,
     "logicName" : "业务数据名称",
     "name" : "MAJORTEXT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1186,6 +1200,7 @@
     "length" : 60,
     "logicName" : "组织机构标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1284,6 +1299,7 @@
     "length" : 60,
     "logicName" : "组织部门标识",
     "name" : "DEPTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1382,6 +1398,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

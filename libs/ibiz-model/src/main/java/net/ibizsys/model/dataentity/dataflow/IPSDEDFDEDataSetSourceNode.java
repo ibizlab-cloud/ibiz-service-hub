@@ -14,8 +14,6 @@ public interface IPSDEDFDEDataSetSourceNode extends net.ibizsys.model.dataentity
 	
 	/**
 	 * 获取目标实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getDstPSDEDataSet();
@@ -30,8 +28,6 @@ public interface IPSDEDFDEDataSetSourceNode extends net.ibizsys.model.dataentity
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();

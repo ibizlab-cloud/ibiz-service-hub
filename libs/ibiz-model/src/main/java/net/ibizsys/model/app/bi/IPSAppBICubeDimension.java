@@ -3,7 +3,7 @@ package net.ibizsys.model.app.bi;
 
 
 /**
- * 应用智能立方体维度模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO}运行时对象
+ * 应用智能立方体维度模型对象接口
  *
  */
 public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取维度公式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_DIMENSIONFORMULA}
 	 * @return
 	 */
 	java.lang.String getDimensionFormula();
@@ -42,8 +40,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取维度类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_BIDIMENSIONTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIDimensionType}
 	 * @return
@@ -74,8 +70,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.app.codelist.IPSAppCodeList getPSAppCodeList();
@@ -90,8 +84,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取相关应用属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -106,8 +98,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取参数配置界面行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_PARAMPSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUIAction getParamPSAppDEUIAction();
@@ -123,8 +113,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -133,8 +121,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本应用属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
@@ -149,8 +135,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_TEXTTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTextTemplate();
@@ -158,8 +142,6 @@ public interface IPSAppBICubeDimension extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取提示绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBICubeDimensionDTO#FIELD_TIPTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTipTemplate();

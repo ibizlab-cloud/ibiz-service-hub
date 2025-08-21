@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表全局维度模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBIDimensionDTO}运行时对象
+ * 智能报表全局维度模型对象接口
  *
  */
 public interface IPSSysBIDimension extends net.ibizsys.model.bi.IPSSysBISchemeObject

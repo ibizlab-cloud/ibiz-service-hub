@@ -17,8 +17,6 @@ public interface IPSAppDEEditView extends net.ibizsys.model.app.view.IPSAppDEVie
 	/**
 	 * 获取打开数据模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_VIEWPARAM13}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */
@@ -36,8 +34,6 @@ public interface IPSAppDEEditView extends net.ibizsys.model.app.view.IPSAppDEVie
 	
 	/**
 	 * 获取是否启用脏检查
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_VIEWPARAM3}
 	 * @return
 	 */
 	boolean isEnableDirtyChecking();
@@ -52,8 +48,6 @@ public interface IPSAppDEEditView extends net.ibizsys.model.app.view.IPSAppDEVie
 	
 	/**
 	 * 获取是否手动附加表单
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_VIEWPARAM17}
 	 * @return
 	 */
 	boolean isManualAppendForms();

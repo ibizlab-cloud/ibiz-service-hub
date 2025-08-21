@@ -15,8 +15,6 @@ public interface IPSDEFLogic extends net.ibizsys.model.dataentity.logic.IPSDELog
 	/**
 	 * 获取属性逻辑模型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFLOGICMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFLogicMode}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDEFLogic extends net.ibizsys.model.dataentity.logic.IPSDELog
 	
 	/**
 	 * 获取实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();

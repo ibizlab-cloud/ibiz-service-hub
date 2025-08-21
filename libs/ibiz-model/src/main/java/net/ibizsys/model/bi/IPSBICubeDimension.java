@@ -11,8 +11,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CODENAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -20,8 +18,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取维度公式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DIMENSIONFORMULA}
 	 * @return
 	 */
 	java.lang.String getDimensionFormula();
@@ -29,8 +25,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取维度标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BICUBEDIMENSIONTAG}
 	 * @return
 	 */
 	java.lang.String getDimensionTag();
@@ -38,8 +32,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取维度标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BICUBEDIMENSIONTAG2}
 	 * @return
 	 */
 	java.lang.String getDimensionTag2();
@@ -47,8 +39,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取维度类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIDIMENSIONTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIDimensionType}
 	 * @return
@@ -58,8 +48,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -74,8 +62,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -98,8 +84,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -108,8 +92,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取文本实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTextPSDEField();
@@ -124,8 +106,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取文本绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TEXTTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTextTemplate();
@@ -133,8 +113,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取提示绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIPTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTipTemplate();
@@ -142,8 +120,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取是否全部维度体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ALLHIERARCHYFLAG}
 	 * @return
 	 */
 	boolean isAllHierarchy();
@@ -151,8 +127,6 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	
 	/**
 	 * 获取是否默认维度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();

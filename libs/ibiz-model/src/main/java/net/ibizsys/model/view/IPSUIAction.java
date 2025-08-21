@@ -14,8 +14,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取行为级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ACTIONLEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionLevel}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取行为操作目标
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ACTIONTARGET}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
@@ -34,9 +30,16 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	
 	/**
-	 * 获取确认信息语言资源
+	 * 获取按钮样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CMPSLANRESID}
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
+	 * @return
+	 */
+	java.lang.String getButtonStyle();
+	
+	
+	/**
+	 * 获取确认信息语言资源
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCMPSLanguageRes();
@@ -51,8 +54,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -67,8 +68,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -83,17 +82,20 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作确认信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CONFIRMINFO}
 	 * @return
 	 */
 	java.lang.String getConfirmMsg();
 	
 	
 	/**
+	 * 获取计数项标识
+	 * @return
+	 */
+	java.lang.String getCounterId();
+	
+	
+	/**
 	 * 获取数据访问权限
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEOPPRIVID}
 	 * @return
 	 */
 	java.lang.String getDataAccessAction();
@@ -101,8 +103,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取弹窗关闭结果
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CLOSEEDITVIEW}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionDialogResult}
 	 * @return
@@ -112,8 +112,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取前端应用视图，根据{@link #isFrontPDTView}优先处理预置视图，否则按应用类型计算对应的实体视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEVIEWBASEID}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MOBPSDEVIEWID}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSPDTVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getFrontPSAppView();
@@ -128,8 +126,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取前台处理类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_FRONTPROTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionFrontType}
 	 * @return
@@ -146,8 +142,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取Html页面路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_HTMLPAGEURL}
 	 * @return
 	 */
 	java.lang.String getHtmlPageUrl();
@@ -155,8 +149,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取下一步界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_NEXTPSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIAction getNextPSUIAction();
@@ -171,8 +163,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取界面行为图标对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -201,8 +191,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取参数项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMITEM}
 	 * @return
 	 */
 	java.lang.String getParamItem();
@@ -210,8 +198,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取预置行为类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSUIACTIONID}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();
@@ -219,8 +205,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取刷新引用视图模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_RELOADDATA}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionReloadDataMode}
 	 * @return
@@ -230,8 +214,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成功信息语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SMPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getSMPSLanguageRes();
@@ -246,8 +228,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -255,8 +235,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作成功提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SUCCESSINFO}
 	 * @return
 	 */
 	java.lang.String getSuccessMsg();
@@ -264,8 +242,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取文本项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TEXTITEM}
 	 * @return
 	 */
 	java.lang.String getTextItem();
@@ -273,8 +249,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作超时时长（毫秒）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIMEOUT}
 	 * @return
 	 */
 	long getTimeout();
@@ -282,8 +256,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -291,8 +263,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作提示语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
@@ -308,8 +278,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取界面行为模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UIACTIONTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionType}
 	 * @return
 	 */
@@ -318,8 +286,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取界面行为参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UIACTIONPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getUIActionParamJO();
@@ -327,8 +293,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取界面行为标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CODENAME}
 	 * @return
 	 */
 	java.lang.String getUIActionTag();
@@ -344,8 +308,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取界面逻辑附加类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VLEXECMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionVLExecMode}
 	 * @return
 	 */
@@ -354,8 +316,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取界面逻辑类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VIEWLOGICTYPE}
 	 * @return
 	 */
 	java.lang.String getUILogicType();
@@ -363,8 +323,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DATAITEM}
 	 * @return
 	 */
 	java.lang.String getValueItem();
@@ -372,8 +330,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否操作后关闭编辑视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CLOSEEDITVIEW}
 	 * @return
 	 */
 	boolean isCloseEditView();
@@ -381,8 +337,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否启用用户操作确认
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_USERCONFIRM}
 	 * @return
 	 */
 	boolean isEnableConfirm();
@@ -404,8 +358,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否操作后刷新当前界面
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_RELOADDATA}
 	 * @return
 	 */
 	boolean isReloadData();
@@ -413,8 +365,6 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否显示处理提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BUSYINDICATOR}
 	 * @return
 	 */
 	boolean isShowBusyIndicator();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDID",
+        "codeName" : "InitSystem_WizardId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_INITSYSTEM_WIZARDNAME",
+        "codeName" : "InitSystem_WizardName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -572,6 +580,7 @@
     "length" : 100,
     "logicName" : "租户系统初始化向导标识",
     "name" : "SYS_INITSYSTEM_WIZARDID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -686,6 +695,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -762,6 +772,7 @@
     "length" : 100,
     "logicName" : "租户系统",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -871,6 +882,7 @@
     "length" : 200,
     "logicName" : "租户系统初始化向导名称",
     "name" : "SYS_INITSYSTEM_WIZARDNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -984,6 +996,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1088,6 +1101,7 @@
     "length" : 100,
     "logicName" : "租户标识",
     "name" : "CENTERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1189,6 +1203,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1292,6 +1307,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1446,6 +1462,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "SYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/InitSystem_Wizard/PSDERS/DER1N_SYS_INITSYSTEM_WIZARD_SYS_PSSYSTEM_SYSTEMID.json"
@@ -1592,6 +1609,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

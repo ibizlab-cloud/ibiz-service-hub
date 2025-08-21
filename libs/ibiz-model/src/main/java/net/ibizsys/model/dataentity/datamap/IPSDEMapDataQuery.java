@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.datamap;
 
 
 /**
- * 实体映射数据查询模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMapDSDTO}运行时对象
+ * 实体映射数据查询模型对象接口
  *
  */
 public interface IPSDEMapDataQuery extends net.ibizsys.model.dataentity.datamap.IPSDEMapObject{
@@ -12,8 +12,6 @@ public interface IPSDEMapDataQuery extends net.ibizsys.model.dataentity.datamap.
 	
 	/**
 	 * 获取目标实体查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDSDTO#FIELD_DSTPSDEDATAQUERYID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getDstPSDEDataQuery();
@@ -28,8 +26,6 @@ public interface IPSDEMapDataQuery extends net.ibizsys.model.dataentity.datamap.
 	
 	/**
 	 * 获取映射模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDSDTO#FIELD_MAPMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMapObjectMapMode}
 	 * @return
@@ -46,8 +42,6 @@ public interface IPSDEMapDataQuery extends net.ibizsys.model.dataentity.datamap.
 	
 	/**
 	 * 获取源实体查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDSDTO#FIELD_PSDEDATAQUERYID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getSrcPSDEDataQuery();
@@ -62,8 +56,6 @@ public interface IPSDEMapDataQuery extends net.ibizsys.model.dataentity.datamap.
 	
 	/**
 	 * 获取是否启用查询条件附加
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDSDTO#FIELD_ENABLEDQCOND}
 	 * @return
 	 */
 	boolean isEnableDQCond();

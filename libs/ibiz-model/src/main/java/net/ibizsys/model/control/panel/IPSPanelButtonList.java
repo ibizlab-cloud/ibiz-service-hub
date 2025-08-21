@@ -15,8 +15,6 @@ public interface IPSPanelButtonList extends net.ibizsys.model.control.panel.IPSP
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ITEMPARAM4}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -55,8 +53,6 @@ public interface IPSPanelButtonList extends net.ibizsys.model.control.panel.IPSP
 	
 	/**
 	 * 获取界面行为组对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup();

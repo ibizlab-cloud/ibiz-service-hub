@@ -60,6 +60,8 @@ public class PSDELogicNodeListMerger extends net.ibizsys.model.util.merger.PSMod
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDEActionLogicImpl.class, false);
 			case "DEBUGPARAM":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDebugParamLogicImpl.class, false);
+			case "DECISION":
+				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDecisionLogicImpl.class, false);
 			case "DEDATAFLOW":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDEDataFlowLogicImpl.class, false);
 			case "DEDATAQUERY":
@@ -86,6 +88,8 @@ public class PSDELogicNodeListMerger extends net.ibizsys.model.util.merger.PSMod
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEFilterParam2LogicImpl.class, false);
 			case "LOOPSUBCALL":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDELoopSubCallLogicImpl.class, false);
+			case "MEMO":
+				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMemoLogicImpl.class, false);
 			case "MERGEPARAM":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMergeParamLogicImpl.class, false);
 			case "PREPAREPARAM":

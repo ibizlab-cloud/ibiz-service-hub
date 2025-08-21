@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEFDLOGIC</B>实体表单成员逻辑项 模型传输对象
+ * <B>PSDEFDLOGIC</B>表单成员逻辑 模型传输对象
  * <P>
- * 实体表单的动态逻辑模型，为表单成员提供动态的显示隐藏、启用禁用及空输入控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
+ * 实体表单成员的动态逻辑模型。（1）为成员提供动态的显示隐藏、启用禁用及空输入控制，支持组合、单项条件类型，支持层级逻辑结构（2）事件的响应代码
  */
 public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -14,7 +18,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>CONDVALUE</B>&nbsp;条件值，指定单项逻辑的条件值
+     * <B>CONDVALUE</B>&nbsp;条件值，单项逻辑的条件值
      * <P>
      * 字符串：最大长度 4000
      */
@@ -201,12 +205,12 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCODE</B>&nbsp;自定义代码
+     * <B>CUSTOMCODE</B>&nbsp;自定义代码，逻辑分类为【SCRIPTCODE_XXXX】时指定响应代码
      */
     public final static String FIELD_CUSTOMCODE = "customcode";
 
     /**
-     * 设置 自定义代码
+     * 设置 自定义代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * 
      * @param customCode
      * 
@@ -250,7 +254,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 自定义代码
+     * 设置 自定义代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * <P>
      * 等同 {@link #setCustomCode}
      * @param customCode
@@ -262,7 +266,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FDNAME</B>&nbsp;表单项名称，指定单项逻辑判断的表单项的名称
+     * <B>FDNAME</B>&nbsp;表单项名称，单项逻辑判断的表单项名称
      * <P>
      * 字符串：最大长度 100
      */
@@ -325,14 +329,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GROUPNOTFLAG</B>&nbsp;取反操作，指定条件逻辑是否进行取反处理，未定义时为【否】
+     * <B>GROUPNOTFLAG</B>&nbsp;逻辑取反，条件逻辑是否进行取反，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_GROUPNOTFLAG = "groupnotflag";
 
     /**
-     * 设置 取反操作，详细说明：{@link #FIELD_GROUPNOTFLAG}
+     * 设置 逻辑取反，详细说明：{@link #FIELD_GROUPNOTFLAG}
      * 
      * @param groupNotFlag
      * 
@@ -343,7 +347,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 取反操作  
+     * 获取 逻辑取反  
      * @return
      */
     @JsonIgnore
@@ -356,7 +360,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 取反操作 是否指定值，包括空值
+     * 判断 逻辑取反 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -368,7 +372,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 取反操作
+     * 重置 逻辑取反
      */
     @JsonIgnore
     public void resetGroupNotFlag(){
@@ -376,7 +380,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 取反操作，详细说明：{@link #FIELD_GROUPNOTFLAG}
+     * 设置 逻辑取反，详细说明：{@link #FIELD_GROUPNOTFLAG}
      * <P>
      * 等同 {@link #setGroupNotFlag}
      * @param groupNotFlag
@@ -388,7 +392,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 取反操作，详细说明：{@link #FIELD_GROUPNOTFLAG}
+     * 设置 逻辑取反，详细说明：{@link #FIELD_GROUPNOTFLAG}
      * <P>
      * 等同 {@link #setGroupNotFlag}
      * @param groupNotFlag
@@ -405,14 +409,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GROUPOP</B>&nbsp;组合方式，指定组条件的逻辑
+     * <B>GROUPOP</B>&nbsp;组合条件操作
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.GroupCondOP} 
      */
     public final static String FIELD_GROUPOP = "groupop";
 
     /**
-     * 设置 组合方式，详细说明：{@link #FIELD_GROUPOP}
+     * 设置 组合条件操作
      * 
      * @param groupOP
      * 
@@ -423,7 +427,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 组合方式  
+     * 获取 组合条件操作  
      * @return
      */
     @JsonIgnore
@@ -436,7 +440,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 组合方式 是否指定值，包括空值
+     * 判断 组合条件操作 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -448,7 +452,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 组合方式
+     * 重置 组合条件操作
      */
     @JsonIgnore
     public void resetGroupOP(){
@@ -456,7 +460,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 组合方式，详细说明：{@link #FIELD_GROUPOP}
+     * 设置 组合条件操作
      * <P>
      * 等同 {@link #setGroupOP}
      * @param groupOP
@@ -468,7 +472,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 组合方式，详细说明：{@link #FIELD_GROUPOP}
+     * 设置 组合条件操作
      * <P>
      * 等同 {@link #setGroupOP}
      * @param groupOP
@@ -485,14 +489,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LOGICCAT</B>&nbsp;逻辑分类，指定表单部件动态逻辑的分类
+     * <B>LOGICCAT</B>&nbsp;逻辑分类
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.CtrlDetailLogicCat} 
      */
     public final static String FIELD_LOGICCAT = "logiccat";
 
     /**
-     * 设置 逻辑分类，详细说明：{@link #FIELD_LOGICCAT}
+     * 设置 逻辑分类
      * 
      * @param logicCat
      * 
@@ -536,7 +540,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 逻辑分类，详细说明：{@link #FIELD_LOGICCAT}
+     * 设置 逻辑分类
      * <P>
      * 等同 {@link #setLogicCat}
      * @param logicCat
@@ -548,7 +552,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 逻辑分类，详细说明：{@link #FIELD_LOGICCAT}
+     * 设置 逻辑分类
      * <P>
      * 等同 {@link #setLogicCat}
      * @param logicCat
@@ -565,14 +569,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LOGICTYPE</B>&nbsp;逻辑类型，指定表单动态逻辑的类型
+     * <B>LOGICTYPE</B>&nbsp;逻辑类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FormDetailLogicType} 
      */
     public final static String FIELD_LOGICTYPE = "logictype";
 
     /**
-     * 设置 逻辑类型，详细说明：{@link #FIELD_LOGICTYPE}
+     * 设置 逻辑类型
      * 
      * @param logicType
      * 
@@ -616,7 +620,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 逻辑类型，详细说明：{@link #FIELD_LOGICTYPE}
+     * 设置 逻辑类型
      * <P>
      * 等同 {@link #setLogicType}
      * @param logicType
@@ -628,7 +632,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 逻辑类型，详细说明：{@link #FIELD_LOGICTYPE}
+     * 设置 逻辑类型
      * <P>
      * 等同 {@link #setLogicType}
      * @param logicType
@@ -706,14 +710,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PPSDEFDLOGICID</B>&nbsp;父逻辑，指定父逻辑对象
+     * <B>PPSDEFDLOGICID</B>&nbsp;父逻辑
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFDLogic} 
      */
     public final static String FIELD_PPSDEFDLOGICID = "ppsdefdlogicid";
 
     /**
-     * 设置 父逻辑，详细说明：{@link #FIELD_PPSDEFDLOGICID}
+     * 设置 父逻辑
      * 
      * @param pPSDEFDLogicId
      * 
@@ -757,7 +761,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 父逻辑，详细说明：{@link #FIELD_PPSDEFDLOGICID}
+     * 设置 父逻辑
      * <P>
      * 等同 {@link #setPPSDEFDLogicId}
      * @param pPSDEFDLogicId
@@ -851,14 +855,16 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDBVALUEOPID</B>&nbsp;操作符号，指定表单项逻辑条件的操作符
+     * <B>PSDBVALUEOPID</B>&nbsp;条件操作
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DBValueOP3} 
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDBValueOP} 
      */
     public final static String FIELD_PSDBVALUEOPID = "psdbvalueopid";
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
+     * 设置 条件操作
      * 
      * @param pSDBValueOPId
      * 
@@ -869,7 +875,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 操作符号  
+     * 获取 条件操作  
      * @return
      */
     @JsonIgnore
@@ -882,7 +888,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 操作符号 是否指定值，包括空值
+     * 判断 条件操作 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -894,7 +900,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 操作符号
+     * 重置 条件操作
      */
     @JsonIgnore
     public void resetPSDBValueOPId(){
@@ -902,7 +908,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
+     * 设置 条件操作
      * <P>
      * 等同 {@link #setPSDBValueOPId}
      * @param pSDBValueOPId
@@ -914,14 +920,33 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDBVALUEOPNAME</B>&nbsp;操作符号，指定表单项逻辑条件的操作符
+     * 设置 条件操作，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDBValueOPId}
+     * @param pSDBValueOP 引用对象
+     */
+    @JsonIgnore
+    public PSDEFDLogic psdbvalueopid(PSDBValueOP pSDBValueOP){
+        if(pSDBValueOP == null){
+            this.setPSDBValueOPId(null);
+            this.setPSDBValueOPName(null);
+        }
+        else{
+            this.setPSDBValueOPId(pSDBValueOP.getPSDBValueOPId());
+            this.setPSDBValueOPName(pSDBValueOP.getPSDBValueOPName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDBVALUEOPNAME</B>&nbsp;条件操作符号
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDBVALUEOPID}
      */
     public final static String FIELD_PSDBVALUEOPNAME = "psdbvalueopname";
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPNAME}
+     * 设置 条件操作符号
      * 
      * @param pSDBValueOPName
      * 
@@ -932,7 +957,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 操作符号  
+     * 获取 条件操作符号  
      * @return
      */
     @JsonIgnore
@@ -945,7 +970,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 操作符号 是否指定值，包括空值
+     * 判断 条件操作符号 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -957,7 +982,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 操作符号
+     * 重置 条件操作符号
      */
     @JsonIgnore
     public void resetPSDBValueOPName(){
@@ -965,7 +990,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPNAME}
+     * 设置 条件操作符号
      * <P>
      * 等同 {@link #setPSDBValueOPName}
      * @param pSDBValueOPName
@@ -1040,14 +1065,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFDLOGICNAME</B>&nbsp;逻辑项名称，指定表单成员动态逻辑项名称
+     * <B>PSDEFDLOGICNAME</B>&nbsp;逻辑项名称
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_PSDEFDLOGICNAME = "psdefdlogicname";
 
     /**
-     * 设置 逻辑项名称，详细说明：{@link #FIELD_PSDEFDLOGICNAME}
+     * 设置 逻辑项名称
      * 
      * @param pSDEFDLogicName
      * 
@@ -1091,7 +1116,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 逻辑项名称，详细说明：{@link #FIELD_PSDEFDLOGICNAME}
+     * 设置 逻辑项名称
      * <P>
      * 等同 {@link #setPSDEFDLogicName}
      * @param pSDEFDLogicName
@@ -1119,14 +1144,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFORMDETAILID</B>&nbsp;表单成员，指定动态逻辑项所属表单成员
+     * <B>PSDEFORMDETAILID</B>&nbsp;所属表单成员，指定动态逻辑项所属表单成员
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFormDetail} 
      */
     public final static String FIELD_PSDEFORMDETAILID = "psdeformdetailid";
 
     /**
-     * 设置 表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
+     * 设置 所属表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
      * 
      * @param pSDEFormDetailId
      * 
@@ -1137,7 +1162,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 表单成员  
+     * 获取 所属表单成员  
      * @return
      */
     @JsonIgnore
@@ -1150,7 +1175,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 表单成员 是否指定值，包括空值
+     * 判断 所属表单成员 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1162,7 +1187,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 表单成员
+     * 重置 所属表单成员
      */
     @JsonIgnore
     public void resetPSDEFormDetailId(){
@@ -1170,7 +1195,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
+     * 设置 所属表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
      * <P>
      * 等同 {@link #setPSDEFormDetailId}
      * @param pSDEFormDetailId
@@ -1182,7 +1207,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单成员，包括引用对象的其它关系属性
+     * 设置 所属表单成员，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEFormDetailId}
      * @param pSDEFormDetail 引用对象
@@ -1550,14 +1575,14 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表单成员逻辑项 成员集合
+     *  表单成员逻辑 成员集合
      */
     public final static String FIELD_PSDEFDLOGICS = "psdefdlogics";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFDLogic> psdefdlogics;
 
     /**
-     * 获取 实体表单成员逻辑项 成员集合
+     * 获取 表单成员逻辑 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFDLOGICS)
@@ -1566,7 +1591,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表单成员逻辑项 成员集合  
+     * 设置 表单成员逻辑 成员集合  
      * @param psdefdlogics
      */
     @JsonProperty(FIELD_PSDEFDLOGICS)
@@ -1575,7 +1600,7 @@ public class PSDEFDLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表单成员逻辑项 成员集合，不存在时建立集合对象
+     * 获取 表单成员逻辑 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

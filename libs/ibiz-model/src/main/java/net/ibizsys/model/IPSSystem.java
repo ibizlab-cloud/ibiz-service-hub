@@ -3,7 +3,7 @@ package net.ibizsys.model;
 
 
 /**
- * 系统模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSystemDTO}运行时对象
+ * 系统模型对象接口
  * <P>
  * 系统模型对象是系统模型的根对象
  *
@@ -1232,8 +1232,6 @@ public interface IPSSystem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取默认脚本引擎
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSystemDTO#FIELD_SCRIPTENGINE}
 	 * @return
 	 */
 	java.lang.String getDefaultScriptEngine();
@@ -1313,8 +1311,6 @@ public interface IPSSystem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSystemDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();

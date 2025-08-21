@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.notify;
 
 
 /**
- * 实体通知模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO}运行时对象
+ * 实体通知模型对象接口
  *
  */
 public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取开始时间值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_BEGINPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getBeginTimePSDEField();
@@ -28,8 +26,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取通知检查间隔
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_CHECKTIMER}
 	 * @return
 	 */
 	int getCheckTimer();
@@ -44,8 +40,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自定义条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_CUSTOMCOND}
 	 * @return
 	 */
 	java.lang.String getCustomCond();
@@ -53,8 +47,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取结束时间值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_ENDPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getEndTimePSDEField();
@@ -69,8 +61,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取监控事件模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_EVENTMODEL}
 	 * @return
 	 */
 	java.lang.String getEventModel();
@@ -78,8 +68,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取监控事件集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_EVENTS}
 	 * @return
 	 */
 	java.lang.String getEvents();
@@ -87,8 +75,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取监控变化属性集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_FIELDS}
 	 * @return
 	 */
 	java.lang.String getFields();
@@ -96,8 +82,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取过滤器模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_FILTERMODEL}
 	 * @return
 	 */
 	java.lang.String getFilterModel();
@@ -105,8 +89,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取发送通知类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_MSGTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.InfomMsgType}
 	 * @return
@@ -116,8 +98,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取延后通知间隔
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_NOTIFYEND}
 	 * @return
 	 */
 	int getNotifyEnd();
@@ -125,8 +105,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取提前通知间隔
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_NOTIFYSTART}
 	 * @return
 	 */
 	int getNotifyStart();
@@ -134,8 +112,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取通知子类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_NOTIFYSUBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NotifySubType}
 	 * @return
@@ -145,8 +121,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取通知标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_NOTIFYTAG}
 	 * @return
 	 */
 	java.lang.String getNotifyTag();
@@ -154,8 +128,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取通知标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_NOTIFYTAG2}
 	 * @return
 	 */
 	java.lang.String getNotifyTag2();
@@ -163,8 +135,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -200,8 +170,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统消息队列
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_PSSYSMSGQUEUEID}
 	 * @return
 	 */
 	net.ibizsys.model.msg.IPSSysMsgQueue getPSSysMsgQueue();
@@ -216,8 +184,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统消息模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_PSSYSMSGTEMPLID}
 	 * @return
 	 */
 	net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl();
@@ -247,8 +213,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取附加任务模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_TASKMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DENotifyTaskMode}
 	 * @return
 	 */
@@ -258,8 +222,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取线程模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_THREADRUNMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicThreadRunMode}
 	 * @return
 	 */
@@ -268,8 +230,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否忽略异常
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_IGNOREEXCEPTION}
 	 * @return
 	 */
 	boolean isIgnoreException();
@@ -277,8 +237,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否模板逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_TEMPLFLAG}
 	 * @return
 	 */
 	boolean isTemplate();
@@ -286,8 +244,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否定时触发模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_TIMERMODE}
 	 * @return
 	 */
 	boolean isTimerMode();
@@ -295,8 +251,6 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDENotifyDTO#FIELD_VALIDFLAG}
 	 * @return
 	 */
 	boolean isValid();

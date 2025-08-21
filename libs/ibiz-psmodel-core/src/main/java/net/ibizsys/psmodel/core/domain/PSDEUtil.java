@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEUTIL</B>实体功能配置 模型传输对象
+ * <B>PSDEUTIL</B>实体功能组件 模型传输对象
  * <P>
- * 实体的功能配置模型，定义指定实体功能配置参数及相关的实体信息
+ * 实体的功能组件配置模型，定义指定实体功能配置参数及相关的实体信息
  */
 public class PSDEUtil extends net.ibizsys.psmodel.core.util.PSModelBase {
 

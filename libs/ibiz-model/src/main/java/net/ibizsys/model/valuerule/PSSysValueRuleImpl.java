@@ -15,6 +15,8 @@ public class PSSysValueRuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 	public final static String ATTR_GETREGEXCODE3 = "regExCode3";
 	public final static String ATTR_GETREGEXCODE4 = "regExCode4";
 	public final static String ATTR_GETRULEINFO = "ruleInfo";
+	public final static String ATTR_GETRULEINFOLANRESTAG = "ruleInfoLanResTag";
+	public final static String ATTR_GETRULEINFOPSLANGUAGERES = "getRuleInfoPSLanguageRes";
 	public final static String ATTR_GETRULETAG = "ruleTag";
 	public final static String ATTR_GETRULETAG2 = "ruleTag2";
 	public final static String ATTR_GETRULETYPE = "ruleType";
@@ -64,6 +66,10 @@ public class PSSysValueRuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -82,6 +88,10 @@ public class PSSysValueRuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -98,6 +108,10 @@ public class PSSysValueRuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -140,6 +154,36 @@ public class PSSysValueRuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		}
 		return value.asText();
 	}
+
+	public java.lang.String getRuleInfoLanResTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRULEINFOLANRESTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.res.IPSLanguageRes ruleinfopslanguageres;
+
+	public net.ibizsys.model.res.IPSLanguageRes getRuleInfoPSLanguageRes(){
+		if(this.ruleinfopslanguageres != null) return this.ruleinfopslanguageres;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRULEINFOPSLANGUAGERES);
+		if(value == null){
+			return null;
+		}
+		this.ruleinfopslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETRULEINFOPSLANGUAGERES);
+		return this.ruleinfopslanguageres;
+	}
+
+	public net.ibizsys.model.res.IPSLanguageRes getRuleInfoPSLanguageResMust(){
+		net.ibizsys.model.res.IPSLanguageRes value = this.getRuleInfoPSLanguageRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定规则信息语言资源对象");}
+		return value;
+	}
+
+	public void setRuleInfoPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes ruleinfopslanguageres){
+		this.ruleinfopslanguageres = ruleinfopslanguageres;
+	}
+
 
 	public java.lang.String getRuleTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRULETAG);

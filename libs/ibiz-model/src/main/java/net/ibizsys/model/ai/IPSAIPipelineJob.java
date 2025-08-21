@@ -3,6 +3,7 @@ package net.ibizsys.model.ai;
 
 
 /**
+ * AI工厂生产线作业对象接口
  *
  */
 public interface IPSAIPipelineJob extends net.ibizsys.model.ai.IPSAIPipelineObject{
@@ -11,8 +12,6 @@ public interface IPSAIPipelineJob extends net.ibizsys.model.ai.IPSAIPipelineObje
 	
 	/**
 	 * 获取步骤代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_STEPPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getStepPSCodeList();

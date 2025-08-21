@@ -14,8 +14,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getFormCodeName();
@@ -23,8 +21,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getFormName();
@@ -32,8 +28,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取源流程处理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_FROMPSWFPROCID}
 	 * @return
 	 */
 	net.ibizsys.model.wf.IPSWFInteractiveProcess getFromPSWFProcess();
@@ -48,8 +42,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取移动端操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_MOBFORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobFormCodeName();
@@ -57,8 +49,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取移动端操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_MOBPSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobFormName();
@@ -66,8 +56,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取移动端操作视图标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_MOBVIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobViewCodeName();
@@ -75,8 +63,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取移动端操作视图名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_MOBVIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobViewName();
@@ -105,8 +91,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取操作视图标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_VIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getViewCodeName();
@@ -114,8 +98,6 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	
 	/**
 	 * 获取操作视图名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkDTO#FIELD_PSDEVIEWBASENAME}
 	 * @return
 	 */
 	java.lang.String getViewName();

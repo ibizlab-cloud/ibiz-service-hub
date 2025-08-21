@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dataexport;
 
 
 /**
- * 实体数据导出模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO}运行时对象
+ * 实体数据导出模型对象接口
  * <P>
  * 实体导出使用表格模型{@link net.ibizsys.centralstudio.dto.PSDEGrid}定义导出模型
  *
@@ -20,9 +20,14 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	
 	/**
+	 * 获取内容类型
+	 * @return
+	 */
+	java.lang.String getContentType();
+	
+	
+	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_EXPPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getExpParams();
@@ -30,8 +35,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取导入标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_EXPTAG}
 	 * @return
 	 */
 	java.lang.String getExpTag();
@@ -39,11 +42,16 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取导入标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_EXPTAG2}
 	 * @return
 	 */
 	java.lang.String getExpTag2();
+	
+	
+	/**
+	 * 获取文件名称格式化
+	 * @return
+	 */
+	java.lang.String getFileNameFormat();
 	
 	
 	/**
@@ -55,8 +63,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取最大记录数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_MAXROWCNT}
 	 * @return
 	 */
 	int getMaxRowCount();
@@ -64,8 +70,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取性能优化预警时长（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_POTIME}
 	 * @return
 	 */
 	int getPOTime();
@@ -114,6 +118,20 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	
 	/**
+	 * 获取默认数据集
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
+
+
+	/**
+	 * 获取默认数据集，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSetMust();
+	
+	
+	/**
 	 * 获取前端扩展插件
 	 * @return
 	 */
@@ -143,8 +161,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否默认导出
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -152,8 +168,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持后台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_ACTIONHOLDER}
 	 * @return
 	 */
 	boolean isEnableBackend();
@@ -161,8 +175,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持自定义
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_ENABLECUSTOMIZED}
 	 * @return
 	 */
 	boolean isEnableCustomized();
@@ -170,8 +182,6 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持前台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataExpDTO#FIELD_ACTIONHOLDER}
 	 * @return
 	 */
 	boolean isEnableFront();

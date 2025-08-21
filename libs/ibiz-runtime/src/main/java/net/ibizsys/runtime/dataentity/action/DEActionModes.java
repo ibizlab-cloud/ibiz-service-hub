@@ -56,6 +56,11 @@ public class DEActionModes {
 	
 	
 	/**
+	 * 操作类型：拷贝数据
+	 */
+	public final static String COPY = "COPY";
+	
+	/**
 	 * 删除数据（等同DELETE），注意：值为对象值，不能直接用于 == 比较
 	 */
 	public final static String REMOVE = "DELETE";

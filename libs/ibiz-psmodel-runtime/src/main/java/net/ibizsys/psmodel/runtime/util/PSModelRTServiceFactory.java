@@ -734,13 +734,7 @@ public class PSModelRTServiceFactory extends PSModelServiceFactory {
         instance.registerPSModelService(PSModels.PSSYSDBPART, net.ibizsys.psmodel.runtime.service.PSSysDBPartRTService.class);
         instance.registerPSModelService("PSSYSDBPARTS", net.ibizsys.psmodel.runtime.service.PSSysDBPartRTService.class);
         
-        instance.registerPSModelService(PSModels.PSSYSDBPROC, net.ibizsys.psmodel.runtime.service.PSSysDBProcRTService.class);
-        instance.registerPSModelService("PSSYSDBPROCS", net.ibizsys.psmodel.runtime.service.PSSysDBProcRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSSYSDBPROCPARAM, net.ibizsys.psmodel.runtime.service.PSSysDBProcParamRTService.class);
-        instance.registerPSModelService("PSSYSDBPROCPARAMS", net.ibizsys.psmodel.runtime.service.PSSysDBProcParamRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSSYSDBSCHEME, net.ibizsys.psmodel.runtime.service.PSSysDBSchemeRTService.class);
+         instance.registerPSModelService(PSModels.PSSYSDBSCHEME, net.ibizsys.psmodel.runtime.service.PSSysDBSchemeRTService.class);
         instance.registerPSModelService("PSSYSDBSCHEMES", net.ibizsys.psmodel.runtime.service.PSSysDBSchemeRTService.class);
         
         instance.registerPSModelService(PSModels.PSSYSDBTABLE, net.ibizsys.psmodel.runtime.service.PSSysDBTableRTService.class);
@@ -1003,10 +997,7 @@ public class PSModelRTServiceFactory extends PSModelServiceFactory {
         instance.registerPSModelService(PSModels.PSSYSVIEWLOGIC, net.ibizsys.psmodel.runtime.service.PSSysViewLogicRTService.class);
         instance.registerPSModelService("PSSYSVIEWLOGICS", net.ibizsys.psmodel.runtime.service.PSSysViewLogicRTService.class);
         
-        instance.registerPSModelService(PSModels.PSSYSVIEWLOGICPARAM, net.ibizsys.psmodel.runtime.service.PSSysViewLogicParamRTService.class);
-        instance.registerPSModelService("PSSYSVIEWLOGICPARAMS", net.ibizsys.psmodel.runtime.service.PSSysViewLogicParamRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSSYSVIEWPANEL, net.ibizsys.psmodel.runtime.service.PSSysViewPanelRTService.class);
+       instance.registerPSModelService(PSModels.PSSYSVIEWPANEL, net.ibizsys.psmodel.runtime.service.PSSysViewPanelRTService.class);
         instance.registerPSModelService("PSSYSVIEWPANELS", net.ibizsys.psmodel.runtime.service.PSSysViewPanelRTService.class);
         
         instance.registerPSModelService(PSModels.PSSYSVIEWPANELITEM, net.ibizsys.psmodel.runtime.service.PSSysViewPanelItemRTService.class);
@@ -1015,10 +1006,7 @@ public class PSModelRTServiceFactory extends PSModelServiceFactory {
         instance.registerPSModelService(PSModels.PSSYSVIEWPANELLOGIC, net.ibizsys.psmodel.runtime.service.PSSysViewPanelLogicRTService.class);
         instance.registerPSModelService("PSSYSVIEWPANELLOGICS", net.ibizsys.psmodel.runtime.service.PSSysViewPanelLogicRTService.class);
         
-        instance.registerPSModelService(PSModels.PSSYSVIEWPANELMODEL, net.ibizsys.psmodel.runtime.service.PSSysViewPanelModelRTService.class);
-        instance.registerPSModelService("PSSYSVIEWPANELMODELS", net.ibizsys.psmodel.runtime.service.PSSysViewPanelModelRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSSYSWFCAT, net.ibizsys.psmodel.runtime.service.PSSysWFCatRTService.class);
+         instance.registerPSModelService(PSModels.PSSYSWFCAT, net.ibizsys.psmodel.runtime.service.PSSysWFCatRTService.class);
         instance.registerPSModelService("PSSYSWFCATS", net.ibizsys.psmodel.runtime.service.PSSysWFCatRTService.class);
         
         instance.registerPSModelService(PSModels.PSSYSWFMODE, net.ibizsys.psmodel.runtime.service.PSSysWFModeRTService.class);
@@ -1032,12 +1020,6 @@ public class PSModelRTServiceFactory extends PSModelServiceFactory {
         
         instance.registerPSModelService(PSModels.PSSYSTEMRUN, net.ibizsys.psmodel.runtime.service.PSSystemRunRTService.class);
         instance.registerPSModelService("PSSYSTEMRUNS", net.ibizsys.psmodel.runtime.service.PSSystemRunRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSTHRESHOLD, net.ibizsys.psmodel.runtime.service.PSThresholdRTService.class);
-        instance.registerPSModelService("PSTHRESHOLDS", net.ibizsys.psmodel.runtime.service.PSThresholdRTService.class);
-        
-        instance.registerPSModelService(PSModels.PSTHRESHOLDGROUP, net.ibizsys.psmodel.runtime.service.PSThresholdGroupRTService.class);
-        instance.registerPSModelService("PSTHRESHOLDGROUPS", net.ibizsys.psmodel.runtime.service.PSThresholdGroupRTService.class);
         
         instance.registerPSModelService(PSModels.PSVIEWMSG, net.ibizsys.psmodel.runtime.service.PSViewMsgRTService.class);
         instance.registerPSModelService("PSVIEWMSGS", net.ibizsys.psmodel.runtime.service.PSViewMsgRTService.class);

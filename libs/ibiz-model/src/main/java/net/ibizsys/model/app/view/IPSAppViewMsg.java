@@ -3,9 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用视图消息模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getDynamicMode}
+ * 应用视图消息模型对象接口
  *
  */
 public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
@@ -31,8 +29,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	/**
 	 * 获取动态模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_DYNAMICMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgDynamicMode}
 	 * @return
 	 */
@@ -41,8 +37,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取视图消息启用模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_ENABLEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgEnableMode}
 	 * @return
@@ -60,8 +54,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	/**
 	 * 获取消息类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_MSGTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgType}
 	 * @return
 	 */
@@ -70,8 +62,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取启用判断实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -86,8 +76,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取应用消息模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_PSSYSMSGTEMPLID}
 	 * @return
 	 */
 	net.ibizsys.model.app.msg.IPSAppMsgTempl getPSAppMsgTempl();
@@ -116,8 +104,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取系统界面样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -132,8 +118,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取系统图片
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -149,8 +133,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	/**
 	 * 获取显示位置
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_MSGPOS}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgPos}
 	 * @return
 	 */
@@ -160,8 +142,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	/**
 	 * 获取消息删除模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_ENABLEREMOVE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgRemoveMode}
 	 * @return
 	 */
@@ -170,8 +150,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取启用判断实体逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_TESTPSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDELogic getTestPSAppDELogic();
@@ -200,8 +178,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取启用判断脚本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_TESTCUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getTestScriptCode();
@@ -209,8 +185,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_TITLE}
 	 * @return
 	 */
 	java.lang.String getTitle();
@@ -225,8 +199,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取抬头语言资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_TITLEPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();
@@ -241,8 +213,6 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	
 	/**
 	 * 获取是否支持关闭
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgDTO#FIELD_ENABLEREMOVE}
 	 * @return
 	 */
 	boolean isEnableRemove();

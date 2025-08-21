@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEVIEWRV</B>实体视图关联视图 模型传输对象
+ * <B>PSDEVIEWRV</B>实体视图引用视图 模型传输对象
  * <P>
- * 实体视图的关联视图模型，视图类型内置的处理逻辑会涉及视图的使用，关联视图就是将相关视图按照逻辑约定的标记注册到视图中供逻辑使用。注意：关联视图支持重新定义引用视图的打开方式、高度、宽度等，但某些模板受限于技术或代码组织会仅使用引用视图配置，在配置时需要确定模板的特性
+ * 实体视图的引用视图模型，视图类型内置的处理逻辑会涉及视图的使用，引用视图就是将相关视图按照逻辑约定的标记注册到视图中供逻辑使用。注意：引用视图支持重新定义引用视图的打开方式、高度、宽度等，但某些模板受限于技术或代码组织会仅使用引用视图配置，在配置时需要确定模板的特性
  */
 public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -138,7 +142,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEFVIEWTYPE</B>&nbsp;预置功能视图，指定引用视图指向的预置功能视图，在未具体指定关联视图对象时尝试从视图所在实体获取指定功能模式的视图
+     * <B>DEFVIEWTYPE</B>&nbsp;预置功能视图，指定引用视图指向的预置功能视图，在未具体指定引用视图对象时尝试从视图所在实体获取指定功能模式的视图
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.PredefinedViewType} 
      */
@@ -218,7 +222,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>HEIGHT</B>&nbsp;高度，指定关联视图的高度，未定义时使用视图默认
+     * <B>HEIGHT</B>&nbsp;高度，指定引用视图的高度，未定义时使用视图默认
      */
     public final static String FIELD_HEIGHT = "height";
 
@@ -487,14 +491,14 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MINORPSDEVIEWID</B>&nbsp;关联实体视图，指定引用视图指向的关联视图对象
+     * <B>MINORPSDEVIEWID</B>&nbsp;引用实体视图，指定引用视图指向的关联视图对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
     public final static String FIELD_MINORPSDEVIEWID = "minorpsdeviewid";
 
     /**
-     * 设置 关联实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWID}
+     * 设置 引用实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWID}
      * 
      * @param minorPSDEViewId
      * 
@@ -505,7 +509,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体视图  
+     * 获取 引用实体视图  
      * @return
      */
     @JsonIgnore
@@ -518,7 +522,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体视图 是否指定值，包括空值
+     * 判断 引用实体视图 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -530,7 +534,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体视图
+     * 重置 引用实体视图
      */
     @JsonIgnore
     public void resetMinorPSDEViewId(){
@@ -538,7 +542,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWID}
+     * 设置 引用实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWID}
      * <P>
      * 等同 {@link #setMinorPSDEViewId}
      * @param minorPSDEViewId
@@ -550,7 +554,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体视图，包括引用对象的其它关系属性
+     * 设置 引用实体视图，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setMinorPSDEViewId}
      * @param pSDEViewBase 引用对象
@@ -569,14 +573,14 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MINORPSDEVIEWNAME</B>&nbsp;关联实体视图，指定引用视图指向的关联视图对象
+     * <B>MINORPSDEVIEWNAME</B>&nbsp;引用实体视图，指定引用视图指向的关联视图对象
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_MINORPSDEVIEWID}
      */
     public final static String FIELD_MINORPSDEVIEWNAME = "minorpsdeviewname";
 
     /**
-     * 设置 关联实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWNAME}
+     * 设置 引用实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWNAME}
      * 
      * @param minorPSDEViewName
      * 
@@ -587,7 +591,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联实体视图  
+     * 获取 引用实体视图  
      * @return
      */
     @JsonIgnore
@@ -600,7 +604,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联实体视图 是否指定值，包括空值
+     * 判断 引用实体视图 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -612,7 +616,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联实体视图
+     * 重置 引用实体视图
      */
     @JsonIgnore
     public void resetMinorPSDEViewName(){
@@ -620,7 +624,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWNAME}
+     * 设置 引用实体视图，详细说明：{@link #FIELD_MINORPSDEVIEWNAME}
      * <P>
      * 等同 {@link #setMinorPSDEViewName}
      * @param minorPSDEViewName
@@ -632,7 +636,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OPENMODE</B>&nbsp;打开方式，指定关联视图的打开方式，未定义时使用视图默认
+     * <B>OPENMODE</B>&nbsp;打开方式，指定引用视图的打开方式，未定义时使用视图默认
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.OpenViewMode} 
      */
@@ -775,14 +779,14 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEVIEWRVNAME</B>&nbsp;关联视图模式，指定关联视图的模式，必须在所在视图具有唯一性
+     * <B>PSDEVIEWRVNAME</B>&nbsp;引用模式，指定引用视图的模式，必须在所在视图具有唯一性
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_PSDEVIEWRVNAME = "psdeviewrvname";
 
     /**
-     * 设置 关联视图模式，详细说明：{@link #FIELD_PSDEVIEWRVNAME}
+     * 设置 引用模式，详细说明：{@link #FIELD_PSDEVIEWRVNAME}
      * 
      * @param pSDEViewRVName
      * 
@@ -793,7 +797,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 关联视图模式  
+     * 获取 引用模式  
      * @return
      */
     @JsonIgnore
@@ -806,7 +810,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 关联视图模式 是否指定值，包括空值
+     * 判断 引用模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -818,7 +822,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 关联视图模式
+     * 重置 引用模式
      */
     @JsonIgnore
     public void resetPSDEViewRVName(){
@@ -826,7 +830,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 关联视图模式，详细说明：{@link #FIELD_PSDEVIEWRVNAME}
+     * 设置 引用模式，详细说明：{@link #FIELD_PSDEVIEWRVNAME}
      * <P>
      * 等同 {@link #setPSDEViewRVName}
      * @param pSDEViewRVName
@@ -854,7 +858,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFMODE</B>&nbsp;引用模式，指定关联视图的引用模式，与引用参数一起形成关联视图模式
+     * <B>REFMODE</B>&nbsp;引用模式，指定引用视图的引用模式，与引用参数一起形成关联视图模式
      * <P>
      * 字符串：最大长度 30
      */
@@ -917,7 +921,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPARAM</B>&nbsp;引用参数，指定关联视图的引用参数，与引用模式一起形成关联视图模式
+     * <B>REFPARAM</B>&nbsp;引用参数，指定引用视图的引用参数，与引用模式一起形成关联视图模式
      * <P>
      * 字符串：最大长度 100
      */
@@ -980,7 +984,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TITLE</B>&nbsp;抬头，指定关联视图的标题，未定义时使用视图默认
+     * <B>TITLE</B>&nbsp;抬头，指定引用视图的标题，未定义时使用视图默认
      * <P>
      * 字符串：最大长度 200
      */
@@ -1043,7 +1047,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TITLEPSLANRESID</B>&nbsp;标题语言资源，指定关联视图的标题的多语言资源对象，未定义时使用视图默认
+     * <B>TITLEPSLANRESID</B>&nbsp;标题语言资源，指定引用视图的标题的多语言资源对象，未定义时使用视图默认
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSLanguageRes} 
      */
@@ -1125,7 +1129,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TITLEPSLANRESNAME</B>&nbsp;标题语言资源，指定关联视图的标题的多语言资源对象，未定义时使用视图默认
+     * <B>TITLEPSLANRESNAME</B>&nbsp;标题语言资源，指定引用视图的标题的多语言资源对象，未定义时使用视图默认
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_TITLEPSLANRESID}
      */
@@ -1438,7 +1442,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VIEWPARAMS</B>&nbsp;视图参数，指定关联视图的动态视图参数，将与视图默认参数合并
+     * <B>VIEWPARAMS</B>&nbsp;视图参数，指定引用视图的动态视图参数，将与视图默认参数合并
      * <P>
      * 字符串：最大长度 4000
      */
@@ -1501,7 +1505,7 @@ public class PSDEViewRV extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>WIDTH</B>&nbsp;宽度，指定关联视图的宽度，未定义时使用视图默认
+     * <B>WIDTH</B>&nbsp;宽度，指定引用视图的宽度，未定义时使用视图默认
      */
     public final static String FIELD_WIDTH = "width";
 

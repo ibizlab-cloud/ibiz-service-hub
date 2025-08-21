@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MODELID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MODELNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -507,6 +515,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "MODELID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -634,6 +643,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "MODELNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -771,6 +781,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -890,6 +901,7 @@
     "length" : 1048576,
     "logicName" : "配置",
     "name" : "MODELCFG",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1032,6 +1044,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1172,6 +1185,7 @@
     "length" : 100,
     "logicName" : "物化视图",
     "name" : "MATERIALIZEDVIEW",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1281,6 +1295,7 @@
     "length" : 100,
     "logicName" : "刷新时间",
     "name" : "REFRESHTIME",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1388,6 +1403,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 100,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1497,6 +1513,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 101,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

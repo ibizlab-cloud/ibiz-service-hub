@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "DATAAUDITID",
+        "codeName" : "DataAuditId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "DATAAUDITNAME",
+        "codeName" : "DataAuditName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -495,6 +503,7 @@
     "length" : 100,
     "logicName" : "对象类型",
     "name" : "OBJECTTYPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -603,6 +612,7 @@
     "length" : 1048576,
     "logicName" : "审计明细",
     "name" : "AUDITINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -705,6 +715,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -824,6 +835,7 @@
     "length" : 100,
     "logicName" : "访问日志标识",
     "name" : "DATAAUDITID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -944,6 +956,7 @@
     "length" : 60,
     "logicName" : "文件类型",
     "name" : "AUDITTYPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1058,6 +1071,7 @@
     "length" : 200,
     "logicName" : "访问日志名称",
     "name" : "DATAAUDITNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1161,6 +1175,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1277,6 +1292,7 @@
     "length" : 100,
     "logicName" : "对象编号",
     "name" : "OBJECTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1385,6 +1401,7 @@
     "length" : 100,
     "logicName" : "操作人",
     "name" : "OPPERSONNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1504,6 +1521,7 @@
     "length" : 100,
     "logicName" : "操作人",
     "name" : "OPPERSONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1612,6 +1630,7 @@
     "length" : 100,
     "logicName" : "访问地址",
     "name" : "IPADDRESS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1720,6 +1739,7 @@
     "length" : 100,
     "logicName" : "访问标识",
     "name" : "SESSIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1831,6 +1851,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1949,6 +1970,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2086,6 +2108,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/OperationMgr/PSDATAENTITIES/DataAudit/PSDERS/DER1N_DATAAUDIT_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -2228,6 +2251,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

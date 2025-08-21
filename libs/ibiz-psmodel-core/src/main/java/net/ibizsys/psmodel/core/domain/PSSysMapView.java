@@ -2504,14 +2504,14 @@ public class PSSysMapView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统地图数据项 成员集合
+     *  地图数据项 成员集合
      */
     public final static String FIELD_PSSYSMAPITEM = "pssysmapitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysMapItem> pssysmapitems;
 
     /**
-     * 获取 系统地图数据项 成员集合
+     * 获取 地图数据项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSMAPITEM)
@@ -2520,7 +2520,7 @@ public class PSSysMapView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统地图数据项 成员集合  
+     * 设置 地图数据项 成员集合  
      * @param pssysmapitems
      */
     @JsonProperty(FIELD_PSSYSMAPITEM)
@@ -2529,7 +2529,7 @@ public class PSSysMapView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统地图数据项 成员集合，不存在时建立集合对象
+     * 获取 地图数据项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

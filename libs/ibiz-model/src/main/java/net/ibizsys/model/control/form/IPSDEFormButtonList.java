@@ -15,8 +15,6 @@ public interface IPSDEFormButtonList extends net.ibizsys.model.control.form.IPSD
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_UPDATEDVT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDEFormButtonList extends net.ibizsys.model.control.form.IPSD
 	
 	/**
 	 * 获取按钮列表类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CONTENTTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonListType}
 	 * @return
@@ -57,8 +53,6 @@ public interface IPSDEFormButtonList extends net.ibizsys.model.control.form.IPSD
 	
 	/**
 	 * 获取界面行为组对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup();

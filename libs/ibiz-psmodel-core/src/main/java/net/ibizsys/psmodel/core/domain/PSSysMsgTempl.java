@@ -512,6 +512,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>CONTENTTYPEPSDEFID</B>&nbsp;内容类型属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_CONTENTTYPEPSDEFID = "contenttypepsdefid";
+
+    /**
+     * 设置 内容类型属性
+     * 
+     * @param contentTypePSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_CONTENTTYPEPSDEFID)
+    public void setContentTypePSDEFId(String contentTypePSDEFId){
+        this.set(FIELD_CONTENTTYPEPSDEFID, contentTypePSDEFId);
+    }
+    
+    /**
+     * 获取 内容类型属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getContentTypePSDEFId(){
+        Object objValue = this.get(FIELD_CONTENTTYPEPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 内容类型属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isContentTypePSDEFIdDirty(){
+        if(this.contains(FIELD_CONTENTTYPEPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 内容类型属性
+     */
+    @JsonIgnore
+    public void resetContentTypePSDEFId(){
+        this.reset(FIELD_CONTENTTYPEPSDEFID);
+    }
+
+    /**
+     * 设置 内容类型属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFId}
+     * @param contentTypePSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl contenttypepsdefid(String contentTypePSDEFId){
+        this.setContentTypePSDEFId(contentTypePSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 内容类型属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl contenttypepsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setContentTypePSDEFId(null);
+            this.setContentTypePSDEFName(null);
+        }
+        else{
+            this.setContentTypePSDEFId(pSDEField.getPSDEFieldId());
+            this.setContentTypePSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>CONTENTTYPEPSDEFNAME</B>&nbsp;内容类型属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_CONTENTTYPEPSDEFID}
+     */
+    public final static String FIELD_CONTENTTYPEPSDEFNAME = "contenttypepsdefname";
+
+    /**
+     * 设置 内容类型属性
+     * 
+     * @param contentTypePSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_CONTENTTYPEPSDEFNAME)
+    public void setContentTypePSDEFName(String contentTypePSDEFName){
+        this.set(FIELD_CONTENTTYPEPSDEFNAME, contentTypePSDEFName);
+    }
+    
+    /**
+     * 获取 内容类型属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getContentTypePSDEFName(){
+        Object objValue = this.get(FIELD_CONTENTTYPEPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 内容类型属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isContentTypePSDEFNameDirty(){
+        if(this.contains(FIELD_CONTENTTYPEPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 内容类型属性
+     */
+    @JsonIgnore
+    public void resetContentTypePSDEFName(){
+        this.reset(FIELD_CONTENTTYPEPSDEFNAME);
+    }
+
+    /**
+     * 设置 内容类型属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFName}
+     * @param contentTypePSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl contenttypepsdefname(String contentTypePSDEFName){
+        this.setContentTypePSDEFName(contentTypePSDEFName);
+        return this;
+    }
+
+    /**
      * <B>CREATEDATE</B>&nbsp;建立时间
      */
     public final static String FIELD_CREATEDATE = "createdate";
@@ -838,6 +983,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DDCONTENTPSDEFID</B>&nbsp;钉钉内容属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_DDCONTENTPSDEFID = "ddcontentpsdefid";
+
+    /**
+     * 设置 钉钉内容属性
+     * 
+     * @param dDContentPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_DDCONTENTPSDEFID)
+    public void setDDContentPSDEFId(String dDContentPSDEFId){
+        this.set(FIELD_DDCONTENTPSDEFID, dDContentPSDEFId);
+    }
+    
+    /**
+     * 获取 钉钉内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getDDContentPSDEFId(){
+        Object objValue = this.get(FIELD_DDCONTENTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 钉钉内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDDContentPSDEFIdDirty(){
+        if(this.contains(FIELD_DDCONTENTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 钉钉内容属性
+     */
+    @JsonIgnore
+    public void resetDDContentPSDEFId(){
+        this.reset(FIELD_DDCONTENTPSDEFID);
+    }
+
+    /**
+     * 设置 钉钉内容属性
+     * <P>
+     * 等同 {@link #setDDContentPSDEFId}
+     * @param dDContentPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl ddcontentpsdefid(String dDContentPSDEFId){
+        this.setDDContentPSDEFId(dDContentPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 钉钉内容属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setDDContentPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl ddcontentpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setDDContentPSDEFId(null);
+            this.setDDContentPSDEFName(null);
+        }
+        else{
+            this.setDDContentPSDEFId(pSDEField.getPSDEFieldId());
+            this.setDDContentPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>DDCONTENTPSDEFNAME</B>&nbsp;钉钉内容属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_DDCONTENTPSDEFID}
+     */
+    public final static String FIELD_DDCONTENTPSDEFNAME = "ddcontentpsdefname";
+
+    /**
+     * 设置 钉钉内容属性
+     * 
+     * @param dDContentPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_DDCONTENTPSDEFNAME)
+    public void setDDContentPSDEFName(String dDContentPSDEFName){
+        this.set(FIELD_DDCONTENTPSDEFNAME, dDContentPSDEFName);
+    }
+    
+    /**
+     * 获取 钉钉内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getDDContentPSDEFName(){
+        Object objValue = this.get(FIELD_DDCONTENTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 钉钉内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDDContentPSDEFNameDirty(){
+        if(this.contains(FIELD_DDCONTENTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 钉钉内容属性
+     */
+    @JsonIgnore
+    public void resetDDContentPSDEFName(){
+        this.reset(FIELD_DDCONTENTPSDEFNAME);
+    }
+
+    /**
+     * 设置 钉钉内容属性
+     * <P>
+     * 等同 {@link #setDDContentPSDEFName}
+     * @param dDContentPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl ddcontentpsdefname(String dDContentPSDEFName){
+        this.setDDContentPSDEFName(dDContentPSDEFName);
+        return this;
+    }
+
+    /**
      * <B>DDPSLANRESID</B>&nbsp;钉钉内容语言资源
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSLanguageRes} 
@@ -1046,6 +1336,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>IMCONTENTPSDEFID</B>&nbsp;IM内容属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_IMCONTENTPSDEFID = "imcontentpsdefid";
+
+    /**
+     * 设置 IM内容属性
+     * 
+     * @param iMContentPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_IMCONTENTPSDEFID)
+    public void setIMContentPSDEFId(String iMContentPSDEFId){
+        this.set(FIELD_IMCONTENTPSDEFID, iMContentPSDEFId);
+    }
+    
+    /**
+     * 获取 IM内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getIMContentPSDEFId(){
+        Object objValue = this.get(FIELD_IMCONTENTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 IM内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isIMContentPSDEFIdDirty(){
+        if(this.contains(FIELD_IMCONTENTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 IM内容属性
+     */
+    @JsonIgnore
+    public void resetIMContentPSDEFId(){
+        this.reset(FIELD_IMCONTENTPSDEFID);
+    }
+
+    /**
+     * 设置 IM内容属性
+     * <P>
+     * 等同 {@link #setIMContentPSDEFId}
+     * @param iMContentPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl imcontentpsdefid(String iMContentPSDEFId){
+        this.setIMContentPSDEFId(iMContentPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 IM内容属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setIMContentPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl imcontentpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setIMContentPSDEFId(null);
+            this.setIMContentPSDEFName(null);
+        }
+        else{
+            this.setIMContentPSDEFId(pSDEField.getPSDEFieldId());
+            this.setIMContentPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>IMCONTENTPSDEFNAME</B>&nbsp;IM内容属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_IMCONTENTPSDEFID}
+     */
+    public final static String FIELD_IMCONTENTPSDEFNAME = "imcontentpsdefname";
+
+    /**
+     * 设置 IM内容属性
+     * 
+     * @param iMContentPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_IMCONTENTPSDEFNAME)
+    public void setIMContentPSDEFName(String iMContentPSDEFName){
+        this.set(FIELD_IMCONTENTPSDEFNAME, iMContentPSDEFName);
+    }
+    
+    /**
+     * 获取 IM内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getIMContentPSDEFName(){
+        Object objValue = this.get(FIELD_IMCONTENTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 IM内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isIMContentPSDEFNameDirty(){
+        if(this.contains(FIELD_IMCONTENTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 IM内容属性
+     */
+    @JsonIgnore
+    public void resetIMContentPSDEFName(){
+        this.reset(FIELD_IMCONTENTPSDEFNAME);
+    }
+
+    /**
+     * 设置 IM内容属性
+     * <P>
+     * 等同 {@link #setIMContentPSDEFName}
+     * @param iMContentPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl imcontentpsdefname(String iMContentPSDEFName){
+        this.setIMContentPSDEFName(iMContentPSDEFName);
+        return this;
+    }
+
+    /**
      * <B>IMPSLANRESID</B>&nbsp;IM内容语言资源，指定消息模板的即时消息内容的多语言资源对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSLanguageRes} 
@@ -1187,6 +1622,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysMsgTempl impslanresname(String iMPSLanResName){
         this.setIMPSLanResName(iMPSLanResName);
+        return this;
+    }
+
+    /**
+     * <B>LANPSDEFID</B>&nbsp;语言属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_LANPSDEFID = "lanpsdefid";
+
+    /**
+     * 设置 语言属性
+     * 
+     * @param lanPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_LANPSDEFID)
+    public void setLanPSDEFId(String lanPSDEFId){
+        this.set(FIELD_LANPSDEFID, lanPSDEFId);
+    }
+    
+    /**
+     * 获取 语言属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getLanPSDEFId(){
+        Object objValue = this.get(FIELD_LANPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 语言属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isLanPSDEFIdDirty(){
+        if(this.contains(FIELD_LANPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 语言属性
+     */
+    @JsonIgnore
+    public void resetLanPSDEFId(){
+        this.reset(FIELD_LANPSDEFID);
+    }
+
+    /**
+     * 设置 语言属性
+     * <P>
+     * 等同 {@link #setLanPSDEFId}
+     * @param lanPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl lanpsdefid(String lanPSDEFId){
+        this.setLanPSDEFId(lanPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 语言属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setLanPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl lanpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setLanPSDEFId(null);
+            this.setLanPSDEFName(null);
+        }
+        else{
+            this.setLanPSDEFId(pSDEField.getPSDEFieldId());
+            this.setLanPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>LANPSDEFNAME</B>&nbsp;语言属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_LANPSDEFID}
+     */
+    public final static String FIELD_LANPSDEFNAME = "lanpsdefname";
+
+    /**
+     * 设置 语言属性
+     * 
+     * @param lanPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_LANPSDEFNAME)
+    public void setLanPSDEFName(String lanPSDEFName){
+        this.set(FIELD_LANPSDEFNAME, lanPSDEFName);
+    }
+    
+    /**
+     * 获取 语言属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getLanPSDEFName(){
+        Object objValue = this.get(FIELD_LANPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 语言属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isLanPSDEFNameDirty(){
+        if(this.contains(FIELD_LANPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 语言属性
+     */
+    @JsonIgnore
+    public void resetLanPSDEFName(){
+        this.reset(FIELD_LANPSDEFNAME);
+    }
+
+    /**
+     * 设置 语言属性
+     * <P>
+     * 等同 {@link #setLanPSDEFName}
+     * @param lanPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl lanpsdefname(String lanPSDEFName){
+        this.setLanPSDEFName(lanPSDEFName);
         return this;
     }
 
@@ -1393,6 +1973,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysMsgTempl mobtaskurl(String mobTaskUrl){
         this.setMobTaskUrl(mobTaskUrl);
+        return this;
+    }
+
+    /**
+     * <B>MOBTASKURLPSDEFID</B>&nbsp;移动端任务路径属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_MOBTASKURLPSDEFID = "mobtaskurlpsdefid";
+
+    /**
+     * 设置 移动端任务路径属性
+     * 
+     * @param mobTaskUrlPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_MOBTASKURLPSDEFID)
+    public void setMobTaskUrlPSDEFId(String mobTaskUrlPSDEFId){
+        this.set(FIELD_MOBTASKURLPSDEFID, mobTaskUrlPSDEFId);
+    }
+    
+    /**
+     * 获取 移动端任务路径属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getMobTaskUrlPSDEFId(){
+        Object objValue = this.get(FIELD_MOBTASKURLPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 移动端任务路径属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isMobTaskUrlPSDEFIdDirty(){
+        if(this.contains(FIELD_MOBTASKURLPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 移动端任务路径属性
+     */
+    @JsonIgnore
+    public void resetMobTaskUrlPSDEFId(){
+        this.reset(FIELD_MOBTASKURLPSDEFID);
+    }
+
+    /**
+     * 设置 移动端任务路径属性
+     * <P>
+     * 等同 {@link #setMobTaskUrlPSDEFId}
+     * @param mobTaskUrlPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl mobtaskurlpsdefid(String mobTaskUrlPSDEFId){
+        this.setMobTaskUrlPSDEFId(mobTaskUrlPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 移动端任务路径属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setMobTaskUrlPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl mobtaskurlpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setMobTaskUrlPSDEFId(null);
+            this.setMobTaskUrlPSDEFName(null);
+        }
+        else{
+            this.setMobTaskUrlPSDEFId(pSDEField.getPSDEFieldId());
+            this.setMobTaskUrlPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>MOBTASKURLPSDEFNAME</B>&nbsp;移动端任务路径属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_MOBTASKURLPSDEFID}
+     */
+    public final static String FIELD_MOBTASKURLPSDEFNAME = "mobtaskurlpsdefname";
+
+    /**
+     * 设置 移动端任务路径属性
+     * 
+     * @param mobTaskUrlPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_MOBTASKURLPSDEFNAME)
+    public void setMobTaskUrlPSDEFName(String mobTaskUrlPSDEFName){
+        this.set(FIELD_MOBTASKURLPSDEFNAME, mobTaskUrlPSDEFName);
+    }
+    
+    /**
+     * 获取 移动端任务路径属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getMobTaskUrlPSDEFName(){
+        Object objValue = this.get(FIELD_MOBTASKURLPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 移动端任务路径属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isMobTaskUrlPSDEFNameDirty(){
+        if(this.contains(FIELD_MOBTASKURLPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 移动端任务路径属性
+     */
+    @JsonIgnore
+    public void resetMobTaskUrlPSDEFName(){
+        this.reset(FIELD_MOBTASKURLPSDEFNAME);
+    }
+
+    /**
+     * 设置 移动端任务路径属性
+     * <P>
+     * 等同 {@link #setMobTaskUrlPSDEFName}
+     * @param mobTaskUrlPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl mobtaskurlpsdefname(String mobTaskUrlPSDEFName){
+        this.setMobTaskUrlPSDEFName(mobTaskUrlPSDEFName);
         return this;
     }
 
@@ -2594,6 +3319,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>SMSCONTENTPSDEFID</B>&nbsp;SMS内容属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_SMSCONTENTPSDEFID = "smscontentpsdefid";
+
+    /**
+     * 设置 SMS内容属性
+     * 
+     * @param sMSContentPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_SMSCONTENTPSDEFID)
+    public void setSMSContentPSDEFId(String sMSContentPSDEFId){
+        this.set(FIELD_SMSCONTENTPSDEFID, sMSContentPSDEFId);
+    }
+    
+    /**
+     * 获取 SMS内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getSMSContentPSDEFId(){
+        Object objValue = this.get(FIELD_SMSCONTENTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 SMS内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isSMSContentPSDEFIdDirty(){
+        if(this.contains(FIELD_SMSCONTENTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 SMS内容属性
+     */
+    @JsonIgnore
+    public void resetSMSContentPSDEFId(){
+        this.reset(FIELD_SMSCONTENTPSDEFID);
+    }
+
+    /**
+     * 设置 SMS内容属性
+     * <P>
+     * 等同 {@link #setSMSContentPSDEFId}
+     * @param sMSContentPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl smscontentpsdefid(String sMSContentPSDEFId){
+        this.setSMSContentPSDEFId(sMSContentPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 SMS内容属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setSMSContentPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl smscontentpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setSMSContentPSDEFId(null);
+            this.setSMSContentPSDEFName(null);
+        }
+        else{
+            this.setSMSContentPSDEFId(pSDEField.getPSDEFieldId());
+            this.setSMSContentPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>SMSCONTENTPSDEFNAME</B>&nbsp;SMS内容属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_SMSCONTENTPSDEFID}
+     */
+    public final static String FIELD_SMSCONTENTPSDEFNAME = "smscontentpsdefname";
+
+    /**
+     * 设置 SMS内容属性
+     * 
+     * @param sMSContentPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_SMSCONTENTPSDEFNAME)
+    public void setSMSContentPSDEFName(String sMSContentPSDEFName){
+        this.set(FIELD_SMSCONTENTPSDEFNAME, sMSContentPSDEFName);
+    }
+    
+    /**
+     * 获取 SMS内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getSMSContentPSDEFName(){
+        Object objValue = this.get(FIELD_SMSCONTENTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 SMS内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isSMSContentPSDEFNameDirty(){
+        if(this.contains(FIELD_SMSCONTENTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 SMS内容属性
+     */
+    @JsonIgnore
+    public void resetSMSContentPSDEFName(){
+        this.reset(FIELD_SMSCONTENTPSDEFNAME);
+    }
+
+    /**
+     * 设置 SMS内容属性
+     * <P>
+     * 等同 {@link #setSMSContentPSDEFName}
+     * @param sMSContentPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl smscontentpsdefname(String sMSContentPSDEFName){
+        this.setSMSContentPSDEFName(sMSContentPSDEFName);
+        return this;
+    }
+
+    /**
      * <B>SMSPSLANRESID</B>&nbsp;短消息语言资源，指定消息模板的手机消息内容的多语言资源对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSLanguageRes} 
@@ -3151,6 +4021,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysMsgTempl taskurl(String taskUrl){
         this.setTaskUrl(taskUrl);
+        return this;
+    }
+
+    /**
+     * <B>TASKURLPSDEFID</B>&nbsp;任务路径属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_TASKURLPSDEFID = "taskurlpsdefid";
+
+    /**
+     * 设置 任务路径属性
+     * 
+     * @param taskUrlPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_TASKURLPSDEFID)
+    public void setTaskUrlPSDEFId(String taskUrlPSDEFId){
+        this.set(FIELD_TASKURLPSDEFID, taskUrlPSDEFId);
+    }
+    
+    /**
+     * 获取 任务路径属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getTaskUrlPSDEFId(){
+        Object objValue = this.get(FIELD_TASKURLPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 任务路径属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isTaskUrlPSDEFIdDirty(){
+        if(this.contains(FIELD_TASKURLPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 任务路径属性
+     */
+    @JsonIgnore
+    public void resetTaskUrlPSDEFId(){
+        this.reset(FIELD_TASKURLPSDEFID);
+    }
+
+    /**
+     * 设置 任务路径属性
+     * <P>
+     * 等同 {@link #setTaskUrlPSDEFId}
+     * @param taskUrlPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl taskurlpsdefid(String taskUrlPSDEFId){
+        this.setTaskUrlPSDEFId(taskUrlPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 任务路径属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setTaskUrlPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl taskurlpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setTaskUrlPSDEFId(null);
+            this.setTaskUrlPSDEFName(null);
+        }
+        else{
+            this.setTaskUrlPSDEFId(pSDEField.getPSDEFieldId());
+            this.setTaskUrlPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>TASKURLPSDEFNAME</B>&nbsp;任务路径属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_TASKURLPSDEFID}
+     */
+    public final static String FIELD_TASKURLPSDEFNAME = "taskurlpsdefname";
+
+    /**
+     * 设置 任务路径属性
+     * 
+     * @param taskUrlPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_TASKURLPSDEFNAME)
+    public void setTaskUrlPSDEFName(String taskUrlPSDEFName){
+        this.set(FIELD_TASKURLPSDEFNAME, taskUrlPSDEFName);
+    }
+    
+    /**
+     * 获取 任务路径属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getTaskUrlPSDEFName(){
+        Object objValue = this.get(FIELD_TASKURLPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 任务路径属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isTaskUrlPSDEFNameDirty(){
+        if(this.contains(FIELD_TASKURLPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 任务路径属性
+     */
+    @JsonIgnore
+    public void resetTaskUrlPSDEFName(){
+        this.reset(FIELD_TASKURLPSDEFNAME);
+    }
+
+    /**
+     * 设置 任务路径属性
+     * <P>
+     * 等同 {@link #setTaskUrlPSDEFName}
+     * @param taskUrlPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl taskurlpsdefname(String taskUrlPSDEFName){
+        this.setTaskUrlPSDEFName(taskUrlPSDEFName);
         return this;
     }
 
@@ -4183,6 +5198,151 @@ public class PSSysMsgTempl extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysMsgTempl wccontent(String wCContent){
         this.setWCContent(wCContent);
+        return this;
+    }
+
+    /**
+     * <B>WCCONTENTPSDEFID</B>&nbsp;微信内容属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_WCCONTENTPSDEFID = "wccontentpsdefid";
+
+    /**
+     * 设置 微信内容属性
+     * 
+     * @param wCContentPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_WCCONTENTPSDEFID)
+    public void setWCContentPSDEFId(String wCContentPSDEFId){
+        this.set(FIELD_WCCONTENTPSDEFID, wCContentPSDEFId);
+    }
+    
+    /**
+     * 获取 微信内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getWCContentPSDEFId(){
+        Object objValue = this.get(FIELD_WCCONTENTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 微信内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isWCContentPSDEFIdDirty(){
+        if(this.contains(FIELD_WCCONTENTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 微信内容属性
+     */
+    @JsonIgnore
+    public void resetWCContentPSDEFId(){
+        this.reset(FIELD_WCCONTENTPSDEFID);
+    }
+
+    /**
+     * 设置 微信内容属性
+     * <P>
+     * 等同 {@link #setWCContentPSDEFId}
+     * @param wCContentPSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgTempl wccontentpsdefid(String wCContentPSDEFId){
+        this.setWCContentPSDEFId(wCContentPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 微信内容属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setWCContentPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgTempl wccontentpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setWCContentPSDEFId(null);
+            this.setWCContentPSDEFName(null);
+        }
+        else{
+            this.setWCContentPSDEFId(pSDEField.getPSDEFieldId());
+            this.setWCContentPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>WCCONTENTPSDEFNAME</B>&nbsp;微信内容属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_WCCONTENTPSDEFID}
+     */
+    public final static String FIELD_WCCONTENTPSDEFNAME = "wccontentpsdefname";
+
+    /**
+     * 设置 微信内容属性
+     * 
+     * @param wCContentPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_WCCONTENTPSDEFNAME)
+    public void setWCContentPSDEFName(String wCContentPSDEFName){
+        this.set(FIELD_WCCONTENTPSDEFNAME, wCContentPSDEFName);
+    }
+    
+    /**
+     * 获取 微信内容属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getWCContentPSDEFName(){
+        Object objValue = this.get(FIELD_WCCONTENTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 微信内容属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isWCContentPSDEFNameDirty(){
+        if(this.contains(FIELD_WCCONTENTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 微信内容属性
+     */
+    @JsonIgnore
+    public void resetWCContentPSDEFName(){
+        this.reset(FIELD_WCCONTENTPSDEFNAME);
+    }
+
+    /**
+     * 设置 微信内容属性
+     * <P>
+     * 等同 {@link #setWCContentPSDEFName}
+     * @param wCContentPSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgTempl wccontentpsdefname(String wCContentPSDEFName){
+        this.setWCContentPSDEFName(wCContentPSDEFName);
         return this;
     }
 

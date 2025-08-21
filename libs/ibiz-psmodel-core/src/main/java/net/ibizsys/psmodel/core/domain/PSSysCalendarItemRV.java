@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSCALENDARITEMRV</B>系统日历项相关视图 模型传输对象
+ * <B>PSSYSCALENDARITEMRV</B>日历项引用视图 模型传输对象
  * <P>
  * 
  */
@@ -201,14 +205,14 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * <B>PSDEVIEWBASEID</B>&nbsp;实体视图
+     * <B>PSDEVIEWBASEID</B>&nbsp;引用实体视图
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
     public final static String FIELD_PSDEVIEWBASEID = "psdeviewbaseid";
 
     /**
-     * 设置 实体视图
+     * 设置 引用实体视图
      * 
      * @param pSDEViewBaseId
      * 
@@ -219,7 +223,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
     
     /**
-     * 获取 实体视图  
+     * 获取 引用实体视图  
      * @return
      */
     @JsonIgnore
@@ -232,7 +236,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 判断 实体视图 是否指定值，包括空值
+     * 判断 引用实体视图 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -244,7 +248,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 重置 实体视图
+     * 重置 引用实体视图
      */
     @JsonIgnore
     public void resetPSDEViewBaseId(){
@@ -252,7 +256,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 设置 实体视图
+     * 设置 引用实体视图
      * <P>
      * 等同 {@link #setPSDEViewBaseId}
      * @param pSDEViewBaseId
@@ -264,7 +268,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 设置 实体视图，包括引用对象的其它关系属性
+     * 设置 引用实体视图，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEViewBaseId}
      * @param pSDEViewBase 引用对象
@@ -283,14 +287,14 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * <B>PSDEVIEWBASENAME</B>&nbsp;实体视图
+     * <B>PSDEVIEWBASENAME</B>&nbsp;引用实体视图
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEVIEWBASEID}
      */
     public final static String FIELD_PSDEVIEWBASENAME = "psdeviewbasename";
 
     /**
-     * 设置 实体视图
+     * 设置 引用实体视图
      * 
      * @param pSDEViewBaseName
      * 
@@ -301,7 +305,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
     
     /**
-     * 获取 实体视图  
+     * 获取 引用实体视图  
      * @return
      */
     @JsonIgnore
@@ -314,7 +318,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 判断 实体视图 是否指定值，包括空值
+     * 判断 引用实体视图 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -326,7 +330,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 重置 实体视图
+     * 重置 引用实体视图
      */
     @JsonIgnore
     public void resetPSDEViewBaseName(){
@@ -334,7 +338,7 @@ public class PSSysCalendarItemRV extends net.ibizsys.psmodel.core.util.PSModelBa
     }
 
     /**
-     * 设置 实体视图
+     * 设置 引用实体视图
      * <P>
      * 等同 {@link #setPSDEViewBaseName}
      * @param pSDEViewBaseName

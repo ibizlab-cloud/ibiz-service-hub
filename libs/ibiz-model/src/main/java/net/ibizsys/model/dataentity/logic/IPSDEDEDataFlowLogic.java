@@ -14,8 +14,6 @@ public interface IPSDEDEDataFlowLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标实体逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.dataflow.IPSDEDataFlow getDstPSDEDataFlow();
@@ -30,8 +28,6 @@ public interface IPSDEDEDataFlowLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -46,8 +42,6 @@ public interface IPSDEDEDataFlowLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();
@@ -62,8 +56,6 @@ public interface IPSDEDEDataFlowLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

@@ -3,9 +3,7 @@ package net.ibizsys.model.control.menu;
 
 
 /**
- * 应用菜单项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getItemType}
+ * 应用菜单项模型对象接口
  *
  */
 public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuItem
@@ -18,8 +16,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	/**
 	 * 获取菜单项状态
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_MENUITEMSTATE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MenuItemState}
 	 * @return
 	 */
@@ -28,8 +24,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -37,8 +31,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取项直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_RAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getCssStyle();
@@ -46,8 +38,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取项数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_DATA}
 	 * @return
 	 */
 	java.lang.String getData();
@@ -55,8 +45,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -64,8 +52,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取菜单项通知标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_INFORMTAG}
 	 * @return
 	 */
 	java.lang.String getInformTag();
@@ -73,8 +59,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取菜单项通知标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_INFORMTAG2}
 	 * @return
 	 */
 	java.lang.String getInformTag2();
@@ -82,8 +66,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取应用功能
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_PSAPPFUNCID}
 	 * @return
 	 */
 	net.ibizsys.model.app.func.IPSAppFunc getPSAppFunc();
@@ -119,8 +101,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取系统样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -135,8 +115,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取系统图片
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -165,8 +143,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取预置类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_PREDEFINEDTYPE}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();
@@ -174,8 +150,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取预置类型参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_PREDEFINEDTYPEPARAM}
 	 * @return
 	 */
 	java.lang.String getPredefinedTypeParam();
@@ -192,8 +166,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取是否禁用关闭
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_DISABLECLOSE}
 	 * @return
 	 */
 	boolean isDisableClose();
@@ -201,8 +173,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取是否打开时隐藏边栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_HIDESIDEBAR}
 	 * @return
 	 */
 	boolean isHideSideBar();
@@ -210,8 +180,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取是否默认打开
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_OPENDEFAULT}
 	 * @return
 	 */
 	boolean isOpenDefault();
@@ -233,8 +201,6 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	
 	/**
 	 * 获取是否启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuItemDTO#FIELD_ENABLEMODE}
 	 * @return
 	 */
 	boolean isValid();

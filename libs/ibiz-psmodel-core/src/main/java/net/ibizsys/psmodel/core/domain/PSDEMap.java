@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEMAP</B>实体映射 模型传输对象
@@ -1014,6 +1018,86 @@ public class PSDEMap extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>LOGICHOLDER</B>&nbsp;逻辑所有者
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DELogicHolder} 
+     */
+    public final static String FIELD_LOGICHOLDER = "logicholder";
+
+    /**
+     * 设置 逻辑所有者
+     * 
+     * @param logicHolder
+     * 
+     */
+    @JsonProperty(FIELD_LOGICHOLDER)
+    public void setLogicHolder(Integer logicHolder){
+        this.set(FIELD_LOGICHOLDER, logicHolder);
+    }
+    
+    /**
+     * 获取 逻辑所有者  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getLogicHolder(){
+        Object objValue = this.get(FIELD_LOGICHOLDER);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 逻辑所有者 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isLogicHolderDirty(){
+        if(this.contains(FIELD_LOGICHOLDER)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 逻辑所有者
+     */
+    @JsonIgnore
+    public void resetLogicHolder(){
+        this.reset(FIELD_LOGICHOLDER);
+    }
+
+    /**
+     * 设置 逻辑所有者
+     * <P>
+     * 等同 {@link #setLogicHolder}
+     * @param logicHolder
+     */
+    @JsonIgnore
+    public PSDEMap logicholder(Integer logicHolder){
+        this.setLogicHolder(logicHolder);
+        return this;
+    }
+
+     /**
+     * 设置 逻辑所有者
+     * <P>
+     * 等同 {@link #setLogicHolder}
+     * @param logicHolder
+     */
+    @JsonIgnore
+    public PSDEMap logicholder(net.ibizsys.psmodel.core.util.PSModelEnums.DELogicHolder logicHolder){
+        if(logicHolder == null){
+            this.setLogicHolder(null);
+        }
+        else{
+            this.setLogicHolder(logicHolder.value);
+        }
+        return this;
+    }
+
+    /**
      * <B>LOGICNAME</B>&nbsp;中文名称，指定实体映射的逻辑名称
      * <P>
      * 字符串：最大长度 100
@@ -1850,6 +1934,151 @@ public class PSDEMap extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEMap pssysdynamodelname(String pSSysDynaModelName){
         this.setPSSysDynaModelName(pSSysDynaModelName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSPFPLUGINID</B>&nbsp;前端应用插件
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysPFPlugin} 
+     */
+    public final static String FIELD_PSSYSPFPLUGINID = "pssyspfpluginid";
+
+    /**
+     * 设置 前端应用插件
+     * 
+     * @param pSSysPFPluginId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSPFPLUGINID)
+    public void setPSSysPFPluginId(String pSSysPFPluginId){
+        this.set(FIELD_PSSYSPFPLUGINID, pSSysPFPluginId);
+    }
+    
+    /**
+     * 获取 前端应用插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysPFPluginId(){
+        Object objValue = this.get(FIELD_PSSYSPFPLUGINID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 前端应用插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysPFPluginIdDirty(){
+        if(this.contains(FIELD_PSSYSPFPLUGINID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 前端应用插件
+     */
+    @JsonIgnore
+    public void resetPSSysPFPluginId(){
+        this.reset(FIELD_PSSYSPFPLUGINID);
+    }
+
+    /**
+     * 设置 前端应用插件
+     * <P>
+     * 等同 {@link #setPSSysPFPluginId}
+     * @param pSSysPFPluginId
+     */
+    @JsonIgnore
+    public PSDEMap pssyspfpluginid(String pSSysPFPluginId){
+        this.setPSSysPFPluginId(pSSysPFPluginId);
+        return this;
+    }
+
+    /**
+     * 设置 前端应用插件，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysPFPluginId}
+     * @param pSSysPFPlugin 引用对象
+     */
+    @JsonIgnore
+    public PSDEMap pssyspfpluginid(PSSysPFPlugin pSSysPFPlugin){
+        if(pSSysPFPlugin == null){
+            this.setPSSysPFPluginId(null);
+            this.setPSSysPFPluginName(null);
+        }
+        else{
+            this.setPSSysPFPluginId(pSSysPFPlugin.getPSSysPFPluginId());
+            this.setPSSysPFPluginName(pSSysPFPlugin.getPSSysPFPluginName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSPFPLUGINNAME</B>&nbsp;前端应用插件
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSPFPLUGINID}
+     */
+    public final static String FIELD_PSSYSPFPLUGINNAME = "pssyspfpluginname";
+
+    /**
+     * 设置 前端应用插件
+     * 
+     * @param pSSysPFPluginName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSPFPLUGINNAME)
+    public void setPSSysPFPluginName(String pSSysPFPluginName){
+        this.set(FIELD_PSSYSPFPLUGINNAME, pSSysPFPluginName);
+    }
+    
+    /**
+     * 获取 前端应用插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysPFPluginName(){
+        Object objValue = this.get(FIELD_PSSYSPFPLUGINNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 前端应用插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysPFPluginNameDirty(){
+        if(this.contains(FIELD_PSSYSPFPLUGINNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 前端应用插件
+     */
+    @JsonIgnore
+    public void resetPSSysPFPluginName(){
+        this.reset(FIELD_PSSYSPFPLUGINNAME);
+    }
+
+    /**
+     * 设置 前端应用插件
+     * <P>
+     * 等同 {@link #setPSSysPFPluginName}
+     * @param pSSysPFPluginName
+     */
+    @JsonIgnore
+    public PSDEMap pssyspfpluginname(String pSSysPFPluginName){
+        this.setPSSysPFPluginName(pSSysPFPluginName);
         return this;
     }
 

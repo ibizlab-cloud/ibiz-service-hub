@@ -3,9 +3,7 @@ package net.ibizsys.model.control.toolbar;
 
 
 /**
- * 工具栏项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getItemType}
+ * 工具栏项模型对象接口
  *
  */
 public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
@@ -15,8 +13,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -31,8 +27,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -40,8 +34,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -49,8 +41,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_COUNTERMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
 	 * @return
@@ -60,8 +50,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_RAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getCssStyle();
@@ -69,8 +57,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_DATA}
 	 * @return
 	 */
 	java.lang.String getData();
@@ -78,8 +64,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -87,8 +71,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取工具栏项高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_HEIGHT}
 	 * @return
 	 */
 	double getHeight();
@@ -96,8 +78,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_TBITEMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TBItemType}
 	 * @return
@@ -107,8 +87,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -123,8 +101,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取图标资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -153,8 +129,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取工具提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -162,8 +136,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取提示语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_TIPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
@@ -178,8 +150,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取用户标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_USERTAG}
 	 * @return
 	 */
 	java.lang.String getUserTag();
@@ -187,8 +157,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取用户标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_USERTAG2}
 	 * @return
 	 */
 	java.lang.String getUserTag2();
@@ -196,8 +164,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取工具栏项宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	double getWidth();
@@ -205,8 +171,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否显示标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_SHOWMODE}
 	 * @return
 	 */
 	boolean isShowCaption();
@@ -214,8 +178,6 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否显示图标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_SHOWMODE}
 	 * @return
 	 */
 	boolean isShowIcon();

@@ -14,8 +14,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取目标列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTINDEX}
 	 * @return
 	 */
 	int getDstIndex();
@@ -23,8 +21,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -39,8 +35,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取源属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_CUSTOMSRCPARAM}
 	 * @return
 	 */
 	java.lang.String getSrcFieldName();
@@ -48,8 +42,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取源列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCINDEX}
 	 * @return
 	 */
 	int getSrcIndex();
@@ -57,8 +49,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();
@@ -73,8 +63,6 @@ public interface IPSDEAppendParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取源列表参数大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCSIZE}
 	 * @return
 	 */
 	int getSrcSize();

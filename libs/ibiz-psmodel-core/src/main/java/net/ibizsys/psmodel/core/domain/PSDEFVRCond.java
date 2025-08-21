@@ -1,12 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEFVRCOND</B>实体属性值规则项 模型传输对象
+ * <B>PSDEFVRCOND</B>属性值规则项 模型传输对象
  * <P>
  * 属性值规则条件模型，支持组合、预置的单项检查类型，支持层级结构
  */
@@ -409,14 +411,14 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMDEFNAME</B>&nbsp;属性名称，指定值规则条件的自定义属性，在无法从实体中选择合适的属性时使用，引擎计算属性时优先使用此配置
+     * <B>CUSTOMDEFNAME</B>&nbsp;自定义属性，指定值规则条件的自定义属性，在无法从实体中选择合适的属性时使用，优先使用此配置
      * <P>
      * 字符串：最大长度 60
      */
     public final static String FIELD_CUSTOMDEFNAME = "customdefname";
 
     /**
-     * 设置 属性名称，详细说明：{@link #FIELD_CUSTOMDEFNAME}
+     * 设置 自定义属性，详细说明：{@link #FIELD_CUSTOMDEFNAME}
      * 
      * @param customDEFName
      * 
@@ -427,7 +429,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 属性名称  
+     * 获取 自定义属性  
      * @return
      */
     @JsonIgnore
@@ -440,7 +442,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 属性名称 是否指定值，包括空值
+     * 判断 自定义属性 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -452,7 +454,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 属性名称
+     * 重置 自定义属性
      */
     @JsonIgnore
     public void resetCustomDEFName(){
@@ -460,7 +462,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性名称，详细说明：{@link #FIELD_CUSTOMDEFNAME}
+     * 设置 自定义属性，详细说明：{@link #FIELD_CUSTOMDEFNAME}
      * <P>
      * 等同 {@link #setCustomDEFName}
      * @param customDEFName
@@ -2319,7 +2321,9 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDBVALUEOPID</B>&nbsp;操作符号，指定值规则条件的操作符
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DBValueOP3} 
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDBValueOP} 
      */
     public final static String FIELD_PSDBVALUEOPID = "psdbvalueopid";
 
@@ -2376,6 +2380,25 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEFVRCond psdbvalueopid(String pSDBValueOPId){
         this.setPSDBValueOPId(pSDBValueOPId);
+        return this;
+    }
+
+    /**
+     * 设置 操作符号，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDBValueOPId}
+     * @param pSDBValueOP 引用对象
+     */
+    @JsonIgnore
+    public PSDEFVRCond psdbvalueopid(PSDBValueOP pSDBValueOP){
+        if(pSDBValueOP == null){
+            this.setPSDBValueOPId(null);
+            this.setPSDBValueOPName(null);
+        }
+        else{
+            this.setPSDBValueOPId(pSDBValueOP.getPSDBValueOPId());
+            this.setPSDBValueOPName(pSDBValueOP.getPSDBValueOPName());
+        }
         return this;
     }
 
@@ -3020,7 +3043,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSVALUERULEID</B>&nbsp;系统值规则，指定系统值规则检查条件的系统值规则
+     * <B>PSSYSVALUERULEID</B>&nbsp;系统值规则，条件类型为【系统值规则】是指定检查的系统值规则
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysValueRule} 
      */
@@ -3102,7 +3125,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSVALUERULENAME</B>&nbsp;系统值规则，指定系统值规则检查条件的系统值规则
+     * <B>PSSYSVALUERULENAME</B>&nbsp;系统值规则，条件类型为【系统值规则】是指定检查的系统值规则
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSVALUERULEID}
      */
@@ -3640,14 +3663,14 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体属性值规则项 成员集合
+     *  属性值规则项 成员集合
      */
     public final static String FIELD_PSDEFVRCONDS = "psdefvrconds";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFVRCond> psdefvrconds;
 
     /**
-     * 获取 实体属性值规则项 成员集合
+     * 获取 属性值规则项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFVRCONDS)
@@ -3656,7 +3679,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体属性值规则项 成员集合  
+     * 设置 属性值规则项 成员集合  
      * @param psdefvrconds
      */
     @JsonProperty(FIELD_PSDEFVRCONDS)
@@ -3665,7 +3688,7 @@ public class PSDEFVRCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体属性值规则项 成员集合，不存在时建立集合对象
+     * 获取 属性值规则项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

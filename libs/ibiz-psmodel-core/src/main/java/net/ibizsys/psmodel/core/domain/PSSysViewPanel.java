@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSVIEWPANEL</B>系统面板 模型传输对象
+ * <B>PSSYSVIEWPANEL</B>面板部件 模型传输对象
  * <P>
- * 系统面板部件模型，定义面板部件的界面及处理逻辑。面板部件是支持多种布局模式的容器，多种类型的面板成员提供了灵活的界面组织能力，满足各种界面组装需求。面板部件可应用在视图或是部件的布局
+ * 系统面板部件模型，定义面板部件的界面及处理逻辑。面板部件是支持多种布局模式的容器，多种类型的面板成员提供了灵活的界面组织能力，满足各种界面组装需求。面板模式为布局面板时可应用在视图或部件的布局
  */
 public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -794,7 +794,7 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTMODE</B>&nbsp;布局模式，指定面板部件的布局模式，未定义时使用前端应用使用模板的默认布局模式
+     * <B>LAYOUTMODE</B>&nbsp;布局模式，指定面板部件的布局模式，未定义时为`栅格布局（24列均分）`（TABLE_24COL）
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutMode} 
      */
@@ -3880,14 +3880,14 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统面板逻辑 成员集合
+     *  面板逻辑 成员集合
      */
     public final static String FIELD_PSSYSVIEWPANELLOGICS = "pssysviewpanellogics";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelLogic> pssysviewpanellogics;
 
     /**
-     * 获取 系统面板逻辑 成员集合
+     * 获取 面板逻辑 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELLOGICS)
@@ -3896,7 +3896,7 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统面板逻辑 成员集合  
+     * 设置 面板逻辑 成员集合  
      * @param pssysviewpanellogics
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELLOGICS)
@@ -3905,7 +3905,7 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统面板逻辑 成员集合，不存在时建立集合对象
+     * 获取 面板逻辑 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -3914,44 +3914,6 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
             this.pssysviewpanellogics = new java.util.ArrayList<net.ibizsys.psmodel.core.domain.PSSysViewPanelLogic>();          
         }
         return this.pssysviewpanellogics;
-    }
-
-
-    /**
-     *  系统面板数据模型 成员集合
-     */
-    public final static String FIELD_PSSYSVIEWPANELMODELS = "pssysviewpanelmodels";
-
-    private java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelModel> pssysviewpanelmodels;
-
-    /**
-     * 获取 系统面板数据模型 成员集合
-     * @return
-     */
-    @JsonProperty(FIELD_PSSYSVIEWPANELMODELS)
-    public java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelModel> getPSSysViewPanelModels(){
-        return this.pssysviewpanelmodels;
-    }
-
-    /**
-     * 设置 系统面板数据模型 成员集合  
-     * @param pssysviewpanelmodels
-     */
-    @JsonProperty(FIELD_PSSYSVIEWPANELMODELS)
-    public void setPSSysViewPanelModels(java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelModel> pssysviewpanelmodels){
-        this.pssysviewpanelmodels = pssysviewpanelmodels;
-    }
-
-    /**
-     * 获取 系统面板数据模型 成员集合，不存在时建立集合对象
-     * @return
-     */
-    @JsonIgnore
-    public java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelModel> getPSSysViewPanelModelsIf(){
-        if(this.pssysviewpanelmodels == null){
-            this.pssysviewpanelmodels = new java.util.ArrayList<net.ibizsys.psmodel.core.domain.PSSysViewPanelModel>();          
-        }
-        return this.pssysviewpanelmodels;
     }
 
 
@@ -3994,14 +3956,14 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统面板成员 成员集合
+     *  面板成员 成员集合
      */
     public final static String FIELD_PSSYSVIEWPANELITEMS = "pssysviewpanelitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelItem> pssysviewpanelitems;
 
     /**
-     * 获取 系统面板成员 成员集合
+     * 获取 面板成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELITEMS)
@@ -4010,7 +3972,7 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统面板成员 成员集合  
+     * 设置 面板成员 成员集合  
      * @param pssysviewpanelitems
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELITEMS)
@@ -4019,7 +3981,7 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统面板成员 成员集合，不存在时建立集合对象
+     * 获取 面板成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -4035,7 +3997,6 @@ public class PSSysViewPanel extends net.ibizsys.psmodel.core.util.PSModelBase {
         if(iPSModel instanceof PSSysViewPanel){
             PSSysViewPanel model = (PSSysViewPanel)iPSModel;
             model.setPSSysViewPanelLogics(this.getPSSysViewPanelLogics());
-            model.setPSSysViewPanelModels(this.getPSSysViewPanelModels());
             model.setPSPanelEngines(this.getPSPanelEngines());
             model.setPSSysViewPanelItems(this.getPSSysViewPanelItems());
         }

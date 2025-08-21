@@ -6,16 +6,24 @@ import net.ibizsys.central.cloud.open.ebsx.cloudutil.EBSXCloudOpenUtilRuntime;
 import net.ibizsys.central.cloud.saas.ebsx.EBSXSystemRuntime;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.ou.dto.EmployeeDTO;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.ou.dto.OrganizationDTO;
+import net.ibizsys.central.cloud.saas.ebsx.util.StaticDict;
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.runtime.SystemRuntimeException;
+import net.ibizsys.runtime.msg.MsgTypes;
 import net.ibizsys.runtime.security.IUserContext;
 import net.ibizsys.runtime.security.UserContext;
+import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.domain.MsgSendQueue;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 开放平台同步到 SYS_PERSON
@@ -24,6 +32,8 @@ import java.util.List;
  * @date 2024/1/30
  */
 public class RTCloudOpenUtilRuntime extends EBSXCloudOpenUtilRuntime {
+    private static final Log log = LogFactory.getLog(RTCloudOpenUtilRuntime.class);
+
 
     private String PREFIX_UAA = "UAA_";
 
@@ -34,6 +44,29 @@ public class RTCloudOpenUtilRuntime extends EBSXCloudOpenUtilRuntime {
     private String INSERT_SQL = "INSERT INTO SYS_PERSON(ID, DISPLAY_NAME, ENABLED, CREATOR, CREATE_TIME, UPDATER, UPDATE_TIME, DC,UID, USER_PASSWORD, ORGANIZATION_ID, EMPLOYEE_NUMBER, EMPLOYEE_TYPE, MOBILE) \n" +
             " VALUES(?, ?, 1, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)";
 
+    @Override
+    protected void onSendMessages(String strOpenAccessId, MsgSendQueue[] msgSendQueues) throws Throwable {
+        IOpenAccessAgent iOpenAccessAgent = this.getOpenAccessAgent(strOpenAccessId);
+
+        if(msgSendQueues.length==1) {
+            MsgSendQueue msgSendQueue = msgSendQueues[0];
+            int nMsgType = 0;
+            try {
+                nMsgType = DataTypeUtils.getIntegerValue(msgSendQueue.getMsgType(), 0);
+            } catch (Exception ex) {
+                throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("消息[%1$s]未标记类型", msgSendQueue.getMsgSendQueueId()));
+            }
+            if((MsgTypes.DD != nMsgType && StaticDict.OpenAccessType.DINGTALK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType()))
+                || (MsgTypes.WXWORK != nMsgType && StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType())))
+            {
+                log.error(String.format("开放应用[%1$s]发送消息发生异常，%2$s Agent 不适配发送 %3$s 类型的消息", getName(), iOpenAccessAgent.getOpenType(), nMsgType));
+                throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("开放应用[%1$s]发送消息发生异常，%2$s Agent 不适配发送 %3$s 类型的消息", getName(), iOpenAccessAgent.getOpenType(), nMsgType));
+            }
+
+        }
+
+        iOpenAccessAgent.sendMessages(msgSendQueues);
+    }
 
     @Override
     protected void onSyncOrganizationUnits(String strOpenAccessId) throws Throwable {

@@ -35,6 +35,7 @@ import net.ibizsys.central.dataentity.service.IDEServiceAPIRuntime;
 import net.ibizsys.central.service.ISysServiceAPIRuntime;
 import net.ibizsys.central.service.RequestMethods;
 import net.ibizsys.central.util.Inflector;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPI;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIMethod;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIRS;
@@ -303,6 +304,14 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								}
 								
 								String strTemplateName = "数据导出.xlsx";
+								ExportDataResult exportDataResult = null;
+								if(ret instanceof ExportDataResult) {
+									exportDataResult = (ExportDataResult)ret;
+									if(StringUtils.hasLength(exportDataResult.getFileName())) {
+										strTemplateName = exportDataResult.getFileName();
+									}
+								}
+								
 								String strFileName = new String(URLEncoder.encode(strTemplateName, "utf-8").getBytes("utf-8"), "iso8859-1");
 								httpServletResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 								httpServletResponse.setHeader("Pragma", "no-cache");
@@ -476,7 +485,33 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								}
 							}, MethodHandlerBase.getExecuteMethod());
 						}
+					}
+					
+					if(true) {
+						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/createdownloadticket/{key}"):null;
+						String strRequestPath2 = strPath2 + "/createdownloadticket/{key}";
 						
+						if(true) {
+							RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2).methods(RequestMethod.GET).build();
+							this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+								@Override
+								protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+									String strFieldTag = null;
+									String strOSSFileId = null;
+									// 从请求中构建参数对象
+									String strQueryString = httpServletRequest.getQueryString();
+									Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+									if (map != null) {
+										strFieldTag = (String) map.get("srffieldtag");
+										strOSSFileId = (String) map.get("srfossfileid");
+									}
+									
+									net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+									
+									return realSysServiceAPIRuntime.invokeDECreateDownloadTicket(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), key, strFieldTag, strOSSFileId, null);
+								}
+							}, MethodHandlerBase.getExecuteMethod());
+						}
 					}
 					
 					
@@ -501,23 +536,6 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								}
 
 								iSysServiceAPIRuntime.invokeDEPrintData(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strPrintTag, strContentType, requestData, key, httpServletResponse);
-								 
-//								ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//								Object ret = iSysServiceAPIRuntime.invokeDEPrintData(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strPrintTag, strContentType, requestData, key, bos);
-//								if(ret == ISysServiceAPIRuntime.RET_IGNOREPOSTPROCESS) {
-//									return;
-//								}
-//
-//								String strPrintName = "print.pdf";
-//								String strFileName = new String(URLEncoder.encode(strPrintName, "utf-8").getBytes("utf-8"), "iso8859-1");
-//								httpServletResponse.setContentType("application/pdf");
-//								httpServletResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-//								httpServletResponse.setHeader("Pragma", "no-cache");
-//								httpServletResponse.setHeader("Expires", "0");
-//								httpServletResponse.setHeader("charset", "utf-8");
-//								httpServletResponse.setHeader("Content-Disposition", String.format("attachment;filename=%s;filename*=utf-8''%s", strFileName, URLEncoder.encode(strPrintTag, "utf-8")));
-//
-//								bos.writeTo(httpServletResponse.getOutputStream());
 							}
 						}, MethodHandlerBase.getDownloadXMethod());
 					}
@@ -939,6 +957,13 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 					}
 					
 					String strTemplateName = "数据导出.xlsx";
+					ExportDataResult exportDataResult = null;
+					if(ret instanceof ExportDataResult) {
+						exportDataResult = (ExportDataResult)ret;
+						if(StringUtils.hasLength(exportDataResult.getFileName())) {
+							strTemplateName = exportDataResult.getFileName();
+						}
+					}
 					String strFileName = new String(URLEncoder.encode(strTemplateName, "utf-8").getBytes("utf-8"), "iso8859-1");
 
 					httpServletResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -1105,6 +1130,29 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 					}
 				}, MethodHandlerBase.getExecuteMethod());
 			}
+		}
+		
+		if(true) {
+			String strRequestPath = strPath + "/createdownloadticket/{key}";
+			RequestMappingInfo requestMappingInfo = RequestMappingInfo.paths(strRequestPath).methods(RequestMethod.GET).build();
+			this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+				@Override
+				protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+					String strFieldTag = null;
+					String strOSSFileId = null;
+					// 从请求中构建参数对象
+					String strQueryString = httpServletRequest.getQueryString();
+					Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+					if (map != null) {
+						strFieldTag = (String) map.get("srffieldtag");
+						strOSSFileId = (String) map.get("srfossfileid");
+					}
+					
+					net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+					
+					return realSysServiceAPIRuntime.invokeDECreateDownloadTicket(null, null, null, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), key, strFieldTag, strOSSFileId, null);
+				}
+			}, MethodHandlerBase.getExecuteMethod());
 		}
 		
 		// 打印数据

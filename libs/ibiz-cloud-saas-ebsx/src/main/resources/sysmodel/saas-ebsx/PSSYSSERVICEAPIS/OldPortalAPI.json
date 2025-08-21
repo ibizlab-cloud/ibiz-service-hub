@@ -9,6 +9,124 @@
   "name" : "门户接口（兼容旧版）",
   "getPSDEServiceAPIs" : [ {
     "aPIMode" : 1,
+    "codeName" : "OldWFTask",
+    "codeName2" : "OldWFTasks",
+    "logicName" : "工作流任务",
+    "name" : "WF_TASK",
+    "getPSDEServiceAPIMethods" : [ {
+      "codeName" : "FetchDoneTask",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchdoneTask",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "DoneTask"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "FetchFinishTask",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchfinishTask",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "FinishTask"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "FetchTodoTask",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchtodoTask",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "TodoTask"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST"
+    }, {
+      "codeName" : "FetchToreadTask",
+      "dataAccessAction" : "NONE",
+      "methodType" : "FETCH",
+      "name" : "FetchtoreadTask",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "ToreadTask"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskFilterDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "WFTaskDTO"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTask.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
     "codeName" : "SysNote",
     "codeName2" : "SysNotes",
     "logicName" : "门户备注",
@@ -361,124 +479,6 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Application.json"
-    },
-    "enableDataExport" : true,
-    "enableDataImport" : true,
-    "major" : true
-  }, {
-    "aPIMode" : 1,
-    "codeName" : "OldWFTask",
-    "codeName2" : "OldWFTasks",
-    "logicName" : "工作流任务",
-    "name" : "WF_TASK",
-    "getPSDEServiceAPIMethods" : [ {
-      "codeName" : "FetchDoneTask",
-      "dataAccessAction" : "NONE",
-      "methodType" : "FETCH",
-      "name" : "FetchdoneTask",
-      "getPSDEDataSet" : {
-        "modelref" : true,
-        "id" : "DoneTask"
-      },
-      "getPSDEServiceAPIMethodInput" : {
-        "name" : "输入对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskFilterDTO"
-        },
-        "type" : "DTO"
-      },
-      "getPSDEServiceAPIMethodReturn" : {
-        "name" : "返回对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskDTO"
-        },
-        "type" : "PAGE"
-      },
-      "requestMethod" : "POST"
-    }, {
-      "codeName" : "FetchFinishTask",
-      "dataAccessAction" : "NONE",
-      "methodType" : "FETCH",
-      "name" : "FetchfinishTask",
-      "getPSDEDataSet" : {
-        "modelref" : true,
-        "id" : "FinishTask"
-      },
-      "getPSDEServiceAPIMethodInput" : {
-        "name" : "输入对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskFilterDTO"
-        },
-        "type" : "DTO"
-      },
-      "getPSDEServiceAPIMethodReturn" : {
-        "name" : "返回对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskDTO"
-        },
-        "type" : "PAGE"
-      },
-      "requestMethod" : "POST"
-    }, {
-      "codeName" : "FetchTodoTask",
-      "dataAccessAction" : "NONE",
-      "methodType" : "FETCH",
-      "name" : "FetchtodoTask",
-      "getPSDEDataSet" : {
-        "modelref" : true,
-        "id" : "TodoTask"
-      },
-      "getPSDEServiceAPIMethodInput" : {
-        "name" : "输入对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskFilterDTO"
-        },
-        "type" : "DTO"
-      },
-      "getPSDEServiceAPIMethodReturn" : {
-        "name" : "返回对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskDTO"
-        },
-        "type" : "PAGE"
-      },
-      "requestMethod" : "POST"
-    }, {
-      "codeName" : "FetchToreadTask",
-      "dataAccessAction" : "NONE",
-      "methodType" : "FETCH",
-      "name" : "FetchtoreadTask",
-      "getPSDEDataSet" : {
-        "modelref" : true,
-        "id" : "ToreadTask"
-      },
-      "getPSDEServiceAPIMethodInput" : {
-        "name" : "输入对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskFilterDTO"
-        },
-        "type" : "DTO"
-      },
-      "getPSDEServiceAPIMethodReturn" : {
-        "name" : "返回对象",
-        "getPSDEMethodDTO" : {
-          "modelref" : true,
-          "id" : "WFTaskDTO"
-        },
-        "type" : "PAGE"
-      },
-      "requestMethod" : "POST"
-    } ],
-    "getPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/workflow/PSDATAENTITIES/WFTask.json"
     },
     "enableDataExport" : true,
     "enableDataImport" : true,

@@ -4,8 +4,6 @@ package net.ibizsys.model.control;
 
 /**
  * 界面部件模型基础对象接口
- * <P>
- * 子接口扩展识别值 {@link #getControlType}
  *
  */
 public interface IPSControl extends net.ibizsys.model.IPSModelObject{

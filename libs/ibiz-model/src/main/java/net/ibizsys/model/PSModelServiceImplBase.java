@@ -4505,8 +4505,7 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEDebugParamLogicImpl());
 	}
 	protected <T> T createIPSDEDecisionLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
-				//TODO：没有实现对象
-				return null;
+				return (T)(new net.ibizsys.model.dataentity.logic.PSDEDecisionLogicImpl());
 	}
 	protected <T> T createIPSDEEndLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEEndLogicImpl());
@@ -4627,6 +4626,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 			}
 			if(strTypeValue.equals("LOOPSUBCALL")){
 				return createIPSDELoopSubCallLogic(parentPSModelObject, cls, objNode);
+			}
+			if(strTypeValue.equals("MEMO")){
+				return createIPSDEMemoLogic(parentPSModelObject, cls, objNode);
 			}
 			if(strTypeValue.equals("MERGEPARAM")){
 				return createIPSDEMergeParamLogic(parentPSModelObject, cls, objNode);
@@ -4752,6 +4754,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 		}
 		return (T)(new net.ibizsys.model.dataentity.logic.PSDEMSLogicNodeImpl());
 	}
+	protected <T> T createIPSDEMemoLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
+				return (T)(new net.ibizsys.model.dataentity.logic.PSDEMemoLogicImpl());
+	}
 	protected <T> T createIPSDEMergeParamLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEMergeParamLogicImpl());
 	}
@@ -4855,8 +4860,7 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUIDebugParamLogicImpl());
 	}
 	protected <T> T createIPSDEUIDecisionLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
-				//TODO：没有实现对象
-				return null;
+				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUIDecisionLogicImpl());
 	}
 	protected <T> T createIPSDEUIEndLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUIEndLogicImpl());
@@ -4933,6 +4937,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 			if(strTypeValue.equals("LOOPSUBCALL")){
 				return createIPSDEUILoopSubCallLogic(parentPSModelObject, cls, objNode);
 			}
+			if(strTypeValue.equals("MEMO")){
+				return createIPSDEUIMemoLogic(parentPSModelObject, cls, objNode);
+			}
 			if(strTypeValue.equals("MSGBOX")){
 				return createIPSDEUIMsgBoxLogic(parentPSModelObject, cls, objNode);
 			}
@@ -4965,6 +4972,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 	}
 	protected <T> T createIPSDEUILoopSubCallLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUILoopSubCallLogicImpl());
+	}
+	protected <T> T createIPSDEUIMemoLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
+				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUIMemoLogicImpl());
 	}
 	protected <T> T createIPSDEUIMsgBoxLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDEUIMsgBoxLogicImpl());

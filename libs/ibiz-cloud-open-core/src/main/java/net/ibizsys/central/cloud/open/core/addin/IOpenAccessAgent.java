@@ -145,4 +145,14 @@ public interface IOpenAccessAgent extends ICloudOpenUtilRTAddin{
 	 * 
 	 */
 	void executeCallback(HttpServletRequest request, HttpServletResponse response);
+	
+	
+	
+	/**
+	 * 获取支持的消息类型
+	 * @return
+	 */
+	default int getSupportMsgType() {
+		return 0;
+	}
 }

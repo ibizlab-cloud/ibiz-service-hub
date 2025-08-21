@@ -3,6 +3,7 @@ package net.ibizsys.central.sysutil;
 
 
 import net.ibizsys.central.ISystemModelRuntime;
+import net.ibizsys.model.res.IPSSysUtil;
 
 /**
  * 系统预置功能组件运行时对象接口
@@ -22,4 +23,6 @@ public interface ISysUtilRuntime extends net.ibizsys.runtime.res.ISysUtilRuntime
 	Object executeAction(String strActionName, Object[] args);
 	
 	
+	@Override
+	IPSSysUtil getPSModelObject();
 }

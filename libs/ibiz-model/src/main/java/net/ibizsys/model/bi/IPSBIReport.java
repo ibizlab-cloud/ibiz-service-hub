@@ -11,8 +11,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CODENAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -20,8 +18,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前端扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSPFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin();
@@ -50,8 +46,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取权限统一资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();
@@ -66,8 +60,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTMODEL}
 	 * @return
 	 */
 	java.lang.String getReportModel();
@@ -75,8 +67,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getReportParams();
@@ -84,8 +74,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTTAG}
 	 * @return
 	 */
 	java.lang.String getReportTag();
@@ -93,8 +81,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTTAG2}
 	 * @return
 	 */
 	java.lang.String getReportTag2();
@@ -102,8 +88,6 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表界面模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTUIMODEL}
 	 * @return
 	 */
 	java.lang.String getReportUIModel();

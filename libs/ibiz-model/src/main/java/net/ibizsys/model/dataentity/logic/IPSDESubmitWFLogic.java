@@ -14,8 +14,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -44,8 +42,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取可选逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_OPTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getOptPSDELogicParam();
@@ -60,8 +56,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取应用工作流对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSWORKFLOWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.wf.IPSAppWF getPSAppWF();
@@ -76,8 +70,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取实体工作流对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSWFDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.wf.IPSDEWF getPSDEWF();
@@ -92,8 +84,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取工作流对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSWORKFLOWID}
 	 * @return
 	 */
 	net.ibizsys.model.wf.IPSWorkflow getPSWorkflow();
@@ -108,8 +98,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();
@@ -124,8 +112,6 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取工作流操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getWFAction();

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.logic;
 
 
 /**
- * 实体主状态逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicDTO}运行时对象
+ * 实体主状态逻辑模型对象接口
  *
  */
 public interface IPSDEMSLogic extends net.ibizsys.model.dataentity.logic.IPSDELogicBase{
@@ -26,8 +26,6 @@ public interface IPSDEMSLogic extends net.ibizsys.model.dataentity.logic.IPSDELo
 	
 	/**
 	 * 获取逻辑标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_LOGICTAG}
 	 * @return
 	 */
 	java.lang.String getLogicTag();
@@ -35,8 +33,6 @@ public interface IPSDEMSLogic extends net.ibizsys.model.dataentity.logic.IPSDELo
 	
 	/**
 	 * 获取逻辑标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_LOGICTAG2}
 	 * @return
 	 */
 	java.lang.String getLogicTag2();
@@ -44,8 +40,6 @@ public interface IPSDEMSLogic extends net.ibizsys.model.dataentity.logic.IPSDELo
 	
 	/**
 	 * 获取逻辑标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_LOGICTAG3}
 	 * @return
 	 */
 	java.lang.String getLogicTag3();
@@ -53,8 +47,6 @@ public interface IPSDEMSLogic extends net.ibizsys.model.dataentity.logic.IPSDELo
 	
 	/**
 	 * 获取逻辑标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_LOGICTAG4}
 	 * @return
 	 */
 	java.lang.String getLogicTag4();

@@ -26,8 +26,6 @@ public interface IPSDELogicBase extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDELOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();

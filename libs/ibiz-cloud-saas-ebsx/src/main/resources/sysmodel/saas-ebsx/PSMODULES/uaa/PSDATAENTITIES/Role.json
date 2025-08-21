@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_ROLEID",
+        "codeName" : "RoleId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_ROLENAME",
+        "codeName" : "RoleName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -20,10 +28,18 @@
     "name" : "UserMode",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_ROLEID",
+        "codeName" : "RoleId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_ROLENAME",
+        "codeName" : "RoleName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : false,
@@ -399,42 +415,9 @@
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDEDATAQUERIES/CheckRoleAuth/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "CheckRoleAuth",
-    "logicName" : "数据查询2",
+    "logicName" : "验证应用是否全部授权",
     "name" : "CheckRoleAuth",
     "getPSDEDQMain" : {
-      "getChildPSDEDQJoins" : [ {
-        "getDERPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
-        },
-        "getJoinPSDER" : {
-          "modelref" : true,
-          "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID.json"
-        },
-        "getJoinPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/uaa/PSDATAENTITIES/UserRole.json"
-        },
-        "joinType" : "1N",
-        "name" : "SYS_USER_ROLE* [存在1:N（EXISTS (SELECT)）](DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID)",
-        "getPSDEDQGroupCondition" : {
-          "condOp" : "AND",
-          "condType" : "GROUP",
-          "name" : "连接条件",
-          "getPSDEDQConditions" : [ {
-            "condOp" : "EQ",
-            "condType" : "SINGLE",
-            "condValue" : "userid",
-            "fieldName" : "USERID",
-            "name" : "USERID 等于(=) 数据上下文(userid)",
-            "getPSDEField" : {
-              "name" : "USERID",
-              "codeName" : "UserId"
-            },
-            "getPSVARTypeId" : "DATACONTEXT"
-          } ]
-        }
-      } ],
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/uaa/PSDATAENTITIES/Role.json"
@@ -460,12 +443,37 @@
           "condType" : "SINGLE",
           "condValue" : "dcsystemid",
           "fieldName" : "DCSYSTEMID",
-          "name" : "DCSYSTEMID 等于(=) 用户上下文(dcsystemid)",
+          "name" : "DCSYSTEMID 等于(=) 数据上下文(dcsystemid)",
           "getPSDEField" : {
             "name" : "DCSYSTEMID",
             "codeName" : "DCSystemId"
           },
-          "getPSVARTypeId" : "SESSIONCONTEXT"
+          "getPSVARTypeId" : "DATACONTEXT"
+        }, {
+          "condOp" : "OR",
+          "condType" : "GROUP",
+          "name" : "OR",
+          "getPSDEDQConditions" : [ {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "ACCESSUSER",
+            "fieldName" : "USERMODE",
+            "name" : "USERMODE 等于(=) (ACCESSUSER)",
+            "getPSDEField" : {
+              "name" : "USERMODE",
+              "codeName" : "UserMode"
+            }
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "ACCESSADMIN",
+            "fieldName" : "USERMODE",
+            "name" : "USERMODE 等于(=) (ACCESSADMIN)",
+            "getPSDEField" : {
+              "name" : "USERMODE",
+              "codeName" : "UserMode"
+            }
+          } ]
         } ]
       }
     },
@@ -859,6 +867,7 @@
     "length" : 100,
     "logicName" : "角色标识",
     "name" : "SYS_ROLEID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1012,6 +1021,7 @@
     "length" : 200,
     "logicName" : "角色名称",
     "name" : "SYS_ROLENAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1134,6 +1144,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1266,6 +1277,7 @@
     "length" : 100,
     "logicName" : "父角色标识",
     "name" : "PROLEID",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1456,6 +1468,7 @@
     "length" : 200,
     "logicName" : "父角色名称",
     "name" : "PROLENAME",
+    "orderValue" : 8,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDERS/DER1N_SYS_ROLE_SYS_ROLE_PROLEID.json"
@@ -1603,6 +1616,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1733,6 +1747,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1846,6 +1861,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 13,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1964,6 +1980,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 14,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2062,6 +2079,7 @@
     "importOrder" : 1000,
     "logicName" : "授权全部用户",
     "name" : "AUTHORIZEALL",
+    "orderValue" : 15,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2158,6 +2176,7 @@
     "length" : 100,
     "logicName" : "系统标记",
     "name" : "SYSTEMFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2254,6 +2273,7 @@
     "length" : 100,
     "logicName" : "全局标记",
     "name" : "GLOBALFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2374,6 +2394,7 @@
     "length" : 60,
     "logicName" : "用户模式",
     "name" : "USERMODE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/UserMode.json"
@@ -2502,6 +2523,7 @@
     "length" : 100,
     "logicName" : "角色标识",
     "name" : "ROLETAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2636,6 +2658,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Role/PSDERS/DER1N_SYS_ROLE_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -2771,6 +2794,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

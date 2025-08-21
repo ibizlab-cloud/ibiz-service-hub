@@ -301,6 +301,18 @@
     "stdDataType" : 25,
     "stringLength" : 500
   }, {
+    "codeName" : "Param",
+    "logicName" : "参数",
+    "name" : "PARAM",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Param2",
+    "logicName" : "参数2",
+    "name" : "PARAM2",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
     "codeName" : "DCSystemId",
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
@@ -310,24 +322,28 @@
     "codeName" : "UpdateMan",
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "predefinedType" : "UPDATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
     "codeName" : "CreateMan",
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "predefinedType" : "CREATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
     "codeName" : "UpdateDate",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
     "codeName" : "CreateDate",
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   } ],
@@ -462,6 +478,28 @@
       "getPSAppDEField" : {
         "name" : "DYNAMODELID",
         "codeName" : "DynaModelId"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Param",
+      "logicName" : "参数",
+      "name" : "Param",
+      "getPSAppDEField" : {
+        "name" : "PARAM",
+        "codeName" : "Param"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Param2",
+      "logicName" : "参数2",
+      "name" : "Param2",
+      "getPSAppDEField" : {
+        "name" : "PARAM2",
+        "codeName" : "Param2"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,

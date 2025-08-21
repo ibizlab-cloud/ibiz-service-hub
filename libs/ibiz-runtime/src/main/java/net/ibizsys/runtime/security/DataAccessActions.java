@@ -38,6 +38,12 @@ public class DataAccessActions {
 	 * 更新
 	 */
 	public final static String UPDATE = "UPDATE";
+	
+	/**
+	 * 拷贝
+	 */
+	public final static String COPY = "COPY";
+	
 
 	/**
 	 * 工作流操作模式,权限相当于UPDATE

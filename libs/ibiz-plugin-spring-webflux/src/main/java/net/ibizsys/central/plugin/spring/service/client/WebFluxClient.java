@@ -45,6 +45,7 @@ import net.ibizsys.central.service.client.IWebClientRep;
 import net.ibizsys.central.service.client.WebClientBase;
 import net.ibizsys.central.service.client.WebClientRep;
 import net.ibizsys.runtime.SystemRuntimeException;
+import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.IEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -123,6 +124,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+			
+			removeInvalidUriParams(strUri, uriParams);
+			
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).get().uri(strUri, uriParams);
@@ -173,6 +177,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+			
+			removeInvalidUriParams(strUri, uriParams);
+			
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).post().uri(strUri, uriParams);
@@ -237,6 +244,8 @@ public class WebFluxClient extends WebClientBase {
 				}
 			}
 
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).put().uri(strUri, uriParams);
@@ -298,6 +307,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+			
+			removeInvalidUriParams(strUri, uriParams);
+			
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).patch().uri(strUri, uriParams);
@@ -359,6 +371,8 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+			
+			removeInvalidUriParams(strUri, uriParams);
 
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
@@ -421,6 +435,8 @@ public class WebFluxClient extends WebClientBase {
 
 			MultiValueMap<String, Object> parts = new LinkedMultiValueMap<>();
 			parts.add("file", fileEntity);
+			
+			removeInvalidUriParams(strUri, uriParams);
 
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
@@ -489,6 +505,8 @@ public class WebFluxClient extends WebClientBase {
 			else
 				throw new Exception("无法识别的文件输出对象");
 
+			removeInvalidUriParams(strUri, uriParams);
+			
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).get().uri(strUri, uriParams);
@@ -689,5 +707,59 @@ public class WebFluxClient extends WebClientBase {
 		}
 
 		return String.format("请求发生异常，%1$s", webClientResponseException.getMessage());
+	}
+	
+	protected void removeInvalidUriParams(String strUri, Map<String, ?> uriParams) {
+		if(ObjectUtils.isEmpty(uriParams)) {
+			return;
+		}
+		
+		if(!ObjectUtils.isEmpty(strUri) && (strUri.indexOf("{") != -1)) {
+			//已经存在占位
+			return;
+		}
+		
+		List<String> removeKeyList = new ArrayList<String>();
+		
+		int nTotalLen = 0;
+		
+		for(java.util.Map.Entry<String, ?> entry : uriParams.entrySet()) {
+			Object value = entry.getValue();
+			Object simple = DataTypeUtils.asSimple(value);
+			if(simple == null) {
+				//非简单值，移除
+				removeKeyList.remove(entry.getKey());
+				continue;
+			}
+			
+			String strValue = simple.toString();
+			if(strValue.length() > 500) {
+				removeKeyList.remove(entry.getKey());
+				continue;
+			}
+			
+			nTotalLen += strValue.length();
+		}
+		
+		for(String key : removeKeyList) {
+			uriParams.remove(key);
+		}
+		
+		if(nTotalLen > 2000) {
+			//再次移除超过200的内容
+			removeKeyList.clear();
+			for(java.util.Map.Entry<String, ?> entry : uriParams.entrySet()) {
+				Object value = entry.getValue();
+				String strValue = value.toString();
+				if(strValue.length() > 200) {
+					removeKeyList.remove(entry.getKey());
+					continue;
+				}
+			}
+			
+			for(String key : removeKeyList) {
+				uriParams.remove(key);
+			}
+		}
 	}
 }

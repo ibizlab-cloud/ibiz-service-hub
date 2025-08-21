@@ -12,8 +12,6 @@ public interface IPSDEDFJoinProcessNode extends net.ibizsys.model.dataentity.dat
 	/**
 	 * 获取连接模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM1}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowJoinType}
 	 * @return
 	 */
@@ -22,8 +20,6 @@ public interface IPSDEDFJoinProcessNode extends net.ibizsys.model.dataentity.dat
 	
 	/**
 	 * 获取连接模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM6}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.dataflow.IPSDEDFJoinGroupCond getPSDEDFJoinGroupCond();

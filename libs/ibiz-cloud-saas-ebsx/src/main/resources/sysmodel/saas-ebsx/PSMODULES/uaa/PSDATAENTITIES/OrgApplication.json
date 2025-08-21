@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ORGSYSTEMAPPID",
+        "codeName" : "OrgSystemAppId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ORGSYSTEMAPPNAME",
+        "codeName" : "OrgSystemAppName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -469,6 +477,7 @@
     "length" : 100,
     "logicName" : "AccessKey(AppId)",
     "name" : "ACCESS_KEY",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -566,6 +575,7 @@
     "length" : 100,
     "logicName" : "SecretKey(AppSecret)",
     "name" : "SECRET_KEY",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -663,6 +673,7 @@
     "length" : 100,
     "logicName" : "RegionId",
     "name" : "REGION_ID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -760,6 +771,7 @@
     "length" : 1000,
     "logicName" : "管理账号token",
     "name" : "ACCESS_TOKEN",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -846,6 +858,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "管理账号token过期时间",
     "name" : "EXPIRES_TIME",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -950,6 +963,7 @@
     "length" : 100,
     "logicName" : "组织系统应用标识",
     "name" : "ORGSYSTEMAPPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1056,6 +1070,7 @@
     "length" : 200,
     "logicName" : "组织系统名称",
     "name" : "ORGSYSTEMAPPNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1171,6 +1186,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1305,6 +1321,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1439,6 +1456,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1573,6 +1591,7 @@
     "length" : 100,
     "logicName" : "组织标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1706,6 +1725,7 @@
     "length" : 100,
     "logicName" : "组织系统标识",
     "name" : "ORGSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

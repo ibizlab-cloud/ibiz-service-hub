@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEMAINSTATE</B>实体主状态 模型传输对象
  * <P>
- * 实体主状态控制模型，定义由一个或多个实体属性值组成的主状态标记、相应的行为及数据操作标识控制逻辑。主状态控制逻辑是实体的基础控制逻辑，超越权限控制，如指定状态数据拒绝删除则不管是否具备权限都将无法对数据进行删除操作
+ * 实体主状态控制模型，定义最多由三个实体属性值组成的主状态标记、相应的行为及数据操作标识控制逻辑。主状态控制逻辑是实体的基础控制逻辑，超越权限控制，如指定状态数据拒绝删除则不管是否具备权限都将无法对数据进行删除操作
  */
 public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -552,14 +556,14 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEFAULTMODE</B>&nbsp;默认状态，指定实体主状态是否为所在实体的默认主状态，未定义时为【否】
+     * <B>DEFAULTMODE</B>&nbsp;主状态类型，指定实体主状态的类型，未定义时为【常规】
      * <P>
-     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEMainStateType} 
      */
     public final static String FIELD_DEFAULTMODE = "defaultmode";
 
     /**
-     * 设置 默认状态，详细说明：{@link #FIELD_DEFAULTMODE}
+     * 设置 主状态类型，详细说明：{@link #FIELD_DEFAULTMODE}
      * 
      * @param defaultMode
      * 
@@ -570,7 +574,7 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 默认状态  
+     * 获取 主状态类型  
      * @return
      */
     @JsonIgnore
@@ -583,7 +587,7 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 默认状态 是否指定值，包括空值
+     * 判断 主状态类型 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -595,7 +599,7 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 默认状态
+     * 重置 主状态类型
      */
     @JsonIgnore
     public void resetDefaultMode(){
@@ -603,7 +607,7 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 默认状态，详细说明：{@link #FIELD_DEFAULTMODE}
+     * 设置 主状态类型，详细说明：{@link #FIELD_DEFAULTMODE}
      * <P>
      * 等同 {@link #setDefaultMode}
      * @param defaultMode
@@ -615,18 +619,18 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 默认状态，详细说明：{@link #FIELD_DEFAULTMODE}
+     * 设置 主状态类型，详细说明：{@link #FIELD_DEFAULTMODE}
      * <P>
      * 等同 {@link #setDefaultMode}
      * @param defaultMode
      */
     @JsonIgnore
-    public PSDEMainState defaultmode(Boolean defaultMode){
+    public PSDEMainState defaultmode(net.ibizsys.psmodel.core.util.PSModelEnums.DEMainStateType defaultMode){
         if(defaultMode == null){
             this.setDefaultMode(null);
         }
         else{
-            this.setDefaultMode(defaultMode?BOOLEAN_TRUE:BOOLEAN_FALSE);
+            this.setDefaultMode(defaultMode.value);
         }
         return this;
     }
@@ -2061,7 +2065,7 @@ public class PSDEMainState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MSTAG</B>&nbsp;主状态标记，指定实体主状态的标记，由指定的状态值合成
+     * <B>MSTAG</B>&nbsp;主状态标记，实体主状态的标记，由指定的状态值合成，只读
      * <P>
      * 字符串：最大长度 200
      */

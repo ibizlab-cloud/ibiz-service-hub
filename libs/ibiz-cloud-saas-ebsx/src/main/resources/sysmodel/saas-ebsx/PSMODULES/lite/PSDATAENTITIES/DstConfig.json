@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "CFGID",
+        "codeName" : "CfgId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "CFGTYPE",
+        "codeName" : "CfgType"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -501,6 +509,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "CFGID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -644,6 +653,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -796,6 +806,7 @@
     "length" : 100,
     "logicName" : "配置类型",
     "name" : "CFGTYPE",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -924,6 +935,7 @@
     "length" : 100,
     "logicName" : "引用类型",
     "name" : "TARGETTYPE",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1050,6 +1062,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1172,6 +1185,7 @@
     "length" : 1048576,
     "logicName" : "配置内容",
     "name" : "CFG",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1281,6 +1295,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

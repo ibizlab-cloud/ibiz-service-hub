@@ -226,6 +226,23 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
+     /**
+     * 设置 位置布局位置，详细说明：{@link #FIELD_BL_POS}
+     * <P>
+     * 等同 {@link #setBL_Pos}
+     * @param bL_Pos
+     */
+    @JsonIgnore
+    public PSAppPVPart bl_pos(net.ibizsys.psmodel.core.util.PSModelEnums.BorderLayoutPos bL_Pos){
+        if(bL_Pos == null){
+            this.setBL_Pos(null);
+        }
+        else{
+            this.setBL_Pos(bL_Pos.value);
+        }
+        return this;
+    }
+
     /**
      * <B>COLID</B>&nbsp;列标识，数据面板成员父容器布局模式为【表格布局】时指定占位列标识，-1为自动，未定义时为【-1】
      */
@@ -1102,14 +1119,14 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEANCHOR</B>&nbsp;支持锚点
+     * <B>ENABLEANCHOR</B>&nbsp;启用锚点，启用锚点提供了定位当前项能力，默认【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLEANCHOR = "enableanchor";
 
     /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * 
      * @param enableAnchor
      * 
@@ -1120,7 +1137,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 支持锚点  
+     * 获取 启用锚点  
      * @return
      */
     @JsonIgnore
@@ -1133,7 +1150,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 支持锚点 是否指定值，包括空值
+     * 判断 启用锚点 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1145,7 +1162,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 支持锚点
+     * 重置 启用锚点
      */
     @JsonIgnore
     public void resetEnableAnchor(){
@@ -1153,7 +1170,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -1165,7 +1182,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -1262,7 +1279,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，数据看板成员容器布局模式为【Flex布局】时指定横轴对齐方式
+     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，成员在【Flex布局】模式下指定横轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexAlign} 
      */
@@ -1403,7 +1420,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXDIR</B>&nbsp;Flex布局方向，数据看板成员容器布局模式为【Flex布局】时指定布局方向
+     * <B>FLEXDIR</B>&nbsp;Flex布局方向，成员在【Flex布局】模式下指定布局方向
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexLayoutDir} 
      */
@@ -1483,7 +1500,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXGROW</B>&nbsp;Flex延展值，数据看板成员父容器布局模式为【Flex布局】时指定成员的延展值，未定义时为【-1】
+     * <B>FLEXGROW</B>&nbsp;Flex延展值，成员在【Flex布局】模式下延展值，未定义时为【-1】
      */
     public final static String FIELD_FLEXGROW = "flexgrow";
 
@@ -1605,7 +1622,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，数据看板成员容器布局模式为【Flex布局】时指定纵轴对齐方式
+     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，容器布局模式为【Flex布局】时指定纵轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexVAlign} 
      */
@@ -4490,14 +4507,14 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SWAPMODE</B>&nbsp;内容换行模式
+     * <B>SWAPMODE</B>&nbsp;内容换行模式，直接内容文本的换行模式
      * <P>
-     * 字符串：最大长度 30
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.WrapMode} 
      */
     public final static String FIELD_SWAPMODE = "swapmode";
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * 
      * @param swapMode
      * 
@@ -4541,7 +4558,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * <P>
      * 等同 {@link #setSwapMode}
      * @param swapMode
@@ -4552,15 +4569,32 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
+     /**
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
+     * <P>
+     * 等同 {@link #setSwapMode}
+     * @param swapMode
+     */
+    @JsonIgnore
+    public PSAppPVPart swapmode(net.ibizsys.psmodel.core.util.PSModelEnums.WrapMode swapMode){
+        if(swapMode == null){
+            this.setSwapMode(null);
+        }
+        else{
+            this.setSwapMode(swapMode.value);
+        }
+        return this;
+    }
+
     /**
-     * <B>TEMPLATEMODE</B>&nbsp;模板模式
+     * <B>TEMPLATEMODE</B>&nbsp;模板模式，指定直接内容输出是否使用模板机制，默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_TEMPLATEMODE = "templatemode";
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * 
      * @param templateMode
      * 
@@ -4604,7 +4638,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -4616,7 +4650,7 @@ public class PSAppPVPart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode

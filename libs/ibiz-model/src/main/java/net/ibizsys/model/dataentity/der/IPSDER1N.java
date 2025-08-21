@@ -15,8 +15,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取附加约束主属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_EXTMAJORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getERMajorPSDEF();
@@ -31,8 +29,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取附加约束从属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_EXTMINORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getERMinorPSDEF();
@@ -48,8 +44,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	/**
 	 * 获取导出引用数据模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_EXPORTMAJORMODEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERExportMajorModel}
 	 * @return
 	 */
@@ -58,8 +52,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取外键名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_FKEYNAME}
 	 * @return
 	 */
 	java.lang.String getFKeyName();
@@ -67,8 +59,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取主实体父关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MAJORPSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDER1N getMajorPPSDER1N();
@@ -83,8 +73,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取主控次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MASTERORDERVALUE}
 	 * @return
 	 */
 	int getMasterOrder();
@@ -92,8 +80,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取主从关系类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MASTERRS}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NMasterRS}
 	 * @return
@@ -103,8 +89,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取从实体父关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MINORPSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDER1N getMinorPPSDER1N();
@@ -119,8 +103,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取嵌套成员数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MINORPSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getNestedPSDEDataSet();
@@ -198,8 +180,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取关系属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_DERFIELDNAME}
 	 * @return
 	 */
 	java.lang.String getPickupDEFName();
@@ -214,8 +194,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取删除拒绝消息语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_REMOVEREJECTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getRRMPSLanguageRes();
@@ -230,8 +208,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取引用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet();
@@ -247,8 +223,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	/**
 	 * 获取删除方式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_REMOVEACTIONTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NRemoveActionType}
 	 * @return
 	 */
@@ -257,8 +231,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取删除次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_REMOVEORDER}
 	 * @return
 	 */
 	int getRemoveOrder();
@@ -266,8 +238,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取删除拒绝消息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_REMOVEREJECTMSG}
 	 * @return
 	 */
 	java.lang.String getRemoveRejectMsg();
@@ -275,8 +245,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取同步数据模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_SYNCEXPORTMODEL}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERDataSyncAction}
 	 * @return
@@ -286,8 +254,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取临时数据次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_TEMPORDERVALUE}
 	 * @return
 	 */
 	int getTempDataOrder();
@@ -295,8 +261,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取是否支持克隆
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_ENABLECLONE}
 	 * @return
 	 */
 	boolean isCloneRS();
@@ -311,8 +275,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取是否启用附加约束
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_ENAEXTRANGE}
 	 * @return
 	 */
 	boolean isEnableExtRestrict();
@@ -320,8 +282,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取是否启用外键
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_FOREIGNKEY}
 	 * @return
 	 */
 	boolean isEnableFKey();
@@ -329,8 +289,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取是否启用父关系等价
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_ENAPDEREQ}
 	 * @return
 	 */
 	boolean isEnablePDEREQ();
@@ -338,8 +296,6 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	
 	/**
 	 * 获取是否启用物理化更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_UPDATEPHYSICALDEFIELD}
 	 * @return
 	 */
 	boolean isEnablePhysicalDEFieldUpdate();

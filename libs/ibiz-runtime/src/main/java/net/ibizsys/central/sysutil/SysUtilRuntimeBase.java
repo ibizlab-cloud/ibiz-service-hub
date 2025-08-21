@@ -92,7 +92,7 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 	}
 
 	@Override
-	public IPSModelObject getPSModelObject() {
+	public IPSSysUtil getPSModelObject() {
 		return this.getPSSysUtil();
 	}
 	

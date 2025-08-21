@@ -29,8 +29,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -45,8 +43,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -54,8 +50,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -63,8 +57,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AMITEMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppMenuItemType}
 	 * @return
@@ -74,8 +66,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -83,8 +73,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取操作提示语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
@@ -99,8 +87,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否默认展开菜单
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EXPAND}
 	 * @return
 	 */
 	boolean isExpanded();
@@ -108,8 +94,6 @@ public interface IPSMenuItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否隐藏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_HIDDENITEM}
 	 * @return
 	 */
 	boolean isHidden();

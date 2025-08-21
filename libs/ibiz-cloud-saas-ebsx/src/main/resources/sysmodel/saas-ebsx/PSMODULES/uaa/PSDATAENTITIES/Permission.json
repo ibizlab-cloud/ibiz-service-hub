@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_PERMISSIONID",
+        "codeName" : "PermissionId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_PERMISSIONNAME",
+        "codeName" : "PermissionName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -608,6 +616,7 @@
     "length" : 200,
     "logicName" : "资源标识",
     "name" : "SYS_PERMISSIONID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -736,6 +745,7 @@
     "length" : 200,
     "logicName" : "资源名称",
     "name" : "SYS_PERMISSIONNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -867,6 +877,7 @@
     "length" : 60,
     "logicName" : "权限类别",
     "name" : "PERMISSIONTYPE",
+    "orderValue" : 4,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/PermissionType.json"
@@ -985,6 +996,7 @@
     "length" : 60,
     "logicName" : "权限标识",
     "name" : "PERMISSIONTAG",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1142,6 +1154,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "PSSYSTEMID",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1291,6 +1304,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1421,6 +1435,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1519,6 +1534,7 @@
     "importOrder" : 1000,
     "logicName" : "启用机构范围",
     "name" : "ENABLEORGDR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1630,6 +1646,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "DYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1741,6 +1758,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1862,6 +1880,7 @@
     "length" : 2000,
     "logicName" : "业务数据范围",
     "name" : "BSCOPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1955,6 +1974,7 @@
     "importOrder" : 1000,
     "logicName" : "机构数据范围",
     "name" : "ORGDR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/DR.json"
@@ -2069,6 +2089,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2172,6 +2193,7 @@
     "importOrder" : 1000,
     "logicName" : "启用部门范围",
     "name" : "ENABLEDEPTDR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2283,6 +2305,7 @@
     "length" : 100,
     "logicName" : "部门业务代码",
     "name" : "DEPTBC",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2376,6 +2399,7 @@
     "importOrder" : 1000,
     "logicName" : "部门数据范围",
     "name" : "DEPTDR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/DR.json"
@@ -2481,6 +2505,7 @@
     "importOrder" : 1000,
     "logicName" : "系统标记",
     "name" : "SYSTEMFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2580,6 +2605,7 @@
     "importOrder" : 1000,
     "logicName" : "启用部门代码",
     "name" : "ENABLEDEPTBC",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2735,6 +2761,7 @@
     "length" : 100,
     "logicName" : "实体名",
     "name" : "ENTITYNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDERS/DER1N_SYS_PERMISSION_META_ENTITY_ENTITYID.json"
@@ -2888,6 +2915,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDERS/DER1N_SYS_PERMISSION_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -3059,6 +3087,7 @@
     "length" : 200,
     "logicName" : "权限名称",
     "name" : "PSYS_PERMISSIONNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/Permission/PSDERS/DER1N_SYS_PERMISSION_SYS_PERMISSION_PSYS_PERMISSIONID.json"
@@ -3189,6 +3218,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3336,6 +3366,7 @@
     "length" : 200,
     "logicName" : "资源标识",
     "name" : "PSYS_PERMISSIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3483,6 +3514,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "ENTITYID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3595,6 +3627,7 @@
     "importOrder" : 1000,
     "logicName" : "全部数据",
     "name" : "ISALLDATA",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"

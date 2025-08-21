@@ -12,8 +12,6 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CONTENT}
 	 * @return
 	 */
 	java.lang.String getDefaultContent();
@@ -21,8 +19,6 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取语言资源标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LANRESTAG}
 	 * @return
 	 */
 	java.lang.String getLanResTag();
@@ -30,8 +26,6 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取语言资源类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LANRESTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LanResType}
 	 * @return

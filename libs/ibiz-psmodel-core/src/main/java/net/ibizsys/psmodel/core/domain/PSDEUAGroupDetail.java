@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEUAGROUPDETAIL</B>实体界面行为组成员 模型传输对象
+ * <B>PSDEUAGROUPDETAIL</B>界面行为组成员 模型传输对象
  * <P>
  * 界面行为组成员模型，将界面行为加入到行为组中，每个界面行为只能被添加一次
  */

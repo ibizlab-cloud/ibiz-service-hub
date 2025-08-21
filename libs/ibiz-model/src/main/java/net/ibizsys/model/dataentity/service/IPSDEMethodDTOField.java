@@ -4,8 +4,6 @@ package net.ibizsys.model.dataentity.service;
 
 /**
  * 实体方法DTO属性对象接口
- * <P>
- * 子接口扩展识别值 {@link #getSourceType}
  *
  */
 public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defield.IPSDEFieldBase

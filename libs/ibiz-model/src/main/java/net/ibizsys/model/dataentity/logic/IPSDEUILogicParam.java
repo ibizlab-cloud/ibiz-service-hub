@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.logic;
 
 
 /**
- * 实体界面逻辑节点参数模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO}运行时对象
+ * 实体界面逻辑节点参数模型对象接口
  *
  */
 public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IPSDELogicParamBase{
@@ -12,8 +12,6 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO#FIELD_DEFAULTVALUE}
 	 * @return
 	 */
 	java.lang.String getDefaultValue();
@@ -28,8 +26,6 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取参数属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO#FIELD_REFFIELDNAME}
 	 * @return
 	 */
 	java.lang.String getParamFieldName();
@@ -37,8 +33,6 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取参数标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO#FIELD_PARAMTAG}
 	 * @return
 	 */
 	java.lang.String getParamTag();
@@ -46,8 +40,6 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取参数标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO#FIELD_PARAMTAG2}
 	 * @return
 	 */
 	java.lang.String getParamTag2();
@@ -55,8 +47,6 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取简单数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO#FIELD_STDDATATYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return

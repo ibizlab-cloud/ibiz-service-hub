@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO}运行时对象
+ * 外部系统服务接口行为模型对象接口
  *
  */
 public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取执行之后调用脚本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_AFTERCODE}
 	 * @return
 	 */
 	java.lang.String getAfterCode();
@@ -21,8 +19,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取请求内容类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_REQUESTCONTENTTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceReqContentType}
 	 * @return
@@ -46,8 +42,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_DETAILPARAM}
 	 * @return
 	 */
 	java.lang.String getMethodParam();
@@ -55,8 +49,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_DETAILPARAM2}
 	 * @return
 	 */
 	java.lang.String getMethodParam2();
@@ -64,8 +56,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法调用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_METHODCODE}
 	 * @return
 	 */
 	java.lang.String getMethodScriptCode();
@@ -73,8 +63,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_DETAILTAG}
 	 * @return
 	 */
 	java.lang.String getMethodTag();
@@ -82,8 +70,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_DETAILTAG2}
 	 * @return
 	 */
 	java.lang.String getMethodTag2();
@@ -91,8 +77,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取方法类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_DETAILTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SADEMethodType}
 	 * @return
@@ -145,8 +129,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	/**
 	 * 获取请求方式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_REQUESTMETHOD}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RequestMethod}
 	 * @return
 	 */
@@ -156,8 +138,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	/**
 	 * 获取参数类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_REQUESTPARAMTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceReqParamType}
 	 * @return
 	 */
@@ -166,8 +146,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取请求路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_SERVICEURL}
 	 * @return
 	 */
 	java.lang.String getRequestPath();
@@ -175,8 +153,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取返回值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_RETVALTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionRetType}
 	 * @return
@@ -193,8 +169,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取是否独立输出资源键值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_NEEDRESOURCEKEY}
 	 * @return
 	 */
 	boolean isNeedResourceKey();
@@ -202,8 +176,6 @@ public interface IPSSubSysServiceAPIMethod extends net.ibizsys.model.IPSModelObj
 	
 	/**
 	 * 获取是否无服务代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_NOSERVICECODENAME}
 	 * @return
 	 */
 	boolean isNoServiceCodeName();

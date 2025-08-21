@@ -14,8 +14,6 @@ public interface IPSDEFVRValueRange3Condition extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取值分隔符
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM}
 	 * @return
 	 */
 	java.lang.String getSeparator();

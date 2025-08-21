@@ -3,6 +3,10 @@
     "codeName" : "Default",
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/SysRole.json"
+    },
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
       "name" : "value",
@@ -257,9 +261,9 @@
     "getADPSDEDQConditions" : [ {
       "condOp" : "EQ",
       "condType" : "SINGLE",
-      "condValue" : "userid",
-      "fieldName" : "USERID",
-      "name" : "USERID 等于(=) 数据上下文(userid)",
+      "condValue" : "dcsystemid",
+      "fieldName" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID 等于(=) 数据上下文(dcsystemid)",
       "getPSVARTypeId" : "DATACONTEXT"
     } ],
     "codeName" : "FetchCheckAuthorizeall",
@@ -386,6 +390,7 @@
     },
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
@@ -395,18 +400,21 @@
     },
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
     "codeName" : "CreateMan",
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "predefinedType" : "CREATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
     "codeName" : "UpdateMan",
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "predefinedType" : "UPDATEMAN",
     "stdDataType" : 25,
     "stringLength" : 60
   }, {
@@ -1080,9 +1088,9 @@
     "getADPSDEDQConditions" : [ {
       "condOp" : "EQ",
       "condType" : "SINGLE",
-      "condValue" : "userid",
-      "fieldName" : "USERID",
-      "name" : "USERID 等于(=) 数据上下文(userid)",
+      "condValue" : "dcsystemid",
+      "fieldName" : "DCSYSTEMID",
+      "name" : "DCSYSTEMID 等于(=) 数据上下文(dcsystemid)",
       "getPSVARTypeId" : "DATACONTEXT"
     } ],
     "codeName" : "FetchCheckAuthorizeall",

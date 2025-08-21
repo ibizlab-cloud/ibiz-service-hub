@@ -3,6 +3,10 @@
     "codeName" : "Default",
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+    },
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
       "name" : "value",

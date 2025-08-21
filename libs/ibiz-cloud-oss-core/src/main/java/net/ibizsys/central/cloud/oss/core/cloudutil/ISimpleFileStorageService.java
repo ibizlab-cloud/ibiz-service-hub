@@ -2,14 +2,16 @@ package net.ibizsys.central.cloud.oss.core.cloudutil;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
+import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTicketMode;
 import net.ibizsys.central.cloud.oss.core.util.domain.FileItem;
 
 /**
@@ -126,13 +128,39 @@ public interface ISimpleFileStorageService {
 	 * @param nSeconds
 	 * @return
 	 */
-	ObjectNode createDownloadTicket(String strCat, String strFileId, int nSeconds);
+	DownloadTicket createDownloadTicket(String strCat, String strFileId, int nSeconds);
 	
 	
 	/**
 	 * 通过文件访问键下载文件
+	 * @param strCat
 	 * @param strDownloadKey
 	 * @param response
+	 * @param bTryOrigin 尝试文件标识
 	 */
-	void downloadFileByTicket(String strDownloadTicket, HttpServletResponse response);
+	void downloadFileByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, boolean bTryFileId);
+	
+	
+	
+	
+	/**
+	 * 获取下载凭证模式
+	 * @return
+	 */
+	DownloadTicketMode getDownloadTicketMode();
+	
+	
+	/**
+	 * 是否包含下载凭证目录
+	 * @param strFolder
+	 * @return
+	 */
+	boolean containsDownloadTicketFolder(String strFolder);
+	
+	
+	/**
+	 * 获取下载凭证控制目录集合
+	 * @return
+	 */
+	Set<String> getDownloadTicketFolders();
 }

@@ -14,8 +14,6 @@ public interface IPSDESysDataSyncAgentOutLogic extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESysDataSyncAgentOutLogic extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取系统数据同步代理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getPSSysDataSyncAgent();

@@ -3,7 +3,7 @@ package net.ibizsys.model.control.tree;
 
 
 /**
- * 实体甘特图部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO}运行时对象
+ * 实体甘特图部件模型对象接口
  *
  */
 public interface IPSDEGantt extends net.ibizsys.model.control.tree.IPSDETreeGridEx{

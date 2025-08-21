@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIREPORTITEM</B>智能报表项 模型传输对象
  * <P>
- * 
+ * 智能报表中的最小组成单元，用于定义报表中具体展示的内容（如指标、维度或自定义项），并控制其显示位置、格式及交互逻辑
  */
 public class PSSysBIReportItem extends net.ibizsys.psmodel.core.util.PSModelBase {
 

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性输入提示模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO}运行时对象
+ * 实体属性输入提示模型对象接口
  *
  */
 public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPSDEFieldObject{
@@ -26,8 +26,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_CONTENTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageRes();
@@ -42,8 +40,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取Html内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_CONTENT}
 	 * @return
 	 */
 	java.lang.String getHtmlContent();
@@ -51,8 +47,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取直接内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_RAWCONTENT}
 	 * @return
 	 */
 	java.lang.String getRawContent();
@@ -60,8 +54,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取提示模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_TIPMODE}
 	 * @return
 	 */
 	java.lang.String getTipMode();
@@ -69,8 +61,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取唯一标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_UNIQUETAG}
 	 * @return
 	 */
 	java.lang.String getUniqueTag();
@@ -78,8 +68,6 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取是否属性默认输入提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFInputTipDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYS_PERMISSION_ACTIONID",
+        "codeName" : "PermissionActionId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYS_PERMISSION_ACTIONNAME",
+        "codeName" : "PermissionActionName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -680,6 +688,7 @@
     "length" : 200,
     "logicName" : "操作标识",
     "name" : "SYS_PERMISSION_ACTIONID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -797,6 +806,7 @@
     "length" : 200,
     "logicName" : "操作名称",
     "name" : "SYS_PERMISSION_ACTIONNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -907,6 +917,7 @@
     "length" : 2000,
     "logicName" : "业务数据范围",
     "name" : "BSCOPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1009,6 +1020,7 @@
     "importOrder" : 1000,
     "logicName" : "系统标记",
     "name" : "SYSTEMFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1120,6 +1132,7 @@
     "length" : 100,
     "logicName" : "操作标识",
     "name" : "OPPRIV",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1272,6 +1285,7 @@
     "length" : 200,
     "logicName" : "资源名称",
     "name" : "SYS_PERMISSIONNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/PermissionAction/PSDERS/DER1N_SYS_PERMISSION_ACTION_SYS_PERMISSION_SYS_PERMISSIONID.json"
@@ -1417,6 +1431,7 @@
     "length" : 200,
     "logicName" : "资源标识",
     "name" : "SYS_PERMISSIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

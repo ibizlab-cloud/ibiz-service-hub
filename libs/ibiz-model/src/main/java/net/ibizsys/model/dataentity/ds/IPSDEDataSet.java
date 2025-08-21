@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据集合模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO}运行时对象
+ * 实体数据集合模型对象接口
  * <P>
  * 实体数据集合模型除了自身逻辑还包括了输入{@link #getPSDEDataSetInput}及返回{@link #getPSDEDataSetReturn}模型
  *
@@ -53,8 +53,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	/**
 	 * 获取数据集选项
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DSOPTION}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetOption}
 	 * @return
 	 */
@@ -63,8 +61,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DATASETPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getDataSetParams();
@@ -72,8 +68,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DSTAG}
 	 * @return
 	 */
 	java.lang.String getDataSetTag();
@@ -81,8 +75,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DSTAG2}
 	 * @return
 	 */
 	java.lang.String getDataSetTag2();
@@ -90,8 +82,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DSTAG3}
 	 * @return
 	 */
 	java.lang.String getDataSetTag3();
@@ -99,8 +89,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DSTAG4}
 	 * @return
 	 */
 	java.lang.String getDataSetTag4();
@@ -127,8 +115,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	/**
 	 * 获取分组模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_ENABLEGROUP}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetGroupMode}
 	 * @return
 	 */
@@ -137,8 +123,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -146,8 +130,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取默认主排序方向
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_MAJORSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
@@ -157,8 +139,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取默认主排序属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_MAJORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMajorSortPSDEField();
@@ -173,8 +153,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取最大记录数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_MAXROWCNT}
 	 * @return
 	 */
 	int getMaxRowCount();
@@ -182,8 +160,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取默认从排序方向
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_MINORSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
@@ -193,8 +169,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取默认从排序属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_MINORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMinorSortPSDEField();
@@ -209,8 +183,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取性能优化预警时长（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_POTIME}
 	 * @return
 	 */
 	int getPOTime();
@@ -218,8 +190,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -367,8 +337,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取聚合数据关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_AGGDATAPSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERAggData getPSDERAggData();
@@ -425,8 +393,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取缓存统一状态对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PSSYSUNISTATEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysUniState getPSSysUniState();
@@ -469,8 +435,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取默认分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PAGESIZE}
 	 * @return
 	 */
 	int getPageSize();
@@ -478,8 +442,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取数据集参数模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PARAMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetParamMode}
 	 * @return
@@ -490,8 +452,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	/**
 	 * 获取预定义类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PREDEFINEDTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetPredefinedType}
 	 * @return
 	 */
@@ -500,8 +460,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -509,8 +467,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取连接模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_UNIONMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetUnionMode}
 	 * @return
@@ -529,8 +485,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取是否自定义数据集参数，是否有设置行为参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_PARAMTYPE}
 	 * @return
 	 */
 	boolean isCustomParam();
@@ -538,8 +492,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取是否实体默认数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_DEFAULTMODE}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -547,8 +499,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取是否启用访问审计
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_ENABLEAUDIT}
 	 * @return
 	 */
 	boolean isEnableAudit();
@@ -577,8 +527,6 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取是否启用分组，分组模式访问{@link #getGroupMode}
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO#FIELD_ENABLEGROUP}
 	 * @return
 	 */
 	boolean isEnableGroup();

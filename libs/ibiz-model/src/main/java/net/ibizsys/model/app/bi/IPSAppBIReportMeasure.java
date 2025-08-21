@@ -13,8 +13,6 @@ public interface IPSAppBIReportMeasure extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取聚合模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AGGTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
@@ -51,8 +49,6 @@ public interface IPSAppBIReportMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG}
 	 * @return
 	 */
 	java.lang.String getItemTag();
@@ -60,8 +56,6 @@ public interface IPSAppBIReportMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表项标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG2}
 	 * @return
 	 */
 	java.lang.String getItemTag2();
@@ -120,8 +114,6 @@ public interface IPSAppBIReportMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用智能立方体指标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSBICUBEMEASUREID}
 	 * @return
 	 */
 	net.ibizsys.model.app.bi.IPSAppBICubeMeasure getPSAppBICubeMeasure();
@@ -164,8 +156,6 @@ public interface IPSAppBIReportMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取放置类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PLACETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlaceType}
 	 * @return

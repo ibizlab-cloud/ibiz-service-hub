@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSPANELITEMLOGIC</B>面板项逻辑 模型传输对象
  * <P>
- * 面板部件的动态逻辑模型，为面板成员提供动态的显示隐藏控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
+ * 面板部件成员的动态逻辑模型，为成员提供动态的显示隐藏控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
  */
 public class PSPanelItemLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -390,7 +394,7 @@ public class PSPanelItemLogic extends net.ibizsys.psmodel.core.util.PSModelBase 
     /**
      * <B>DSTPSPANELMODELID</B>&nbsp;目标面板逻辑参数
      * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysViewPanelModel} 
+     * 字符串：最大长度 100
      */
     public final static String FIELD_DSTPSPANELMODELID = "dstpspanelmodelid";
 
@@ -447,25 +451,6 @@ public class PSPanelItemLogic extends net.ibizsys.psmodel.core.util.PSModelBase 
     @JsonIgnore
     public PSPanelItemLogic dstpspanelmodelid(String dstPSPanelModelId){
         this.setDstPSPanelModelId(dstPSPanelModelId);
-        return this;
-    }
-
-    /**
-     * 设置 目标面板逻辑参数，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setDstPSPanelModelId}
-     * @param pSSysViewPanelModel 引用对象
-     */
-    @JsonIgnore
-    public PSPanelItemLogic dstpspanelmodelid(PSSysViewPanelModel pSSysViewPanelModel){
-        if(pSSysViewPanelModel == null){
-            this.setDstPSPanelModelId(null);
-            this.setDstPSPanelModelName(null);
-        }
-        else{
-            this.setDstPSPanelModelId(pSSysViewPanelModel.getPSSysViewPanelModelId());
-            this.setDstPSPanelModelName(pSSysViewPanelModel.getPSSysViewPanelModelName());
-        }
         return this;
     }
 

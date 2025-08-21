@@ -28,8 +28,6 @@ public interface IPSPanelControl extends net.ibizsys.model.control.panel.IPSPane
 	
 	/**
 	 * 获取视图模型属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getViewFieldName();

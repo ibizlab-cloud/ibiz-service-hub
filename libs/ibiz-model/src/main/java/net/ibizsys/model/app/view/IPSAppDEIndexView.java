@@ -16,8 +16,6 @@ public interface IPSAppDEIndexView extends net.ibizsys.model.app.view.IPSAppDEVi
 	/**
 	 * 获取打开数据模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_VIEWPARAM13}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */

@@ -9779,6 +9779,20 @@
       "stdDataType" : 9,
       "nullable" : true
     }, {
+      "codeName" : "PARAM",
+      "length" : 100,
+      "logicName" : "参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM2",
+      "length" : 100,
+      "logicName" : "参数2",
+      "name" : "PARAM2",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "PROCESSDIAGRAM",
       "length" : 1000,
       "logicName" : "流程图",
@@ -9980,7 +9994,7 @@
       "nullable" : true
     }, {
       "codeName" : "PROCESSDEFKEY",
-      "length" : 100,
+      "length" : 200,
       "logicName" : "流程定义标识",
       "name" : "PROCESSDEFKEY",
       "stdDataType" : 25,
@@ -10063,7 +10077,7 @@
       "nullable" : true
     }, {
       "codeName" : "DEFINITIONKEY",
-      "length" : 100,
+      "length" : 200,
       "logicName" : "DefinitionKey",
       "name" : "DEFINITIONKEY",
       "stdDataType" : 25,
@@ -10097,9 +10111,23 @@
       "pKey" : true
     }, {
       "codeName" : "INSTANCENAME",
-      "length" : 300,
+      "length" : 2000,
       "logicName" : "实例名称",
       "name" : "INSTANCENAME",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM",
+      "length" : 100,
+      "logicName" : "参数",
+      "name" : "PARAM",
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PARAM2",
+      "length" : 100,
+      "logicName" : "参数2",
+      "name" : "PARAM2",
       "stdDataType" : 25,
       "nullable" : true
     }, {

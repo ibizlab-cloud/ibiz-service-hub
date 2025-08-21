@@ -989,6 +989,10 @@
           "autoLoad" : true,
           "showBusyIndicator" : true
         },
+        "getPSLayout" : {
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
         "modelid" : "7FF718A1-D5FB-4726-A683-2C38617F4F2E",
         "modeltype" : "PSAPPMENU"
       } ],
@@ -4824,12 +4828,14 @@
         "codeName" : "UpdateDate",
         "logicName" : "更新时间",
         "name" : "UPDATEDATE",
+        "predefinedType" : "UPDATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
         "codeName" : "CreateMan",
         "logicName" : "建立人",
         "name" : "CREATEMAN",
+        "predefinedType" : "CREATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       }, {
@@ -4842,6 +4848,7 @@
         "codeName" : "CreateDate",
         "logicName" : "建立时间",
         "name" : "CREATEDATE",
+        "predefinedType" : "CREATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
@@ -4854,6 +4861,7 @@
         "codeName" : "UpdateMan",
         "logicName" : "更新人",
         "name" : "UPDATEMAN",
+        "predefinedType" : "UPDATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       } ],
@@ -5361,6 +5369,10 @@
         "codeName" : "Default",
         "logicName" : "DEFAULT",
         "name" : "DEFAULT",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/SAASMgr/PSAPPDATAENTITIES/SysPSSystem.json"
+        },
         "getPSDEACModeDataItems" : [ {
           "dataType" : 25,
           "name" : "value",
@@ -6861,24 +6873,28 @@
         "codeName" : "CreateDate",
         "logicName" : "建立时间",
         "name" : "CREATEDATE",
+        "predefinedType" : "CREATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
         "codeName" : "UpdateMan",
         "logicName" : "更新人",
         "name" : "UPDATEMAN",
+        "predefinedType" : "UPDATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       }, {
         "codeName" : "CreateMan",
         "logicName" : "建立人",
         "name" : "CREATEMAN",
+        "predefinedType" : "CREATEMAN",
         "stdDataType" : 25,
         "stringLength" : 60
       }, {
         "codeName" : "UpdateDate",
         "logicName" : "更新时间",
         "name" : "UPDATEDATE",
+        "predefinedType" : "UPDATEDATE",
         "stdDataType" : 5,
         "valueFormat" : "YYYY-MM-DD HH:mm:ss"
       }, {
@@ -8095,6 +8111,7 @@
         "codeName" : "OrgId",
         "logicName" : "单位",
         "name" : "ORGID",
+        "predefinedType" : "ORGID",
         "stdDataType" : 25,
         "stringLength" : 100
       }, {
@@ -8107,6 +8124,7 @@
         "codeName" : "OrgName",
         "logicName" : "单位名称",
         "name" : "ORGNAME",
+        "predefinedType" : "ORGNAME",
         "stdDataType" : 25,
         "stringLength" : 100
       }, {

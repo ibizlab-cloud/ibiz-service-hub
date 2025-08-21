@@ -3,7 +3,7 @@ package net.ibizsys.model.control.grid;
 
 
 /**
- * 实体表格编辑项模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO}运行时对象
+ * 实体表格编辑项模型基础对象接口
  *
  */
 public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
@@ -28,8 +28,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取建立默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CREATEDV}
 	 * @return
 	 */
 	java.lang.String getCreateDV();
@@ -37,8 +35,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取建立默认值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CREATEDVT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
@@ -49,8 +45,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	/**
 	 * 获取启用条件
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_ENABLECOND}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditItemEnableCond}
 	 * @return
 	 */
@@ -59,8 +53,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取忽略输入模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_IGNOREINPUT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditItemEnableCond}
 	 * @return
@@ -71,8 +63,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	/**
 	 * 获取输出代码表配置模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CODELISTCONFIGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.OutputCodeListMode}
 	 * @return
 	 */
@@ -81,8 +71,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取列应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -97,8 +85,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取表格编辑项更新对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_PSDEGEIUPDATEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.grid.IPSDEGridEditItemUpdate getPSDEGridEditItemUpdate();
@@ -113,8 +99,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取重置项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_RESETITEMNAME}
 	 * @return
 	 */
 	java.lang.String getResetItemName();
@@ -143,8 +127,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取更新默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_UPDATEDV}
 	 * @return
 	 */
 	java.lang.String getUpdateDV();
@@ -152,8 +134,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取更新默认值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_UPDATEDVT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
@@ -163,8 +143,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取是否允许空值输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();
@@ -186,8 +164,6 @@ public interface IPSDEGridEditItem extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取是否需要代码表配置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_NEEDCODELISTCONFIG}
 	 * @return
 	 */
 	boolean isNeedCodeListConfig();

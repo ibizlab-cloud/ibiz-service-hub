@@ -14,8 +14,6 @@ public interface IPSFlexLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取Flex伸缩基准值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXBASIS}
 	 * @return
 	 */
 	int getBasis();
@@ -23,8 +21,6 @@ public interface IPSFlexLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取Flex延伸
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXGROW}
 	 * @return
 	 */
 	int getGrow();
@@ -32,8 +28,6 @@ public interface IPSFlexLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取Flex伸缩值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXSHRINK}
 	 * @return
 	 */
 	int getShrink();

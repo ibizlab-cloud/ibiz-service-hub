@@ -14,8 +14,6 @@ public interface IPSDEFVRStringLengthCondition extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.Integer getMaxValue();
@@ -23,8 +21,6 @@ public interface IPSDEFVRStringLengthCondition extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.Integer getMinValue();
@@ -32,8 +28,6 @@ public interface IPSDEFVRStringLengthCondition extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取是否含最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM6}
 	 * @return
 	 */
 	boolean isIncludeMaxValue();
@@ -41,8 +35,6 @@ public interface IPSDEFVRStringLengthCondition extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取是否含最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM5}
 	 * @return
 	 */
 	boolean isIncludeMinValue();

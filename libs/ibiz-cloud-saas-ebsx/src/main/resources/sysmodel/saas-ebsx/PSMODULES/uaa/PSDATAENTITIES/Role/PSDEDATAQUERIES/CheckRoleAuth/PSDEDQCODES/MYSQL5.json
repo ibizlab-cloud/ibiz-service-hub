@@ -3,11 +3,7 @@
   "name" : "MySQL5",
   "getPSDEDataQueryCodeConds" : [ {
     "condType" : "CUSTOM",
-    "customCond" : "EXISTS(SELECT * FROM `IBZUSER_ROLE` t31 \n WHERE \n t1.`SYS_ROLEID` = t31.`SYS_ROLEID`  AND  ( t31.`USERID` = #{ctx.datacontext.userid} ) )",
-    "name" : "查询条件"
-  }, {
-    "condType" : "CUSTOM",
-    "customCond" : "( t1.`AUTHORIZEALL` = 1  AND  t1.`DCSYSTEMID` = #{ctx.sessioncontext.dcsystemid} )",
+    "customCond" : "( t1.`AUTHORIZEALL` = 1  AND  t1.`DCSYSTEMID` = #{ctx.datacontext.dcsystemid}  AND  ( t1.`USERMODE` = 'ACCESSUSER'  OR  t1.`USERMODE` = 'ACCESSADMIN' ) )",
     "name" : "查询条件"
   } ],
   "getPSDEDataQueryCodeExps" : [ {

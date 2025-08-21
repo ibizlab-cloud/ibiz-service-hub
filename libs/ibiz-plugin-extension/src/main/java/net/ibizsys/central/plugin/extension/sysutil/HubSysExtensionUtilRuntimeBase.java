@@ -82,6 +82,7 @@ import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.DateUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.LogLevels;
 import net.ibizsys.runtime.util.ZipUtils;
 import net.ibizsys.runtime.util.domain.Log;
@@ -1605,7 +1606,6 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 			psModelServiceImpl.setPSModelFolderPath(deploySystem.getModelPath(), false);
 			IPSSystem iPSSystem = psModelServiceImpl.getPSSystem();
 			
-			
 			File folder = new File(tempFile.getCanonicalPath() + "." + deploySystem.getDeploySystemId());
 			folder.mkdirs();
 			
@@ -1684,6 +1684,130 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 			}			
 		}
 		return new File(strPSModelFolderPath);
+	}
+	
+	
+	@Override
+	public File mergeV2DeploySystem(File majorModelFile, V2DeploySystem v2DeploySystem, boolean bVerifyModel) {
+		Assert.notNull(v2DeploySystem, "传入V2部署系统模型无效");
+		
+		return this.executeAction("合并传入系统模型", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onMergeV2DeploySystem(majorModelFile, v2DeploySystem, bVerifyModel);
+			}
+		}, null, File.class);
+	}
+	
+	
+	protected File onMergeV2DeploySystem(File majorModelFile, V2DeploySystem v2DeploySystem, boolean bVerifyModel) throws Throwable {
+		List<V2SystemMerge> v2SystemMergeList = this.getV2SystemMerges(v2DeploySystem.getSystemId());
+		if(!ObjectUtils.isEmpty(v2SystemMergeList)) {
+			
+			File tempFile = File.createTempFile("model.", "");
+			String strPSModelFolderPath = majorModelFile.getCanonicalPath();
+			
+			ISysCloudExtensionUtilRuntime iSysCloudExtensionUtilRuntime = this.getSysCloudExtensionUtilRuntime();
+			
+			List<ObjectNode> objectNodeList = new ArrayList<ObjectNode>();
+			
+			for(V2SystemMerge v2SystemMerge : v2SystemMergeList) {
+				String strMergeSystemType = v2SystemMerge.getMergeSystemType();
+				if(!StringUtils.hasLength(strMergeSystemType)) {
+					log.warn(String.format("合并系统[%1$s]未指定系统类型，忽略安装系统合并", v2SystemMerge.getMergeSystemName()));
+					continue;
+				}
+				
+				V2SystemType v2SystemType = V2SystemType.valueOf(strMergeSystemType);
+				if(v2SystemType != V2SystemType.MERGENCE) {
+					continue;
+				}
+				
+				File modelFolder = null;
+				int nTryCount = 2;
+				for(int i = 0;i<nTryCount;i++) {
+					try {
+						modelFolder = iSysCloudExtensionUtilRuntime.getSystemModelFolder(v2SystemMerge.getMergeSystemId(), v2SystemMerge.getMergeSystemSourceId());
+						break;
+					}
+					catch (Throwable ex) {
+						if(i + 1 == nTryCount) {
+							throw ex;
+						}
+						log.error(String.format("安装插件系统[%1$s][%2$s]发生异常，%3$s。再次尝试", v2SystemMerge.getMergeSystemName(), v2DeploySystem.getId(), ex.getMessage()));
+					}
+				}
+				
+				File folder = new File(tempFile.getCanonicalPath() + "." + v2SystemMerge.getMergeSystemId());
+				folder.mkdirs();
+				
+				ExtensionPSModelMergeContext psModelMergeContext = new ExtensionPSModelMergeContext();
+				psModelMergeContext.setPSModelFolderPath(strPSModelFolderPath);
+				psModelMergeContext.setMergePSModelFolderPath(modelFolder.getCanonicalPath());
+				psModelMergeContext.setDstPSModelFolderPath(folder.getCanonicalPath());
+				try {
+					PSModelMergeUtils.merge(psModelMergeContext);
+				}
+				catch (Throwable ex) {
+					throw new Exception(String.format("合入系统模型[%1$s]发生异常，%2$s", v2DeploySystem.getId(), ex.getMessage()), ex);
+				}
+				
+				strPSModelFolderPath = folder.getCanonicalPath();
+				
+				String strSystemTag2 = v2SystemMerge.getMergeSystemTag();
+				if(!StringUtils.hasLength(strSystemTag2)) {
+					strSystemTag2 = "ms"+ KeyValueUtils.genUniqueId(v2SystemMerge.getMergeSystemId());
+				}
+				
+				//写入子系统信息
+				ObjectNode objectNode = JsonUtils.createObjectNode();
+				objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTYPE, String.format("MERGENCE_%1$s", DevSysType.DEVSYS.value));
+				objectNode.put(PSSysRefImpl.ATTR_GETNAME, v2SystemMerge.getMergeSystemName());
+				objectNode.put(PSSysRefImpl.ATTR_GETID, strSystemTag2);
+				//objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTAG, deploySystem.getDeploySystemId());
+				objectNode.put(PSSysRefImpl.ATTR_GETREFPARAM, modelFolder.getCanonicalPath());
+
+				
+				objectNodeList.add(objectNode);
+			}
+			
+			if(!ObjectUtils.isEmpty(objectNodeList)) {
+				File modelFile = new File(strPSModelFolderPath + File.separator + "PSSYSTEM.json");
+				ObjectNode objectNode = (ObjectNode) PSModelListMergerBase.MAPPER.readTree(modelFile);
+				JsonNode jsonNode = objectNode.get(PSSystemImpl.ATTR_GETALLPSSYSREFS);
+				ArrayNode arrayNode = null;
+				if(jsonNode != null) {
+					arrayNode = (ArrayNode)jsonNode;
+				}
+				else {
+					arrayNode = objectNode.putArray(PSSystemImpl.ATTR_GETALLPSSYSREFS);
+				}
+				for(ObjectNode node : objectNodeList) {
+					arrayNode.add(node);
+				}
+				
+				try (FileOutputStream os = new FileOutputStream(modelFile)) {
+					PSModelListMergerBase.MAPPER.writerWithDefaultPrettyPrinter().writeValue(os, objectNode);
+					os.flush();
+				}
+			}	
+			
+			if(!majorModelFile.getCanonicalPath().equals(strPSModelFolderPath)) {
+				//拷贝应用
+				FileUtils.copyDirectory(new File(majorModelFile.getCanonicalPath()+File.separator+"PSSYSAPPS"), new File(strPSModelFolderPath+File.separator+"PSSYSAPPS"));
+				if(bVerifyModel) {
+					try {
+						PSModelMergeUtils.verify(strPSModelFolderPath);
+					}
+					catch (Throwable ex) {
+						throw new Exception(String.format("检查模型发生异常，%1$s", ex.getMessage()), ex);
+					}
+				}		
+				return new File(strPSModelFolderPath);
+			}
+		}
+		
+		return majorModelFile;
 	}
 	
 	@Override

@@ -14,8 +14,6 @@ public interface IPSList extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -23,8 +21,6 @@ public interface IPSList extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -39,8 +35,6 @@ public interface IPSList extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取项布局面板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSVIEWPANELID}
 	 * @return
 	 */
 	net.ibizsys.model.control.panel.IPSLayoutPanel getItemPSLayoutPanel();

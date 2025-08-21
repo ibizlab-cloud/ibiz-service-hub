@@ -4,6 +4,7 @@ package net.ibizsys.model.ai;
 
 public class PSSysAIPipelineAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObjectImpl implements net.ibizsys.model.ai.IPSSysAIPipelineAgent{
 
+	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
 	public final static String ATTR_GETAGENTPARAMS = "agentParams";
 	public final static String ATTR_GETAGENTTAG = "agentTag";
 	public final static String ATTR_GETAGENTTAG2 = "agentTag2";
@@ -13,6 +14,14 @@ public class PSSysAIPipelineAgentImpl extends net.ibizsys.model.ai.PSSysAIFactor
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETPSDATAENTITY = "getPSDataEntity";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+
+	public java.lang.String getAIPlatformType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 
 	public com.fasterxml.jackson.databind.node.ObjectNode getAgentParams(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTPARAMS);

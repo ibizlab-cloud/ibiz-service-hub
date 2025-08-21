@@ -7,6 +7,7 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 
 	public final static String ATTR_GETACTIONLEVEL = "actionLevel";
 	public final static String ATTR_GETACTIONTARGET = "actionTarget";
+	public final static String ATTR_GETBUTTONSTYLE = "buttonStyle";
 	public final static String ATTR_GETCMPSLANGUAGERES = "getCMPSLanguageRes";
 	public final static String ATTR_GETCAPPSLANGUAGERES = "getCapPSLanguageRes";
 	public final static String ATTR_GETCAPTION = "caption";
@@ -73,6 +74,14 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		}
 		return value.asText();
 	}
+
+	public java.lang.String getButtonStyle(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETBUTTONSTYLE);
+		if(value == null){
+			return "100";
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.res.IPSLanguageRes cmpslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCMPSLanguageRes(){
@@ -91,6 +100,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setCMPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cmpslanguageres){
+		this.cmpslanguageres = cmpslanguageres;
+	}
+
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes(){
@@ -107,6 +120,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.res.IPSLanguageRes value = this.getCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标题语言资源");}
 		return value;
+	}
+
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
 	}
 
 
@@ -185,6 +202,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setFrontPSAppView(net.ibizsys.model.app.view.IPSAppView frontpsappview){
+		this.frontpsappview = frontpsappview;
+	}
+
 
 	public java.lang.String getFrontProcessType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFRONTPROCESSTYPE);
@@ -227,6 +248,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setNextPSUIAction(net.ibizsys.model.view.IPSUIAction nextpsuiaction){
+		this.nextpsuiaction = nextpsuiaction;
+	}
+
 	private net.ibizsys.model.app.control.IPSAppCounter psappcounter;
 
 	@Deprecated
@@ -244,6 +269,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.app.control.IPSAppCounter value = this.getPSAppCounter();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppCounter]返回空值");}
 		return value;
+	}
+
+	public void setPSAppCounter(net.ibizsys.model.app.control.IPSAppCounter psappcounter){
+		this.psappcounter = psappcounter;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod;
@@ -265,6 +294,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setPSAppDEMethod(net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod){
+		this.psappdemethod = psappdemethod;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -282,6 +315,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 	private net.ibizsys.model.app.wf.IPSAppWF psappwf;
@@ -303,6 +340,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setPSAppWF(net.ibizsys.model.app.wf.IPSAppWF psappwf){
+		this.psappwf = psappwf;
+	}
+
 	private net.ibizsys.model.app.wf.IPSAppWFVer psappwfver;
 
 	public net.ibizsys.model.app.wf.IPSAppWFVer getPSAppWFVer(){
@@ -320,6 +361,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.app.wf.IPSAppWFVer value = this.getPSAppWFVer();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用工作流版本");}
 		return value;
+	}
+
+	public void setPSAppWFVer(net.ibizsys.model.app.wf.IPSAppWFVer psappwfver){
+		this.psappwfver = psappwfver;
 	}
 
 
@@ -388,6 +433,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -404,6 +453,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 	private net.ibizsys.model.wf.IPSWorkflow psworkflow;
@@ -423,6 +476,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.wf.IPSWorkflow value = this.getPSWorkflow();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSWorkflow]返回空值");}
 		return value;
+	}
+
+	public void setPSWorkflow(net.ibizsys.model.wf.IPSWorkflow psworkflow){
+		this.psworkflow = psworkflow;
 	}
 
 
@@ -465,6 +522,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.res.IPSLanguageRes value = this.getSMPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定成功信息语言资源");}
 		return value;
+	}
+
+	public void setSMPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes smpslanguageres){
+		this.smpslanguageres = smpslanguageres;
 	}
 
 
@@ -523,6 +584,10 @@ public class PSWFUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定操作提示语言资源");}
 		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
 	}
 
 

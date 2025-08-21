@@ -3,7 +3,7 @@ package net.ibizsys.model.control.dataview;
 
 
 /**
- * 实体卡片视图部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO}运行时对象
+ * 实体卡片视图部件模型对象接口
  *
  */
 public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxControl
@@ -15,8 +15,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片栅格布局大型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARD_COL_LG}
 	 * @return
 	 */
 	int getCardColLG();
@@ -24,8 +22,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片栅格布局中型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARD_COL_MD}
 	 * @return
 	 */
 	int getCardColMD();
@@ -33,8 +29,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片栅格布局小型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARD_COL_SM}
 	 * @return
 	 */
 	int getCardColSM();
@@ -42,8 +36,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片栅格布局超小列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARD_COL_XS}
 	 * @return
 	 */
 	int getCardColXS();
@@ -51,8 +43,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARDHEIGHT}
 	 * @return
 	 */
 	int getCardHeight();
@@ -60,8 +50,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取卡片宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_CARDWIDTH}
 	 * @return
 	 */
 	int getCardWidth();
@@ -69,8 +57,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取无值显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -78,8 +64,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取无值内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -94,8 +78,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组栅格布局大型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUP_COL_LG}
 	 * @return
 	 */
 	int getGroupColLG();
@@ -103,8 +85,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组栅格布局中型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUP_COL_MD}
 	 * @return
 	 */
 	int getGroupColMD();
@@ -112,8 +92,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组栅格布局小型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUP_COL_SM}
 	 * @return
 	 */
 	int getGroupColSM();
@@ -121,8 +99,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组栅格布局超小列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUP_COL_XS}
 	 * @return
 	 */
 	int getGroupColXS();
@@ -130,8 +106,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPHEIGHT}
 	 * @return
 	 */
 	int getGroupHeight();
@@ -139,8 +113,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组布局
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPLAYOUT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupLayout}
 	 * @return
@@ -150,8 +122,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
@@ -175,8 +145,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupPSAppDEField();
@@ -205,8 +173,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getGroupPSCodeList();
@@ -221,8 +187,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组默认界面样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getGroupPSSysCss();
@@ -251,8 +215,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPPSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getGroupPSUIActionGroup();
@@ -268,8 +230,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	/**
 	 * 获取分组样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
@@ -278,8 +238,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPTEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupTextPSAppDEField();
@@ -308,8 +266,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分组宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_GROUPWIDTH}
 	 * @return
 	 */
 	int getGroupWidth();
@@ -317,8 +273,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取项布局面板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_PSSYSVIEWPANELID}
 	 * @return
 	 */
 	net.ibizsys.model.control.panel.IPSLayoutPanel getItemPSLayoutPanel();
@@ -362,8 +316,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	/**
 	 * 获取默认排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_MINORSORTDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
@@ -372,8 +324,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取默认排序应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getMinorSortPSAppDEField();
@@ -388,8 +338,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取排序值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_ORDERVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEField();
@@ -455,17 +403,41 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_PAGINGSIZE}
 	 * @return
 	 */
 	int getPagingSize();
 	
 	
 	/**
+	 * 获取泳道应用实体属性
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEField();
+
+
+	/**
+	 * 获取泳道应用实体属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEFieldMust();
+	
+	
+	/**
+	 * 获取泳道代码表
+	 * @return
+	 */
+	net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeList();
+
+
+	/**
+	 * 获取泳道代码表，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeListMust();
+	
+	
+	/**
 	 * 获取是否附加实体默认数据项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_APPENDDEITEMS}
 	 * @return
 	 */
 	boolean isAppendDEItems();
@@ -508,8 +480,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取是否支持分页栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_ENABLEPAGINGBAR}
 	 * @return
 	 */
 	boolean isEnablePagingBar();
@@ -517,8 +487,6 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	
 	/**
 	 * 获取是否默认禁用排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isNoSort();

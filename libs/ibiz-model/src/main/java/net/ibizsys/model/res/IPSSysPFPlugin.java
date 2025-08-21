@@ -32,8 +32,6 @@ public interface IPSSysPFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取插件动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PLUGINPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getPluginParams();

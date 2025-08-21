@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDELOGIC</B>实体处理逻辑 模型传输对象
  * <P>
- * 实体的处理逻辑模型，提供面向业务逻辑与界面交互的动态逻辑定义能力。处理逻辑包含逻辑参数、处理节点与处理连接等主要模型
+ * 实体的处理逻辑模型，提供面向业务逻辑、状态迁移、数据流及界面交互的动态逻辑定义能力。处理逻辑包含逻辑参数、处理节点与处理连接等主要模型
  */
 public class PSDELogic extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -18,7 +18,7 @@ public class PSDELogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定处理逻辑的代码标识，需要在所在的实体中具有唯一性，注意实体处理逻辑分为业务逻辑及界面逻辑两类
+     * <B>CODENAME</B>&nbsp;代码标识，指定处理逻辑的代码标识，需要在所在的实体中具有唯一性，注意处理逻辑有多个类型，建议为每种类型设定代码前缀
      * <P>
      * 字符串：最大长度 50，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -2628,7 +2628,7 @@ public class PSDELogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>SCRIPTENGINE</B>&nbsp;默认脚本引擎
      * <P>
-     * 字符串：最大长度 50
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptEngine} 
      */
     public final static String FIELD_SCRIPTENGINE = "scriptengine";
 

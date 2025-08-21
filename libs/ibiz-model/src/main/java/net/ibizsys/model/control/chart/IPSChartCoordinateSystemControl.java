@@ -4,8 +4,6 @@ package net.ibizsys.model.control.chart;
 
 /**
  * 图表坐标系模型基础对象接口
- * <P>
- * 子接口扩展识别值 {@link #getType}
  *
  */
 public interface IPSChartCoordinateSystemControl extends net.ibizsys.model.control.chart.IPSChartObject{

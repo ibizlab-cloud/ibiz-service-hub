@@ -3,7 +3,7 @@ package net.ibizsys.model.control.list;
 
 
 /**
- * 实体列表部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEListDTO}运行时对象
+ * 实体列表部件模型对象接口
  *
  */
 public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
@@ -14,8 +14,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	/**
 	 * 获取分组模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
@@ -24,8 +22,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupPSAppDEField();
@@ -40,8 +36,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分组代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getGroupPSCodeList();
@@ -56,8 +50,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分组默认界面样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getGroupPSSysCss();
@@ -86,8 +78,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分组界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPPSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getGroupPSUIActionGroup();
@@ -103,8 +93,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	/**
 	 * 获取分组样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
@@ -113,8 +101,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_GROUPTEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupTextPSAppDEField();
@@ -144,8 +130,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	/**
 	 * 获取默认排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_MINORSORTDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
@@ -154,8 +138,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取默认排序应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getMinorSortPSAppDEField();
@@ -171,12 +153,24 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	/**
 	 * 获取移动端列表样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_MOBLISTSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MobMDCtrlType}
 	 * @return
 	 */
 	java.lang.String getMobListStyle();
+	
+	
+	/**
+	 * 获取排序值应用实体属性
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEField();
+
+
+	/**
+	 * 获取排序值应用实体属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEFieldMust();
 	
 	
 	/**
@@ -232,11 +226,37 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_PAGESIZE}
 	 * @return
 	 */
 	int getPagingSize();
+	
+	
+	/**
+	 * 获取泳道应用实体属性
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEField();
+
+
+	/**
+	 * 获取泳道应用实体属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEFieldMust();
+	
+	
+	/**
+	 * 获取泳道代码表
+	 * @return
+	 */
+	net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeList();
+
+
+	/**
+	 * 获取泳道代码表，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeListMust();
 	
 	
 	/**
@@ -248,8 +268,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取是否支持分页栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_ENABLEPAGINGBAR}
 	 * @return
 	 */
 	boolean isEnablePagingBar();
@@ -285,8 +303,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取是否默认禁用排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isNoSort();
@@ -294,8 +310,6 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	
 	/**
 	 * 获取是否显示头部
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListDTO#FIELD_SHOWHEADER}
 	 * @return
 	 */
 	boolean isShowHeader();

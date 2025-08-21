@@ -366,7 +366,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DERFIELDLNAME</B>&nbsp;字段逻辑名称，指定实体关系连接属性的逻辑名称
+     * <B>DERFIELDLNAME</B>&nbsp;字段逻辑名称，指定1:N关系连接属性的逻辑名称
      * <P>
      * 字符串：最大长度 100
      */
@@ -429,7 +429,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DERFIELDNAME</B>&nbsp;关系字段名称，指定实体关系连接属性的名称
+     * <B>DERFIELDNAME</B>&nbsp;关系字段名称，指定1:N关系连接属性的名称
      * <P>
      * 字符串：最大长度 60
      */
@@ -2011,7 +2011,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FOREIGNKEY</B>&nbsp;启用外键，指定关系是否发布对应数据库外键约束，默认为【是】
+     * <B>FOREIGNKEY</B>&nbsp;启用外键，指定1:N关系是否发布对应数据库外键约束，默认为【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -2503,14 +2503,14 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MAJORPSDEID</B>&nbsp;云关系主实体，指定关系的主实体
+     * <B>MAJORPSDEID</B>&nbsp;关系主实体，指定关系的主实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
     public final static String FIELD_MAJORPSDEID = "majorpsdeid";
 
     /**
-     * 设置 云关系主实体，详细说明：{@link #FIELD_MAJORPSDEID}
+     * 设置 关系主实体，详细说明：{@link #FIELD_MAJORPSDEID}
      * 
      * @param majorPSDEId
      * 
@@ -2521,7 +2521,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 云关系主实体  
+     * 获取 关系主实体  
      * @return
      */
     @JsonIgnore
@@ -2534,7 +2534,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 云关系主实体 是否指定值，包括空值
+     * 判断 关系主实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2546,7 +2546,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 云关系主实体
+     * 重置 关系主实体
      */
     @JsonIgnore
     public void resetMajorPSDEId(){
@@ -2554,7 +2554,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 云关系主实体，详细说明：{@link #FIELD_MAJORPSDEID}
+     * 设置 关系主实体，详细说明：{@link #FIELD_MAJORPSDEID}
      * <P>
      * 等同 {@link #setMajorPSDEId}
      * @param majorPSDEId
@@ -2566,7 +2566,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 云关系主实体，包括引用对象的其它关系属性
+     * 设置 关系主实体，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setMajorPSDEId}
      * @param pSDataEntity 引用对象
@@ -2793,7 +2793,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MASTERORDERVALUE</B>&nbsp;主控关系排序，指定1：N关系主控模式的级别
+     * <B>MASTERORDERVALUE</B>&nbsp;主控关系排序，指定1:N关系主控模式的级别
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DERExportLevel} 
      */
@@ -2957,7 +2957,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MDPSDEVIEWID</B>&nbsp;多项数据选择视图，指定引用数据在界面上需要提供多项数据选择视图时默认使用的实体视图（网页端）
+     * <B>MDPSDEVIEWID</B>&nbsp;多项数据选择视图，指定引用数据在界面上需要提供多项数据选择视图时默认使用的实体视图（桌面端）
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
@@ -3039,7 +3039,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MDPSDEVIEWNAME</B>&nbsp;多项数据选择视图，指定引用数据在界面上需要提供多项数据选择视图时默认使用的实体视图（网页端）
+     * <B>MDPSDEVIEWNAME</B>&nbsp;多项数据选择视图，指定引用数据在界面上需要提供多项数据选择视图时默认使用的实体视图（桌面端）
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_MDPSDEVIEWID}
      */
@@ -4716,6 +4716,151 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>PSDEFGROUPID</B>&nbsp;实体属性组
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
+     */
+    public final static String FIELD_PSDEFGROUPID = "psdefgroupid";
+
+    /**
+     * 设置 实体属性组
+     * 
+     * @param pSDEFGroupId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPID)
+    public void setPSDEFGroupId(String pSDEFGroupId){
+        this.set(FIELD_PSDEFGROUPID, pSDEFGroupId);
+    }
+    
+    /**
+     * 获取 实体属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupId(){
+        Object objValue = this.get(FIELD_PSDEFGROUPID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupIdDirty(){
+        if(this.contains(FIELD_PSDEFGROUPID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupId(){
+        this.reset(FIELD_PSDEFGROUPID);
+    }
+
+    /**
+     * 设置 实体属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroupId
+     */
+    @JsonIgnore
+    public PSDER psdefgroupid(String pSDEFGroupId){
+        this.setPSDEFGroupId(pSDEFGroupId);
+        return this;
+    }
+
+    /**
+     * 设置 实体属性组，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroup 引用对象
+     */
+    @JsonIgnore
+    public PSDER psdefgroupid(PSDEFGroup pSDEFGroup){
+        if(pSDEFGroup == null){
+            this.setPSDEFGroupId(null);
+            this.setPSDEFGroupName(null);
+        }
+        else{
+            this.setPSDEFGroupId(pSDEFGroup.getPSDEFGroupId());
+            this.setPSDEFGroupName(pSDEFGroup.getPSDEFGroupName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFGROUPNAME</B>&nbsp;实体属性组
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFGROUPID}
+     */
+    public final static String FIELD_PSDEFGROUPNAME = "psdefgroupname";
+
+    /**
+     * 设置 实体属性组
+     * 
+     * @param pSDEFGroupName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPNAME)
+    public void setPSDEFGroupName(String pSDEFGroupName){
+        this.set(FIELD_PSDEFGROUPNAME, pSDEFGroupName);
+    }
+    
+    /**
+     * 获取 实体属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupName(){
+        Object objValue = this.get(FIELD_PSDEFGROUPNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupNameDirty(){
+        if(this.contains(FIELD_PSDEFGROUPNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupName(){
+        this.reset(FIELD_PSDEFGROUPNAME);
+    }
+
+    /**
+     * 设置 实体属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupName}
+     * @param pSDEFGroupName
+     */
+    @JsonIgnore
+    public PSDER psdefgroupname(String pSDEFGroupName){
+        this.setPSDEFGroupName(pSDEFGroupName);
+        return this;
+    }
+
+    /**
      * <B>PSDERID</B>&nbsp;实体关系标识
      * <P>
      * 字符串：最大长度 100
@@ -5642,7 +5787,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SDPSDEVIEWID</B>&nbsp;单项数据选择视图，指定引用数据在界面上需要提供单项数据选择视图时默认使用的实体视图（网页端）
+     * <B>SDPSDEVIEWID</B>&nbsp;单项数据选择视图，指定引用数据在界面上需要提供单项数据选择视图时默认使用的实体视图（桌面端）
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
@@ -5724,7 +5869,7 @@ public class PSDER extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SDPSDEVIEWNAME</B>&nbsp;单项数据选择视图，指定引用数据在界面上需要提供单项数据选择视图时默认使用的实体视图（网页端）
+     * <B>SDPSDEVIEWNAME</B>&nbsp;单项数据选择视图，指定引用数据在界面上需要提供单项数据选择视图时默认使用的实体视图（桌面端）
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_SDPSDEVIEWID}
      */

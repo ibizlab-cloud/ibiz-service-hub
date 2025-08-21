@@ -3,7 +3,7 @@ package net.ibizsys.model.app.util;
 
 
 /**
- * 应用模型存储功能模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppUtilDTO}运行时对象
+ * 应用模型存储功能模型对象接口
  *
  */
 public interface IPSAppDynaUtilBase extends net.ibizsys.model.app.util.IPSAppUtil{

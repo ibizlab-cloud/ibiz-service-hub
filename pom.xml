@@ -16,7 +16,7 @@
         <version>2.4.0</version>
     </parent>
 
-    <url>https://gitee.com/ibizlab-cloud/ibiz-cloud</url>
+    <url>https://gitee.com/ibizlab-cloud/ibiz-service-hub</url>
 
     <licenses>
         <license>
@@ -28,8 +28,8 @@
 
     <scm>
         <url>https://gitee.com/ibizlab-cloud/ibiz-cloud</url>
-        <connection>scm:git:git://gitee.com/ibizlab-cloud/ibiz-cloud.git</connection>
-        <developerConnection>scm:git:ssh://gitee.com:ibizlab-cloud/ibiz-cloud.git</developerConnection>
+        <connection>scm:git:git://gitee.com/ibizlab-cloud/ibiz-service-hub.git</connection>
+        <developerConnection>scm:git:ssh://gitee.com:ibizlab-cloud/ibiz-service-hub.git</developerConnection>
     </scm>
 
     <developers>
@@ -51,9 +51,44 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.deploy.skip>false</maven.deploy.skip>
         <maven.test.skip>true</maven.test.skip>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-        <ibiz.cloud.version>8.1.0.570.29.1</ibiz.cloud.version>
+        <maven.javadoc.skip>false</maven.javadoc.skip>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <spring-boot.version>2.4.0</spring-boot.version>
+        <ibiz.cloud.version>8.1.0.570.34.1</ibiz.cloud.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot,not include plugin
+                    management as the parent import style -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
 
     <dependencies>
 
@@ -181,13 +216,24 @@
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
-                        <goals><goal>jar</goal></goals>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>
                     <skip>${maven.javadoc.skip}</skip>
+                    <!-- 不因为警告失败 -->
+                    <failOnError>false</failOnError>
+                    <!-- 关闭 doclint 严格检查 -->
+                    <doclint>none</doclint>
+                    <!-- 兼容 JDK8 写法 -->
+                    <additionalJOptions>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                    </additionalJOptions>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -209,16 +255,18 @@
             </plugin>
             <!-- 发布自动化 -->
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://ossrh-staging-api.central.sonatype.com/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <!-- 与 settings.xml 中 server 的 id 保持一致 -->
+                    <publishingServerId>ossrh</publishingServerId>
+                    <!-- 可选，启用自动发布 -->
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

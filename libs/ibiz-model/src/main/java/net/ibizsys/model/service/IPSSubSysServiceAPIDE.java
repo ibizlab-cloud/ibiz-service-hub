@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口实体模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO}运行时对象
+ * 外部系统服务接口实体模型对象接口
  *
  */
 public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取接口模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_MAJORFLAG}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SADEMode}
 	 * @return
@@ -37,8 +35,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_DETAG}
 	 * @return
 	 */
 	java.lang.String getDETag();
@@ -46,8 +42,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_DETAG2}
 	 * @return
 	 */
 	java.lang.String getDETag2();
@@ -62,8 +56,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取方法调用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_METHODCODE}
 	 * @return
 	 */
 	java.lang.String getMethodScriptCode();
@@ -127,8 +119,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_SERVICEPARAM}
 	 * @return
 	 */
 	java.lang.String getServiceParam();
@@ -136,8 +126,6 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEDTO#FIELD_SERVICEPARAM2}
 	 * @return
 	 */
 	java.lang.String getServiceParam2();

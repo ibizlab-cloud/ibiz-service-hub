@@ -100,8 +100,8 @@ public class DEDataExportRuntime extends DataEntityModelRuntimeBase implements I
 	public int getMaxRowCount() {
 		return getPSDEDataExport().getMaxRowCount();
 	}
-	
-	
+
+	@Deprecated
 	protected String getImportParam(String strKey, String strDefault) {
 		if (this.getPSDEDataExport().getExpParams() != null) {
 			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
@@ -112,6 +112,7 @@ public class DEDataExportRuntime extends DataEntityModelRuntimeBase implements I
 		return strDefault;
 	}
 
+	@Deprecated
 	protected int getImportParam(String strKey, int nDefault) {
 		if (this.getPSDEDataExport().getExpParams() != null) {
 			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
@@ -122,6 +123,7 @@ public class DEDataExportRuntime extends DataEntityModelRuntimeBase implements I
 		return nDefault;
 	}
 
+	@Deprecated
 	protected double getImportParam(String strKey, double fDefault) {
 		if (this.getPSDEDataExport().getExpParams() != null) {
 			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
@@ -132,8 +134,49 @@ public class DEDataExportRuntime extends DataEntityModelRuntimeBase implements I
 		return fDefault;
 	}
 	
-	
+	@Deprecated
 	protected boolean getImportParam(String strKey, boolean bDefault) {
+		if (this.getPSDEDataExport().getExpParams() != null) {
+			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
+			if (node != null) {
+				return node.asBoolean(bDefault);
+			}
+		}
+		return bDefault;
+	}
+
+
+	protected String getExportParam(String strKey, String strDefault) {
+		if (this.getPSDEDataExport().getExpParams() != null) {
+			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
+			if (node != null) {
+				return node.asText(strDefault);
+			}
+		}
+		return strDefault;
+	}
+
+	protected int getExportParam(String strKey, int nDefault) {
+		if (this.getPSDEDataExport().getExpParams() != null) {
+			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
+			if (node != null) {
+				return node.asInt(nDefault);
+			}
+		}
+		return nDefault;
+	}
+
+	protected double getExportParam(String strKey, double fDefault) {
+		if (this.getPSDEDataExport().getExpParams() != null) {
+			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
+			if (node != null) {
+				return node.asDouble(fDefault);
+			}
+		}
+		return fDefault;
+	}
+
+	protected boolean getExportParam(String strKey, boolean bDefault) {
 		if (this.getPSDEDataExport().getExpParams() != null) {
 			JsonNode node = this.getPSDEDataExport().getExpParams().get(strKey);
 			if (node != null) {

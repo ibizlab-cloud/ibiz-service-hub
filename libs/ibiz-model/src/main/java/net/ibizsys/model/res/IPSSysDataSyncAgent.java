@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统数据同步代理模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysDataSyncAgentDTO}运行时对象
+ * 系统数据同步代理模型对象接口
  *
  */
 public interface IPSSysDataSyncAgent extends net.ibizsys.model.service.IPSSubSysServiceAPIBase{

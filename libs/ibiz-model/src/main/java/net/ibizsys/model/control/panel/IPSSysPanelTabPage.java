@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 系统面板分页部件分页模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO}运行时对象
+ * 系统面板分页部件分页模型对象接口
  *
  */
 public interface IPSSysPanelTabPage extends net.ibizsys.model.control.panel.IPSPanelTabPage

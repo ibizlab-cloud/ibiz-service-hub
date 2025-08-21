@@ -72,6 +72,14 @@ public interface IWFDefinitionService extends IDEService<WFDefinitionDTO, Search
    */
   String FIELD_DYNAMODELID = "DYNAMODELID";
   /**
+   * 属性: 参数
+   */
+  String FIELD_PARAM = "PARAM";
+  /**
+   * 属性: 参数2
+   */
+  String FIELD_PARAM2 = "PARAM2";
+  /**
    * 属性: 租户系统标识
    */
   String FIELD_DCSYSTEMID = "DCSYSTEMID";

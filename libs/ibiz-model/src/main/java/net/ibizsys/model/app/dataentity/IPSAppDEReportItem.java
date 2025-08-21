@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体报表项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDERepItemDTO}运行时对象
+ * 应用实体报表项模型对象接口
  *
  */
 public interface IPSAppDEReportItem extends net.ibizsys.model.dataentity.report.IPSDEReportItem{

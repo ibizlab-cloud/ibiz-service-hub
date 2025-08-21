@@ -845,6 +845,10 @@
       "name" : "SYS_ROLEID",
       "codeName" : "RoleId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_ROLENAME",
+      "codeName" : "RoleName"
+    },
     "rSMode" : 2
   } ], [ {
     "actionRSMode" : 1,
@@ -866,6 +870,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYS_PERMISSIONID",
       "codeName" : "PermissionId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
     },
     "rSMode" : 2
   } ] ]

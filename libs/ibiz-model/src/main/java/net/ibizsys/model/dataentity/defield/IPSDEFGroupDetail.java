@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性组成员模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO}运行时对象
+ * 实体属性组成员模型对象接口
  *
  */
 public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
@@ -28,8 +28,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取成员参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_DETAILPARAM}
 	 * @return
 	 */
 	java.lang.String getDetailParam();
@@ -37,8 +35,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取成员参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_DETAILPARAM2}
 	 * @return
 	 */
 	java.lang.String getDetailParam2();
@@ -67,8 +63,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取排序值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_ORDERVALUE}
 	 * @return
 	 */
 	int getOrderValue();
@@ -76,8 +70,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取系统代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -92,8 +84,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -108,8 +98,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_STRLENGTH}
 	 * @return
 	 */
 	int getStringLength();
@@ -117,8 +105,6 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	
 	/**
 	 * 获取是否允许空输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFGroupDetailDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();

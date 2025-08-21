@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口实体行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO}运行时对象
+ * 外部系统服务接口实体行为模型对象接口
  *
  */
 public interface IPSSubSysServiceAPIDEMethod extends net.ibizsys.model.service.IPSSubSysServiceAPIMethod{
@@ -40,8 +40,6 @@ public interface IPSSubSysServiceAPIDEMethod extends net.ibizsys.model.service.I
 	
 	/**
 	 * 获取外部接口实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADetailDTO#FIELD_PSSUBSYSSADEID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getPSSubSysServiceAPIDE();

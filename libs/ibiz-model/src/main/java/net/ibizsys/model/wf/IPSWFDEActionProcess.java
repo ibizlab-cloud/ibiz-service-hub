@@ -16,8 +16,6 @@ public interface IPSWFDEActionProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getPSDEAction();
@@ -32,8 +30,6 @@ public interface IPSWFDEActionProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();

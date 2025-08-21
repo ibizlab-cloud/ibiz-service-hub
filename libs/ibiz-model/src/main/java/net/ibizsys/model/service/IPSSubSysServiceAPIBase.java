@@ -19,8 +19,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取认证客户端标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AUTHCLIENTID}
 	 * @return
 	 */
 	java.lang.String getAuthClientId();
@@ -28,8 +26,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取认证客户端密码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AUTHCLIENTSECRET}
 	 * @return
 	 */
 	java.lang.String getAuthClientSecret();
@@ -37,8 +33,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取认证模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AUTHMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
@@ -48,8 +42,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取认证参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AUTHPARAM}
 	 * @return
 	 */
 	java.lang.String getAuthParam();
@@ -57,8 +49,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取认证参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AUTHPARAM2}
 	 * @return
 	 */
 	java.lang.String getAuthParam2();
@@ -73,8 +63,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取服务参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SERVICEPARAM}
 	 * @return
 	 */
 	java.lang.String getServiceParam();
@@ -82,8 +70,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取服务参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SERVICEPARAM2}
 	 * @return
 	 */
 	java.lang.String getServiceParam2();
@@ -91,8 +77,6 @@ public interface IPSSubSysServiceAPIBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取服务路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SERVICEPATH}
 	 * @return
 	 */
 	java.lang.String getServicePath();

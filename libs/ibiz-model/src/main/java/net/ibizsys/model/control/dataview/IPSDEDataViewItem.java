@@ -3,7 +3,7 @@ package net.ibizsys.model.control.dataview;
 
 
 /**
- * 实体卡片视图部件项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO}运行时对象
+ * 实体卡片视图部件项模型对象接口
  *
  */
 public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
@@ -14,8 +14,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取代码表转换模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_CLCONVERTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
@@ -24,8 +22,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -40,8 +36,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -49,8 +43,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_PSDELISTITEMNAME}
 	 * @return
 	 */
 	java.lang.String getDataItemName();
@@ -81,8 +73,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -97,8 +87,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup();
@@ -113,8 +101,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -122,8 +108,6 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataViewItemDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isEnableSort();

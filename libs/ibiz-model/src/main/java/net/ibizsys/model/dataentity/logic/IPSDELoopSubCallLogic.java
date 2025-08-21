@@ -14,8 +14,6 @@ public interface IPSDELoopSubCallLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取填充逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDELoopSubCallLogic extends net.ibizsys.model.dataentity.logi
 	
 	/**
 	 * 获取列表参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();

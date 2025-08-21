@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDESERVICEAPI</B>实体服务接口 模型传输对象
  * <P>
- * 实体服务接口模型，定义实体在系统服务接口提供的能力，包括了认证模式、行为或数据集的默认提供方式等，也包含了实体服务接口方法等成员模型
+ * 实体服务接口模型，系统服务接口的成员模型。定义实体通过系统服务接口对外提供的能力，包括了认证模式、行为或数据集的默认提供方式等，也包含了实体服务接口方法等成员模型
  */
 public class PSDEServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -1733,6 +1733,67 @@ public class PSDEServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSDEServiceAPI ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
      * <B>OUTPSSYSTRANSLATORID</B>&nbsp;输出转换器
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysTranslator} 
@@ -2743,6 +2804,151 @@ public class PSDEServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEServiceAPI pssyssfpluginname(String pSSysSFPluginName){
         this.setPSSysSFPluginName(pSSysSFPluginName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUniRes} 
+     */
+    public final static String FIELD_PSSYSUNIRESID = "pssysuniresid";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESID)
+    public void setPSSysUniResId(String pSSysUniResId){
+        this.set(FIELD_PSSYSUNIRESID, pSSysUniResId);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResId(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResIdDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResId(){
+        this.reset(FIELD_PSSYSUNIRESID);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniResId
+     */
+    @JsonIgnore
+    public PSDEServiceAPI pssysuniresid(String pSSysUniResId){
+        this.setPSSysUniResId(pSSysUniResId);
+        return this;
+    }
+
+    /**
+     * 设置 系统统一资源，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniRes 引用对象
+     */
+    @JsonIgnore
+    public PSDEServiceAPI pssysuniresid(PSSysUniRes pSSysUniRes){
+        if(pSSysUniRes == null){
+            this.setPSSysUniResId(null);
+            this.setPSSysUniResName(null);
+        }
+        else{
+            this.setPSSysUniResId(pSSysUniRes.getPSSysUniResId());
+            this.setPSSysUniResName(pSSysUniRes.getPSSysUniResName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESNAME</B>&nbsp;系统统一资源
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUNIRESID}
+     */
+    public final static String FIELD_PSSYSUNIRESNAME = "pssysuniresname";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESNAME)
+    public void setPSSysUniResName(String pSSysUniResName){
+        this.set(FIELD_PSSYSUNIRESNAME, pSSysUniResName);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResName(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResNameDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResName(){
+        this.reset(FIELD_PSSYSUNIRESNAME);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResName}
+     * @param pSSysUniResName
+     */
+    @JsonIgnore
+    public PSDEServiceAPI pssysuniresname(String pSSysUniResName){
+        this.setPSSysUniResName(pSSysUniResName);
         return this;
     }
 

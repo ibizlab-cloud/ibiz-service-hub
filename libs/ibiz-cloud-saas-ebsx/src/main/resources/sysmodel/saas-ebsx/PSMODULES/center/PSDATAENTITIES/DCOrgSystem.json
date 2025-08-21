@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ORGSYSTEMID",
+        "codeName" : "OrgSystemId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ORGSYSTEMNAME",
+        "codeName" : "OrgSystemName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -610,6 +618,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -709,6 +718,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -821,6 +831,7 @@
     "length" : 100,
     "logicName" : "组织系统标识",
     "name" : "ORGSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -923,6 +934,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1022,6 +1034,7 @@
     "length" : 100,
     "logicName" : "启用标志",
     "name" : "ISVALID",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1114,6 +1127,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1205,6 +1219,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1310,6 +1325,7 @@
     "length" : 200,
     "logicName" : "组织系统名称",
     "name" : "ORGSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1423,6 +1439,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1555,6 +1572,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1707,6 +1725,7 @@
     "length" : 100,
     "logicName" : "组织名称",
     "name" : "ORGNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDERS/DER1N_DC_ORG_SYSTEM_SYS_ORG_ORGID.json"
@@ -1857,6 +1876,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDERS/DER1N_DC_ORG_SYSTEM_DC_DC_SYSTEM_DCSYSTEMID.json"
@@ -1987,6 +2007,7 @@
     "length" : 100,
     "logicName" : "动态实例标识",
     "name" : "DYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2138,6 +2159,7 @@
     "length" : 200,
     "logicName" : "动态实例名称",
     "name" : "DYNAINSTNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCOrgSystem/PSDERS/DER1N_DC_ORG_SYSTEM_DC_DYNAINST_DYNAINSTID.json"

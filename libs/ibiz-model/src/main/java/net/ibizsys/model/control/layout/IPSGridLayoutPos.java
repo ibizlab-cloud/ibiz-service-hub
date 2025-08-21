@@ -14,8 +14,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取大型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_LG}
 	 * @return
 	 */
 	int getColLG();
@@ -23,8 +21,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取大型偏移
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_LG_OS}
 	 * @return
 	 */
 	int getColLGOffset();
@@ -32,8 +28,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取中型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_MD}
 	 * @return
 	 */
 	int getColMD();
@@ -41,8 +35,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取中型偏移
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_MD_OS}
 	 * @return
 	 */
 	int getColMDOffset();
@@ -50,8 +42,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取小型列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_SM}
 	 * @return
 	 */
 	int getColSM();
@@ -59,8 +49,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取小型偏移
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_SM_OS}
 	 * @return
 	 */
 	int getColSMOffset();
@@ -68,8 +56,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取固定列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_WIDTH}
 	 * @return
 	 */
 	int getColWidth();
@@ -77,8 +63,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取超小列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_XS}
 	 * @return
 	 */
 	int getColXS();
@@ -86,8 +70,6 @@ public interface IPSGridLayoutPos extends net.ibizsys.model.control.layout.IPSLa
 	
 	/**
 	 * 获取超小偏移
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_COL_XS_OS}
 	 * @return
 	 */
 	int getColXSOffset();

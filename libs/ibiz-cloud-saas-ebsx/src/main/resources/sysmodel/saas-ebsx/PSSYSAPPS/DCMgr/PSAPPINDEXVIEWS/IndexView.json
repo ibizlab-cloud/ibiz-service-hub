@@ -740,6 +740,10 @@
       "autoLoad" : true,
       "showBusyIndicator" : true
     },
+    "getPSLayout" : {
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
     "modelid" : "956E1F76-1C0E-4E1E-88E6-0C7079ECCDA9",
     "modeltype" : "PSAPPMENU"
   } ],

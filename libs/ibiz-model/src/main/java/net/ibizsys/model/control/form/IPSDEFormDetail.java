@@ -3,9 +3,7 @@ package net.ibizsys.model.control.form;
 
 
 /**
- * 实体表单成员模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getDetailType}
+ * 实体表单成员模型基础对象接口
  *
  */
 public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
@@ -15,8 +13,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -31,8 +27,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -47,8 +41,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列水平对齐
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_COLALIGN}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
@@ -72,8 +64,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -81,8 +71,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_COUNTERMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
 	 * @return
@@ -92,8 +80,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成员直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_RAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getCssStyle();
@@ -101,8 +87,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成员样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DETAILSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
@@ -113,8 +97,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取成员类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DETAILTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDetailType}
 	 * @return
 	 */
@@ -123,8 +105,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -132,8 +112,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_HEIGHT}
 	 * @return
 	 */
 	double getHeight();
@@ -141,8 +119,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标签直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELRAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getLabelCssStyle();
@@ -150,8 +126,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标签动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELDYNACLASS}
 	 * @return
 	 */
 	java.lang.String getLabelDynaClass();
@@ -159,8 +133,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成员标签样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getLabelPSSysCss();
@@ -175,8 +147,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取模型状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_MODELSTATE}
 	 * @return
 	 */
 	int getModelState();
@@ -184,8 +154,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取应用计数器引用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSSYSCOUNTERID}
 	 * @return
 	 */
 	net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef();
@@ -249,8 +217,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成员样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -265,8 +231,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取成员图标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -310,8 +274,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取显示更多模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_SHOWMOREMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDetailShowMoreMode}
 	 * @return
 	 */
@@ -320,8 +282,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	double getWidth();
@@ -336,8 +296,6 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否显示标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_SHOWCAPTION}
 	 * @return
 	 */
 	boolean isShowCaption();

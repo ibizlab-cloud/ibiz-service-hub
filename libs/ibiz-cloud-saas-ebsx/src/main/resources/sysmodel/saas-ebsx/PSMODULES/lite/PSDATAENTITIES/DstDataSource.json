@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "DSID",
+        "codeName" : "DSId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "DSNAME",
+        "codeName" : "DSName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -522,6 +530,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "DSID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -654,6 +663,7 @@
     "length" : 100,
     "logicName" : "数据源名称",
     "name" : "DSNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -782,6 +792,7 @@
     "length" : 100,
     "logicName" : "类型",
     "name" : "DSTYPE",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -901,6 +912,7 @@
     "length" : 4000,
     "logicName" : "配置",
     "name" : "DSCFG",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

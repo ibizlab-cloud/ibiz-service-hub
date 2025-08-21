@@ -3,7 +3,7 @@ package net.ibizsys.model.wf;
 
 
 /**
- * 工作流版本模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSWFVersionDTO}运行时对象
+ * 工作流版本模型对象接口
  *
  */
 public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
@@ -62,8 +62,6 @@ public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
 	
 	/**
 	 * 获取工作流
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFVersionDTO#FIELD_PSWFID}
 	 * @return
 	 */
 	net.ibizsys.model.wf.IPSWorkflow getPSWorkflow();
@@ -99,8 +97,6 @@ public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
 	
 	/**
 	 * 获取版本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFVersionDTO#FIELD_WFVERSION}
 	 * @return
 	 */
 	int getWFVersion();
@@ -122,8 +118,6 @@ public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
 	
 	/**
 	 * 获取是否启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFVersionDTO#FIELD_VALIDFLAG}
 	 * @return
 	 */
 	boolean isValid();

@@ -39,8 +39,6 @@ public interface IPSBICubeLevel extends net.ibizsys.model.bi.IPSBICubeDimensionO
 	
 	/**
 	 * 获取是否全部层级
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ALLLEVELFLAG}
 	 * @return
 	 */
 	boolean isAllLevel();

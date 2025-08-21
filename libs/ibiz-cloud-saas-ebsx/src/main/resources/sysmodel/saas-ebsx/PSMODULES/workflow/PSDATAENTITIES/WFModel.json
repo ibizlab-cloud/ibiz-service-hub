@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MODELID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MODELNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -441,6 +449,7 @@
     "length" : 100,
     "logicName" : "ID",
     "name" : "MODELID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -560,6 +569,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "MODELNAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -651,6 +661,7 @@
     "length" : 100,
     "logicName" : "工作流用户组",
     "name" : "REFGROUP",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -727,6 +738,7 @@
     "length" : 100,
     "logicName" : "启用标识",
     "name" : "ISVALID",
+    "orderValue" : 1000,
     "stdDataType" : 9,
     "valueFormat" : "%1$s"
   }, {
@@ -837,6 +849,7 @@
     "length" : 1000,
     "logicName" : "BPMN",
     "name" : "BPMNFILE",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 1000,
     "valueFormat" : "%1$s"
@@ -926,6 +939,7 @@
     "length" : 100,
     "logicName" : "移动应用",
     "name" : "MOBAPPS",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1015,6 +1029,7 @@
     "length" : 100,
     "logicName" : "工作流实体",
     "name" : "REFDATAENTITY",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1104,6 +1119,7 @@
     "length" : 100,
     "logicName" : "PC应用",
     "name" : "WEBAPPS",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"

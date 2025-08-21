@@ -336,7 +336,7 @@ public class MybatisDbDataService implements IDBDataService {
 				return selectGroup(iSysDBSchemeRuntimeContext, iDataEntityRuntime, iPSDEDataSet, iSearchContext);
 			}
 			String sql = MybatisSqlUtil.composeDataSet(this, iDataEntityRuntime, iPSDEDataSet, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), iSearchContext, query);
-				//替换旧版本
+			//替换旧版本
 			sql = sql.replace("#{srf.", "#{ctx.");
 			sql = sql.replace("${srf.", "#{ctx.");
 			if(sql.indexOf("${srf")!=-1) {
@@ -359,6 +359,23 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
+
+			//查询别名加入参数
+			Map<String, Object> alias = new HashMap();
+			data.put("alias", alias);
+			for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
+				IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
+				if (iDEDataQueryCodeRuntime != null) {
+					iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
+						String codeExpName = iPSDEDataQueryCodeExp.getName();
+						if(codeExpName.startsWith("ALIAS.")){
+							String aliasName = codeExpName.substring(6);
+							alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
+						}
+					});
+				}
+			}
+
 			//将动态sql解析成普通sql
 			sql= MybatisSqlUtil.convertSQL(sql, data, sqlSession);
 			// 查询数据
@@ -393,6 +410,21 @@ public class MybatisDbDataService implements IDBDataService {
 		}
 		data.put("systemcontext", new HashMap<String, Object>());
 		data.put("webcontext", dataMap);
+		//查询别名加入参数
+		Map<String, Object> alias = new HashMap();
+		data.put("alias", alias);
+		for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
+			IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
+			if (iDEDataQueryCodeRuntime != null) {
+				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
+					String codeExpName = iPSDEDataQueryCodeExp.getName();
+					if(codeExpName.startsWith("ALIAS.")){
+						String aliasName = codeExpName.substring(6);
+						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
+					}
+				});
+			}
+		}
 		Page<?> page = MybatisSqlUtil.composePage(iDataEntityRuntime, iPSDEDataSet, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), iSearchContext);
 		GroupQuery groupQuery = MybatisSqlUtil.getGroupQuery(this, iSysDBSchemeRuntimeContext, iDataEntityRuntime, iPSDEDataSet, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), iSearchContext);
 		//将动态sql解析成普通sql
@@ -425,7 +457,7 @@ public class MybatisDbDataService implements IDBDataService {
 			if(sql.indexOf("${srf")!=-1) {
 				sql = SqlCodeUtil.parse(sql);
 			}
-			
+
 			Map<String, Object> data = new HashMap();
 			data.put("datacontext", dataMap);
 			data.put("globalcontext", new HashMap<String, Object>());
@@ -436,6 +468,18 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
+			//查询别名加入参数
+			Map<String, Object> alias = new HashMap();
+			data.put("alias", alias);
+			if (iDEDataQueryCodeRuntime != null) {
+				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
+					String codeExpName = iPSDEDataQueryCodeExp.getName();
+					if(codeExpName.startsWith("ALIAS.")){
+						String aliasName = codeExpName.substring(6);
+						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
+					}
+				});
+			}
 			//将动态sql解析成普通sql
 			sql= MybatisSqlUtil.convertSQL(sql, data, sqlSession);
 			// 查询数据
@@ -482,6 +526,18 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
+			//查询别名加入参数
+			Map<String, Object> alias = new HashMap();
+			data.put("alias", alias);
+			if (iDEDataQueryCodeRuntime != null) {
+				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
+					String codeExpName = iPSDEDataQueryCodeExp.getName();
+					if(codeExpName.startsWith("ALIAS.")){
+						String aliasName = codeExpName.substring(6);
+						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
+					}
+				});
+			}
 			//将动态sql解析成普通sql
 			sql= MybatisSqlUtil.convertSQL(sql, data, sqlSession);
 			// 查询数据

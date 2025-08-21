@@ -4,8 +4,6 @@ package net.ibizsys.model.dataentity.dataflow;
 
 /**
  * 实体数据流逻辑节点模型对象接口
- * <P>
- * 子接口扩展识别值 {@link #getNodeType}
  *
  */
 public interface IPSDEDataFlowNode extends net.ibizsys.model.IPSModelObject
@@ -29,8 +27,6 @@ public interface IPSDEDataFlowNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取左侧位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LEFTPOS}
 	 * @return
 	 */
 	int getLeftPos();
@@ -38,8 +34,6 @@ public interface IPSDEDataFlowNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_NODEPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getNodeParams();
@@ -47,8 +41,6 @@ public interface IPSDEDataFlowNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据流节点类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICNODETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicNodeType}
 	 * @return
@@ -93,8 +85,6 @@ public interface IPSDEDataFlowNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取上方位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TOPPOS}
 	 * @return
 	 */
 	int getTopPos();

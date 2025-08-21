@@ -17,8 +17,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	/**
 	 * 获取按钮行为类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_BTNACTIONTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormButtonActionType}
 	 * @return
 	 */
@@ -27,8 +25,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取边框样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_BORDERSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
@@ -39,8 +35,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	/**
 	 * 获取按钮样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DETAILSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
@@ -49,8 +43,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取动态标题绑定值项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_VALUEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getCaptionItemName();
@@ -58,8 +50,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取图标对齐
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ICONALIGN}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonIconAlign}
 	 * @return
@@ -83,8 +73,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取调用表单项更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFIUPDATEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.form.IPSDEFormItemUpdate getPSDEFormItemUpdate();
@@ -99,8 +87,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取调用界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIAction getPSUIAction();
@@ -115,8 +101,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取参数选择视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PICKUPPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getParamPickupPSAppView();
@@ -131,8 +115,6 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取参数选择视图参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_EDITORPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getParamViewParamJO();
@@ -143,6 +125,20 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * @return
 	 */
 	java.lang.String getTooltip();
+	
+	
+	/**
+	 * 获取操作提示语言资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
+
+
+	/**
+	 * 获取操作提示语言资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageResMust();
 	
 	
 	/**

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用视图消息组模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSViewMsgGroupDTO}运行时对象
+ * 应用视图消息组模型基础对象接口
  *
  */
 public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGroup
@@ -15,8 +15,6 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	/**
 	 * 获取内部消息区样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgGroupDTO#FIELD_BODYMSGSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	
 	/**
 	 * 获取尾部消息区样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgGroupDTO#FIELD_BOTTOMMSGSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return
@@ -64,8 +60,6 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	
 	/**
 	 * 获取头部消息区样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSViewMsgGroupDTO#FIELD_TOPMSGSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return

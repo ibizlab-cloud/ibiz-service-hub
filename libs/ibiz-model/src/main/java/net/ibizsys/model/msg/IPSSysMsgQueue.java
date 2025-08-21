@@ -3,7 +3,7 @@ package net.ibizsys.model.msg;
 
 
 /**
- * 系统消息队列模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO}运行时对象
+ * 系统消息队列模型对象接口
  *
  */
 public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_CONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getContentPSDEField();
@@ -28,8 +26,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取钉钉消息内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_DDCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getDDContentPSDEField();
@@ -44,8 +40,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文件值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_FILEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getFilePSDEField();
@@ -60,8 +54,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取即时消息内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_IMCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getIMContentPSDEField();
@@ -76,8 +68,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取移动端任务操作路径值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MOBTASKURLPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMobTaskUrlPSDEField();
@@ -92,8 +82,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MSGQUEUEPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getMsgQueueParams();
@@ -101,8 +89,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息队列标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MSGQUEUETAG}
 	 * @return
 	 */
 	java.lang.String getMsgQueueTag();
@@ -110,8 +96,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息队列标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MSGQUEUETAG2}
 	 * @return
 	 */
 	java.lang.String getMsgQueueTag2();
@@ -119,8 +103,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息队列类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MSGQUEUETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgQueueType}
 	 * @return
@@ -130,8 +112,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息类型值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_MSGTYPEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMsgTypePSDEField();
@@ -146,8 +126,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -162,8 +140,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取后台扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -178,8 +154,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取相关系统功能组件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_PSSYSUTILDEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysUtil getPSSysUtil();
@@ -194,8 +168,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -210,8 +182,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取短消息内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_SMSCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getSMSContentPSDEField();
@@ -226,8 +196,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息发送时间值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_SENDTIMEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getSendTimePSDEField();
@@ -242,8 +210,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息状态值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_STATEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField();
@@ -258,8 +224,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息标记2值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TAG2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTag2PSDEField();
@@ -274,8 +238,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息标记值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TAGPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTagPSDEField();
@@ -290,8 +252,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取目标标识值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TARGETPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTargetPSDEField();
@@ -306,8 +266,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取目标类型值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TARGETTYPEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTargetTypePSDEField();
@@ -322,8 +280,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取任务操作路径值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TASKURLPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTaskUrlPSDEField();
@@ -338,8 +294,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取消息标题值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_TITLEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTitlePSDEField();
@@ -354,8 +308,6 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取微信消息内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgQueueDTO#FIELD_WXCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWXContentPSDEField();

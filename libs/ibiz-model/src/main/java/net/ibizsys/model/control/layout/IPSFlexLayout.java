@@ -15,8 +15,6 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	/**
 	 * 获取Flex横轴对齐方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexAlign}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	/**
 	 * 获取Flex布局方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexLayoutDir}
 	 * @return
 	 */
@@ -36,8 +32,6 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	
 	/**
 	 * 获取Flex纵轴对齐方向
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_FLEXVALIGN}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexVAlign}
 	 * @return

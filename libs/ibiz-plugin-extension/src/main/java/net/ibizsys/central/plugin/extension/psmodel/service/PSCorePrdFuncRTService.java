@@ -273,6 +273,7 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 													}
 
 													PSCorePrdFunc psCorePrdFunc = this.getPSCorePrdFuncV2((Map)sub_project);
+													
 													psCorePrdFunc.setFuncType(V2SystemType.BASE.value);
 													psCorePrdFunc.setPSCorePrdId(strKey);
 													psCorePrdFunc.setPSCorePrdName(strName);
@@ -337,7 +338,14 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 													}
 
 													PSCorePrdFunc psCorePrdFunc = this.getPSCorePrdFuncV2((Map)sub_project);
-													psCorePrdFunc.setFuncType(V2SystemType.EXTENSION.value);
+													
+													if(DataTypeUtils.asBoolean(((Map)sub_project).get("mergesystem"), false)) {
+														psCorePrdFunc.setFuncType(V2SystemType.MERGENCE.value);
+													}
+													else {
+														psCorePrdFunc.setFuncType(V2SystemType.EXTENSION.value);
+													}
+													
 													psCorePrdFunc.setPSCorePrdId(strKey);
 													psCorePrdFunc.setPSCorePrdName(strName);
 													psCorePrdFunc.setFuncState(0);
@@ -590,45 +598,6 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		psCorePrdFunc.setHttpUrlToRepo(DataTypeUtils.getStringValue(item.get("http_url_to_repo"), null));
 
 		psCorePrdFunc.set("default_branch", DataTypeUtils.getStringValue(item.get("default_branch"), null));
-		//
-		// data.put(MARKETPRODUCT.FIELD_READMEURL, item.get("readme_url"));
-		// data.put(MARKETPRODUCT.FIELD_HTTPURLTOREPO,
-		// item.get("http_url_to_repo"));
-		// data.put(MARKETPRODUCT.FIELD_WEBURL, item.get("web_url"));
-		//
-		// String strHttpUrl =
-		// (String)data.get(MARKETPRODUCT.FIELD_HTTPURLTOREPO);
-		// if(StringUtils.hasLength(strHttpUrl)) {
-		//
-		// //b56b7ac7db5d/172.16.240.55
-		// strHttpUrl = strHttpUrl.replace("b56b7ac7db5d", "172.16.240.55");
-		// data.put(MARKETPRODUCT.FIELD_HTTPURLTOREPO, strHttpUrl);
-		// }
-		//
-		//
-		// Object tag_list = item.get("tag_list");
-		// if(tag_list instanceof List) {
-		// List list = (List)tag_list;
-		// String tags = "";
-		// for(Object tag : list) {
-		// if(ObjectUtils.isEmpty(tag)) {
-		// continue;
-		// }
-		// String strTag = tag.toString();
-		// if(strTag.toLowerCase().indexOf("ibiz-") == 0) {
-		// String strProductType = strTag.substring(5).toUpperCase();
-		// data.put(MARKETPRODUCT.FIELD_PRODUCTTYPE, strProductType);
-		// }
-		// else {
-		// if(StringUtils.hasLength(tags)) {
-		// tags += ",";
-		// }
-		// tags += strTag;
-		// }
-		// }
-		// data.put(MARKETPRODUCT.FIELD_TAGS, tags);
-		// }
-		//
 
 		Object namespace = item.get("namespace");
 		if (namespace instanceof Map) {
@@ -733,7 +702,12 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 						m.set(FIELD_V2SYSTEMMERGE, ret);
 
 						if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
-							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+							if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
+								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getProductMarketMode());
+							}
+							else {
+								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+							}
 						}
 					}
 					else {
@@ -815,7 +789,12 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					m.set(FIELD_V2SYSTEMMERGE, ret);
 					
 					if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
-						iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+						if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
+							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getProductMarketMode());
+						}
+						else {
+							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+						}
 					}
 				}
 				else {

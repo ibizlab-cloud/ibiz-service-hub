@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "CONFIGID",
+        "codeName" : "ConfigId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "CONFIGNAME",
+        "codeName" : "ConfigName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -688,6 +696,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -801,6 +810,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "REALDYNAINSTID",
+    "orderValue" : 6,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDERS/DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID.json"
@@ -915,6 +925,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1019,6 +1030,7 @@
     "length" : 200,
     "logicName" : "动态实例标记2（动态设计工具）",
     "name" : "DYNAINSTTAG2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1116,6 +1128,7 @@
     "length" : 1000,
     "logicName" : "文件",
     "name" : "MODELFILE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1205,6 +1218,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1310,6 +1324,7 @@
     "length" : 100,
     "logicName" : "配置标识",
     "name" : "CONFIGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1409,6 +1424,7 @@
     "length" : 200,
     "logicName" : "动态实例标记（动态设计工具）",
     "name" : "DYNAINSTTAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1508,6 +1524,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1626,6 +1643,7 @@
     "length" : 60,
     "logicName" : "状态",
     "name" : "STATUS",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSCODELISTS/DynamicModelStatus.json"
@@ -1727,6 +1745,7 @@
     "length" : 100,
     "logicName" : "实例版本激活标记",
     "name" : "ACTIVETAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1816,6 +1835,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1921,6 +1941,7 @@
     "length" : 100,
     "logicName" : "配置名称",
     "name" : "CONFIGNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2020,6 +2041,7 @@
     "length" : 100,
     "logicName" : "动态实例标识（动态设计工具）",
     "name" : "DYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2131,6 +2153,7 @@
     "length" : 100,
     "logicName" : "动态实例标识（RT）",
     "name" : "SYSDYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2263,6 +2286,7 @@
     "length" : 100,
     "logicName" : "配置标识",
     "name" : "PDYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2414,6 +2438,7 @@
     "length" : 200,
     "logicName" : "动态实例名称",
     "name" : "SYSDYNAINSTNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDERS/DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID.json"
@@ -2532,6 +2557,7 @@
     "importOrder" : 1000,
     "logicName" : "预置实例",
     "name" : "INTERNALINST",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2663,6 +2689,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCMetaDynaModel/PSDERS/DER1N_DC_META_DYNAMICMODEL_DC_DYNAINST_SYSDYNAINSTID.json"

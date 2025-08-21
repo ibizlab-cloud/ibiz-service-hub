@@ -6,15 +6,19 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 		,net.ibizsys.model.app.wf.IPSAppWFUIActionGroupDetail{
 
 	public final static String ATTR_GETACTIONLEVEL = "actionLevel";
+	public final static String ATTR_GETBUTTONSTYLE = "buttonStyle";
 	public final static String ATTR_GETCAPPSLANGUAGERES = "getCapPSLanguageRes";
 	public final static String ATTR_GETCAPTION = "caption";
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETDETAILTAG = "detailTag";
 	public final static String ATTR_GETDETAILTAG2 = "detailTag2";
+	public final static String ATTR_GETENABLESCRIPTCODE = "enableScriptCode";
+	public final static String ATTR_GETPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_GETPSUIACTION = "getPSUIAction";
 	public final static String ATTR_GETTOOLTIP = "tooltip";
 	public final static String ATTR_GETTOOLTIPPSLANGUAGERES = "getTooltipPSLanguageRes";
 	public final static String ATTR_GETUIACTIONPARAMJO = "uIActionParamJO";
+	public final static String ATTR_GETVISIBLESCRIPTCODE = "visibleScriptCode";
 	public final static String ATTR_ISADDSEPARATOR = "addSeparator";
 	public final static String ATTR_ISSHOWCAPTION = "showCaption";
 	public final static String ATTR_ISSHOWICON = "showIcon";
@@ -25,6 +29,14 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 			return 100;
 		}
 		return value.asInt();
+	}
+
+	public java.lang.String getButtonStyle(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETBUTTONSTYLE);
+		if(value == null){
+			return "100";
+		}
+		return value.asText();
 	}
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
@@ -42,6 +54,10 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 		net.ibizsys.model.res.IPSLanguageRes value = this.getCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标题语言资源对象");}
 		return value;
+	}
+
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
 	}
 
 
@@ -76,6 +92,36 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 		}
 		return value.asText();
 	}
+
+	public java.lang.String getEnableScriptCode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETENABLESCRIPTCODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
+
+	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
+		if(this.pssyspfplugin != null) return this.pssyspfplugin;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSPFPLUGIN);
+		if(value == null){
+			return null;
+		}
+		this.pssyspfplugin = getPSModelObject(net.ibizsys.model.res.IPSSysPFPlugin.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSPFPLUGIN);
+		return this.pssyspfplugin;
+	}
+
+	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPluginMust(){
+		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
+		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.view.IPSUIAction psuiaction;
 
 	public net.ibizsys.model.view.IPSUIAction getPSUIAction(){
@@ -92,6 +138,10 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 		net.ibizsys.model.view.IPSUIAction value = this.getPSUIAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定界面行为对象");}
 		return value;
+	}
+
+	public void setPSUIAction(net.ibizsys.model.view.IPSUIAction psuiaction){
+		this.psuiaction = psuiaction;
 	}
 
 
@@ -120,6 +170,10 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 		return value;
 	}
 
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
+	}
+
 
 	public com.fasterxml.jackson.databind.node.ObjectNode getUIActionParamJO(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUIACTIONPARAMJO);
@@ -127,6 +181,14 @@ public class PSWFUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 			return null;
 		}
 		return (com.fasterxml.jackson.databind.node.ObjectNode)value;
+	}
+
+	public java.lang.String getVisibleScriptCode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETVISIBLESCRIPTCODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
 	}
 
 	public boolean isAddSeparator(){

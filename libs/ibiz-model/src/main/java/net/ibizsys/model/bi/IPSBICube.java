@@ -5,14 +5,12 @@ package net.ibizsys.model.bi;
 /**
  *
  */
-public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
+public interface IPSBICube extends net.ibizsys.model.bi.IPSBISchemeObject{
 
 	
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CODENAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -20,8 +18,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取立方体选项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BICUBEOPTION}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BICubeOption}
 	 * @return
@@ -31,8 +27,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取立方体标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BICUBETAG}
 	 * @return
 	 */
 	java.lang.String getCubeTag();
@@ -40,8 +34,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取立方体标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BICUBETAG2}
 	 * @return
 	 */
 	java.lang.String getCubeTag2();
@@ -63,8 +55,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -79,8 +69,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -95,8 +83,6 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject{
 	
 	/**
 	 * 获取权限统一资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();

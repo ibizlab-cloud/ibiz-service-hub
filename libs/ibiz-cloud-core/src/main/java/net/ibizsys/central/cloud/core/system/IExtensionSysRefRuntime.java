@@ -2,9 +2,11 @@ package net.ibizsys.central.cloud.core.system;
 
 import java.io.File;
 
+import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.model.IPSSystemService;
+import net.ibizsys.runtime.util.Entity;
 
 /**
  * 扩展系统引用运行时
@@ -45,4 +47,14 @@ public interface IExtensionSysRefRuntime extends ISysRefRuntime {
 	 * @return
 	 */
 	File getAppDynaModelFile(String strAppTag, String strModelUri, Object param, boolean bTryMode);
+	
+	
+	/**
+	 * 填充插件系统的应用数据
+	 * @param appData
+	 * @param session 会话变量
+	 */
+	default void fillAddinAppData(AppData appData, Entity session) {
+		
+	}
 }

@@ -1762,14 +1762,14 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DYNCMODE</B>&nbsp;部件优先级
+     * <B>DYNCMODE</B>&nbsp;部件优先级，指定在插件应用模式下的部件优先级
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ControlPriority} 
      */
     public final static String FIELD_DYNCMODE = "dyncmode";
 
     /**
-     * 设置 部件优先级
+     * 设置 部件优先级，详细说明：{@link #FIELD_DYNCMODE}
      * 
      * @param dyncMode
      * 
@@ -1813,7 +1813,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 部件优先级
+     * 设置 部件优先级，详细说明：{@link #FIELD_DYNCMODE}
      * <P>
      * 等同 {@link #setDyncMode}
      * @param dyncMode
@@ -1825,7 +1825,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 部件优先级
+     * 设置 部件优先级，详细说明：{@link #FIELD_DYNCMODE}
      * <P>
      * 等同 {@link #setDyncMode}
      * @param dyncMode
@@ -1844,7 +1844,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>ENABLEDYNASYS</B>&nbsp;支持动态系统
      * <P>
-     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DynaSysMode} 
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ControlDynaSysMode} 
      */
     public final static String FIELD_ENABLEDYNASYS = "enabledynasys";
 
@@ -1911,7 +1911,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @param enableDynaSys
      */
     @JsonIgnore
-    public PSDEViewCtrl enabledynasys(net.ibizsys.psmodel.core.util.PSModelEnums.DynaSysMode enableDynaSys){
+    public PSDEViewCtrl enabledynasys(net.ibizsys.psmodel.core.util.PSModelEnums.ControlDynaSysMode enableDynaSys){
         if(enableDynaSys == null){
             this.setEnableDynaSys(null);
         }
@@ -4125,7 +4125,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDATAEXPID</B>&nbsp;实体数据导出，指定实体数据导出对象
+     * <B>PSDEDATAEXPID</B>&nbsp;实体数据导出，指定部件使用的数据导出对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataExp} 
      */
@@ -4270,7 +4270,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDATAIMPID</B>&nbsp;实体数据导入，指定实体数据导入对象
+     * <B>PSDEDATAIMPID</B>&nbsp;实体数据导入，指定部件使用的数据导入对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataImp} 
      */
@@ -4415,7 +4415,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDATASETID</B>&nbsp;实体数据集，指定实体数据集对象
+     * <B>PSDEDATASETID</B>&nbsp;实体数据集，指定部件使用的数据集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
@@ -5140,7 +5140,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEID</B>&nbsp;部件实体，指定部件的所在实体
+     * <B>PSDEID</B>&nbsp;部件实体，指定部件的归属实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
@@ -6365,7 +6365,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDEVIEWCTRLNAME</B>&nbsp;部件名称，指定部件的名称，需要在所在的实体视图中具有唯一性
      * <P>
-     * 字符串：最大长度 50，由字母、数字、下划线及点号组成，且开始必须字母
+     * 字符串：最大长度 50，由字母、数字、下划线及点号组成，且开始必须字母或下划线
      */
     public final static String FIELD_PSDEVIEWCTRLNAME = "psdeviewctrlname";
 
@@ -6814,7 +6814,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSPFID</B>&nbsp;前端模板，指定视图部件启用的前端模板，该配置在多前端模板的多应用场合使用
      * <P>
-     * 字符串：最大长度 100
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSPF} 
      */
     public final static String FIELD_PSPFID = "pspfid";
 
@@ -8388,7 +8388,7 @@ public class PSDEViewCtrl extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSVIEWPANELID</B>&nbsp;系统面板，指定部件使用的面板对象
+     * <B>PSSYSVIEWPANELID</B>&nbsp;系统面板，指定引用的面板（非视图布局面板）
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysViewPanel} 
      */

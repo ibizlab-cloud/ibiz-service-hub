@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEFORMDETAIL</B>实体表单成员 模型传输对象
+ * <B>PSDEFORMDETAIL</B>表单成员 模型传输对象
  * <P>
- * 实体表单成员模型，提供多种成员类型。支持定义成员的子成员（多层）、成员的动态逻辑等。注意：模型属性根据成员类型可能存在不同的解释（版本遗留问题）
+ * 实体表单成员模型，提供多种成员类型。支持定义成员的子成员（多层）、成员的动态逻辑等。为实现界面与业务逻辑的解耦，属性界面模式（PSDEFUIMODE）支持定义属性的界面表现模式，覆盖编辑、展示、移动端适配等场景；属性搜索模式（PSDEFSFITEM）则定义属性搜索条件输入界面及处理模式，所以表单项大部分场景无需专门配置参数（由预置模式提供）
  */
 public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -18,7 +18,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>ALLOWEMPTY</B>&nbsp;允许空输入，指定表单项是否允许空输入，未定义时使用引用的属性界面模式的配置
+     * <B>ALLOWEMPTY</B>&nbsp;允许空输入，表单项是否允许空输入
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -241,7 +241,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BTNACTIONTYPE</B>&nbsp;按钮行为类型，指定表单按钮的处理类型
+     * <B>BTNACTIONTYPE</B>&nbsp;按钮行为类型，表单按钮处理类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FormButtonActionType} 
      */
@@ -550,14 +550,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CAPTION</B>&nbsp;标题，指定表单成员的标题，不同类型的成员按照自身逻辑放置标题，未定义时表单项成员使用引用属性界面模式的配置
+     * <B>CAPTION</B>&nbsp;标题
      * <P>
      * 字符串：最大长度 100
      */
     public final static String FIELD_CAPTION = "caption";
 
     /**
-     * 设置 标题，详细说明：{@link #FIELD_CAPTION}
+     * 设置 标题
      * 
      * @param caption
      * 
@@ -601,7 +601,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 标题，详细说明：{@link #FIELD_CAPTION}
+     * 设置 标题
      * <P>
      * 等同 {@link #setCaption}
      * @param caption
@@ -613,7 +613,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHILD_COL_LG</B>&nbsp;内容大型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在大型界面的默认列占位数量，未定义时为【-1】
+     * <B>CHILD_COL_LG</B>&nbsp;内容大型列宽，指定子成员在【栅格布局】模式下的大型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_LG = "child_col_lg";
 
@@ -674,7 +674,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHILD_COL_MD</B>&nbsp;内容中型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在中型界面的默认列占位数量，未定义时为当前栅格列数，也就是整行占满
+     * <B>CHILD_COL_MD</B>&nbsp;内容中型列宽，指定子成员在【栅格布局】模式下的中型界面的默认占位数量，未定义为当前栅格列数（占满）
      */
     public final static String FIELD_CHILD_COL_MD = "child_col_md";
 
@@ -735,7 +735,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHILD_COL_SM</B>&nbsp;内容小型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在小型界面的默认列占位数量，未定义时为【-1】
+     * <B>CHILD_COL_SM</B>&nbsp;内容小型列宽，指定子成员在【栅格布局】模式下的小型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_SM = "child_col_sm";
 
@@ -796,7 +796,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHILD_COL_XS</B>&nbsp;内容超小列宽，表单成员父容器布局模式为【栅格布局】时指定成员在超小型界面的默认列占位数量，未定义时为【-1】
+     * <B>CHILD_COL_XS</B>&nbsp;内容超小列宽，指定子成员在【栅格布局】模式下的超小型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_XS = "child_col_xs";
 
@@ -857,14 +857,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODELISTCONFIGMODE</B>&nbsp;输出代码表配置模式，指定表单项代码表配置的输出模式，未定义时如表单项编辑器与引用属性界面模式一致则使用属性界面模式的配置，否则为【无】
+     * <B>CODELISTCONFIGMODE</B>&nbsp;代码表输出模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.OutputCodeListMode} 
      */
     public final static String FIELD_CODELISTCONFIGMODE = "codelistconfigmode";
 
     /**
-     * 设置 输出代码表配置模式，详细说明：{@link #FIELD_CODELISTCONFIGMODE}
+     * 设置 代码表输出模式
      * 
      * @param codeListConfigMode
      * 
@@ -875,7 +875,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 输出代码表配置模式  
+     * 获取 代码表输出模式  
      * @return
      */
     @JsonIgnore
@@ -888,7 +888,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 输出代码表配置模式 是否指定值，包括空值
+     * 判断 代码表输出模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -900,7 +900,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 输出代码表配置模式
+     * 重置 代码表输出模式
      */
     @JsonIgnore
     public void resetCodeListConfigMode(){
@@ -908,7 +908,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出代码表配置模式，详细说明：{@link #FIELD_CODELISTCONFIGMODE}
+     * 设置 代码表输出模式
      * <P>
      * 等同 {@link #setCodeListConfigMode}
      * @param codeListConfigMode
@@ -920,7 +920,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 输出代码表配置模式，详细说明：{@link #FIELD_CODELISTCONFIGMODE}
+     * 设置 代码表输出模式
      * <P>
      * 等同 {@link #setCodeListConfigMode}
      * @param codeListConfigMode
@@ -1078,7 +1078,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COLMODEL</B>&nbsp;列模型，表单成员布局容器模式为【表格布局】时指定表格列分割模型，多列使用分号分隔，列宽度可以使用百分数（表格宽度占比）、数字、星号（剩余），如 100;50%;* 表现第一列100像素、第二列表格一半宽度，第三列为剩余宽度
+     * <B>COLMODEL</B>&nbsp;列模型，布局容器模式为【表格布局】时指定表格列分割模型，多列使用分号分隔，列宽度可以使用百分数（表格宽度占比）、数字、星号（剩余），如 100;50%;* 表现第一列100像素、第二列表格一半宽度，第三列为剩余宽度
      * <P>
      * 字符串：最大长度 50
      */
@@ -1141,7 +1141,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COLSPAN</B>&nbsp;列数，表单成员父容器布局模式为【表格布局】时指定成员的占位列数，未定义时为【1】
+     * <B>COLSPAN</B>&nbsp;列数，父容器布局模式为【表格布局】时指定成员的占位列数，未定义时为【1】
      */
     public final static String FIELD_COLSPAN = "colspan";
 
@@ -1202,7 +1202,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_LG</B>&nbsp;大型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在大型界面的列占位数量，未定义时使用父容器的默认大型界面列占位数量
+     * <B>COL_LG</B>&nbsp;大型列宽，成员在【栅格布局】模式下的大型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_LG = "col_lg";
 
@@ -1263,7 +1263,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_LG_OS</B>&nbsp;大型偏移，表单成员父容器布局模式为【栅格布局】时指定成员在大型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_LG_OS</B>&nbsp;大型偏移，成员在【栅格布局】模式下大型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_LG_OS = "col_lg_os";
 
@@ -1324,7 +1324,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_MD</B>&nbsp;中型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在中型界面的列占位数量，未定义时使用父容器的默认中型界面列占位数量
+     * <B>COL_MD</B>&nbsp;中型列宽，成员在【栅格布局】模式下的中型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_MD = "col_md";
 
@@ -1385,7 +1385,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_MD_OS</B>&nbsp;中型偏移，表单成员父容器布局模式为【栅格布局】时指定成员在中型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_MD_OS</B>&nbsp;中型偏移，成员在【栅格布局】模式下的中型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_MD_OS = "col_md_os";
 
@@ -1446,7 +1446,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_SM</B>&nbsp;小型列宽，表单成员父容器布局模式为【栅格布局】时指定成员在小型界面的列占位数量，未定义时使用父容器的默认小型界面列占位数量
+     * <B>COL_SM</B>&nbsp;小型列宽，成员在【栅格布局】模式下的小型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_SM = "col_sm";
 
@@ -1507,7 +1507,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_SM_OS</B>&nbsp;小型偏移，表单成员父容器布局模式为【栅格布局】时指定成员在小型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_SM_OS</B>&nbsp;小型偏移，成员在【栅格布局】模式下的小型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_SM_OS = "col_sm_os";
 
@@ -1568,7 +1568,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_WIDTH</B>&nbsp;固定宽度，指定表单成员在【栅格布局】模式下的固定列宽，未定义时为【-1】
+     * <B>COL_WIDTH</B>&nbsp;固定宽度，指定成员在【栅格布局】模式下的固定列宽，未定义时为【-1】
      */
     public final static String FIELD_COL_WIDTH = "col_width";
 
@@ -1629,7 +1629,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_XS</B>&nbsp;超小列宽，表单成员父容器布局模式为【栅格布局】时指定成员在超小界面的列占位数量，未定义时使用父容器的默认超小界面列占位数量
+     * <B>COL_XS</B>&nbsp;超小列宽，成员在【栅格布局】模式下的超小界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_XS = "col_xs";
 
@@ -1690,7 +1690,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>COL_XS_OS</B>&nbsp;超小偏移，表单成员父容器布局模式为【栅格布局】时指定成员在超小界面的列偏移数量，未定义时为【-1】
+     * <B>COL_XS_OS</B>&nbsp;超小偏移，成员在【栅格布局】模式下的超小界面的列偏移数量，默认为【-1】
      */
     public final static String FIELD_COL_XS_OS = "col_xs_os";
 
@@ -1751,7 +1751,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CONTENTTYPE</B>&nbsp;内容类型，指定表单直接内容成员的内容类型
+     * <B>CONTENTTYPE</B>&nbsp;内容类型，指定直接内容成员的内容类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.RawItemContentType} 
      */
@@ -2115,14 +2115,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CREATEDV</B>&nbsp;建立默认值，指定表单项的建立默认值，未指定默认值类型时按直接值处理
+     * <B>CREATEDV</B>&nbsp;建立默认值
      * <P>
      * 字符串：最大长度 500
      */
     public final static String FIELD_CREATEDV = "createdv";
 
     /**
-     * 设置 建立默认值，详细说明：{@link #FIELD_CREATEDV}
+     * 设置 建立默认值
      * 
      * @param createDV
      * 
@@ -2166,7 +2166,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 建立默认值，详细说明：{@link #FIELD_CREATEDV}
+     * 设置 建立默认值
      * <P>
      * 等同 {@link #setCreateDV}
      * @param createDV
@@ -2178,7 +2178,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CREATEDVT</B>&nbsp;新建默认值类型，指定表单项的建立默认值类型，未定义时为【直接值】
+     * <B>CREATEDVT</B>&nbsp;新建默认值类型，表单项的新建默认值类型，未定义时为【直接值】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.CreateDefaultValueType} 
      */
@@ -2443,7 +2443,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CTRLHEIGHT</B>&nbsp;控件高度，指定表单项编辑器的高度，未定义时如表单项编辑器与引用属性界面模式一致则使用属性界面模式的配置值，否则使用编辑器类型的默认高度
+     * <B>CTRLHEIGHT</B>&nbsp;控件高度，编辑器高度
      */
     public final static String FIELD_CTRLHEIGHT = "ctrlheight";
 
@@ -2710,7 +2710,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CTRLWIDTH</B>&nbsp;控件宽度，指定表单项编辑器的宽度，未定义时如表单项编辑器与引用属性界面模式一致则使用属性界面模式的配置值，否则使用编辑器类型的默认宽度
+     * <B>CTRLWIDTH</B>&nbsp;控件宽度，编辑器宽度
      */
     public final static String FIELD_CTRLWIDTH = "ctrlwidth";
 
@@ -3244,7 +3244,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DETAILTYPE</B>&nbsp;类型，指定表单成员的类型
+     * <B>DETAILTYPE</B>&nbsp;类型，表单成员类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FormDetailType} 
      */
@@ -3448,14 +3448,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>EDITORTYPE</B>&nbsp;编辑器类型，指定表单项编辑器的类型，未定义时使用引用属性界面模式的配置
+     * <B>EDITORTYPE</B>&nbsp;编辑器类型
      * <P>
-     * 字符串：最大长度 40
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.EditorType} 
      */
     public final static String FIELD_EDITORTYPE = "editortype";
 
     /**
-     * 设置 编辑器类型，详细说明：{@link #FIELD_EDITORTYPE}
+     * 设置 编辑器类型
      * 
      * @param editorType
      * 
@@ -3499,7 +3499,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 编辑器类型，详细说明：{@link #FIELD_EDITORTYPE}
+     * 设置 编辑器类型
      * <P>
      * 等同 {@link #setEditorType}
      * @param editorType
@@ -3510,8 +3510,25 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
+     /**
+     * 设置 编辑器类型
+     * <P>
+     * 等同 {@link #setEditorType}
+     * @param editorType
+     */
+    @JsonIgnore
+    public PSDEFormDetail editortype(net.ibizsys.psmodel.core.util.PSModelEnums.EditorType editorType){
+        if(editorType == null){
+            this.setEditorType(null);
+        }
+        else{
+            this.setEditorType(editorType.value);
+        }
+        return this;
+    }
+
     /**
-     * <B>EMPTYCAPTION</B>&nbsp;空白标签，指定表单项是否启用空白标签，空白标签是指使用无内容的标签进行占位。未定义时为【否】
+     * <B>EMPTYCAPTION</B>&nbsp;空白标签，是否启用空白标签占位。默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -3591,14 +3608,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEANCHOR</B>&nbsp;支持锚点，指定表单成员是否支持锚点，支持锚点是提供了直接定位成员的功能，未定义时为【否】
+     * <B>ENABLEANCHOR</B>&nbsp;启用锚点，启用锚点提供了定位当前项能力，默认【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLEANCHOR = "enableanchor";
 
     /**
-     * 设置 支持锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * 
      * @param enableAnchor
      * 
@@ -3609,7 +3626,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 支持锚点  
+     * 获取 启用锚点  
      * @return
      */
     @JsonIgnore
@@ -3622,7 +3639,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 支持锚点 是否指定值，包括空值
+     * 判断 启用锚点 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3634,7 +3651,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 支持锚点
+     * 重置 启用锚点
      */
     @JsonIgnore
     public void resetEnableAnchor(){
@@ -3642,7 +3659,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 支持锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -3654,7 +3671,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 支持锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -3671,7 +3688,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLECOND</B>&nbsp;启用条件，指定表单项的静态启用条件，未定义时使用引用的属性界面模式的配置
+     * <B>ENABLECOND</B>&nbsp;启用条件，表单项的静态启用条件
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.EditItemEnableCond} 
      */
@@ -3751,7 +3768,87 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEITEMPRIV</B>&nbsp;启用列权限控制，指定表单项是否启用列权限控制，未定义时由表单项绑定的实体属性决定，无实体属性则为【否】
+     * <B>ENABLEINPUTTIP</B>&nbsp;启用输入提示
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_ENABLEINPUTTIP = "enableinputtip";
+
+    /**
+     * 设置 启用输入提示
+     * 
+     * @param enableInputTip
+     * 
+     */
+    @JsonProperty(FIELD_ENABLEINPUTTIP)
+    public void setEnableInputTip(Integer enableInputTip){
+        this.set(FIELD_ENABLEINPUTTIP, enableInputTip);
+    }
+    
+    /**
+     * 获取 启用输入提示  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getEnableInputTip(){
+        Object objValue = this.get(FIELD_ENABLEINPUTTIP);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 启用输入提示 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isEnableInputTipDirty(){
+        if(this.contains(FIELD_ENABLEINPUTTIP)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 启用输入提示
+     */
+    @JsonIgnore
+    public void resetEnableInputTip(){
+        this.reset(FIELD_ENABLEINPUTTIP);
+    }
+
+    /**
+     * 设置 启用输入提示
+     * <P>
+     * 等同 {@link #setEnableInputTip}
+     * @param enableInputTip
+     */
+    @JsonIgnore
+    public PSDEFormDetail enableinputtip(Integer enableInputTip){
+        this.setEnableInputTip(enableInputTip);
+        return this;
+    }
+
+     /**
+     * 设置 启用输入提示
+     * <P>
+     * 等同 {@link #setEnableInputTip}
+     * @param enableInputTip
+     */
+    @JsonIgnore
+    public PSDEFormDetail enableinputtip(Boolean enableInputTip){
+        if(enableInputTip == null){
+            this.setEnableInputTip(null);
+        }
+        else{
+            this.setEnableInputTip(enableInputTip?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
+        return this;
+    }
+
+    /**
+     * <B>ENABLEITEMPRIV</B>&nbsp;启用列权限控制，是否启用列权限控制，未定义时由绑定的实体属性决定，无实体属性则为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -3831,14 +3928,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FIELDNAME</B>&nbsp;值属性名称
+     * <B>FIELDNAME</B>&nbsp;值属性名称，直接指定表单项绑定的值属性名称，一般在重复器里面的表单成员使用（重复器的实体域与表单不同，不能直接指定实体属性）
      * <P>
      * 字符串：最大长度 30
      */
     public final static String FIELD_FIELDNAME = "fieldname";
 
     /**
-     * 设置 值属性名称
+     * 设置 值属性名称，详细说明：{@link #FIELD_FIELDNAME}
      * 
      * @param fieldName
      * 
@@ -3882,7 +3979,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 值属性名称
+     * 设置 值属性名称，详细说明：{@link #FIELD_FIELDNAME}
      * <P>
      * 等同 {@link #setFieldName}
      * @param fieldName
@@ -3894,7 +3991,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，表单成员容器布局模式为【Flex布局】时指定横轴对齐方式
+     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，成员在【Flex布局】模式下指定横轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexAlign} 
      */
@@ -4035,7 +4132,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXDIR</B>&nbsp;Flex布局方向，表单成员容器布局模式为【Flex布局】时指定布局方向
+     * <B>FLEXDIR</B>&nbsp;Flex布局方向，成员在【Flex布局】模式下指定布局方向
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexLayoutDir} 
      */
@@ -4115,7 +4212,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXGROW</B>&nbsp;Flex延展值，表单成员父容器布局模式为【Flex布局】时指定成员的延展值，未定义时为【-1】
+     * <B>FLEXGROW</B>&nbsp;Flex延展值，成员在【Flex布局】模式下延展值，未定义时为【-1】
      */
     public final static String FIELD_FLEXGROW = "flexgrow";
 
@@ -4237,7 +4334,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，表单成员容器布局模式为【Flex布局】时指定纵轴对齐方式
+     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，容器布局模式为【Flex布局】时指定纵轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexVAlign} 
      */
@@ -4382,7 +4479,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GRIDROWID</B>&nbsp;行号，表单成员父容器布局模式为【表格布局】时指定占位行标识，-1为自动，未定义时为【-1】
+     * <B>GRIDROWID</B>&nbsp;行号，父容器布局模式为【表格布局】时指定占位行标识，-1为自动，未定义时为【-1】
      */
     public final static String FIELD_GRIDROWID = "gridrowid";
 
@@ -4603,7 +4700,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>HEIGHT</B>&nbsp;高度，指定表单成员的高度，0为自动计算，未定义时为【0】
+     * <B>HEIGHT</B>&nbsp;高度，高度，默认为0（自动计算）
      */
     public final static String FIELD_HEIGHT = "height";
 
@@ -4744,7 +4841,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>HTMLCONTENT</B>&nbsp;HTML内容，直接内容项内容类型为【Html内容】时指定的Html内容，未指定时使用指定的系统资源定义内容
+     * <B>HTMLCONTENT</B>&nbsp;HTML内容，直接内容项（Html内容）的Html内容
      */
     public final static String FIELD_HTMLCONTENT = "htmlcontent";
 
@@ -4948,7 +5045,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>IGNOREINPUT</B>&nbsp;忽略输入值，指定表单项的忽略输入值的方式，如表单项启用代码值转换文本处理则直接为【建立及更新】，未定义时（1）如引用的属性界面模式存在忽略输入值配置则使用该配置（2）如成员父容器存在忽略输入值配置则使用该配置（3）如表单项属性为系统属性则为【建立及更新】（4）如以上条件都不满足则为【无】
+     * <B>IGNOREINPUT</B>&nbsp;忽略输入值，指定在何种情况下会忽略表单项的输入值
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.EditItemIgnoreMode} 
      */
@@ -5234,14 +5331,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ITEMSTATES</B>&nbsp;表单项默认状态
+     * <B>ITEMSTATES</B>&nbsp;表单项默认状态，设置表单项的默认状态
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.PanelFieldState} 
      */
     public final static String FIELD_ITEMSTATES = "itemstates";
 
     /**
-     * 设置 表单项默认状态
+     * 设置 表单项默认状态，详细说明：{@link #FIELD_ITEMSTATES}
      * 
      * @param itemStates
      * 
@@ -5285,7 +5382,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单项默认状态
+     * 设置 表单项默认状态，详细说明：{@link #FIELD_ITEMSTATES}
      * <P>
      * 等同 {@link #setItemStates}
      * @param itemStates
@@ -5297,7 +5394,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 表单项默认状态
+     * 设置 表单项默认状态，详细说明：{@link #FIELD_ITEMSTATES}
      * <P>
      * 等同 {@link #setItemStates}
      * @param itemStates
@@ -5848,7 +5945,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTMODE</B>&nbsp;布局模式，指定表单成员的布局容器模式
+     * <B>LAYOUTMODE</B>&nbsp;布局模式，容器成员的布局模式，未定义时使用父容器布局（顶级容器是表单部件）
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutMode} 
      */
@@ -5991,7 +6088,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LINKPSDEVIEWID</B>&nbsp;数据链接视图，指定表单项引用数据的链接视图对象，未定义时使用引用的属性界面模式的配置
+     * <B>LINKPSDEVIEWID</B>&nbsp;数据链接视图，指定编辑器的数据链接视图（查看选择数据），未指定使用界面模式定义
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
@@ -7420,14 +7517,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MODELSTATE</B>&nbsp;模型状态，RESERVEMODELV2
+     * <B>MODELSTATE</B>&nbsp;设计控制状态，指定表单成员在运行时设计工具的扩展控制状态，运行时设计工具是指在运行时环境提供的表单设计工具
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFormDetailState} 
      */
     public final static String FIELD_MODELSTATE = "modelstate";
 
     /**
-     * 设置 模型状态，详细说明：{@link #FIELD_MODELSTATE}
+     * 设置 设计控制状态，详细说明：{@link #FIELD_MODELSTATE}
      * 
      * @param modelState
      * 
@@ -7438,7 +7535,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 模型状态  
+     * 获取 设计控制状态  
      * @return
      */
     @JsonIgnore
@@ -7451,7 +7548,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 模型状态 是否指定值，包括空值
+     * 判断 设计控制状态 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -7463,7 +7560,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 模型状态
+     * 重置 设计控制状态
      */
     @JsonIgnore
     public void resetModelState(){
@@ -7471,7 +7568,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 模型状态，详细说明：{@link #FIELD_MODELSTATE}
+     * 设置 设计控制状态，详细说明：{@link #FIELD_MODELSTATE}
      * <P>
      * 等同 {@link #setModelState}
      * @param modelState
@@ -7483,7 +7580,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 模型状态，详细说明：{@link #FIELD_MODELSTATE}
+     * 设置 设计控制状态，详细说明：{@link #FIELD_MODELSTATE}
      * <P>
      * 等同 {@link #setModelState}
      * @param modelState
@@ -7504,7 +7601,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NEEDCODELISTCONFIG</B>&nbsp;需要提供代码表配置，指定表单项是否需要提供代码表配置，未定义时如表单项编辑器与引用属性界面模式一致则使用属性界面模式的配置，否则使用表单项编辑器默认配置
+     * <B>NEEDCODELISTCONFIG</B>&nbsp;需要提供代码表配置，是否需要提供代码表配置，未定义时如表单项编辑器与引用属性界面模式一致则使用属性界面模式的配置，否则使用表单项编辑器默认配置
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -8368,7 +8465,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PLACEHOLDER</B>&nbsp;占位提示，指定表单项编辑器的占位提示信息，未定义时使用引用的属性界面模式的配置
+     * <B>PLACEHOLDER</B>&nbsp;占位提示，编辑器占位提示信息
      * <P>
      * 字符串：最大长度 100
      */
@@ -8769,7 +8866,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSCODELISTID</B>&nbsp;系统代码表，指定表单项的代码表对象，未定义时使用引用的属性界面模式的配置
+     * <B>PSCODELISTID</B>&nbsp;系统代码表，编辑器的代码表对象，默认使用界面模式定义
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSCodeList} 
      */
@@ -9204,14 +9301,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFUIMODEID</B>&nbsp;表单项模式，指定表单项的属性界面模式，未定义时按照以下方式计算模式（1）当前应用的默认模式（2）当前应用类型的默认模式
+     * <B>PSDEFUIMODEID</B>&nbsp;编辑项模式，未定义时按照以下方式计算（1）当前应用的默认模式（2）当前应用类型的默认模式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFUIMode} 
      */
     public final static String FIELD_PSDEFUIMODEID = "psdefuimodeid";
 
     /**
-     * 设置 表单项模式，详细说明：{@link #FIELD_PSDEFUIMODEID}
+     * 设置 编辑项模式，详细说明：{@link #FIELD_PSDEFUIMODEID}
      * 
      * @param pSDEFUIModeId
      * 
@@ -9224,7 +9321,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 表单项模式  
+     * 获取 编辑项模式  
      * @return
      */
     @JsonIgnore
@@ -9241,7 +9338,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 表单项模式 是否指定值，包括空值
+     * 判断 编辑项模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -9257,7 +9354,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 表单项模式
+     * 重置 编辑项模式
      */
     @JsonIgnore
     public void resetPSDEFUIModeId(){
@@ -9267,7 +9364,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单项模式，详细说明：{@link #FIELD_PSDEFUIMODEID}
+     * 设置 编辑项模式，详细说明：{@link #FIELD_PSDEFUIMODEID}
      * <P>
      * 等同 {@link #setPSDEFUIModeId}
      * @param pSDEFUIModeId
@@ -9279,7 +9376,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单项模式，包括引用对象的其它关系属性
+     * 设置 编辑项模式，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEFUIModeId}
      * @param pSDEFUIMode 引用对象
@@ -9298,14 +9395,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFUIMODENAME</B>&nbsp;表单项模式，指定表单项的属性界面模式，未定义时按照以下方式计算模式（1）当前应用的默认模式（2）当前应用类型的默认模式
+     * <B>PSDEFUIMODENAME</B>&nbsp;属性界面模式，指定表单项的属性界面模式，未定义时按照以下方式计算模式（1）当前应用的默认模式（2）当前应用类型的默认模式
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFUIMODEID}
      */
     public final static String FIELD_PSDEFUIMODENAME = "psdefuimodename";
 
     /**
-     * 设置 表单项模式，详细说明：{@link #FIELD_PSDEFUIMODENAME}
+     * 设置 属性界面模式，详细说明：{@link #FIELD_PSDEFUIMODENAME}
      * 
      * @param pSDEFUIModeName
      * 
@@ -9318,7 +9415,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 表单项模式  
+     * 获取 属性界面模式  
      * @return
      */
     @JsonIgnore
@@ -9335,7 +9432,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 表单项模式 是否指定值，包括空值
+     * 判断 属性界面模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -9351,7 +9448,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 表单项模式
+     * 重置 属性界面模式
      */
     @JsonIgnore
     public void resetPSDEFUIModeName(){
@@ -9361,7 +9458,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单项模式，详细说明：{@link #FIELD_PSDEFUIMODENAME}
+     * 设置 属性界面模式，详细说明：{@link #FIELD_PSDEFUIMODENAME}
      * <P>
      * 等同 {@link #setPSDEFUIModeName}
      * @param pSDEFUIModeName
@@ -9455,7 +9552,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFIUPDATEID</B>&nbsp;表单项更新，指定表单项值变化时触发的表单项更新操作
+     * <B>PSDEFIUPDATEID</B>&nbsp;表单项更新，表单项值变化时触发的表单项更新操作
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFIUpdate} 
      */
@@ -10103,14 +10200,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFSFITEMID</B>&nbsp;属性搜索模式，指定搜索表单项使用的属性界面模式
+     * <B>PSDEFSFITEMID</B>&nbsp;搜索项模式，搜索表单项使用的搜索模式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFSFItem} 
      */
     public final static String FIELD_PSDEFSFITEMID = "psdefsfitemid";
 
     /**
-     * 设置 属性搜索模式，详细说明：{@link #FIELD_PSDEFSFITEMID}
+     * 设置 搜索项模式，详细说明：{@link #FIELD_PSDEFSFITEMID}
      * 
      * @param pSDEFSFItemId
      * 
@@ -10121,7 +10218,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 属性搜索模式  
+     * 获取 搜索项模式  
      * @return
      */
     @JsonIgnore
@@ -10134,7 +10231,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 属性搜索模式 是否指定值，包括空值
+     * 判断 搜索项模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -10146,7 +10243,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 属性搜索模式
+     * 重置 搜索项模式
      */
     @JsonIgnore
     public void resetPSDEFSFItemId(){
@@ -10154,7 +10251,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性搜索模式，详细说明：{@link #FIELD_PSDEFSFITEMID}
+     * 设置 搜索项模式，详细说明：{@link #FIELD_PSDEFSFITEMID}
      * <P>
      * 等同 {@link #setPSDEFSFItemId}
      * @param pSDEFSFItemId
@@ -10166,7 +10263,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性搜索模式，包括引用对象的其它关系属性
+     * 设置 搜索项模式，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEFSFItemId}
      * @param pSDEFSFItem 引用对象
@@ -10185,14 +10282,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFSFITEMNAME</B>&nbsp;属性搜索模式，指定搜索表单项使用的属性界面模式
+     * <B>PSDEFSFITEMNAME</B>&nbsp;搜索项模式，指定搜索表单项使用的搜索模式
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFSFITEMID}
      */
     public final static String FIELD_PSDEFSFITEMNAME = "psdefsfitemname";
 
     /**
-     * 设置 属性搜索模式，详细说明：{@link #FIELD_PSDEFSFITEMNAME}
+     * 设置 搜索项模式，详细说明：{@link #FIELD_PSDEFSFITEMNAME}
      * 
      * @param pSDEFSFItemName
      * 
@@ -10203,7 +10300,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 属性搜索模式  
+     * 获取 搜索项模式  
      * @return
      */
     @JsonIgnore
@@ -10216,7 +10313,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 属性搜索模式 是否指定值，包括空值
+     * 判断 搜索项模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -10228,7 +10325,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 属性搜索模式
+     * 重置 搜索项模式
      */
     @JsonIgnore
     public void resetPSDEFSFItemName(){
@@ -10236,7 +10333,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性搜索模式，详细说明：{@link #FIELD_PSDEFSFITEMNAME}
+     * 设置 搜索项模式，详细说明：{@link #FIELD_PSDEFSFITEMNAME}
      * <P>
      * 等同 {@link #setPSDEFSFItemName}
      * @param pSDEFSFItemName
@@ -12024,14 +12121,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEACMODEID</B>&nbsp;引用实体自填模式
+     * <B>REFPSDEACMODEID</B>&nbsp;引用实体自填模式，编辑器指定自动填充配置，默认使用界面模式定义
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEACMode} 
      */
     public final static String FIELD_REFPSDEACMODEID = "refpsdeacmodeid";
 
     /**
-     * 设置 引用实体自填模式
+     * 设置 引用实体自填模式，详细说明：{@link #FIELD_REFPSDEACMODEID}
      * 
      * @param refPSDEACModeId
      * 
@@ -12075,7 +12172,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用实体自填模式
+     * 设置 引用实体自填模式，详细说明：{@link #FIELD_REFPSDEACMODEID}
      * <P>
      * 等同 {@link #setRefPSDEACModeId}
      * @param refPSDEACModeId
@@ -12169,14 +12266,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEDATASETID</B>&nbsp;引用实体数据集
+     * <B>REFPSDEDATASETID</B>&nbsp;引用实体数据集，编辑器指定数据集合，默认使用界面模式定义
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_REFPSDEDATASETID = "refpsdedatasetid";
 
     /**
-     * 设置 引用实体数据集
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETID}
      * 
      * @param refPSDEDataSetId
      * 
@@ -12220,7 +12317,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用实体数据集
+     * 设置 引用实体数据集，详细说明：{@link #FIELD_REFPSDEDATASETID}
      * <P>
      * 等同 {@link #setRefPSDEDataSetId}
      * @param refPSDEDataSetId
@@ -12522,14 +12619,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEID</B>&nbsp;引用实体
+     * <B>REFPSDEID</B>&nbsp;引用实体，编辑器引用数据集、自填配置等对象所属的实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
     public final static String FIELD_REFPSDEID = "refpsdeid";
 
     /**
-     * 设置 引用实体
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDEID}
      * 
      * @param refPSDEId
      * 
@@ -12573,7 +12670,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用实体
+     * 设置 引用实体，详细说明：{@link #FIELD_REFPSDEID}
      * <P>
      * 等同 {@link #setRefPSDEId}
      * @param refPSDEId
@@ -12667,7 +12764,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDERID</B>&nbsp;引用实体关系，指定表单项的引用实体关系
+     * <B>REFPSDERID</B>&nbsp;引用实体关系，多数据部件成员指定数据引用关系
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDER} 
      */
@@ -12938,7 +13035,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>RESETITEMNAME</B>&nbsp;重置项名称，指定表单项监控的重置项名称，当重置项值发生变化时重置当前表单项
+     * <B>RESETITEMNAME</B>&nbsp;重置项名称，指定表单项监控的重置项名称，重置项值生变化时重置当前项
      * <P>
      * 字符串：最大长度 60
      */
@@ -13001,7 +13098,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ROWSPAN</B>&nbsp;行数，表单成员父容器布局模式为【表格布局】时指定成员的占位行数，未定义时为【1】
+     * <B>ROWSPAN</B>&nbsp;行数，父容器布局模式为【表格布局】时指定成员的占位行数，未定义时为【1】
      */
     public final static String FIELD_ROWSPAN = "rowspan";
 
@@ -13062,7 +13159,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SHOWCAPTION</B>&nbsp;显示标题，指定表单成员是否显示标题，表单项成员忽略此参数，其它成员默认显示标题
+     * <B>SHOWCAPTION</B>&nbsp;显示标题，是否显示标题，默认【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -13142,7 +13239,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SHOWMOREMODE</B>&nbsp;显示更多模式，指定表单成员的显示更多模式，为定义时为【无】
+     * <B>SHOWMOREMODE</B>&nbsp;显示更多模式，指定表单分组的显示更多模式，为定义时为【无】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FormDetailShowMoreMode} 
      */
@@ -13542,14 +13639,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SWAPMODE</B>&nbsp;内容换行模式
+     * <B>SWAPMODE</B>&nbsp;内容换行模式，直接内容文本的换行模式
      * <P>
-     * 字符串：最大长度 30
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.WrapMode} 
      */
     public final static String FIELD_SWAPMODE = "swapmode";
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * 
      * @param swapMode
      * 
@@ -13593,7 +13690,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * <P>
      * 等同 {@link #setSwapMode}
      * @param swapMode
@@ -13604,15 +13701,32 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
+     /**
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
+     * <P>
+     * 等同 {@link #setSwapMode}
+     * @param swapMode
+     */
+    @JsonIgnore
+    public PSDEFormDetail swapmode(net.ibizsys.psmodel.core.util.PSModelEnums.WrapMode swapMode){
+        if(swapMode == null){
+            this.setSwapMode(null);
+        }
+        else{
+            this.setSwapMode(swapMode.value);
+        }
+        return this;
+    }
+
     /**
-     * <B>TEMPLATEMODE</B>&nbsp;模板模式
+     * <B>TEMPLATEMODE</B>&nbsp;模板模式，指定直接内容输出是否使用模板机制，默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_TEMPLATEMODE = "templatemode";
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * 
      * @param templateMode
      * 
@@ -13656,7 +13770,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -13668,7 +13782,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -14036,7 +14150,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>UCPSSYSPFPLUGINID</B>&nbsp;自定义前端插件，指定自定义前端插件使用的前端模板扩展插件，使用插件类型【表单自定义控件绘制插件】
+     * <B>UCPSSYSPFPLUGINID</B>&nbsp;自定义前端插件，指定使用的前端模板扩展插件，插件类型【表单自定义控件绘制插件】
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysPFPlugin} 
      */
@@ -14118,7 +14232,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>UCPSSYSPFPLUGINNAME</B>&nbsp;自定义前端插件，指定自定义前端插件使用的前端模板扩展插件，使用插件类型【表单自定义控件绘制插件】
+     * <B>UCPSSYSPFPLUGINNAME</B>&nbsp;自定义前端插件，指定使用的前端模板扩展插件，插件类型【表单自定义控件绘制插件】
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_UCPSSYSPFPLUGINID}
      */
@@ -14242,14 +14356,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>UPDATEDV</B>&nbsp;更新默认值，指定表单项的更新默认值，未指定默认值类型时按直接值处理
+     * <B>UPDATEDV</B>&nbsp;更新默认值
      * <P>
      * 字符串：最大长度 500
      */
     public final static String FIELD_UPDATEDV = "updatedv";
 
     /**
-     * 设置 更新默认值，详细说明：{@link #FIELD_UPDATEDV}
+     * 设置 更新默认值
      * 
      * @param updateDV
      * 
@@ -14293,7 +14407,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 更新默认值，详细说明：{@link #FIELD_UPDATEDV}
+     * 设置 更新默认值
      * <P>
      * 等同 {@link #setUpdateDV}
      * @param updateDV
@@ -14305,7 +14419,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>UPDATEDVT</B>&nbsp;更新默认值类型，指定表单项的更新默认值类型，未定义时为【直接值】
+     * <B>UPDATEDVT</B>&nbsp;更新默认值类型，更新默认值类型，默认为【直接值】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.UpdateDefaultValueType} 
      */
@@ -14734,7 +14848,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VALUEFORMAT</B>&nbsp;值格式化，指定表单项的值格式化串，未定义时使用引用的属性界面模式的配置
+     * <B>VALUEFORMAT</B>&nbsp;值格式化，表单项的值格式化串
      * <P>
      * 字符串：最大长度 50
      */
@@ -14797,7 +14911,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VALUEITEMNAME</B>&nbsp;值项名称，指定表单项编辑器实际值项填充的表单项，未指定时使用引用的属性界面模式配置
+     * <B>VALUEITEMNAME</B>&nbsp;值项名称，编辑器实际值项回填的表单项
      * <P>
      * 字符串：最大长度 60
      */
@@ -14940,7 +15054,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>WIDTH</B>&nbsp;宽度，指定表单成员的宽度，0为自适应容器宽度，未定义时为【0】
+     * <B>WIDTH</B>&nbsp;宽度，宽度，默认为0（自适应容器宽度）
      */
     public final static String FIELD_WIDTH = "width";
 
@@ -15098,14 +15212,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表单成员 成员集合
+     *  表单成员 成员集合
      */
     public final static String FIELD_PSDEFORMDETAILS = "psdeformdetails";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFormDetail> psdeformdetails;
 
     /**
-     * 获取 实体表单成员 成员集合
+     * 获取 表单成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFORMDETAILS)
@@ -15114,7 +15228,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表单成员 成员集合  
+     * 设置 表单成员 成员集合  
      * @param psdeformdetails
      */
     @JsonProperty(FIELD_PSDEFORMDETAILS)
@@ -15123,7 +15237,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表单成员 成员集合，不存在时建立集合对象
+     * 获取 表单成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -15136,14 +15250,14 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表单成员逻辑项 成员集合
+     *  表单成员逻辑 成员集合
      */
     public final static String FIELD_PSDEFDLOGICS = "psdefdlogics";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFDLogic> psdefdlogics;
 
     /**
-     * 获取 实体表单成员逻辑项 成员集合
+     * 获取 表单成员逻辑 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFDLOGICS)
@@ -15152,7 +15266,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表单成员逻辑项 成员集合  
+     * 设置 表单成员逻辑 成员集合  
      * @param psdefdlogics
      */
     @JsonProperty(FIELD_PSDEFDLOGICS)
@@ -15161,7 +15275,7 @@ public class PSDEFormDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表单成员逻辑项 成员集合，不存在时建立集合对象
+     * 获取 表单成员逻辑 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

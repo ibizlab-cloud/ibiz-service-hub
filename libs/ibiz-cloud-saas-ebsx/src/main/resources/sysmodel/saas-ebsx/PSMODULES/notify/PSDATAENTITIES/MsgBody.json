@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MSGID",
+        "codeName" : "MsgId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MSGNAME",
+        "codeName" : "MsgName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -494,6 +502,7 @@
     "importOrder" : 1000,
     "logicName" : "是否出错",
     "name" : "ISERROR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -611,6 +620,7 @@
     "length" : 100,
     "logicName" : "是否发送",
     "name" : "ISSEND",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -743,6 +753,7 @@
     "length" : 100,
     "logicName" : "消息标识",
     "name" : "MSGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -876,6 +887,7 @@
     "length" : 1000,
     "logicName" : "目标用户",
     "name" : "TOUSERS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -995,6 +1007,7 @@
     "length" : 100,
     "logicName" : "消息链接(PC)",
     "name" : "MSGLINK_PC",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1114,6 +1127,7 @@
     "length" : 100,
     "logicName" : "消息链接",
     "name" : "MSGLINK",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1233,6 +1247,7 @@
     "length" : 100,
     "logicName" : "消息标题",
     "name" : "SUBJECT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1352,6 +1367,7 @@
     "length" : 100,
     "logicName" : "消息内容",
     "name" : "CONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1465,6 +1481,7 @@
     "importOrder" : 1000,
     "logicName" : "消息类型",
     "name" : "MSGTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
@@ -1593,6 +1610,7 @@
     "length" : 100,
     "logicName" : "消息名称",
     "name" : "MSGNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1714,6 +1732,7 @@
     "length" : 100,
     "logicName" : "消息模板标识",
     "name" : "TEMPLATEID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1833,6 +1852,7 @@
     "length" : 1048576,
     "logicName" : "错误信息",
     "name" : "ERRORINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1953,6 +1973,7 @@
     "length" : 100,
     "logicName" : "用户数据",
     "name" : "USERDATA",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2072,6 +2093,7 @@
     "length" : 2000,
     "logicName" : "用户数据2",
     "name" : "USERDATA2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2191,6 +2213,7 @@
     "length" : 1048576,
     "logicName" : "消息模板参数",
     "name" : "TEMPLPARAMS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

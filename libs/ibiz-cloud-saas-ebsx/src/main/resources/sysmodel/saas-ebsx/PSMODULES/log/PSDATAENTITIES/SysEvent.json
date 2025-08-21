@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYSEVENTID",
+        "codeName" : "SysEventId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYSEVENTNAME",
+        "codeName" : "SysEventName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -590,6 +598,7 @@
     "length" : 8,
     "logicName" : "事件时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -695,6 +704,7 @@
     "length" : 200,
     "logicName" : "事件名称",
     "name" : "SYSEVENTNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -802,6 +812,7 @@
     "length" : 100,
     "logicName" : "事件标识",
     "name" : "SYSEVENTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -904,6 +915,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1016,6 +1028,7 @@
     "length" : 60,
     "logicName" : "事件类别",
     "name" : "EVENTCAT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1113,6 +1126,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1210,6 +1224,7 @@
     "length" : 100,
     "logicName" : "操作人",
     "name" : "OPPERSONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1299,6 +1314,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1393,6 +1409,7 @@
     "length" : 60,
     "logicName" : "日志级别",
     "name" : "LOGLEVEL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1489,6 +1506,7 @@
     "length" : 1048576,
     "logicName" : "事件信息",
     "name" : "EVENTINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1589,6 +1607,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1726,6 +1745,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/log/PSDATAENTITIES/SysEvent/PSDERS/DER1N_SYS_EVENT_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -1856,6 +1876,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

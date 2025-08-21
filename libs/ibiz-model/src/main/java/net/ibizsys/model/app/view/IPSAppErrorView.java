@@ -14,8 +14,6 @@ public interface IPSAppErrorView extends net.ibizsys.model.app.view.IPSAppUtilVi
 	
 	/**
 	 * 获取获取错误代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppUtilViewDTO#FIELD_ERRCODE}
 	 * @return
 	 */
 	java.lang.String getErrorCode();

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性界面配置项模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO}运行时对象
+ * 实体属性界面配置项模型基础对象接口
  *
  */
 public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDEFieldObject
@@ -14,8 +14,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -37,8 +35,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取编辑器参数集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_EDITORPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getEditorParams();
@@ -46,8 +42,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取编辑器样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_PSSYSEDITORSTYLEID}
 	 * @return
 	 */
 	java.lang.String getEditorStyle();
@@ -55,8 +49,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取编辑器类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_EDITORTYPE}
 	 * @return
 	 */
 	java.lang.String getEditorType();
@@ -64,8 +56,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取最大值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_MAXVALUE}
 	 * @return
 	 */
 	java.lang.String getMaxValueString();
@@ -73,8 +63,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取最小字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_MINSTRLENGTH}
 	 * @return
 	 */
 	int getMinStringLength();
@@ -82,8 +70,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取最小值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_MINVALUE}
 	 * @return
 	 */
 	java.lang.String getMinValueString();
@@ -99,8 +85,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	/**
 	 * 获取输出代码表配置模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_CODELISTCONFIGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.OutputCodeListMode}
 	 * @return
 	 */
@@ -109,8 +93,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取输入提示语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_PHPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageRes();
@@ -125,8 +107,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取图标图片资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -141,8 +121,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取输入提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_PLACEHOLDER}
 	 * @return
 	 */
 	java.lang.String getPlaceHolder();
@@ -150,8 +128,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取数据精度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_PRECISION}
 	 * @return
 	 */
 	int getPrecision();
@@ -173,8 +149,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取引用实体自填模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_REFPSDEACMODEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ac.IPSDEACMode getRefPSDEACMode();
@@ -189,8 +163,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取引用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_REFPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet();
@@ -205,8 +177,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取引用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_REFPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getRefPSDataEntity();
@@ -228,8 +198,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_STRLENGTH}
 	 * @return
 	 */
 	int getStringLength();
@@ -237,8 +205,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取应用模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_FTMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFUIMode}
 	 * @return
@@ -248,8 +214,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -257,8 +221,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取是否允许空值输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();
@@ -266,8 +228,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取是否移动端模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_FTMODE}
 	 * @return
 	 */
 	boolean isMobileMode();
@@ -275,8 +235,6 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取是否需要代码表配置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_NEEDCODELISTCONFIG}
 	 * @return
 	 */
 	boolean isNeedCodeListConfig();

@@ -3,9 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用实体视图模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getViewType}
+ * 应用实体视图模型对象接口
  * <P>
  * 扩展父接口类型[APPDEVIEW]
  * <P>
@@ -57,8 +55,6 @@ public interface IPSAppDEView extends net.ibizsys.model.app.view.IPSAppView
 	
 	/**
 	 * 获取实体视图标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_PSDEVIEWBASEID}
 	 * @return
 	 */
 	java.lang.String getPSDEViewId();
@@ -80,8 +76,6 @@ public interface IPSAppDEView extends net.ibizsys.model.app.view.IPSAppView
 	
 	/**
 	 * 获取临时数据模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_TEMPMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TempDataMode}
 	 * @return

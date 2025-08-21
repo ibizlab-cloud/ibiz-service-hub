@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSBICUBELEVEL</B>智能报表立方体维度层级 模型传输对象
+ * <B>PSSYSBICUBELEVEL</B>智能立方体维度层级 模型传输对象
  * <P>
- * 
+ * 智能报表系统中定义立方体维度具体层级的核心模型，用于将全局维度层级（如时间、地理）绑定到立方体的特定维度中，并配置数据来源、显示规则及聚合行为。它作为维度与立方体的桥梁，支撑多维数据的分层聚合、钻取及报表展示
  */
 public class PSSysBICubeLevel extends net.ibizsys.psmodel.core.util.PSModelBase {
 

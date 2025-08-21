@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统属性提示集模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFInputTipSetDTO}运行时对象
+ * 系统属性提示集模型对象接口
  *
  */
 public interface IPSDEFInputTipSet extends net.ibizsys.model.IPSModelObject{

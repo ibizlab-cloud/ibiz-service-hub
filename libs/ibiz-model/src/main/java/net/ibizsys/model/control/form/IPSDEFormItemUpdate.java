@@ -3,7 +3,7 @@ package net.ibizsys.model.control.form;
 
 
 /**
- * 实体表单项更新模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO}运行时对象
+ * 实体表单项更新模型对象接口
  *
  */
 public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模型状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO#FIELD_MODELSTATE}
 	 * @return
 	 */
 	int getModelState();
@@ -28,8 +26,6 @@ public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取处理应用实体方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod();
@@ -65,8 +61,6 @@ public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -74,8 +68,6 @@ public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否自定义脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();
@@ -83,8 +75,6 @@ public interface IPSDEFormItemUpdate extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否显示处理提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFIUpdateDTO#FIELD_BUSYINDICATOR}
 	 * @return
 	 */
 	boolean isShowBusyIndicator();

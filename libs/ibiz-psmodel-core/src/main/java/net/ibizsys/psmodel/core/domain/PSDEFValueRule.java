@@ -285,12 +285,12 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCODE</B>&nbsp;自定义代码
+     * <B>CUSTOMCODE</B>&nbsp;自定义代码，值规则类型为【脚本】时指定自定义代码
      */
     public final static String FIELD_CUSTOMCODE = "customcode";
 
     /**
-     * 设置 自定义代码
+     * 设置 自定义代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * 
      * @param customCode
      * 
@@ -334,7 +334,7 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 自定义代码
+     * 设置 自定义代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * <P>
      * 等同 {@link #setCustomCode}
      * @param customCode
@@ -342,86 +342,6 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEFValueRule customcode(String customCode){
         this.setCustomCode(customCode);
-        return this;
-    }
-
-    /**
-     * <B>CUSTOMMODE</B>&nbsp;自定义模式
-     * <P>
-     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode} 
-     */
-    public final static String FIELD_CUSTOMMODE = "custommode";
-
-    /**
-     * 设置 自定义模式
-     * 
-     * @param customMode
-     * 
-     */
-    @JsonProperty(FIELD_CUSTOMMODE)
-    public void setCustomMode(Integer customMode){
-        this.set(FIELD_CUSTOMMODE, customMode);
-    }
-    
-    /**
-     * 获取 自定义模式  
-     * @return
-     */
-    @JsonIgnore
-    public Integer getCustomMode(){
-        Object objValue = this.get(FIELD_CUSTOMMODE);
-        if(objValue==null){
-            return null;
-        }
-        return (Integer)objValue;
-    }
-
-    /**
-     * 判断 自定义模式 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isCustomModeDirty(){
-        if(this.contains(FIELD_CUSTOMMODE)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 自定义模式
-     */
-    @JsonIgnore
-    public void resetCustomMode(){
-        this.reset(FIELD_CUSTOMMODE);
-    }
-
-    /**
-     * 设置 自定义模式
-     * <P>
-     * 等同 {@link #setCustomMode}
-     * @param customMode
-     */
-    @JsonIgnore
-    public PSDEFValueRule custommode(Integer customMode){
-        this.setCustomMode(customMode);
-        return this;
-    }
-
-     /**
-     * 设置 自定义模式
-     * <P>
-     * 等同 {@link #setCustomMode}
-     * @param customMode
-     */
-    @JsonIgnore
-    public PSDEFValueRule custommode(net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode customMode){
-        if(customMode == null){
-            this.setCustomMode(null);
-        }
-        else{
-            this.setCustomMode(customMode.value);
-        }
         return this;
     }
 
@@ -2834,14 +2754,14 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体属性值规则项 成员集合
+     *  属性值规则项 成员集合
      */
     public final static String FIELD_PSDEFVRCONDS = "psdefvrconds";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFVRCond> psdefvrconds;
 
     /**
-     * 获取 实体属性值规则项 成员集合
+     * 获取 属性值规则项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFVRCONDS)
@@ -2850,7 +2770,7 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体属性值规则项 成员集合  
+     * 设置 属性值规则项 成员集合  
      * @param psdefvrconds
      */
     @JsonProperty(FIELD_PSDEFVRCONDS)
@@ -2859,7 +2779,7 @@ public class PSDEFValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体属性值规则项 成员集合，不存在时建立集合对象
+     * 获取 属性值规则项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

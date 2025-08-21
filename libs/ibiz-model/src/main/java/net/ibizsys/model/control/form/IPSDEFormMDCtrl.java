@@ -6,8 +6,6 @@ package net.ibizsys.model.control.form;
  * 实体表单多项数据部件成员模型对象接口
  * <P>
  * 扩展父接口类型[MDCTRL]
- * <P>
- * 该成员类型保留未来使用，目前功能由关系界面部件(DRUIPART)提供
  *
  */
 public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFormDetail
@@ -18,8 +16,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_UPDATEDVT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -28,8 +24,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取内建操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_BUILDINACTION}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormMDCtrlAction}
 	 * @return
@@ -54,8 +48,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	/**
 	 * 获取内容类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_MDCTRLTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDetailMDCtrlType}
 	 * @return
 	 */
@@ -71,8 +63,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取绑定属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getFieldName();
@@ -80,8 +70,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -96,8 +84,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取调用表单项更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFIUPDATEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.form.IPSDEFormItemUpdate getPSDEFormItemUpdate();
@@ -112,8 +98,6 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	
 	/**
 	 * 获取界面行为组对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup();

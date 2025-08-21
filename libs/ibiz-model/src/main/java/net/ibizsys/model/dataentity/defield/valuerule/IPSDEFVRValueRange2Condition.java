@@ -14,8 +14,6 @@ public interface IPSDEFVRValueRange2Condition extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM8}
 	 * @return
 	 */
 	java.lang.Double getMaxValue();
@@ -23,8 +21,6 @@ public interface IPSDEFVRValueRange2Condition extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM7}
 	 * @return
 	 */
 	java.lang.Double getMinValue();
@@ -32,8 +28,6 @@ public interface IPSDEFVRValueRange2Condition extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取是否含最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM6}
 	 * @return
 	 */
 	boolean isIncludeMaxValue();
@@ -41,8 +35,6 @@ public interface IPSDEFVRValueRange2Condition extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取是否含最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM5}
 	 * @return
 	 */
 	boolean isIncludeMinValue();

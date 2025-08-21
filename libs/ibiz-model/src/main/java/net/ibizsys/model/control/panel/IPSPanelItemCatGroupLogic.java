@@ -13,8 +13,6 @@ public interface IPSPanelItemCatGroupLogic extends net.ibizsys.model.control.pan
 	/**
 	 * 获取逻辑类别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICCAT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailLogicCat}
 	 * @return
 	 */

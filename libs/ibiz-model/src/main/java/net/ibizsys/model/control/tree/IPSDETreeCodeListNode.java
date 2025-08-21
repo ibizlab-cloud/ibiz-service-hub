@@ -14,8 +14,6 @@ public interface IPSDETreeCodeListNode extends net.ibizsys.model.control.tree.IP
 	
 	/**
 	 * 获取应用代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.app.codelist.IPSAppCodeList getPSAppCodeList();
@@ -30,8 +28,6 @@ public interface IPSDETreeCodeListNode extends net.ibizsys.model.control.tree.IP
 	
 	/**
 	 * 获取是否附加节点标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_APPENDCAPFLAG}
 	 * @return
 	 */
 	boolean isAppendCaption();

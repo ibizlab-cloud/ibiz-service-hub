@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "DEPTAUTHID",
+        "codeName" : "DeptAuthId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "DEPTNAME",
+        "codeName" : "DeptName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -500,6 +508,7 @@
     "length" : 100,
     "logicName" : "部门名称",
     "name" : "DEPTNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -610,6 +619,7 @@
     "length" : 100,
     "logicName" : "系统部门标识",
     "name" : "SYSDEPTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -718,6 +728,7 @@
     "length" : 100,
     "logicName" : "部门标识",
     "name" : "DEPTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -835,6 +846,7 @@
     "length" : 60,
     "logicName" : "部门绑定标识",
     "name" : "DEPTAUTHID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

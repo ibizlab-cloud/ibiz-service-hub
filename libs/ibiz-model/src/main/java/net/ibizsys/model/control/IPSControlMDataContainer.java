@@ -40,8 +40,6 @@ public interface IPSControlMDataContainer extends net.ibizsys.model.control.IPSC
 	
 	/**
 	 * 获取是否支持快速搜索
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VIEWPARAM5}
 	 * @return
 	 */
 	boolean isEnableQuickSearch();

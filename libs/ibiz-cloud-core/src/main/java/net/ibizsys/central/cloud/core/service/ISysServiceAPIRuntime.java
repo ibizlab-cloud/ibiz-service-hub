@@ -1,5 +1,7 @@
 package net.ibizsys.central.cloud.core.service;
 
+import net.ibizsys.central.dataentity.service.IDEServiceAPIRSRuntime;
+
 public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysServiceAPIRuntime {
 
 	/**
@@ -120,4 +122,21 @@ public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysS
 	 * @throws Throwable
 	 */
 	Object invokeDEAsyncImportData2(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, String strOSSFileId, String strImportSchemaId, Object objTag) throws Throwable;
+	
+	
+	
+	/**
+	 * 建立实体建立下载数据凭证
+	 * @param strScope
+	 * @param strParentDEName
+	 * @param strParentKey
+	 * @param strDataEntityName
+	 * @param strKey
+	 * @param strStorageField
+	 * @param strOSSFileId
+	 * @param objTag
+	 * @return
+	 * @throws Throwable
+	 */
+	Object invokeDECreateDownloadTicket(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strKey, String strStorageField, String strOSSFileId, Object objTag) throws Throwable;
 }

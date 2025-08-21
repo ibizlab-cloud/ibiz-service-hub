@@ -9,6 +9,8 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCONTENTHEIGHT = "contentHeight";
 	public final static String ATTR_GETCONTENTWIDTH = "contentWidth";
+	public final static String ATTR_GETCOUNTERID = "counterId";
+	public final static String ATTR_GETCOUNTERMODE = "counterMode";
 	public final static String ATTR_GETCSSSTYLE = "cssStyle";
 	public final static String ATTR_GETDYNACLASS = "dynaClass";
 	public final static String ATTR_GETHEIGHT = "height";
@@ -17,6 +19,7 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETLABELCSSSTYLE = "labelCssStyle";
 	public final static String ATTR_GETLABELDYNACLASS = "labelDynaClass";
 	public final static String ATTR_GETLABELPSSYSCSS = "getLabelPSSysCss";
+	public final static String ATTR_GETPSAPPCOUNTERREF = "getPSAppCounterRef";
 	public final static String ATTR_GETPSCONTROLATTRIBUTES = "getPSControlAttributes";
 	public final static String ATTR_GETPSCONTROLLOGICS = "getPSControlLogics";
 	public final static String ATTR_GETPSCONTROLRENDERS = "getPSControlRenders";
@@ -44,6 +47,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSLanguageRes value = this.getCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标题语言资源");}
 		return value;
+	}
+
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
 	}
 
 
@@ -78,6 +85,22 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 			return 0.0;
 		}
 		return value.asDouble();
+	}
+
+	public java.lang.String getCounterId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOUNTERID);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public int getCounterMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOUNTERMODE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
 	}
 
 	public java.lang.String getCssStyle(){
@@ -151,6 +174,33 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysCss value = this.getLabelPSSysCss();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标签样式表对象");}
 		return value;
+	}
+
+	public void setLabelPSSysCss(net.ibizsys.model.res.IPSSysCss labelpssyscss){
+		this.labelpssyscss = labelpssyscss;
+	}
+
+	private net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref;
+
+	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef(){
+		if(this.psappcounterref != null) return this.psappcounterref;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSAPPCOUNTERREF);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.control.panel.IPSSysPanel ipssyspanel = getParentPSModelObject(net.ibizsys.model.control.panel.IPSSysPanel.class);
+		this.psappcounterref = ipssyspanel.getPSAppCounterRef(value, false);
+		return this.psappcounterref;
+	}
+
+	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRefMust(){
+		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
+		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 
@@ -244,6 +294,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
+	}
+
 	private net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos;
 
 	public net.ibizsys.model.control.layout.IPSLayoutPos getPSLayoutPos(){
@@ -260,6 +314,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.control.layout.IPSLayoutPos value = this.getPSLayoutPos();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定位置");}
 		return value;
+	}
+
+	public void setPSLayoutPos(net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos){
+		this.pslayoutpos = pslayoutpos;
 	}
 
 
@@ -304,6 +362,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -322,6 +384,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -338,6 +404,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 

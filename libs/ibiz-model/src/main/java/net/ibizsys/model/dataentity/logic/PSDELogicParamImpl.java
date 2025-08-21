@@ -21,6 +21,8 @@ public class PSDELogicParamImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_ISAPPCONTEXTPARAM = "appContextParam";
 	public final static String ATTR_ISAPPGLOBALPARAM = "appGlobalParam";
+	public final static String ATTR_ISCHATCOMPLETIONREQUESTPARAM = "chatCompletionRequestParam";
+	public final static String ATTR_ISCHATCOMPLETIONRESULTPARAM = "chatCompletionResultParam";
 	public final static String ATTR_ISCLONEPARAM = "cloneParam";
 	public final static String ATTR_ISDEFAULT = "default";
 	public final static String ATTR_ISENTITYLISTPARAM = "entityListParam";
@@ -218,6 +220,22 @@ public class PSDELogicParamImpl extends net.ibizsys.model.PSObjectImpl implement
 
 	public boolean isAppGlobalParam(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISAPPGLOBALPARAM);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
+	}
+
+	public boolean isChatCompletionRequestParam(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISCHATCOMPLETIONREQUESTPARAM);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
+	}
+
+	public boolean isChatCompletionResultParam(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISCHATCOMPLETIONRESULTPARAM);
 		if(value == null){
 			return false;
 		}

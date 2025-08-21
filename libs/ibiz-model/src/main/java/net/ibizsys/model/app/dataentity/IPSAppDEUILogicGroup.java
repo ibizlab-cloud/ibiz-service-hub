@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体界面逻辑组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCtrlLogicGroupDTO}运行时对象
+ * 应用实体界面逻辑组模型对象接口
  *
  */
 public interface IPSAppDEUILogicGroup extends net.ibizsys.model.dataentity.logic.IPSDEUILogicGroup{

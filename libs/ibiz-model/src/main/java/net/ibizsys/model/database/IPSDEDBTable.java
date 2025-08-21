@@ -3,7 +3,7 @@ package net.ibizsys.model.database;
 
 
 /**
- * 实体数据表关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDBTableDTO}运行时对象
+ * 实体数据表关系模型对象接口
  *
  */
 public interface IPSDEDBTable extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -54,8 +54,6 @@ public interface IPSDEDBTable extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取实体表类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDBTableDTO#FIELD_TABLETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDBTableType}
 	 * @return

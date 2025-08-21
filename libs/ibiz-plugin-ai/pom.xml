@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.570.29.1</version>
+    <version>8.1.0.570.34.1</version>
   </parent>
   <artifactId>ibiz-plugin-ai</artifactId>
 	<name>ibiz-plugin-ai</name>
@@ -20,7 +20,24 @@
 			<version>${ibiz.cloud.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-groovy</artifactId>
+			<version>${ibiz.cloud.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.networknt</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>1.5.8</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.ai/spring-ai-client-chat -->
+		<dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-client-chat</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 	</dependencies>
 	
 </project>

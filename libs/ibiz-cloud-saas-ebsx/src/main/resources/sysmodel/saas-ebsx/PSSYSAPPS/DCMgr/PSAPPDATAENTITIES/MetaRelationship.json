@@ -297,12 +297,14 @@
     "codeName" : "CreateDate",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
     "codeName" : "UpdateDate",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   } ],

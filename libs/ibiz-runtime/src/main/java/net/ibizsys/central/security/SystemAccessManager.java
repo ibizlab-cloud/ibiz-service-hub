@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.ISystemRuntimeContext;
+import net.ibizsys.central.ISystemRuntimeSetting;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.dataentity.security.DataEntityAccessManager;
 import net.ibizsys.central.dataentity.security.IDataEntityAccessManager;
@@ -38,12 +39,21 @@ public class SystemAccessManager implements ISystemAccessManager{
 	
 	private ISysCacheUtilRuntime iSysCacheUtilRuntime = null;
 	
+	private boolean bAccessUserIsolated = false;
+	
+	private boolean bAccessAdminIsolated = false;
+	
+	private String strConfigFolder = null;
+	
+	
 //	private ISysUserRoleRuntime accessUserSysUserRoleRuntime = null;
 //	private ISysUserRoleRuntime accessAdminSysUserRoleRuntime = null;
 	
 	@Override
 	public void init(ISystemRuntimeContext iSystemRuntimeContext) throws Exception {
 		this.iSystemRuntimeContext = iSystemRuntimeContext;
+		this.setConfigFolder("accessmanager");
+		this.prepareDefaultSetting();	
 		this.onInit();
 	}
 	
@@ -71,6 +81,40 @@ public class SystemAccessManager implements ISystemAccessManager{
 		
 		reloadAll();
 	}
+	
+	protected void setConfigFolder(String strConfigFolder) {
+		this.strConfigFolder = strConfigFolder;
+	}
+	
+	
+	/**
+	 * 获取模型的运行时配置目录
+	 * @return
+	 */
+	protected String getConfigFolder() {
+		return this.strConfigFolder;
+	}
+	
+	/**
+	 * 准备默认设置
+	 * @throws Exception
+	 */
+	protected void prepareDefaultSetting() throws Exception{
+		this.onPrepareDefaultSetting();
+	}
+	
+	protected void onPrepareDefaultSetting() throws Exception{
+		this.bAccessUserIsolated = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".accessuserisolated", this.isAccessUserIsolated());
+		this.bAccessAdminIsolated = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".accessadminisolated", this.isAccessAdminIsolated());
+	}
+	
+	public ISystemRuntimeSetting getSystemRuntimeSetting() {
+		if(this.getSystemRuntime() != null) {
+			return this.getSystemRuntime().getSystemRuntimeSetting();
+		}
+		return null;
+	}
+	
 	
 	protected ISysCacheUtilRuntime getSysCacheUtilRuntime() {
 		return this.getSysCacheUtilRuntime(false);
@@ -160,6 +204,15 @@ public class SystemAccessManager implements ISystemAccessManager{
 		}
 	}
 	
+	protected boolean isAccessUserIsolated() {
+		return this.bAccessUserIsolated;
+	}
+	
+	protected boolean isAccessAdminIsolated() {
+		return this.bAccessAdminIsolated;
+	}
+	
+	
 	
 	protected void registerSysUserRoleRuntime(ISysUserRoleRuntime iSysUserRoleRuntime) {
 		if(StringUtils.hasLength(iSysUserRoleRuntime.getRoleTag())) {
@@ -167,7 +220,7 @@ public class SystemAccessManager implements ISystemAccessManager{
 		}
 		
 		
-		if(SysUserRoleDefaultModes.ACCESSUSER.equals(iSysUserRoleRuntime.getDefaultUser())) {
+		if(!isAccessUserIsolated() && SysUserRoleDefaultModes.ACCESSUSER.equals(iSysUserRoleRuntime.getDefaultUser())) {
 			this.defaultSysUserRoleRuntimeList.add(iSysUserRoleRuntime);
 			return;
 		}
@@ -177,7 +230,7 @@ public class SystemAccessManager implements ISystemAccessManager{
 			return;
 		}
 		
-		if(SysUserRoleDefaultModes.ACCESSADMIN.equals(iSysUserRoleRuntime.getDefaultUser())) {
+		if(!isAccessAdminIsolated() && SysUserRoleDefaultModes.ACCESSADMIN.equals(iSysUserRoleRuntime.getDefaultUser())) {
 			this.adminSysUserRoleRuntimeList.add(iSysUserRoleRuntime);
 			return;
 		}

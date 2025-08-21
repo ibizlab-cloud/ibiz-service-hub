@@ -3,7 +3,7 @@ package net.ibizsys.model.app.appmenu;
 
 
 /**
- * 应用菜单模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO}运行时对象
+ * 应用菜单模型对象接口
  *
  */
 public interface IPSAppMenuModel extends net.ibizsys.model.app.IPSApplicationObject{

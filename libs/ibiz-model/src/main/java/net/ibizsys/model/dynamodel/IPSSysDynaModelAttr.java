@@ -12,8 +12,6 @@ public interface IPSSysDynaModelAttr extends net.ibizsys.model.dynamodel.IPSDyna
 	
 	/**
 	 * 获取标准值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_STDDATATYPE}
 	 * @return
 	 */
 	int getStdDataType();
@@ -37,8 +35,6 @@ public interface IPSSysDynaModelAttr extends net.ibizsys.model.dynamodel.IPSDyna
 	
 	/**
 	 * 获取是否属性为数组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ARRAYFLAG}
 	 * @return
 	 */
 	boolean isArray();

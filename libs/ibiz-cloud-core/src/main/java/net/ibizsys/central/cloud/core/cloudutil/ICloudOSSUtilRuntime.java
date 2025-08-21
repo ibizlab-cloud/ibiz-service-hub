@@ -82,4 +82,6 @@ public interface ICloudOSSUtilRuntime extends ICloudUtilRuntime{
 	 * @return
 	 */
 	Page fetchObjects(String strDBName, String strTableName, Map<String, Object> data);
+	
+
 }

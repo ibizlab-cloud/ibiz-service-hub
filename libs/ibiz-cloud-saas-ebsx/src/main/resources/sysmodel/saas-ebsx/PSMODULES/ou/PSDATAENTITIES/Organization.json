@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -1024,6 +1032,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1183,6 +1192,7 @@
     "length" : 100,
     "logicName" : "单位代码",
     "name" : "ORGCODE",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1314,6 +1324,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "ORGNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1470,6 +1481,7 @@
     "length" : 100,
     "logicName" : "上级单位",
     "name" : "PORGID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1632,6 +1644,7 @@
     "length" : 100,
     "logicName" : "单位简称",
     "name" : "SHORTNAME",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1747,6 +1760,7 @@
     "importOrder" : 1000,
     "logicName" : "单位级别",
     "name" : "ORGLEVEL",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1865,6 +1879,7 @@
     },
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2039,6 +2054,7 @@
     "length" : 100,
     "logicName" : "上级单位",
     "name" : "PORGNAME",
+    "orderValue" : 11,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/Organization/PSDERS/DER1N_SYS_ORG_SYS_ORG_PORGID.json"
@@ -2177,6 +2193,7 @@
     "length" : 100,
     "logicName" : "区属",
     "name" : "DOMAINS",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2296,6 +2313,7 @@
     },
     "logicName" : "逻辑有效",
     "name" : "ENABLE",
+    "orderValue" : 16,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2420,6 +2438,7 @@
     },
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 18,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2544,6 +2563,7 @@
     },
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 19,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2642,6 +2662,7 @@
     "length" : 100,
     "logicName" : "保留4",
     "name" : "RESERVER4",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2740,6 +2761,7 @@
     "length" : 200,
     "logicName" : "保留6",
     "name" : "RESERVER6",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2838,6 +2860,7 @@
     "length" : 200,
     "logicName" : "保留5",
     "name" : "RESERVER5",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2936,6 +2959,7 @@
     "length" : 1000,
     "logicName" : "保留8",
     "name" : "RESERVER8",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3034,6 +3058,7 @@
     "length" : 1000,
     "logicName" : "保留7",
     "name" : "RESERVER7",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3118,6 +3143,7 @@
     "importOrder" : 1000,
     "logicName" : "保留11",
     "name" : "RESERVER11",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3201,6 +3227,7 @@
     "importOrder" : 1000,
     "logicName" : "保留13",
     "name" : "RESERVER13",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3298,6 +3325,7 @@
     "length" : 1048576,
     "logicName" : "保留10",
     "name" : "RESERVER10",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3397,6 +3425,7 @@
     "length" : 1048576,
     "logicName" : "保留9",
     "name" : "RESERVER9",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3482,6 +3511,7 @@
     "importOrder" : 1000,
     "logicName" : "保留12",
     "name" : "RESERVER12",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3565,6 +3595,7 @@
     "importOrder" : 1000,
     "logicName" : "保留16",
     "name" : "RESERVER16",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3651,6 +3682,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "保留19",
     "name" : "RESERVER19",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3734,6 +3766,7 @@
     "importOrder" : 1000,
     "logicName" : "保留15",
     "name" : "RESERVER15",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3817,6 +3850,7 @@
     "importOrder" : 1000,
     "logicName" : "保留14",
     "name" : "RESERVER14",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3900,6 +3934,7 @@
     "importOrder" : 1000,
     "logicName" : "保留17",
     "name" : "RESERVER17",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3983,6 +4018,7 @@
     "importOrder" : 1000,
     "logicName" : "保留18",
     "name" : "RESERVER18",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4069,6 +4105,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "保留20",
     "name" : "RESERVER20",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4166,6 +4203,7 @@
     "length" : 100,
     "logicName" : "保留2",
     "name" : "RESERVER2",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4264,6 +4302,7 @@
     "length" : 100,
     "logicName" : "保留",
     "name" : "RESERVER",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4362,6 +4401,7 @@
     "length" : 100,
     "logicName" : "保留3",
     "name" : "RESERVER3",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4465,6 +4505,7 @@
     "importOrder" : 1000,
     "logicName" : "支持Saas",
     "name" : "SAASMODE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -4589,6 +4630,7 @@
     "length" : 100,
     "logicName" : "启用标志",
     "name" : "ISVALID",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"

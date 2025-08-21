@@ -49,8 +49,6 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取报表项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG}
 	 * @return
 	 */
 	java.lang.String getItemTag();
@@ -58,8 +56,6 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取报表项标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG2}
 	 * @return
 	 */
 	java.lang.String getItemTag2();
@@ -67,8 +63,6 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取应用智能立方体维度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSBICUBEDIMENSIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.bi.IPSAppBICubeDimension getPSAppBICubeDimension();
@@ -112,8 +106,6 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	/**
 	 * 获取放置类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PLACETYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlaceType}
 	 * @return
 	 */
@@ -122,8 +114,6 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取放置位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PLACEMENT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlacement}
 	 * @return

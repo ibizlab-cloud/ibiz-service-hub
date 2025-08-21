@@ -17,7 +17,22 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 
 	public PSModelMergerFactory() {
 
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIChatAgentImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIChatAgentMerger());
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIFactoryImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIFactoryMerger());
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIPipelineAgentImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineAgentMerger());
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIPipelineJobImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineJobMerger());
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIPipelineWorkerImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineWorkerMerger());
+		registerPSModelMerger(net.ibizsys.model.ai.PSSysAIWorkerAgentImpl.class, new net.ibizsys.model.util.merger.ai.PSSysAIWorkerAgentMerger());
 		registerPSModelMerger(net.ibizsys.model.app.appmenu.PSAppMenuModelImpl.class, new net.ibizsys.model.util.merger.app.appmenu.PSAppMenuModelMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBICubeDimensionImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeDimensionMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBICubeHierarchyImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeHierarchyMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBICubeImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBICubeLevelImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeLevelMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBICubeMeasureImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeMeasureMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBIReportDimensionImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportDimensionMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBIReportImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBIReportMeasureImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportMeasureMerger());
+		registerPSModelMerger(net.ibizsys.model.app.bi.PSAppBISchemeImpl.class, new net.ibizsys.model.util.merger.app.bi.PSAppBISchemeMerger());
 		registerPSModelMerger(net.ibizsys.model.app.codelist.PSAppCodeListImpl.class, new net.ibizsys.model.util.merger.app.codelist.PSAppCodeListMerger());
 		registerPSModelMerger(net.ibizsys.model.app.control.PSAppCounterImpl.class, new net.ibizsys.model.util.merger.app.control.PSAppCounterMerger());
 		registerPSModelMerger(net.ibizsys.model.app.control.PSAppCounterRefImpl.class, new net.ibizsys.model.util.merger.app.control.PSAppCounterRefMerger());
@@ -59,6 +74,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.app.PSApplicationUIImpl.class, new net.ibizsys.model.util.merger.app.PSApplicationUIMerger());
 		registerPSModelMerger(net.ibizsys.model.app.PSSubAppRefImpl.class, new net.ibizsys.model.util.merger.app.PSSubAppRefMerger());
 		registerPSModelMerger(net.ibizsys.model.app.pub.PSAppViewCodeImpl.class, new net.ibizsys.model.util.merger.app.pub.PSAppViewCodeMerger());
+		registerPSModelMerger(net.ibizsys.model.app.res.PSAppDEFInputTipSetImpl.class, new net.ibizsys.model.util.merger.app.res.PSAppDEFInputTipSetMerger());
 		registerPSModelMerger(net.ibizsys.model.app.res.PSAppEditorStyleRefImpl.class, new net.ibizsys.model.util.merger.app.res.PSAppEditorStyleRefMerger());
 		registerPSModelMerger(net.ibizsys.model.app.res.PSAppImageImpl.class, new net.ibizsys.model.util.merger.app.res.PSAppImageMerger());
 		registerPSModelMerger(net.ibizsys.model.app.res.PSAppPFPluginRefImpl.class, new net.ibizsys.model.util.merger.app.res.PSAppPFPluginRefMerger());
@@ -233,6 +249,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.bi.PSSysBIHierarchyImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBIHierarchyMerger());
 		registerPSModelMerger(net.ibizsys.model.bi.PSSysBILevelImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBILevelMerger());
 		registerPSModelMerger(net.ibizsys.model.bi.PSSysBIReportDimensionImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportDimensionMerger());
+		registerPSModelMerger(net.ibizsys.model.bi.PSSysBIReportImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportMerger());
 		registerPSModelMerger(net.ibizsys.model.bi.PSSysBIReportMeasureImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportMeasureMerger());
 		registerPSModelMerger(net.ibizsys.model.bi.PSSysBISchemeImpl.class, new net.ibizsys.model.util.merger.bi.PSSysBISchemeMerger());
 		registerPSModelMerger(net.ibizsys.model.backservice.PSSysBackServiceImpl.class, new net.ibizsys.model.util.merger.backservice.PSSysBackServiceMerger());
@@ -271,6 +288,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartCoordinateSystemPolarImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartCoordinateSystemPolarMerger());
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartCoordinateSystemRadarImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartCoordinateSystemRadarMerger());
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartCoordinateSystemSingleImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartCoordinateSystemSingleMerger());
+		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartDataGridImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartDataGridMerger());
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartDataSetFieldImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartDataSetFieldMerger());
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartDataSetGroupImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartDataSetGroupMerger());
 		registerPSModelMerger(net.ibizsys.model.control.chart.PSDEChartDataSetImpl.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartDataSetMerger());
@@ -336,11 +354,13 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBChartPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBChartPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBContainerPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBContainerPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBCustomPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBCustomPortletPartMerger());
+		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBFilterPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBFilterPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBHtmlPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBHtmlPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBListPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBListPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBPortletPartParamImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBPortletPartParamMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBRawItemPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBRawItemPortletPartMerger());
+		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBReportPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBReportPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBSysPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBSysPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBToolbarPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBToolbarPortletPartMerger());
 		registerPSModelMerger(net.ibizsys.model.control.dashboard.PSDBViewPortletPartImpl.class, new net.ibizsys.model.util.merger.control.dashboard.PSDBViewPortletPartMerger());
@@ -707,6 +727,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDEActionVRImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDEActionVRMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDEBuiltinActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDEBuiltinActionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDEDBSysProcActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDEDBSysProcActionMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDEInheritActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDEInheritActionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDELogicActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDELogicActionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDERemoteActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDERemoteActionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.action.PSDEScriptActionImpl.class, new net.ibizsys.model.util.merger.dataentity.action.PSDEScriptActionMerger());
@@ -741,6 +762,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.dr.PSDEDRSysDER11ItemImpl.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDRSysDER11ItemMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.dr.PSDEDRSysDER1NItemImpl.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDRSysDER1NItemMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.dr.PSDEDataRelationImpl.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDataRelationMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.ds.PSDEDQColumnImpl.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQColumnMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.ds.PSDEDQCustomConditionImpl.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQCustomConditionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.ds.PSDEDQFieldConditionImpl.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQFieldConditionMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.ds.PSDEDQGroupConditionImpl.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQGroupConditionMerger());
@@ -821,6 +843,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDEPrintLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEDEPrintLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDEReportLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEDEReportLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDebugParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEDebugParamLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEDecisionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEDecisionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEEndLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEEndLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEFLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEFLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEFilterParam2LogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEFilterParam2LogicMerger());
@@ -838,6 +861,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMSLogicLinkImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEMSLogicLinkMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMSLogicLinkSingleCondImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEMSLogicLinkSingleCondMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMSLogicNodeImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEMSLogicNodeMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMemoLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEMemoLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEMergeParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEMergeParamLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEPrepareParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEPrepareParamLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDERawCodeLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDERawCodeLogicMerger());
@@ -851,6 +875,9 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESortParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESortParamLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEStartWFLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEStartWFLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESubSysSAMethodLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESubSysSAMethodLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESubmitWFLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESubmitWFLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysAIChatAgentLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysAIChatAgentLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysAIPipelineAgentLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysAIPipelineAgentLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysBDTableActionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysBDTableActionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysDBTableActionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysDBTableActionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysDataSyncAgentOutLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysDataSyncAgentOutLogicMerger());
@@ -869,6 +896,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDEDataSetLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIDEDataSetLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDELogicLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIDELogicLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDebugParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIDebugParamLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDecisionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIDecisionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIEndLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIEndLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILogicGroupDetailImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUILogicGroupDetailMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILogicGroupImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUILogicGroupMerger());
@@ -880,6 +908,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILogicNodeParamImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUILogicNodeParamMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILogicParamImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUILogicParamMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILoopSubCallLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUILoopSubCallLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIMemoLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIMemoLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIMsgBoxLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIMsgBoxLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIPFPluginLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIPFPluginLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIRawCodeLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIRawCodeLogicMerger());
@@ -1023,7 +1052,9 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.res.PSSysCustomPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysCustomPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDEChartPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEChartPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDEFInputTipImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEFInputTipMerger());
+		registerPSModelMerger(net.ibizsys.model.res.PSSysDEFilterPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEFilterPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDEListPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEListPortletMerger());
+		registerPSModelMerger(net.ibizsys.model.res.PSSysDEReportPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEReportPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDEToolbarPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEToolbarPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDEViewPortletImpl.class, new net.ibizsys.model.util.merger.res.PSSysDEViewPortletMerger());
 		registerPSModelMerger(net.ibizsys.model.res.PSSysDataSyncAgentImpl.class, new net.ibizsys.model.util.merger.res.PSSysDataSyncAgentMerger());
@@ -1143,7 +1174,22 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.wx.PSWXMenuFuncImpl.class, new net.ibizsys.model.util.merger.wx.PSWXMenuFuncMerger());
 		registerPSModelMerger(net.ibizsys.model.wx.PSWXMenuImpl.class, new net.ibizsys.model.util.merger.wx.PSWXMenuMerger());
 		registerPSModelMerger(net.ibizsys.model.wx.PSWXMenuItemImpl.class, new net.ibizsys.model.util.merger.wx.PSWXMenuItemMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIChatAgent.class, new net.ibizsys.model.util.merger.ai.PSSysAIChatAgentListMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIFactory.class, new net.ibizsys.model.util.merger.ai.PSSysAIFactoryListMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIPipelineAgent.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineAgentListMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIPipelineJob.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineJobListMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIPipelineWorker.class, new net.ibizsys.model.util.merger.ai.PSSysAIPipelineWorkerListMerger());
+		registerPSModelListMerger(net.ibizsys.model.ai.IPSSysAIWorkerAgent.class, new net.ibizsys.model.util.merger.ai.PSSysAIWorkerAgentListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.appmenu.IPSAppMenuModel.class, new net.ibizsys.model.util.merger.app.appmenu.PSAppMenuModelListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBICube.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBICubeDimension.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeDimensionListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBICubeHierarchy.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeHierarchyListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBICubeLevel.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeLevelListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBICubeMeasure.class, new net.ibizsys.model.util.merger.app.bi.PSAppBICubeMeasureListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBIReport.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBIReportDimension.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportDimensionListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBIReportMeasure.class, new net.ibizsys.model.util.merger.app.bi.PSAppBIReportMeasureListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.bi.IPSAppBIScheme.class, new net.ibizsys.model.util.merger.app.bi.PSAppBISchemeListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.codelist.IPSAppCodeList.class, new net.ibizsys.model.util.merger.app.codelist.PSAppCodeListListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.control.IPSAppCounter.class, new net.ibizsys.model.util.merger.app.control.PSAppCounterListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.control.IPSAppCounterRef.class, new net.ibizsys.model.util.merger.app.control.PSAppCounterRefListMerger());
@@ -1157,6 +1203,10 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEFUIMode.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEFUIModeListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEField.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEFieldListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDELogic.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDELogicListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMap.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMapListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMapAction.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMapActionListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMapDataSet.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMapDataSetListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMapField.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMapFieldListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMethod.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMethodListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMethodDTO.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMethodDTOListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.dataentity.IPSAppDEMethodDTOField.class, new net.ibizsys.model.util.merger.app.dataentity.PSAppDEMethodDTOFieldListMerger());
@@ -1187,6 +1237,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.app.logic.IPSAppUILogic.class, new net.ibizsys.model.util.merger.app.logic.PSAppUILogicListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.logic.IPSAppUILogicRefView.class, new net.ibizsys.model.util.merger.app.logic.PSAppUILogicRefViewListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.msg.IPSAppMsgTempl.class, new net.ibizsys.model.util.merger.app.msg.PSAppMsgTemplListMerger());
+		registerPSModelListMerger(net.ibizsys.model.app.res.IPSAppDEFInputTipSet.class, new net.ibizsys.model.util.merger.app.res.PSAppDEFInputTipSetListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.res.IPSAppEditorStyleRef.class, new net.ibizsys.model.util.merger.app.res.PSAppEditorStyleRefListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.res.IPSAppPFPluginRef.class, new net.ibizsys.model.util.merger.app.res.PSAppPFPluginRefListMerger());
 		registerPSModelListMerger(net.ibizsys.model.app.res.IPSAppSubViewTypeRef.class, new net.ibizsys.model.util.merger.app.res.PSAppSubViewTypeRefListMerger());
@@ -1226,6 +1277,9 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIDimension.class, new net.ibizsys.model.util.merger.bi.PSSysBIDimensionListMerger());
 		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIHierarchy.class, new net.ibizsys.model.util.merger.bi.PSSysBIHierarchyListMerger());
 		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBILevel.class, new net.ibizsys.model.util.merger.bi.PSSysBILevelListMerger());
+		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIReport.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportListMerger());
+		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIReportDimension.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportDimensionListMerger());
+		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIReportMeasure.class, new net.ibizsys.model.util.merger.bi.PSSysBIReportMeasureListMerger());
 		registerPSModelListMerger(net.ibizsys.model.bi.IPSSysBIScheme.class, new net.ibizsys.model.util.merger.bi.PSSysBISchemeListMerger());
 		registerPSModelListMerger(net.ibizsys.model.backservice.IPSSysBackService.class, new net.ibizsys.model.util.merger.backservice.PSSysBackServiceListMerger());
 		registerPSModelListMerger(net.ibizsys.model.codelist.IPSCodeItem.class, new net.ibizsys.model.util.merger.codelist.PSCodeItemListMerger());
@@ -1252,9 +1306,11 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSChartSingleAxis.class, new net.ibizsys.model.util.merger.control.chart.PSChartSingleAxisListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSChartXAxis.class, new net.ibizsys.model.util.merger.control.chart.PSChartXAxisListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSChartYAxis.class, new net.ibizsys.model.util.merger.control.chart.PSChartYAxisListMerger());
+		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSDEChartDataGrid.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartDataGridListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSDEChartLegend.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartLegendListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSDEChartSeries.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartSeriesListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.chart.IPSDEChartTitle.class, new net.ibizsys.model.util.merger.control.chart.PSDEChartTitleListMerger());
+		registerPSModelListMerger(net.ibizsys.model.control.counter.IPSSysCounter.class, new net.ibizsys.model.util.merger.control.counter.PSSysCounterListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.drctrl.IPSDEDRBarGroup.class, new net.ibizsys.model.util.merger.control.drctrl.PSDEDRBarGroupListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.drctrl.IPSDEDRCtrlItem.class, new net.ibizsys.model.util.merger.control.drctrl.PSDEDRCtrlItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.drctrl.IPSDEDRTabPage.class, new net.ibizsys.model.util.merger.control.drctrl.PSDEDRTabPageListMerger());
@@ -1267,6 +1323,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFDLogic.class, new net.ibizsys.model.util.merger.control.form.PSDEFDLogicListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFFormItem.class, new net.ibizsys.model.util.merger.control.form.PSDEFFormItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFIUpdateDetail.class, new net.ibizsys.model.util.merger.control.form.PSDEFIUpdateDetailListMerger());
+	//	registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFormButton.class, new net.ibizsys.model.util.merger.control.form.PSDEFormButtonListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFormDetail.class, new net.ibizsys.model.util.merger.control.form.PSDEFormDetailListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFormItem.class, new net.ibizsys.model.util.merger.control.form.PSDEFormItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.form.IPSDEFormItemUpdate.class, new net.ibizsys.model.util.merger.control.form.PSDEFormItemUpdateListMerger());
@@ -1302,6 +1359,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.control.map.IPSSysMapItem.class, new net.ibizsys.model.util.merger.control.map.PSSysMapItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.menu.IPSAppMenuItem.class, new net.ibizsys.model.util.merger.control.menu.PSAppMenuItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.panel.IPSLayoutPanel.class, new net.ibizsys.model.util.merger.control.panel.PSLayoutPanelListMerger());
+		registerPSModelListMerger(net.ibizsys.model.control.panel.IPSPanelButton.class, new net.ibizsys.model.util.merger.control.panel.PSPanelButtonListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.panel.IPSPanelField.class, new net.ibizsys.model.util.merger.control.panel.PSPanelFieldListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.panel.IPSPanelItem.class, new net.ibizsys.model.util.merger.control.panel.PSPanelItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.control.panel.IPSPanelItemCatGroupLogic.class, new net.ibizsys.model.util.merger.control.panel.PSPanelItemCatGroupLogicListMerger());
@@ -1355,6 +1413,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.dataentity.dr.IPSDEDRGroup.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDRGroupListMerger());
 		registerPSModelListMerger(net.ibizsys.model.dataentity.dr.IPSDEDRItem.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDRItemListMerger());
 		registerPSModelListMerger(net.ibizsys.model.dataentity.dr.IPSDEDataRelation.class, new net.ibizsys.model.util.merger.dataentity.dr.PSDEDataRelationListMerger());
+		registerPSModelListMerger(net.ibizsys.model.dataentity.ds.IPSDEDQColumn.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQColumnListMerger());
 		registerPSModelListMerger(net.ibizsys.model.dataentity.ds.IPSDEDQCondition.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQConditionListMerger());
 		registerPSModelListMerger(net.ibizsys.model.dataentity.ds.IPSDEDQGroupCondition.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQGroupConditionListMerger());
 		registerPSModelListMerger(net.ibizsys.model.dataentity.ds.IPSDEDQJoin.class, new net.ibizsys.model.util.merger.dataentity.ds.PSDEDQJoinListMerger());
@@ -1552,5 +1611,11 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelListMerger(net.ibizsys.model.wf.IPSWFVersion.class, new net.ibizsys.model.util.merger.wf.PSWFVersionListMerger());
 		registerPSModelListMerger(net.ibizsys.model.wf.IPSWFWorkTime.class, new net.ibizsys.model.util.merger.wf.PSWFWorkTimeListMerger());
 		registerPSModelListMerger(net.ibizsys.model.wf.IPSWorkflow.class, new net.ibizsys.model.util.merger.wf.PSWorkflowListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXAccount.class, new net.ibizsys.model.util.merger.wx.PSWXAccountListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXEntApp.class, new net.ibizsys.model.util.merger.wx.PSWXEntAppListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXLogic.class, new net.ibizsys.model.util.merger.wx.PSWXLogicListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXMenu.class, new net.ibizsys.model.util.merger.wx.PSWXMenuListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXMenuFunc.class, new net.ibizsys.model.util.merger.wx.PSWXMenuFuncListMerger());
+		registerPSModelListMerger(net.ibizsys.model.wx.IPSWXMenuItem.class, new net.ibizsys.model.util.merger.wx.PSWXMenuItemListMerger());
 	}
 }

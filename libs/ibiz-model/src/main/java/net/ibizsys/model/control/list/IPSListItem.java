@@ -3,7 +3,7 @@ package net.ibizsys.model.control.list;
 
 
 /**
- * 列表部件项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO}运行时对象
+ * 列表部件项模型对象接口
  *
  */
 public interface IPSListItem extends net.ibizsys.model.IPSModelObject
@@ -14,8 +14,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取对齐方式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_ALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取代码表输出模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_CLCONVERTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
@@ -35,8 +31,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -51,8 +45,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -60,8 +52,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据分组项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_GROUPITEM}
 	 * @return
 	 */
 	java.lang.String getGroupItem();
@@ -76,8 +66,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_ITEMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ListItemType}
 	 * @return
@@ -108,8 +96,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否启用项权限控制
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_ENABLEITEMPRIV}
 	 * @return
 	 */
 	boolean isEnableItemPriv();
@@ -117,8 +103,6 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isEnableSort();

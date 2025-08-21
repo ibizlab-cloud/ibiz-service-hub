@@ -3,7 +3,7 @@ package net.ibizsys.model.wf;
 
 
 /**
- * 系统工作流设置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysWFSettingDTO}运行时对象
+ * 系统工作流设置模型对象接口
  *
  */
 public interface IPSSysWFSetting extends net.ibizsys.model.IPSModelObject{
@@ -33,8 +33,6 @@ public interface IPSSysWFSetting extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取催办消息模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysWFSettingDTO#FIELD_PSSYSMSGTEMPLID}
 	 * @return
 	 */
 	net.ibizsys.model.msg.IPSSysMsgTempl getRemindPSSysMsgTempl();

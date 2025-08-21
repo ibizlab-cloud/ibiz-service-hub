@@ -8,8 +8,10 @@ import net.ibizsys.central.cloud.saas.ebsx.cloudutil.EBSXCloudSaaSUtilRuntime;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.ou.dto.EmployeeDTO;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.ou.service.IEmployeeService;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.uaa.dto.OpenUserDTO;
+import net.ibizsys.central.cloud.saas.ebsx.util.StaticDict;
 import net.ibizsys.central.util.SearchContextDTO;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 
@@ -27,6 +29,8 @@ public class RTCloudSaaSUtilRuntime extends EBSXCloudSaaSUtilRuntime {
             openUser = new OpenUser();
             openUser.setSysUserId(strUserId);
             openUser.setUserId(employee.getWXWorkUserId());
+            if(StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(strOpenType)&&!ObjectUtils.isEmpty(employee.getCertCode()))
+                openUser.setUserId(employee.getCertCode());
             openUser.setOpenUserName(employee.getPersonName());
             return openUser;
         } else {

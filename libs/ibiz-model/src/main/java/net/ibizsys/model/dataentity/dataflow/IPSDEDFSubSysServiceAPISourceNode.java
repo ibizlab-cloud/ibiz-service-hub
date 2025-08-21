@@ -11,8 +11,6 @@ public interface IPSDEDFSubSysServiceAPISourceNode extends net.ibizsys.model.dat
 	
 	/**
 	 * 获取外部服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSUBSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPI getPSSubSysServiceAPI();
@@ -41,8 +39,6 @@ public interface IPSDEDFSubSysServiceAPISourceNode extends net.ibizsys.model.dat
 	
 	/**
 	 * 获取外部服务接口方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSUBSYSSADETAILID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDEMethod getPSSubSysServiceAPIDEMethod();

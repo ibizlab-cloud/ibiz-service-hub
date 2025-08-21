@@ -17,7 +17,9 @@ import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
+import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
+import net.ibizsys.central.security.ISystemAccessManager;
 import net.ibizsys.central.system.SysRefRuntimeBase;
 import net.ibizsys.codegen.groovy.support.PSDataEntityExtension;
 import net.ibizsys.model.IPSSystemService;
@@ -26,6 +28,7 @@ import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.app.dataentity.IPSAppDataEntity;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.sysutil.ISysFileUtilRuntime;
+import net.ibizsys.runtime.util.Entity;
 import net.ibizsys.runtime.util.INamedAction;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
@@ -280,5 +283,29 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 		}
 
 		return JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iPSAppDataEntity));
+	}
+	
+	
+	@Override
+	public void fillAddinAppData(AppData appData, Entity session) {
+		try {
+			this.onFillAddinAppData(appData, session);
+		}
+		catch (Throwable ex) {
+			SystemRuntimeException.rethrow(this, ex);
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("填充插件系统应用数据发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected void onFillAddinAppData(AppData appData, Entity session) throws Exception {
+		if(this.getDeploySystem() != null) {
+			ISystemRuntime iSystemRuntime = ServiceHub.getInstance().getLoadedSystemRuntime(this.getDeploySystem().getDeploySystemId(), false);
+			if(iSystemRuntime != null) {
+				ISystemAccessManager iSystemAccessManager = iSystemRuntime.getSystemAccessManager();
+				if(iSystemAccessManager instanceof net.ibizsys.central.cloud.core.security.ISystemAccessManager) {
+					((net.ibizsys.central.cloud.core.security.ISystemAccessManager)iSystemAccessManager).fillAddinAppData(appData, session);
+				}
+			}
+		}
 	}
 }

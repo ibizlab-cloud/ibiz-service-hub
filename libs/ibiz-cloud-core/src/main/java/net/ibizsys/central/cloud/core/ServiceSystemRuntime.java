@@ -127,6 +127,8 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	
 	private boolean bUpdateDBSchema = false;
 	
+	private String strOSSFolder = null;
+	
 	private Map<String, IPSSysContent> extensionPSSysContentMap = new HashMap<String, IPSSysContent>();
 	
 	private boolean bHasExtensionPSSysContent = false;
@@ -252,6 +254,7 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	protected void onInit() throws Exception {
 		
 		this.bUpdateDBSchema = this.getSystemRuntimeSetting().getParam(PARAM_UPDATEDBSCHEMA, this.bUpdateDBSchema);
+		this.strOSSFolder = this.getSystemRuntimeSetting().getParam(PARAM_OSSFOLDER, this.strOSSFolder);
 		
 		Object value = this.getSystemRuntimeSetting().getParam(PARAM_V2DEPLOYSYSTEM);
 		if(value instanceof V2DeploySystem) {
@@ -1051,6 +1054,18 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	@Override
 	public boolean isUpdateDBSchema() {
 		return this.bUpdateDBSchema;
+	}
+	
+	@Override
+	public String getOSSFolder() {
+		if(StringUtils.hasLength(this.strOSSFolder)) {
+			return this.strOSSFolder;
+		}
+		
+		if(this.getMainSystemRuntime(true)!=null) {
+			return this.getMainSystemRuntime(true).getOSSFolder();
+		}
+		return null;
 	}
 	
 	@Override

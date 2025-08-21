@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 实体映射模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMapDTO}运行时对象
+ * 实体映射模型对象接口
  *
  */
 public interface IPSAppDEMap extends net.ibizsys.model.dataentity.datamap.IPSDEMap{

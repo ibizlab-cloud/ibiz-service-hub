@@ -3,7 +3,7 @@ package net.ibizsys.model.ai;
 
 
 /**
- * AI工厂模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysAIFactoryDTO}运行时对象
+ * AI工厂模型对象接口
  *
  */
 public interface IPSSysAIFactory extends net.ibizsys.model.ai.IPSAIFactory
@@ -76,8 +76,6 @@ public interface IPSSysAIFactory extends net.ibizsys.model.ai.IPSAIFactory
 	
 	/**
 	 * 获取系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAIFactoryDTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();

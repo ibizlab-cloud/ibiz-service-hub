@@ -11,7 +11,7 @@
 
     <artifactId>ibiz-ebsx-runtime</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>${ibiz.cloud.version}</version>
+    <version>8.1.0.570.34.1</version>
     <name>iBiz EBSX Runtime</name>
     <description>iBiz EBSX Runtime</description>
 
@@ -21,7 +21,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
-        <maven.deploy.skip>true</maven.deploy.skip>
         <docker.image.prefix>image.ibizlab.cn/ebsx</docker.image.prefix>
          <log4j2.version>2.17.1</log4j2.version>
     </properties>
@@ -434,6 +433,11 @@
     <profiles>
         <profile>
             <id>runtime</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+                <maven.deploy.skip>true</maven.deploy.skip>
+            </properties>
             <build>
                 <resources>
                     <resource>
@@ -513,6 +517,7 @@
                     <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

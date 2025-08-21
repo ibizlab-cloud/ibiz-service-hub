@@ -3460,14 +3460,14 @@ public class PSDEWizard extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体向导表单 成员集合
+     *  实体向导表单引用 成员集合
      */
     public final static String FIELD_PSDEWIZARDFORMS = "psdewizardforms";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEWizardForm> psdewizardforms;
 
     /**
-     * 获取 实体向导表单 成员集合
+     * 获取 实体向导表单引用 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEWIZARDFORMS)
@@ -3476,7 +3476,7 @@ public class PSDEWizard extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体向导表单 成员集合  
+     * 设置 实体向导表单引用 成员集合  
      * @param psdewizardforms
      */
     @JsonProperty(FIELD_PSDEWIZARDFORMS)
@@ -3485,7 +3485,7 @@ public class PSDEWizard extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体向导表单 成员集合，不存在时建立集合对象
+     * 获取 实体向导表单引用 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

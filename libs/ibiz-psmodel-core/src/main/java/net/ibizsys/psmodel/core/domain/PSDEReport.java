@@ -811,14 +811,14 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板模式
+     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板应用模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutPanelMode} 
      */
     public final static String FIELD_LAYOUTPANELMODE = "layoutpanelmode";
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * 
      * @param layoutPanelMode
      * 
@@ -829,7 +829,7 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 布局面板模式  
+     * 获取 布局面板应用模式  
      * @return
      */
     @JsonIgnore
@@ -842,7 +842,7 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 布局面板模式 是否指定值，包括空值
+     * 判断 布局面板应用模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -854,7 +854,7 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 布局面板模式
+     * 重置 布局面板应用模式
      */
     @JsonIgnore
     public void resetLayoutPanelMode(){
@@ -862,7 +862,7 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode
@@ -874,7 +874,7 @@ public class PSDEReport extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode

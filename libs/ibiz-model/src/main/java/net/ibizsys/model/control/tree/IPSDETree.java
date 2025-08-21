@@ -3,7 +3,7 @@ package net.ibizsys.model.control.tree;
 
 
 /**
- * 实体树视图部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO}运行时对象
+ * 实体树视图部件模型对象接口
  *
  */
 public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
@@ -14,8 +14,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -23,8 +21,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -39,8 +35,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取固定起始列数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_FROZENCOL}
 	 * @return
 	 */
 	int getFrozenFirstColumn();
@@ -48,8 +42,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取固定末尾列数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_FROZENLASTCOL}
 	 * @return
 	 */
 	int getFrozenLastColumn();
@@ -57,8 +49,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取应用计数器引用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_PSSYSCOUNTERID}
 	 * @return
 	 */
 	net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef();
@@ -137,8 +127,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取树表格模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_TREEGRIDFLAG}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeGridMode}
 	 * @return
 	 */
@@ -148,8 +136,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取树视图样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_TREESTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeStyle}
 	 * @return
 	 */
@@ -158,8 +144,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持编辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isEnableEdit();
@@ -167,8 +151,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持根选择
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_ROOTSELECT}
 	 * @return
 	 */
 	boolean isEnableRootSelect();
@@ -176,8 +158,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否默认输出图标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_NOICONDEFAULT}
 	 * @return
 	 */
 	boolean isOutputIconDefault();
@@ -185,8 +165,6 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否显示根
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeViewDTO#FIELD_SHOWROOT}
 	 * @return
 	 */
 	boolean isRootVisible();

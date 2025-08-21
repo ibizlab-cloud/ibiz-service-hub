@@ -12,8 +12,6 @@ public interface IPSDEUserRoleOPPriv extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMCOND}
 	 * @return
 	 */
 	java.lang.String getCustomCond();
@@ -28,8 +26,6 @@ public interface IPSDEUserRoleOPPriv extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体数据查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEDQID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getPSDEDataQuery();
@@ -44,8 +40,6 @@ public interface IPSDEUserRoleOPPriv extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getPSDEOPPriv();

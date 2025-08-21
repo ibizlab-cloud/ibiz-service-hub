@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.dr;
 
 
 /**
- * 实体关系数据项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getItemType}
+ * 实体关系数据项模型对象接口
  *
  */
 public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
@@ -36,8 +34,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数项标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -45,8 +41,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_COUNTERMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
 	 * @return
@@ -56,8 +50,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取启用模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_ENABLEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRDetailEnableMode}
 	 * @return
@@ -82,8 +74,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取关系项类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_DRITEMTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRItemType}
 	 * @return
 	 */
@@ -92,8 +82,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项图标资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -115,8 +103,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取启用判断处理逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_TESTPSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogic getTestPSDELogic();
@@ -131,8 +117,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取判断输出实体操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_PSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getTestPSDEOPPriv();
@@ -147,8 +131,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取启用统一资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getTestPSSysUniRes();
@@ -163,8 +145,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取启用判断脚本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_TESTCUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getTestScriptCode();
@@ -172,8 +152,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取视图代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_VIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getViewCodeName();
@@ -181,8 +159,6 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取视图相关实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRItemDTO#FIELD_VIEWPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getViewPSDataEntity();

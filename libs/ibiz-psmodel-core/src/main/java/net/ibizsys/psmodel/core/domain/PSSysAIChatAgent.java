@@ -286,6 +286,69 @@ public class PSSysAIChatAgent extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
+     * <B>AIPLATFORMTYPE</B>&nbsp;AI平台
+     * <P>
+     * 字符串：最大长度 50，由字母、数字、下划线组成，且开始必须为字母
+     */
+    public final static String FIELD_AIPLATFORMTYPE = "aiplatformtype";
+
+    /**
+     * 设置 AI平台
+     * 
+     * @param aIPlatformType
+     * 
+     */
+    @JsonProperty(FIELD_AIPLATFORMTYPE)
+    public void setAIPlatformType(String aIPlatformType){
+        this.set(FIELD_AIPLATFORMTYPE, aIPlatformType);
+    }
+    
+    /**
+     * 获取 AI平台  
+     * @return
+     */
+    @JsonIgnore
+    public String getAIPlatformType(){
+        Object objValue = this.get(FIELD_AIPLATFORMTYPE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI平台 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isAIPlatformTypeDirty(){
+        if(this.contains(FIELD_AIPLATFORMTYPE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI平台
+     */
+    @JsonIgnore
+    public void resetAIPlatformType(){
+        this.reset(FIELD_AIPLATFORMTYPE);
+    }
+
+    /**
+     * 设置 AI平台
+     * <P>
+     * 等同 {@link #setAIPlatformType}
+     * @param aIPlatformType
+     */
+    @JsonIgnore
+    public PSSysAIChatAgent aiplatformtype(String aIPlatformType){
+        this.setAIPlatformType(aIPlatformType);
+        return this;
+    }
+
+    /**
      * <B>CODENAME</B>&nbsp;代码名称
      * <P>
      * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
@@ -473,6 +536,147 @@ public class PSSysAIChatAgent extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
+     * <B>CUSTOMCODE</B>&nbsp;自定义代码
+     */
+    public final static String FIELD_CUSTOMCODE = "customcode";
+
+    /**
+     * 设置 自定义代码
+     * 
+     * @param customCode
+     * 
+     */
+    @JsonProperty(FIELD_CUSTOMCODE)
+    public void setCustomCode(String customCode){
+        this.set(FIELD_CUSTOMCODE, customCode);
+    }
+    
+    /**
+     * 获取 自定义代码  
+     * @return
+     */
+    @JsonIgnore
+    public String getCustomCode(){
+        Object objValue = this.get(FIELD_CUSTOMCODE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 自定义代码 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCustomCodeDirty(){
+        if(this.contains(FIELD_CUSTOMCODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 自定义代码
+     */
+    @JsonIgnore
+    public void resetCustomCode(){
+        this.reset(FIELD_CUSTOMCODE);
+    }
+
+    /**
+     * 设置 自定义代码
+     * <P>
+     * 等同 {@link #setCustomCode}
+     * @param customCode
+     */
+    @JsonIgnore
+    public PSSysAIChatAgent customcode(String customCode){
+        this.setCustomCode(customCode);
+        return this;
+    }
+
+    /**
+     * <B>CUSTOMMODE</B>&nbsp;自定义模式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_CUSTOMMODE = "custommode";
+
+    /**
+     * 设置 自定义模式
+     * 
+     * @param customMode
+     * 
+     */
+    @JsonProperty(FIELD_CUSTOMMODE)
+    public void setCustomMode(Integer customMode){
+        this.set(FIELD_CUSTOMMODE, customMode);
+    }
+    
+    /**
+     * 获取 自定义模式  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getCustomMode(){
+        Object objValue = this.get(FIELD_CUSTOMMODE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 自定义模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCustomModeDirty(){
+        if(this.contains(FIELD_CUSTOMMODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 自定义模式
+     */
+    @JsonIgnore
+    public void resetCustomMode(){
+        this.reset(FIELD_CUSTOMMODE);
+    }
+
+    /**
+     * 设置 自定义模式
+     * <P>
+     * 等同 {@link #setCustomMode}
+     * @param customMode
+     */
+    @JsonIgnore
+    public PSSysAIChatAgent custommode(Integer customMode){
+        this.setCustomMode(customMode);
+        return this;
+    }
+
+     /**
+     * 设置 自定义模式
+     * <P>
+     * 等同 {@link #setCustomMode}
+     * @param customMode
+     */
+    @JsonIgnore
+    public PSSysAIChatAgent custommode(Boolean customMode){
+        if(customMode == null){
+            this.setCustomMode(null);
+        }
+        else{
+            this.setCustomMode(customMode?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
+        return this;
+    }
+
+    /**
      * <B>MEMO</B>&nbsp;备注
      * <P>
      * 字符串：最大长度 4000
@@ -532,6 +736,69 @@ public class PSSysAIChatAgent extends net.ibizsys.psmodel.core.util.PSModelBase 
     @JsonIgnore
     public PSSysAIChatAgent memo(String memo){
         this.setMemo(memo);
+        return this;
+    }
+
+    /**
+     * <B>PROMPTSOURCE</B>&nbsp;提示词来源
+     * <P>
+     * 字符串：最大长度 30
+     */
+    public final static String FIELD_PROMPTSOURCE = "promptsource";
+
+    /**
+     * 设置 提示词来源
+     * 
+     * @param promptSource
+     * 
+     */
+    @JsonProperty(FIELD_PROMPTSOURCE)
+    public void setPromptSource(String promptSource){
+        this.set(FIELD_PROMPTSOURCE, promptSource);
+    }
+    
+    /**
+     * 获取 提示词来源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPromptSource(){
+        Object objValue = this.get(FIELD_PROMPTSOURCE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 提示词来源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPromptSourceDirty(){
+        if(this.contains(FIELD_PROMPTSOURCE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 提示词来源
+     */
+    @JsonIgnore
+    public void resetPromptSource(){
+        this.reset(FIELD_PROMPTSOURCE);
+    }
+
+    /**
+     * 设置 提示词来源
+     * <P>
+     * 等同 {@link #setPromptSource}
+     * @param promptSource
+     */
+    @JsonIgnore
+    public PSSysAIChatAgent promptsource(String promptSource){
+        this.setPromptSource(promptSource);
         return this;
     }
 

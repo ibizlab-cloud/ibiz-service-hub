@@ -98,7 +98,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSDEACTIONID</B>&nbsp;聚合实体行为，数据表格聚合模式为【全部远程】需指定聚合处理实体行为
+     * <B>AGGPSDEACTIONID</B>&nbsp;聚合实体行为，数据表格聚合模式为【全部远程】需指定聚合处理实体数据集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEAction} 
      */
@@ -180,7 +180,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSDEACTIONNAME</B>&nbsp;聚合实体行为，数据表格聚合模式为【全部远程】需指定聚合处理实体行为
+     * <B>AGGPSDEACTIONNAME</B>&nbsp;聚合实体行为，数据表格聚合模式为【全部远程】需指定聚合处理实体数据集
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_AGGPSDEACTIONID}
      */
@@ -243,14 +243,14 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSDEDSID</B>&nbsp;聚合实体数据集
+     * <B>AGGPSDEDSID</B>&nbsp;聚合实体数据集，指定提供聚合数据服务的聚合数据集对象，聚合结果一般返回单行数据
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_AGGPSDEDSID = "aggpsdedsid";
 
     /**
-     * 设置 聚合实体数据集
+     * 设置 聚合实体数据集，详细说明：{@link #FIELD_AGGPSDEDSID}
      * 
      * @param aggPSDEDSId
      * 
@@ -294,7 +294,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 聚合实体数据集
+     * 设置 聚合实体数据集，详细说明：{@link #FIELD_AGGPSDEDSID}
      * <P>
      * 等同 {@link #setAggPSDEDSId}
      * @param aggPSDEDSId
@@ -325,14 +325,14 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSDEDSNAME</B>&nbsp;聚合数据集
+     * <B>AGGPSDEDSNAME</B>&nbsp;聚合数据集，指定提供聚合数据服务的数据集对象
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_AGGPSDEDSID}
      */
     public final static String FIELD_AGGPSDEDSNAME = "aggpsdedsname";
 
     /**
-     * 设置 聚合数据集
+     * 设置 聚合数据集，详细说明：{@link #FIELD_AGGPSDEDSNAME}
      * 
      * @param aggPSDEDSName
      * 
@@ -376,7 +376,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 聚合数据集
+     * 设置 聚合数据集，详细说明：{@link #FIELD_AGGPSDEDSNAME}
      * <P>
      * 等同 {@link #setAggPSDEDSName}
      * @param aggPSDEDSName
@@ -388,7 +388,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSDEID</B>&nbsp;聚合实体，指定聚合处理实体行为所在实体对象
+     * <B>AGGPSDEID</B>&nbsp;聚合实体，指定提供聚合数据服务的实体对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
@@ -533,14 +533,14 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AGGPSSYSVIEWPANELID</B>&nbsp;聚合布局面板
+     * <B>AGGPSSYSVIEWPANELID</B>&nbsp;聚合布局面板，除了表格列的默认聚合呈现，还可以指定聚合数据的自定义绘制面板
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysViewPanel} 
      */
     public final static String FIELD_AGGPSSYSVIEWPANELID = "aggpssysviewpanelid";
 
     /**
-     * 设置 聚合布局面板
+     * 设置 聚合布局面板，详细说明：{@link #FIELD_AGGPSSYSVIEWPANELID}
      * 
      * @param aggPSSysViewPanelId
      * 
@@ -584,7 +584,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 聚合布局面板
+     * 设置 聚合布局面板，详细说明：{@link #FIELD_AGGPSSYSVIEWPANELID}
      * <P>
      * 等同 {@link #setAggPSSysViewPanelId}
      * @param aggPSSysViewPanelId
@@ -823,7 +823,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BATPSDETOOLBARID</B>&nbsp;批操作工具栏，指定数据表格部件内建的批操作工具栏对象，批操作工具栏为选择数据提供操作能力
+     * <B>BATPSDETOOLBARID</B>&nbsp;批操作工具栏，指定数据表格部件内建的批操作工具栏对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEToolbar} 
      */
@@ -2503,12 +2503,12 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FROZENCOL</B>&nbsp;固定列数
+     * <B>FROZENCOL</B>&nbsp;固定列数，指定数据表单的前部固定列数
      */
     public final static String FIELD_FROZENCOL = "frozencol";
 
     /**
-     * 设置 固定列数
+     * 设置 固定列数，详细说明：{@link #FIELD_FROZENCOL}
      * 
      * @param frozenCol
      * 
@@ -2552,7 +2552,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 固定列数
+     * 设置 固定列数，详细说明：{@link #FIELD_FROZENCOL}
      * <P>
      * 等同 {@link #setFrozenCol}
      * @param frozenCol
@@ -2564,12 +2564,12 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FROZENLASTCOL</B>&nbsp;固定末尾列数
+     * <B>FROZENLASTCOL</B>&nbsp;固定末尾列数，指定数据表单的尾部固定列数
      */
     public final static String FIELD_FROZENLASTCOL = "frozenlastcol";
 
     /**
-     * 设置 固定末尾列数
+     * 设置 固定末尾列数，详细说明：{@link #FIELD_FROZENLASTCOL}
      * 
      * @param frozenLastCol
      * 
@@ -2613,7 +2613,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 固定末尾列数
+     * 设置 固定末尾列数，详细说明：{@link #FIELD_FROZENLASTCOL}
      * <P>
      * 等同 {@link #setFrozenLastCol}
      * @param frozenLastCol
@@ -3922,6 +3922,151 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEGrid groupstyle(String groupStyle){
         this.setGroupStyle(groupStyle);
+        return this;
+    }
+
+    /**
+     * <B>GROUPTEXTPSDEFID</B>&nbsp;分组文本属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_GROUPTEXTPSDEFID = "grouptextpsdefid";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFID)
+    public void setGroupTextPSDEFId(String groupTextPSDEFId){
+        this.set(FIELD_GROUPTEXTPSDEFID, groupTextPSDEFId);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFId(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFIdDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFId(){
+        this.reset(FIELD_GROUPTEXTPSDEFID);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param groupTextPSDEFId
+     */
+    @JsonIgnore
+    public PSDEGrid grouptextpsdefid(String groupTextPSDEFId){
+        this.setGroupTextPSDEFId(groupTextPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 分组文本属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSDEGrid grouptextpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setGroupTextPSDEFId(null);
+            this.setGroupTextPSDEFName(null);
+        }
+        else{
+            this.setGroupTextPSDEFId(pSDEField.getPSDEFieldId());
+            this.setGroupTextPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>GROUPTEXTPSDEFNAME</B>&nbsp;分组文本属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_GROUPTEXTPSDEFID}
+     */
+    public final static String FIELD_GROUPTEXTPSDEFNAME = "grouptextpsdefname";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFNAME)
+    public void setGroupTextPSDEFName(String groupTextPSDEFName){
+        this.set(FIELD_GROUPTEXTPSDEFNAME, groupTextPSDEFName);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFName(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFNameDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFName(){
+        this.reset(FIELD_GROUPTEXTPSDEFNAME);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFName}
+     * @param groupTextPSDEFName
+     */
+    @JsonIgnore
+    public PSDEGrid grouptextpsdefname(String groupTextPSDEFName){
+        this.setGroupTextPSDEFName(groupTextPSDEFName);
         return this;
     }
 
@@ -6495,6 +6640,151 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>PSDEFINPUTTIPSETID</B>&nbsp;系统属性输入提示集，指定实体表格部件的默认属性输入提示器对象
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFInputTipSet} 
+     */
+    public final static String FIELD_PSDEFINPUTTIPSETID = "psdefinputtipsetid";
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETID}
+     * 
+     * @param pSDEFInputTipSetId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFINPUTTIPSETID)
+    public void setPSDEFInputTipSetId(String pSDEFInputTipSetId){
+        this.set(FIELD_PSDEFINPUTTIPSETID, pSDEFInputTipSetId);
+    }
+    
+    /**
+     * 获取 系统属性输入提示集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFInputTipSetId(){
+        Object objValue = this.get(FIELD_PSDEFINPUTTIPSETID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统属性输入提示集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFInputTipSetIdDirty(){
+        if(this.contains(FIELD_PSDEFINPUTTIPSETID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统属性输入提示集
+     */
+    @JsonIgnore
+    public void resetPSDEFInputTipSetId(){
+        this.reset(FIELD_PSDEFINPUTTIPSETID);
+    }
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETID}
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetId}
+     * @param pSDEFInputTipSetId
+     */
+    @JsonIgnore
+    public PSDEGrid psdefinputtipsetid(String pSDEFInputTipSetId){
+        this.setPSDEFInputTipSetId(pSDEFInputTipSetId);
+        return this;
+    }
+
+    /**
+     * 设置 系统属性输入提示集，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetId}
+     * @param pSDEFInputTipSet 引用对象
+     */
+    @JsonIgnore
+    public PSDEGrid psdefinputtipsetid(PSDEFInputTipSet pSDEFInputTipSet){
+        if(pSDEFInputTipSet == null){
+            this.setPSDEFInputTipSetId(null);
+            this.setPSDEFInputTipSetName(null);
+        }
+        else{
+            this.setPSDEFInputTipSetId(pSDEFInputTipSet.getPSDEFInputTipSetId());
+            this.setPSDEFInputTipSetName(pSDEFInputTipSet.getPSDEFInputTipSetName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFINPUTTIPSETNAME</B>&nbsp;系统属性输入提示集，指定实体表格部件的默认属性输入提示器对象
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFINPUTTIPSETID}
+     */
+    public final static String FIELD_PSDEFINPUTTIPSETNAME = "psdefinputtipsetname";
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETNAME}
+     * 
+     * @param pSDEFInputTipSetName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFINPUTTIPSETNAME)
+    public void setPSDEFInputTipSetName(String pSDEFInputTipSetName){
+        this.set(FIELD_PSDEFINPUTTIPSETNAME, pSDEFInputTipSetName);
+    }
+    
+    /**
+     * 获取 系统属性输入提示集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFInputTipSetName(){
+        Object objValue = this.get(FIELD_PSDEFINPUTTIPSETNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统属性输入提示集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFInputTipSetNameDirty(){
+        if(this.contains(FIELD_PSDEFINPUTTIPSETNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统属性输入提示集
+     */
+    @JsonIgnore
+    public void resetPSDEFInputTipSetName(){
+        this.reset(FIELD_PSDEFINPUTTIPSETNAME);
+    }
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETNAME}
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetName}
+     * @param pSDEFInputTipSetName
+     */
+    @JsonIgnore
+    public PSDEGrid psdefinputtipsetname(String pSDEFInputTipSetName){
+        this.setPSDEFInputTipSetName(pSDEFInputTipSetName);
+        return this;
+    }
+
+    /**
      * <B>PSDEGRIDID</B>&nbsp;实体表格标识
      * <P>
      * 字符串：最大长度 100
@@ -8741,14 +9031,14 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表格列 成员集合
+     *  表格列 成员集合
      */
     public final static String FIELD_PSDEGRIDCOLS = "psdegridcols";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEGridCol> psdegridcols;
 
     /**
-     * 获取 实体表格列 成员集合
+     * 获取 表格列 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEGRIDCOLS)
@@ -8757,7 +9047,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表格列 成员集合  
+     * 设置 表格列 成员集合  
      * @param psdegridcols
      */
     @JsonProperty(FIELD_PSDEGRIDCOLS)
@@ -8766,7 +9056,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表格列 成员集合，不存在时建立集合对象
+     * 获取 表格列 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -8855,14 +9145,14 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表格逻辑 成员集合
+     *  表格逻辑 成员集合
      */
     public final static String FIELD_PSDEGRIDLOGICS = "psdegridlogics";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEGridLogic> psdegridlogics;
 
     /**
-     * 获取 实体表格逻辑 成员集合
+     * 获取 表格逻辑 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEGRIDLOGICS)
@@ -8871,7 +9161,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表格逻辑 成员集合  
+     * 设置 表格逻辑 成员集合  
      * @param psdegridlogics
      */
     @JsonProperty(FIELD_PSDEGRIDLOGICS)
@@ -8880,7 +9170,7 @@ public class PSDEGrid extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表格逻辑 成员集合，不存在时建立集合对象
+     * 获取 表格逻辑 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

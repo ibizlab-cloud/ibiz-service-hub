@@ -2647,14 +2647,14 @@ public class PSSysSearchBar extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统搜索栏项 成员集合
+     *  搜索栏项 成员集合
      */
     public final static String FIELD_PSSYSSEARCHBARITEMS = "pssyssearchbaritems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysSearchBarItem> pssyssearchbaritems;
 
     /**
-     * 获取 系统搜索栏项 成员集合
+     * 获取 搜索栏项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSSEARCHBARITEMS)
@@ -2663,7 +2663,7 @@ public class PSSysSearchBar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统搜索栏项 成员集合  
+     * 设置 搜索栏项 成员集合  
      * @param pssyssearchbaritems
      */
     @JsonProperty(FIELD_PSSYSSEARCHBARITEMS)
@@ -2672,7 +2672,7 @@ public class PSSysSearchBar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统搜索栏项 成员集合，不存在时建立集合对象
+     * 获取 搜索栏项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

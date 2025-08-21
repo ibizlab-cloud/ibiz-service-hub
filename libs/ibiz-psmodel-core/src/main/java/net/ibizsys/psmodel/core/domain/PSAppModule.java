@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSAPPMODULE</B>应用模块 模型传输对象
@@ -420,69 +424,6 @@ public class PSAppModule extends net.ibizsys.psmodel.core.util.PSModelBase {
         else{
             this.setEnableModuleStyle(enableModuleStyle?BOOLEAN_TRUE:BOOLEAN_FALSE);
         }
-        return this;
-    }
-
-    /**
-     * <B>FROMOBJID</B>&nbsp;源标识
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_FROMOBJID = "fromobjid";
-
-    /**
-     * 设置 源标识
-     * 
-     * @param fromObjId
-     * 
-     */
-    @JsonProperty(FIELD_FROMOBJID)
-    public void setFromObjId(String fromObjId){
-        this.set(FIELD_FROMOBJID, fromObjId);
-    }
-    
-    /**
-     * 获取 源标识  
-     * @return
-     */
-    @JsonIgnore
-    public String getFromObjId(){
-        Object objValue = this.get(FIELD_FROMOBJID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 源标识 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isFromObjIdDirty(){
-        if(this.contains(FIELD_FROMOBJID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 源标识
-     */
-    @JsonIgnore
-    public void resetFromObjId(){
-        this.reset(FIELD_FROMOBJID);
-    }
-
-    /**
-     * 设置 源标识
-     * <P>
-     * 等同 {@link #setFromObjId}
-     * @param fromObjId
-     */
-    @JsonIgnore
-    public PSAppModule fromobjid(String fromObjId){
-        this.setFromObjId(fromObjId);
         return this;
     }
 

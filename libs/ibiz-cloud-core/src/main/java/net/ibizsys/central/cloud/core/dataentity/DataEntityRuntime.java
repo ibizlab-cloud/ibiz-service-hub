@@ -1,7 +1,9 @@
 package net.ibizsys.central.cloud.core.dataentity;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +16,10 @@ import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import io.jsonwebtoken.lang.Assert;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
+import net.ibizsys.central.cloud.core.cloudutil.client.ICloudOSSClient;
 import net.ibizsys.central.cloud.core.dataentity.dataflow.DEDataFlowRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.DEServiceInvocationHandler;
@@ -23,18 +28,22 @@ import net.ibizsys.central.cloud.core.dataentity.wf.IDEWFRuntime;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.IHubSysExtensionUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUtilContainerOnly;
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.cloud.core.util.domain.V2ImportSchema;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionLogic;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionSuite;
 import net.ibizsys.central.dataentity.dataflow.IDEDataFlowRuntime;
 import net.ibizsys.central.dataentity.security.IDataEntityAccessManager;
 import net.ibizsys.central.dataentity.service.IDEMethodDTO;
+import net.ibizsys.central.dataentity.service.IDEMethodDTORuntime;
 import net.ibizsys.central.dataentity.service.IDEService;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.central.util.SearchContextDTO;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.PSModelEnums.DEUtilType;
@@ -48,6 +57,7 @@ import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.logic.IPSDEMSLogic;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
 import net.ibizsys.model.dataentity.util.IPSDEUtil;
 import net.ibizsys.model.dataentity.util.PSDEUtilImpl;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
@@ -55,10 +65,12 @@ import net.ibizsys.runtime.IDynaInstRuntime;
 import net.ibizsys.runtime.ISystemRuntime;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.dataentity.IDynaInstDataEntityRuntime;
+import net.ibizsys.runtime.dataentity.dataexport.IDEDataExportRuntime;
 import net.ibizsys.runtime.dataentity.dataimport.IDEDataImportRuntime;
 import net.ibizsys.runtime.dataentity.defield.DEFDataTypes;
 import net.ibizsys.runtime.dataentity.logic.IDELogicRuntime;
 import net.ibizsys.runtime.dataentity.logic.IDEMSLogicRuntime;
+import net.ibizsys.runtime.dataentity.service.DEMethodDTOFieldTypes;
 import net.ibizsys.runtime.dataentity.util.IDEUtilRuntime;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.util.ActionSession;
@@ -92,6 +104,9 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	private IDEService proxyDEService = null;
 	private boolean bEnableExtension = false;
 	private IDEExtensionUtilRuntime iDEExtensionUtilRuntime = null;
+	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
+	private String strOSSFolder = null;
+	
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -102,6 +117,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		
 		if(iServiceSystemRuntime!=null) {
 			this.bEnableRTCodeMode = iServiceSystemRuntime.isEnableRTCodeMode();
+			this.strOSSFolder = iServiceSystemRuntime.getOSSFolder();
 		}
 		
 		if(this.isEnableRTCodeMode()) {
@@ -463,6 +479,11 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
     	return this.bEnableRTCodeMode;
     }
     
+    public String getOSSFolder() {
+    	this.prepare();
+    	return this.strOSSFolder;
+    }
+    
     @Override
     public IDEService getDEService() {
     	if(isEnableRTCodeMode()) {
@@ -652,6 +673,75 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 
 		throw new Exception(String.format("对象[%1$s]未支持增强导入数据", iDEDataImportRuntime));
 	}
+	
+	
+	@Override
+	public ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
+		prepare();
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		boolean bOpenActionSession = (actionSession == null);
+		if (bOpenActionSession) {
+			actionSession = ActionSessionManager.openSession();
+			actionSession.setName(this.getName());
+			actionSession.setUserContext(this.getUserContext());
+		}
+
+		try {
+			this.pushDataSource();
+			
+			// 备份会话的动态实例运行时
+			ActionSessionBackup backup = actionSession.backup();
+			actionSession.setSessionId(KeyValueUtils.genGuidEx());
+			
+			actionSession.beginLog(this.getName(), String.format("导出数据[%1$s]", strExportTag));
+
+			ExportDataResult ret = this.onExportData2(strExportTag, objData, outputStream);
+
+			// 恢复会话的动态实例运行时
+			actionSession.restore(backup);
+			IActionSessionLog iActionSessionLog = actionSession.endLog(null);
+
+			if (bOpenActionSession) {
+				if (iActionSessionLog != null) {
+					if (iActionSessionLog.getTime() >= ActionSessionManager.getExportDataLogPOTime()) {
+						this.getSystemRuntime().logPO(ISystemRuntime.LOGLEVEL_WARN, LogCats.PO_DEDATAEXP, iActionSessionLog.toString(true), this.getName(), String.format("导出数据[%1$s]", strExportTag), iActionSessionLog.getTime(), iActionSessionLog);
+					}
+				}
+				ActionSessionManager.closeSession(true);
+			}
+
+			return ret;
+
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			actionSession.setDynaInstRuntime(null);
+			actionSession.setChildDynaInstRuntime(null);
+			if (bOpenActionSession) {
+				IActionSessionLog iActionSessionLog = actionSession.endLog(ex.getMessage(), true, ex);
+				if (iActionSessionLog != null) {
+					String strInfo = String.format("实体[%1$s]数据导出[%2$s]发生异常，%3$s\r\n%4$s", this.getName(), strExportTag, ex.getMessage(), iActionSessionLog.toObjectNode().toString());
+					this.getSystemRuntime().log(LogLevels.ERROR, LogCats.DEDATAEXP, strInfo, ex);
+				}
+
+				ActionSessionManager.closeSession(false);
+			}
+			throw ex;
+		} finally {
+			this.pollDataSource();
+		}
+	}
+	
+
+	protected ExportDataResult onExportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
+		IDEDataExportRuntime iDEDataExportRuntime = this.getDEDataExportRuntime(strExportTag);
+		if (iDEDataExportRuntime instanceof net.ibizsys.central.cloud.core.dataentity.dataexport.IDEDataExportRuntime) {
+			return ((net.ibizsys.central.cloud.core.dataentity.dataexport.IDEDataExportRuntime) iDEDataExportRuntime).exportStream2(objData, outputStream);
+		}
+
+		throw new Exception(String.format("对象[%1$s]未支持增强导出数据", iDEDataExportRuntime));
+	}
+	
 
 	@Override
 	public boolean isEnableExtension() {
@@ -904,6 +994,186 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	@Override
 	public net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager getDataEntityAccessManager() {
 		return (net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager)super.getDataEntityAccessManager();
+	}
+	
+	@Override
+	public DownloadTicket createDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable {
+		//Assert.hasLength(strStorageField, "未传入存储属性");
+		Assert.hasLength(strOSSFileId, "未传入OSS文件标识");
+		try {
+			return this.onCreateDownloadTicket(keyOrEntity, strStorageField, strOSSFileId, bTryMode);
+		}
+		catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this, String.format("获取数据附件下载凭证发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected DownloadTicket onCreateDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(keyOrEntity instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)keyOrEntity;
+		}
+		else {
+			iEntityDTO = this.get(keyOrEntity);
+		}
+		
+		IDEMethodDTORuntime iDEMethodDTORuntime = iEntityDTO.getDEMethodDTORuntime();
+		if(iDEMethodDTORuntime == null) {
+			throw new Exception("方法DTO运行时对象无效");
+		}
+		
+		if(StringUtils.hasLength(strStorageField)) {
+			Object value = iEntityDTO.get(strStorageField.toLowerCase());
+			if(value == null) {
+				if(bTryMode) {
+					return null;
+				}
+				throw new Exception(String.format("属性[%1$s]存储数据无效", strStorageField));
+			}
+			
+			List list = JsonUtils.asList(value);
+			if(ObjectUtils.isEmpty(list)) {
+				if(bTryMode) {
+					return null;
+				}
+				throw new Exception(String.format("属性[%1$s]存储数据无效", strStorageField));
+			}
+
+			for(Object item : list) {
+				if(!(item instanceof Map)){
+					continue;
+				}
+
+				Map map = (Map)item;
+				String id = DataTypeUtils.asString(map.get("id"));
+				String name = DataTypeUtils.asString(map.get("name"));
+				int size = DataTypeUtils.asInteger(map.get("size"), -1);
+				String ext = DataTypeUtils.asString(map.get("ext"));
+				String cat = DataTypeUtils.asString(map.get("folder"));
+				if(ObjectUtils.isEmpty(cat)) {
+					cat = getOSSFolder();
+				}
+
+				if(strOSSFileId.equals(id)) {
+					ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+					if(StringUtils.hasLength(cat)) {
+						return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+					}
+					else {
+						return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+					}
+				}
+			}
+		}
+		else {
+			List<IPSDEField> attachmentPSDEFieldList = this.getAttachmentPSDEFields(true);
+			if(!ObjectUtils.isEmpty(attachmentPSDEFieldList)) {
+				for(IPSDEField iPSDEField : attachmentPSDEFieldList) {
+					Object value = iEntityDTO.get(iPSDEField.getLowerCaseName());
+					if(value == null) {
+						continue;
+					}
+					
+					List list = JsonUtils.asList(value);
+					if(ObjectUtils.isEmpty(list)) {
+						continue;
+					}
+
+					for(Object item : list) {
+						if(!(item instanceof Map)){
+							continue;
+						}
+
+						Map map = (Map)item;
+						String id = DataTypeUtils.asString(map.get("id"));
+						String name = DataTypeUtils.asString(map.get("name"));
+						int size = DataTypeUtils.asInteger(map.get("size"), -1);
+						String ext = DataTypeUtils.asString(map.get("ext"));
+						String cat = DataTypeUtils.asString(map.get("folder"));
+						if(ObjectUtils.isEmpty(cat)) {
+							cat = getOSSFolder();
+						}
+
+						if(strOSSFileId.equals(id)) {
+							ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+							if(StringUtils.hasLength(cat)) {
+								return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+							}
+							else {
+								return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+							}
+						}
+					}
+				}
+			}
+			
+			//获取DTO属性
+			List<IPSDEMethodDTOField> psDEMethodDTOFieldList = iDEMethodDTORuntime.getPSDEMethodDTOFields();
+			if(!ObjectUtils.isEmpty(psDEMethodDTOFieldList)) {
+				for(IPSDEMethodDTOField iPSDEMethodDTOField : psDEMethodDTOFieldList) {
+					if (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType()) || DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+
+						if (iPSDEMethodDTOField.getRefPSDataEntity() == null) {
+							continue;
+						}
+
+						Object dtoData = iEntityDTO.get(iPSDEMethodDTOField.getLowerCaseName());
+						if (dtoData != null) {
+							IDataEntityRuntime refDataEntityRuntime = (IDataEntityRuntime)this.getSystemRuntimeContext().getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
+							if (DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+
+								Collection collection = null;
+								if (iPSDEMethodDTOField.isListMap()) {
+									if (!(dtoData instanceof Map)) {
+										throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
+									}
+									
+									collection = ((Map)dtoData).values();
+									
+								} else {
+									// 列表模式
+									if (!(dtoData instanceof List)) {
+										throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
+									}
+									
+									collection = (List)dtoData;
+								}
+								
+								if(!ObjectUtils.isEmpty(collection)) {
+									for(Object item : collection) {
+										DownloadTicket downloadTicket = refDataEntityRuntime.createDownloadTicket(item, null, strOSSFileId, true);
+										if(downloadTicket != null) {
+											return downloadTicket;
+										}
+									}
+								}
+							}
+							else {
+								DownloadTicket downloadTicket = refDataEntityRuntime.createDownloadTicket(dtoData, null, strOSSFileId, true);
+								if(downloadTicket != null) {
+									return downloadTicket;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		if(bTryMode) {
+			return null;
+		}
+		
+		throw new Exception(String.format("指定OSS文件数据[%1$s]不存在", strOSSFileId));
+	}
+	
+	public ISysCloudClientUtilRuntime getSysCloudClientUtilRuntime() {
+		if (this.iSysCloudClientUtilRuntime == null) {
+			this.iSysCloudClientUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysCloudClientUtilRuntime.class, false);
+		}
+		return this.iSysCloudClientUtilRuntime;
 	}
 	
 	

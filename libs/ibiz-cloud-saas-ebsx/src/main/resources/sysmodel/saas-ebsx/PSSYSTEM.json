@@ -1,13 +1,13 @@
 {
   "getAllPSApps" : [ {
     "modelref" : true,
+    "path" : "PSSYSAPPS/DCMgr/PSSYSAPP.json"
+  }, {
+    "modelref" : true,
     "path" : "PSSYSAPPS/DCPortal/PSSYSAPP.json"
   }, {
     "modelref" : true,
     "path" : "PSSYSAPPS/SAASMgr/PSSYSAPP.json"
-  }, {
-    "modelref" : true,
-    "path" : "PSSYSAPPS/DCMgr/PSSYSAPP.json"
   } ],
   "getAllPSCodeLists" : [ {
     "modelref" : true,
@@ -1416,16 +1416,16 @@
   } ],
   "getAllPSSysServiceAPIs" : [ {
     "modelref" : true,
-    "path" : "PSSYSSERVICEAPIS/OldPortalAPI.json"
-  }, {
-    "modelref" : true,
-    "path" : "PSSYSSERVICEAPIS/OldCoreAPI.json"
+    "path" : "PSSYSSERVICEAPIS/API.json"
   }, {
     "modelref" : true,
     "path" : "PSSYSSERVICEAPIS/OldAPI.json"
   }, {
     "modelref" : true,
-    "path" : "PSSYSSERVICEAPIS/API.json"
+    "path" : "PSSYSSERVICEAPIS/OldCoreAPI.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/OldPortalAPI.json"
   } ],
   "getAllPSSysTestDatas" : [ {
     "modelref" : true,

@@ -3,7 +3,7 @@ package net.ibizsys.model.control.grid;
 
 
 /**
- * 实体属性表格列配置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO}运行时对象
+ * 实体属性表格列配置模型对象接口
  *
  */
 public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.IPSDEFUIItem{
@@ -12,8 +12,6 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取代码表输出模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_GRIDCOLCLMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
@@ -24,8 +22,6 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	/**
 	 * 获取表格列对齐
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_GRIDCOLALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
@@ -34,8 +30,6 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取列宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_GRIDCOLWIDTH}
 	 * @return
 	 */
 	int getColumnWidth();
@@ -66,8 +60,6 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取是否支持排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isEnableSort();

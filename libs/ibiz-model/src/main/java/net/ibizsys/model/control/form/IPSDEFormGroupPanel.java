@@ -16,8 +16,6 @@ public interface IPSDEFormGroupPanel extends net.ibizsys.model.control.form.IPSD
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_UPDATEDVT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSDEFormGroupPanel extends net.ibizsys.model.control.form.IPSD
 	
 	/**
 	 * 获取内建操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_BUILDINACTION}
 	 * @return
 	 */
 	int getBuildInActions();
@@ -35,8 +31,6 @@ public interface IPSDEFormGroupPanel extends net.ibizsys.model.control.form.IPSD
 	
 	/**
 	 * 获取界面行为组对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup();
@@ -51,8 +45,6 @@ public interface IPSDEFormGroupPanel extends net.ibizsys.model.control.form.IPSD
 	
 	/**
 	 * 获取是否信息面板模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLECOND}
 	 * @return
 	 */
 	boolean isInfoGroupMode();

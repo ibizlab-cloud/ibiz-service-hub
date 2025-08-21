@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "APIID",
+        "codeName" : "APIId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "APINAME",
+        "codeName" : "APIName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -441,6 +449,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "APIID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -560,6 +569,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "APINAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -679,6 +689,7 @@
     "length" : 2000,
     "logicName" : "路径",
     "name" : "APIPATH",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 2000,
     "valueFormat" : "%1$s"
@@ -812,6 +823,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 4,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDERS/DER1N_DST_API_DST_SYSTEM_SYSTEMID.json"
@@ -966,6 +978,7 @@
     "length" : 100,
     "logicName" : "微服务标识",
     "name" : "MSID",
+    "orderValue" : 5,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDERS/DER1N_DST_API_DST_MS_MSID.json"
@@ -1153,6 +1166,7 @@
     "length" : 100,
     "logicName" : "微服务名称",
     "name" : "MSNAME",
+    "orderValue" : 6,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDERS/DER1N_DST_API_DST_MS_MSID.json"
@@ -1326,6 +1340,7 @@
     "length" : 100,
     "logicName" : "服务名",
     "name" : "SERVICENAME",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstAPI/PSDERS/DER1N_DST_API_DST_MS_MSID.json"

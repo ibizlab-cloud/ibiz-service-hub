@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.der;
 
 
 /**
- * 实体关系组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDERGroupDTO}运行时对象
+ * 实体关系组模型对象接口
  *
  */
 public interface IPSDERGroup extends net.ibizsys.model.dataentity.IPSDataEntityObject
@@ -27,8 +27,6 @@ public interface IPSDERGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取分组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERGroupDTO#FIELD_GROUPTAG}
 	 * @return
 	 */
 	java.lang.String getGroupTag();
@@ -36,8 +34,6 @@ public interface IPSDERGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取分组标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERGroupDTO#FIELD_GROUPTAG2}
 	 * @return
 	 */
 	java.lang.String getGroupTag2();

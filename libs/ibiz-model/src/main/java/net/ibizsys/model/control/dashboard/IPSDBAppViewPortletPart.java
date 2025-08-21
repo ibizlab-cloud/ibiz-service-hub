@@ -12,8 +12,6 @@ public interface IPSDBAppViewPortletPart extends net.ibizsys.model.control.dashb
 	
 	/**
 	 * 获取嵌入视图对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSAPPVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getPortletPSAppView();

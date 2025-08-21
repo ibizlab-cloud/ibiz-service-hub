@@ -65,6 +65,7 @@ import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.ds.IPSDEFilterDTO;
 import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
 import net.ibizsys.model.dataentity.unistate.IPSDEUniState;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.runtime.dataentity.action.DEActions;
@@ -888,8 +889,20 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 * @throws Throwable
 	 */
 	default IEntityDTO getDraft(IEntityDTO iEntityDTO) throws Throwable {
-		return (IEntityDTO) this.executeAction(DEActions.GETDRAFT, null, new Object[] { iEntityDTO });
+		return (IEntityDTO)this.executeAction(DEActions.GETDRAFT, null, new Object[] { iEntityDTO });
 	}
+	
+	
+	/**
+	 * 拷贝
+	 * 
+	 * @param iEntityDTO
+	 * @throws Throwable
+	 */
+	default IEntityDTO copy(IEntityDTO iEntityDTO) throws Throwable {
+		return (IEntityDTO)this.executeAction(DEActions.COPY, null, new Object[] { iEntityDTO });
+	}
+	
 
 	/**
 	 * 移除无效的用户输入
@@ -1727,5 +1740,49 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	List<IPSDEField> getDynaStoragePSDEFields(boolean bExtension);
 
 	
+	/**
+	 * 转化数据对象属性值
+	 * @param strFieldName
+	 * @param value
+	 * @return
+	 */
+	Object convertEntityDTOFieldValue(String strFieldName, Object value);
+	
+	
+	/**
+	 * 转化数据对象属性值
+	 * @param iPSDEMethodDTOField
+	 * @param value
+	 * @return
+	 */
+	Object convertEntityDTOFieldValue(IPSDEMethodDTOField iPSDEMethodDTOField, Object value);
+	
+	
+	/**
+	 * 重建拷贝的DTO对象
+	 * 
+	 * @param iEntityDTO
+	 * @param bResetUncopyValues
+	 * @param bFillDefaultValues
+	 * @throws Throwable
+	 */
+	void rebuildCopyEntityDTO(IEntityDTO iEntityDTO, boolean bResetUncopyValues, boolean bFillDefaultValues) throws Throwable;
+	
+	
+	
+	/**
+	 * 获取附件的实体属性集合
+	 * @return
+	 */
+	List<IPSDEField> getAttachmentPSDEFields();
+	
+	
+	/**
+	 * 获取附件的实体属性集合
+	 * 
+	 * @param bExtension
+	 * @return
+	 */
+	List<IPSDEField> getAttachmentPSDEFields(boolean bExtension);
 }	
 

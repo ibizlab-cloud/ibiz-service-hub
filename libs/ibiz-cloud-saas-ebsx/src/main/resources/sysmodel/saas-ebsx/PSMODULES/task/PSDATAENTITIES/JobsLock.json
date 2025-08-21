@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -461,6 +469,7 @@
     "importOrder" : 1000,
     "logicName" : "主键ID",
     "name" : "ID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -592,6 +601,7 @@
     "length" : 30,
     "logicName" : "名称",
     "name" : "NAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -718,6 +728,7 @@
     "length" : 100,
     "logicName" : "持有者",
     "name" : "OWNER",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -831,6 +842,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATE_TIME",
+    "orderValue" : 22,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

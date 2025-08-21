@@ -22,8 +22,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	/**
 	 * 获取编辑模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_EDITFLAG}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcessEditMode}
 	 * @return
 	 */
@@ -32,8 +30,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getFormCodeName();
@@ -41,8 +37,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getFormName();
@@ -50,8 +44,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取处理意见字段
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MEMOFIELD}
 	 * @return
 	 */
 	java.lang.String getMemoField();
@@ -59,8 +51,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBFORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobFormCodeName();
@@ -68,8 +58,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBPSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobFormName();
@@ -77,8 +65,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端附加界面行为组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUAGROUPCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUAGroupCodeName();
@@ -86,8 +72,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能2操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL2FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil2FormCodeName();
@@ -95,8 +79,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能2操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL2PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil2FormName();
@@ -104,8 +86,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能3操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL3FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil3FormCodeName();
@@ -113,8 +93,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能3操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL3PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil3FormName();
@@ -122,8 +100,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能4操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL4FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil4FormCodeName();
@@ -131,8 +107,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能4操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL4PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil4FormName();
@@ -140,8 +114,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能5操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL5FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil5FormCodeName();
@@ -149,8 +121,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能5操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTIL5PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobUtil5FormName();
@@ -158,8 +128,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTILFORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobUtilFormCodeName();
@@ -167,8 +135,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取移动端功能操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBUTILPSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getMobUtilFormName();
@@ -176,8 +142,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取发送通知类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MSGTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.InfomMsgType}
 	 * @return
@@ -188,8 +152,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	/**
 	 * 获取多实例模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MULTIINSTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcMultiInstMode}
 	 * @return
 	 */
@@ -198,8 +160,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -242,8 +202,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取附加界面行为组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UAGROUPCODENAME}
 	 * @return
 	 */
 	java.lang.String getUAGroupCodeName();
@@ -251,8 +209,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能2操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL2FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getUtil2FormCodeName();
@@ -260,8 +216,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能2操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL2PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getUtil2FormName();
@@ -269,8 +223,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能3操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL3FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getUtil3FormCodeName();
@@ -278,8 +230,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能3操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL3PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getUtil3FormName();
@@ -287,8 +237,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能4操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL4FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getUtil4FormCodeName();
@@ -296,8 +244,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能4操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL4PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getUtil4FormName();
@@ -305,8 +251,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能5操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL5FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getUtil5FormCodeName();
@@ -314,8 +258,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能5操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTIL5PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getUtil5FormName();
@@ -323,8 +265,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTILFORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getUtilFormCodeName();
@@ -332,8 +272,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取功能操作表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_UTILPSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getUtilFormName();
@@ -348,8 +286,6 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	
 	/**
 	 * 获取是否发送通知
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_SENDINFORM}
 	 * @return
 	 */
 	boolean isSendInform();

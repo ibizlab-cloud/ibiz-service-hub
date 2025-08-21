@@ -223,6 +223,7 @@
     "codeName" : "UpdateTime",
     "logicName" : "更新时间",
     "name" : "UPDATE_TIME",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {

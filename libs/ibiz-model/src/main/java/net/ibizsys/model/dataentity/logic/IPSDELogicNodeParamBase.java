@@ -13,8 +13,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	/**
 	 * 获取聚合操作模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AGGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
@@ -23,8 +21,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取目标属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMDSTPARAM}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEFNAME}
 	 * @return
 	 */
 	java.lang.String getDstFieldName();
@@ -32,8 +28,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取目标列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTINDEX}
 	 * @return
 	 */
 	int getDstIndex();
@@ -41,8 +35,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取目标列表排序模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
@@ -53,8 +45,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	/**
 	 * 获取逻辑处理参数操作
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamType}
 	 * @return
 	 */
@@ -63,8 +53,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取源属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMSRCPARAM}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCPSDEFNAME}
 	 * @return
 	 */
 	java.lang.String getSrcFieldName();
@@ -72,8 +60,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取源列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCINDEX}
 	 * @return
 	 */
 	int getSrcIndex();
@@ -81,8 +67,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取源列表参数大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCSIZE}
 	 * @return
 	 */
 	int getSrcSize();
@@ -90,8 +74,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取直接值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUE}
 	 * @return
 	 */
 	java.lang.String getSrcValue();
@@ -99,8 +81,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取源值标准数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUESTDDATATYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
@@ -110,8 +90,6 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取源值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamValueType}
 	 * @return

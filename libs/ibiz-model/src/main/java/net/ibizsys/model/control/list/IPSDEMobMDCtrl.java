@@ -14,8 +14,6 @@ public interface IPSDEMobMDCtrl extends net.ibizsys.model.control.list.IPSDEList
 	
 	/**
 	 * 获取界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup();
@@ -30,8 +28,6 @@ public interface IPSDEMobMDCtrl extends net.ibizsys.model.control.list.IPSDEList
 	
 	/**
 	 * 获取界面行为组2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_NO2PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup2();

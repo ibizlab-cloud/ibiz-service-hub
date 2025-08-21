@@ -4,8 +4,6 @@ package net.ibizsys.model.control.chart;
 
 /**
  * 图表序列编码模型对象接口
- * <P>
- * 子接口扩展识别值 {@link #getType}
  *
  */
 public interface IPSChartSeriesEncode extends net.ibizsys.model.control.chart.IPSChartObject{

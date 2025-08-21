@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -707,6 +715,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -806,6 +815,7 @@
     "length" : 100,
     "logicName" : "用户全局名",
     "name" : "USERNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -911,6 +921,7 @@
     "length" : 100,
     "logicName" : "姓名",
     "name" : "PERSONNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1013,6 +1024,7 @@
     "length" : 100,
     "logicName" : "用户工号",
     "name" : "USERCODE",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1114,6 +1126,7 @@
     "length" : 100,
     "logicName" : "登录名",
     "name" : "LOGINNAME",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1213,6 +1226,7 @@
     "length" : 100,
     "logicName" : "密码",
     "name" : "PASSWORD",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1310,6 +1324,7 @@
     "length" : 100,
     "logicName" : "区属",
     "name" : "DOMAINS",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1407,6 +1422,7 @@
     "length" : 100,
     "logicName" : "业务编码",
     "name" : "BCODE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1504,6 +1520,7 @@
     "length" : 100,
     "logicName" : "昵称别名",
     "name" : "NICKNAME",
+    "orderValue" : 18,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1601,6 +1618,7 @@
     "length" : 100,
     "logicName" : "证件号码",
     "name" : "CERTCODE",
+    "orderValue" : 19,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1706,6 +1724,7 @@
     "length" : 20,
     "logicName" : "性别",
     "name" : "SEX",
+    "orderValue" : 19,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSCODELISTS/Gender.json"
@@ -1796,6 +1815,7 @@
     "jsonFormat" : "yyyy-MM-dd",
     "logicName" : "出生日期",
     "name" : "BIRTHDAY",
+    "orderValue" : 20,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1892,6 +1912,7 @@
     "length" : 100,
     "logicName" : "联系方式",
     "name" : "PHONE",
+    "orderValue" : 20,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1989,6 +2010,7 @@
     "length" : 100,
     "logicName" : "邮件",
     "name" : "EMAIL",
+    "orderValue" : 21,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2086,6 +2108,7 @@
     "length" : 100,
     "logicName" : "社交账号",
     "name" : "AVATAR",
+    "orderValue" : 23,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2183,6 +2206,7 @@
     "length" : 255,
     "logicName" : "地址",
     "name" : "ADDR",
+    "orderValue" : 24,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2280,6 +2304,7 @@
     "length" : 255,
     "logicName" : "照片",
     "name" : "USERICON",
+    "orderValue" : 25,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2377,6 +2402,7 @@
     "length" : 100,
     "logicName" : "ip地址",
     "name" : "IPADDR",
+    "orderValue" : 26,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2474,6 +2500,7 @@
     "length" : 100,
     "logicName" : "样式",
     "name" : "THEME",
+    "orderValue" : 27,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2571,6 +2598,7 @@
     "length" : 100,
     "logicName" : "语言",
     "name" : "LANG",
+    "orderValue" : 28,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2668,6 +2696,7 @@
     "length" : 10,
     "logicName" : "字号",
     "name" : "FONTSIZE",
+    "orderValue" : 29,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2765,6 +2794,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 30,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2862,6 +2892,7 @@
     "length" : 100,
     "logicName" : "保留3",
     "name" : "RESERVER3",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2959,6 +2990,7 @@
     "length" : 100,
     "logicName" : "保留2",
     "name" : "RESERVER2",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3056,6 +3088,7 @@
     "length" : 255,
     "logicName" : "保留",
     "name" : "RESERVER",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3139,6 +3172,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 32,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3229,6 +3263,7 @@
     "importOrder" : 1000,
     "logicName" : "超级管理员",
     "name" : "SUPERUSER",
+    "orderValue" : 40,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3324,6 +3359,7 @@
     },
     "logicName" : "逻辑有效",
     "name" : "ENABLE",
+    "orderValue" : 56,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3420,6 +3456,7 @@
     },
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 58,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3516,6 +3553,7 @@
     },
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 59,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3608,6 +3646,7 @@
     "importOrder" : 1000,
     "logicName" : "消息类型",
     "name" : "MSGTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
@@ -3708,6 +3747,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3805,6 +3845,7 @@
     "length" : 100,
     "logicName" : "钉钉用户标识",
     "name" : "DDUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3916,6 +3957,7 @@
     "length" : 10,
     "logicName" : "人员状态",
     "name" : "STATE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSCODELISTS/UserState.json"
@@ -4017,6 +4059,7 @@
     "length" : 100,
     "logicName" : "主部门标识",
     "name" : "MDEPTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4114,6 +4157,7 @@
     "length" : 200,
     "logicName" : "主部门名称",
     "name" : "MDEPTNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4211,6 +4255,7 @@
     "length" : 100,
     "logicName" : "主部门代码",
     "name" : "MDEPTCODE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4308,6 +4353,7 @@
     "length" : 100,
     "logicName" : "钉钉用户标识",
     "name" : "DDUNIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4405,6 +4451,7 @@
     "length" : 100,
     "logicName" : "UAA用户标识",
     "name" : "UAAUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4502,6 +4549,7 @@
     "length" : 100,
     "logicName" : "企业微信用户标识",
     "name" : "WXWORKUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4599,6 +4647,7 @@
     "length" : 100,
     "logicName" : "微信用户标识",
     "name" : "WXWORKUNIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4712,6 +4761,7 @@
     "length" : 100,
     "logicName" : "组织代码",
     "name" : "ORGCODE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4863,6 +4913,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "ORGNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -5000,6 +5051,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

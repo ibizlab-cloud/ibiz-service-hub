@@ -14,8 +14,6 @@ public interface IPSDETreeStaticNode extends net.ibizsys.model.control.tree.IPSD
 	
 	/**
 	 * 获取静态节点值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_NODEVALUE}
 	 * @return
 	 */
 	java.lang.String getNodeValue();
@@ -23,8 +21,6 @@ public interface IPSDETreeStaticNode extends net.ibizsys.model.control.tree.IPSD
 	
 	/**
 	 * 获取节点文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getText();
@@ -32,8 +28,6 @@ public interface IPSDETreeStaticNode extends net.ibizsys.model.control.tree.IPSD
 	
 	/**
 	 * 获取提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -41,8 +35,6 @@ public interface IPSDETreeStaticNode extends net.ibizsys.model.control.tree.IPSD
 	
 	/**
 	 * 获取提示语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_TIPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();

@@ -46,6 +46,12 @@
     "expression" : "t1.`INSTANCENAME`",
     "name" : "INSTANCENAME"
   }, {
+    "expression" : "t1.`PARAM`",
+    "name" : "PARAM"
+  }, {
+    "expression" : "t1.`PARAM2`",
+    "name" : "PARAM2"
+  }, {
     "expression" : "t1.`REALINSTID`",
     "name" : "REALINSTID"
   }, {
@@ -67,6 +73,6 @@
     "expression" : "t1.`WFSTATE`",
     "name" : "WFSTATE"
   } ],
-  "queryCode" : "SELECT\nt1.`APPID`,\nt1.`BUSINESSKEY`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`CURSTEPID`,\nt1.`CURSTEPNAME`,\nt1.`DCSYSTEMID`,\nt1.`DEFINITIONKEY`,\nt1.`DEFINITIONNAME`,\nt1.`ENDTIME`,\nt1.`ENTITYID`,\nt1.`INSTANCEID`,\nt1.`INSTANCENAME`,\nt1.`REALINSTID`,\nt1.`STARTTIME`,\nt1.`STARTUSERID`,\nt1.`STARTUSERNAME`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`,\nt1.`WFSTATE`\nFROM `IBZWFINSTANCE` t1 \n",
+  "queryCode" : "SELECT\nt1.`APPID`,\nt1.`BUSINESSKEY`,\nt1.`CREATEDATE`,\nt1.`CREATEMAN`,\nt1.`CURSTEPID`,\nt1.`CURSTEPNAME`,\nt1.`DCSYSTEMID`,\nt1.`DEFINITIONKEY`,\nt1.`DEFINITIONNAME`,\nt1.`ENDTIME`,\nt1.`ENTITYID`,\nt1.`INSTANCEID`,\nt1.`INSTANCENAME`,\nt1.`PARAM`,\nt1.`PARAM2`,\nt1.`REALINSTID`,\nt1.`STARTTIME`,\nt1.`STARTUSERID`,\nt1.`STARTUSERNAME`,\nt1.`UPDATEDATE`,\nt1.`UPDATEMAN`,\nt1.`WFSTATE`\nFROM `IBZWFINSTANCE` t1 \n",
   "id" : "PSMODULES/workflow/PSDATAENTITIES/WFInstance/PSDEDATAQUERIES/CurUserFinish/PSDEDQCODES/MYSQL5.json"
 }

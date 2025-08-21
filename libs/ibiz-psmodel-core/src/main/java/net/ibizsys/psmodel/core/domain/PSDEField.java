@@ -19,7 +19,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>ALLOWEMPTY</B>&nbsp;允许空值，指定属性是否允许空值输入，属性是否允许空值输入是由处理逻辑检查，在关系数据库表中除了预置的系统属性之外，其它字段都允许为空
+     * <B>ALLOWEMPTY</B>&nbsp;允许空值，是否允许空值输入，空值输入检查由业务层处理
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -99,14 +99,14 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AUDITINFOFORMAT</B>&nbsp;审计信息格式，指定属性的审计信息格式
+     * <B>AUDITINFOFORMAT</B>&nbsp;审计信息格式
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_AUDITINFOFORMAT = "auditinfoformat";
 
     /**
-     * 设置 审计信息格式，详细说明：{@link #FIELD_AUDITINFOFORMAT}
+     * 设置 审计信息格式
      * 
      * @param auditInfoFormat
      * 
@@ -150,7 +150,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 审计信息格式，详细说明：{@link #FIELD_AUDITINFOFORMAT}
+     * 设置 审计信息格式
      * <P>
      * 等同 {@link #setAuditInfoFormat}
      * @param auditInfoFormat
@@ -242,7 +242,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHECKRECURSION</B>&nbsp;检查递归，如属性为实体自关系的连接属性，可指定属性是否进行递归检查，默认为【否】
+     * <B>CHECKRECURSION</B>&nbsp;检查递归，对实体自关系的连接属性是否进行递归检查，默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -322,7 +322,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定属性的代码标识，需要在属性所在的实体中具有唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，代码标识，需在所在的实体中具有唯一性
      * <P>
      * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -812,7 +812,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEFAULTVALUE</B>&nbsp;默认值，指定属性的默认值，如指定【默认值类型】则作为默认值类型的参数，否则作为直接值处理
+     * <B>DEFAULTVALUE</B>&nbsp;默认值，如指定【默认值类型】则作为默认值类型的参数，否则为直接默认值
      * <P>
      * 字符串：最大长度 200
      */
@@ -875,14 +875,14 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEFTYPE</B>&nbsp;属性类型，指定属性的类型
+     * <B>DEFTYPE</B>&nbsp;属性类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFType} 
      */
     public final static String FIELD_DEFTYPE = "deftype";
 
     /**
-     * 设置 属性类型，详细说明：{@link #FIELD_DEFTYPE}
+     * 设置 属性类型
      * 
      * @param dEFType
      * 
@@ -926,7 +926,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性类型，详细说明：{@link #FIELD_DEFTYPE}
+     * 设置 属性类型
      * <P>
      * 等同 {@link #setDEFType}
      * @param dEFType
@@ -938,7 +938,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 属性类型，详细说明：{@link #FIELD_DEFTYPE}
+     * 设置 属性类型
      * <P>
      * 等同 {@link #setDEFType}
      * @param dEFType
@@ -1100,7 +1100,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DUPCHECKMODE</B>&nbsp;重复值检查，指定属性重复值检查的模式
+     * <B>DUPCHECKMODE</B>&nbsp;重复值检查，属性重复值检查模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFDupCheckMode} 
      */
@@ -2503,14 +2503,14 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FORMULAFIELDS</B>&nbsp;公式属性参数，指定公式属性格式参数集合，多个参数使用分号（；）分隔
+     * <B>FORMULAFIELDS</B>&nbsp;计算式属性参数，指定计算式属性的格式参数（属性）集合，多个参数使用分号【；】分隔
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_FORMULAFIELDS = "formulafields";
 
     /**
-     * 设置 公式属性参数，详细说明：{@link #FIELD_FORMULAFIELDS}
+     * 设置 计算式属性参数，详细说明：{@link #FIELD_FORMULAFIELDS}
      * 
      * @param formulaFields
      * 
@@ -2521,7 +2521,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 公式属性参数  
+     * 获取 计算式属性参数  
      * @return
      */
     @JsonIgnore
@@ -2534,7 +2534,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 公式属性参数 是否指定值，包括空值
+     * 判断 计算式属性参数 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2546,7 +2546,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 公式属性参数
+     * 重置 计算式属性参数
      */
     @JsonIgnore
     public void resetFormulaFields(){
@@ -2554,7 +2554,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 公式属性参数，详细说明：{@link #FIELD_FORMULAFIELDS}
+     * 设置 计算式属性参数，详细说明：{@link #FIELD_FORMULAFIELDS}
      * <P>
      * 等同 {@link #setFormulaFields}
      * @param formulaFields
@@ -2566,14 +2566,14 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FORMULAFORMAT</B>&nbsp;公式属性格式，指定公式属性格式，如存在公式属性参数，可使用java字符串格式化占位符号： %1$s、 %2$s...进行参数占位
+     * <B>FORMULAFORMAT</B>&nbsp;计算式属性格式，指定计算式属性格式，如存在公式属性参数，可使用java字符串格式化占位符号： %1$s、 %2$s...进行参数占位
      * <P>
      * 字符串：最大长度 500
      */
     public final static String FIELD_FORMULAFORMAT = "formulaformat";
 
     /**
-     * 设置 公式属性格式，详细说明：{@link #FIELD_FORMULAFORMAT}
+     * 设置 计算式属性格式，详细说明：{@link #FIELD_FORMULAFORMAT}
      * 
      * @param formulaFormat
      * 
@@ -2584,7 +2584,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 公式属性格式  
+     * 获取 计算式属性格式  
      * @return
      */
     @JsonIgnore
@@ -2597,7 +2597,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 公式属性格式 是否指定值，包括空值
+     * 判断 计算式属性格式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2609,7 +2609,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 公式属性格式
+     * 重置 计算式属性格式
      */
     @JsonIgnore
     public void resetFormulaFormat(){
@@ -2617,7 +2617,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 公式属性格式，详细说明：{@link #FIELD_FORMULAFORMAT}
+     * 设置 计算式属性格式，详细说明：{@link #FIELD_FORMULAFORMAT}
      * <P>
      * 等同 {@link #setFormulaFormat}
      * @param formulaFormat
@@ -4744,7 +4744,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PKEY</B>&nbsp;主键属性，指定属性的主键模式，默认为【否】
+     * <B>PKEY</B>&nbsp;主键属性，指定属性的主键模式，默认为【否】。每个实体都需要指定一个主键属性
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FieldPKeyMode} 
      */
@@ -5245,9 +5245,11 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDATATYPEID</B>&nbsp;数据类型，指定实体的数据类型
+     * <B>PSDATATYPEID</B>&nbsp;数据类型，指定属性的数据类型
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFDataType} 
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFDataType} 
      */
     public final static String FIELD_PSDATATYPEID = "psdatatypeid";
 
@@ -5308,7 +5310,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDATATYPENAME</B>&nbsp;数据类型，指定实体的数据类型
+     * <B>PSDATATYPENAME</B>&nbsp;数据类型，指定属性的数据类型
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDATATYPEID}
      */
@@ -5436,7 +5438,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDEFIELDNAME</B>&nbsp;属性标识，指定属性的标识，需要在属性所在的实体中具有唯一性
      * <P>
-     * 字符串：最大长度 100，由字母、数字、下划线组成，且开始必须为字母
+     * 字符串：最大长度 100，由大写字母、数字、下划线组成，且开始必须为字母
      */
     public final static String FIELD_PSDEFIELDNAME = "psdefieldname";
 
@@ -9342,14 +9344,14 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VIEWCOLLEVEL</B>&nbsp;视图列级别，属性在多视图模式的归属，未指定时物理属性为【2级（无行外数据）】，其余为全部数据
+     * <B>VIEWCOLLEVEL</B>&nbsp;查询列级别，属性的查询模式，未指定时物理属性为【2级（无行外数据）】，其余为全部数据
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFieldViewColLevel} 
      */
     public final static String FIELD_VIEWCOLLEVEL = "viewcollevel";
 
     /**
-     * 设置 视图列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
+     * 设置 查询列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
      * 
      * @param viewColLevel
      * 
@@ -9360,7 +9362,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 视图列级别  
+     * 获取 查询列级别  
      * @return
      */
     @JsonIgnore
@@ -9373,7 +9375,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 视图列级别 是否指定值，包括空值
+     * 判断 查询列级别 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -9385,7 +9387,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 视图列级别
+     * 重置 查询列级别
      */
     @JsonIgnore
     public void resetViewColLevel(){
@@ -9393,7 +9395,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 视图列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
+     * 设置 查询列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
      * <P>
      * 等同 {@link #setViewColLevel}
      * @param viewColLevel
@@ -9405,7 +9407,7 @@ public class PSDEField extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 视图列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
+     * 设置 查询列级别，详细说明：{@link #FIELD_VIEWCOLLEVEL}
      * <P>
      * 等同 {@link #setViewColLevel}
      * @param viewColLevel

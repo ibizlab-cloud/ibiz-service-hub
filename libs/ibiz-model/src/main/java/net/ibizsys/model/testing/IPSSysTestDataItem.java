@@ -3,7 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试数据项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO}运行时对象
+ * 系统测试数据项模型对象接口
  *
  */
 public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -28,8 +26,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取相关实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_PSSYSTDITEMNAME}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -58,8 +54,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取引用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_REFPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet();
@@ -74,8 +68,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取引用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_REFPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getRefPSDataEntity();
@@ -91,8 +83,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -101,8 +91,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_VALUE}
 	 * @return
 	 */
 	java.lang.String getValue();
@@ -110,8 +98,6 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTDItemDTO#FIELD_VALUETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestDataItemValueType}
 	 * @return

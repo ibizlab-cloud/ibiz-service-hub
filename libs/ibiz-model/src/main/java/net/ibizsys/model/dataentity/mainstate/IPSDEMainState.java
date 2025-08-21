@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.mainstate;
 
 
 /**
- * 实体主状态模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO}运行时对象
+ * 实体主状态模型对象接口
  *
  */
 public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取行为拒绝消息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_DEACTIONDENYMSG}
 	 * @return
 	 */
 	java.lang.String getActionDenyMsg();
@@ -28,8 +26,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取进入实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_ENTERPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getEnterPSDEAction();
@@ -53,8 +49,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_PSDEMAINSTATENAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -62,8 +56,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取主状态标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_MSTAG}
 	 * @return
 	 */
 	java.lang.String getMSTag();
@@ -80,8 +72,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取操作标识拒绝消息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_DEOPPRIVDENYMSG}
 	 * @return
 	 */
 	java.lang.String getOPPrivDenyMsg();
@@ -180,8 +170,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取状态2值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_MSVALUE2}
 	 * @return
 	 */
 	java.lang.String getState2Value();
@@ -189,8 +177,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取状态3值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_MSVALUE3}
 	 * @return
 	 */
 	java.lang.String getState3Value();
@@ -198,8 +184,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取状态值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_MSVALUE}
 	 * @return
 	 */
 	java.lang.String getStateValue();
@@ -207,8 +191,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取视图操作控制
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_VIEWACTIONS}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEViewAction}
 	 * @return
@@ -227,8 +209,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否行为允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_ALLOWMODE}
 	 * @return
 	 */
 	boolean isActionAllowMode();
@@ -236,8 +216,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否默认主状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_DEFAULTMODE}
 	 * @return
 	 */
 	boolean isDefault();
@@ -245,8 +223,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否启用视图操作控制
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_ENABLEVIEWACTIONS}
 	 * @return
 	 */
 	boolean isEnableViewActions();
@@ -254,8 +230,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否属性允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_FIELDALLOWMODE}
 	 * @return
 	 */
 	boolean isFieldAllowMode();
@@ -263,8 +237,6 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否操作标识允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateDTO#FIELD_OPPRIVALLOWMODE}
 	 * @return
 	 */
 	boolean isOPPrivAllowMode();

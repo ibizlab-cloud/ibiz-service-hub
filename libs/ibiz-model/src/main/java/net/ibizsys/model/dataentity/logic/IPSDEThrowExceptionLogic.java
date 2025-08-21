@@ -14,8 +14,6 @@ public interface IPSDEThrowExceptionLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取错误代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM8}
 	 * @return
 	 */
 	int getErrorCode();
@@ -23,8 +21,6 @@ public interface IPSDEThrowExceptionLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取错误信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.String getErrorInfo();
@@ -32,8 +28,6 @@ public interface IPSDEThrowExceptionLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取异常对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM11}
 	 * @return
 	 */
 	java.lang.String getExceptionObj();
@@ -41,8 +35,6 @@ public interface IPSDEThrowExceptionLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取异常参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getExceptionParam();

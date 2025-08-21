@@ -14,8 +14,6 @@ public interface IPSDEFVRValueRangeCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取附加主实体属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EXTMAJORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getExtMajorPSDEField();
@@ -30,8 +28,6 @@ public interface IPSDEFVRValueRangeCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取附加属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EXTMINORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getExtPSDEField();
@@ -46,8 +42,6 @@ public interface IPSDEFVRValueRangeCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取主实体结果集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MAJORPSDEDSTID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getMajorPSDEDataSet();
@@ -62,8 +56,6 @@ public interface IPSDEFVRValueRangeCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取主实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MAJORPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getMajorPSDataEntity();
@@ -78,8 +70,6 @@ public interface IPSDEFVRValueRangeCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取是否始终检查
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isAlwaysCheck();

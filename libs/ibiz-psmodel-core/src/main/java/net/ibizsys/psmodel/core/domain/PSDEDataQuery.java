@@ -19,7 +19,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定数据查询的代码标识，需要在所在的实体中具有唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，代码标识，需在当前实体中具备唯一性
      * <P>
      * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -206,68 +206,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCODE</B>&nbsp;自定义代码
-     */
-    public final static String FIELD_CUSTOMCODE = "customcode";
-
-    /**
-     * 设置 自定义代码
-     * 
-     * @param customCode
-     * 
-     */
-    @JsonProperty(FIELD_CUSTOMCODE)
-    public void setCustomCode(String customCode){
-        this.set(FIELD_CUSTOMCODE, customCode);
-    }
-    
-    /**
-     * 获取 自定义代码  
-     * @return
-     */
-    @JsonIgnore
-    public String getCustomCode(){
-        Object objValue = this.get(FIELD_CUSTOMCODE);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 自定义代码 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isCustomCodeDirty(){
-        if(this.contains(FIELD_CUSTOMCODE)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 自定义代码
-     */
-    @JsonIgnore
-    public void resetCustomCode(){
-        this.reset(FIELD_CUSTOMCODE);
-    }
-
-    /**
-     * 设置 自定义代码
-     * <P>
-     * 等同 {@link #setCustomCode}
-     * @param customCode
-     */
-    @JsonIgnore
-    public PSDEDataQuery customcode(String customCode){
-        this.setCustomCode(customCode);
-        return this;
-    }
-
-    /**
-     * <B>CUSTOMMODE</B>&nbsp;自定义代码，指定数据查询是否启用自定义代码模式，自定义代码满足个性化或复杂应用场景，未定义时为【否】
+     * <B>CUSTOMMODE</B>&nbsp;自定义代码，是否启用自定义代码模式，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -347,7 +286,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEFAULTMODE</B>&nbsp;默认查询，指定数据查询是否作为当前实体的默认数据查询，未指定时为【否】
+     * <B>DEFAULTMODE</B>&nbsp;默认查询，是否作为当前实体的默认数据查询，未指定时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -1354,7 +1293,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDATAQUERYNAME</B>&nbsp;查询标识，指定数据查询的标识，需要在所在的实体中具有唯一性
+     * <B>PSDEDATAQUERYNAME</B>&nbsp;查询标识，数据查询的标识，需要在所在的实体中具有唯一性
      * <P>
      * 字符串：最大长度 200，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -1578,14 +1517,14 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEID</B>&nbsp;实体
+     * <B>PSDEID</B>&nbsp;所属实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
     public final static String FIELD_PSDEID = "psdeid";
 
     /**
-     * 设置 实体
+     * 设置 所属实体
      * 
      * @param pSDEId
      * 
@@ -1596,7 +1535,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体  
+     * 获取 所属实体  
      * @return
      */
     @JsonIgnore
@@ -1609,7 +1548,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体 是否指定值，包括空值
+     * 判断 所属实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1621,7 +1560,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体
+     * 重置 所属实体
      */
     @JsonIgnore
     public void resetPSDEId(){
@@ -1629,7 +1568,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体
+     * 设置 所属实体
      * <P>
      * 等同 {@link #setPSDEId}
      * @param pSDEId
@@ -1641,7 +1580,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体，包括引用对象的其它关系属性
+     * 设置 所属实体，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEId}
      * @param pSDataEntity 引用对象
@@ -1660,159 +1599,14 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEMAINSTATEID</B>&nbsp;主状态
-     * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEMainState} 
-     */
-    public final static String FIELD_PSDEMAINSTATEID = "psdemainstateid";
-
-    /**
-     * 设置 主状态
-     * 
-     * @param pSDEMainStateId
-     * 
-     */
-    @JsonProperty(FIELD_PSDEMAINSTATEID)
-    public void setPSDEMainStateId(String pSDEMainStateId){
-        this.set(FIELD_PSDEMAINSTATEID, pSDEMainStateId);
-    }
-    
-    /**
-     * 获取 主状态  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDEMainStateId(){
-        Object objValue = this.get(FIELD_PSDEMAINSTATEID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 主状态 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDEMainStateIdDirty(){
-        if(this.contains(FIELD_PSDEMAINSTATEID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 主状态
-     */
-    @JsonIgnore
-    public void resetPSDEMainStateId(){
-        this.reset(FIELD_PSDEMAINSTATEID);
-    }
-
-    /**
-     * 设置 主状态
-     * <P>
-     * 等同 {@link #setPSDEMainStateId}
-     * @param pSDEMainStateId
-     */
-    @JsonIgnore
-    public PSDEDataQuery psdemainstateid(String pSDEMainStateId){
-        this.setPSDEMainStateId(pSDEMainStateId);
-        return this;
-    }
-
-    /**
-     * 设置 主状态，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setPSDEMainStateId}
-     * @param pSDEMainState 引用对象
-     */
-    @JsonIgnore
-    public PSDEDataQuery psdemainstateid(PSDEMainState pSDEMainState){
-        if(pSDEMainState == null){
-            this.setPSDEMainStateId(null);
-            this.setPSDEMainStateName(null);
-        }
-        else{
-            this.setPSDEMainStateId(pSDEMainState.getPSDEMainStateId());
-            this.setPSDEMainStateName(pSDEMainState.getPSDEMainStateName());
-        }
-        return this;
-    }
-
-    /**
-     * <B>PSDEMAINSTATENAME</B>&nbsp;主状态
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEMAINSTATEID}
-     */
-    public final static String FIELD_PSDEMAINSTATENAME = "psdemainstatename";
-
-    /**
-     * 设置 主状态
-     * 
-     * @param pSDEMainStateName
-     * 
-     */
-    @JsonProperty(FIELD_PSDEMAINSTATENAME)
-    public void setPSDEMainStateName(String pSDEMainStateName){
-        this.set(FIELD_PSDEMAINSTATENAME, pSDEMainStateName);
-    }
-    
-    /**
-     * 获取 主状态  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDEMainStateName(){
-        Object objValue = this.get(FIELD_PSDEMAINSTATENAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 主状态 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDEMainStateNameDirty(){
-        if(this.contains(FIELD_PSDEMAINSTATENAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 主状态
-     */
-    @JsonIgnore
-    public void resetPSDEMainStateName(){
-        this.reset(FIELD_PSDEMAINSTATENAME);
-    }
-
-    /**
-     * 设置 主状态
-     * <P>
-     * 等同 {@link #setPSDEMainStateName}
-     * @param pSDEMainStateName
-     */
-    @JsonIgnore
-    public PSDEDataQuery psdemainstatename(String pSDEMainStateName){
-        this.setPSDEMainStateName(pSDEMainStateName);
-        return this;
-    }
-
-    /**
-     * <B>PSDENAME</B>&nbsp;实体
+     * <B>PSDENAME</B>&nbsp;所属实体
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEID}
      */
     public final static String FIELD_PSDENAME = "psdename";
 
     /**
-     * 设置 实体
+     * 设置 所属实体
      * 
      * @param pSDEName
      * 
@@ -1823,7 +1617,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体  
+     * 获取 所属实体  
      * @return
      */
     @JsonIgnore
@@ -1836,7 +1630,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体 是否指定值，包括空值
+     * 判断 所属实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1848,7 +1642,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体
+     * 重置 所属实体
      */
     @JsonIgnore
     public void resetPSDEName(){
@@ -1856,7 +1650,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体
+     * 设置 所属实体
      * <P>
      * 等同 {@link #setPSDEName}
      * @param pSDEName
@@ -1948,7 +1742,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>QUERYVIEWFLAG</B>&nbsp;从视图查询，指定数据查询是否从视图查询，如直接使用外部视图数据源时就无需还原原本的实体及关系，未定义时为【否】
+     * <B>QUERYVIEWFLAG</B>&nbsp;从视图查询，指定是否从数据视图中查询，如直接使用外部视图则无需还原实体及关系，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -2850,7 +2644,7 @@ public class PSDEDataQuery extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VIEWCOLLEVEL</B>&nbsp;选择列级别，支持数据查询选择的列级别，未定义时按默认处理。注意默认处理只包括实体中定义为【查询输出】的属性，而非全部属性
+     * <B>VIEWCOLLEVEL</B>&nbsp;选择列级别，支持数据查询选择列级别，未定义时按默认处理。默认为实体中定义【查询输出】的属性，而非全部
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDataQueryViewLevel} 
      */

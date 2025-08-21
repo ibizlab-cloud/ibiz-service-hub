@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dataexport;
 
 
 /**
- * 实体数据导出数据项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO}运行时对象
+ * 实体数据导出数据项模型对象接口
  *
  */
 public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取水平对齐
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_ALIGN}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
@@ -100,8 +98,6 @@ public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();

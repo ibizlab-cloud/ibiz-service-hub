@@ -14,8 +14,6 @@ public interface IPSDEScriptAction extends net.ibizsys.model.dataentity.action.I
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();

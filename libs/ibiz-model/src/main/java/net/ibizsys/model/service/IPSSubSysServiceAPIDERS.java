@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口实体关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO}运行时对象
+ * 外部系统服务接口实体关系模型对象接口
  *
  */
 public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObject{
@@ -26,8 +26,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取主接口实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_PPSSUBSYSSADEID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getMajorPSSubSysServiceAPIDE();
@@ -42,8 +40,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取主控排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_ORDERVALUE}
 	 * @return
 	 */
 	int getMasterOrder();
@@ -51,8 +47,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取从接口实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_CPSSUBSYSSADEID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getMinorPSSubSysServiceAPIDE();
@@ -67,8 +61,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取关系项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_CHILDFILTER}
 	 * @return
 	 */
 	java.lang.String getParentFilter();
@@ -76,8 +68,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取关系标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_RSTAG}
 	 * @return
 	 */
 	java.lang.String getRSTag();
@@ -85,8 +75,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取关系标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_RSTAG2}
 	 * @return
 	 */
 	java.lang.String getRSTag2();
@@ -94,8 +82,6 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	
 	/**
 	 * 获取是否数组模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADERSDTO#FIELD_ARRAYFLAG}
 	 * @return
 	 */
 	boolean isArray();

@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表体系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBISchemeDTO}运行时对象
+ * 智能报表体系模型对象接口
  *
  */
 public interface IPSSysBIScheme extends net.ibizsys.model.bi.IPSBIScheme
@@ -97,8 +97,6 @@ public interface IPSSysBIScheme extends net.ibizsys.model.bi.IPSBIScheme
 	
 	/**
 	 * 获取对象名称转化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBISchemeDTO#FIELD_OBJNAMECASE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return

@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEUAGROUP</B>实体界面行为组 模型传输对象
@@ -1997,14 +2001,14 @@ public class PSDEUAGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体界面行为组成员 成员集合
+     *  界面行为组成员 成员集合
      */
     public final static String FIELD_PSDEUAGRPDETAILS = "psdeuagrpdetails";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEUAGroupDetail> psdeuagrpdetails;
 
     /**
-     * 获取 实体界面行为组成员 成员集合
+     * 获取 界面行为组成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEUAGRPDETAILS)
@@ -2013,7 +2017,7 @@ public class PSDEUAGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体界面行为组成员 成员集合  
+     * 设置 界面行为组成员 成员集合  
      * @param psdeuagrpdetails
      */
     @JsonProperty(FIELD_PSDEUAGRPDETAILS)
@@ -2022,7 +2026,7 @@ public class PSDEUAGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体界面行为组成员 成员集合，不存在时建立集合对象
+     * 获取 界面行为组成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

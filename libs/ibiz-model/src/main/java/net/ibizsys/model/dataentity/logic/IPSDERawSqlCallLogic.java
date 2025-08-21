@@ -14,8 +14,6 @@ public interface IPSDERawSqlCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDERawSqlCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取数据库体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSDBSCHEMEID}
 	 * @return
 	 */
 	net.ibizsys.model.database.IPSSysDBScheme getPSSysDBScheme();
@@ -46,8 +42,6 @@ public interface IPSDERawSqlCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取SQL代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getSql();
@@ -55,8 +49,6 @@ public interface IPSDERawSqlCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取是否执行结果填充目标参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isFillDstLogicParam();
@@ -64,8 +56,6 @@ public interface IPSDERawSqlCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取是否忽略重置目标参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM7}
 	 * @return
 	 */
 	boolean isIgnoreResetDstLogicParam();

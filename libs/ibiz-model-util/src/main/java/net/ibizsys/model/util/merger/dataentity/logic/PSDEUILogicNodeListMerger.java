@@ -54,6 +54,8 @@ public class PSDEUILogicNodeListMerger extends net.ibizsys.model.util.merger.PSM
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDEActionLogicImpl.class, false);
 			case "DEBUGPARAM":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDebugParamLogicImpl.class, false);
+			case "DECISION":
+				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDecisionLogicImpl.class, false);
 			case "DEDATASET":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIDEDataSetLogicImpl.class, false);
 			case "DELOGIC":
@@ -64,6 +66,8 @@ public class PSDEUILogicNodeListMerger extends net.ibizsys.model.util.merger.PSM
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIEndLogicImpl.class, false);
 			case "LOOPSUBCALL":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUILoopSubCallLogicImpl.class, false);
+			case "MEMO":
+				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIMemoLogicImpl.class, false);
 			case "MSGBOX":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIMsgBoxLogicImpl.class, false);
 			case "PFPLUGIN":

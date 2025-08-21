@@ -2416,14 +2416,14 @@ public class PSSysUserRole extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统用户角色资源 成员集合
+     *  系统角色资源能力 成员集合
      */
     public final static String FIELD_PSSYSUSERROLERESES = "pssysuserroleres";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysUserRoleRes> pssysuserroleres;
 
     /**
-     * 获取 系统用户角色资源 成员集合
+     * 获取 系统角色资源能力 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSUSERROLERESES)
@@ -2432,7 +2432,7 @@ public class PSSysUserRole extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统用户角色资源 成员集合  
+     * 设置 系统角色资源能力 成员集合  
      * @param pssysuserroleres
      */
     @JsonProperty(FIELD_PSSYSUSERROLERESES)
@@ -2441,7 +2441,7 @@ public class PSSysUserRole extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统用户角色资源 成员集合，不存在时建立集合对象
+     * 获取 系统角色资源能力 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

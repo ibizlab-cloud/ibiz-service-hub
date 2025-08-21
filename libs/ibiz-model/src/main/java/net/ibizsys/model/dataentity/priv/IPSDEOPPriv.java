@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.priv;
 
 
 /**
- * 实体操作标识模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO}运行时对象
+ * 实体操作标识模型对象接口
  *
  */
 public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -28,8 +26,6 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取映射实体操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_MAPPSDEOPPRIVNAME}
 	 * @return
 	 */
 	java.lang.String getMapPSDEOPPrivName();
@@ -37,8 +33,6 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取映射关系对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_PSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getMapPSDER();
@@ -67,8 +61,6 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统统一资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getMapPSSysUniRes();
@@ -89,9 +81,30 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	
 	/**
-	 * 获取是否映射系统统一资源
+	 * 获取操作标识类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_MAPSYSUNIRESMODE}
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEOPPrivType}
+	 * @return
+	 */
+	java.lang.String getOPPrivType();
+	
+	
+	/**
+	 * 获取属性组
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroup();
+
+
+	/**
+	 * 获取属性组，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroupMust();
+	
+	
+	/**
+	 * 获取是否映射系统统一资源
 	 * @return
 	 */
 	boolean isMapSysUniRes();
@@ -99,8 +112,6 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否系统保留
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEOPPrivDTO#FIELD_SYSTEMFLAG}
 	 * @return
 	 */
 	boolean isSystemReserved();

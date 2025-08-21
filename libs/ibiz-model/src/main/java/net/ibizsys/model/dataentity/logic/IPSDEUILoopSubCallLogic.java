@@ -14,8 +14,6 @@ public interface IPSDEUILoopSubCallLogic extends net.ibizsys.model.dataentity.lo
 	
 	/**
 	 * 获取填充逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParam();
@@ -30,8 +28,6 @@ public interface IPSDEUILoopSubCallLogic extends net.ibizsys.model.dataentity.lo
 	
 	/**
 	 * 获取列表参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getSrcPSDEUILogicParam();

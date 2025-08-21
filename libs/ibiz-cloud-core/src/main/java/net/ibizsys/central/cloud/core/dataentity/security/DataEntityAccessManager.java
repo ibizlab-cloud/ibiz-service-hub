@@ -1015,4 +1015,9 @@ public class DataEntityAccessManager extends net.ibizsys.central.dataentity.secu
 		}
 
 	}
+	
+	@Override
+	public void removeUnauthorizedFields(IEmployeeContext iEmployeeContext, List<IEntityDTO> entityDTOList) throws Exception {
+		
+	}
 }

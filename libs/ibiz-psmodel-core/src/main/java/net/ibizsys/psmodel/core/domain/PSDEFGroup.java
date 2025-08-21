@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDEFGROUP</B>实体属性组 模型传输对象
  * <P>
- * 实体属性组模型，在所在实体中定义包含实体属性的组对象。属性组成员可以显示指定，也可以通过指定编辑表单提取表单项的属性。实体属性组目前可应用在应用实体、服务接口实体的属性剪裁
+ * 实体属性组模型，组合所在实体的属性对象
  */
 public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -599,7 +599,7 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GROUPTYPE</B>&nbsp;属性组类型，指定属性组的成员类型，未定义时为【指定属性】
+     * <B>GROUPTYPE</B>&nbsp;属性组类型，指定属性组的成员类型，默认为【指定属性】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEFGroupType} 
      */
@@ -1437,6 +1437,151 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEFGroup psdeformname(String pSDEFormName){
         this.setPSDEFormName(pSDEFormName);
+        return this;
+    }
+
+    /**
+     * <B>PSDEGRIDID</B>&nbsp;实体表格
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEGrid} 
+     */
+    public final static String FIELD_PSDEGRIDID = "psdegridid";
+
+    /**
+     * 设置 实体表格
+     * 
+     * @param pSDEGridId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEGRIDID)
+    public void setPSDEGridId(String pSDEGridId){
+        this.set(FIELD_PSDEGRIDID, pSDEGridId);
+    }
+    
+    /**
+     * 获取 实体表格  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEGridId(){
+        Object objValue = this.get(FIELD_PSDEGRIDID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体表格 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEGridIdDirty(){
+        if(this.contains(FIELD_PSDEGRIDID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体表格
+     */
+    @JsonIgnore
+    public void resetPSDEGridId(){
+        this.reset(FIELD_PSDEGRIDID);
+    }
+
+    /**
+     * 设置 实体表格
+     * <P>
+     * 等同 {@link #setPSDEGridId}
+     * @param pSDEGridId
+     */
+    @JsonIgnore
+    public PSDEFGroup psdegridid(String pSDEGridId){
+        this.setPSDEGridId(pSDEGridId);
+        return this;
+    }
+
+    /**
+     * 设置 实体表格，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEGridId}
+     * @param pSDEGrid 引用对象
+     */
+    @JsonIgnore
+    public PSDEFGroup psdegridid(PSDEGrid pSDEGrid){
+        if(pSDEGrid == null){
+            this.setPSDEGridId(null);
+            this.setPSDEGridName(null);
+        }
+        else{
+            this.setPSDEGridId(pSDEGrid.getPSDEGridId());
+            this.setPSDEGridName(pSDEGrid.getPSDEGridName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEGRIDNAME</B>&nbsp;实体表格
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEGRIDID}
+     */
+    public final static String FIELD_PSDEGRIDNAME = "psdegridname";
+
+    /**
+     * 设置 实体表格
+     * 
+     * @param pSDEGridName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEGRIDNAME)
+    public void setPSDEGridName(String pSDEGridName){
+        this.set(FIELD_PSDEGRIDNAME, pSDEGridName);
+    }
+    
+    /**
+     * 获取 实体表格  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEGridName(){
+        Object objValue = this.get(FIELD_PSDEGRIDNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体表格 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEGridNameDirty(){
+        if(this.contains(FIELD_PSDEGRIDNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体表格
+     */
+    @JsonIgnore
+    public void resetPSDEGridName(){
+        this.reset(FIELD_PSDEGRIDNAME);
+    }
+
+    /**
+     * 设置 实体表格
+     * <P>
+     * 等同 {@link #setPSDEGridName}
+     * @param pSDEGridName
+     */
+    @JsonIgnore
+    public PSDEFGroup psdegridname(String pSDEGridName){
+        this.setPSDEGridName(pSDEGridName);
         return this;
     }
 
@@ -2574,14 +2719,14 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体属性组成员 成员集合
+     *  属性组成员 成员集合
      */
     public final static String FIELD_PSDEFGROUPDETAILS = "psdefgroupdetails";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFGroupDetail> psdefgroupdetails;
 
     /**
-     * 获取 实体属性组成员 成员集合
+     * 获取 属性组成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFGROUPDETAILS)
@@ -2590,7 +2735,7 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体属性组成员 成员集合  
+     * 设置 属性组成员 成员集合  
      * @param psdefgroupdetails
      */
     @JsonProperty(FIELD_PSDEFGROUPDETAILS)
@@ -2599,7 +2744,7 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体属性组成员 成员集合，不存在时建立集合对象
+     * 获取 属性组成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

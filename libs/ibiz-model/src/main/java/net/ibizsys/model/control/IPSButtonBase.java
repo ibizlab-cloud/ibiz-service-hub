@@ -13,8 +13,6 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取边框样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BORDERSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
@@ -23,8 +21,6 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取按钮直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_RAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getButtonCssStyle();
@@ -39,8 +35,6 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取按钮样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DETAILSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
@@ -65,8 +59,6 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取图标对齐
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ICONALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonIconAlign}
 	 * @return
 	 */
@@ -82,4 +74,18 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	java.lang.String getRenderMode();
 	
 	java.lang.String getTooltip();
+	
+	
+	/**
+	 * 获取操作提示语言资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
+
+
+	/**
+	 * 获取操作提示语言资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageResMust();
 }

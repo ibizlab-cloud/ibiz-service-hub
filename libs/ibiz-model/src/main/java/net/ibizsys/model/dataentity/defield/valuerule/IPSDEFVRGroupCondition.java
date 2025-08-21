@@ -15,8 +15,6 @@ public interface IPSDEFVRGroupCondition extends net.ibizsys.model.dataentity.def
 	/**
 	 * 获取组合条件操作
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_GROUPOP}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */

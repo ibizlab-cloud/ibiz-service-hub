@@ -41,8 +41,6 @@ public interface IPSSubViewType extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取标准视图类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSVIEWTYPEID}
 	 * @return
 	 */
 	java.lang.String getViewType();
@@ -57,8 +55,6 @@ public interface IPSSubViewType extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否全局默认替换
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_REPDEFAULT}
 	 * @return
 	 */
 	boolean isReplaceDefault();

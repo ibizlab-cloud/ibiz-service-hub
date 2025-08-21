@@ -285,6 +285,69 @@ public class PSSysAIFactory extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>AIPLATFORMTYPE</B>&nbsp;AI平台
+     * <P>
+     * 字符串：最大长度 50，由字母、数字、下划线组成，且开始必须为字母
+     */
+    public final static String FIELD_AIPLATFORMTYPE = "aiplatformtype";
+
+    /**
+     * 设置 AI平台
+     * 
+     * @param aIPlatformType
+     * 
+     */
+    @JsonProperty(FIELD_AIPLATFORMTYPE)
+    public void setAIPlatformType(String aIPlatformType){
+        this.set(FIELD_AIPLATFORMTYPE, aIPlatformType);
+    }
+    
+    /**
+     * 获取 AI平台  
+     * @return
+     */
+    @JsonIgnore
+    public String getAIPlatformType(){
+        Object objValue = this.get(FIELD_AIPLATFORMTYPE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI平台 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isAIPlatformTypeDirty(){
+        if(this.contains(FIELD_AIPLATFORMTYPE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI平台
+     */
+    @JsonIgnore
+    public void resetAIPlatformType(){
+        this.reset(FIELD_AIPLATFORMTYPE);
+    }
+
+    /**
+     * 设置 AI平台
+     * <P>
+     * 等同 {@link #setAIPlatformType}
+     * @param aIPlatformType
+     */
+    @JsonIgnore
+    public PSSysAIFactory aiplatformtype(String aIPlatformType){
+        this.setAIPlatformType(aIPlatformType);
+        return this;
+    }
+
+    /**
      * <B>AUTHCLIENTID</B>&nbsp;认证客户端标识
      * <P>
      * 字符串：最大长度 100
@@ -863,6 +926,67 @@ public class PSSysAIFactory extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysAIFactory memo(String memo){
         this.setMemo(memo);
+        return this;
+    }
+
+    /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSysAIFactory ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
         return this;
     }
 

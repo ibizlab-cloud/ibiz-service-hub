@@ -4,8 +4,6 @@ package net.ibizsys.model.control.dashboard;
 
 /**
  * <P>
- * 子接口扩展识别值 {@link #getPortletType}
- * <P>
  * 扩展父接口类型[PORTLET]
  *
  */
@@ -114,8 +112,6 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TITLE}
 	 * @return
 	 */
 	java.lang.String getTitle();
@@ -123,8 +119,6 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取标题栏关闭模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TITLEBARCLOSEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupTitleBarCloseMode}
 	 * @return
@@ -134,8 +128,6 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取抬头语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TITLEPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();
@@ -157,8 +149,6 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取是否显式标题栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SHOWTITLEBAR}
 	 * @return
 	 */
 	boolean isShowTitleBar();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "RELATIONID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "RELATIONNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -520,6 +528,7 @@
     "length" : 100,
     "logicName" : "关系标识",
     "name" : "RELATIONID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -652,6 +661,7 @@
     "length" : 100,
     "logicName" : "关系名称",
     "name" : "RELATIONNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -774,6 +784,7 @@
     "length" : 100,
     "logicName" : "类型",
     "name" : "RELTYPE",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -904,6 +915,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1046,6 +1058,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1242,6 +1255,7 @@
     "length" : 100,
     "logicName" : "实体名称",
     "name" : "ENTITYNAME",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1408,6 +1422,7 @@
     "length" : 100,
     "logicName" : "引用实体标识",
     "name" : "REFENTITYID",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1604,6 +1619,7 @@
     "length" : 100,
     "logicName" : "引用实体名称",
     "name" : "REFENTITYNAME",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1754,6 +1770,7 @@
     "length" : 100,
     "logicName" : "嵌套代码名称",
     "name" : "NESTEDNAME",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1911,6 +1928,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "SYSTEMID",
+    "orderValue" : 10,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaRelationship/PSDERS/DER1N_META_RELATION_META_ENTITY_ENTITYID.json"
@@ -2045,6 +2063,7 @@
     "length" : 1000,
     "logicName" : "Lookup",
     "name" : "LOOKUP",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2158,6 +2177,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 100,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2267,6 +2287,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 101,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

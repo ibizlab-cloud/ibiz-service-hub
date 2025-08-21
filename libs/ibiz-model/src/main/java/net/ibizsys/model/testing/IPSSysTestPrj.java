@@ -3,7 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试项目模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO}运行时对象
+ * 系统测试项目模型对象接口
  *
  */
 public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统应用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO#FIELD_PSSYSAPPID}
 	 * @return
 	 */
 	net.ibizsys.model.app.IPSApplication getPSApplication();
@@ -35,8 +33,6 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO#FIELD_PSSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPI();
@@ -72,8 +68,6 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取项目标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO#FIELD_PRJTAG}
 	 * @return
 	 */
 	java.lang.String getPrjTag();
@@ -81,8 +75,6 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取项目标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO#FIELD_PRJTAG2}
 	 * @return
 	 */
 	java.lang.String getPrjTag2();
@@ -90,8 +82,6 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取项目类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestPrjDTO#FIELD_PRJTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestPrjType}
 	 * @return

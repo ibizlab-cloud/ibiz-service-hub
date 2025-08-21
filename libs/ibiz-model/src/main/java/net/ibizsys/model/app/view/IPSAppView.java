@@ -3,9 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用视图模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppViewDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getViewType}
+ * 应用视图模型基础对象接口
  *
  */
 public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
@@ -16,8 +14,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	/**
 	 * 获取访问用户模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_ACCUSERMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AccessUserMode}
 	 * @return
 	 */
@@ -26,8 +22,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取访问标识，视图访问标识来自统一资源的资源代码{@link net.ibizsys.model.security.IPSSysUniRes#getResCode}
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	java.lang.String getAccessKey();
@@ -35,8 +29,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -51,8 +43,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取视图标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -60,8 +50,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSAPPVIEWNAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -86,8 +74,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	/**
 	 * 获取应用菜单方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_MAINMENUSIDE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppIndexViewMenuAlign}
 	 * @return
 	 */
@@ -97,8 +83,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	/**
 	 * 获取默认打开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_OPENMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.OpenViewMode}
 	 * @return
 	 */
@@ -107,8 +91,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取视图应用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSAPPLOCALDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -123,8 +105,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取应用模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSAPPMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.IPSAppModule getPSAppModule();
@@ -181,8 +161,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取应用视图消息组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSVIEWMSGGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppViewMsgGroup getPSAppViewMsgGroup();
@@ -323,8 +301,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取界面样式表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -339,8 +315,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取图标对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -399,8 +373,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取子标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_SUBCAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getSubCapPSLanguageRes();
@@ -415,8 +387,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取视图子标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_SUBCAPTION}
 	 * @return
 	 */
 	java.lang.String getSubCaption();
@@ -424,8 +394,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取视图抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_TITLE}
 	 * @return
 	 */
 	java.lang.String getTitle();
@@ -456,8 +424,6 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	
 	/**
 	 * 获取视图类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_PSAPPVIEWTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppViewType}
 	 * @return

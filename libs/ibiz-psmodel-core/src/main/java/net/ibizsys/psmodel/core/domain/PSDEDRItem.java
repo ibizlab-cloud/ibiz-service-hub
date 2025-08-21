@@ -2619,6 +2619,151 @@ public class PSDEDRItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUniRes} 
+     */
+    public final static String FIELD_PSSYSUNIRESID = "pssysuniresid";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESID)
+    public void setPSSysUniResId(String pSSysUniResId){
+        this.set(FIELD_PSSYSUNIRESID, pSSysUniResId);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResId(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResIdDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResId(){
+        this.reset(FIELD_PSSYSUNIRESID);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniResId
+     */
+    @JsonIgnore
+    public PSDEDRItem pssysuniresid(String pSSysUniResId){
+        this.setPSSysUniResId(pSSysUniResId);
+        return this;
+    }
+
+    /**
+     * 设置 系统统一资源，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniRes 引用对象
+     */
+    @JsonIgnore
+    public PSDEDRItem pssysuniresid(PSSysUniRes pSSysUniRes){
+        if(pSSysUniRes == null){
+            this.setPSSysUniResId(null);
+            this.setPSSysUniResName(null);
+        }
+        else{
+            this.setPSSysUniResId(pSSysUniRes.getPSSysUniResId());
+            this.setPSSysUniResName(pSSysUniRes.getPSSysUniResName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESNAME</B>&nbsp;系统统一资源
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUNIRESID}
+     */
+    public final static String FIELD_PSSYSUNIRESNAME = "pssysuniresname";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESNAME)
+    public void setPSSysUniResName(String pSSysUniResName){
+        this.set(FIELD_PSSYSUNIRESNAME, pSSysUniResName);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResName(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResNameDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResName(){
+        this.reset(FIELD_PSSYSUNIRESNAME);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResName}
+     * @param pSSysUniResName
+     */
+    @JsonIgnore
+    public PSDEDRItem pssysuniresname(String pSSysUniResName){
+        this.setPSSysUniResName(pSSysUniResName);
+        return this;
+    }
+
+    /**
      * <B>TESTCUSTOMCODE</B>&nbsp;判断自定义代码
      */
     public final static String FIELD_TESTCUSTOMCODE = "testcustomcode";

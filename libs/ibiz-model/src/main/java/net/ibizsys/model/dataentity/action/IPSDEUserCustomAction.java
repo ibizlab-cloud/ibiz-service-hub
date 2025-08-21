@@ -14,8 +14,6 @@ public interface IPSDEUserCustomAction extends net.ibizsys.model.dataentity.acti
 	
 	/**
 	 * 获取相关实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();

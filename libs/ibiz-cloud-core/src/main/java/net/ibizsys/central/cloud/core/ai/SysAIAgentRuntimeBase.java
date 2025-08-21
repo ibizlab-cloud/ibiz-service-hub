@@ -74,6 +74,12 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	public final static String TEMPLATE_PARAM_AGENT = "agent";
 	
 	/**
+	 * 模板上下文参数：当前AI工厂对象
+	 */
+	public final static String TEMPLATE_PARAM_FACTORY = "factory";
+	
+	
+	/**
 	 * 模板上下文参数：请求数据
 	 */
 	public final static String TEMPLATE_PARAM_REQUEST = "request";
@@ -206,7 +212,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	 * @return
 	 */
 	public String getAIPlatformType() {
-		return strAIPlatformType;
+		return this.strAIPlatformType;
 	}
 	
 	protected void setAIPlatformType(String strAIPlatformType) {
@@ -409,6 +415,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 			params.put(TEMPLATE_PARAM_DE, this.getDataEntityRuntime());
 			params.put(TEMPLATE_PARAM_SYS, this.getSystemRuntime());
 			params.put(TEMPLATE_PARAM_AGENT, this);
+			params.put(TEMPLATE_PARAM_FACTORY, this.getAIFactoryRuntime());
 			
 			this.onFillScriptBinding(params);
 			
@@ -532,6 +539,10 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		return this.getSysAIUtilRuntime().asyncChatCompletion(strAIPlatformType, chatCompletionRequest);
 	}
 	
+	@Override
+	public String getAgentParam(String strName, String strDefault) {
+		return strDefault;
+	}
 	
 	@Override
 	public void reload() {

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBISCHEME</B>智能报表体系 模型传输对象
  * <P>
- * 
+ * 智能报表系统的顶层架构模型，用于整合分析组件（如立方体、维度、报表）及数据模型，构建完整的业务分析体系
  */
 public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -903,14 +903,14 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLESUBSYSSERVICEAPI</B>&nbsp;启用外部服务接口
+     * <B>ENABLESUBSYSSERVICEAPI</B>&nbsp;启用外部接口
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLESUBSYSSERVICEAPI = "enablesubsysserviceapi";
 
     /**
-     * 设置 启用外部服务接口
+     * 设置 启用外部接口
      * 
      * @param enableSubSysServiceAPI
      * 
@@ -921,7 +921,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 启用外部服务接口  
+     * 获取 启用外部接口  
      * @return
      */
     @JsonIgnore
@@ -934,7 +934,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 启用外部服务接口 是否指定值，包括空值
+     * 判断 启用外部接口 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -946,7 +946,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 启用外部服务接口
+     * 重置 启用外部接口
      */
     @JsonIgnore
     public void resetEnableSubSysServiceAPI(){
@@ -954,7 +954,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 启用外部服务接口
+     * 设置 启用外部接口
      * <P>
      * 等同 {@link #setEnableSubSysServiceAPI}
      * @param enableSubSysServiceAPI
@@ -966,7 +966,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 启用外部服务接口
+     * 设置 启用外部接口
      * <P>
      * 等同 {@link #setEnableSubSysServiceAPI}
      * @param enableSubSysServiceAPI
@@ -1122,6 +1122,67 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
         else{
             this.setObjNameCase(objNameCase.value);
         }
+        return this;
+    }
+
+    /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSysBIScheme ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
         return this;
     }
 

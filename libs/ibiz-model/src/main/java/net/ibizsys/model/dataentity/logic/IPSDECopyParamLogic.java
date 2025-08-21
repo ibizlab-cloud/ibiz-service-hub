@@ -21,8 +21,6 @@ public interface IPSDECopyParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -37,8 +35,6 @@ public interface IPSDECopyParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();
@@ -53,8 +49,6 @@ public interface IPSDECopyParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取是否仅拷贝不存在属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isCopyIfNotExists();

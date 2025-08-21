@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "WAYID",
+        "codeName" : "SequenceFlowId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "WAYNAME",
+        "codeName" : "SequenceFlowName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -441,6 +449,7 @@
     "length" : 100,
     "logicName" : "路径标识",
     "name" : "WAYID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -560,6 +569,7 @@
     "length" : 100,
     "logicName" : "路径标识",
     "name" : "WAYNAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -673,6 +683,7 @@
     "length" : 100,
     "logicName" : "任务标识",
     "name" : "TASKID",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -784,6 +795,7 @@
     "length" : 100,
     "logicName" : "TaskDefinitionKey",
     "name" : "TASKDEFINITIONKEY",
+    "orderValue" : 4,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -895,6 +907,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "INSTANCEID",
+    "orderValue" : 5,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1006,6 +1019,7 @@
     "length" : 100,
     "logicName" : "DefinitionKey",
     "name" : "DEFINITIONKEY",
+    "orderValue" : 6,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1117,6 +1131,7 @@
     "length" : 100,
     "logicName" : "业务键值",
     "name" : "BUSINESSKEY",
+    "orderValue" : 10,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1228,6 +1243,7 @@
     "length" : 100,
     "logicName" : "引用视图",
     "name" : "REFVIEWKEY",
+    "orderValue" : 12,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"

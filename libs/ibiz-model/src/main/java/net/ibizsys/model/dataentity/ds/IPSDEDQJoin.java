@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据查询连接模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO}运行时对象
+ * 实体数据查询连接模型对象接口
  *
  */
 public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取别名
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO#FIELD_ALIASNAME}
 	 * @return
 	 */
 	java.lang.String getAlias();
@@ -70,8 +68,6 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取连接实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO#FIELD_JOINPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getJoinPSDataEntity();
@@ -86,8 +82,6 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取连接标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO#FIELD_JOINTAG}
 	 * @return
 	 */
 	java.lang.String getJoinTag();
@@ -95,8 +89,6 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取连接标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO#FIELD_JOINTAG2}
 	 * @return
 	 */
 	java.lang.String getJoinTag2();
@@ -104,8 +96,6 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取连接类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQJoinDTO#FIELD_PSDEJOINTYPEID}
 	 * @return
 	 */
 	java.lang.String getJoinType();
@@ -126,14 +116,14 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
-	 * 获取所属实体数据查询对象
+	 * 获取实体数据查询对象
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getPSDEDataQuery();
 
 
 	/**
-	 * 获取所属实体数据查询对象，不存在时抛出异常
+	 * 获取实体数据查询对象，不存在时抛出异常
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getPSDEDataQueryMust();

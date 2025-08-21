@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSVIEWPANELLOGIC</B>系统面板逻辑 模型传输对象
+ * <B>PSSYSVIEWPANELLOGIC</B>面板逻辑 模型传输对象
  * <P>
  * 面板处理逻辑模型，定义面板及成员的自定义交互处理逻辑
  */
@@ -2456,7 +2460,7 @@ public class PSSysViewPanelLogic extends net.ibizsys.psmodel.core.util.PSModelBa
     /**
      * <B>PSSYSVIEWPANELMODELID</B>&nbsp;面板模型
      * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysViewPanelModel} 
+     * 字符串：最大长度 100
      */
     public final static String FIELD_PSSYSVIEWPANELMODELID = "pssysviewpanelmodelid";
 
@@ -2513,25 +2517,6 @@ public class PSSysViewPanelLogic extends net.ibizsys.psmodel.core.util.PSModelBa
     @JsonIgnore
     public PSSysViewPanelLogic pssysviewpanelmodelid(String pSSysViewPanelModelId){
         this.setPSSysViewPanelModelId(pSSysViewPanelModelId);
-        return this;
-    }
-
-    /**
-     * 设置 面板模型，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setPSSysViewPanelModelId}
-     * @param pSSysViewPanelModel 引用对象
-     */
-    @JsonIgnore
-    public PSSysViewPanelLogic pssysviewpanelmodelid(PSSysViewPanelModel pSSysViewPanelModel){
-        if(pSSysViewPanelModel == null){
-            this.setPSSysViewPanelModelId(null);
-            this.setPSSysViewPanelModelName(null);
-        }
-        else{
-            this.setPSSysViewPanelModelId(pSSysViewPanelModel.getPSSysViewPanelModelId());
-            this.setPSSysViewPanelModelName(pSSysViewPanelModel.getPSSysViewPanelModelName());
-        }
         return this;
     }
 

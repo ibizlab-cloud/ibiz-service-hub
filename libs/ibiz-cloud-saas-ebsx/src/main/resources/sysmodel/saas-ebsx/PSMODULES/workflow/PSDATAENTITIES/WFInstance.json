@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "INSTANCEID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "INSTANCENAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -307,6 +315,12 @@
     }, {
       "name" : "REALINSTID",
       "codeName" : "RealInstId"
+    }, {
+      "name" : "PARAM",
+      "codeName" : "Param"
+    }, {
+      "name" : "PARAM2",
+      "codeName" : "Param2"
     }, {
       "name" : "WFSTATE",
       "codeName" : "Wfstate"
@@ -849,6 +863,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "INSTANCEID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -905,7 +920,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[INSTANCENAME][实例名称]",
-        "stringLength" : 300,
+        "stringLength" : 2000,
         "uIMode" : "DEFAULT",
         "allowEmpty" : false
       },
@@ -917,7 +932,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[INSTANCENAME][实例名称]移动端默认",
-        "stringLength" : 300,
+        "stringLength" : 2000,
         "uIMode" : "MOBILEDEFAULT",
         "allowEmpty" : false,
         "mobileMode" : true
@@ -931,7 +946,7 @@
         "codeName" : "UIMode2",
         "editorType" : "TEXTBOX",
         "name" : "[INSTANCENAME][实例名称]",
-        "stringLength" : 300,
+        "stringLength" : 2000,
         "uIMode" : "CUSTOM",
         "allowEmpty" : false
       },
@@ -943,7 +958,7 @@
         "codeName" : "UIMode",
         "editorType" : "TEXTBOX",
         "name" : "[INSTANCENAME][实例名称]",
-        "stringLength" : 300,
+        "stringLength" : 2000,
         "uIMode" : "CUSTOM",
         "allowEmpty" : false
       },
@@ -959,16 +974,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "INSTANCENAME",
-          "maxValue" : 300,
+          "maxValue" : 2000,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[300]",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[300]"
+        "ruleInfo" : "内容长度必须小于等于[2000]"
       },
-      "ruleInfo" : "内容长度必须小于等于[300]",
+      "ruleInfo" : "内容长度必须小于等于[2000]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -978,9 +993,10 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 300,
+    "length" : 2000,
     "logicName" : "实例名称",
     "name" : "INSTANCENAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -990,7 +1006,7 @@
       "id" : "INSTANCENAME"
     },
     "stdDataType" : 25,
-    "stringLength" : 300,
+    "stringLength" : 2000,
     "valueFormat" : "%1$s",
     "allowEmpty" : false,
     "enableQuickSearch" : true,
@@ -1037,7 +1053,7 @@
         "codeName" : "UIMode",
         "editorType" : "TEXTBOX",
         "name" : "[DEFINITIONKEY][DefinitionKey]",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "CUSTOM"
       },
       "type" : "CUSTOM"
@@ -1048,7 +1064,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[DEFINITIONKEY][DefinitionKey]",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1059,7 +1075,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[DEFINITIONKEY][DefinitionKey]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1072,7 +1088,7 @@
         "codeName" : "UIMode2",
         "editorType" : "TEXTBOX",
         "name" : "[DEFINITIONKEY][DefinitionKey]",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "CUSTOM"
       },
       "type" : "CUSTOM"
@@ -1087,16 +1103,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "DEFINITIONKEY",
-          "maxValue" : 100,
+          "maxValue" : 200,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[200]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[200]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[200]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1106,9 +1122,10 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 200,
     "logicName" : "DefinitionKey",
     "name" : "DEFINITIONKEY",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1118,7 +1135,7 @@
       "id" : "DEFINITIONKEY"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 200,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1234,6 +1251,7 @@
     "length" : 100,
     "logicName" : "流程定义名称",
     "name" : "DEFINITIONNAME",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1364,6 +1382,7 @@
     "length" : 100,
     "logicName" : "业务键值",
     "name" : "BUSINESSKEY",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1484,6 +1503,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "启动时间",
     "name" : "STARTTIME",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1602,6 +1622,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "结束时间",
     "name" : "ENDTIME",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1726,6 +1747,7 @@
     "length" : 100,
     "logicName" : "发起人标识",
     "name" : "STARTUSERID",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1851,6 +1873,7 @@
     "length" : 100,
     "logicName" : "发起人",
     "name" : "STARTUSERNAME",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1948,6 +1971,7 @@
     "length" : 100,
     "logicName" : "流程实例标识",
     "name" : "REALINSTID",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1955,6 +1979,198 @@
     "getPSSysDBColumn" : {
       "modelref" : true,
       "id" : "REALINSTID"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PARAM",
+      "dBType" : "ORACLE",
+      "name" : "PARAM",
+      "standardColumnName" : "PARAM"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "POSTGRESQL",
+      "name" : "PARAM",
+      "standardColumnName" : "PARAM"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "MYSQL5",
+      "name" : "PARAM",
+      "queryCodeExp" : "t1.`PARAM`",
+      "standardColumnName" : "`PARAM`"
+    }, {
+      "columnName" : "PARAM",
+      "dBType" : "SQLSERVER",
+      "name" : "PARAM",
+      "standardColumnName" : "[PARAM]"
+    }, {
+      "columnName" : "PARAM",
+      "name" : "PARAM",
+      "standardColumnName" : "PARAM"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PARAM][参数]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[PARAM][参数]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PARAM][参数]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[PARAM][参数]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PARAM",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Param",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "参数",
+    "name" : "PARAM",
+    "orderValue" : 300,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "PARAM"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PARAM2",
+      "dBType" : "ORACLE",
+      "name" : "PARAM2",
+      "standardColumnName" : "PARAM2"
+    }, {
+      "columnName" : "PARAM2",
+      "dBType" : "POSTGRESQL",
+      "name" : "PARAM2",
+      "standardColumnName" : "PARAM2"
+    }, {
+      "columnName" : "PARAM2",
+      "dBType" : "MYSQL5",
+      "name" : "PARAM2",
+      "queryCodeExp" : "t1.`PARAM2`",
+      "standardColumnName" : "`PARAM2`"
+    }, {
+      "columnName" : "PARAM2",
+      "dBType" : "SQLSERVER",
+      "name" : "PARAM2",
+      "standardColumnName" : "[PARAM2]"
+    }, {
+      "columnName" : "PARAM2",
+      "name" : "PARAM2",
+      "standardColumnName" : "PARAM2"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[PARAM2][参数2]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[PARAM2][参数2]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[PARAM2][参数2]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[PARAM2][参数2]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PARAM2",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Param2",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "参数2",
+    "name" : "PARAM2",
+    "orderValue" : 300,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "PARAM2"
     },
     "stdDataType" : 25,
     "stringLength" : 100,
@@ -2059,6 +2275,7 @@
     "length" : 60,
     "logicName" : "流程状态",
     "name" : "WFSTATE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/WFStates.json"
@@ -2166,6 +2383,7 @@
     "length" : 100,
     "logicName" : "当前流程步骤",
     "name" : "CURSTEPNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2263,6 +2481,7 @@
     "length" : 100,
     "logicName" : "当前流程步骤",
     "name" : "CURSTEPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2360,6 +2579,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2452,6 +2672,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2550,6 +2771,7 @@
     "length" : 100,
     "logicName" : "应用标识",
     "name" : "APPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2653,6 +2875,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2740,6 +2963,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2844,6 +3068,7 @@
     "length" : 100,
     "logicName" : "实体",
     "name" : "ENTITYID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2948,6 +3173,7 @@
     "length" : 100,
     "logicName" : "创建人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2989,7 +3215,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 300,
+      "stringLength" : 2000,
       "type" : "SIMPLE",
       "allowEmpty" : false
     }, {
@@ -3001,7 +3227,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 200,
       "type" : "SIMPLE"
     }, {
       "logicName" : "流程定义名称",
@@ -3075,6 +3301,28 @@
       "getPSDEField" : {
         "name" : "STARTUSERNAME",
         "codeName" : "StartUserName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "参数",
+      "name" : "Param",
+      "getPSDEField" : {
+        "name" : "PARAM",
+        "codeName" : "Param"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "参数2",
+      "name" : "Param2",
+      "getPSDEField" : {
+        "name" : "PARAM2",
+        "codeName" : "Param2"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,

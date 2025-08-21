@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDESADETAIL</B>实体服务接口成员 模型传输对象
@@ -3457,14 +3461,14 @@ public class PSDESADetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体服务接口成员参数 成员集合
+     *  实体服务接口方法参数 成员集合
      */
     public final static String FIELD_PSDESADETAILPARAMS = "psdesadetailparams";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDESADetailParam> psdesadetailparams;
 
     /**
-     * 获取 实体服务接口成员参数 成员集合
+     * 获取 实体服务接口方法参数 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDESADETAILPARAMS)
@@ -3473,7 +3477,7 @@ public class PSDESADetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体服务接口成员参数 成员集合  
+     * 设置 实体服务接口方法参数 成员集合  
      * @param psdesadetailparams
      */
     @JsonProperty(FIELD_PSDESADETAILPARAMS)
@@ -3482,7 +3486,7 @@ public class PSDESADetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体服务接口成员参数 成员集合，不存在时建立集合对象
+     * 获取 实体服务接口方法参数 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

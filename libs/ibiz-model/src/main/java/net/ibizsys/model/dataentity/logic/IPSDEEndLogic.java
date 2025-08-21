@@ -14,8 +14,6 @@ public interface IPSDEEndLogic extends net.ibizsys.model.dataentity.logic.IPSDEL
 	
 	/**
 	 * 获取返回参数属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getDstFieldName();
@@ -23,8 +21,6 @@ public interface IPSDEEndLogic extends net.ibizsys.model.dataentity.logic.IPSDEL
 	
 	/**
 	 * 获取返回直接值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getRawValue();
@@ -32,8 +28,6 @@ public interface IPSDEEndLogic extends net.ibizsys.model.dataentity.logic.IPSDEL
 	
 	/**
 	 * 获取直接值标准数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM7}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
@@ -43,8 +37,6 @@ public interface IPSDEEndLogic extends net.ibizsys.model.dataentity.logic.IPSDEL
 	
 	/**
 	 * 获取返回参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getReturnParam();
@@ -59,8 +51,6 @@ public interface IPSDEEndLogic extends net.ibizsys.model.dataentity.logic.IPSDEL
 	
 	/**
 	 * 获取返回值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicReturnType}
 	 * @return

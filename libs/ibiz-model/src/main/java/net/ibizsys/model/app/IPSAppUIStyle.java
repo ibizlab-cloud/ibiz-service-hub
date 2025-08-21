@@ -3,7 +3,7 @@ package net.ibizsys.model.app;
 
 
 /**
- * 应用界面模式模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppUIStyleDTO}运行时对象
+ * 应用界面模式模型对象接口
  *
  */
 public interface IPSAppUIStyle extends net.ibizsys.model.app.IPSApplicationObject

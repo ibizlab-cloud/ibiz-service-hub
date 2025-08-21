@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.logic;
 
 
 /**
- * 实体主状态逻辑节点模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getLogicNodeType}
+ * 实体主状态逻辑节点模型对象接口
  *
  */
 public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPSDELogicNodeBase{
@@ -21,8 +19,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取背景颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM13}
 	 * @return
 	 */
 	java.lang.String getBKColor();
@@ -30,8 +26,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取前景颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM12}
 	 * @return
 	 */
 	java.lang.String getColor();
@@ -39,8 +33,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取样式表名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM11}
 	 * @return
 	 */
 	java.lang.String getCssClass();
@@ -55,8 +47,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取左侧位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_LEFTPOS}
 	 * @return
 	 */
 	int getLeftPos();
@@ -71,8 +61,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取排序值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_ORDERVALUE}
 	 * @return
 	 */
 	int getOrderValue();
@@ -115,8 +103,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取状态值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getStateValue();
@@ -124,8 +110,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取上方位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_TOPPOS}
 	 * @return
 	 */
 	int getTopPos();
@@ -133,8 +117,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取是否行为允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM7}
 	 * @return
 	 */
 	boolean isActionAllowMode();
@@ -142,8 +124,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取是否默认状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -151,8 +131,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取是否属性允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM10}
 	 * @return
 	 */
 	boolean isFieldAllowMode();
@@ -160,8 +138,6 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取是否操作标识允许模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM8}
 	 * @return
 	 */
 	boolean isOPPrivAllowMode();

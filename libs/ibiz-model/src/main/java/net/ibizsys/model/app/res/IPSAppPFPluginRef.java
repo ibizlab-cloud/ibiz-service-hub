@@ -3,7 +3,7 @@ package net.ibizsys.model.app.res;
 
 
 /**
- * 应用前端模板插件引用模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysPFPluginDTO}运行时对象
+ * 应用前端模板插件引用模型对象接口
  * <P>
  * 定义前端应用对前端模板插件的引用，根据使用自动计算
  *

@@ -234,6 +234,12 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	ObjectNode getJsonSchemaModel(IPSAppDataEntity iPSAppDataEntity, Object param);
 	
 	
+	/**
+	 * 获取当前实体的JsonSchema
+	 * @param param
+	 * @return
+	 */
+	ObjectNode getJsonSchemaModel(Object param);
 	
 	
 	/**

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体界面行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO}运行时对象
+ * 应用实体界面行为模型对象接口
  *
  */
 public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.IPSDEUIAction
@@ -15,8 +15,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	/**
 	 * 获取无权限显示模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_NOPRIVDM}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BtnNoPrivDisplayMode}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取前端应用视图，根据{@link #isFrontPDTView}优先处理预置视图，否则按应用类型计算对应的实体视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEVIEWBASEID}、{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_MOBPSDEVIEWID}、{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSSYSPDTVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getFrontPSAppView();
@@ -41,8 +37,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体自填模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEACMODEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEACMode getPSAppDEACMode();
@@ -57,8 +51,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体数据导出
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_NO2PSDEDATAEXPID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataExport getPSAppDEDataExport();
@@ -73,8 +65,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体数据导入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEDATAIMPID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataImport getPSAppDEDataImport();
@@ -89,8 +79,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod();
@@ -105,8 +93,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体打印
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEPRINTID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEPrint getPSAppDEPrint();
@@ -121,8 +107,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体界面逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEVIEWLOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUILogic getPSAppDEUILogic();
@@ -137,8 +121,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -153,8 +135,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取应用预置界面逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSSYSVIEWLOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.logic.IPSAppUILogic getPSAppUILogic();
@@ -169,8 +149,6 @@ public interface IPSAppDEUIAction extends net.ibizsys.model.dataentity.uiaction.
 	
 	/**
 	 * 获取编辑表单
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionDTO#FIELD_PSDEFORMID}
 	 * @return
 	 */
 	net.ibizsys.model.control.form.IPSDEEditForm getPSDEEditForm();

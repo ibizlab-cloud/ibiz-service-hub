@@ -17,8 +17,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认背景颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BKCOLOR}
 	 * @return
 	 */
 	java.lang.String getBKColor();
@@ -26,8 +24,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认文本颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_COLOR}
 	 * @return
 	 */
 	java.lang.String getColor();
@@ -35,8 +31,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -44,8 +38,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项内置样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ITEMSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
@@ -55,8 +47,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ITEMTYPE}
 	 * @return
 	 */
 	java.lang.String getItemType();
@@ -92,8 +82,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -108,8 +96,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取上下文菜单对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDETOOLBARID}
 	 * @return
 	 */
 	net.ibizsys.model.control.toolbar.IPSDEContextMenu getPSDEContextMenu();
@@ -124,8 +110,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项布局面板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSVIEWPANELID}
 	 * @return
 	 */
 	net.ibizsys.model.control.panel.IPSLayoutPanel getPSLayoutPanel();
@@ -154,8 +138,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取项图标资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -170,8 +152,6 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持编辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EDITMODE}
 	 * @return
 	 */
 	boolean isEnableEdit();

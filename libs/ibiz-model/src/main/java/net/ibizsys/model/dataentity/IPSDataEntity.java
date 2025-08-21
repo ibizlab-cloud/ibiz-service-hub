@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity;
 
 
 /**
- * 实体模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO}运行时对象
+ * 实体模型对象接口
  *
  */
 public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
@@ -790,8 +790,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取审计模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_AUDITMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataAuditMode}
 	 * @return
 	 */
@@ -800,8 +798,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取业务标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_BIZTAG}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEBizTag}
 	 * @return
@@ -818,8 +814,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DETAG}
 	 * @return
 	 */
 	java.lang.String getDETag();
@@ -827,8 +821,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DETAG2}
 	 * @return
 	 */
 	java.lang.String getDETag2();
@@ -836,8 +828,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEType}
 	 * @return
@@ -848,8 +838,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取默认数据源
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DSLINK}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
@@ -858,8 +846,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体访问控制体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_ACCCTRLARCH}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AccCtrlArch}
 	 * @return
@@ -870,8 +856,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取实体数据访问控制方式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DATAACCMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataAccCtrlMode}
 	 * @return
 	 */
@@ -880,8 +864,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体数据变化日志模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_DATACHGLOGMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataChgLogMode}
 	 * @return
@@ -971,8 +953,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取动态系统模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_ENABLEDYNASYS}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDynaSysMode}
 	 * @return
 	 */
@@ -1024,8 +1004,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取索引实体类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_INDEXDETYPE}
 	 * @return
 	 */
 	java.lang.String getIndexDEType();
@@ -1061,8 +1039,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑无效值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_LOGICINVALIDVALUE}
 	 * @return
 	 */
 	java.lang.String getInvalidLogicValue();
@@ -1112,8 +1088,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -1240,8 +1214,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取子系统服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_PSSUBSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPI getPSSubSysServiceAPI();
@@ -1256,8 +1228,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取子系统服务接口实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_PSSUBSYSSADEID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getPSSubSysServiceAPIDE();
@@ -1314,8 +1284,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -1345,8 +1313,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取SaaS模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_SAASMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DESaaSMode}
 	 * @return
 	 */
@@ -1356,8 +1322,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取实体服务资源模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_SERVICEAPIFLAG}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEServiceAPIMode}
 	 * @return
 	 */
@@ -1366,8 +1330,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_SERVICECODENAME}
 	 * @return
 	 */
 	java.lang.String getServiceCodeName();
@@ -1375,8 +1337,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取默认存储模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_STORAGEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEStorageType}
 	 * @return
@@ -1393,8 +1353,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取表名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_TABLENAME}
 	 * @return
 	 */
 	java.lang.String getTableName();
@@ -1402,8 +1360,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取临时数据处理模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_ENATEMPDATA}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DETempDataHolder}
 	 * @return
@@ -1414,8 +1370,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取联合主键模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_KEYRULE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEUnionKeyMode}
 	 * @return
 	 */
@@ -1424,8 +1378,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取联合主键参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_VKEYSEPARATOR}
 	 * @return
 	 */
 	java.lang.String getUnionKeyParam();
@@ -1454,8 +1406,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑有效值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_LOGICVALIDVALUE}
 	 * @return
 	 */
 	java.lang.String getValidLogicValue();
@@ -1484,8 +1434,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取视图名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_VIEWNAME}
 	 * @return
 	 */
 	java.lang.String getViewName();
@@ -1507,8 +1455,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取虚拟实体模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_VIRTUALFLAG}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEVirtualMode}
 	 * @return
@@ -1595,8 +1541,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否支持临时数据，可通过{@link #getTempDataHolder}获取临时数据处理模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_ENATEMPDATA}
 	 * @return
 	 */
 	boolean isEnableTempData();
@@ -1618,8 +1562,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否启用逻辑有效
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_LOGICVALID}
 	 * @return
 	 */
 	boolean isLogicValid();
@@ -1641,8 +1583,6 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否虚拟实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDataEntityDTO#FIELD_VIRTUALFLAG}
 	 * @return
 	 */
 	boolean isVirtual();

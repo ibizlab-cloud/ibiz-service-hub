@@ -15,8 +15,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	/**
 	 * 获取代码表输出模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_CLCONVERTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取链接视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_LINKPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getLinkPSAppView();
@@ -41,8 +37,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取链接值项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_VALUEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getLinkValueItem();
@@ -71,8 +65,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取应用代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.app.codelist.IPSAppCodeList getPSAppCodeList();
@@ -87,8 +79,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取列应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -103,8 +93,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取内置界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_PSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIAction getPSDEUIAction();
@@ -119,8 +107,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup();
@@ -156,8 +142,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -181,8 +165,6 @@ public interface IPSDETreeNodeFieldColumn extends net.ibizsys.model.control.tree
 	
 	/**
 	 * 获取是否启用项权限控制
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeColDTO#FIELD_ENABLEITEMPRIV}
 	 * @return
 	 */
 	boolean isEnableItemPriv();

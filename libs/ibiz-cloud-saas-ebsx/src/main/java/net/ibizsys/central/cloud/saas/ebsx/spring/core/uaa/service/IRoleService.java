@@ -124,7 +124,7 @@ public interface IRoleService extends IDEService<RoleDTO, SearchContextDTO> {
    */
   String DATAQUERY_BYDCSYSTEM = "ByDCSystem";
   /**
-   * 查询: 数据查询2
+   * 查询: 验证应用是否全部授权
    */
   String DATAQUERY_CHECKROLEAUTH = "CheckRoleAuth";
   /**
@@ -325,7 +325,7 @@ public interface IRoleService extends IDEService<RoleDTO, SearchContextDTO> {
 
     /**
      * 验证应用是否全部授权
-     * 包含数据查询：数据查询2
+     * 包含数据查询：验证应用是否全部授权
      *
      * @param dto
      * @return
@@ -381,7 +381,7 @@ public interface IRoleService extends IDEService<RoleDTO, SearchContextDTO> {
 
 
     /**
-     * 数据查询2
+     * 验证应用是否全部授权
      *
      * @param dto
      * @return

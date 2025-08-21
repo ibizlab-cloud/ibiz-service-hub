@@ -14,8 +14,6 @@ public interface IPSDEFVRSysValueRuleCondition extends net.ibizsys.model.dataent
 	
 	/**
 	 * 获取系统值规则对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSVALUERULEID}
 	 * @return
 	 */
 	net.ibizsys.model.valuerule.IPSSysValueRule getPSSysValueRule();

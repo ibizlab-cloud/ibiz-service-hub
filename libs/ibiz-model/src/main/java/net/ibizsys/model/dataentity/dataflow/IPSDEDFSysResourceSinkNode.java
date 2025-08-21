@@ -11,8 +11,6 @@ public interface IPSDEDFSysResourceSinkNode extends net.ibizsys.model.dataentity
 	
 	/**
 	 * 获取系统预置资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();

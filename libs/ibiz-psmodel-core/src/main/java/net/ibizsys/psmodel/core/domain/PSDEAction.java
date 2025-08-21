@@ -19,7 +19,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>ACTIONHOLDER</B>&nbsp;行为持有者，指定独立提供行为能力的持有者，未指定时默认为【后台及前台】,如行为类型为【处理逻辑】则由相应的处理逻辑决定，如实体启用【临时数据】则由临时数据模式决定
+     * <B>ACTIONHOLDER</B>&nbsp;行为持有者，指定提供行为能力的持有者，未指定时为【后台及前台】,如行为类型为【处理逻辑】则由相应的处理逻辑决定
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DELogicHolder} 
      */
@@ -633,12 +633,12 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AFTERCODE</B>&nbsp;前端执行之后代码
+     * <B>AFTERCODE</B>&nbsp;前端执行之后代码，定义前端在行为执行之后附加的执行代码
      */
     public final static String FIELD_AFTERCODE = "aftercode";
 
     /**
-     * 设置 前端执行之后代码
+     * 设置 前端执行之后代码，详细说明：{@link #FIELD_AFTERCODE}
      * 
      * @param afterCode
      * 
@@ -682,7 +682,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 前端执行之后代码
+     * 设置 前端执行之后代码，详细说明：{@link #FIELD_AFTERCODE}
      * <P>
      * 等同 {@link #setAfterCode}
      * @param afterCode
@@ -774,12 +774,12 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BEFORECODE</B>&nbsp;前端执行之前代码
+     * <B>BEFORECODE</B>&nbsp;前端执行之前代码，定义前端在行为执行之前附加的执行代码
      */
     public final static String FIELD_BEFORECODE = "beforecode";
 
     /**
-     * 设置 前端执行之前代码
+     * 设置 前端执行之前代码，详细说明：{@link #FIELD_BEFORECODE}
      * 
      * @param beforeCode
      * 
@@ -823,7 +823,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 前端执行之前代码
+     * 设置 前端执行之前代码，详细说明：{@link #FIELD_BEFORECODE}
      * <P>
      * 等同 {@link #setBeforeCode}
      * @param beforeCode
@@ -1226,7 +1226,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定实体行为的代码标识，需要在所在的实体中具有唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，行为的代码标识，需在所属实体中具备唯一性
      * <P>
      * 字符串：最大长度 30，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -1413,12 +1413,12 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCODE</B>&nbsp;脚本代码
+     * <B>CUSTOMCODE</B>&nbsp;内联代码，行为类型为【脚本】时指定内联代码
      */
     public final static String FIELD_CUSTOMCODE = "customcode";
 
     /**
-     * 设置 脚本代码
+     * 设置 内联代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * 
      * @param customCode
      * 
@@ -1429,7 +1429,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 脚本代码  
+     * 获取 内联代码  
      * @return
      */
     @JsonIgnore
@@ -1442,7 +1442,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 脚本代码 是否指定值，包括空值
+     * 判断 内联代码 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1454,7 +1454,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 脚本代码
+     * 重置 内联代码
      */
     @JsonIgnore
     public void resetCustomCode(){
@@ -1462,7 +1462,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 脚本代码
+     * 设置 内联代码，详细说明：{@link #FIELD_CUSTOMCODE}
      * <P>
      * 等同 {@link #setCustomCode}
      * @param customCode
@@ -1474,14 +1474,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式
+     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式，进一步指定脚本代码的模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode2} 
      */
     public final static String FIELD_CUSTOMMODE = "custommode";
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * 
      * @param customMode
      * 
@@ -1525,7 +1525,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -1537,7 +1537,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -1859,14 +1859,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>INPSDEFGROUPID</B>&nbsp;输入属性集
+     * <B>INPSDEFGROUPID</B>&nbsp;输入属性集，对输入为当前实体数据对象的参数进一步指定属性集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
      */
     public final static String FIELD_INPSDEFGROUPID = "inpsdefgroupid";
 
     /**
-     * 设置 输入属性集
+     * 设置 输入属性集，详细说明：{@link #FIELD_INPSDEFGROUPID}
      * 
      * @param inPSDEFGroupId
      * 
@@ -1910,7 +1910,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输入属性集
+     * 设置 输入属性集，详细说明：{@link #FIELD_INPSDEFGROUPID}
      * <P>
      * 等同 {@link #setInPSDEFGroupId}
      * @param inPSDEFGroupId
@@ -2149,14 +2149,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>INPSSYSDYNAMODELID</B>&nbsp;输入对象模型
+     * <B>INPSSYSDYNAMODELID</B>&nbsp;输入对象模型，参数模式为【其它对象】时指定的对象模型
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysDynaModel} 
      */
     public final static String FIELD_INPSSYSDYNAMODELID = "inpssysdynamodelid";
 
     /**
-     * 设置 输入对象模型
+     * 设置 输入对象模型，详细说明：{@link #FIELD_INPSSYSDYNAMODELID}
      * 
      * @param inPSSysDynaModelId
      * 
@@ -2200,7 +2200,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输入对象模型
+     * 设置 输入对象模型，详细说明：{@link #FIELD_INPSSYSDYNAMODELID}
      * <P>
      * 等同 {@link #setInPSSysDynaModelId}
      * @param inPSSysDynaModelId
@@ -2420,14 +2420,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NEEDRESOURCEKEY</B>&nbsp;独立输出资源键值
+     * <B>NEEDRESOURCEKEY</B>&nbsp;独立输出资源键值，指定行为在服务接口中是否需要独立输出资源键值，如{key}/action，未定义由行为模式判断
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_NEEDRESOURCEKEY = "needresourcekey";
 
     /**
-     * 设置 独立输出资源键值
+     * 设置 独立输出资源键值，详细说明：{@link #FIELD_NEEDRESOURCEKEY}
      * 
      * @param needResourceKey
      * 
@@ -2471,7 +2471,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 独立输出资源键值
+     * 设置 独立输出资源键值，详细说明：{@link #FIELD_NEEDRESOURCEKEY}
      * <P>
      * 等同 {@link #setNeedResourceKey}
      * @param needResourceKey
@@ -2483,7 +2483,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 独立输出资源键值
+     * 设置 独立输出资源键值，详细说明：{@link #FIELD_NEEDRESOURCEKEY}
      * <P>
      * 等同 {@link #setNeedResourceKey}
      * @param needResourceKey
@@ -2561,14 +2561,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTPSDEFGROUPID</B>&nbsp;输出属性集
+     * <B>OUTPSDEFGROUPID</B>&nbsp;输出属性集，对输出为当前实体数据对象的返回值近一步指定属性集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
      */
     public final static String FIELD_OUTPSDEFGROUPID = "outpsdefgroupid";
 
     /**
-     * 设置 输出属性集
+     * 设置 输出属性集，详细说明：{@link #FIELD_OUTPSDEFGROUPID}
      * 
      * @param outPSDEFGroupId
      * 
@@ -2612,7 +2612,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出属性集
+     * 设置 输出属性集，详细说明：{@link #FIELD_OUTPSDEFGROUPID}
      * <P>
      * 等同 {@link #setOutPSDEFGroupId}
      * @param outPSDEFGroupId
@@ -2851,14 +2851,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTPSSYSDYNAMODELID</B>&nbsp;输出对象模型
+     * <B>OUTPSSYSDYNAMODELID</B>&nbsp;输出对象模型，返回值为其它对象时指定的动态模型对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysDynaModel} 
      */
     public final static String FIELD_OUTPSSYSDYNAMODELID = "outpssysdynamodelid";
 
     /**
-     * 设置 输出对象模型
+     * 设置 输出对象模型，详细说明：{@link #FIELD_OUTPSSYSDYNAMODELID}
      * 
      * @param outPSSysDynaModelId
      * 
@@ -2902,7 +2902,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出对象模型
+     * 设置 输出对象模型，详细说明：{@link #FIELD_OUTPSSYSDYNAMODELID}
      * <P>
      * 等同 {@link #setOutPSSysDynaModelId}
      * @param outPSSysDynaModelId
@@ -2996,14 +2996,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTREFPSDEFGROUPID</B>&nbsp;输出引用属性组
+     * <B>OUTREFPSDEFGROUPID</B>&nbsp;输出引用实体的属性组，进一步为输出引用实体指定属性组
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
      */
     public final static String FIELD_OUTREFPSDEFGROUPID = "outrefpsdefgroupid";
 
     /**
-     * 设置 输出引用属性组
+     * 设置 输出引用实体的属性组，详细说明：{@link #FIELD_OUTREFPSDEFGROUPID}
      * 
      * @param outRefPSDEFGroupId
      * 
@@ -3014,7 +3014,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 输出引用属性组  
+     * 获取 输出引用实体的属性组  
      * @return
      */
     @JsonIgnore
@@ -3027,7 +3027,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 输出引用属性组 是否指定值，包括空值
+     * 判断 输出引用实体的属性组 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3039,7 +3039,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 输出引用属性组
+     * 重置 输出引用实体的属性组
      */
     @JsonIgnore
     public void resetOutRefPSDEFGroupId(){
@@ -3047,7 +3047,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出引用属性组
+     * 设置 输出引用实体的属性组，详细说明：{@link #FIELD_OUTREFPSDEFGROUPID}
      * <P>
      * 等同 {@link #setOutRefPSDEFGroupId}
      * @param outRefPSDEFGroupId
@@ -3059,7 +3059,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出引用属性组，包括引用对象的其它关系属性
+     * 设置 输出引用实体的属性组，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setOutRefPSDEFGroupId}
      * @param pSDEFGroup 引用对象
@@ -3078,14 +3078,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTREFPSDEFGROUPNAME</B>&nbsp;输出引用属性组
+     * <B>OUTREFPSDEFGROUPNAME</B>&nbsp;输出引用实体的属性组
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_OUTREFPSDEFGROUPID}
      */
     public final static String FIELD_OUTREFPSDEFGROUPNAME = "outrefpsdefgroupname";
 
     /**
-     * 设置 输出引用属性组
+     * 设置 输出引用实体的属性组
      * 
      * @param outRefPSDEFGroupName
      * 
@@ -3096,7 +3096,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 输出引用属性组  
+     * 获取 输出引用实体的属性组  
      * @return
      */
     @JsonIgnore
@@ -3109,7 +3109,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 输出引用属性组 是否指定值，包括空值
+     * 判断 输出引用实体的属性组 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3121,7 +3121,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 输出引用属性组
+     * 重置 输出引用实体的属性组
      */
     @JsonIgnore
     public void resetOutRefPSDEFGroupName(){
@@ -3129,7 +3129,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出引用属性组
+     * 设置 输出引用实体的属性组
      * <P>
      * 等同 {@link #setOutRefPSDEFGroupName}
      * @param outRefPSDEFGroupName
@@ -3141,14 +3141,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTREFPSDEID</B>&nbsp;输出引用实体
+     * <B>OUTREFPSDEID</B>&nbsp;输出引用实体，返回值为外部数据时指定的引用实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 
      */
     public final static String FIELD_OUTREFPSDEID = "outrefpsdeid";
 
     /**
-     * 设置 输出引用实体
+     * 设置 输出引用实体，详细说明：{@link #FIELD_OUTREFPSDEID}
      * 
      * @param outRefPSDEId
      * 
@@ -3192,7 +3192,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 输出引用实体
+     * 设置 输出引用实体，详细说明：{@link #FIELD_OUTREFPSDEID}
      * <P>
      * 等同 {@link #setOutRefPSDEId}
      * @param outRefPSDEId
@@ -3616,14 +3616,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PREPARELAST</B>&nbsp;准备最后数据
+     * <B>PREPARELAST</B>&nbsp;准备上次数据，指定在操作之前准备最后数据模式，默认为【不准备】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEActionPrepareLastMode} 
      */
     public final static String FIELD_PREPARELAST = "preparelast";
 
     /**
-     * 设置 准备最后数据
+     * 设置 准备上次数据，详细说明：{@link #FIELD_PREPARELAST}
      * 
      * @param prepareLast
      * 
@@ -3634,7 +3634,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 准备最后数据  
+     * 获取 准备上次数据  
      * @return
      */
     @JsonIgnore
@@ -3647,7 +3647,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 准备最后数据 是否指定值，包括空值
+     * 判断 准备上次数据 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3659,7 +3659,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 准备最后数据
+     * 重置 准备上次数据
      */
     @JsonIgnore
     public void resetPrepareLast(){
@@ -3667,7 +3667,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 准备最后数据
+     * 设置 准备上次数据，详细说明：{@link #FIELD_PREPARELAST}
      * <P>
      * 等同 {@link #setPrepareLast}
      * @param prepareLast
@@ -3679,7 +3679,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 准备最后数据
+     * 设置 准备上次数据，详细说明：{@link #FIELD_PREPARELAST}
      * <P>
      * 等同 {@link #setPrepareLast}
      * @param prepareLast
@@ -4855,132 +4855,6 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDESYSPROCID</B>&nbsp;实体系统过程
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSDESYSPROCID = "psdesysprocid";
-
-    /**
-     * 设置 实体系统过程
-     * 
-     * @param pSDESysProcId
-     * 
-     */
-    @JsonProperty(FIELD_PSDESYSPROCID)
-    public void setPSDESysProcId(String pSDESysProcId){
-        this.set(FIELD_PSDESYSPROCID, pSDESysProcId);
-    }
-    
-    /**
-     * 获取 实体系统过程  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDESysProcId(){
-        Object objValue = this.get(FIELD_PSDESYSPROCID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 实体系统过程 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDESysProcIdDirty(){
-        if(this.contains(FIELD_PSDESYSPROCID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 实体系统过程
-     */
-    @JsonIgnore
-    public void resetPSDESysProcId(){
-        this.reset(FIELD_PSDESYSPROCID);
-    }
-
-    /**
-     * 设置 实体系统过程
-     * <P>
-     * 等同 {@link #setPSDESysProcId}
-     * @param pSDESysProcId
-     */
-    @JsonIgnore
-    public PSDEAction psdesysprocid(String pSDESysProcId){
-        this.setPSDESysProcId(pSDESysProcId);
-        return this;
-    }
-
-    /**
-     * <B>PSDESYSPROCNAME</B>&nbsp;实体系统过程
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDESYSPROCID}
-     */
-    public final static String FIELD_PSDESYSPROCNAME = "psdesysprocname";
-
-    /**
-     * 设置 实体系统过程
-     * 
-     * @param pSDESysProcName
-     * 
-     */
-    @JsonProperty(FIELD_PSDESYSPROCNAME)
-    public void setPSDESysProcName(String pSDESysProcName){
-        this.set(FIELD_PSDESYSPROCNAME, pSDESysProcName);
-    }
-    
-    /**
-     * 获取 实体系统过程  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDESysProcName(){
-        Object objValue = this.get(FIELD_PSDESYSPROCNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 实体系统过程 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDESysProcNameDirty(){
-        if(this.contains(FIELD_PSDESYSPROCNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 实体系统过程
-     */
-    @JsonIgnore
-    public void resetPSDESysProcName(){
-        this.reset(FIELD_PSDESYSPROCNAME);
-    }
-
-    /**
-     * 设置 实体系统过程
-     * <P>
-     * 等同 {@link #setPSDESysProcName}
-     * @param pSDESysProcName
-     */
-    @JsonIgnore
-    public PSDEAction psdesysprocname(String pSDESysProcName){
-        this.setPSDESysProcName(pSDESysProcName);
-        return this;
-    }
-
-    /**
      * <B>PSSUBSYSSADEID</B>&nbsp;PSSUBSYSSADEID
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEID}
@@ -5044,14 +4918,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSUBSYSSADETAILID</B>&nbsp;子系统接口成员，实体支持外部接口持久化时指定行为绑定的接口实体方法，未指定时引擎将通过代码名称尝试获取对应的接口实体方法
+     * <B>PSSUBSYSSADETAILID</B>&nbsp;外部接口实体方法，实体支持外部接口持久化时指定行为绑定的接口实体方法，未指定时引擎将通过代码名称尝试获取对应的接口实体方法
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSubSysSADetail} 
      */
     public final static String FIELD_PSSUBSYSSADETAILID = "pssubsyssadetailid";
 
     /**
-     * 设置 子系统接口成员，详细说明：{@link #FIELD_PSSUBSYSSADETAILID}
+     * 设置 外部接口实体方法，详细说明：{@link #FIELD_PSSUBSYSSADETAILID}
      * 
      * @param pSSubSysSADetailId
      * 
@@ -5062,7 +4936,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 子系统接口成员  
+     * 获取 外部接口实体方法  
      * @return
      */
     @JsonIgnore
@@ -5075,7 +4949,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 子系统接口成员 是否指定值，包括空值
+     * 判断 外部接口实体方法 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -5087,7 +4961,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 子系统接口成员
+     * 重置 外部接口实体方法
      */
     @JsonIgnore
     public void resetPSSubSysSADetailId(){
@@ -5095,7 +4969,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 子系统接口成员，详细说明：{@link #FIELD_PSSUBSYSSADETAILID}
+     * 设置 外部接口实体方法，详细说明：{@link #FIELD_PSSUBSYSSADETAILID}
      * <P>
      * 等同 {@link #setPSSubSysSADetailId}
      * @param pSSubSysSADetailId
@@ -5107,7 +4981,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 子系统接口成员，包括引用对象的其它关系属性
+     * 设置 外部接口实体方法，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSSubSysSADetailId}
      * @param pSSubSysSADetail 引用对象
@@ -6421,14 +6295,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>RETSTDDATATYPE</B>&nbsp;返回数据类型
+     * <B>RETSTDDATATYPE</B>&nbsp;返回数据类型，返回值类型为简单值时指定具体的数据类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.StdDataType} 
      */
     public final static String FIELD_RETSTDDATATYPE = "retstddatatype";
 
     /**
-     * 设置 返回数据类型
+     * 设置 返回数据类型，详细说明：{@link #FIELD_RETSTDDATATYPE}
      * 
      * @param retStdDataType
      * 
@@ -6472,7 +6346,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 返回数据类型
+     * 设置 返回数据类型，详细说明：{@link #FIELD_RETSTDDATATYPE}
      * <P>
      * 等同 {@link #setRetStdDataType}
      * @param retStdDataType
@@ -6484,7 +6358,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 返回数据类型
+     * 设置 返回数据类型，详细说明：{@link #FIELD_RETSTDDATATYPE}
      * <P>
      * 等同 {@link #setRetStdDataType}
      * @param retStdDataType
@@ -6644,14 +6518,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SUBSYSSADETAILMODE</B>&nbsp;外部接口方法绑定
+     * <B>SUBSYSSADETAILMODE</B>&nbsp;外部接口方法绑定，实体支持外部接口持久化时指定行为绑定接口实体方法模式，默认为【自动绑定】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.SubSysSADEMethodBindingMode} 
      */
     public final static String FIELD_SUBSYSSADETAILMODE = "subsyssadetailmode";
 
     /**
-     * 设置 外部接口方法绑定
+     * 设置 外部接口方法绑定，详细说明：{@link #FIELD_SUBSYSSADETAILMODE}
      * 
      * @param subSysSADetailMode
      * 
@@ -6695,7 +6569,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 外部接口方法绑定
+     * 设置 外部接口方法绑定，详细说明：{@link #FIELD_SUBSYSSADETAILMODE}
      * <P>
      * 等同 {@link #setSubSysSADetailMode}
      * @param subSysSADetailMode
@@ -6707,7 +6581,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 外部接口方法绑定
+     * 设置 外部接口方法绑定，详细说明：{@link #FIELD_SUBSYSSADETAILMODE}
      * <P>
      * 等同 {@link #setSubSysSADetailMode}
      * @param subSysSADetailMode
@@ -6724,14 +6598,14 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SYNCEVENT</B>&nbsp;同步事件
+     * <B>SYNCEVENT</B>&nbsp;同步事件，指定实体行为触发的同步事件
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEActionSyncEvent} 
      */
     public final static String FIELD_SYNCEVENT = "syncevent";
 
     /**
-     * 设置 同步事件
+     * 设置 同步事件，详细说明：{@link #FIELD_SYNCEVENT}
      * 
      * @param syncEvent
      * 
@@ -6775,7 +6649,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 同步事件
+     * 设置 同步事件，详细说明：{@link #FIELD_SYNCEVENT}
      * <P>
      * 等同 {@link #setSyncEvent}
      * @param syncEvent
@@ -6787,7 +6661,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 同步事件
+     * 设置 同步事件，详细说明：{@link #FIELD_SYNCEVENT}
      * <P>
      * 等同 {@link #setSyncEvent}
      * @param syncEvent
@@ -6964,7 +6838,7 @@ public class PSDEAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TSMODE</B>&nbsp;事务模式，指定行为的事务模式，未定义时行为时逻辑继承的实体行为将被设定为【分布式事务】，其余为【默认】，由执行体系决定
+     * <B>TSMODE</B>&nbsp;事务模式，指定行为的事务模式，未定义为【默认】，由执行体系决定
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEActionTSMode} 
      */

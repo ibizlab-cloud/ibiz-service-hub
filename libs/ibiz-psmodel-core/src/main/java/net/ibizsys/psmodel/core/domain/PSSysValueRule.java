@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSVALUERULE</B>系统值规则 模型传输对象
+ * <B>PSSYSVALUERULE</B>系统预置值规则 模型传输对象
  * <P>
  * 系统的全局值规则模型，支持脚本、正则式及自定义类型
  */
@@ -1238,7 +1242,7 @@ public class PSSysValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REGEXPCODE</B>&nbsp;正则表达式，指定正则式规则的正则表达式
+     * <B>REGEXPCODE</B>&nbsp;正则表达式，指定正则式规则的表达式
      * <P>
      * 字符串：最大长度 1000
      */
@@ -1301,14 +1305,14 @@ public class PSSysValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REGEXPCODE2</B>&nbsp;正则表达式2
+     * <B>REGEXPCODE2</B>&nbsp;正则表达式2，指定正则式规则的表达式，为存在定义差异的技术框架保留
      * <P>
      * 字符串：最大长度 250
      */
     public final static String FIELD_REGEXPCODE2 = "regexpcode2";
 
     /**
-     * 设置 正则表达式2
+     * 设置 正则表达式2，详细说明：{@link #FIELD_REGEXPCODE2}
      * 
      * @param regExpCode2
      * 
@@ -1352,7 +1356,7 @@ public class PSSysValueRule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 正则表达式2
+     * 设置 正则表达式2，详细说明：{@link #FIELD_REGEXPCODE2}
      * <P>
      * 等同 {@link #setRegExpCode2}
      * @param regExpCode2

@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEVRGROUP</B>实体属性值规则组 模型传输对象
+ * <B>PSDEVRGROUP</B>实体值规则组 模型传输对象
  * <P>
- * 
+ * 实体值规则是将多个实体属性值规则组合为规则包模型
  */
 public class PSDEVRGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
 

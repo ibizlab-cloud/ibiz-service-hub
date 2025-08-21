@@ -133,6 +133,11 @@ public class LogCats {
 	 */
 	public final static String AI_AIACCESS = "AIACCESS";
 	
+	/**
+	 * 日志分类：AI平台_MCPServer
+	 */
+	public final static String AI_MCPSERVER = "MCPSERVER";
+	
 	
 	/**
 	 * 日志分类：KB平台_KB应用

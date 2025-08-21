@@ -328,6 +328,7 @@
     "codeName" : "OrgId",
     "logicName" : "单位",
     "name" : "ORGID",
+    "predefinedType" : "ORGID",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {

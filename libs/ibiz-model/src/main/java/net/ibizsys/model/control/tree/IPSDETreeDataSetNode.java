@@ -15,8 +15,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点计数值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CHILDCNTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getChildCntPSAppDEField();
@@ -31,8 +29,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点样式表值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEField();
@@ -47,8 +43,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取附加查询条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CUSTOMCOND}
 	 * @return
 	 */
 	java.lang.String getCustomCond();
@@ -56,8 +50,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取数据值2应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DATA2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getData2PSAppDEField();
@@ -72,8 +64,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取数据对象名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getDataName();
@@ -81,8 +71,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取数据值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DATAPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getDataPSAppDEField();
@@ -98,8 +86,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	/**
 	 * 获取数据源类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DATASOURCE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DETreeNodeSource}
 	 * @return
 	 */
@@ -108,8 +94,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取过滤应用实体结果集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_FILTERPSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getFilterPSAppDEDataSet();
@@ -124,8 +108,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点图标值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_ICONPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconPSAppDEField();
@@ -140,8 +122,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点标识值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_KEYPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIdPSAppDEField();
@@ -156,8 +136,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取叶节点标识值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_LEAFFLAGPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getLeafFlagPSAppDEField();
@@ -172,8 +150,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取链接值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_LINKPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getLinkPSAppDEField();
@@ -188,8 +164,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取最大加载节点数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_MAXSIZE}
 	 * @return
 	 */
 	int getMaxSize();
@@ -204,8 +178,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取移动数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_MOVEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getMovePSAppDEAction();
@@ -220,8 +192,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取移动要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_MOVEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getMovePSDEOPPriv();
@@ -236,8 +206,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取应用实体行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getPSAppDEAction();
@@ -252,8 +220,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取应用实体结果集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet();
@@ -268,8 +234,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取应用实体逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDELogic getPSAppDELogic();
@@ -284,8 +248,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PAGESIZE}
 	 * @return
 	 */
 	int getPagingSize();
@@ -300,8 +262,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取删除数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_REMOVEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getRemovePSAppDEAction();
@@ -316,8 +276,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取删除要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_REMOVEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getRemovePSDEOPPriv();
@@ -332,8 +290,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -341,8 +297,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取图形样式应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SHAPECLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getShapeClsPSAppDEField();
@@ -358,8 +312,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	/**
 	 * 获取节点排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SORTDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeSortDir}
 	 * @return
 	 */
@@ -368,8 +320,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点排序值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getSortPSAppDEField();
@@ -384,8 +334,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点文本格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getTextFormat();
@@ -393,8 +341,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点文本值属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
@@ -409,8 +355,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取节点提示值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_TIPSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEField();
@@ -432,8 +376,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取更新数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_UPDATEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getUpdatePSAppDEAction();
@@ -448,8 +390,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取更新要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_UPDATEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getUpdatePSDEOPPriv();
@@ -464,8 +404,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取是否附加节点标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_APPENDCAPFLAG}
 	 * @return
 	 */
 	boolean isAppendCaption();
@@ -473,8 +411,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取是否数据排重模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DISTINCTMODE}
 	 * @return
 	 */
 	boolean isDistinctMode();
@@ -482,8 +418,6 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	
 	/**
 	 * 获取是否支持分页
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_ENABLEPAGING}
 	 * @return
 	 */
 	boolean isEnablePaging();

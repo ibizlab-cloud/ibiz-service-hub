@@ -728,6 +728,10 @@
       "name" : "TEAMID",
       "codeName" : "TeamId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "TEAMNAME",
+      "codeName" : "TeamName"
+    },
     "rSMode" : 2
   } ] ]
 }

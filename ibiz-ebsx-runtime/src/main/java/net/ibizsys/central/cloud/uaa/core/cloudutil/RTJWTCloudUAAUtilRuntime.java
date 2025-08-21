@@ -322,8 +322,32 @@ public class RTJWTCloudUAAUtilRuntime extends CloudUAAUtilRuntimeBase {
      * @throws Throwable
      */
     protected AuthenticationUser onGetdUserByOpenAuthCode(String strDCSystemId, String strOpenType, String strOpenCode, String strOpenAccessId) throws Throwable {
+        String strOpenAccessIdLast = strOpenAccessId;
+        if (StringUtils.hasLength(strOpenAccessId) ) {
+            DCSystem dcSystem = this.getCloudSaaSUtilRuntime().getDCSystem(strDCSystemId);
+            //模仿机构身份
+            IEmployeeContext lastEmployeeContext = EmployeeContext.getCurrent();
+
+            try {
+                Employee employee = new Employee();
+                employee.setUserId("SYSTEM");
+                employee.setUserName("内置用户");
+                employee.setPersonName("内置用户");
+                employee.setSrfdcid(dcSystem.getSrfdcid());
+                employee.setDCSystemId(dcSystem.getDCSystemId());
+
+                EmployeeContext employeeContext = new EmployeeContext(employee, null, dcSystem.getSystemId());
+                UserContext.setCurrent(employeeContext);
+                if (this.getCloudSaaSUtilRuntime().getOpenAccess(strOpenAccessId,true) == null)
+                    strOpenAccessId = null;
+            } catch (Throwable ex) {
+                throw ex;
+            } finally {
+                EmployeeContext.setCurrent(lastEmployeeContext);
+            }
+        }
         if (ObjectUtils.isEmpty(strOpenAccessId)) {
-            AuthenticationUser user = super.onGetdUserByOpenAuthCode(strDCSystemId,strOpenType,strOpenCode,strOpenAccessId);
+            AuthenticationUser user = super.onGetdUserByOpenAuthCode(strDCSystemId,strOpenType,strOpenCode,strOpenAccessIdLast);
             try {
                 IWebClientRep<AuthLoginResponse> rep = null;
                 if (user == null || user.getUsername().startsWith("oauth__")) {
@@ -379,6 +403,8 @@ public class RTJWTCloudUAAUtilRuntime extends CloudUAAUtilRuntimeBase {
      */
     @Override
     protected ObjectNode onGetOpenAccessInfo(String strDCSystemId, String strOpenType, String strOpenAccessId) throws Throwable {
+        if(ObjectUtils.isEmpty(strOpenAccessId))
+            return super.onGetOpenAccessInfo(strDCSystemId,strOpenType,strOpenAccessId);
         Map uriParams = new LinkedHashMap<>();
         uriParams.put("openaccessid",strOpenAccessId);
         Map<String,String> redirect = new HashMap<>();

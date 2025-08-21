@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "FIELDID",
+        "codeName" : "Field_id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "FIELDNAME",
+        "codeName" : "Field_name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -542,6 +550,7 @@
     "length" : 100,
     "logicName" : "属性标识",
     "name" : "FIELDID",
+    "orderValue" : 0,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -674,6 +683,7 @@
     "length" : 100,
     "logicName" : "属性名称",
     "name" : "FIELDNAME",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -802,6 +812,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -943,6 +954,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1139,6 +1151,7 @@
     "length" : 100,
     "logicName" : "实体名称",
     "name" : "ENTITYNAME",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1315,6 +1328,7 @@
     "length" : 100,
     "logicName" : "实体代码名称",
     "name" : "ENTITYCODENAME",
+    "orderValue" : 5,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_ENTITY_ENTITYID.json"
@@ -1487,6 +1501,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "SYSTEMID",
+    "orderValue" : 6,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_ENTITY_ENTITYID.json"
@@ -1627,6 +1642,7 @@
     "length" : 100,
     "logicName" : "属性逻辑名",
     "name" : "FIELDLOGICNAME",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1749,6 +1765,7 @@
     "length" : 200,
     "logicName" : "属性全路径名称",
     "name" : "FIELDUNINAME",
+    "orderValue" : 8,
     "stdDataType" : 25,
     "stringLength" : 200,
     "valueFormat" : "%1$s",
@@ -1866,6 +1883,7 @@
     "length" : 200,
     "logicName" : "显示名称",
     "name" : "FIELDSHOWNAME",
+    "orderValue" : 9,
     "stdDataType" : 25,
     "stringLength" : 200,
     "valueFormat" : "%1$s",
@@ -2003,6 +2021,7 @@
     "length" : 100,
     "logicName" : "引用属性标识",
     "name" : "REFFIELDID",
+    "orderValue" : 14,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2198,6 +2217,7 @@
     "length" : 100,
     "logicName" : "引用属性名称",
     "name" : "REFFIELDNAME",
+    "orderValue" : 15,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2364,6 +2384,7 @@
     "length" : 100,
     "logicName" : "引用关系标识",
     "name" : "RELATIONID",
+    "orderValue" : 16,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2559,6 +2580,7 @@
     "length" : 100,
     "logicName" : "引用关系",
     "name" : "RELATIONNAME",
+    "orderValue" : 17,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2735,6 +2757,7 @@
     "length" : 100,
     "logicName" : "关系代码",
     "name" : "RELATIONCODENAME",
+    "orderValue" : 18,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_RELATION_RELATIONID.json"
@@ -2901,6 +2924,7 @@
     "length" : 100,
     "logicName" : "引用实体",
     "name" : "REFENTITYNAME",
+    "orderValue" : 18,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaField/PSDERS/DER1N_META_FIELD_META_RELATION_RELATIONID.json"
@@ -3029,6 +3053,7 @@
     "importOrder" : 1000,
     "logicName" : "主键",
     "name" : "KEYFIELD",
+    "orderValue" : 21,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3145,6 +3170,7 @@
     "importOrder" : 1000,
     "logicName" : "主信息",
     "name" : "MAJORFIELD",
+    "orderValue" : 22,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3267,6 +3293,7 @@
     "length" : 70,
     "logicName" : "联合主键",
     "name" : "UNIONKEY",
+    "orderValue" : 23,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3392,6 +3419,7 @@
     "length" : 70,
     "logicName" : "属性类型",
     "name" : "FIELDTYPE",
+    "orderValue" : 26,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3511,6 +3539,7 @@
     "length" : 70,
     "logicName" : "预定义类型",
     "name" : "PREDEFINED",
+    "orderValue" : 27,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3630,6 +3659,7 @@
     "length" : 100,
     "logicName" : "数据字典",
     "name" : "DICT",
+    "orderValue" : 28,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3737,6 +3767,7 @@
     "importOrder" : 1000,
     "logicName" : "允许为空",
     "name" : "NULLABLE",
+    "orderValue" : 30,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3853,6 +3884,7 @@
     "importOrder" : 1000,
     "logicName" : "物理属性",
     "name" : "PHYSICALFIELD",
+    "orderValue" : 31,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3981,6 +4013,7 @@
     "length" : 100,
     "logicName" : "数据类型",
     "name" : "DATATYPE",
+    "orderValue" : 32,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4084,6 +4117,7 @@
     "importOrder" : 1000,
     "logicName" : "长度",
     "name" : "DATALENGTH",
+    "orderValue" : 33,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4186,6 +4220,7 @@
     "importOrder" : 1000,
     "logicName" : "精度",
     "name" : "DATAPRECI",
+    "orderValue" : 34,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4304,6 +4339,7 @@
     "length" : 2000,
     "logicName" : "逻辑表达式",
     "name" : "EXPRESSION",
+    "orderValue" : 37,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4417,6 +4453,7 @@
     "importOrder" : 1000,
     "logicName" : "扩展属性",
     "name" : "EXTENSIONFIELD",
+    "orderValue" : 41,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -4527,6 +4564,7 @@
     "importOrder" : 1000,
     "logicName" : "审计",
     "name" : "ISENABLEAUDIT",
+    "orderValue" : 42,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -4633,6 +4671,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 49,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4740,6 +4779,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 100,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4849,6 +4889,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 101,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

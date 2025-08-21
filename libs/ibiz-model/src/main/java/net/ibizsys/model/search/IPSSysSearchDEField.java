@@ -12,8 +12,6 @@ public interface IPSSysSearchDEField extends net.ibizsys.model.search.IPSSearchD
 	
 	/**
 	 * 获取检索文档属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSSEARCHFIELDID}
 	 * @return
 	 */
 	net.ibizsys.model.search.IPSSysSearchField getPSSysSearchField();

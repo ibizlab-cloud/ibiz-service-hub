@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDEVIEWBASE</B>实体视图 模型传输对象
  * <P>
- * 实体视图是实体的界面视图模型，包括了视图部件、视图逻辑等相关模型，实体视图既可以作为顶级视图，也可以嵌入到其它视图作为部件视图使用。实体视图必须加入到应用才会被使用，一个实体视图可以加入到多个应用中
+ * 实体视图是实体的界面视图模型，包括了视图部件、视图逻辑等模型，实体视图通过视图类型使用默认布局模板，也可以指定视图布局面板实现自定义布局。实体视图既可以独立使用，也可以作为部件视图被引用。实体视图加入到应用形成应用实体视图，一个实体视图可以加入到多个应用中。
  */
 public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -617,14 +617,14 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DEVIEWTAG2</B>&nbsp;视图标记2
+     * <B>DEVIEWTAG2</B>&nbsp;固定应用视图标识
      * <P>
-     * 字符串：最大长度 60
+     * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
      */
     public final static String FIELD_DEVIEWTAG2 = "deviewtag2";
 
     /**
-     * 设置 视图标记2
+     * 设置 固定应用视图标识
      * 
      * @param dEViewTag2
      * 
@@ -635,7 +635,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 视图标记2  
+     * 获取 固定应用视图标识  
      * @return
      */
     @JsonIgnore
@@ -648,7 +648,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 视图标记2 是否指定值，包括空值
+     * 判断 固定应用视图标识 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -660,7 +660,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 视图标记2
+     * 重置 固定应用视图标识
      */
     @JsonIgnore
     public void resetDEViewTag2(){
@@ -668,7 +668,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 视图标记2
+     * 设置 固定应用视图标识
      * <P>
      * 等同 {@link #setDEViewTag2}
      * @param dEViewTag2
@@ -806,14 +806,14 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DYNCMODE</B>&nbsp;视图优先级
+     * <B>DYNCMODE</B>&nbsp;视图优先级，指定在插件应用模式下的视图优先级
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.AppViewPriority} 
      */
     public final static String FIELD_DYNCMODE = "dyncmode";
 
     /**
-     * 设置 视图优先级
+     * 设置 视图优先级，详细说明：{@link #FIELD_DYNCMODE}
      * 
      * @param dyncMode
      * 
@@ -857,7 +857,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 视图优先级
+     * 设置 视图优先级，详细说明：{@link #FIELD_DYNCMODE}
      * <P>
      * 等同 {@link #setDyncMode}
      * @param dyncMode
@@ -869,7 +869,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 视图优先级
+     * 设置 视图优先级，详细说明：{@link #FIELD_DYNCMODE}
      * <P>
      * 等同 {@link #setDyncMode}
      * @param dyncMode
@@ -1233,14 +1233,14 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板模式
+     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板应用模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutPanelMode} 
      */
     public final static String FIELD_LAYOUTPANELMODE = "layoutpanelmode";
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * 
      * @param layoutPanelMode
      * 
@@ -1251,7 +1251,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 布局面板模式  
+     * 获取 布局面板应用模式  
      * @return
      */
     @JsonIgnore
@@ -1264,7 +1264,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 布局面板模式 是否指定值，包括空值
+     * 判断 布局面板应用模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1276,7 +1276,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 布局面板模式
+     * 重置 布局面板应用模式
      */
     @JsonIgnore
     public void resetLayoutPanelMode(){
@@ -1284,7 +1284,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode
@@ -1296,7 +1296,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode
@@ -2686,7 +2686,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDEVIEWBASETYPE</B>&nbsp;视图类型，指定实体视图的类型
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEViewType} 
      */
     public final static String FIELD_PSDEVIEWBASETYPE = "psdeviewbasetype";
 
@@ -2746,129 +2746,20 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
-    /**
-     * <B>PSDYNADEVIEWTEMPLID</B>&nbsp;动态实体视图模板，指定视图使用的动态实体视图模板
+     /**
+     * 设置 视图类型，详细说明：{@link #FIELD_PSDEVIEWBASETYPE}
      * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSDYNADEVIEWTEMPLID = "psdynadeviewtemplid";
-
-    /**
-     * 设置 动态实体视图模板，详细说明：{@link #FIELD_PSDYNADEVIEWTEMPLID}
-     * 
-     * @param pSDynaDEViewTemplId
-     * 
-     */
-    @JsonProperty(FIELD_PSDYNADEVIEWTEMPLID)
-    public void setPSDynaDEViewTemplId(String pSDynaDEViewTemplId){
-        this.set(FIELD_PSDYNADEVIEWTEMPLID, pSDynaDEViewTemplId);
-    }
-    
-    /**
-     * 获取 动态实体视图模板  
-     * @return
+     * 等同 {@link #setPSDEViewBaseType}
+     * @param pSDEViewBaseType
      */
     @JsonIgnore
-    public String getPSDynaDEViewTemplId(){
-        Object objValue = this.get(FIELD_PSDYNADEVIEWTEMPLID);
-        if(objValue==null){
-            return null;
+    public PSDEViewBase psdeviewbasetype(net.ibizsys.psmodel.core.util.PSModelEnums.DEViewType pSDEViewBaseType){
+        if(pSDEViewBaseType == null){
+            this.setPSDEViewBaseType(null);
         }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 动态实体视图模板 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDynaDEViewTemplIdDirty(){
-        if(this.contains(FIELD_PSDYNADEVIEWTEMPLID)){
-            return true;
+        else{
+            this.setPSDEViewBaseType(pSDEViewBaseType.value);
         }
-        return false;
-    }
-
-    /**
-     * 重置 动态实体视图模板
-     */
-    @JsonIgnore
-    public void resetPSDynaDEViewTemplId(){
-        this.reset(FIELD_PSDYNADEVIEWTEMPLID);
-    }
-
-    /**
-     * 设置 动态实体视图模板，详细说明：{@link #FIELD_PSDYNADEVIEWTEMPLID}
-     * <P>
-     * 等同 {@link #setPSDynaDEViewTemplId}
-     * @param pSDynaDEViewTemplId
-     */
-    @JsonIgnore
-    public PSDEViewBase psdynadeviewtemplid(String pSDynaDEViewTemplId){
-        this.setPSDynaDEViewTemplId(pSDynaDEViewTemplId);
-        return this;
-    }
-
-    /**
-     * <B>PSDYNADEVIEWTEMPLNAME</B>&nbsp;动态实体视图模板，指定视图使用的动态实体视图模板
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDYNADEVIEWTEMPLID}
-     */
-    public final static String FIELD_PSDYNADEVIEWTEMPLNAME = "psdynadeviewtemplname";
-
-    /**
-     * 设置 动态实体视图模板，详细说明：{@link #FIELD_PSDYNADEVIEWTEMPLNAME}
-     * 
-     * @param pSDynaDEViewTemplName
-     * 
-     */
-    @JsonProperty(FIELD_PSDYNADEVIEWTEMPLNAME)
-    public void setPSDynaDEViewTemplName(String pSDynaDEViewTemplName){
-        this.set(FIELD_PSDYNADEVIEWTEMPLNAME, pSDynaDEViewTemplName);
-    }
-    
-    /**
-     * 获取 动态实体视图模板  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDynaDEViewTemplName(){
-        Object objValue = this.get(FIELD_PSDYNADEVIEWTEMPLNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 动态实体视图模板 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDynaDEViewTemplNameDirty(){
-        if(this.contains(FIELD_PSDYNADEVIEWTEMPLNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 动态实体视图模板
-     */
-    @JsonIgnore
-    public void resetPSDynaDEViewTemplName(){
-        this.reset(FIELD_PSDYNADEVIEWTEMPLNAME);
-    }
-
-    /**
-     * 设置 动态实体视图模板，详细说明：{@link #FIELD_PSDYNADEVIEWTEMPLNAME}
-     * <P>
-     * 等同 {@link #setPSDynaDEViewTemplName}
-     * @param pSDynaDEViewTemplName
-     */
-    @JsonIgnore
-    public PSDEViewBase psdynadeviewtemplname(String pSDynaDEViewTemplName){
-        this.setPSDynaDEViewTemplName(pSDynaDEViewTemplName);
         return this;
     }
 
@@ -7737,14 +7628,14 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体视图关联视图 成员集合
+     *  实体视图引用视图 成员集合
      */
     public final static String FIELD_PSDEVIEWRVS = "psdeviewrvs";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEViewRV> psdeviewrvs;
 
     /**
-     * 获取 实体视图关联视图 成员集合
+     * 获取 实体视图引用视图 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEVIEWRVS)
@@ -7753,7 +7644,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体视图关联视图 成员集合  
+     * 设置 实体视图引用视图 成员集合  
      * @param psdeviewrvs
      */
     @JsonProperty(FIELD_PSDEVIEWRVS)
@@ -7762,7 +7653,7 @@ public class PSDEViewBase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体视图关联视图 成员集合，不存在时建立集合对象
+     * 获取 实体视图引用视图 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

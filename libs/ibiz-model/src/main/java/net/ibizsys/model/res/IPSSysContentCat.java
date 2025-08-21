@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统预置内容分类模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysContentCatDTO}运行时对象
+ * 系统预置内容分类模型对象接口
  *
  */
 public interface IPSSysContentCat extends net.ibizsys.model.IPSModelObject{

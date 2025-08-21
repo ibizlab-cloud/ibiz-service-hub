@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口实体属性模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO}运行时对象
+ * 外部系统服务接口实体属性模型对象接口
  *
  */
 public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取代码名称2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_CODENAME2}
 	 * @return
 	 */
 	java.lang.String getCodeName2();
@@ -28,8 +26,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_PSDATATYPEID}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDataType}
 	 * @return
@@ -39,8 +35,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取属性标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_FIELDTAG}
 	 * @return
 	 */
 	java.lang.String getFieldTag();
@@ -48,8 +42,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取属性标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_FIELDTAG2}
 	 * @return
 	 */
 	java.lang.String getFieldTag2();
@@ -57,8 +49,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取属性类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_FIELDTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysSADEFieldType}
 	 * @return
@@ -68,8 +58,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取属性长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_LENGTH}
 	 * @return
 	 */
 	int getLength();
@@ -77,8 +65,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -100,8 +86,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取属性精度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_PRECISION}
 	 * @return
 	 */
 	int getPrecision();
@@ -109,8 +93,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取预定义类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_PREDEFINEDTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysSADEFieldPredefinedType}
 	 * @return
@@ -120,8 +102,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取引用外部服务接口实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_REFPSSUBSYSSADEID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getRefPSSubSysServiceAPIDE();
@@ -137,8 +117,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -147,8 +125,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取是否允许空输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();
@@ -156,8 +132,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取是否属性为数组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_ARRAYFLAG}
 	 * @return
 	 */
 	boolean isArray();
@@ -165,8 +139,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取是否主键属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_PKEY}
 	 * @return
 	 */
 	boolean isKeyDEField();
@@ -174,8 +146,6 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	/**
 	 * 获取是否主信息属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysSADEFieldDTO#FIELD_MAJORFIELD}
 	 * @return
 	 */
 	boolean isMajorDEField();

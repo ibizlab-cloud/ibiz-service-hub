@@ -3,7 +3,7 @@ package net.ibizsys.model.app.control;
 
 
 /**
- * 应用门户部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppPortletDTO}运行时对象
+ * 应用门户部件模型对象接口
  *
  */
 public interface IPSAppPortlet extends net.ibizsys.model.app.IPSApplicationObject{
@@ -19,8 +19,6 @@ public interface IPSAppPortlet extends net.ibizsys.model.app.IPSApplicationObjec
 	
 	/**
 	 * 获取应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppPortletDTO#FIELD_PSAPPLOCALDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();

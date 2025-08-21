@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDETREENODE</B>实体树节点 模型传输对象
+ * <B>PSDETREENODE</B>树节点 模型传输对象
  * <P>
  * 树视图节点模型，支持定义静态及动态树节点及相关的处理逻辑
  */

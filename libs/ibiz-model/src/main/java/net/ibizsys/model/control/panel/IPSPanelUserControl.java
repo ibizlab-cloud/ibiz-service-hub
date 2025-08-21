@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板自定义部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO}运行时对象
+ * 面板自定义部件模型对象接口
  * <P>
  * 扩展父接口类型[USERCONTROL]
  *
@@ -21,8 +21,6 @@ public interface IPSPanelUserControl extends net.ibizsys.model.control.panel.IPS
 	
 	/**
 	 * 获取预置类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PREDEFINEDTYPE}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();

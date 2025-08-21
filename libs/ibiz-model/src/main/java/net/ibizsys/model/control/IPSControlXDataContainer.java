@@ -12,8 +12,6 @@ public interface IPSControlXDataContainer{
 	
 	/**
 	 * 获取应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -49,8 +47,6 @@ public interface IPSControlXDataContainer{
 	
 	/**
 	 * 获取是否默认加载数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOADDEFAULT}
 	 * @return
 	 */
 	boolean isLoadDefault();
@@ -58,8 +54,6 @@ public interface IPSControlXDataContainer{
 	
 	/**
 	 * 获取是否只读模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_READONLYMODE}
 	 * @return
 	 */
 	boolean isReadOnly();

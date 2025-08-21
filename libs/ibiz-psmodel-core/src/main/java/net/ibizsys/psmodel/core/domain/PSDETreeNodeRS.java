@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDETREENODERS</B>实体树节点关系 模型传输对象
+ * <B>PSDETREENODERS</B>树节点关系 模型传输对象
  * <P>
  * 树数据节点关系模型，定义树节点之间的关系。树视图默认从根节点开始加载，后续按树节点关系逻辑展开加载
  */

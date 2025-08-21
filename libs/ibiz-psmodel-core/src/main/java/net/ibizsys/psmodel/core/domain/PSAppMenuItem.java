@@ -240,6 +240,23 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
+     /**
+     * 设置 位置布局位置，详细说明：{@link #FIELD_BL_POS}
+     * <P>
+     * 等同 {@link #setBL_Pos}
+     * @param bL_Pos
+     */
+    @JsonIgnore
+    public PSAppMenuItem bl_pos(net.ibizsys.psmodel.core.util.PSModelEnums.BorderLayoutPos bL_Pos){
+        if(bL_Pos == null){
+            this.setBL_Pos(null);
+        }
+        else{
+            this.setBL_Pos(bL_Pos.value);
+        }
+        return this;
+    }
+
     /**
      * <B>BORDERSTYLE</B>&nbsp;边框样式
      * <P>
@@ -1915,7 +1932,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，应用菜单项容器布局模式为【Flex布局】时指定横轴对齐方式
+     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，菜单项在【Flex布局】模式下指定横轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexAlign} 
      */
@@ -2056,7 +2073,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXDIR</B>&nbsp;Flex布局方向，应用菜单项容器布局模式为【Flex布局】时指定布局方向
+     * <B>FLEXDIR</B>&nbsp;Flex布局方向，菜单项在【Flex布局】模式下指定布局方向
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexLayoutDir} 
      */
@@ -2136,7 +2153,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXGROW</B>&nbsp;Flex延展值，应用菜单项父容器布局模式为【Flex布局】时指定成员的延展值，未定义时为【-1】
+     * <B>FLEXGROW</B>&nbsp;Flex延展值，菜单项在【Flex布局】模式下延展值，未定义时为【-1】
      */
     public final static String FIELD_FLEXGROW = "flexgrow";
 
@@ -2258,7 +2275,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，应用菜单项容器布局模式为【Flex布局】时指定纵轴对齐方式
+     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，容器布局模式为【Flex布局】时指定纵轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexVAlign} 
      */
@@ -6003,14 +6020,14 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TEMPLATEMODE</B>&nbsp;模板模式
+     * <B>TEMPLATEMODE</B>&nbsp;模板模式，指定直接内容输出是否使用模板机制，默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_TEMPLATEMODE = "templatemode";
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * 
      * @param templateMode
      * 
@@ -6054,7 +6071,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -6066,7 +6083,7 @@ public class PSAppMenuItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode

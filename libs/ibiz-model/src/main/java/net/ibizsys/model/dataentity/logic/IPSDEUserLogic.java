@@ -14,8 +14,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标实体行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getDstPSDEAction();
@@ -30,8 +28,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标实体数据查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEDATAQUERYID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getDstPSDEDataQuery();
@@ -46,8 +42,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getDstPSDEDataSet();
@@ -62,8 +56,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标实体逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogic getDstPSDELogic();
@@ -78,8 +70,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -94,8 +84,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();
@@ -110,8 +98,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数1
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getParam1();
@@ -119,8 +105,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数10
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM10}
 	 * @return
 	 */
 	java.lang.Integer getParam10();
@@ -128,8 +112,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数11
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM11}
 	 * @return
 	 */
 	java.lang.String getParam11();
@@ -137,8 +119,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数12
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM12}
 	 * @return
 	 */
 	java.lang.String getParam12();
@@ -146,8 +126,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数13
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM13}
 	 * @return
 	 */
 	java.lang.String getParam13();
@@ -155,8 +133,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数14
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM14}
 	 * @return
 	 */
 	java.lang.String getParam14();
@@ -164,8 +140,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getParam2();
@@ -173,8 +147,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.String getParam3();
@@ -182,8 +154,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getParam4();
@@ -191,8 +161,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数5
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM5}
 	 * @return
 	 */
 	java.lang.String getParam5();
@@ -200,8 +168,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数6
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM6}
 	 * @return
 	 */
 	java.lang.String getParam6();
@@ -209,8 +175,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数7
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM7}
 	 * @return
 	 */
 	java.lang.Integer getParam7();
@@ -218,8 +182,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数8
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM8}
 	 * @return
 	 */
 	java.lang.Integer getParam8();
@@ -227,8 +189,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取逻辑参数9
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM9}
 	 * @return
 	 */
 	java.lang.Integer getParam9();
@@ -236,8 +196,6 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

@@ -12,8 +12,6 @@ public interface IPSDEFVRSingleCondition extends net.ibizsys.model.dataentity.de
 	
 	/**
 	 * 获取属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_CUSTOMDEFNAME}、{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	java.lang.String getDEFName();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "USERID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "DisplayName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -491,6 +499,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -612,6 +621,7 @@
     "length" : 100,
     "logicName" : "用户全局名",
     "name" : "USERNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -737,6 +747,7 @@
     "length" : 100,
     "logicName" : "用户名称",
     "name" : "PERSONNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -858,6 +869,7 @@
     "length" : 100,
     "logicName" : "主部门",
     "name" : "MDEPTID",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -977,6 +989,7 @@
     "length" : 100,
     "logicName" : "主部门代码",
     "name" : "MDEPTCODE",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1096,6 +1109,7 @@
     "length" : 100,
     "logicName" : "主部门名称",
     "name" : "MDEPTNAME",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1215,6 +1229,7 @@
     "length" : 100,
     "logicName" : "业务编码",
     "name" : "BCODE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1334,6 +1349,7 @@
     "length" : 100,
     "logicName" : "单位",
     "name" : "ORGID",
+    "orderValue" : 15,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1454,6 +1470,7 @@
     "length" : 100,
     "logicName" : "单位代码",
     "name" : "ORGCODE",
+    "orderValue" : 16,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1573,6 +1590,7 @@
     "length" : 100,
     "logicName" : "单位名称",
     "name" : "ORGNAME",
+    "orderValue" : 17,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

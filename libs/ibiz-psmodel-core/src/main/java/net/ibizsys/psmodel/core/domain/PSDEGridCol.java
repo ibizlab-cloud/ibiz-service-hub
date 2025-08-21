@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEGRIDCOL</B>实体表格列 模型传输对象
+ * <B>PSDEGRIDCOL</B>表格列 模型传输对象
  * <P>
  * 实体数据表格列模型，提供多种列类型。支持定义分组列（多层）、列编辑项的动态逻辑等
  */
@@ -1649,6 +1649,86 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
         }
         else{
             this.setEnableCond(enableCond.value);
+        }
+        return this;
+    }
+
+    /**
+     * <B>ENABLEINPUTTIP</B>&nbsp;启用输入提示
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_ENABLEINPUTTIP = "enableinputtip";
+
+    /**
+     * 设置 启用输入提示
+     * 
+     * @param enableInputTip
+     * 
+     */
+    @JsonProperty(FIELD_ENABLEINPUTTIP)
+    public void setEnableInputTip(Integer enableInputTip){
+        this.set(FIELD_ENABLEINPUTTIP, enableInputTip);
+    }
+    
+    /**
+     * 获取 启用输入提示  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getEnableInputTip(){
+        Object objValue = this.get(FIELD_ENABLEINPUTTIP);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 启用输入提示 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isEnableInputTipDirty(){
+        if(this.contains(FIELD_ENABLEINPUTTIP)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 启用输入提示
+     */
+    @JsonIgnore
+    public void resetEnableInputTip(){
+        this.reset(FIELD_ENABLEINPUTTIP);
+    }
+
+    /**
+     * 设置 启用输入提示
+     * <P>
+     * 等同 {@link #setEnableInputTip}
+     * @param enableInputTip
+     */
+    @JsonIgnore
+    public PSDEGridCol enableinputtip(Integer enableInputTip){
+        this.setEnableInputTip(enableInputTip);
+        return this;
+    }
+
+     /**
+     * 设置 启用输入提示
+     * <P>
+     * 等同 {@link #setEnableInputTip}
+     * @param enableInputTip
+     */
+    @JsonIgnore
+    public PSDEGridCol enableinputtip(Boolean enableInputTip){
+        if(enableInputTip == null){
+            this.setEnableInputTip(null);
+        }
+        else{
+            this.setEnableInputTip(enableInputTip?BOOLEAN_TRUE:BOOLEAN_FALSE);
         }
         return this;
     }
@@ -6526,7 +6606,7 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>RESETITEMNAME</B>&nbsp;重置项名称，指定数据表格编辑项监控的重置项名称，当重置项值发生变化时重置当前编辑项
+     * <B>RESETITEMNAME</B>&nbsp;重置项名称，指定表格编辑项监控的重置项名称，重置项值变化时重置当前项
      * <P>
      * 字符串：最大长度 60
      */
@@ -7188,7 +7268,7 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VALUEITEMNAME</B>&nbsp;值项名称，指定数据表格编辑项编辑器实际值项填充的编辑项，未指定时使用引用的属性界面模式配置
+     * <B>VALUEITEMNAME</B>&nbsp;值项名称，编辑器实际值项回填的编辑项
      * <P>
      * 字符串：最大长度 60
      */
@@ -7409,14 +7489,14 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表格列 成员集合
+     *  表格列 成员集合
      */
     public final static String FIELD_PSDEGRIDCOLS = "psdegridcols";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEGridCol> psdegridcols;
 
     /**
-     * 获取 实体表格列 成员集合
+     * 获取 表格列 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEGRIDCOLS)
@@ -7425,7 +7505,7 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表格列 成员集合  
+     * 设置 表格列 成员集合  
      * @param psdegridcols
      */
     @JsonProperty(FIELD_PSDEGRIDCOLS)
@@ -7434,7 +7514,7 @@ public class PSDEGridCol extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表格列 成员集合，不存在时建立集合对象
+     * 获取 表格列 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

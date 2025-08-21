@@ -103,6 +103,20 @@ public class WFDefinitionDTO extends EntityDTO {
   public final static String FIELD_DYNAMODELID = "dynamodelid";
 
   /**.
+   * 参数
+   *
+   * @see ibizmos:/psmodules/workflow/psdataentities/WF_DEFINITION/psdefields/PARAM/.ibizmodel.index
+   */
+  public final static String FIELD_PARAM = "param";
+
+  /**.
+   * 参数2
+   *
+   * @see ibizmos:/psmodules/workflow/psdataentities/WF_DEFINITION/psdefields/PARAM2/.ibizmodel.index
+   */
+  public final static String FIELD_PARAM2 = "param2";
+
+  /**.
    * 建立时间
    *
    * @see ibizmos:/psmodules/workflow/psdataentities/WF_DEFINITION/psdefields/CREATEDATE/.ibizmodel.index
@@ -613,6 +627,84 @@ public class WFDefinitionDTO extends EntityDTO {
     @JsonIgnore
     public WFDefinitionDTO resetDynaModelId() {
         this._reset(FIELD_DYNAMODELID);
+        return this;
+    }
+
+    /**
+     * 设置「参数」
+     *
+     * @param val
+    */
+    @JsonIgnore
+    public WFDefinitionDTO setParam(String val) {
+        this._set(FIELD_PARAM, val);
+        return this;
+    }
+
+    /**
+     * 获取「参数」值
+     *
+    */
+    @JsonIgnore
+    public String getParam() {
+        return (String) this._get(FIELD_PARAM);
+    }
+
+    /**
+     * 判断 「参数」是否有值
+     *
+    */
+    @JsonIgnore
+    public boolean containsParam() {
+        return this._contains(FIELD_PARAM);
+    }
+
+    /**
+     * 重置 「参数」
+     *
+    */
+    @JsonIgnore
+    public WFDefinitionDTO resetParam() {
+        this._reset(FIELD_PARAM);
+        return this;
+    }
+
+    /**
+     * 设置「参数2」
+     *
+     * @param val
+    */
+    @JsonIgnore
+    public WFDefinitionDTO setParam2(String val) {
+        this._set(FIELD_PARAM2, val);
+        return this;
+    }
+
+    /**
+     * 获取「参数2」值
+     *
+    */
+    @JsonIgnore
+    public String getParam2() {
+        return (String) this._get(FIELD_PARAM2);
+    }
+
+    /**
+     * 判断 「参数2」是否有值
+     *
+    */
+    @JsonIgnore
+    public boolean containsParam2() {
+        return this._contains(FIELD_PARAM2);
+    }
+
+    /**
+     * 重置 「参数2」
+     *
+    */
+    @JsonIgnore
+    public WFDefinitionDTO resetParam2() {
+        this._reset(FIELD_PARAM2);
         return this;
     }
 

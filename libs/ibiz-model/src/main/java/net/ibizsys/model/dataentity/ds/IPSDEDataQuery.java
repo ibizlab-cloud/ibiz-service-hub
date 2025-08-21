@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据查询模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO}运行时对象
+ * 实体数据查询模型对象接口
  * <P>
  * 实体数据查询模型除了自身逻辑还包括了输入{@link #getPSDEDataQueryInput}及返回{@link #getPSDEDataQueryReturn}模型
  *
@@ -60,8 +60,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -111,8 +109,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取属性组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_PSDEFGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroup();
@@ -128,8 +124,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	/**
 	 * 获取选择列级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_VIEWCOLLEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataQueryViewLevel}
 	 * @return
 	 */
@@ -138,8 +132,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否自定义数据查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();
@@ -147,8 +139,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否实体默认查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_DEFAULTMODE}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -156,8 +146,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否启用PQL
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_ENABLEPQL}
 	 * @return
 	 */
 	boolean isEnablePQL();
@@ -179,8 +167,6 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	/**
 	 * 获取是否从视图查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataQueryDTO#FIELD_QUERYVIEWFLAG}
 	 * @return
 	 */
 	boolean isQueryFromView();

@@ -6,6 +6,8 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 
 	public final static String ATTR_GETCAPPSLANGUAGERES = "getCapPSLanguageRes";
 	public final static String ATTR_GETCAPTION = "caption";
+	public final static String ATTR_GETCOUNTERID = "counterId";
+	public final static String ATTR_GETCOUNTERMODE = "counterMode";
 	public final static String ATTR_GETCSSSTYLE = "cssStyle";
 	public final static String ATTR_GETDATA = "data";
 	public final static String ATTR_GETDYNACLASS = "dynaClass";
@@ -13,6 +15,7 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 	public final static String ATTR_GETLABELCSSSTYLE = "labelCssStyle";
 	public final static String ATTR_GETLABELDYNACLASS = "labelDynaClass";
 	public final static String ATTR_GETLABELPSSYSCSS = "getLabelPSSysCss";
+	public final static String ATTR_GETPSAPPCOUNTERREF = "getPSAppCounterRef";
 	public final static String ATTR_GETPSAPPDEFIELD = "getPSAppDEField";
 	public final static String ATTR_GETPSCONTROLATTRIBUTES = "getPSControlAttributes";
 	public final static String ATTR_GETPSCONTROLLOGICS = "getPSControlLogics";
@@ -37,6 +40,10 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -44,6 +51,22 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 			return null;
 		}
 		return value.asText();
+	}
+
+	public java.lang.String getCounterId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOUNTERID);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public int getCounterMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOUNTERMODE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
 	}
 
 	public java.lang.String getCssStyle(){
@@ -111,6 +134,33 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		return value;
 	}
 
+	public void setLabelPSSysCss(net.ibizsys.model.res.IPSSysCss labelpssyscss){
+		this.labelpssyscss = labelpssyscss;
+	}
+
+	private net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref;
+
+	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef(){
+		if(this.psappcounterref != null) return this.psappcounterref;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSAPPCOUNTERREF);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.control.searchbar.IPSSysSearchBar ipssyssearchbar = getParentPSModelObject(net.ibizsys.model.control.searchbar.IPSSysSearchBar.class);
+		this.psappcounterref = ipssyssearchbar.getPSAppCounterRef(value, false);
+		return this.psappcounterref;
+	}
+
+	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRefMust(){
+		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
+		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField(){
@@ -128,6 +178,10 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体属性");}
 		return value;
+	}
+
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
 	}
 
 
@@ -220,6 +274,10 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -236,6 +294,10 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项图片对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 }

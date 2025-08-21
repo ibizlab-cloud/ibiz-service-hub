@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>cn.ibizlab.plugin</groupId>
 		<artifactId>ibiz-plugin</artifactId>
-		<version>8.1.0.570.29.1</version>
+		<version>8.1.0.570.34.1</version>
     </parent>
 	<artifactId>ibiz-plugin-util</artifactId>
 	<name>ibiz-plugin-util</name>

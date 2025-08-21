@@ -930,6 +930,10 @@
       "name" : "SYSDYNAINSTID",
       "codeName" : "SysDynaInstId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYSDYNAINSTNAME",
+      "codeName" : "SysDynaInstName"
+    },
     "rSMode" : 2
   } ], [ {
     "actionRSMode" : 1,
@@ -951,6 +955,10 @@
     "getParentPSAppDEField" : {
       "name" : "SYSDYNAINSTID",
       "codeName" : "SysDynaInstId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYSDYNAINSTNAME",
+      "codeName" : "SysDynaInstName"
     },
     "rSMode" : 2
   } ] ]

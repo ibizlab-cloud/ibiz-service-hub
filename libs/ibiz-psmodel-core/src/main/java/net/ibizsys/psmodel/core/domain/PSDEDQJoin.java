@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDEDQJOIN</B>实体数据查询连接 模型传输对象
  * <P>
- * 实体查询连接模型定义数据查询的连接，支持多种连接方式
+ * 查询连接模型定义数据查询的连接，支持多种连接方式：相关N:1（INNER JOIN）、存在1:N（EXISTS (SELECT)）等。
  */
 public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -18,14 +18,14 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>ALIASNAME</B>&nbsp;别名，指定查询连接的别名，当前版本引擎不支持
+     * <B>ALIASNAME</B>&nbsp;别名变量名称，指定查询连接的别名变量，编译引擎会将当前连接的实际别名设置到该变量
      * <P>
      * 字符串：最大长度 20，由字母、数字、下划线组成，且开始必须为字母
      */
     public final static String FIELD_ALIASNAME = "aliasname";
 
     /**
-     * 设置 别名，详细说明：{@link #FIELD_ALIASNAME}
+     * 设置 别名变量名称，详细说明：{@link #FIELD_ALIASNAME}
      * 
      * @param aliasName
      * 
@@ -36,7 +36,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 别名  
+     * 获取 别名变量名称  
      * @return
      */
     @JsonIgnore
@@ -49,7 +49,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 别名 是否指定值，包括空值
+     * 判断 别名变量名称 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -61,7 +61,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 别名
+     * 重置 别名变量名称
      */
     @JsonIgnore
     public void resetAliasName(){
@@ -69,7 +69,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 别名，详细说明：{@link #FIELD_ALIASNAME}
+     * 设置 别名变量名称，详细说明：{@link #FIELD_ALIASNAME}
      * <P>
      * 等同 {@link #setAliasName}
      * @param aliasName
@@ -1320,7 +1320,9 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEJOINTYPEID</B>&nbsp;连接方式，直接查询连接的连接方式
+     * <B>PSDEJOINTYPEID</B>&nbsp;连接方式，指定查询连接的连接方式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDQJoinType} 
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEJoinType} 
      */
@@ -1402,7 +1404,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEJOINTYPENAME</B>&nbsp;连接方式，直接查询连接的连接方式
+     * <B>PSDEJOINTYPENAME</B>&nbsp;连接方式，指定查询连接的连接方式
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEJOINTYPEID}
      */
@@ -1465,14 +1467,14 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDERID</B>&nbsp;实体关系，指定查询连接的连接关系
+     * <B>PSDERID</B>&nbsp;连接关系，为除【主连接】之外的连接方式指定连接关系
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDER} 
      */
     public final static String FIELD_PSDERID = "psderid";
 
     /**
-     * 设置 实体关系，详细说明：{@link #FIELD_PSDERID}
+     * 设置 连接关系，详细说明：{@link #FIELD_PSDERID}
      * 
      * @param pSDERId
      * 
@@ -1483,7 +1485,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体关系  
+     * 获取 连接关系  
      * @return
      */
     @JsonIgnore
@@ -1496,7 +1498,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体关系 是否指定值，包括空值
+     * 判断 连接关系 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1508,7 +1510,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体关系
+     * 重置 连接关系
      */
     @JsonIgnore
     public void resetPSDERId(){
@@ -1516,7 +1518,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体关系，详细说明：{@link #FIELD_PSDERID}
+     * 设置 连接关系，详细说明：{@link #FIELD_PSDERID}
      * <P>
      * 等同 {@link #setPSDERId}
      * @param pSDERId
@@ -1528,7 +1530,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体关系，包括引用对象的其它关系属性
+     * 设置 连接关系，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDERId}
      * @param pSDER 引用对象
@@ -1547,14 +1549,14 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDERNAME</B>&nbsp;实体关系，指定查询连接的连接关系
+     * <B>PSDERNAME</B>&nbsp;连接关系，指定查询连接的连接关系
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDERID}
      */
     public final static String FIELD_PSDERNAME = "psdername";
 
     /**
-     * 设置 实体关系，详细说明：{@link #FIELD_PSDERNAME}
+     * 设置 连接关系，详细说明：{@link #FIELD_PSDERNAME}
      * 
      * @param pSDERName
      * 
@@ -1565,7 +1567,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体关系  
+     * 获取 连接关系  
      * @return
      */
     @JsonIgnore
@@ -1578,7 +1580,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体关系 是否指定值，包括空值
+     * 判断 连接关系 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1590,7 +1592,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体关系
+     * 重置 连接关系
      */
     @JsonIgnore
     public void resetPSDERName(){
@@ -1598,7 +1600,7 @@ public class PSDEDQJoin extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体关系，详细说明：{@link #FIELD_PSDERNAME}
+     * 设置 连接关系，详细说明：{@link #FIELD_PSDERNAME}
      * <P>
      * 等同 {@link #setPSDERName}
      * @param pSDERName

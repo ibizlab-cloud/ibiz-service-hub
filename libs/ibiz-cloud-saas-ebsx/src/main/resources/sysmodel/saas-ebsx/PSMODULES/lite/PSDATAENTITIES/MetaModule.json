@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MODULEID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MODULENAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -476,6 +484,7 @@
     "length" : 100,
     "logicName" : "模块标识",
     "name" : "MODULEID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -603,6 +612,7 @@
     "length" : 100,
     "logicName" : "模块名称",
     "name" : "MODULENAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -730,6 +740,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -872,6 +883,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -997,6 +1009,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 49,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

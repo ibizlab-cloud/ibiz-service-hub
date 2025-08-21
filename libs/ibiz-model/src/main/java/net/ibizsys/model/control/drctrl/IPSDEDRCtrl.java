@@ -12,8 +12,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取实体数据关系标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DRTAG}
 	 * @return
 	 */
 	java.lang.String getDataRelationTag();
@@ -21,8 +19,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取编辑项标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMCAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEditItemCapPSLanguageRes();
@@ -37,8 +33,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取编辑项标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMCAPTION}
 	 * @return
 	 */
 	java.lang.String getEditItemCaption();
@@ -46,8 +40,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取编辑项图标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMPSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getEditItemPSSysImage();
@@ -62,8 +54,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取表单视图对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_FORMPSDEVIEWBASEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getFormPSAppView();
@@ -113,8 +103,6 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	
 	/**
 	 * 获取是否隐藏编辑项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataRelationDTO#FIELD_HIDEEDITITEM}
 	 * @return
 	 */
 	boolean isHideEditItem();

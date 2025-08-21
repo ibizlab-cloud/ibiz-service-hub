@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -482,6 +490,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "MEMBERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -630,6 +639,7 @@
     "length" : 100,
     "logicName" : "部门标识",
     "name" : "DEPTID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -826,6 +836,7 @@
     "length" : 100,
     "logicName" : "部门名称",
     "name" : "DEPTNAME",
+    "orderValue" : 3,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID.json"
@@ -995,6 +1006,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1191,6 +1203,7 @@
     "length" : 100,
     "logicName" : "成员",
     "name" : "PERSONNAME",
+    "orderValue" : 5,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_EMP_USERID.json"
@@ -1353,6 +1366,7 @@
     "length" : 100,
     "logicName" : "岗位标识",
     "name" : "POSTID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1504,6 +1518,7 @@
     "length" : 100,
     "logicName" : "岗位名称",
     "name" : "POSTNAME",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_POST_POSTID.json"
@@ -1636,6 +1651,7 @@
     "length" : 100,
     "logicName" : "业务条线",
     "name" : "BCODE",
+    "orderValue" : 10,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/DeptMember/PSDERS/DER1N_SYS_DEPTMEMBER_SYS_DEPT_DEPTID.json"
@@ -1748,6 +1764,7 @@
     "length" : 100,
     "logicName" : "区属",
     "name" : "DOMAINS",
+    "orderValue" : 17,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

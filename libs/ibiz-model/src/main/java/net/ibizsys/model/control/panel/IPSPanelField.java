@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板属性项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO}运行时对象
+ * 面板属性项模型对象接口
  * <P>
  * 扩展父接口类型[FIELD]
  *
@@ -15,8 +15,6 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	
 	/**
 	 * 获取默认状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_FIELDSTATES}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PanelFieldState}
 	 * @return
@@ -35,8 +33,6 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	
 	/**
 	 * 获取属性项图片对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -65,8 +61,6 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -74,8 +68,6 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	
 	/**
 	 * 获取视图模型属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getViewFieldName();

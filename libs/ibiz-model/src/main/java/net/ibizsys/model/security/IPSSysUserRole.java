@@ -3,7 +3,7 @@ package net.ibizsys.model.security;
 
 
 /**
- * 系统用户角色模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO}运行时对象
+ * 系统用户角色模型对象接口
  *
  */
 public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
@@ -20,8 +20,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取默认用户
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_DEFAULTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysRoleDefaultUser}
 	 * @return
 	 */
@@ -30,8 +28,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -46,8 +42,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -62,8 +56,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取后台扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -120,8 +112,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -136,8 +126,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取角色标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PRIVID}
 	 * @return
 	 */
 	java.lang.String getRoleTag();
@@ -145,8 +133,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取角色标记实体属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_ROLETAGPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getRoleTagPSDEField();
@@ -162,8 +148,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取角色类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_PRIVTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysUserRoleType}
 	 * @return
 	 */
@@ -172,8 +156,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取用户标识实体属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_USERIDPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUserIdPSDEField();
@@ -188,8 +170,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否全局角色，非系统保留用户{@link #isSystemReserved}且显式定义
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_GLOBALFLAG}
 	 * @return
 	 */
 	boolean isGlobalRole();
@@ -197,8 +177,6 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否系统保留，显式定义或默认用户{@link #getDefaultUser}为[USER,ADMIN]
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUserRoleDTO#FIELD_SYSTEMFLAG}
 	 * @return
 	 */
 	boolean isSystemReserved();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MSGACCOUNTID",
+        "codeName" : "MsgAccountId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MSGACCOUNTNAME",
+        "codeName" : "MsgAccountName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -594,6 +602,7 @@
     "length" : 100,
     "logicName" : "邮箱",
     "name" : "EMAIL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -691,6 +700,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -794,6 +804,7 @@
     "length" : 100,
     "logicName" : "手机号",
     "name" : "PHONE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -899,6 +910,7 @@
     "length" : 60,
     "logicName" : "消息账户标识",
     "name" : "MSGACCOUNTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -999,6 +1011,7 @@
     "length" : 100,
     "logicName" : "钉钉账户",
     "name" : "DDACCOUNTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1085,6 +1098,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1189,6 +1203,7 @@
     "length" : 100,
     "logicName" : "消息账户",
     "name" : "MSGACCOUNTNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1288,6 +1303,7 @@
     "length" : 100,
     "logicName" : "微信账户",
     "name" : "WXACCOUNTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1385,6 +1401,7 @@
     "length" : 100,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1477,6 +1494,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1608,6 +1626,7 @@
     "length" : 100,
     "logicName" : "人员",
     "name" : "EMPNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount/PSDERS/DER1N_MSG_ACCOUNT_SYS_EMP_EMPID.json"
@@ -1740,6 +1759,7 @@
     "length" : 100,
     "logicName" : "用户工号",
     "name" : "USERCODE",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/MsgAccount/PSDERS/DER1N_MSG_ACCOUNT_SYS_EMP_EMPID.json"
@@ -1866,6 +1886,7 @@
     "length" : 100,
     "logicName" : "人员",
     "name" : "EMPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

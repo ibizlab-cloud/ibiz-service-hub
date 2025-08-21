@@ -3,9 +3,7 @@ package net.ibizsys.model.control.tree;
 
 
 /**
- * 实体树节点模型对象基础接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getTreeNodeType}
+ * 实体树节点模型对象基础接口
  *
  */
 public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
@@ -34,8 +32,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -43,8 +39,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取计数器模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_COUNTERMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
 	 * @return
@@ -54,8 +48,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -63,8 +55,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取代码模型对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_MODELOBJ}
 	 * @return
 	 */
 	java.lang.String getModelObj();
@@ -72,8 +62,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取名称语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_NAMEPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getNamePSLanguageRes();
@@ -88,8 +76,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取导航视图过滤项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_NAVVIEWFILTER}
 	 * @return
 	 */
 	java.lang.String getNavFilter();
@@ -97,8 +83,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取导航视图对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDEVIEWBASEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getNavPSAppView();
@@ -127,8 +111,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_NODETYPE}
 	 * @return
 	 */
 	java.lang.String getNodeType();
@@ -136,8 +118,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -152,8 +132,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取上下文菜单对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSDETOOLBARID}
 	 * @return
 	 */
 	net.ibizsys.model.control.toolbar.IPSDEContextMenu getPSDEContextMenu();
@@ -273,8 +251,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点界面样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -289,8 +265,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点图标对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -319,8 +293,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取图形动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SHAPEDYNACLASS}
 	 * @return
 	 */
 	java.lang.String getShapeDynaClass();
@@ -328,8 +300,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取图形界面样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SHAPEPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getShapePSSysCss();
@@ -344,8 +314,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_TREENODETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeType}
 	 * @return
@@ -362,8 +330,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否允许拖到节点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_EDITMODE}
 	 * @return
 	 */
 	boolean isAllowDrag();
@@ -371,8 +337,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否允许拖入节点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_EDITMODE}
 	 * @return
 	 */
 	boolean isAllowDrop();
@@ -380,8 +344,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否允许编辑节点文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_EDITMODE}
 	 * @return
 	 */
 	boolean isAllowEditText();
@@ -389,8 +351,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否允许节点排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_EDITMODE}
 	 * @return
 	 */
 	boolean isAllowOrder();
@@ -398,8 +358,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否附加父节点标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_APPENDPNODEID}
 	 * @return
 	 */
 	boolean isAppendPNodeId();
@@ -407,8 +365,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否禁止选择
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_DISABLESELECT}
 	 * @return
 	 */
 	boolean isDisableSelect();
@@ -416,8 +372,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持选中
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_ENABLECHECK}
 	 * @return
 	 */
 	boolean isEnableCheck();
@@ -446,8 +400,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否仅展开首节点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SELECTED}
 	 * @return
 	 */
 	boolean isExpandFirstOnly();
@@ -455,8 +407,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否默认展开
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_EXPAND}
 	 * @return
 	 */
 	boolean isExpanded();
@@ -464,8 +414,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否根节点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_ROOTNODE}
 	 * @return
 	 */
 	boolean isRootNode();
@@ -473,8 +421,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否仅选择首节点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SELECTED}
 	 * @return
 	 */
 	boolean isSelectFirstOnly();
@@ -482,8 +428,6 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否默认选择
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeDTO#FIELD_SELECTED}
 	 * @return
 	 */
 	boolean isSelected();

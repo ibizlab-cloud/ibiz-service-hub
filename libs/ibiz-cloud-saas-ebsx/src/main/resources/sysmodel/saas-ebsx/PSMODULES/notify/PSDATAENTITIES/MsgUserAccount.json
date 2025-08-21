@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "AUTHID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "IDENTIFIER",
+        "codeName" : "Identifier"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -477,6 +485,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "AUTHID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -609,6 +618,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -739,6 +749,7 @@
     "length" : 100,
     "logicName" : "认证类型",
     "name" : "IDENTITY_TYPE",
+    "orderValue" : 3,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
@@ -869,6 +880,7 @@
     "length" : 200,
     "logicName" : "认证标识",
     "name" : "IDENTIFIER",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -990,6 +1002,7 @@
     "length" : 500,
     "logicName" : "凭据",
     "name" : "CREDENTIAL",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

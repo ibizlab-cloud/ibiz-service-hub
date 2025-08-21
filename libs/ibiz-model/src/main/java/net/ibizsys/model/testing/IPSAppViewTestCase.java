@@ -14,8 +14,6 @@ public interface IPSAppViewTestCase extends net.ibizsys.model.testing.IPSSysTest
 	
 	/**
 	 * 获取应用视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSAPPVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getPSAppView();

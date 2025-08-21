@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "HANDLER",
+        "codeName" : "Handler"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -498,6 +506,7 @@
     "length" : 100,
     "logicName" : "主键ID",
     "name" : "ID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -646,6 +655,7 @@
     "length" : 100,
     "logicName" : "任务ID",
     "name" : "JOB_ID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -787,6 +797,7 @@
     "length" : 255,
     "logicName" : "执行地址",
     "name" : "ADDRESS",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -961,6 +972,7 @@
     "length" : 255,
     "logicName" : "执行器任务HANDLER",
     "name" : "HANDLER",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1107,6 +1119,7 @@
     "length" : 4000,
     "logicName" : "执行器任务参数",
     "name" : "PARAM",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1220,6 +1233,7 @@
     "importOrder" : 1000,
     "logicName" : "失败重试次数",
     "name" : "FAIL_RETRY_COUNT",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1339,6 +1353,7 @@
     "importOrder" : 1000,
     "logicName" : "触发器调度返回码",
     "name" : "TRIGGER_CODE",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1462,6 +1477,7 @@
     "length" : 30,
     "logicName" : "触发器调度类型",
     "name" : "TRIGGER_TYPE",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1582,6 +1598,7 @@
     "length" : 1048576,
     "logicName" : "触发器调度信息",
     "name" : "TRIGGER_MSG",
+    "orderValue" : 13,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1695,6 +1712,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATE_TIME",
+    "orderValue" : 22,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1792,6 +1810,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

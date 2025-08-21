@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "NOTICEID",
+        "codeName" : "NoticeId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "NOTICENAME",
+        "codeName" : "NoticeName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -700,6 +708,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -783,6 +792,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 32,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -893,6 +903,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -997,6 +1008,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "开始时间",
     "name" : "BEGINTIME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1098,6 +1110,7 @@
     "importOrder" : 1000,
     "logicName" : "是否置顶",
     "name" : "ISTOP",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1202,6 +1215,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1315,6 +1329,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1430,6 +1445,7 @@
     "length" : 1048576,
     "logicName" : "公告内容",
     "name" : "CONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1528,6 +1544,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "结束时间",
     "name" : "ENDTIME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1624,6 +1641,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "发布时间",
     "name" : "PUBLISHDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1731,6 +1749,7 @@
     "length" : 1048576,
     "logicName" : "附件",
     "name" : "ATTS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1833,6 +1852,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1952,6 +1972,7 @@
     "length" : 200,
     "logicName" : "公告标题",
     "name" : "NOTICENAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2072,6 +2093,7 @@
     "length" : 100,
     "logicName" : "系统公告标识",
     "name" : "NOTICEID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2177,6 +2199,7 @@
     "importOrder" : 1000,
     "logicName" : "发布标记",
     "name" : "PUBFLAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2328,6 +2351,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "ORGNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/Bulletin/PSDERS/DER1N_SYS_BULLETIN_SYS_ORG_ORGID.json"
@@ -2474,6 +2498,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2622,6 +2647,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "AUTHORID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

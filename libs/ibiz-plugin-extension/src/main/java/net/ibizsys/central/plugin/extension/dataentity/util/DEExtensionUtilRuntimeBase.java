@@ -2046,8 +2046,18 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 	}
 
+
+	@Override
+	public ObjectNode getJsonSchemaModel(Object param) {
+		try {
+			return this.onGetJsonSchemaModel(null, param);
+		} catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("获取实体JsonSchema发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
 	protected ObjectNode onGetJsonSchemaModel(IPSAppDataEntity iPSAppDataEntity, Object param) throws Throwable {
-		ObjectNode objectNode = JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iPSAppDataEntity));
+		ObjectNode objectNode = iPSAppDataEntity!=null? JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iPSAppDataEntity)) : JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(this.getPSDataEntity()));
 		List<IPSDEField> psDEFieldList = this.getPSDEFields(param);
 		if (!ObjectUtils.isEmpty(psDEFieldList)) {
 			JsonNode node = objectNode.get("properties");
@@ -2135,8 +2145,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 		return objectNode;
 	}
-
-
 
 
 	@Override

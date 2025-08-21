@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "TASKID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "TASKNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -733,6 +741,7 @@
     "length" : 100,
     "logicName" : "任务标识",
     "name" : "TASKID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -852,6 +861,7 @@
     "length" : 100,
     "logicName" : "状态",
     "name" : "TASKNAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -971,6 +981,7 @@
     "length" : 100,
     "logicName" : "DefinitionId",
     "name" : "DEFINITIONID",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1098,6 +1109,7 @@
     "length" : 100,
     "logicName" : "DefinitionKey",
     "name" : "DEFINITIONKEY",
+    "orderValue" : 4,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1215,6 +1227,7 @@
     "length" : 100,
     "logicName" : "流程",
     "name" : "DEFINITIONNAME",
+    "orderValue" : 5,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1342,6 +1355,7 @@
     "length" : 100,
     "logicName" : "TaskDefinitionKey",
     "name" : "TASKDEFINITIONKEY",
+    "orderValue" : 6,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1459,6 +1473,7 @@
     "length" : 1000,
     "logicName" : "待办事项",
     "name" : "DESCRIPTION",
+    "orderValue" : 7,
     "stdDataType" : 25,
     "stringLength" : 1000,
     "valueFormat" : "%1$s"
@@ -1570,6 +1585,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "发起时间",
     "name" : "CREATETIME",
+    "orderValue" : 10,
     "stdDataType" : 5,
     "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
   }, {
@@ -1680,6 +1696,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "INSTANCEID",
+    "orderValue" : 11,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1780,6 +1797,7 @@
     "length" : 100,
     "logicName" : "业务键值（含应用标识）",
     "name" : "BUSINESSKEY2",
+    "orderValue" : 21,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1897,6 +1915,7 @@
     "length" : 100,
     "logicName" : "业务键值",
     "name" : "BUSINESSKEY",
+    "orderValue" : 21,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -1997,6 +2016,7 @@
     "length" : 100,
     "logicName" : "待办归属",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "predefinedType" : "ORGID",
     "stdDataType" : 25,
     "stringLength" : 100,
@@ -2098,6 +2118,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -2159,6 +2180,7 @@
     "length" : 100,
     "logicName" : "系统应用标识",
     "name" : "SYSAPPID",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -2234,6 +2256,7 @@
     "length" : 100,
     "logicName" : "打开地址",
     "name" : "URL",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -2332,6 +2355,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ORGID",
+        "codeName" : "OrgId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ORGNAME",
+        "codeName" : "OrgName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -602,6 +610,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -711,6 +720,7 @@
     "length" : 100,
     "logicName" : "单位代码",
     "name" : "ORGCODE",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -822,6 +832,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "ORGNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -932,6 +943,7 @@
     "length" : 100,
     "logicName" : "单位简称",
     "name" : "SHORTNAME",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1015,6 +1027,7 @@
     "importOrder" : 1000,
     "logicName" : "单位级别",
     "name" : "ORGLEVEL",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1106,6 +1119,7 @@
     },
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1202,6 +1216,7 @@
     "length" : 100,
     "logicName" : "区属",
     "name" : "DOMAINS",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1294,6 +1309,7 @@
     },
     "logicName" : "逻辑有效",
     "name" : "ENABLE",
+    "orderValue" : 16,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1390,6 +1406,7 @@
     },
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 18,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1486,6 +1503,7 @@
     },
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 19,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1578,6 +1596,7 @@
     "importOrder" : 1000,
     "logicName" : "支持Saas",
     "name" : "SAASMODE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1673,6 +1692,7 @@
     "length" : 100,
     "logicName" : "启用标志",
     "name" : "ISVALID",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1773,6 +1793,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

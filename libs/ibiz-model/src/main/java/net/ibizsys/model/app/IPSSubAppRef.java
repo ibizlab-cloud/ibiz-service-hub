@@ -185,4 +185,11 @@ public interface IPSSubAppRef extends net.ibizsys.model.app.IPSApplicationObject
 	 */
 	java.lang.String getAccessKey();
 	
+	
+	
+	/**
+	 * 获取系统引用类型
+	 * @return
+	 */
+	java.lang.String getSysRefType();
 }

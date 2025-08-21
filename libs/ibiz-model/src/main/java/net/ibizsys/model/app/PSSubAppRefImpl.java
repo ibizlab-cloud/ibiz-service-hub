@@ -18,7 +18,8 @@ public class PSSubAppRefImpl extends net.ibizsys.model.app.PSApplicationObjectIm
 	public final static String ATTR_GETACCESSKEY = "accessKey";
 	public final static String ATTR_GETAPPMODE = "appMode";
 	public final static String ATTR_GETCAPTION = "caption";
-
+	public final static String ATTR_GETSYSREFTYPE = "sysRefType";
+	
 
 	private java.util.List<net.ibizsys.model.app.dataentity.IPSAppDEUIActionGroup> allpsappdeuiactiongroups = null;
 	public java.util.List<net.ibizsys.model.app.dataentity.IPSAppDEUIActionGroup> getAllPSAppDEUIActionGroups(){
@@ -231,6 +232,14 @@ public class PSSubAppRefImpl extends net.ibizsys.model.app.PSApplicationObjectIm
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	
+	public java.lang.String getSysRefType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSYSREFTYPE);
 		if(value == null){
 			return null;
 		}

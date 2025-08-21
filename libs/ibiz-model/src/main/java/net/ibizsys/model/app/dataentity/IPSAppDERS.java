@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppDERSDTO}运行时对象
+ * 应用实体关系模型对象接口
  *
  */
 public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{

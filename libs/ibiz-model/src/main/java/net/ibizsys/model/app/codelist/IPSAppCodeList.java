@@ -3,7 +3,7 @@ package net.ibizsys.model.app.codelist;
 
 
 /**
- * 应用代码表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCodeListDTO}运行时对象
+ * 应用代码表模型对象接口
  *
  */
 public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObject
@@ -14,8 +14,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取背景颜色值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_BKCOLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getBKColorPSAppDEField();
@@ -30,8 +28,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取开始值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_BEGINVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getBeginValuePSAppDEField();
@@ -46,8 +42,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取样式表值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_CLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEField();
@@ -62,8 +56,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取前景颜色值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_COLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getColorPSAppDEField();
@@ -78,8 +70,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取数据应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_DATAPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getDataPSAppDEField();
@@ -94,8 +84,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取禁用标志应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_DISABLEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getDisablePSAppDEField();
@@ -110,8 +98,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取结束值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ENDVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getEndValuePSAppDEField();
@@ -126,8 +112,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取图标样式应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONCLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconClsPSAppDEField();
@@ -142,8 +126,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取图标样式（倍数）应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONCLSXPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconClsXPSAppDEField();
@@ -158,8 +140,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取图标路径应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONPATHPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconPathPSAppDEField();
@@ -174,8 +154,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取图标路径（倍数）应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONPATHXPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconPathXPSAppDEField();
@@ -190,8 +168,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取排序应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getMinorSortPSAppDEField();
@@ -206,8 +182,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取应用实体数据集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet();
@@ -222,8 +196,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取应用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -238,8 +210,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取父值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPValuePSAppDEField();
@@ -254,8 +224,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取文本应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
@@ -270,8 +238,6 @@ public interface IPSAppCodeList extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_VALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getValuePSAppDEField();

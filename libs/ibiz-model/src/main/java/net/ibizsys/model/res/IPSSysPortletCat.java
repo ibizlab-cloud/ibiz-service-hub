@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统门户部件分类模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysPortletCatDTO}运行时对象
+ * 系统门户部件分类模型对象接口
  *
  */
 public interface IPSSysPortletCat extends net.ibizsys.model.IPSModelObject{

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体报表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEReportDTO}运行时对象
+ * 应用实体报表模型对象接口
  *
  */
 public interface IPSAppDEReport extends net.ibizsys.model.dataentity.report.IPSDEReport
@@ -55,8 +55,6 @@ public interface IPSAppDEReport extends net.ibizsys.model.dataentity.report.IPSD
 	
 	/**
 	 * 获取应用实体数据集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet();
@@ -71,8 +69,6 @@ public interface IPSAppDEReport extends net.ibizsys.model.dataentity.report.IPSD
 	
 	/**
 	 * 获取应用实体数据集合2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID2}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet2();
@@ -87,8 +83,6 @@ public interface IPSAppDEReport extends net.ibizsys.model.dataentity.report.IPSD
 	
 	/**
 	 * 获取应用实体数据集合3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID3}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet3();
@@ -103,8 +97,6 @@ public interface IPSAppDEReport extends net.ibizsys.model.dataentity.report.IPSD
 	
 	/**
 	 * 获取应用实体数据集合4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID4}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet4();

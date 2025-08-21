@@ -15,7 +15,9 @@ public class PSDEOPPrivImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 	public final static String ATTR_GETMAPPSDATAENTITY = "getMapPSDataEntity";
 	public final static String ATTR_GETMAPPSSYSUNIRES = "getMapPSSysUniRes";
 	public final static String ATTR_GETMAPSYSUNIRESCODE = "mapSysUniResCode";
+	public final static String ATTR_GETOPPRIVTYPE = "oPPrivType";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
+	public final static String ATTR_GETPSDEFGROUP = "getPSDEFGroup";
 	public final static String ATTR_ISMAPSYSUNIRES = "mapSysUniRes";
 	public final static String ATTR_ISSYSTEMRESERVED = "systemReserved";
 
@@ -144,6 +146,14 @@ public class PSDEOPPrivImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		return value.asText();
 	}
 
+	public java.lang.String getOPPrivType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETOPPRIVTYPE);
+		if(value == null){
+			return "DEFAULT";
+		}
+		return value.asText();
+	}
+
 	@Deprecated
 	public int getOrderValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
@@ -152,6 +162,29 @@ public class PSDEOPPrivImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.dataentity.defield.IPSDEFGroup psdefgroup;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroup(){
+		if(this.psdefgroup != null) return this.psdefgroup;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEFGROUP);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
+		this.psdefgroup = ipsdataentity.getPSDEFGroup(value, false);
+		return this.psdefgroup;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroupMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEFGroup value = this.getPSDEFGroup();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定属性组");}
+		return value;
+	}
+
+	public void setPSDEFGroup(net.ibizsys.model.dataentity.defield.IPSDEFGroup psdefgroup){
+		this.psdefgroup = psdefgroup;
+	}
+
 
 	public boolean isMapSysUniRes(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISMAPSYSUNIRES);

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MSID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MSNAME",
+        "codeName" : "Label"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -441,6 +449,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "MSID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -560,6 +569,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "MSNAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -679,6 +689,7 @@
     "length" : 100,
     "logicName" : "服务名",
     "name" : "SERVICENAME",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -812,6 +823,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 4,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstMicroservice/PSDERS/DER1N_DST_MS_DST_SYSTEM_SYSTEMID.json"
@@ -944,6 +956,7 @@
     "length" : 300,
     "logicName" : "地址",
     "name" : "ADDR",
+    "orderValue" : 9,
     "stdDataType" : 25,
     "stringLength" : 300,
     "valueFormat" : "%1$s"

@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.action;
 
 
 /**
- * 实体行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEActionDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getActionType}
+ * 实体行为模型对象接口
  * <P>
  * 实体行为模型除了自身逻辑还包括了输入{@link #getPSDEActionInput}及返回{@link #getPSDEActionReturn}模型
  *
@@ -19,8 +17,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取行为持有者
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONHOLDER}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicHolder}
 	 * @return
 	 */
@@ -30,8 +26,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取行为模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionMode}
 	 * @return
 	 */
@@ -40,8 +34,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getActionParams();
@@ -49,8 +41,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONTAG}
 	 * @return
 	 */
 	java.lang.String getActionTag();
@@ -58,8 +48,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONTAG2}
 	 * @return
 	 */
 	java.lang.String getActionTag2();
@@ -67,8 +55,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONTAG3}
 	 * @return
 	 */
 	java.lang.String getActionTag3();
@@ -76,8 +62,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONTAG4}
 	 * @return
 	 */
 	java.lang.String getActionTag4();
@@ -85,8 +69,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取行为类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionType}
 	 * @return
@@ -147,8 +129,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取缓存超时
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_CACHETIMEOUT}
 	 * @return
 	 */
 	int getCacheTimeout();
@@ -200,8 +180,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -216,8 +194,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取性能优化预警时长（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_POTIME}
 	 * @return
 	 */
 	int getPOTime();
@@ -309,8 +285,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取外部服务接口方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PSSUBSYSSADETAILID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDEMethod getPSSubSysServiceAPIDEMethod();
@@ -360,8 +334,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取缓存统一状态对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PSSYSUNISTATEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysUniState getPSSysUniState();
@@ -377,8 +349,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取行为参数模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PARAMTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionParamMode}
 	 * @return
 	 */
@@ -387,8 +357,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取预定义类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PREDEFINEDTYPE}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();
@@ -396,8 +364,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取预定义类型参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PREDEFINEDTYPEPARAM}
 	 * @return
 	 */
 	java.lang.String getPredefinedTypeParam();
@@ -405,8 +371,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取准备操作之前数据模式，由行为的附加逻辑决定{@link IPSDEActionLogic#isPrepareLast}（存在需要准备操作之前数据）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PREPARELAST}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionPrepareLastMode}
 	 * @return
@@ -452,8 +416,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取同步事件
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_SYNCEVENT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionSyncEvent}
 	 * @return
 	 */
@@ -472,8 +434,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取测试行为模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_TESTACTIONMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionTestActionMode}
 	 * @return
 	 */
@@ -482,8 +442,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取调用超时
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_CALLTIMEOUT}
 	 * @return
 	 */
 	int getTimeOut();
@@ -491,8 +449,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取事务模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_TSMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionTSMode}
 	 * @return
@@ -509,8 +465,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否批操作行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_BATCHACTIONMODE}
 	 * @return
 	 */
 	boolean isBatchAction();
@@ -525,8 +479,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否自定义行为参数，是否有设置行为参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PARAMTYPE}
 	 * @return
 	 */
 	boolean isCustomParam();
@@ -534,8 +486,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否启用访问审计
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ENABLEAUDIT}
 	 * @return
 	 */
 	boolean isEnableAudit();
@@ -550,8 +500,6 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否启用缓存
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ENABLECACHE}
 	 * @return
 	 */
 	boolean isEnableCache();

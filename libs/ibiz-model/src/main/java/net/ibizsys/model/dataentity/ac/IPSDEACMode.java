@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ac;
 
 
 /**
- * 实体自动填充模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO}运行时对象
+ * 实体自动填充模型对象接口
  *
  */
 public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getACParams();
@@ -21,8 +19,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自填标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTAG}
 	 * @return
 	 */
 	java.lang.String getACTag();
@@ -30,8 +26,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自填标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTAG2}
 	 * @return
 	 */
 	java.lang.String getACTag2();
@@ -39,8 +33,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自填标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTAG3}
 	 * @return
 	 */
 	java.lang.String getACTag3();
@@ -48,8 +40,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自填标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTAG4}
 	 * @return
 	 */
 	java.lang.String getACTag4();
@@ -57,8 +47,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取自填类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEACType}
 	 * @return
@@ -75,8 +63,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取无值显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -84,8 +70,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取无值内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -100,8 +84,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取历史消息模板对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_HISTORYPSSYSMSGTEMPLID}
 	 * @return
 	 */
 	net.ibizsys.model.msg.IPSSysMsgTempl getHistoryPSSysMsgTempl();
@@ -130,8 +112,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -139,8 +119,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取附加排序方向
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_MINORSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
@@ -171,8 +149,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -187,8 +163,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup();
@@ -203,8 +177,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取AI交谈代理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PSSYSAICHATAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.ai.IPSSysAIChatAgent getPSSysAIChatAgent();
@@ -219,8 +191,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取AI工厂
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PSSYSAIFACTORYID}
 	 * @return
 	 */
 	net.ibizsys.model.ai.IPSSysAIFactory getPSSysAIFactory();
@@ -258,8 +228,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PAGINGSIZE}
 	 * @return
 	 */
 	int getPagingSize();
@@ -267,8 +235,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -276,8 +242,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取脚本模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_CUSTOMMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ScriptMode}
 	 * @return
@@ -287,8 +251,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否默认自填模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_DEFAULTMODE}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -296,8 +258,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否支持后台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ACTIONHOLDER}
 	 * @return
 	 */
 	boolean isEnableBackend();
@@ -305,8 +265,6 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否支持分页栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_ENABLEPAGINGBAR}
 	 * @return
 	 */
 	boolean isEnablePagingBar();

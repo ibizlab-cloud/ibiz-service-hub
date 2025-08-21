@@ -12,8 +12,6 @@ public interface IPSUIActionGroup extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UAGTAG}
 	 * @return
 	 */
 	java.lang.String getGroupTag();
@@ -21,8 +19,6 @@ public interface IPSUIActionGroup extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取组标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UAGTAG2}
 	 * @return
 	 */
 	java.lang.String getGroupTag2();
@@ -30,8 +26,6 @@ public interface IPSUIActionGroup extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取组标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UAGTAG3}
 	 * @return
 	 */
 	java.lang.String getGroupTag3();
@@ -39,8 +33,6 @@ public interface IPSUIActionGroup extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取组标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UAGTAG4}
 	 * @return
 	 */
 	java.lang.String getGroupTag4();

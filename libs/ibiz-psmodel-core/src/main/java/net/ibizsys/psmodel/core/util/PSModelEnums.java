@@ -194,7 +194,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表单表单项标签位置
+     * 表单项标签位置
      * <P>
      * <ul>
      * <li>LEFT
@@ -724,19 +724,19 @@ public class PSModelEnums {
      * <ul>
      * <li>SESSION
      * <P>
-     * 用户全局对象，需要同时指定默认值作为参数名称传入
+     * 用户全局对象，需要指定默认值作为参数名称
      * <li>APPLICATION
      * <P>
-     * 系统全局对象，需要同时指定默认值作为参数名称传入
+     * 系统全局对象，需要指定默认值作为参数名称
      * <li>UNIQUEID
      * <P>
      * 唯一编码
      * <li>CONTEXT
      * <P>
-     * 网页请求，需要同时指定默认值作为参数名称传入
+     * 网页请求，需要指定默认值作为参数名称
      * <li>PARAM
      * <P>
-     * 数据对象属性，需要同时指定默认值作为参数名称传入
+     * 数据对象属性，需要指定默认值作为参数名称
      * <li>OPERATOR
      * <P>
      * 当前操作用户(编号)
@@ -748,13 +748,13 @@ public class PSModelEnums {
      * 当前时间
      * <li>APPDATA
      * <P>
-     * 当前应用数据，需要同时指定默认值作为参数名称传入
+     * 当前应用数据，需要指定默认值作为参数名称
      * <li>EXPRESSION
      * <P>
-     * 表达式，需要同时指定默认值作为计算表达式
+     * 表达式，需要指定默认值作为计算表达式
      * <li>ORDERVALUE
      * <P>
-     * 排序值，可同时指定初始化及步进值，默认为1,1。
+     * 排序值，可指定初始化及步进值，默认为1,1。
      * <li>USER
      * <P>
      * 用户自定义
@@ -1407,10 +1407,14 @@ public class PSModelEnums {
      * <li>NORMAL
      * <P>
      * 常规
+     * <li>AIAGENT
+     * <P>
+     * AI代理
      * </ul>     
      */
     public static enum SysReqItemType{
         NORMAL("NORMAL", "常规")
+        ,AIAGENT("AIAGENT", "AI代理")
 ;
            
         public final String text;
@@ -1425,6 +1429,8 @@ public class PSModelEnums {
             switch(value){
                 case "NORMAL":
                     return NORMAL;
+                case "AIAGENT":
+                    return AIAGENT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -2335,7 +2341,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体视图触发逻辑类型2
+     * 触发界面逻辑类型
      * <P>
      * <ul>
      * <li>DEUILOGIC
@@ -2439,7 +2445,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云属性联合键值
+     * 联合键值模式
      * <P>
      * <ul>
      * <li>KEY1
@@ -2551,7 +2557,10 @@ public class PSModelEnums {
      * 指定属性，指定具体的属性清单
      * <li>FORMITEMS
      * <P>
-     * 表单项，指定编辑表单，从表单项中构建属性集合
+     * 表单项，从指定的编辑表单中提取表单项构建属性集合
+     * <li>GRIDCOLUMNS
+     * <P>
+     * 表格列，从指定的表格中提取属性列构建属性集合
      * <li>BASEFIELDS
      * <P>
      * 基础属性，指定属性组由基础的属性组成，包括主键、主信息、主状态相关属性、联合主键及存在预定模式的相关属性等
@@ -2563,6 +2572,7 @@ public class PSModelEnums {
     public static enum DEFGroupType{
         FIELDS("FIELDS", "指定属性")
         ,FORMITEMS("FORMITEMS", "表单项")
+        ,GRIDCOLUMNS("GRIDCOLUMNS", "表格列")
         ,BASEFIELDS("BASEFIELDS", "基础属性")
         ,AUDITFIELDS("AUDITFIELDS", "审计属性")
 ;
@@ -2581,6 +2591,8 @@ public class PSModelEnums {
                     return FIELDS;
                 case "FORMITEMS":
                     return FORMITEMS;
+                case "GRIDCOLUMNS":
+                    return GRIDCOLUMNS;
                 case "BASEFIELDS":
                     return BASEFIELDS;
                 case "AUDITFIELDS":
@@ -2660,7 +2672,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表格列类型
+     * 表格列类型
      * <P>
      * <ul>
      * <li>DEFGRIDCOLUMN
@@ -2752,7 +2764,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体界面行为触发逻辑类型
+     * 界面行为触发逻辑类型
      * <P>
      * <ul>
      * <li>DEUILOGIC
@@ -3296,7 +3308,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台部件类型
+     * 部件类型
      * <P>
      * <ul>
      * <li>TOOLBAR
@@ -3554,6 +3566,43 @@ public class PSModelEnums {
                     return TABEXPPANEL;
                 case "CUSTOM":
                     return CUSTOM;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 系统需求模块类型
+     * <P>
+     * <ul>
+     * <li>NORMAL
+     * <P>
+     * 常规
+     * <li>AIAGENT
+     * <P>
+     * AI代理
+     * </ul>     
+     */
+    public static enum SysReqModuleType{
+        NORMAL("NORMAL", "常规")
+        ,AIAGENT("AIAGENT", "AI代理")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private SysReqModuleType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static SysReqModuleType from(String value){
+            switch(value){
+                case "NORMAL":
+                    return NORMAL;
+                case "AIAGENT":
+                    return AIAGENT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -3825,7 +3874,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 直接内容类型
+     * 直接内容项类型
      * <P>
      * <ul>
      * <li>RAW
@@ -3989,7 +4038,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体界面行为_操作数据范围
+     * 界面行为操作目标
      * <P>
      * <ul>
      * <li>SINGLEDATA
@@ -4003,7 +4052,7 @@ public class PSModelEnums {
      * 多项数据，界面上的多个数据（表单等单数据界面为当前界面数据，表格等多数据界面为选中数据），以对象数组的形式传参
      * <li>MULTIKEY
      * <P>
-     * 多项数据（主键），界面上的多个数据主键（表单等单数据界面为当前界面数据主键，表格等多数据界面为选中数据主键），以带分隔符【;】字符串的形式传参
+     * 多项数据（主键），界面上的多个数据主键（表单等单数据界面为当前界面数据主键，表格等多数据界面为选中数据主键），使用分号【;】分隔的字符串形式传参
      * <li>NONE
      * <P>
      * 无数据，无目标数据，一般为处理逻辑根据上下文环境自行计算操作参数
@@ -4392,7 +4441,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 逻辑子类
+     * 实体处逻辑子类
      * <P>
      * <ul>
      * <li>NONE
@@ -4832,7 +4881,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 同步输出模式，数值项
+     * 数据同步输出模式，数值项
      * <P>
      * <ul>
      * <li>REALTIME&nbsp;(1)
@@ -5149,7 +5198,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体界面行为类型
+     * 界面行为类型
      * <P>
      * <ul>
      * <li>SYS
@@ -7254,6 +7303,9 @@ public class PSModelEnums {
      * <li>CHOICESCONFIRMED&nbsp;(12)
      * <P>
      * 选项已确认
+     * <li>CHOICESFAILED&nbsp;(13)
+     * <P>
+     * 选项已失败
      * <li>MODELREQUESTING&nbsp;(20)
      * <P>
      * 模型请求中
@@ -7263,6 +7315,9 @@ public class PSModelEnums {
      * <li>MODELCONFIRMED&nbsp;(22)
      * <P>
      * 模型已确认
+     * <li>MODELFAILED&nbsp;(23)
+     * <P>
+     * 模型已失败
      * <li>AGENTREQUESTING&nbsp;(30)
      * <P>
      * Agent请求中
@@ -7272,6 +7327,9 @@ public class PSModelEnums {
      * <li>AGENTCONFIRMED&nbsp;(32)
      * <P>
      * Agent已确认
+     * <li>AGENTFAILED&nbsp;(33)
+     * <P>
+     * Agent已失败
      * <li>FINISHED&nbsp;(99)
      * <P>
      * 构建结束
@@ -7282,12 +7340,15 @@ public class PSModelEnums {
         ,CHOICESREQUESTING(10, "选项请求中")
         ,CHOICESRESPONDED(11, "选项已反馈")
         ,CHOICESCONFIRMED(12, "选项已确认")
+        ,CHOICESFAILED(13, "选项已失败")
         ,MODELREQUESTING(20, "模型请求中")
         ,MODELRESPONDED(21, "模型已反馈")
         ,MODELCONFIRMED(22, "模型已确认")
+        ,MODELFAILED(23, "模型已失败")
         ,AGENTREQUESTING(30, "Agent请求中")
         ,AGENTRESPONDED(31, "Agent已反馈")
         ,AGENTCONFIRMED(32, "Agent已确认")
+        ,AGENTFAILED(33, "Agent已失败")
         ,FINISHED(99, "构建结束")
 ;
            
@@ -7309,18 +7370,24 @@ public class PSModelEnums {
                     return CHOICESRESPONDED;
                 case 12:
                     return CHOICESCONFIRMED;
+                case 13:
+                    return CHOICESFAILED;
                 case 20:
                     return MODELREQUESTING;
                 case 21:
                     return MODELRESPONDED;
                 case 22:
                     return MODELCONFIRMED;
+                case 23:
+                    return MODELFAILED;
                 case 30:
                     return AGENTREQUESTING;
                 case 31:
                     return AGENTRESPONDED;
                 case 32:
                     return AGENTCONFIRMED;
+                case 33:
+                    return AGENTFAILED;
                 case 99:
                     return FINISHED;
                 default:
@@ -7599,6 +7666,9 @@ public class PSModelEnums {
      * <li>JAVASCRIPT
      * <P>
      * 执行JavaScript
+     * <li>SEARCH
+     * <P>
+     * 全局搜索
      * <li>CUSTOM
      * <P>
      * 自定义
@@ -7610,6 +7680,7 @@ public class PSModelEnums {
         ,PDTAPPFUNC("PDTAPPFUNC", "预置应用功能")
         ,UIACTION("UIACTION", "界面行为")
         ,JAVASCRIPT("JAVASCRIPT", "执行JavaScript")
+        ,SEARCH("SEARCH", "全局搜索")
         ,CUSTOM("CUSTOM", "自定义")
 ;
            
@@ -7633,6 +7704,8 @@ public class PSModelEnums {
                     return UIACTION;
                 case "JAVASCRIPT":
                     return JAVASCRIPT;
+                case "SEARCH":
+                    return SEARCH;
                 case "CUSTOM":
                     return CUSTOM;
                 default:
@@ -7685,7 +7758,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体关系子数据同步操作，数值项
+     * 实体关系子数据同步操作，数值项
      * <P>
      * <ul>
      * <li>SYNC&nbsp;(1)
@@ -7722,15 +7795,15 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表单按钮行为类型
+     * 表单按钮行为类型
      * <P>
      * <ul>
      * <li>UIACTION
      * <P>
-     * 界面行为，按钮点击触发界面行为处理
+     * 界面行为，触发界面行为处理
      * <li>FIUPDATE
      * <P>
-     * 表单项更新，按钮点击触发表单项更新处理
+     * 表单项更新，触发表单项更新处理
      * </ul>     
      */
     public static enum FormButtonActionType{
@@ -7759,7 +7832,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 属性默认用户操作，数值项，多值模式（数字或处理）
+     * 默认用户操作，数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>CREATE&nbsp;(1)
@@ -8256,7 +8329,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云系统部署数据库模式
+     * 数据源连接
      * <P>
      * <ul>
      * <li>DEFAULT
@@ -8353,7 +8426,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 内容高度模式
+     * 高度模式
      * <P>
      * <ul>
      * <li>AUTO
@@ -8480,16 +8553,16 @@ public class PSModelEnums {
      * <ul>
      * <li>MAIN
      * <P>
-     * 主查询
+     * 主连接，数据查询的顶级连接
      * <li>NO&nbsp;(N1)
      * <P>
-     * 相关N:1（INNER JOIN）
+     * 相关N:1（INNER JOIN），需指定父连接实体的N1关系
      * <li>ON&nbsp;(1N)
      * <P>
-     * 存在1:N（EXISTS (SELECT)）
+     * 存在1:N（EXISTS (SELECT)），需指定父连接实体的1N关系
      * <li>ONNOT&nbsp;(1NNOT)
      * <P>
-     * 不存在1:N（NOT EXISTS (SELECT)）
+     * 不存在1:N（NOT EXISTS (SELECT)），需指定父连接实体的1N关系
      * <li>INDEX
      * <P>
      * 索引/继承-主实体
@@ -8502,10 +8575,25 @@ public class PSModelEnums {
      * <li>ONLEFTOUT&nbsp;(1NLEFTOUT)
      * <P>
      * 左外联接 1:N
+     * <li>OO&nbsp;(11)
+     * <P>
+     * 1:1-主实体
+     * <li>OOM&nbsp;(11M)
+     * <P>
+     * 1:1-附属实体
+     * <li>CUSTOMNO&nbsp;(CUSTOMN1)
+     * <P>
+     * 自定义相关N:1（INNER JOIN）
+     * <li>CUSTOMONNOT&nbsp;(CUSTOM1NNOT)
+     * <P>
+     * 自定义不存在1:N（NOT EXISTS (SELECT)）
+     * <li>CUSTOMON&nbsp;(CUSTOM1N)
+     * <P>
+     * 自定义存在1:N（EXISTS (SELECT)）
      * </ul>     
      */
     public static enum DEDQJoinType{
-        MAIN("MAIN", "主查询")
+        MAIN("MAIN", "主连接")
         ,NO("N1", "相关N:1（INNER JOIN）")
         ,ON("1N", "存在1:N（EXISTS (SELECT)）")
         ,ONNOT("1NNOT", "不存在1:N（NOT EXISTS (SELECT)）")
@@ -8513,6 +8601,11 @@ public class PSModelEnums {
         ,INDEXM("INDEXM", "索引/继承-附属实体")
         ,NORIGHT("N1RIGHT", "右联接N:1")
         ,ONLEFTOUT("1NLEFTOUT", "左外联接 1:N")
+        ,OO("11", "1:1-主实体")
+        ,OOM("11M", "1:1-附属实体")
+        ,CUSTOMNO("CUSTOMN1", "自定义相关N:1（INNER JOIN）")
+        ,CUSTOMONNOT("CUSTOM1NNOT", "自定义不存在1:N（NOT EXISTS (SELECT)）")
+        ,CUSTOMON("CUSTOM1N", "自定义存在1:N（EXISTS (SELECT)）")
 ;
            
         public final String text;
@@ -8541,6 +8634,16 @@ public class PSModelEnums {
                     return NORIGHT;
                 case "1NLEFTOUT":
                     return ONLEFTOUT;
+                case "11":
+                    return OO;
+                case "11M":
+                    return OOM;
+                case "CUSTOMN1":
+                    return CUSTOMNO;
+                case "CUSTOM1NNOT":
+                    return CUSTOMONNOT;
+                case "CUSTOM1N":
+                    return CUSTOMON;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -8720,7 +8823,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 平台数据通知监控行为（新建、更新、删除），数值项，多值模式（数字或处理）
+     * 数据同步通知监控事件（新建、更新、删除），数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>CREATE&nbsp;(1)
@@ -9263,7 +9366,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体逻辑类型
+     * 实体逻辑类型
      * <P>
      * <ul>
      * <li>DELOGIC
@@ -9312,7 +9415,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 视图布局面板引用模式，数值项
+     * 视图布局面板应用模式，数值项
      * <P>
      * <ul>
      * <li>DEFAULT&nbsp;(0)
@@ -9323,7 +9426,7 @@ public class PSModelEnums {
      * 指定布局面板
      * <li>REFANDADMIN&nbsp;(2)
      * <P>
-     * 指定布局面板（管理）
+     * 指定布局面板（管理），视图指定布局面板，另外视图将作为布局面板的设计容器，也就是说在设计器对视图进行布局调整后会将设计信息更新至指定的布局面板（布局面板管理）
      * </ul>     
      */
     public static enum LayoutPanelMode{
@@ -9497,6 +9600,9 @@ public class PSModelEnums {
      * <li>CURTIME
      * <P>
      * 当前时间，值为当前时间
+     * <li>LASTRETURN
+     * <P>
+     * 上一次调用返回
      * </ul>     
      */
     public static enum DELLCondParamType{
@@ -9504,6 +9610,7 @@ public class PSModelEnums {
         ,SRCENTITYFIELD("SRCENTITYFIELD", "源逻辑参数属性")
         ,SRCDLPARAM("SRCDLPARAM", "源逻辑参数")
         ,CURTIME("CURTIME", "当前时间")
+        ,LASTRETURN("LASTRETURN", "上一次调用返回")
 ;
            
         public final String text;
@@ -9524,6 +9631,8 @@ public class PSModelEnums {
                     return SRCDLPARAM;
                 case "CURTIME":
                     return CURTIME;
+                case "LASTRETURN":
+                    return LASTRETURN;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -9604,6 +9713,9 @@ public class PSModelEnums {
      * <li>REMOTE
      * <P>
      * 远程接口行为
+     * <li>INHERIT
+     * <P>
+     * 继承行为
      * </ul>     
      */
     public static enum DEActionType{
@@ -9616,6 +9728,7 @@ public class PSModelEnums {
         ,USERSYSUPDATE("USERSYSUPDATE", "用户扩展系统更新")
         ,SCRIPT("SCRIPT", "脚本代码")
         ,REMOTE("REMOTE", "远程接口行为")
+        ,INHERIT("INHERIT", "继承行为")
 ;
            
         public final String text;
@@ -9646,6 +9759,8 @@ public class PSModelEnums {
                     return SCRIPT;
                 case "REMOTE":
                     return REMOTE;
+                case "INHERIT":
+                    return INHERIT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -9714,7 +9829,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 全部编辑器类型
+     * 编辑器类型
      * <P>
      * <ul>
      * <li>TEXTBOX
@@ -12453,7 +12568,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体属性界面模式表格列对齐
+     * 表格列水平对齐
      * <P>
      * <ul>
      * <li>LEFT
@@ -12568,7 +12683,7 @@ public class PSModelEnums {
      * 最后数据变量，操作之前的原有数据对象
      * <li>LASTRETURN&nbsp;(4)
      * <P>
-     * 上一次调用返回
+     * 上一次调用返回，存储上一次调用返回的结果
      * <li>FILTER&nbsp;(5)
      * <P>
      * 过滤器
@@ -12593,6 +12708,12 @@ public class PSModelEnums {
      * <li>SIMPLELIST&nbsp;(11)
      * <P>
      * 简单数据列表变量
+     * <li>CHATCOMPLETIONREQUEST&nbsp;(13)
+     * <P>
+     * AI交谈请求
+     * <li>CHATCOMPLETIONRESULT&nbsp;(14)
+     * <P>
+     * AI交谈反馈
      * <li>CONTEXT&nbsp;(24)
      * <P>
      * 导航上下文变量，绑定当前会话导航上下文的变量
@@ -12621,6 +12742,8 @@ public class PSModelEnums {
         ,FILELIST(9, "文件对象列表变量")
         ,SIMPLE(10, "简单数据变量")
         ,SIMPLELIST(11, "简单数据列表变量")
+        ,CHATCOMPLETIONREQUEST(13, "AI交谈请求")
+        ,CHATCOMPLETIONRESULT(14, "AI交谈反馈")
         ,CONTEXT(24, "导航上下文变量")
         ,REQUEST(31, "Web上下文变量")
         ,RESPONSE(32, "Web反馈变量")
@@ -12663,6 +12786,10 @@ public class PSModelEnums {
                     return SIMPLE;
                 case 11:
                     return SIMPLELIST;
+                case 13:
+                    return CHATCOMPLETIONREQUEST;
+                case 14:
+                    return CHATCOMPLETIONRESULT;
                 case 24:
                     return CONTEXT;
                 case 31:
@@ -12769,7 +12896,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体搜索表单按钮样式
+     * 搜索表单按钮样式
      * <P>
      * <ul>
      * <li>DEFAULT
@@ -12898,7 +13025,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云数据库类型（静态），多值模式（字符或处理）
+     * 数据库类型，多值模式（字符或处理）
      * <P>
      * <ul>
      * <li>DB2
@@ -13203,36 +13330,36 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性界面项默认值类型
+     * 界面项默认值类型
      * <P>
      * <ul>
      * <li>SESSION
      * <P>
-     * 用户全局对象，当前用户的上下文对象，需指定属性键名
+     * 用户全局对象，当前用户上下文，需指定属性名称
      * <li>APPLICATION
      * <P>
      * 系统全局对象，当前系统的上下文对象，需指定属性键名
      * <li>UNIQUEID
      * <P>
-     * 唯一编码，生成一个随机标识，一般使用GUID
+     * 唯一编码，生成一个随机标识，一般为GUID
      * <li>CONTEXT
      * <P>
-     * 网页请求，当前请求的参数对象，需指定属性键名
+     * 网页请求，当前请求的参数对象，需指定参数名称
      * <li>PARAM
      * <P>
-     * 数据对象属性，当前处理的数据对象，需指定属性键名，数据对象属性的处理一般放在最后，让其它逻辑先完成数据对象填充
+     * 数据对象属性，当前处理的数据对象，需指定属性名称
      * <li>OPERATOR
      * <P>
-     * 当前操作用户(编号)，当前处理的用户标识
+     * 当前操作用户(编号)，当前用户标识
      * <li>OPERATORNAME
      * <P>
-     * 当前操作用户(名称)，当前处理的用户名称
+     * 当前操作用户(名称)，当前用户名称
      * <li>CURTIME
      * <P>
      * 当前时间，当前系统时间
      * <li>APPDATA
      * <P>
-     * 当前应用数据，当前应用的上下文对象，需指定属性键名。当前应用指正在运行的前端程序的环境变量，如应用打开的数据，使用的用户身份等
+     * 当前应用数据，当前应用上下文，需指定属性名称
      * </ul>     
      */
     public static enum CreateDefaultValueType{
@@ -13361,7 +13488,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性视图列级别（带属性组），数值项
+     * 实体属性查询级别（带属性组），数值项
      * <P>
      * <ul>
      * <li>ALL&nbsp;(0)
@@ -13495,103 +13622,6 @@ public class PSModelEnums {
                     return INDEXDE;
                 case "NORMAL":
                     return NORMAL;
-                default:
-                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
-            }
-        }
-    }
-
-    /**
-     * 实体表单成员模型状态，数值项，多值模式（数字或处理）
-     * <P>
-     * <ul>
-     * <li>WARNING&nbsp;(1)
-     * <P>
-     * 有警告
-     * <li>ERROR&nbsp;(2)
-     * <P>
-     * 有错误
-     * <li>ENABLELOGIC&nbsp;(1024)
-     * <P>
-     * 有动态启用逻辑
-     * <li>VISBLELOGIC&nbsp;(2048)
-     * <P>
-     * 有动态显示逻辑
-     * <li>EMPTYLOGIC&nbsp;(4096)
-     * <P>
-     * 有动态为空逻辑
-     * <li>FIUPDATELOGIC&nbsp;(8192)
-     * <P>
-     * 有表单更新逻辑
-     * <li>ENABLEEXTENSION&nbsp;(16384)
-     * <P>
-     * 启用扩展控制逻辑
-     * <li>ENABLEUPDATE&nbsp;(32768)
-     * <P>
-     * 启用更新（扩展）
-     * <li>ENABLEREMOVE&nbsp;(65536)
-     * <P>
-     * 启用删除（扩展）
-     * <li>ENABLEDRAG&nbsp;(131072)
-     * <P>
-     * 启用拖动（扩展）
-     * <li>ENABLEDROP&nbsp;(262144)
-     * <P>
-     * 启用拖入（扩展）
-     * <li>ENABLEPLACEHOLDER&nbsp;(524288)
-     * <P>
-     * 启用占位（扩展）
-     * </ul>     
-     */
-    public static enum DEFormDetailState{
-        WARNING(1, "有警告")
-        ,ERROR(2, "有错误")
-        ,ENABLELOGIC(1024, "有动态启用逻辑")
-        ,VISBLELOGIC(2048, "有动态显示逻辑")
-        ,EMPTYLOGIC(4096, "有动态为空逻辑")
-        ,FIUPDATELOGIC(8192, "有表单更新逻辑")
-        ,ENABLEEXTENSION(16384, "启用扩展控制逻辑")
-        ,ENABLEUPDATE(32768, "启用更新（扩展）")
-        ,ENABLEREMOVE(65536, "启用删除（扩展）")
-        ,ENABLEDRAG(131072, "启用拖动（扩展）")
-        ,ENABLEDROP(262144, "启用拖入（扩展）")
-        ,ENABLEPLACEHOLDER(524288, "启用占位（扩展）")
-;
-           
-        public final String text;
-        public final int value;
-        
-        private DEFormDetailState(int value, String text){
-            this.value = value;
-            this.text = text;
-        }
-
-        public static DEFormDetailState from(int value){
-            switch(value){
-                case 1:
-                    return WARNING;
-                case 2:
-                    return ERROR;
-                case 1024:
-                    return ENABLELOGIC;
-                case 2048:
-                    return VISBLELOGIC;
-                case 4096:
-                    return EMPTYLOGIC;
-                case 8192:
-                    return FIUPDATELOGIC;
-                case 16384:
-                    return ENABLEEXTENSION;
-                case 32768:
-                    return ENABLEUPDATE;
-                case 65536:
-                    return ENABLEREMOVE;
-                case 131072:
-                    return ENABLEDRAG;
-                case 262144:
-                    return ENABLEDROP;
-                case 524288:
-                    return ENABLEPLACEHOLDER;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -15855,7 +15885,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 应用无权限内容显示模式，数值项
+     * 无权限内容显示模式，数值项
      * <P>
      * <ul>
      * <li>EMPTY&nbsp;(1)
@@ -16033,7 +16063,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体模式删除标志，数值项
+     * 模型删除标志，数值项
      * <P>
      * <ul>
      * <li>REJECT&nbsp;(0)
@@ -16224,7 +16254,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台部件类型（面板项支持）
+     * 面板项支持部件类型
      * <P>
      * <ul>
      * <li>TOOLBAR
@@ -16710,6 +16740,9 @@ public class PSModelEnums {
      * <li>GROUPGRID
      * <P>
      * 分组表格，显示分组显示的表格
+     * <li>AUTOGRID
+     * <P>
+     * 自动表格，根据JsonSchema的属性信息自动呈现的表格
      * <li>LIST
      * <P>
      * 单列无头表格（列表）
@@ -16727,6 +16760,7 @@ public class PSModelEnums {
     public static enum GridStyle{
         TREEGRID("TREEGRID", "树表格")
         ,GROUPGRID("GROUPGRID", "分组表格")
+        ,AUTOGRID("AUTOGRID", "自动表格")
         ,LIST("LIST", "单列无头表格（列表）")
         ,LIST_SORT("LIST_SORT", "单列无头表格（列表），支持排序")
         ,USER("USER", "用户自定义")
@@ -16747,6 +16781,8 @@ public class PSModelEnums {
                     return TREEGRID;
                 case "GROUPGRID":
                     return GROUPGRID;
+                case "AUTOGRID":
+                    return AUTOGRID;
                 case "LIST":
                     return LIST;
                 case "LIST_SORT":
@@ -17105,6 +17141,901 @@ public class PSModelEnums {
     }
 
     /**
+     * 实体视图类型
+     * <P>
+     * <ul>
+     * <li>DECALENDAREXPVIEW
+     * <P>
+     * 实体日历导航视图
+     * <li>DECALENDARVIEW
+     * <P>
+     * 实体日历视图
+     * <li>DECALENDARVIEW9
+     * <P>
+     * 实体日历视图（部件视图）
+     * <li>DECHARTEXPVIEW
+     * <P>
+     * 实体图表导航视图
+     * <li>DECHARTVIEW
+     * <P>
+     * 实体图表视图
+     * <li>DECHARTVIEW9
+     * <P>
+     * 实体图表视图（部件视图）
+     * <li>DECUSTOMVIEW
+     * <P>
+     * 实体自定义视图
+     * <li>DEDATAVIEW
+     * <P>
+     * 实体数据视图
+     * <li>DEDATAVIEW9
+     * <P>
+     * 实体数据视图（部件视图）
+     * <li>DEDATAVIEWEXPVIEW
+     * <P>
+     * 实体卡片视图导航视图
+     * <li>DEEDITVIEW
+     * <P>
+     * 实体编辑视图
+     * <li>DEEDITVIEW2
+     * <P>
+     * 实体编辑视图（左右关系）
+     * <li>DEEDITVIEW3
+     * <P>
+     * 实体编辑视图（分页关系）
+     * <li>DEEDITVIEW4
+     * <P>
+     * 实体编辑视图（上下关系）
+     * <li>DEEDITVIEW9
+     * <P>
+     * 实体编辑视图（部件视图）
+     * <li>DEFORMPICKUPDATAVIEW
+     * <P>
+     * 实体表单选择数据视图（部件视图）
+     * <li>DEGANTTEXPVIEW
+     * <P>
+     * 实体甘特图导航视图
+     * <li>DEGANTTVIEW
+     * <P>
+     * 实体甘特视图
+     * <li>DEGANTTVIEW9
+     * <P>
+     * 实体甘特视图（部件视图）
+     * <li>DEGRIDEXPVIEW
+     * <P>
+     * 实体表格导航视图
+     * <li>DEGRIDVIEW
+     * <P>
+     * 实体表格视图
+     * <li>DEGRIDVIEW2
+     * <P>
+     * 实体表格视图（左右关系）
+     * <li>DEGRIDVIEW4
+     * <P>
+     * 实体表格视图（上下关系）
+     * <li>DEGRIDVIEW8
+     * <P>
+     * 实体关系数据表格视图（嵌入）
+     * <li>DEGRIDVIEW9
+     * <P>
+     * 实体表格视图（部件视图）
+     * <li>DEHTMLVIEW
+     * <P>
+     * 实体HTML视图
+     * <li>DEINDEXPICKUPDATAVIEW
+     * <P>
+     * 实体索引关系选择数据视图（部件视图）
+     * <li>DEINDEXVIEW
+     * <P>
+     * 实体首页视图
+     * <li>DEKANBANVIEW
+     * <P>
+     * 实体看板视图
+     * <li>DEKANBANVIEW9
+     * <P>
+     * 实体看板视图（部件视图）
+     * <li>DELISTEXPVIEW
+     * <P>
+     * 实体列表导航视图
+     * <li>DELISTVIEW
+     * <P>
+     * 实体列表视图
+     * <li>DELISTVIEW9
+     * <P>
+     * 实体列表视图（部件视图）
+     * <li>DEMAPEXPVIEW
+     * <P>
+     * 实体地图导航视图
+     * <li>DEMAPVIEW
+     * <P>
+     * 实体地图视图
+     * <li>DEMAPVIEW9
+     * <P>
+     * 实体地图视图（部件视图）
+     * <li>DEMDCUSTOMVIEW
+     * <P>
+     * 实体多数据自定义视图
+     * <li>DEMEDITVIEW9
+     * <P>
+     * 实体多表单编辑视图（部件视图）
+     * <li>DEMOBCALENDAREXPVIEW
+     * <P>
+     * 实体移动端日历导航视图
+     * <li>DEMOBCALENDARVIEW
+     * <P>
+     * 实体移动端日历视图
+     * <li>DEMOBCALENDARVIEW9
+     * <P>
+     * 实体移动端日历视图（部件视图）
+     * <li>DEMOBCHARTEXPVIEW
+     * <P>
+     * 实体移动端图表导航视图
+     * <li>DEMOBCHARTVIEW
+     * <P>
+     * 实体移动端图表视图
+     * <li>DEMOBCHARTVIEW9
+     * <P>
+     * 实体移动端图表视图（部件视图）
+     * <li>DEMOBCUSTOMVIEW
+     * <P>
+     * 实体移动端自定义视图
+     * <li>DEMOBDATAVIEW
+     * <P>
+     * 实体移动端卡片视图
+     * <li>DEMOBDATAVIEWEXPVIEW
+     * <P>
+     * 实体移动端卡片视图导航视图
+     * <li>DEMOBEDITVIEW
+     * <P>
+     * 实体移动端编辑视图
+     * <li>DEMOBEDITVIEW3
+     * <P>
+     * 实体移动端编辑视图（分页关系）
+     * <li>DEMOBEDITVIEW9
+     * <P>
+     * 实体移动端编辑视图（部件视图）
+     * <li>DEMOBFORMPICKUPMDVIEW
+     * <P>
+     * 实体移动端表单类型选择多数据视图（部件视图）
+     * <li>DEMOBGANTTEXPVIEW
+     * <P>
+     * 实体移动端甘特图导航视图
+     * <li>DEMOBGANTTVIEW
+     * <P>
+     * 实体移动端甘特视图
+     * <li>DEMOBGANTTVIEW9
+     * <P>
+     * 实体移动端甘特视图（部件视图）
+     * <li>DEMOBHTMLVIEW
+     * <P>
+     * 实体移动端HTML视图
+     * <li>DEMOBINDEXPICKUPMDVIEW
+     * <P>
+     * 实体移动端索引类型选择多数据视图（部件视图）
+     * <li>DEMOBLISTEXPVIEW
+     * <P>
+     * 实体移动端列表导航视图
+     * <li>DEMOBLISTVIEW
+     * <P>
+     * 实体移动端列表视图
+     * <li>DEMOBMAPEXPVIEW
+     * <P>
+     * 实体移动端地图导航视图
+     * <li>DEMOBMAPVIEW
+     * <P>
+     * 实体移动端地图视图
+     * <li>DEMOBMAPVIEW9
+     * <P>
+     * 实体移动端地图视图（部件视图）
+     * <li>DEMOBMDVIEW
+     * <P>
+     * 实体移动端多数据视图
+     * <li>DEMOBMDVIEW9
+     * <P>
+     * 实体移动端多数据视图（部件视图）
+     * <li>DEMOBMEDITVIEW9
+     * <P>
+     * 实体移动端多表单编辑视图（部件视图）
+     * <li>DEMOBMPICKUPVIEW
+     * <P>
+     * 实体移动端多数据选择视图
+     * <li>DEMOBOPTVIEW
+     * <P>
+     * 实体移动端选项操作视图
+     * <li>DEMOBPANELVIEW
+     * <P>
+     * 实体移动端面板视图
+     * <li>DEMOBPANELVIEW9
+     * <P>
+     * 实体移动端面板视图（部件视图）
+     * <li>DEMOBPICKUPLISTVIEW
+     * <P>
+     * 实体移动端选择列表视图（部件视图）
+     * <li>DEMOBPICKUPMDVIEW
+     * <P>
+     * 实体移动端选择多数据视图（部件视图）
+     * <li>DEMOBPICKUPTREEVIEW
+     * <P>
+     * 实体移动端选择树视图（部件视图）
+     * <li>DEMOBPICKUPVIEW
+     * <P>
+     * 实体移动端数据选择视图
+     * <li>DEMOBPORTALVIEW
+     * <P>
+     * 实体移动端数据看板视图
+     * <li>DEMOBPORTALVIEW9
+     * <P>
+     * 实体移动端数据看板视图（部件视图）
+     * <li>DEMOBREDIRECTVIEW
+     * <P>
+     * 实体移动端数据重定向视图
+     * <li>DEMOBREPORTVIEW
+     * <P>
+     * 实体移动端报表视图
+     * <li>DEMOBTABEXPVIEW
+     * <P>
+     * 实体移动端分页导航视图
+     * <li>DEMOBTABEXPVIEW9
+     * <P>
+     * 实体移动端分页导航视图（部件视图）
+     * <li>DEMOBTABSEARCHVIEW
+     * <P>
+     * 实体移动端分页搜索视图
+     * <li>DEMOBTABSEARCHVIEW9
+     * <P>
+     * 实体移动端分页搜索视图（部件视图）
+     * <li>DEMOBTREEEXPVIEW
+     * <P>
+     * 实体移动端树导航视图
+     * <li>DEMOBTREEEXPVIEW9
+     * <P>
+     * 实体移动端树导航视图（部件视图）
+     * <li>DEMOBTREEVIEW
+     * <P>
+     * 实体移动端树视图
+     * <li>DEMOBWFACTIONVIEW
+     * <P>
+     * 实体移动端工作流操作视图
+     * <li>DEMOBWFDATAREDIRECTVIEW
+     * <P>
+     * 移动端实体全局流程数据重定向视图
+     * <li>DEMOBWFDYNAACTIONVIEW
+     * <P>
+     * 实体移动端工作流动态操作视图
+     * <li>DEMOBWFDYNAEDITVIEW
+     * <P>
+     * 实体移动端工作流动态编辑视图
+     * <li>DEMOBWFDYNAEDITVIEW3
+     * <P>
+     * 实体移动端工作流动态编辑视图（分页关系）
+     * <li>DEMOBWFDYNAEXPMDVIEW
+     * <P>
+     * 实体移动端工作流动态导航多数据视图
+     * <li>DEMOBWFDYNASTARTVIEW
+     * <P>
+     * 实体移动端工作流动态启动视图
+     * <li>DEMOBWFEDITVIEW
+     * <P>
+     * 实体移动端工作流编辑视图
+     * <li>DEMOBWFEDITVIEW3
+     * <P>
+     * 实体移动端工作流编辑视图（分页关系）
+     * <li>DEMOBWFMDVIEW
+     * <P>
+     * 实体移动端工作流多数据视图
+     * <li>DEMOBWFPROXYRESULTVIEW
+     * <P>
+     * 实体移动端工作流代理应用结果视图
+     * <li>DEMOBWFPROXYSTARTVIEW
+     * <P>
+     * 实体移动端工作流代理应用启动视图
+     * <li>DEMOBWFSTARTVIEW
+     * <P>
+     * 实体移动端工作流启动视图
+     * <li>DEMOBWIZARDVIEW
+     * <P>
+     * 实体移动端向导视图
+     * <li>DEMPICKUPVIEW
+     * <P>
+     * 实体数据多项选择视图
+     * <li>DEMPICKUPVIEW2
+     * <P>
+     * 实体多项数据选择视图（左右关系）
+     * <li>DEOPTVIEW
+     * <P>
+     * 实体选项操作视图
+     * <li>DEPANELVIEW
+     * <P>
+     * 实体面板视图
+     * <li>DEPANELVIEW9
+     * <P>
+     * 实体面板视图（部件视图）
+     * <li>DEPICKUPDATAVIEW
+     * <P>
+     * 实体选择数据视图（部件视图）
+     * <li>DEPICKUPGRIDVIEW
+     * <P>
+     * 实体选择表格视图（部件视图）
+     * <li>DEPICKUPTREEVIEW
+     * <P>
+     * 实体选择树视图（部件视图）
+     * <li>DEPICKUPVIEW
+     * <P>
+     * 实体数据选择视图
+     * <li>DEPICKUPVIEW2
+     * <P>
+     * 实体数据选择视图（左右关系）
+     * <li>DEPICKUPVIEW3
+     * <P>
+     * 实体数据选择视图（分页关系）
+     * <li>DEPORTALVIEW
+     * <P>
+     * 实体数据看板视图
+     * <li>DEPORTALVIEW9
+     * <P>
+     * 实体数据看板视图（部件视图）
+     * <li>DEREDIRECTVIEW
+     * <P>
+     * 实体数据重定向视图
+     * <li>DEREPORTVIEW
+     * <P>
+     * 实体报表视图
+     * <li>DETABEXPVIEW
+     * <P>
+     * 实体分页导航视图
+     * <li>DETABEXPVIEW9
+     * <P>
+     * 实体分页导航视图（部件视图）
+     * <li>DETABSEARCHVIEW
+     * <P>
+     * 实体分页搜索视图
+     * <li>DETABSEARCHVIEW9
+     * <P>
+     * 实体分页搜索视图（部件视图）
+     * <li>DETREEEXPVIEW
+     * <P>
+     * 实体树导航视图
+     * <li>DETREEEXPVIEW2
+     * <P>
+     * 实体树导航视图（IFrame）
+     * <li>DETREEEXPVIEW3
+     * <P>
+     * 实体树导航视图（菜单模式）
+     * <li>DETREEGRIDEXVIEW
+     * <P>
+     * 实体树表格视图（增强）
+     * <li>DETREEGRIDEXVIEW9
+     * <P>
+     * 实体树表格视图（增强）（部件视图）
+     * <li>DETREEGRIDVIEW
+     * <P>
+     * 实体树表格视图
+     * <li>DETREEGRIDVIEW9
+     * <P>
+     * 实体树表格视图（部件视图）
+     * <li>DETREEVIEW
+     * <P>
+     * 实体树视图
+     * <li>DETREEVIEW9
+     * <P>
+     * 实体树视图（部件视图）
+     * <li>DEWFACTIONVIEW
+     * <P>
+     * 实体工作流操作视图
+     * <li>DEWFDATAREDIRECTVIEW
+     * <P>
+     * 实体全局流程数据重定向视图
+     * <li>DEWFDYNAACTIONVIEW
+     * <P>
+     * 实体工作流动态操作视图
+     * <li>DEWFDYNAEDITVIEW
+     * <P>
+     * 实体工作流动态编辑视图
+     * <li>DEWFDYNAEDITVIEW3
+     * <P>
+     * 实体工作流动态视图（分页关系）
+     * <li>DEWFDYNAEXPGRIDVIEW
+     * <P>
+     * 实体工作流动态导航表格视图
+     * <li>DEWFDYNASTARTVIEW
+     * <P>
+     * 实体工作流动态启动视图
+     * <li>DEWFEDITPROXYDATAVIEW
+     * <P>
+     * 实体工作流编辑代理数据视图
+     * <li>DEWFEDITVIEW
+     * <P>
+     * 实体工作流编辑视图
+     * <li>DEWFEDITVIEW2
+     * <P>
+     * 实体工作流编辑视图（左右关系）
+     * <li>DEWFEDITVIEW3
+     * <P>
+     * 实体工作流视图（分页关系）
+     * <li>DEWFEDITVIEW9
+     * <P>
+     * 实体工作流视图（嵌入视图）
+     * <li>DEWFEXPVIEW
+     * <P>
+     * 实体工作流导航视图
+     * <li>DEWFGRIDVIEW
+     * <P>
+     * 实体工作流表格视图
+     * <li>DEWFPROXYDATAVIEW
+     * <P>
+     * 实体工作流代理数据视图
+     * <li>DEWFPROXYRESULTVIEW
+     * <P>
+     * 实体工作流代理应用结果视图
+     * <li>DEWFPROXYSTARTVIEW
+     * <P>
+     * 实体工作流代理应用启动视图
+     * <li>DEWFSTARTVIEW
+     * <P>
+     * 实体工作流启动视图
+     * <li>DEWIZARDVIEW
+     * <P>
+     * 实体向导视图
+     * <li>DESUBAPPREFVIEW
+     * <P>
+     * 实体子应用引用视图
+     * </ul>     
+     */
+    public static enum DEViewType{
+        DECALENDAREXPVIEW("DECALENDAREXPVIEW", "实体日历导航视图")
+        ,DECALENDARVIEW("DECALENDARVIEW", "实体日历视图")
+        ,DECALENDARVIEW9("DECALENDARVIEW9", "实体日历视图（部件视图）")
+        ,DECHARTEXPVIEW("DECHARTEXPVIEW", "实体图表导航视图")
+        ,DECHARTVIEW("DECHARTVIEW", "实体图表视图")
+        ,DECHARTVIEW9("DECHARTVIEW9", "实体图表视图（部件视图）")
+        ,DECUSTOMVIEW("DECUSTOMVIEW", "实体自定义视图")
+        ,DEDATAVIEW("DEDATAVIEW", "实体数据视图")
+        ,DEDATAVIEW9("DEDATAVIEW9", "实体数据视图（部件视图）")
+        ,DEDATAVIEWEXPVIEW("DEDATAVIEWEXPVIEW", "实体卡片视图导航视图")
+        ,DEEDITVIEW("DEEDITVIEW", "实体编辑视图")
+        ,DEEDITVIEW2("DEEDITVIEW2", "实体编辑视图（左右关系）")
+        ,DEEDITVIEW3("DEEDITVIEW3", "实体编辑视图（分页关系）")
+        ,DEEDITVIEW4("DEEDITVIEW4", "实体编辑视图（上下关系）")
+        ,DEEDITVIEW9("DEEDITVIEW9", "实体编辑视图（部件视图）")
+        ,DEFORMPICKUPDATAVIEW("DEFORMPICKUPDATAVIEW", "实体表单选择数据视图（部件视图）")
+        ,DEGANTTEXPVIEW("DEGANTTEXPVIEW", "实体甘特图导航视图")
+        ,DEGANTTVIEW("DEGANTTVIEW", "实体甘特视图")
+        ,DEGANTTVIEW9("DEGANTTVIEW9", "实体甘特视图（部件视图）")
+        ,DEGRIDEXPVIEW("DEGRIDEXPVIEW", "实体表格导航视图")
+        ,DEGRIDVIEW("DEGRIDVIEW", "实体表格视图")
+        ,DEGRIDVIEW2("DEGRIDVIEW2", "实体表格视图（左右关系）")
+        ,DEGRIDVIEW4("DEGRIDVIEW4", "实体表格视图（上下关系）")
+        ,DEGRIDVIEW8("DEGRIDVIEW8", "实体关系数据表格视图（嵌入）")
+        ,DEGRIDVIEW9("DEGRIDVIEW9", "实体表格视图（部件视图）")
+        ,DEHTMLVIEW("DEHTMLVIEW", "实体HTML视图")
+        ,DEINDEXPICKUPDATAVIEW("DEINDEXPICKUPDATAVIEW", "实体索引关系选择数据视图（部件视图）")
+        ,DEINDEXVIEW("DEINDEXVIEW", "实体首页视图")
+        ,DEKANBANVIEW("DEKANBANVIEW", "实体看板视图")
+        ,DEKANBANVIEW9("DEKANBANVIEW9", "实体看板视图（部件视图）")
+        ,DELISTEXPVIEW("DELISTEXPVIEW", "实体列表导航视图")
+        ,DELISTVIEW("DELISTVIEW", "实体列表视图")
+        ,DELISTVIEW9("DELISTVIEW9", "实体列表视图（部件视图）")
+        ,DEMAPEXPVIEW("DEMAPEXPVIEW", "实体地图导航视图")
+        ,DEMAPVIEW("DEMAPVIEW", "实体地图视图")
+        ,DEMAPVIEW9("DEMAPVIEW9", "实体地图视图（部件视图）")
+        ,DEMDCUSTOMVIEW("DEMDCUSTOMVIEW", "实体多数据自定义视图")
+        ,DEMEDITVIEW9("DEMEDITVIEW9", "实体多表单编辑视图（部件视图）")
+        ,DEMOBCALENDAREXPVIEW("DEMOBCALENDAREXPVIEW", "实体移动端日历导航视图")
+        ,DEMOBCALENDARVIEW("DEMOBCALENDARVIEW", "实体移动端日历视图")
+        ,DEMOBCALENDARVIEW9("DEMOBCALENDARVIEW9", "实体移动端日历视图（部件视图）")
+        ,DEMOBCHARTEXPVIEW("DEMOBCHARTEXPVIEW", "实体移动端图表导航视图")
+        ,DEMOBCHARTVIEW("DEMOBCHARTVIEW", "实体移动端图表视图")
+        ,DEMOBCHARTVIEW9("DEMOBCHARTVIEW9", "实体移动端图表视图（部件视图）")
+        ,DEMOBCUSTOMVIEW("DEMOBCUSTOMVIEW", "实体移动端自定义视图")
+        ,DEMOBDATAVIEW("DEMOBDATAVIEW", "实体移动端卡片视图")
+        ,DEMOBDATAVIEWEXPVIEW("DEMOBDATAVIEWEXPVIEW", "实体移动端卡片视图导航视图")
+        ,DEMOBEDITVIEW("DEMOBEDITVIEW", "实体移动端编辑视图")
+        ,DEMOBEDITVIEW3("DEMOBEDITVIEW3", "实体移动端编辑视图（分页关系）")
+        ,DEMOBEDITVIEW9("DEMOBEDITVIEW9", "实体移动端编辑视图（部件视图）")
+        ,DEMOBFORMPICKUPMDVIEW("DEMOBFORMPICKUPMDVIEW", "实体移动端表单类型选择多数据视图（部件视图）")
+        ,DEMOBGANTTEXPVIEW("DEMOBGANTTEXPVIEW", "实体移动端甘特图导航视图")
+        ,DEMOBGANTTVIEW("DEMOBGANTTVIEW", "实体移动端甘特视图")
+        ,DEMOBGANTTVIEW9("DEMOBGANTTVIEW9", "实体移动端甘特视图（部件视图）")
+        ,DEMOBHTMLVIEW("DEMOBHTMLVIEW", "实体移动端HTML视图")
+        ,DEMOBINDEXPICKUPMDVIEW("DEMOBINDEXPICKUPMDVIEW", "实体移动端索引类型选择多数据视图（部件视图）")
+        ,DEMOBLISTEXPVIEW("DEMOBLISTEXPVIEW", "实体移动端列表导航视图")
+        ,DEMOBLISTVIEW("DEMOBLISTVIEW", "实体移动端列表视图")
+        ,DEMOBMAPEXPVIEW("DEMOBMAPEXPVIEW", "实体移动端地图导航视图")
+        ,DEMOBMAPVIEW("DEMOBMAPVIEW", "实体移动端地图视图")
+        ,DEMOBMAPVIEW9("DEMOBMAPVIEW9", "实体移动端地图视图（部件视图）")
+        ,DEMOBMDVIEW("DEMOBMDVIEW", "实体移动端多数据视图")
+        ,DEMOBMDVIEW9("DEMOBMDVIEW9", "实体移动端多数据视图（部件视图）")
+        ,DEMOBMEDITVIEW9("DEMOBMEDITVIEW9", "实体移动端多表单编辑视图（部件视图）")
+        ,DEMOBMPICKUPVIEW("DEMOBMPICKUPVIEW", "实体移动端多数据选择视图")
+        ,DEMOBOPTVIEW("DEMOBOPTVIEW", "实体移动端选项操作视图")
+        ,DEMOBPANELVIEW("DEMOBPANELVIEW", "实体移动端面板视图")
+        ,DEMOBPANELVIEW9("DEMOBPANELVIEW9", "实体移动端面板视图（部件视图）")
+        ,DEMOBPICKUPLISTVIEW("DEMOBPICKUPLISTVIEW", "实体移动端选择列表视图（部件视图）")
+        ,DEMOBPICKUPMDVIEW("DEMOBPICKUPMDVIEW", "实体移动端选择多数据视图（部件视图）")
+        ,DEMOBPICKUPTREEVIEW("DEMOBPICKUPTREEVIEW", "实体移动端选择树视图（部件视图）")
+        ,DEMOBPICKUPVIEW("DEMOBPICKUPVIEW", "实体移动端数据选择视图")
+        ,DEMOBPORTALVIEW("DEMOBPORTALVIEW", "实体移动端数据看板视图")
+        ,DEMOBPORTALVIEW9("DEMOBPORTALVIEW9", "实体移动端数据看板视图（部件视图）")
+        ,DEMOBREDIRECTVIEW("DEMOBREDIRECTVIEW", "实体移动端数据重定向视图")
+        ,DEMOBREPORTVIEW("DEMOBREPORTVIEW", "实体移动端报表视图")
+        ,DEMOBTABEXPVIEW("DEMOBTABEXPVIEW", "实体移动端分页导航视图")
+        ,DEMOBTABEXPVIEW9("DEMOBTABEXPVIEW9", "实体移动端分页导航视图（部件视图）")
+        ,DEMOBTABSEARCHVIEW("DEMOBTABSEARCHVIEW", "实体移动端分页搜索视图")
+        ,DEMOBTABSEARCHVIEW9("DEMOBTABSEARCHVIEW9", "实体移动端分页搜索视图（部件视图）")
+        ,DEMOBTREEEXPVIEW("DEMOBTREEEXPVIEW", "实体移动端树导航视图")
+        ,DEMOBTREEEXPVIEW9("DEMOBTREEEXPVIEW9", "实体移动端树导航视图（部件视图）")
+        ,DEMOBTREEVIEW("DEMOBTREEVIEW", "实体移动端树视图")
+        ,DEMOBWFACTIONVIEW("DEMOBWFACTIONVIEW", "实体移动端工作流操作视图")
+        ,DEMOBWFDATAREDIRECTVIEW("DEMOBWFDATAREDIRECTVIEW", "移动端实体全局流程数据重定向视图")
+        ,DEMOBWFDYNAACTIONVIEW("DEMOBWFDYNAACTIONVIEW", "实体移动端工作流动态操作视图")
+        ,DEMOBWFDYNAEDITVIEW("DEMOBWFDYNAEDITVIEW", "实体移动端工作流动态编辑视图")
+        ,DEMOBWFDYNAEDITVIEW3("DEMOBWFDYNAEDITVIEW3", "实体移动端工作流动态编辑视图（分页关系）")
+        ,DEMOBWFDYNAEXPMDVIEW("DEMOBWFDYNAEXPMDVIEW", "实体移动端工作流动态导航多数据视图")
+        ,DEMOBWFDYNASTARTVIEW("DEMOBWFDYNASTARTVIEW", "实体移动端工作流动态启动视图")
+        ,DEMOBWFEDITVIEW("DEMOBWFEDITVIEW", "实体移动端工作流编辑视图")
+        ,DEMOBWFEDITVIEW3("DEMOBWFEDITVIEW3", "实体移动端工作流编辑视图（分页关系）")
+        ,DEMOBWFMDVIEW("DEMOBWFMDVIEW", "实体移动端工作流多数据视图")
+        ,DEMOBWFPROXYRESULTVIEW("DEMOBWFPROXYRESULTVIEW", "实体移动端工作流代理应用结果视图")
+        ,DEMOBWFPROXYSTARTVIEW("DEMOBWFPROXYSTARTVIEW", "实体移动端工作流代理应用启动视图")
+        ,DEMOBWFSTARTVIEW("DEMOBWFSTARTVIEW", "实体移动端工作流启动视图")
+        ,DEMOBWIZARDVIEW("DEMOBWIZARDVIEW", "实体移动端向导视图")
+        ,DEMPICKUPVIEW("DEMPICKUPVIEW", "实体数据多项选择视图")
+        ,DEMPICKUPVIEW2("DEMPICKUPVIEW2", "实体多项数据选择视图（左右关系）")
+        ,DEOPTVIEW("DEOPTVIEW", "实体选项操作视图")
+        ,DEPANELVIEW("DEPANELVIEW", "实体面板视图")
+        ,DEPANELVIEW9("DEPANELVIEW9", "实体面板视图（部件视图）")
+        ,DEPICKUPDATAVIEW("DEPICKUPDATAVIEW", "实体选择数据视图（部件视图）")
+        ,DEPICKUPGRIDVIEW("DEPICKUPGRIDVIEW", "实体选择表格视图（部件视图）")
+        ,DEPICKUPTREEVIEW("DEPICKUPTREEVIEW", "实体选择树视图（部件视图）")
+        ,DEPICKUPVIEW("DEPICKUPVIEW", "实体数据选择视图")
+        ,DEPICKUPVIEW2("DEPICKUPVIEW2", "实体数据选择视图（左右关系）")
+        ,DEPICKUPVIEW3("DEPICKUPVIEW3", "实体数据选择视图（分页关系）")
+        ,DEPORTALVIEW("DEPORTALVIEW", "实体数据看板视图")
+        ,DEPORTALVIEW9("DEPORTALVIEW9", "实体数据看板视图（部件视图）")
+        ,DEREDIRECTVIEW("DEREDIRECTVIEW", "实体数据重定向视图")
+        ,DEREPORTVIEW("DEREPORTVIEW", "实体报表视图")
+        ,DETABEXPVIEW("DETABEXPVIEW", "实体分页导航视图")
+        ,DETABEXPVIEW9("DETABEXPVIEW9", "实体分页导航视图（部件视图）")
+        ,DETABSEARCHVIEW("DETABSEARCHVIEW", "实体分页搜索视图")
+        ,DETABSEARCHVIEW9("DETABSEARCHVIEW9", "实体分页搜索视图（部件视图）")
+        ,DETREEEXPVIEW("DETREEEXPVIEW", "实体树导航视图")
+        ,DETREEEXPVIEW2("DETREEEXPVIEW2", "实体树导航视图（IFrame）")
+        ,DETREEEXPVIEW3("DETREEEXPVIEW3", "实体树导航视图（菜单模式）")
+        ,DETREEGRIDEXVIEW("DETREEGRIDEXVIEW", "实体树表格视图（增强）")
+        ,DETREEGRIDEXVIEW9("DETREEGRIDEXVIEW9", "实体树表格视图（增强）（部件视图）")
+        ,DETREEGRIDVIEW("DETREEGRIDVIEW", "实体树表格视图")
+        ,DETREEGRIDVIEW9("DETREEGRIDVIEW9", "实体树表格视图（部件视图）")
+        ,DETREEVIEW("DETREEVIEW", "实体树视图")
+        ,DETREEVIEW9("DETREEVIEW9", "实体树视图（部件视图）")
+        ,DEWFACTIONVIEW("DEWFACTIONVIEW", "实体工作流操作视图")
+        ,DEWFDATAREDIRECTVIEW("DEWFDATAREDIRECTVIEW", "实体全局流程数据重定向视图")
+        ,DEWFDYNAACTIONVIEW("DEWFDYNAACTIONVIEW", "实体工作流动态操作视图")
+        ,DEWFDYNAEDITVIEW("DEWFDYNAEDITVIEW", "实体工作流动态编辑视图")
+        ,DEWFDYNAEDITVIEW3("DEWFDYNAEDITVIEW3", "实体工作流动态视图（分页关系）")
+        ,DEWFDYNAEXPGRIDVIEW("DEWFDYNAEXPGRIDVIEW", "实体工作流动态导航表格视图")
+        ,DEWFDYNASTARTVIEW("DEWFDYNASTARTVIEW", "实体工作流动态启动视图")
+        ,DEWFEDITPROXYDATAVIEW("DEWFEDITPROXYDATAVIEW", "实体工作流编辑代理数据视图")
+        ,DEWFEDITVIEW("DEWFEDITVIEW", "实体工作流编辑视图")
+        ,DEWFEDITVIEW2("DEWFEDITVIEW2", "实体工作流编辑视图（左右关系）")
+        ,DEWFEDITVIEW3("DEWFEDITVIEW3", "实体工作流视图（分页关系）")
+        ,DEWFEDITVIEW9("DEWFEDITVIEW9", "实体工作流视图（嵌入视图）")
+        ,DEWFEXPVIEW("DEWFEXPVIEW", "实体工作流导航视图")
+        ,DEWFGRIDVIEW("DEWFGRIDVIEW", "实体工作流表格视图")
+        ,DEWFPROXYDATAVIEW("DEWFPROXYDATAVIEW", "实体工作流代理数据视图")
+        ,DEWFPROXYRESULTVIEW("DEWFPROXYRESULTVIEW", "实体工作流代理应用结果视图")
+        ,DEWFPROXYSTARTVIEW("DEWFPROXYSTARTVIEW", "实体工作流代理应用启动视图")
+        ,DEWFSTARTVIEW("DEWFSTARTVIEW", "实体工作流启动视图")
+        ,DEWIZARDVIEW("DEWIZARDVIEW", "实体向导视图")
+        ,DESUBAPPREFVIEW("DESUBAPPREFVIEW", "实体子应用引用视图")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DEViewType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEViewType from(String value){
+            switch(value){
+                case "DECALENDAREXPVIEW":
+                    return DECALENDAREXPVIEW;
+                case "DECALENDARVIEW":
+                    return DECALENDARVIEW;
+                case "DECALENDARVIEW9":
+                    return DECALENDARVIEW9;
+                case "DECHARTEXPVIEW":
+                    return DECHARTEXPVIEW;
+                case "DECHARTVIEW":
+                    return DECHARTVIEW;
+                case "DECHARTVIEW9":
+                    return DECHARTVIEW9;
+                case "DECUSTOMVIEW":
+                    return DECUSTOMVIEW;
+                case "DEDATAVIEW":
+                    return DEDATAVIEW;
+                case "DEDATAVIEW9":
+                    return DEDATAVIEW9;
+                case "DEDATAVIEWEXPVIEW":
+                    return DEDATAVIEWEXPVIEW;
+                case "DEEDITVIEW":
+                    return DEEDITVIEW;
+                case "DEEDITVIEW2":
+                    return DEEDITVIEW2;
+                case "DEEDITVIEW3":
+                    return DEEDITVIEW3;
+                case "DEEDITVIEW4":
+                    return DEEDITVIEW4;
+                case "DEEDITVIEW9":
+                    return DEEDITVIEW9;
+                case "DEFORMPICKUPDATAVIEW":
+                    return DEFORMPICKUPDATAVIEW;
+                case "DEGANTTEXPVIEW":
+                    return DEGANTTEXPVIEW;
+                case "DEGANTTVIEW":
+                    return DEGANTTVIEW;
+                case "DEGANTTVIEW9":
+                    return DEGANTTVIEW9;
+                case "DEGRIDEXPVIEW":
+                    return DEGRIDEXPVIEW;
+                case "DEGRIDVIEW":
+                    return DEGRIDVIEW;
+                case "DEGRIDVIEW2":
+                    return DEGRIDVIEW2;
+                case "DEGRIDVIEW4":
+                    return DEGRIDVIEW4;
+                case "DEGRIDVIEW8":
+                    return DEGRIDVIEW8;
+                case "DEGRIDVIEW9":
+                    return DEGRIDVIEW9;
+                case "DEHTMLVIEW":
+                    return DEHTMLVIEW;
+                case "DEINDEXPICKUPDATAVIEW":
+                    return DEINDEXPICKUPDATAVIEW;
+                case "DEINDEXVIEW":
+                    return DEINDEXVIEW;
+                case "DEKANBANVIEW":
+                    return DEKANBANVIEW;
+                case "DEKANBANVIEW9":
+                    return DEKANBANVIEW9;
+                case "DELISTEXPVIEW":
+                    return DELISTEXPVIEW;
+                case "DELISTVIEW":
+                    return DELISTVIEW;
+                case "DELISTVIEW9":
+                    return DELISTVIEW9;
+                case "DEMAPEXPVIEW":
+                    return DEMAPEXPVIEW;
+                case "DEMAPVIEW":
+                    return DEMAPVIEW;
+                case "DEMAPVIEW9":
+                    return DEMAPVIEW9;
+                case "DEMDCUSTOMVIEW":
+                    return DEMDCUSTOMVIEW;
+                case "DEMEDITVIEW9":
+                    return DEMEDITVIEW9;
+                case "DEMOBCALENDAREXPVIEW":
+                    return DEMOBCALENDAREXPVIEW;
+                case "DEMOBCALENDARVIEW":
+                    return DEMOBCALENDARVIEW;
+                case "DEMOBCALENDARVIEW9":
+                    return DEMOBCALENDARVIEW9;
+                case "DEMOBCHARTEXPVIEW":
+                    return DEMOBCHARTEXPVIEW;
+                case "DEMOBCHARTVIEW":
+                    return DEMOBCHARTVIEW;
+                case "DEMOBCHARTVIEW9":
+                    return DEMOBCHARTVIEW9;
+                case "DEMOBCUSTOMVIEW":
+                    return DEMOBCUSTOMVIEW;
+                case "DEMOBDATAVIEW":
+                    return DEMOBDATAVIEW;
+                case "DEMOBDATAVIEWEXPVIEW":
+                    return DEMOBDATAVIEWEXPVIEW;
+                case "DEMOBEDITVIEW":
+                    return DEMOBEDITVIEW;
+                case "DEMOBEDITVIEW3":
+                    return DEMOBEDITVIEW3;
+                case "DEMOBEDITVIEW9":
+                    return DEMOBEDITVIEW9;
+                case "DEMOBFORMPICKUPMDVIEW":
+                    return DEMOBFORMPICKUPMDVIEW;
+                case "DEMOBGANTTEXPVIEW":
+                    return DEMOBGANTTEXPVIEW;
+                case "DEMOBGANTTVIEW":
+                    return DEMOBGANTTVIEW;
+                case "DEMOBGANTTVIEW9":
+                    return DEMOBGANTTVIEW9;
+                case "DEMOBHTMLVIEW":
+                    return DEMOBHTMLVIEW;
+                case "DEMOBINDEXPICKUPMDVIEW":
+                    return DEMOBINDEXPICKUPMDVIEW;
+                case "DEMOBLISTEXPVIEW":
+                    return DEMOBLISTEXPVIEW;
+                case "DEMOBLISTVIEW":
+                    return DEMOBLISTVIEW;
+                case "DEMOBMAPEXPVIEW":
+                    return DEMOBMAPEXPVIEW;
+                case "DEMOBMAPVIEW":
+                    return DEMOBMAPVIEW;
+                case "DEMOBMAPVIEW9":
+                    return DEMOBMAPVIEW9;
+                case "DEMOBMDVIEW":
+                    return DEMOBMDVIEW;
+                case "DEMOBMDVIEW9":
+                    return DEMOBMDVIEW9;
+                case "DEMOBMEDITVIEW9":
+                    return DEMOBMEDITVIEW9;
+                case "DEMOBMPICKUPVIEW":
+                    return DEMOBMPICKUPVIEW;
+                case "DEMOBOPTVIEW":
+                    return DEMOBOPTVIEW;
+                case "DEMOBPANELVIEW":
+                    return DEMOBPANELVIEW;
+                case "DEMOBPANELVIEW9":
+                    return DEMOBPANELVIEW9;
+                case "DEMOBPICKUPLISTVIEW":
+                    return DEMOBPICKUPLISTVIEW;
+                case "DEMOBPICKUPMDVIEW":
+                    return DEMOBPICKUPMDVIEW;
+                case "DEMOBPICKUPTREEVIEW":
+                    return DEMOBPICKUPTREEVIEW;
+                case "DEMOBPICKUPVIEW":
+                    return DEMOBPICKUPVIEW;
+                case "DEMOBPORTALVIEW":
+                    return DEMOBPORTALVIEW;
+                case "DEMOBPORTALVIEW9":
+                    return DEMOBPORTALVIEW9;
+                case "DEMOBREDIRECTVIEW":
+                    return DEMOBREDIRECTVIEW;
+                case "DEMOBREPORTVIEW":
+                    return DEMOBREPORTVIEW;
+                case "DEMOBTABEXPVIEW":
+                    return DEMOBTABEXPVIEW;
+                case "DEMOBTABEXPVIEW9":
+                    return DEMOBTABEXPVIEW9;
+                case "DEMOBTABSEARCHVIEW":
+                    return DEMOBTABSEARCHVIEW;
+                case "DEMOBTABSEARCHVIEW9":
+                    return DEMOBTABSEARCHVIEW9;
+                case "DEMOBTREEEXPVIEW":
+                    return DEMOBTREEEXPVIEW;
+                case "DEMOBTREEEXPVIEW9":
+                    return DEMOBTREEEXPVIEW9;
+                case "DEMOBTREEVIEW":
+                    return DEMOBTREEVIEW;
+                case "DEMOBWFACTIONVIEW":
+                    return DEMOBWFACTIONVIEW;
+                case "DEMOBWFDATAREDIRECTVIEW":
+                    return DEMOBWFDATAREDIRECTVIEW;
+                case "DEMOBWFDYNAACTIONVIEW":
+                    return DEMOBWFDYNAACTIONVIEW;
+                case "DEMOBWFDYNAEDITVIEW":
+                    return DEMOBWFDYNAEDITVIEW;
+                case "DEMOBWFDYNAEDITVIEW3":
+                    return DEMOBWFDYNAEDITVIEW3;
+                case "DEMOBWFDYNAEXPMDVIEW":
+                    return DEMOBWFDYNAEXPMDVIEW;
+                case "DEMOBWFDYNASTARTVIEW":
+                    return DEMOBWFDYNASTARTVIEW;
+                case "DEMOBWFEDITVIEW":
+                    return DEMOBWFEDITVIEW;
+                case "DEMOBWFEDITVIEW3":
+                    return DEMOBWFEDITVIEW3;
+                case "DEMOBWFMDVIEW":
+                    return DEMOBWFMDVIEW;
+                case "DEMOBWFPROXYRESULTVIEW":
+                    return DEMOBWFPROXYRESULTVIEW;
+                case "DEMOBWFPROXYSTARTVIEW":
+                    return DEMOBWFPROXYSTARTVIEW;
+                case "DEMOBWFSTARTVIEW":
+                    return DEMOBWFSTARTVIEW;
+                case "DEMOBWIZARDVIEW":
+                    return DEMOBWIZARDVIEW;
+                case "DEMPICKUPVIEW":
+                    return DEMPICKUPVIEW;
+                case "DEMPICKUPVIEW2":
+                    return DEMPICKUPVIEW2;
+                case "DEOPTVIEW":
+                    return DEOPTVIEW;
+                case "DEPANELVIEW":
+                    return DEPANELVIEW;
+                case "DEPANELVIEW9":
+                    return DEPANELVIEW9;
+                case "DEPICKUPDATAVIEW":
+                    return DEPICKUPDATAVIEW;
+                case "DEPICKUPGRIDVIEW":
+                    return DEPICKUPGRIDVIEW;
+                case "DEPICKUPTREEVIEW":
+                    return DEPICKUPTREEVIEW;
+                case "DEPICKUPVIEW":
+                    return DEPICKUPVIEW;
+                case "DEPICKUPVIEW2":
+                    return DEPICKUPVIEW2;
+                case "DEPICKUPVIEW3":
+                    return DEPICKUPVIEW3;
+                case "DEPORTALVIEW":
+                    return DEPORTALVIEW;
+                case "DEPORTALVIEW9":
+                    return DEPORTALVIEW9;
+                case "DEREDIRECTVIEW":
+                    return DEREDIRECTVIEW;
+                case "DEREPORTVIEW":
+                    return DEREPORTVIEW;
+                case "DETABEXPVIEW":
+                    return DETABEXPVIEW;
+                case "DETABEXPVIEW9":
+                    return DETABEXPVIEW9;
+                case "DETABSEARCHVIEW":
+                    return DETABSEARCHVIEW;
+                case "DETABSEARCHVIEW9":
+                    return DETABSEARCHVIEW9;
+                case "DETREEEXPVIEW":
+                    return DETREEEXPVIEW;
+                case "DETREEEXPVIEW2":
+                    return DETREEEXPVIEW2;
+                case "DETREEEXPVIEW3":
+                    return DETREEEXPVIEW3;
+                case "DETREEGRIDEXVIEW":
+                    return DETREEGRIDEXVIEW;
+                case "DETREEGRIDEXVIEW9":
+                    return DETREEGRIDEXVIEW9;
+                case "DETREEGRIDVIEW":
+                    return DETREEGRIDVIEW;
+                case "DETREEGRIDVIEW9":
+                    return DETREEGRIDVIEW9;
+                case "DETREEVIEW":
+                    return DETREEVIEW;
+                case "DETREEVIEW9":
+                    return DETREEVIEW9;
+                case "DEWFACTIONVIEW":
+                    return DEWFACTIONVIEW;
+                case "DEWFDATAREDIRECTVIEW":
+                    return DEWFDATAREDIRECTVIEW;
+                case "DEWFDYNAACTIONVIEW":
+                    return DEWFDYNAACTIONVIEW;
+                case "DEWFDYNAEDITVIEW":
+                    return DEWFDYNAEDITVIEW;
+                case "DEWFDYNAEDITVIEW3":
+                    return DEWFDYNAEDITVIEW3;
+                case "DEWFDYNAEXPGRIDVIEW":
+                    return DEWFDYNAEXPGRIDVIEW;
+                case "DEWFDYNASTARTVIEW":
+                    return DEWFDYNASTARTVIEW;
+                case "DEWFEDITPROXYDATAVIEW":
+                    return DEWFEDITPROXYDATAVIEW;
+                case "DEWFEDITVIEW":
+                    return DEWFEDITVIEW;
+                case "DEWFEDITVIEW2":
+                    return DEWFEDITVIEW2;
+                case "DEWFEDITVIEW3":
+                    return DEWFEDITVIEW3;
+                case "DEWFEDITVIEW9":
+                    return DEWFEDITVIEW9;
+                case "DEWFEXPVIEW":
+                    return DEWFEXPVIEW;
+                case "DEWFGRIDVIEW":
+                    return DEWFGRIDVIEW;
+                case "DEWFPROXYDATAVIEW":
+                    return DEWFPROXYDATAVIEW;
+                case "DEWFPROXYRESULTVIEW":
+                    return DEWFPROXYRESULTVIEW;
+                case "DEWFPROXYSTARTVIEW":
+                    return DEWFPROXYSTARTVIEW;
+                case "DEWFSTARTVIEW":
+                    return DEWFSTARTVIEW;
+                case "DEWIZARDVIEW":
+                    return DEWIZARDVIEW;
+                case "DESUBAPPREFVIEW":
+                    return DESUBAPPREFVIEW;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 云应用方案系统版本分支类型
      * <P>
      * <ul>
@@ -17443,7 +18374,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表单表单项值处理条件（忽略），数值项
+     * 表单项值忽略条件，数值项
      * <P>
      * <ul>
      * <li>NONE&nbsp;(0)
@@ -17516,7 +18447,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 属性预定义属性类型
+     * 预定义属性类型
      * <P>
      * <ul>
      * <li>NONE
@@ -17588,6 +18519,12 @@ public class PSModelEnums {
      * <li>PARENTNAMEPATH
      * <P>
      * 父名称路径
+     * <li>CHILDTYPE
+     * <P>
+     * 动态子类型
+     * <li>CHILDID
+     * <P>
+     * 动态子标识
      * <li>TIMESTAMP
      * <P>
      * 时间戳
@@ -17597,6 +18534,9 @@ public class PSModelEnums {
      * <li>CLOSEFLAG
      * <P>
      * 关闭标志，指定属性是当前实体数据关闭标志的存储属性
+     * <li>LOCKFLAG
+     * <P>
+     * 锁定标志，指定属性是当前实体数据锁定标志的存储属性
      * </ul>     
      */
     public static enum PredefinedFieldType{
@@ -17623,9 +18563,12 @@ public class PSModelEnums {
         ,PARENTVERSIONID("PARENTVERSIONID", "动态父版本标识")
         ,PARENTIDPATH("PARENTIDPATH", "父标识路径")
         ,PARENTNAMEPATH("PARENTNAMEPATH", "父名称路径")
+        ,CHILDTYPE("CHILDTYPE", "动态子类型")
+        ,CHILDID("CHILDID", "动态子标识")
         ,TIMESTAMP("TIMESTAMP", "时间戳")
         ,DYNASTORAGE("DYNASTORAGE", "动态存储")
         ,CLOSEFLAG("CLOSEFLAG", "关闭标志")
+        ,LOCKFLAG("LOCKFLAG", "锁定标志")
 ;
            
         public final String text;
@@ -17684,12 +18627,18 @@ public class PSModelEnums {
                     return PARENTIDPATH;
                 case "PARENTNAMEPATH":
                     return PARENTNAMEPATH;
+                case "CHILDTYPE":
+                    return CHILDTYPE;
+                case "CHILDID":
+                    return CHILDID;
                 case "TIMESTAMP":
                     return TIMESTAMP;
                 case "DYNASTORAGE":
                     return DYNASTORAGE;
                 case "CLOSEFLAG":
                     return CLOSEFLAG;
+                case "LOCKFLAG":
+                    return LOCKFLAG;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -18340,7 +19289,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表单导航栏位置
+     * 导航栏位置
      * <P>
      * <ul>
      * <li>TOPLEFT
@@ -18609,6 +19558,145 @@ public class PSModelEnums {
     }
 
     /**
+     * 条件操作
+     * <P>
+     * <ul>
+     * <li>EQ
+     * <P>
+     * 等于(=)
+     * <li>NOTEQ
+     * <P>
+     * 不等于(<>)
+     * <li>GT
+     * <P>
+     * 大于(>)
+     * <li>GTANDEQ
+     * <P>
+     * 大于等于(>=)
+     * <li>LT
+     * <P>
+     * 小于(<)
+     * <li>LTANDEQ
+     * <P>
+     * 小于等于(<=)
+     * <li>ISNULL
+     * <P>
+     * 值为空(Nil)
+     * <li>ISNOTNULL
+     * <P>
+     * 值不为空(NotNil)
+     * <li>TESTNULL
+     * <P>
+     * 空值判断(TestNil)
+     * <li>LIKE
+     * <P>
+     * 文本包含(%)
+     * <li>LEFTLIKE
+     * <P>
+     * 文本左包含(%#)
+     * <li>RIGHTLIKE
+     * <P>
+     * 文本右包含(#%)
+     * <li>USERLIKE
+     * <P>
+     * 自定义文本包含(%)
+     * <li>IN
+     * <P>
+     * 值在范围中(In)
+     * <li>NOTIN
+     * <P>
+     * 值不在范围中(NotIn)
+     * <li>EXISTS
+     * <P>
+     * 存在引用数据(Exists)
+     * <li>EXISTSX
+     * <P>
+     * 存在引用数据(ExistsX)（条件）
+     * <li>BITAND
+     * <P>
+     * 位与操作（BitAnd）(仅限整数形）
+     * <li>CHILDOF
+     * <P>
+     * 子数据（递归）
+     * </ul>     
+     */
+    public static enum DBValueOP{
+        EQ("EQ", "等于(=)")
+        ,NOTEQ("NOTEQ", "不等于(<>)")
+        ,GT("GT", "大于(>)")
+        ,GTANDEQ("GTANDEQ", "大于等于(>=)")
+        ,LT("LT", "小于(<)")
+        ,LTANDEQ("LTANDEQ", "小于等于(<=)")
+        ,ISNULL("ISNULL", "值为空(Nil)")
+        ,ISNOTNULL("ISNOTNULL", "值不为空(NotNil)")
+        ,TESTNULL("TESTNULL", "空值判断(TestNil)")
+        ,LIKE("LIKE", "文本包含(%)")
+        ,LEFTLIKE("LEFTLIKE", "文本左包含(%#)")
+        ,RIGHTLIKE("RIGHTLIKE", "文本右包含(#%)")
+        ,USERLIKE("USERLIKE", "自定义文本包含(%)")
+        ,IN("IN", "值在范围中(In)")
+        ,NOTIN("NOTIN", "值不在范围中(NotIn)")
+        ,EXISTS("EXISTS", "存在引用数据(Exists)")
+        ,EXISTSX("EXISTSX", "存在引用数据(ExistsX)（条件）")
+        ,BITAND("BITAND", "位与操作（BitAnd）(仅限整数形）")
+        ,CHILDOF("CHILDOF", "子数据（递归）")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DBValueOP(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DBValueOP from(String value){
+            switch(value){
+                case "EQ":
+                    return EQ;
+                case "NOTEQ":
+                    return NOTEQ;
+                case "GT":
+                    return GT;
+                case "GTANDEQ":
+                    return GTANDEQ;
+                case "LT":
+                    return LT;
+                case "LTANDEQ":
+                    return LTANDEQ;
+                case "ISNULL":
+                    return ISNULL;
+                case "ISNOTNULL":
+                    return ISNOTNULL;
+                case "TESTNULL":
+                    return TESTNULL;
+                case "LIKE":
+                    return LIKE;
+                case "LEFTLIKE":
+                    return LEFTLIKE;
+                case "RIGHTLIKE":
+                    return RIGHTLIKE;
+                case "USERLIKE":
+                    return USERLIKE;
+                case "IN":
+                    return IN;
+                case "NOTIN":
+                    return NOTIN;
+                case "EXISTS":
+                    return EXISTS;
+                case "EXISTSX":
+                    return EXISTSX;
+                case "BITAND":
+                    return BITAND;
+                case "CHILDOF":
+                    return CHILDOF;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 外部接口DTO属性来源类型
      * <P>
      * <ul>
@@ -18762,16 +19850,57 @@ public class PSModelEnums {
     }
 
     /**
+     * 实体操作标识类型
+     * <P>
+     * <ul>
+     * <li>DEFAULT
+     * <P>
+     * 默认
+     * <li>DEFGROUP
+     * <P>
+     * 属性组
+     * </ul>     
+     */
+    public static enum DEOPPrivType{
+        DEFAULT("DEFAULT", "默认")
+        ,DEFGROUP("DEFGROUP", "属性组")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DEOPPrivType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEOPPrivType from(String value){
+            switch(value){
+                case "DEFAULT":
+                    return DEFAULT;
+                case "DEFGROUP":
+                    return DEFGROUP;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * AI交谈代理类型
      * <P>
      * <ul>
      * <li>DEFAULT
      * <P>
      * 默认
+     * <li>DE
+     * <P>
+     * 实体逻辑
      * </ul>     
      */
     public static enum AIChatAgentType{
         DEFAULT("DEFAULT", "默认")
+        ,DE("DE", "实体逻辑")
 ;
            
         public final String text;
@@ -18786,6 +19915,8 @@ public class PSModelEnums {
             switch(value){
                 case "DEFAULT":
                     return DEFAULT;
+                case "DE":
+                    return DE;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -19649,7 +20780,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体界面行为_前台处理类型
+     * 界面行为前台处理类型
      * <P>
      * <ul>
      * <li>WIZARD
@@ -19966,24 +21097,24 @@ public class PSModelEnums {
     }
 
     /**
-     * 多数据部件类型
+     * 表单多数据部件成员类型
      * <P>
      * <ul>
      * <li>LIST
      * <P>
-     * 列表，多数据部件使用实体列表绘制
+     * 列表
      * <li>FORM
      * <P>
-     * 表单，多数据部件使用表单循环绘制
+     * 表单，使用表单循环绘制
      * <li>GRID
      * <P>
-     * 表格，多数据部件使用表格绘制
+     * 表格
      * <li>DATAVIEW
      * <P>
-     * 卡片视图，多数据部件使用卡片视图绘制
+     * 卡片视图
      * <li>REPEATER
      * <P>
-     * 重复器
+     * 重复器，动态生成重复结构化表单项成员
      * </ul>     
      */
     public static enum FormDetailMDCtrlType{
@@ -20137,7 +21268,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 系统权限控制体系，数值项
+     * 访问控制体系，数值项
      * <P>
      * <ul>
      * <li>RTSYSROLE&nbsp;(1)
@@ -20174,7 +21305,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表格列隐藏模式，数值项
+     * 表格列隐藏模式，数值项
      * <P>
      * <ul>
      * <li>NOTHIDE&nbsp;(0)
@@ -20223,7 +21354,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 流程处理通知消息类型，数值项，多值模式（数字或处理）
+     * 通知消息类型，数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>INTERNAL&nbsp;(1)
@@ -20240,7 +21371,7 @@ public class PSModelEnums {
      * MSN消息
      * <li>SAIM&nbsp;(16)
      * <P>
-     * 检务通消息
+     * 内部IM消息
      * <li>WT&nbsp;(32)
      * <P>
      * 微信
@@ -20263,7 +21394,7 @@ public class PSModelEnums {
         ,EMAIL(2, "电子邮件")
         ,SMS(4, "手机短信")
         ,MSN(8, "MSN消息")
-        ,SAIM(16, "检务通消息")
+        ,SAIM(16, "内部IM消息")
         ,WT(32, "微信")
         ,DT(64, "钉钉")
         ,ENTWT(128, "企业微信")
@@ -20909,7 +22040,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体界面行为_视图逻辑附加类型
+     * 界面行为界面逻辑附加类型
      * <P>
      * <ul>
      * <li>REPLACE
@@ -21117,7 +22248,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 属性标准数据类型，数值项
+     * 标准数据类型，数值项
      * <P>
      * <ul>
      * <li>UNKNOWN&nbsp;(0)
@@ -22182,7 +23313,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体属性更新旧值回填模式
+     * 更新旧值回填模式
      * <P>
      * <ul>
      * <li>ALWAYS
@@ -22797,7 +23928,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台系统引用类型
+     * 系统引用类型
      * <P>
      * <ul>
      * <li>SUBSYS
@@ -22815,6 +23946,9 @@ public class PSModelEnums {
      * <li>EXTENSION_DEVSYS_WORKFLOW
      * <P>
      * 开发系统组件（工作流）
+     * <li>MERGENCE_DEVSYS
+     * <P>
+     * 开发系统组件（合并）
      * <li>DEVSYSCLOUD
      * <P>
      * 开发系统云服务，外部系统以微服务的形式提供功能
@@ -22856,6 +23990,7 @@ public class PSModelEnums {
         ,EXTENSION_DEVSYS("EXTENSION_DEVSYS", "开发系统组件（扩展）")
         ,EXTENSION_DEVSYS_PSMODELTOOL("EXTENSION_DEVSYS_PSMODELTOOL", "开发系统组件（模型工具）")
         ,EXTENSION_DEVSYS_WORKFLOW("EXTENSION_DEVSYS_WORKFLOW", "开发系统组件（工作流）")
+        ,MERGENCE_DEVSYS("MERGENCE_DEVSYS", "开发系统组件（合并）")
         ,DEVSYSCLOUD("DEVSYSCLOUD", "开发系统云服务")
         ,CLOUDHUBSUBAPP("CLOUDHUBSUBAPP", "Cloud集成子应用")
         ,ETLEXTRACT("ETLEXTRACT", "ETL展开逻辑")
@@ -22889,6 +24024,8 @@ public class PSModelEnums {
                     return EXTENSION_DEVSYS_PSMODELTOOL;
                 case "EXTENSION_DEVSYS_WORKFLOW":
                     return EXTENSION_DEVSYS_WORKFLOW;
+                case "MERGENCE_DEVSYS":
+                    return MERGENCE_DEVSYS;
                 case "DEVSYSCLOUD":
                     return DEVSYSCLOUD;
                 case "CLOUDHUBSUBAPP":
@@ -23809,7 +24946,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体主状态行为允许模式
+     * 实体主状态行为允许模式
      * <P>
      * <ul>
      * <li>ALLOW
@@ -23839,6 +24976,187 @@ public class PSModelEnums {
                     return ALLOW;
                 case "DENY":
                     return DENY;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * PQL函数
+     * <P>
+     * <ul>
+     * <li>COUNTIF
+     * <P>
+     * COUNTIF，有条件计数，COUNTIF(cond)，符合条件返回1，否则空
+     * <li>AVGIF
+     * <P>
+     * AVGIF，有条件平均计算，AVGIF(value, cond)，符合条件返回value，否则空
+     * <li>IF
+     * <P>
+     * IF，返回第一个符合条件的值，IF(cond, value, cond2, value2...,default)，条件与值成对出现，最后一个单项作为缺省值
+     * <li>SUMIF
+     * <P>
+     * SUMIF，有条件合计计算，SUMIF(value, cond)，符合条件返回value，否则空
+     * <li>MULTIIF
+     * <P>
+     * MULTIIF，多维判断，返回第一个符合条件的值，IF(cond, value, cond2, value2...,default)，条件与值成对出现，最后一个单项作为缺省值
+     * <li>PARAM
+     * <P>
+     * PARAM，获取指定参数的值，PARAM(name, default)，未存在返回默认值
+     * <li>PARAMS
+     * <P>
+     * PARAMS，获取指定参数的数组值，PARAMS(name, default)，未存在返回默认值
+     * <li>CURUSERID
+     * <P>
+     * CURUSERID，当前用户标识
+     * <li>CURRENTUSER
+     * <P>
+     * CURRENTUSER，当前用户标识
+     * <li>CURDEPTID
+     * <P>
+     * CURDEPTID，当前部门标识
+     * <li>CURORGID
+     * <P>
+     * CURORGID，当前组织标识
+     * <li>STARTOFDAY
+     * <P>
+     * STARTOFDAY，计算传入时间当天的起始时刻​
+     * <li>ENDOFDAY
+     * <P>
+     * ENDOFDAY，计算传入时间当天的最后一刻
+     * <li>STARTOFWEEK
+     * <P>
+     * STARTOFWEEK，计算传入时间所在周的起始时刻​
+     * <li>ENDOFWEEK
+     * <P>
+     * ENDOFWEEK，计算传入时间所在周的最后一刻
+     * <li>STARTOFMONTH
+     * <P>
+     * STARTOFMONTH，计算传入时间所在月的起始时刻​
+     * <li>ENDOFMONTH
+     * <P>
+     * ENDOFMONTH，计算传入时间所在月的最后一刻
+     * <li>STARTOFQUARTER
+     * <P>
+     * STARTOFQUARTER，计算传入时间所在季度的起始时刻​
+     * <li>ENDOFQUARTER
+     * <P>
+     * ENDOFQUARTER，计算传入时间所在季度的最后一刻
+     * <li>STARTOFYEAR
+     * <P>
+     * STARTOFYEAR，计算传入时间所在年份的起始时刻​
+     * <li>ENDOFYEAR
+     * <P>
+     * ENDOFYEAR，计算传入时间所在年份的最后一刻
+     * <li>DATEDIFF
+     * <P>
+     * DATEDIFF
+     * <li>DATEFORMAT
+     * <P>
+     * DATEFORMAT
+     * <li>DATE_FORMAT
+     * <P>
+     * DATE_FORMAT
+     * <li>YEARWEEKCHAR
+     * <P>
+     * YEARWEEKCHAR
+     * <li>YEARQUARTERCHAR
+     * <P>
+     * YEARQUARTERCHAR
+     * </ul>     
+     */
+    public static enum PQLFunction{
+        COUNTIF("COUNTIF", "COUNTIF")
+        ,AVGIF("AVGIF", "AVGIF")
+        ,IF("IF", "IF")
+        ,SUMIF("SUMIF", "SUMIF")
+        ,MULTIIF("MULTIIF", "MULTIIF")
+        ,PARAM("PARAM", "PARAM")
+        ,PARAMS("PARAMS", "PARAMS")
+        ,CURUSERID("CURUSERID", "CURUSERID")
+        ,CURRENTUSER("CURRENTUSER", "CURRENTUSER")
+        ,CURDEPTID("CURDEPTID", "CURDEPTID")
+        ,CURORGID("CURORGID", "CURORGID")
+        ,STARTOFDAY("STARTOFDAY", "STARTOFDAY")
+        ,ENDOFDAY("ENDOFDAY", "ENDOFDAY")
+        ,STARTOFWEEK("STARTOFWEEK", "STARTOFWEEK")
+        ,ENDOFWEEK("ENDOFWEEK", "ENDOFWEEK")
+        ,STARTOFMONTH("STARTOFMONTH", "STARTOFMONTH")
+        ,ENDOFMONTH("ENDOFMONTH", "ENDOFMONTH")
+        ,STARTOFQUARTER("STARTOFQUARTER", "STARTOFQUARTER")
+        ,ENDOFQUARTER("ENDOFQUARTER", "ENDOFQUARTER")
+        ,STARTOFYEAR("STARTOFYEAR", "STARTOFYEAR")
+        ,ENDOFYEAR("ENDOFYEAR", "ENDOFYEAR")
+        ,DATEDIFF("DATEDIFF", "DATEDIFF")
+        ,DATEFORMAT("DATEFORMAT", "DATEFORMAT")
+        ,DATE_FORMAT("DATE_FORMAT", "DATE_FORMAT")
+        ,YEARWEEKCHAR("YEARWEEKCHAR", "YEARWEEKCHAR")
+        ,YEARQUARTERCHAR("YEARQUARTERCHAR", "YEARQUARTERCHAR")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private PQLFunction(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static PQLFunction from(String value){
+            switch(value){
+                case "COUNTIF":
+                    return COUNTIF;
+                case "AVGIF":
+                    return AVGIF;
+                case "IF":
+                    return IF;
+                case "SUMIF":
+                    return SUMIF;
+                case "MULTIIF":
+                    return MULTIIF;
+                case "PARAM":
+                    return PARAM;
+                case "PARAMS":
+                    return PARAMS;
+                case "CURUSERID":
+                    return CURUSERID;
+                case "CURRENTUSER":
+                    return CURRENTUSER;
+                case "CURDEPTID":
+                    return CURDEPTID;
+                case "CURORGID":
+                    return CURORGID;
+                case "STARTOFDAY":
+                    return STARTOFDAY;
+                case "ENDOFDAY":
+                    return ENDOFDAY;
+                case "STARTOFWEEK":
+                    return STARTOFWEEK;
+                case "ENDOFWEEK":
+                    return ENDOFWEEK;
+                case "STARTOFMONTH":
+                    return STARTOFMONTH;
+                case "ENDOFMONTH":
+                    return ENDOFMONTH;
+                case "STARTOFQUARTER":
+                    return STARTOFQUARTER;
+                case "ENDOFQUARTER":
+                    return ENDOFQUARTER;
+                case "STARTOFYEAR":
+                    return STARTOFYEAR;
+                case "ENDOFYEAR":
+                    return ENDOFYEAR;
+                case "DATEDIFF":
+                    return DATEDIFF;
+                case "DATEFORMAT":
+                    return DATEFORMAT;
+                case "DATE_FORMAT":
+                    return DATE_FORMAT;
+                case "YEARWEEKCHAR":
+                    return YEARWEEKCHAR;
+                case "YEARQUARTERCHAR":
+                    return YEARQUARTERCHAR;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -24010,13 +25328,13 @@ public class PSModelEnums {
      * <ul>
      * <li>PANELVISIBLE
      * <P>
-     * 面板显示，表单成员容器的动态显示逻辑，控制成员是否显示
+     * 面板显示，控制成员是否显示
      * <li>ITEMENABLE
      * <P>
-     * 表单项启用，表单项的动态启用逻辑，控制表单项及其编辑器的启用禁用状态
+     * 表单项启用，控制表单项及其编辑器的启用禁用状态
      * <li>ITEMBLANK
      * <P>
-     * 表单项空输入，表单项的动态空输入逻辑，控制表单项及其编辑器是否允许空输入
+     * 表单项空输入，控制表单项及其编辑器是否允许空输入
      * <li>SCRIPTCODE_CHANGE
      * <P>
      * 表单项值变更（脚本处理）
@@ -24165,6 +25483,14 @@ public class PSModelEnums {
      * 实体保存行为模型增强，实体保存行为增强
 （1）新的行为模式（SAVE）
 （2）默认操作标识（CREATE）
+     * <li>DEINHERITMODELEX&nbsp;(16384)
+     * <P>
+     * 实体继承模型增强，实体继承模型增强
+（1）继承行为不再默认启用全局事务
+     * <li>DEGETDRAFTACTIONMODELEX&nbsp;(32768)
+     * <P>
+     * 实体获取草稿行为模型增强，实体获取草稿行为增强
+（1）新的行为模式（GETDRAFTFROM）
      * </ul>     
      */
     public static enum EngineBugFix{
@@ -24181,6 +25507,8 @@ public class PSModelEnums {
         ,UIMODELEX(1024, "界面模型增强")
         ,CODENAMECAPITALIZE(2048, "代码名首字母自动大写")
         ,DESAVEACTIONMODELEX(8192, "实体保存行为模型增强")
+        ,DEINHERITMODELEX(16384, "实体继承模型增强")
+        ,DEGETDRAFTACTIONMODELEX(32768, "实体获取草稿行为模型增强")
 ;
            
         public final String text;
@@ -24219,6 +25547,10 @@ public class PSModelEnums {
                     return CODENAMECAPITALIZE;
                 case 8192:
                     return DESAVEACTIONMODELEX;
+                case 16384:
+                    return DEINHERITMODELEX;
+                case 32768:
+                    return DEGETDRAFTACTIONMODELEX;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -24226,7 +25558,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体搜索表单按钮位置
+     * 搜索表单按钮位置
      * <P>
      * <ul>
      * <li>RIGHT
@@ -24513,7 +25845,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体逻辑处理节点类型（全部，包括界面逻辑）
+     * 实体逻辑处理节点类型
      * <P>
      * <ul>
      * <li>BEGIN
@@ -24593,25 +25925,25 @@ public class PSModelEnums {
      * 系统功能组件处理
      * <li>PREPAREJSPARAM
      * <P>
-     * 准备参数
+     * 准备参数，准备脚本参数，前端逻辑支持
      * <li>VIEWCTRLINVOKE
      * <P>
-     * 视图部件调用
+     * 视图部件调用，前端逻辑支持
      * <li>RAWJSCODE
      * <P>
-     * 直接前台代码
+     * 直接前台代码，前端逻辑支持
      * <li>MSGBOX
      * <P>
-     * 消息弹窗
+     * 消息弹窗，前端逻辑支持
      * <li>PFPLUGIN
      * <P>
-     * 前端插件调用
+     * 前端插件调用，前端逻辑支持
      * <li>DEUIACTION
      * <P>
-     * 实体界面行为调用
+     * 实体界面行为调用，前端逻辑支持
      * <li>MAINSTATE
      * <P>
-     * 主状态
+     * 主状态，主状态迁移逻辑`MAINSTATELOGIC`节点，存在两种配置模式：使用预置主状态`PSDEMAINSTATE`的常规模式及直接定义参数的简单模式（快速）
      * <li>DEDATASET
      * <P>
      * 实体数据集
@@ -24678,6 +26010,12 @@ public class PSModelEnums {
      * <li>SYSAIPIPELINEAGENT
      * <P>
      * 系统AI生产线
+     * <li>DECISION
+     * <P>
+     * 决策
+     * <li>MEMO
+     * <P>
+     * 备注
      * <li>END
      * <P>
      * 结束
@@ -24738,6 +26076,8 @@ public class PSModelEnums {
         ,SYSBIREPORT("SYSBIREPORT", "系统智能报表")
         ,SYSAICHATAGENT("SYSAICHATAGENT", "系统AI交谈")
         ,SYSAIPIPELINEAGENT("SYSAIPIPELINEAGENT", "系统AI生产线")
+        ,DECISION("DECISION", "决策")
+        ,MEMO("MEMO", "备注")
         ,END("END", "结束")
 ;
            
@@ -24859,6 +26199,10 @@ public class PSModelEnums {
                     return SYSAICHATAGENT;
                 case "SYSAIPIPELINEAGENT":
                     return SYSAIPIPELINEAGENT;
+                case "DECISION":
+                    return DECISION;
+                case "MEMO":
+                    return MEMO;
                 case "END":
                     return END;
                 default:
@@ -25285,7 +26629,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体类型，数值项
+     * 实体类型，数值项
      * <P>
      * <ul>
      * <li>MAJOR&nbsp;(1)
@@ -25300,6 +26644,9 @@ public class PSModelEnums {
      * <li>DYNAATTACHED&nbsp;(4)
      * <P>
      * 动态附属实体，实体不具备独立的业务能力，为动态指定的父实体的成员数据
+     * <li>ABSTRACT&nbsp;(6)
+     * <P>
+     * 抽象实体，​​抽象实体抽象共性的属性或行为规则
      * </ul>     
      */
     public static enum DEType{
@@ -25307,6 +26654,7 @@ public class PSModelEnums {
         ,ATTACHED(2, "附属实体")
         ,RELATED(3, "关系实体")
         ,DYNAATTACHED(4, "动态附属实体")
+        ,ABSTRACT(6, "抽象实体")
 ;
            
         public final String text;
@@ -25327,6 +26675,8 @@ public class PSModelEnums {
                     return RELATED;
                 case 4:
                     return DYNAATTACHED;
+                case 6:
+                    return ABSTRACT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -25334,7 +26684,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体模型SaaS模型，数值项
+     * 实体SaaS模式，数值项
      * <P>
      * <ul>
      * <li>NONE&nbsp;(0)
@@ -26275,7 +27625,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体图表漏斗图方向
+     * 漏斗图方向
      * <P>
      * <ul>
      * <li>CENTER&nbsp;(center)
@@ -26532,7 +27882,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性字段查询扩展选项，多值模式（字符或处理）
+     * 实体属性查询扩展选项，多值模式（字符或处理）
      * <P>
      * <ul>
      * <li>LIKE
@@ -26777,7 +28127,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 视图面板项类型
+     * 面板项类型
      * <P>
      * <ul>
      * <li>CONTAINER
@@ -26788,16 +28138,16 @@ public class PSModelEnums {
      * 部件，面板中的部件成员，挂载系统或实体定义的界面部件。不支持子成员
      * <li>CTRLPOS
      * <P>
-     * 部件占位，视图布局面板中的部件占位成员。不支持子成员
+     * 部件占位，视图布局面板中的部件占位成员，默认与部件占位项同名的视图部件将被放置到当前位置。不支持子成员
      * <li>RAWITEM
      * <P>
      * 直接内容，面板中的直接内容项，输出文本或图片。不支持子成员
      * <li>TABPANEL
      * <P>
-     * 分页部件，面板中的分页部件，提供分页界面容器。分页部件只能包含分页面板
+     * 分页部件，面板中的分页部件，提供分页界面容器。分页部件只能包含分页面板（TABPAGE）
      * <li>TAGPAGE
      * <P>
-     * 分页面板，面板分页部件的成员部件，是基础的布局容器。只允许放置在分页部件中。支持子成员
+     * 分页面板，面板分页部件的成员部件，是基础的布局容器。只允许放置在分页部件（TABPANEL）中。支持子成员
      * <li>FIELD
      * <P>
      * 面板属性，面板模型的载体，通过编辑器控件将模型数据进行呈现。不支持子成员
@@ -26807,12 +28157,6 @@ public class PSModelEnums {
      * <li>USERCONTROL
      * <P>
      * 用户控件，面板中的自定义用户部件，需指定前端模板插件进行内容输出。不支持子成员
-     * <li>PARAM
-     * <P>
-     * 项参数，面板项的补充参数，提供进一步定义面板项的参数能力
-     * <li>RAWITEMPARAM
-     * <P>
-     * 直接内容参数，面板中的直接内容项参数，提供进一步定义内容项的参数能力
      * </ul>     
      */
     public static enum PanelItemType{
@@ -26825,8 +28169,6 @@ public class PSModelEnums {
         ,FIELD("FIELD", "面板属性")
         ,BUTTON("BUTTON", "面板按钮")
         ,USERCONTROL("USERCONTROL", "用户控件")
-        ,PARAM("PARAM", "项参数")
-        ,RAWITEMPARAM("RAWITEMPARAM", "直接内容参数")
 ;
            
         public final String text;
@@ -26857,10 +28199,6 @@ public class PSModelEnums {
                     return BUTTON;
                 case "USERCONTROL":
                     return USERCONTROL;
-                case "PARAM":
-                    return PARAM;
-                case "RAWITEMPARAM":
-                    return RAWITEMPARAM;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -27131,7 +28469,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表单表单项启用条件，数值项
+     * 编辑项启用条件，数值项
      * <P>
      * <ul>
      * <li>NONE&nbsp;(0)
@@ -27831,7 +29169,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性视图列级别（带属性组）（带-1），数值项
+     * 数据查询列级别，数值项
      * <P>
      * <ul>
      * <li>QUERYCOLUMN&nbsp;(-1)
@@ -27892,48 +29230,48 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台表单成员类型2（静态）
+     * 表单成员类型
      * <P>
      * <ul>
      * <li>FORMPAGE
      * <P>
-     * 表单分页，表单模型的顶级成员，其它成员都必须在表单分页模型中，如表单中只存在一个表单分页，则默认不输出表单分页头。只允许放置在表单对象中
+     * 表单分页，表单的根成员，其它成员都必须在表单分页中，如表单中只有一个表单分页，则默认不输出分页头
      * <li>TABPANEL
      * <P>
-     * 分页部件，表单中的分页部件，提供除表单默认分页外的分页界面容器。分页部件只能包含分页面板
+     * 分页部件，提供除表单分页外的分页容器。分页部件仅支持分页面板（TABPAGE）成员
      * <li>TABPAGE
      * <P>
-     * 分页面板，表单分页部件的成员部件，是基础的布局容器。只允许放置在分页部件中
+     * 分页面板，基础布局容器，只允许放置在分页部件（TABPANEL）中
      * <li>FORMITEM
      * <P>
-     * 表单项，表单数据项的载体，包括了标签及编辑器控件，负责表单数据的输入输出。表单模型中的叶子节点，不拥有其它表单成员
+     * 表单项，表单数据项的载体，包括了标签及编辑器控件，负责表单数据的输入输出。表单成员的叶子节点
      * <li>USERCONTROL
      * <P>
-     * 用户控件，表单中的自定义用户部件，需指定前端模板插件进行内容输出
+     * 用户控件，自定义用户部件，需指定前端模板插件。表单成员叶子节点
      * <li>FORMPART
      * <P>
-     * 表单部件，表单部件引用模型，表单部件引用有两种模式，一种是引入设计时的其它表单，会将引用表单的内容直接附加到当前表单（不存在表单引用部件），另一个是运行时引用，引入动态子系统的动态表单，这种表单引用部件将被输出到表单中
+     * 表单部件，表单部件引用成员，引用有两种模式，一种是引入设计时的其它表单，会将引用表单的内容直接附加到当前表单（不存在表单引用部件），另一个是运行时引用，引入动态子系统的动态表单，这种表单引用部件将被输出到表单中。表单成员叶子节点
      * <li>GROUPPANEL
      * <P>
-     * 分组面板，表单中的基本布局面板，输出标题的面板承担分类数据呈现，不输出标题的面板更多承担布局功能（默认无内、外边框）
+     * 分组面板，基本布局容器，输出标题的面板承担分类数据呈现，不输出标题的面板承担布局功能
      * <li>DRUIPART
      * <P>
-     * 数据关系界面，表单中的关系数据界面容器，嵌入关系界面并进行驱动，完成加载、刷新等基本功能
+     * 数据关系界面，关系数据界面成员，嵌入实体视图并进提供加载、刷新等功能。表单成员叶子节点。
      * <li>RAWITEM
      * <P>
-     * 直接内容，表单中的直接内容项，输出文本或图片
+     * 直接内容，直接内容部件，需进一步指定内容类型。表单成员叶子节点
      * <li>BUTTON
      * <P>
-     * 表单按钮，表单中的按钮对象，为表单提供命令能力
+     * 表单按钮，表单按钮部件，需指定按钮行为类型。表单成员叶子节点
      * <li>IFRAME
      * <P>
-     * 直接页面嵌入，表单中的网页容器，嵌入网页并进行驱动，完成加载、刷新等基本功能
+     * 直接页面嵌入，表单的网页容器，直接指定页面路径。表单成员叶子节点
      * <li>FORMITEMEX
      * <P>
-     * 复合表单项，表单中的复合表单项，符合表单项是将多个表单项联合进行输入及输出。只允许包含表单项成员
+     * 复合表单项，复合表单项将多个表单项联合进行输入及输出。只允许包含表单项成员（FORMITEM）
      * <li>MDCTRL
      * <P>
-     * 多数据部件，表单中的多数据部件项，将项数据以数据的形式提供，绑定到多数据部件指定的列表部件中
+     * 多数据部件，轻量呈现表单中数组数据，支持列表、表格、表单、卡片视图和重复器类型。类型为重复器可放入其它表单成员，其它则为叶子节点
      * </ul>     
      */
     public static enum FormDetailType{
@@ -28349,7 +29687,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性界面项默认值类型（更新）
+     * 界面项默认值类型（更新）
      * <P>
      * <ul>
      * <li>RESET
@@ -28654,6 +29992,9 @@ public class PSModelEnums {
      * <li>REFCHECK&nbsp;(256)
      * <P>
      * 引用检查
+     * <li>INHERIT&nbsp;(1024)
+     * <P>
+     * 继承模式
      * <li>USER&nbsp;(1048576)
      * <P>
      * 自定义
@@ -28678,6 +30019,7 @@ public class PSModelEnums {
         ,EXTENSION(64, "附属扩展")
         ,VERSION(128, "限定版本")
         ,REFCHECK(256, "引用检查")
+        ,INHERIT(1024, "继承模式")
         ,USER(1048576, "自定义")
         ,USER2(2097152, "自定义2")
         ,USER3(4194304, "自定义3")
@@ -28712,6 +30054,8 @@ public class PSModelEnums {
                     return VERSION;
                 case 256:
                     return REFCHECK;
+                case 1024:
+                    return INHERIT;
                 case 1048576:
                     return USER;
                 case 2097152:
@@ -28787,6 +30131,67 @@ public class PSModelEnums {
                     return MERGEINTOFIELD;
                 case "MERGEINTOFIELD2":
                     return MERGEINTOFIELD2;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 运行时设计控制状态，数值项，多值模式（数字或处理）
+     * <P>
+     * <ul>
+     * <li>ENABLEEXTENSION&nbsp;(16384)
+     * <P>
+     * 启用扩展控制逻辑，运行时设计控制开关，启用该项时其它扩展选项才能生效
+     * <li>ENABLEUPDATE&nbsp;(32768)
+     * <P>
+     * 启用更新（扩展），允许更改该成员
+     * <li>ENABLEREMOVE&nbsp;(65536)
+     * <P>
+     * 启用删除（扩展），允许删除该成员
+     * <li>ENABLEDRAG&nbsp;(131072)
+     * <P>
+     * 启用拖动（扩展），允许拖动该成员至其它位置
+     * <li>ENABLEDROP&nbsp;(262144)
+     * <P>
+     * 启用拖入（扩展），允许拖动其它成员至当前成员区域中
+     * <li>ENABLEPLACEHOLDER&nbsp;(524288)
+     * <P>
+     * 启用占位（扩展），设置该成员（含子成员）为统一占位，不展开明细
+     * </ul>     
+     */
+    public static enum DEFormDetailState{
+        ENABLEEXTENSION(16384, "启用扩展控制逻辑")
+        ,ENABLEUPDATE(32768, "启用更新（扩展）")
+        ,ENABLEREMOVE(65536, "启用删除（扩展）")
+        ,ENABLEDRAG(131072, "启用拖动（扩展）")
+        ,ENABLEDROP(262144, "启用拖入（扩展）")
+        ,ENABLEPLACEHOLDER(524288, "启用占位（扩展）")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private DEFormDetailState(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEFormDetailState from(int value){
+            switch(value){
+                case 16384:
+                    return ENABLEEXTENSION;
+                case 32768:
+                    return ENABLEUPDATE;
+                case 65536:
+                    return ENABLEREMOVE;
+                case 131072:
+                    return ENABLEDRAG;
+                case 262144:
+                    return ENABLEDROP;
+                case 524288:
+                    return ENABLEPLACEHOLDER;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -29044,7 +30449,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 平台移动端编辑视图类型
+     * 移动端编辑视图类型
      * <P>
      * <ul>
      * <li>DEMOBEDITVIEW
@@ -29222,7 +30627,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体属性数据类型（静态）（全部）
+     * 实体属性数据类型
      * <P>
      * <ul>
      * <li>ACID
@@ -29879,6 +31284,12 @@ public class PSModelEnums {
      * <li>USER&nbsp;(3)
      * <P>
      * 用户级，用户级接口需提供完整的鉴权及访问控制体系，安全要求高
+     * <li>CURSYSTEMUSER&nbsp;(5)
+     * <P>
+     * 当前系统用户，如传入身份非当前系统用户，需要转换为当前系统用户。其它同用户级接口
+     * <li>APIUSER&nbsp;(6)
+     * <P>
+     * 系统接口用户，传入身份需要是系统预置的接口用户
      * <li>ANONYMOUSUSER&nbsp;(4)
      * <P>
      * 匿名用户
@@ -29889,6 +31300,8 @@ public class PSModelEnums {
         ,CLOUDADMIN(1, "平台管理员")
         ,DCADMIN(2, "机构管理员")
         ,USER(3, "用户级")
+        ,CURSYSTEMUSER(5, "当前系统用户")
+        ,APIUSER(6, "系统接口用户")
         ,ANONYMOUSUSER(4, "匿名用户")
 ;
            
@@ -29910,6 +31323,10 @@ public class PSModelEnums {
                     return DCADMIN;
                 case 3:
                     return USER;
+                case 5:
+                    return CURSYSTEMUSER;
+                case 6:
+                    return APIUSER;
                 case 4:
                     return ANONYMOUSUSER;
                 default:
@@ -30231,7 +31648,7 @@ public class PSModelEnums {
      * 指定分组参数（扩展）
      * <li>DERAGG&nbsp;(2)
      * <P>
-     * 指定聚合关系
+     * 指定聚合关系，通过聚合关系中的聚合属性配置获取分组逻辑
      * </ul>     
      */
     public static enum DEDataSetGroupMode{
@@ -30504,6 +31921,9 @@ public class PSModelEnums {
      * <li>MIXMINHERIT&nbsp;(4)
      * <P>
      * 混合多继承模式，当前实体混合多个实体使用一对一关系进行组装，形成新的实体
+     * <li>MIXMINHERITMERGE&nbsp;(5)
+     * <P>
+     * 混合多继承模式（合并），当前实体继承多个抽象实体的属性和关系
      * </ul>     
      */
     public static enum DEVirtualMode{
@@ -30512,6 +31932,7 @@ public class PSModelEnums {
         ,INHERIT(2, "高级继承扩展模式")
         ,INDEXMAJOR(3, "索引主实体模式")
         ,MIXMINHERIT(4, "混合多继承模式")
+        ,MIXMINHERITMERGE(5, "混合多继承模式（合并）")
 ;
            
         public final String text;
@@ -30534,6 +31955,57 @@ public class PSModelEnums {
                     return INDEXMAJOR;
                 case 4:
                     return MIXMINHERIT;
+                case 5:
+                    return MIXMINHERITMERGE;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体逻辑连接模式，数值项
+     * <P>
+     * <ul>
+     * <li>COMMON&nbsp;(0)
+     * <P>
+     * 常规，常规连接，满足连接条件方可进入
+     * <li>DEFAULT&nbsp;(1)
+     * <P>
+     * 默认连接，默认连接，不做条件判断即可进入
+     * <li>CATCH&nbsp;(9)
+     * <P>
+     * 异常处理，调用发生异常时进入
+     * <li>LOOPSUBCALL&nbsp;(10)
+     * <P>
+     * 循环子调用，指定连接指向的节点是循环处理节点的处理链
+     * </ul>     
+     */
+    public static enum DELogicLinkMode{
+        COMMON(0, "常规")
+        ,DEFAULT(1, "默认连接")
+        ,CATCH(9, "异常处理")
+        ,LOOPSUBCALL(10, "循环子调用")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private DELogicLinkMode(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DELogicLinkMode from(int value){
+            switch(value){
+                case 0:
+                    return COMMON;
+                case 1:
+                    return DEFAULT;
+                case 9:
+                    return CATCH;
+                case 10:
+                    return LOOPSUBCALL;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -30712,6 +32184,55 @@ public class PSModelEnums {
                     return AND;
                 case "OR":
                     return OR;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体主状态类型，数值项
+     * <P>
+     * <ul>
+     * <li>NORMAL&nbsp;(0)
+     * <P>
+     * 常规
+     * <li>DEFAULT&nbsp;(1)
+     * <P>
+     * 实体默认
+     * <li>LOCK&nbsp;(2)
+     * <P>
+     * 锁定控制
+     * <li>CLOSE&nbsp;(3)
+     * <P>
+     * 关闭控制
+     * </ul>     
+     */
+    public static enum DEMainStateType{
+        NORMAL(0, "常规")
+        ,DEFAULT(1, "实体默认")
+        ,LOCK(2, "锁定控制")
+        ,CLOSE(3, "关闭控制")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private DEMainStateType(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEMainStateType from(int value){
+            switch(value){
+                case 0:
+                    return NORMAL;
+                case 1:
+                    return DEFAULT;
+                case 2:
+                    return LOCK;
+                case 3:
+                    return CLOSE;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -31103,7 +32624,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 面板属性项默认状态，数值项，多值模式（数字或处理）
+     * 编辑项默认状态，数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>READONLY&nbsp;(1)
@@ -33062,7 +34583,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 平台实体存储类型，数值项
+     * 实体存储类型，数值项
      * <P>
      * <ul>
      * <li>NONE&nbsp;(0)
@@ -33070,22 +34591,22 @@ public class PSModelEnums {
      * 无存储
      * <li>SQL&nbsp;(1)
      * <P>
-     * SQL，使用关系数据库进行数据持久化处理
+     * SQL，使用关系数据库进行数据持久化
      * <li>NOSQL&nbsp;(2)
      * <P>
-     * NoSQL，使用对象数据库存储进行数据持久化处理
+     * NoSQL，使用对象数据库进行数据持久化
      * <li>SERVICEAPI&nbsp;(4)
      * <P>
-     * ServiceAPI，使用外部接口进行数据持久化处理
+     * ServiceAPI，使用外部接口进行数据持久化
      * <li>SQLANDMORE&nbsp;(9)
      * <P>
-     * SQL（多模式支持），支持多模式数据持久化处理，默认为关系数据库
+     * SQL（多模式支持），支持多模式数据持久化，默认为关系数据库
      * <li>NOSQLANDMORE&nbsp;(10)
      * <P>
-     * NoSQL（多模式支持），支持多模式数据持久化处理，默认为对象数据库
+     * NoSQL（多模式支持），支持多模式数据持久化，默认为对象数据库
      * <li>SERVICEAPIANDMORE&nbsp;(12)
      * <P>
-     * ServiceAPI（多模式支持），支持多模式数据持久化处理，默认为外部接口
+     * ServiceAPI（多模式支持），支持多模式数据持久化，默认为外部接口
      * <li>USER&nbsp;(128)
      * <P>
      * 用户自定义
@@ -33446,6 +34967,9 @@ public class PSModelEnums {
      * <li>ANY_BOTTOM
      * <P>
      * 任意（默认下方）
+     * <li>ROWDETAIL
+     * <P>
+     * 行明细区，表格或列表的行明细区
      * <li>USER
      * <P>
      * 用户自定义
@@ -33460,6 +34984,7 @@ public class PSModelEnums {
         ,BOTTOM("BOTTOM", "下方")
         ,ANY_RIGHT("ANY_RIGHT", "任意（默认右侧）")
         ,ANY_BOTTOM("ANY_BOTTOM", "任意（默认下方）")
+        ,ROWDETAIL("ROWDETAIL", "行明细区")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
 ;
@@ -33484,6 +35009,8 @@ public class PSModelEnums {
                     return ANY_RIGHT;
                 case "ANY_BOTTOM":
                     return ANY_BOTTOM;
+                case "ROWDETAIL":
+                    return ROWDETAIL;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -33562,7 +35089,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 外部服务接口方法绑定模式，数值项
+     * 外部接口方法绑定模式，数值项
      * <P>
      * <ul>
      * <li>NOT&nbsp;(0)
@@ -33570,7 +35097,7 @@ public class PSModelEnums {
      * 不绑定
      * <li>AUTO&nbsp;(2)
      * <P>
-     * 自动绑定
+     * 自动绑定，通过代码名称尝试获取对应的接口实体方法
      * </ul>     
      */
     public static enum SubSysSADEMethodBindingMode{
@@ -33832,7 +35359,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表格列宽度单位
+     * 表格列宽度单位
      * <P>
      * <ul>
      * <li>PX
@@ -34119,12 +35646,16 @@ public class PSModelEnums {
      * <li>LOCAL&nbsp;(2)
      * <P>
      * 启用（本地），在本地容器启动定时器
+     * <li>STANDALONE&nbsp;(3)
+     * <P>
+     * 启用（本地非分布式），在本地容器启动定时器，无分布式协同
      * </ul>     
      */
     public static enum BackendTaskTimerMode{
         DISABLED(0, "禁用")
         ,ENABLED(1, "启用")
         ,LOCAL(2, "启用（本地）")
+        ,STANDALONE(3, "启用（本地非分布式）")
 ;
            
         public final String text;
@@ -34143,6 +35674,8 @@ public class PSModelEnums {
                     return ENABLED;
                 case 2:
                     return LOCAL;
+                case 3:
+                    return STANDALONE;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -34339,6 +35872,43 @@ public class PSModelEnums {
     }
 
     /**
+     * 树视图样式
+     * <P>
+     * <ul>
+     * <li>USER
+     * <P>
+     * 用户自定义
+     * <li>USER2
+     * <P>
+     * 用户自定义2
+     * </ul>     
+     */
+    public static enum TreeStyle{
+        USER("USER", "用户自定义")
+        ,USER2("USER2", "用户自定义2")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private TreeStyle(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static TreeStyle from(String value){
+            switch(value){
+                case "USER":
+                    return USER;
+                case "USER2":
+                    return USER2;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 列表项代码表转换模式
      * <P>
      * <ul>
@@ -34413,7 +35983,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表单功能模式
+     * 表单功能模式
      * <P>
      * <ul>
      * <li>WFACTION
@@ -34999,7 +36569,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 表单多项数据部件操作，数值项，多值模式（数字或处理）
+     * 表单多数据成员操作，数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>CREATE&nbsp;(1)
@@ -35237,7 +36807,7 @@ public class PSModelEnums {
      * 默认编辑视图
      * <li>MAINVIEW
      * <P>
-     * 默认主视图
+     * 默认主视图，主数据视图，单项数据的展现实体
      * <li>INDEXDEPICKUPVIEW
      * <P>
      * 默认索引实体选择视图
@@ -35560,7 +37130,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体结果集合预定义类型
+     * 实体结果集类型
      * <P>
      * <ul>
      * <li>CODELIST
@@ -35804,7 +37374,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台编辑视图类型
+     * 编辑视图类型
      * <P>
      * <ul>
      * <li>DEEDITVIEW
@@ -35864,7 +37434,7 @@ public class PSModelEnums {
      * 模型对象，值为引用的动态模型对象
      * <li>DE
      * <P>
-     * 实体对象
+     * 实体对象，值为引用的实体对象
      * </ul>     
      */
     public static enum DynaModelAttrValueType{
@@ -35896,7 +37466,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表单样式
+     * 表单样式
      * <P>
      * <ul>
      * <li>INFOPANEL
@@ -36081,12 +37651,16 @@ public class PSModelEnums {
      * 常规，指定具体的属性清单
      * <li>FORMITEMS
      * <P>
-     * 表单项，指定编辑表单，从表单项中构建属性集合
+     * 表单项，指定编辑表单，从表单项提取非空规则构建属性值规则
+     * <li>SCRIPT
+     * <P>
+     * 脚本代码
      * </ul>     
      */
     public static enum DEFValueRuleType{
         NORMAL("NORMAL", "常规")
         ,FORMITEMS("FORMITEMS", "表单项")
+        ,SCRIPT("SCRIPT", "脚本代码")
 ;
            
         public final String text;
@@ -36103,6 +37677,8 @@ public class PSModelEnums {
                     return NORMAL;
                 case "FORMITEMS":
                     return FORMITEMS;
+                case "SCRIPT":
+                    return SCRIPT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -36288,7 +37864,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性视图列级别，数值项
+     * 实体属性查询级别，数值项
      * <P>
      * <ul>
      * <li>DEFAULT&nbsp;(0)
@@ -36330,6 +37906,37 @@ public class PSModelEnums {
                     return LEVEL2;
                 case 3:
                     return LEVEL3;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * AI生产线代理类型
+     * <P>
+     * <ul>
+     * <li>DEFAULT
+     * <P>
+     * 默认
+     * </ul>     
+     */
+    public static enum AIPipelineAgentType{
+        DEFAULT("DEFAULT", "默认")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AIPipelineAgentType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIPipelineAgentType from(String value){
+            switch(value){
+                case "DEFAULT":
+                    return DEFAULT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -36405,7 +38012,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体视图打开方式
+     * 视图打开方式
      * <P>
      * <ul>
      * <li>INDEXVIEWTAB
@@ -36698,7 +38305,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 属性值转换使用模式
+     * 属性值转换模式
      * <P>
      * <ul>
      * <li>NONE
@@ -37868,7 +39475,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体表单分页位置
+     * 表单分页位置
      * <P>
      * <ul>
      * <li>LEFT
@@ -37917,7 +39524,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 树节点计数器类型，数值项
+     * 计数器显示模式，数值项
      * <P>
      * <ul>
      * <li>DEFAULT&nbsp;(0)
@@ -38076,7 +39683,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体关系属性映射类型（废弃）
+     * 智能立方体维度聚合模式
      * <P>
      * <ul>
      * <li>SUM
@@ -38435,7 +40042,7 @@ public class PSModelEnums {
      * 指定参数，非启用运行时系统模型主键将默认传入，否则需要手动指定主键（如需要）
      * <li>OBJECT&nbsp;(3)
      * <P>
-     * 其它对象
+     * 其它对象，指定动态模型作为参数对象
      * <li>NONE&nbsp;(99)
      * <P>
      * 无参数
@@ -38850,7 +40457,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性界面配置输出代码表配置，数值项，多值模式（数字或处理）
+     * 代码表输出模式，数值项，多值模式（数字或处理）
      * <P>
      * <ul>
      * <li>NONE&nbsp;(0)
@@ -39110,6 +40717,9 @@ public class PSModelEnums {
      * <li>GETDRAFT
      * <P>
      * 获取草稿，指定行为为获取草稿数据操作
+     * <li>GETDRAFTFROM
+     * <P>
+     * 获取草稿（指定源数据），指定行为为从源数据获取草稿数据操作
      * <li>UNKNOWN
      * <P>
      * 未知操作，未知的操作
@@ -39122,6 +40732,9 @@ public class PSModelEnums {
      * <li>SAVE
      * <P>
      * 保存数据，保存数据，自动判断新建或更新
+     * <li>COPY
+     * <P>
+     * 拷贝数据，拷贝数据，同时拷贝相关成员数据
      * <li>USER
      * <P>
      * 用户自定义
@@ -39143,10 +40756,12 @@ public class PSModelEnums {
         ,DELETE("DELETE", "删除数据")
         ,CUSTOM("CUSTOM", "自定义操作")
         ,GETDRAFT("GETDRAFT", "获取草稿")
+        ,GETDRAFTFROM("GETDRAFTFROM", "获取草稿（指定源数据）")
         ,UNKNOWN("UNKNOWN", "未知操作")
         ,MOVEORDER("MOVEORDER", "移动位置")
         ,CHECKKEY("CHECKKEY", "检查主键")
         ,SAVE("SAVE", "保存数据")
+        ,COPY("COPY", "拷贝数据")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -39175,6 +40790,8 @@ public class PSModelEnums {
                     return CUSTOM;
                 case "GETDRAFT":
                     return GETDRAFT;
+                case "GETDRAFTFROM":
+                    return GETDRAFTFROM;
                 case "UNKNOWN":
                     return UNKNOWN;
                 case "MOVEORDER":
@@ -39183,6 +40800,8 @@ public class PSModelEnums {
                     return CHECKKEY;
                 case "SAVE":
                     return SAVE;
+                case "COPY":
+                    return COPY;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -39191,6 +40810,79 @@ public class PSModelEnums {
                     return USER3;
                 case "USER4":
                     return USER4;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 动态树节点源
+     * <P>
+     * <ul>
+     * <li>DEACTION
+     * <P>
+     * 实体行为
+     * <li>DEDATASET
+     * <P>
+     * 实体集合
+     * <li>DELOGIC
+     * <P>
+     * 实体逻辑
+     * <li>PARENTDATAPARAM
+     * <P>
+     * 绑定父数据变量
+     * <li>APPGLOBALPARAM
+     * <P>
+     * 绑定应用全局变量
+     * <li>TOPVIEWSESSIONPARAM
+     * <P>
+     * 绑定顶级视图会话共享变量
+     * <li>VIEWSESSIONPARAM
+     * <P>
+     * 绑定当前视图会话共享变量
+     * <li>CUSTOM
+     * <P>
+     * 自定义代码
+     * </ul>     
+     */
+    public static enum DETreeNodeSource{
+        DEACTION("DEACTION", "实体行为")
+        ,DEDATASET("DEDATASET", "实体集合")
+        ,DELOGIC("DELOGIC", "实体逻辑")
+        ,PARENTDATAPARAM("PARENTDATAPARAM", "绑定父数据变量")
+        ,APPGLOBALPARAM("APPGLOBALPARAM", "绑定应用全局变量")
+        ,TOPVIEWSESSIONPARAM("TOPVIEWSESSIONPARAM", "绑定顶级视图会话共享变量")
+        ,VIEWSESSIONPARAM("VIEWSESSIONPARAM", "绑定当前视图会话共享变量")
+        ,CUSTOM("CUSTOM", "自定义代码")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DETreeNodeSource(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DETreeNodeSource from(String value){
+            switch(value){
+                case "DEACTION":
+                    return DEACTION;
+                case "DEDATASET":
+                    return DEDATASET;
+                case "DELOGIC":
+                    return DELOGIC;
+                case "PARENTDATAPARAM":
+                    return PARENTDATAPARAM;
+                case "APPGLOBALPARAM":
+                    return APPGLOBALPARAM;
+                case "TOPVIEWSESSIONPARAM":
+                    return TOPVIEWSESSIONPARAM;
+                case "VIEWSESSIONPARAM":
+                    return VIEWSESSIONPARAM;
+                case "CUSTOM":
+                    return CUSTOM;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }

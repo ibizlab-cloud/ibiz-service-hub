@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.service;
 
 
 /**
- * 服务接口实体模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO}运行时对象
+ * 服务接口实体模型对象接口
  *
  */
 public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取接口模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_MAJORFLAG}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SADEMode}
 	 * @return
@@ -51,8 +49,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -102,8 +98,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取输出值转换器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_OUTPSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getOutPSSysTranslator();
@@ -188,8 +182,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取实体服务接口统一资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();
@@ -204,8 +196,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取服务参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_SERVICEPARAM}
 	 * @return
 	 */
 	java.lang.String getServiceParam();
@@ -213,8 +203,6 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取服务参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEServiceAPIDTO#FIELD_SERVICEPARAM2}
 	 * @return
 	 */
 	java.lang.String getServiceParam2();

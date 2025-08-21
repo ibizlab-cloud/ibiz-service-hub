@@ -8,6 +8,7 @@ public class PSSysAIFactoryImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 	public final static String ATTR_GETAIFACTORYTAG = "aIFactoryTag";
 	public final static String ATTR_GETAIFACTORYTAG2 = "aIFactoryTag2";
 	public final static String ATTR_GETAIFACTORYTYPE = "aIFactoryType";
+	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
 	public final static String ATTR_GETALLPSSYSAICHATAGENTS = "getAllPSSysAIChatAgents";
 	public final static String ATTR_GETALLPSSYSAIPIPELINEAGENTS = "getAllPSSysAIPipelineAgents";
 	public final static String ATTR_GETALLPSSYSAIWORKERAGENTS = "getAllPSSysAIWorkerAgents";
@@ -52,6 +53,14 @@ public class PSSysAIFactoryImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 
 	public java.lang.String getAIFactoryType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIFACTORYTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getAIPlatformType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);
 		if(value == null){
 			return null;
 		}

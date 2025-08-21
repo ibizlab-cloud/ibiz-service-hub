@@ -43,5 +43,13 @@ public interface ISysAIAgentRuntime extends IAIAgentRuntimeBase, IModelRuntime{
 	 */
 	Object executeAction(String strAction, Object args[]) throws Throwable;
 	
+	
+	/**
+	 * 获取代理参数
+	 * @param strName
+	 * @param strDefault
+	 * @return
+	 */
+	String getAgentParam(String strName, String strDefault);
 
 }

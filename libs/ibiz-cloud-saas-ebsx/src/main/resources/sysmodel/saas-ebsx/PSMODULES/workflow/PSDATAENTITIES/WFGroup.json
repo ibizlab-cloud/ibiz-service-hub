@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "GROUPID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "GROUPNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -568,6 +576,7 @@
     "length" : 100,
     "logicName" : "流程角色标识",
     "name" : "GROUPID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -697,6 +706,7 @@
     "length" : 100,
     "logicName" : "流程角色名称",
     "name" : "GROUPNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -828,6 +838,7 @@
     "length" : 100,
     "logicName" : "范围",
     "name" : "GROUPSCOPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -932,6 +943,7 @@
     "length" : 100,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1032,6 +1044,7 @@
     "length" : 100,
     "logicName" : "流程角色编码",
     "name" : "GROUPCODE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

@@ -9,6 +9,7 @@ import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.util.domain.CodeList;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
+import net.ibizsys.central.cloud.core.util.domain.V2DeploySystem;
 
 
 /**
@@ -174,6 +175,16 @@ public interface IHubSysExtensionUtilRuntime extends ISysUtilRuntime{
 	 * @return
 	 */
 	File getAppSimpleModelFile(ISystemRuntime iSystemRuntime, String strAppTag, String strModelUri, Object param, boolean bTryMode);
+	
+	
+	/**
+	 * 合并系统模型
+	 * @param majorFile
+	 * @param v2DeploySystem
+	 * @param bVerifyModel
+	 * @return
+	 */
+	File mergeV2DeploySystem(File majorModelFile, V2DeploySystem v2DeploySystem, boolean bVerifyModel);
 	
 	
 //	/**

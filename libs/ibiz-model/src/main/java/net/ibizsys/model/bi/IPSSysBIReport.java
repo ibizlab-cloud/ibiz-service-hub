@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBIReportDTO}运行时对象
+ * 智能报表模型对象接口
  *
  */
 public interface IPSSysBIReport extends net.ibizsys.model.bi.IPSBIReport
@@ -55,8 +55,6 @@ public interface IPSSysBIReport extends net.ibizsys.model.bi.IPSBIReport
 	
 	/**
 	 * 获取智能报表立方体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBIReportDTO#FIELD_PSSYSBICUBEID}
 	 * @return
 	 */
 	net.ibizsys.model.bi.IPSSysBICube getPSSysBICube();

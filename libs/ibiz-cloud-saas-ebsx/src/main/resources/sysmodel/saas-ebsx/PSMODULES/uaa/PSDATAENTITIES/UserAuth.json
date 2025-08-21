@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "AUTHID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "CREDENTIAL",
+        "codeName" : "Credential"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -520,6 +528,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "AUTHID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -643,6 +652,7 @@
     "length" : 100,
     "logicName" : "认证类型",
     "name" : "IDENTITY_TYPE",
+    "orderValue" : 3,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/IdentityType.json"
@@ -757,6 +767,7 @@
     "length" : 200,
     "logicName" : "认证标识",
     "name" : "IDENTIFIER",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -865,6 +876,7 @@
     "length" : 500,
     "logicName" : "凭据",
     "name" : "CREDENTIAL",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -964,6 +976,7 @@
     "length" : 100,
     "logicName" : "员工姓名",
     "name" : "EMPNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1061,6 +1074,7 @@
     "length" : 100,
     "logicName" : "用户名称",
     "name" : "USERNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1158,6 +1172,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1255,6 +1270,7 @@
     "length" : 100,
     "logicName" : "员工标识",
     "name" : "EMPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1352,6 +1368,7 @@
     "length" : 100,
     "logicName" : "开放用户标识",
     "name" : "OPENUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

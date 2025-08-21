@@ -3,7 +3,7 @@ package net.ibizsys.model.view;
 
 
 /**
- * 视图消息组模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSViewMsgGroupDTO}运行时对象
+ * 视图消息组模型基础对象接口
  *
  */
 public interface IPSViewMsgGroup extends net.ibizsys.model.IPSModelObject{

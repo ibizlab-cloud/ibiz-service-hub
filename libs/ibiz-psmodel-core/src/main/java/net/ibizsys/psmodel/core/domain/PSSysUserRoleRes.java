@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSUSERROLERES</B>系统用户角色资源 模型传输对象
+ * <B>PSSYSUSERROLERES</B>系统角色资源能力 模型传输对象
  * <P>
  * 系统操作角色的统一资源能力定义模型，将系统统一资源分配到系统操作角色
  */

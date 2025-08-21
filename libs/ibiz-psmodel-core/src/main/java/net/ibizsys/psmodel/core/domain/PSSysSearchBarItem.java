@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSSEARCHBARITEM</B>系统搜索栏项 模型传输对象
+ * <B>PSSYSSEARCHBARITEM</B>搜索栏项 模型传输对象
  * <P>
  * 搜索栏部件子项模型，定义搜索栏提供的分组条件过滤能力、属性过滤能力及快速搜索能力
  */
@@ -382,6 +382,149 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
         }
         else{
             this.setContentType(contentType.value);
+        }
+        return this;
+    }
+
+    /**
+     * <B>COUNTERID</B>&nbsp;计数器标识
+     * <P>
+     * 字符串：最大长度 30
+     */
+    public final static String FIELD_COUNTERID = "counterid";
+
+    /**
+     * 设置 计数器标识
+     * 
+     * @param counterId
+     * 
+     */
+    @JsonProperty(FIELD_COUNTERID)
+    public void setCounterId(String counterId){
+        this.set(FIELD_COUNTERID, counterId);
+    }
+    
+    /**
+     * 获取 计数器标识  
+     * @return
+     */
+    @JsonIgnore
+    public String getCounterId(){
+        Object objValue = this.get(FIELD_COUNTERID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 计数器标识 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCounterIdDirty(){
+        if(this.contains(FIELD_COUNTERID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 计数器标识
+     */
+    @JsonIgnore
+    public void resetCounterId(){
+        this.reset(FIELD_COUNTERID);
+    }
+
+    /**
+     * 设置 计数器标识
+     * <P>
+     * 等同 {@link #setCounterId}
+     * @param counterId
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem counterid(String counterId){
+        this.setCounterId(counterId);
+        return this;
+    }
+
+    /**
+     * <B>COUNTERMODE</B>&nbsp;计数器模式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.TreeNodeCounterMode} 
+     */
+    public final static String FIELD_COUNTERMODE = "countermode";
+
+    /**
+     * 设置 计数器模式
+     * 
+     * @param counterMode
+     * 
+     */
+    @JsonProperty(FIELD_COUNTERMODE)
+    public void setCounterMode(Integer counterMode){
+        this.set(FIELD_COUNTERMODE, counterMode);
+    }
+    
+    /**
+     * 获取 计数器模式  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getCounterMode(){
+        Object objValue = this.get(FIELD_COUNTERMODE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 计数器模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCounterModeDirty(){
+        if(this.contains(FIELD_COUNTERMODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 计数器模式
+     */
+    @JsonIgnore
+    public void resetCounterMode(){
+        this.reset(FIELD_COUNTERMODE);
+    }
+
+    /**
+     * 设置 计数器模式
+     * <P>
+     * 等同 {@link #setCounterMode}
+     * @param counterMode
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem countermode(Integer counterMode){
+        this.setCounterMode(counterMode);
+        return this;
+    }
+
+     /**
+     * 设置 计数器模式
+     * <P>
+     * 等同 {@link #setCounterMode}
+     * @param counterMode
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem countermode(net.ibizsys.psmodel.core.util.PSModelEnums.TreeNodeCounterMode counterMode){
+        if(counterMode == null){
+            this.setCounterMode(null);
+        }
+        else{
+            this.setCounterMode(counterMode.value);
         }
         return this;
     }
@@ -3082,6 +3225,151 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     @JsonIgnore
     public PSSysSearchBarItem psdeid(String pSDEId){
         this.setPSDEId(pSDEId);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSCOUNTERID</B>&nbsp;系统计数器
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysCounter} 
+     */
+    public final static String FIELD_PSSYSCOUNTERID = "pssyscounterid";
+
+    /**
+     * 设置 系统计数器
+     * 
+     * @param pSSysCounterId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSCOUNTERID)
+    public void setPSSysCounterId(String pSSysCounterId){
+        this.set(FIELD_PSSYSCOUNTERID, pSSysCounterId);
+    }
+    
+    /**
+     * 获取 系统计数器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysCounterId(){
+        Object objValue = this.get(FIELD_PSSYSCOUNTERID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统计数器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysCounterIdDirty(){
+        if(this.contains(FIELD_PSSYSCOUNTERID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统计数器
+     */
+    @JsonIgnore
+    public void resetPSSysCounterId(){
+        this.reset(FIELD_PSSYSCOUNTERID);
+    }
+
+    /**
+     * 设置 系统计数器
+     * <P>
+     * 等同 {@link #setPSSysCounterId}
+     * @param pSSysCounterId
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem pssyscounterid(String pSSysCounterId){
+        this.setPSSysCounterId(pSSysCounterId);
+        return this;
+    }
+
+    /**
+     * 设置 系统计数器，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysCounterId}
+     * @param pSSysCounter 引用对象
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem pssyscounterid(PSSysCounter pSSysCounter){
+        if(pSSysCounter == null){
+            this.setPSSysCounterId(null);
+            this.setPSSysCounterName(null);
+        }
+        else{
+            this.setPSSysCounterId(pSSysCounter.getPSSysCounterId());
+            this.setPSSysCounterName(pSSysCounter.getPSSysCounterName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSCOUNTERNAME</B>&nbsp;系统计数器
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSCOUNTERID}
+     */
+    public final static String FIELD_PSSYSCOUNTERNAME = "pssyscountername";
+
+    /**
+     * 设置 系统计数器
+     * 
+     * @param pSSysCounterName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSCOUNTERNAME)
+    public void setPSSysCounterName(String pSSysCounterName){
+        this.set(FIELD_PSSYSCOUNTERNAME, pSSysCounterName);
+    }
+    
+    /**
+     * 获取 系统计数器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysCounterName(){
+        Object objValue = this.get(FIELD_PSSYSCOUNTERNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统计数器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysCounterNameDirty(){
+        if(this.contains(FIELD_PSSYSCOUNTERNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统计数器
+     */
+    @JsonIgnore
+    public void resetPSSysCounterName(){
+        this.reset(FIELD_PSSYSCOUNTERNAME);
+    }
+
+    /**
+     * 设置 系统计数器
+     * <P>
+     * 等同 {@link #setPSSysCounterName}
+     * @param pSSysCounterName
+     */
+    @JsonIgnore
+    public PSSysSearchBarItem pssyscountername(String pSSysCounterName){
+        this.setPSSysCounterName(pSSysCounterName);
         return this;
     }
 

@@ -3,7 +3,7 @@ package net.ibizsys.model.valuerule;
 
 
 /**
- * 系统预置值规则模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO}运行时对象
+ * 系统预置值规则模型对象接口
  *
  */
 public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义处理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_CUSTOMOBJ}
 	 * @return
 	 */
 	java.lang.String getCustomObject();
@@ -28,8 +26,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_CUSTOMPARAMS}
 	 * @return
 	 */
 	java.lang.String getCustomParams();
@@ -79,8 +75,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取正则式代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_REGEXPCODE}
 	 * @return
 	 */
 	java.lang.String getRegExCode();
@@ -88,8 +82,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取正则式代码2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_REGEXPCODE2}
 	 * @return
 	 */
 	java.lang.String getRegExCode2();
@@ -97,8 +89,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取正则式代码3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_REGEXPCODE3}
 	 * @return
 	 */
 	java.lang.String getRegExCode3();
@@ -106,8 +96,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取正则式代码4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_REGEXPCODE4}
 	 * @return
 	 */
 	java.lang.String getRegExCode4();
@@ -115,17 +103,34 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值规则信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_RULEINFO}
 	 * @return
 	 */
 	java.lang.String getRuleInfo();
 	
 	
 	/**
+	 * 获取规则信息语言资源标记
+	 * @return
+	 */
+	java.lang.String getRuleInfoLanResTag();
+	
+	
+	/**
+	 * 获取规则信息语言资源对象
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getRuleInfoPSLanguageRes();
+
+
+	/**
+	 * 获取规则信息语言资源对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getRuleInfoPSLanguageResMust();
+	
+	
+	/**
 	 * 获取规则标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_RULETAG}
 	 * @return
 	 */
 	java.lang.String getRuleTag();
@@ -133,8 +138,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取规则标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_RULETAG2}
 	 * @return
 	 */
 	java.lang.String getRuleTag2();
@@ -142,8 +145,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值规则类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_RULETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ValueRuleType}
 	 * @return
@@ -153,8 +154,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_SCRIPT}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -169,8 +168,6 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否支持后台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysValueRuleDTO#FIELD_RULEHOLDER}
 	 * @return
 	 */
 	boolean isEnableBackend();

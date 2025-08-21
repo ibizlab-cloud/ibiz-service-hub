@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "FILEID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "FILENAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -534,6 +542,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "FILEID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -662,6 +671,7 @@
     "length" : 200,
     "logicName" : "名称",
     "name" : "FILENAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -783,6 +793,7 @@
     "length" : 500,
     "logicName" : "路径",
     "name" : "FILEPATH",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -902,6 +913,7 @@
     "length" : 40,
     "logicName" : "特定目录",
     "name" : "FOLDER",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1005,6 +1017,7 @@
     "importOrder" : 1000,
     "logicName" : "文件大小",
     "name" : "FILESIZE",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1123,6 +1136,7 @@
     "length" : 20,
     "logicName" : "扩展名",
     "name" : "FILEEXT",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1242,6 +1256,7 @@
     "length" : 100,
     "logicName" : "所属类型",
     "name" : "OWNERTYPE",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1361,6 +1376,7 @@
     "length" : 100,
     "logicName" : "所属主体",
     "name" : "OWNERID",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1480,6 +1496,7 @@
     "length" : 1000,
     "logicName" : "备注",
     "name" : "MEMO",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1599,6 +1616,7 @@
     "length" : 64,
     "logicName" : "签名",
     "name" : "DIGESTCODE",
+    "orderValue" : 13,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1718,6 +1736,7 @@
     "length" : 100,
     "logicName" : "创建人",
     "name" : "CREATEMAN",
+    "orderValue" : 31,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1821,6 +1840,7 @@
     "length" : 100,
     "logicName" : "保留",
     "name" : "RESERVER",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1918,6 +1938,7 @@
     "length" : 100,
     "logicName" : "保留4",
     "name" : "RESERVER4",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2015,6 +2036,7 @@
     "length" : 100,
     "logicName" : "保留2",
     "name" : "RESERVER2",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2112,6 +2134,7 @@
     "length" : 100,
     "logicName" : "保留3",
     "name" : "RESERVER3",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2209,6 +2232,7 @@
     "length" : 200,
     "logicName" : "保留6",
     "name" : "RESERVER6",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2306,6 +2330,7 @@
     "length" : 1000,
     "logicName" : "保留7",
     "name" : "RESERVER7",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2403,6 +2428,7 @@
     "length" : 200,
     "logicName" : "保留5",
     "name" : "RESERVER5",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2500,6 +2526,7 @@
     "length" : 1000,
     "logicName" : "保留8",
     "name" : "RESERVER8",
+    "orderValue" : 31,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2608,6 +2635,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建日期",
     "name" : "CREATEDATE",
+    "orderValue" : 32,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2728,6 +2756,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 33,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2842,6 +2871,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 34,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2940,6 +2970,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体数据导出数据项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO}运行时对象
+ * 应用实体数据导出数据项模型对象接口
  *
  */
 public interface IPSAppDEDataExportItem extends net.ibizsys.model.dataentity.dataexport.IPSDEDataExportItem{

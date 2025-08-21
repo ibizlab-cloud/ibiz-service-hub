@@ -14,8 +14,6 @@ public interface IPSDEFormTabPanel extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取实体数据关系标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DRTAG}
 	 * @return
 	 */
 	java.lang.String getDataRelationTag();
@@ -23,8 +21,6 @@ public interface IPSDEFormTabPanel extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取插入位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INSERTPOS}
 	 * @return
 	 */
 	int getInsertPos();

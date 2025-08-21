@@ -87,6 +87,20 @@ public class WFInstanceDTO extends EntityDTO {
   public final static String FIELD_STARTUSERNAME = "startusername";
 
   /**.
+   * 参数
+   *
+   * @see ibizmos:/psmodules/workflow/psdataentities/WF_INSTANCE/psdefields/PARAM/.ibizmodel.index
+   */
+  public final static String FIELD_PARAM = "param";
+
+  /**.
+   * 参数2
+   *
+   * @see ibizmos:/psmodules/workflow/psdataentities/WF_INSTANCE/psdefields/PARAM2/.ibizmodel.index
+   */
+  public final static String FIELD_PARAM2 = "param2";
+
+  /**.
    * 应用标识
    *
    * @see ibizmos:/psmodules/workflow/psdataentities/WF_INSTANCE/psdefields/APPID/.ibizmodel.index
@@ -556,6 +570,84 @@ public class WFInstanceDTO extends EntityDTO {
     @JsonIgnore
     public WFInstanceDTO resetStartUserName() {
         this._reset(FIELD_STARTUSERNAME);
+        return this;
+    }
+
+    /**
+     * 设置「参数」
+     *
+     * @param val
+    */
+    @JsonIgnore
+    public WFInstanceDTO setParam(String val) {
+        this._set(FIELD_PARAM, val);
+        return this;
+    }
+
+    /**
+     * 获取「参数」值
+     *
+    */
+    @JsonIgnore
+    public String getParam() {
+        return (String) this._get(FIELD_PARAM);
+    }
+
+    /**
+     * 判断 「参数」是否有值
+     *
+    */
+    @JsonIgnore
+    public boolean containsParam() {
+        return this._contains(FIELD_PARAM);
+    }
+
+    /**
+     * 重置 「参数」
+     *
+    */
+    @JsonIgnore
+    public WFInstanceDTO resetParam() {
+        this._reset(FIELD_PARAM);
+        return this;
+    }
+
+    /**
+     * 设置「参数2」
+     *
+     * @param val
+    */
+    @JsonIgnore
+    public WFInstanceDTO setParam2(String val) {
+        this._set(FIELD_PARAM2, val);
+        return this;
+    }
+
+    /**
+     * 获取「参数2」值
+     *
+    */
+    @JsonIgnore
+    public String getParam2() {
+        return (String) this._get(FIELD_PARAM2);
+    }
+
+    /**
+     * 判断 「参数2」是否有值
+     *
+    */
+    @JsonIgnore
+    public boolean containsParam2() {
+        return this._contains(FIELD_PARAM2);
+    }
+
+    /**
+     * 重置 「参数2」
+     *
+    */
+    @JsonIgnore
+    public WFInstanceDTO resetParam2() {
+        this._reset(FIELD_PARAM2);
         return this;
     }
 

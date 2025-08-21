@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统值转换器模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO}运行时对象
+ * 系统值转换器模型对象接口
  *
  */
 public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取标识存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_KEYPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getKeyPSDEField();
@@ -35,8 +33,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -51,8 +47,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -67,8 +61,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取后端模板插件对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -83,8 +75,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -99,8 +89,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取转换器动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_TRANSLATORPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getTranslatorParams();
@@ -108,8 +96,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值转换器标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_TRANSLATORTAG}
 	 * @return
 	 */
 	java.lang.String getTranslatorTag();
@@ -117,8 +103,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值转换器标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_TRANSLATORTAG2}
 	 * @return
 	 */
 	java.lang.String getTranslatorTag2();
@@ -126,8 +110,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值转换器类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_TRANSLATORTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TranslatorType}
 	 * @return
@@ -137,8 +119,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义属性2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_USER2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUser2PSDEField();
@@ -153,8 +133,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_USERPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUserPSDEField();
@@ -169,8 +147,6 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTranslatorDTO#FIELD_VALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField();

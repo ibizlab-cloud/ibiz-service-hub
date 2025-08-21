@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "TODOID",
+        "codeName" : "TodoId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "TITLE",
+        "codeName" : "Title"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -1599,6 +1607,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "处理时间",
     "name" : "PROCESSDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1675,6 +1684,7 @@
     "length" : 200,
     "logicName" : "待办子类",
     "name" : "TODOSUBTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/TodoSubType.json"
@@ -1760,6 +1770,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1874,6 +1885,7 @@
     "length" : 100,
     "logicName" : "参数06",
     "name" : "PARAM06",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1982,6 +1994,7 @@
     "length" : 100,
     "logicName" : "参数01",
     "name" : "PARAM01",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2079,6 +2092,7 @@
     "length" : 100,
     "logicName" : "创建人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2182,6 +2196,7 @@
     "length" : 100,
     "logicName" : "参数07",
     "name" : "PARAM07",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2279,6 +2294,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMANNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2384,6 +2400,7 @@
     "length" : 100,
     "logicName" : "参数04",
     "name" : "PARAM04",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2481,6 +2498,7 @@
     "length" : 100,
     "logicName" : "待办用户",
     "name" : "USERNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2578,6 +2596,7 @@
     "length" : 100,
     "logicName" : "待办用户标识",
     "name" : "USERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2675,6 +2694,7 @@
     "length" : 1048576,
     "logicName" : "内容",
     "name" : "CONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2773,6 +2793,7 @@
     "length" : 1048576,
     "logicName" : "长文本参数01",
     "name" : "CLOBPARAM01",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2859,6 +2880,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2957,6 +2979,7 @@
     "length" : 100,
     "logicName" : "创建人",
     "name" : "CREATEMANNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3056,6 +3079,7 @@
     "length" : 100,
     "logicName" : "参数03",
     "name" : "PARAM03",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3164,6 +3188,7 @@
     "length" : 1048576,
     "logicName" : "长文本参数02",
     "name" : "CLOBPARAM02",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3268,6 +3293,7 @@
     "length" : 100,
     "logicName" : "参数05",
     "name" : "PARAM05",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3373,6 +3399,7 @@
     "length" : 200,
     "logicName" : "标题",
     "name" : "TITLE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3473,6 +3500,7 @@
     "length" : 100,
     "logicName" : "参数08",
     "name" : "PARAM08",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3570,6 +3598,7 @@
     "length" : 200,
     "logicName" : "参数02",
     "name" : "PARAM02",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3675,6 +3704,7 @@
     "length" : 60,
     "logicName" : "待办地址类型",
     "name" : "TODOURLTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/TodoUrlType.json"
@@ -3782,6 +3812,7 @@
     "length" : 100,
     "logicName" : "业务对象",
     "name" : "BIZTYPE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3885,6 +3916,7 @@
     "length" : 100,
     "logicName" : "业务数据标识",
     "name" : "BIZKEY",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3982,6 +4014,7 @@
     "length" : 60,
     "logicName" : "组织机构标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4096,6 +4129,7 @@
     "length" : 60,
     "logicName" : "待办状态",
     "name" : "TODOSTATE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/TodoState.json"
@@ -4206,6 +4240,7 @@
     "length" : 60,
     "logicName" : "待办标识",
     "name" : "TODOID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4295,6 +4330,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "过期时间",
     "name" : "DUEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4401,6 +4437,7 @@
     "length" : 60,
     "logicName" : "待办类型",
     "name" : "TODOTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/TodoType.json"
@@ -4497,6 +4534,7 @@
     "importOrder" : 1000,
     "logicName" : "是否已读",
     "name" : "ISREAD",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -4597,6 +4635,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -4700,6 +4739,7 @@
     "length" : 300,
     "logicName" : "连接地址",
     "name" : "LINKURL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4830,6 +4870,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/Todo/PSDERS/DER1N_SYS_TODO_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -4960,6 +5001,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -5078,6 +5120,7 @@
     "length" : 200,
     "logicName" : "参数09",
     "name" : "PARAM09",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

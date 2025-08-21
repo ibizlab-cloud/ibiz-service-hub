@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEMAPDETAIL</B>实体映射属性 模型传输对象
@@ -613,6 +617,151 @@ public class PSDEMapDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEMapDetail psdemapname(String pSDEMapName){
         this.setPSDEMapName(pSDEMapName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSTRANSLATORID</B>&nbsp;值转换器
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysTranslator} 
+     */
+    public final static String FIELD_PSSYSTRANSLATORID = "pssystranslatorid";
+
+    /**
+     * 设置 值转换器
+     * 
+     * @param pSSysTranslatorId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSTRANSLATORID)
+    public void setPSSysTranslatorId(String pSSysTranslatorId){
+        this.set(FIELD_PSSYSTRANSLATORID, pSSysTranslatorId);
+    }
+    
+    /**
+     * 获取 值转换器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysTranslatorId(){
+        Object objValue = this.get(FIELD_PSSYSTRANSLATORID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 值转换器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysTranslatorIdDirty(){
+        if(this.contains(FIELD_PSSYSTRANSLATORID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 值转换器
+     */
+    @JsonIgnore
+    public void resetPSSysTranslatorId(){
+        this.reset(FIELD_PSSYSTRANSLATORID);
+    }
+
+    /**
+     * 设置 值转换器
+     * <P>
+     * 等同 {@link #setPSSysTranslatorId}
+     * @param pSSysTranslatorId
+     */
+    @JsonIgnore
+    public PSDEMapDetail pssystranslatorid(String pSSysTranslatorId){
+        this.setPSSysTranslatorId(pSSysTranslatorId);
+        return this;
+    }
+
+    /**
+     * 设置 值转换器，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysTranslatorId}
+     * @param pSSysTranslator 引用对象
+     */
+    @JsonIgnore
+    public PSDEMapDetail pssystranslatorid(PSSysTranslator pSSysTranslator){
+        if(pSSysTranslator == null){
+            this.setPSSysTranslatorId(null);
+            this.setPSSysTranslatorName(null);
+        }
+        else{
+            this.setPSSysTranslatorId(pSSysTranslator.getPSSysTranslatorId());
+            this.setPSSysTranslatorName(pSSysTranslator.getPSSysTranslatorName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSTRANSLATORNAME</B>&nbsp;值转换器
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSTRANSLATORID}
+     */
+    public final static String FIELD_PSSYSTRANSLATORNAME = "pssystranslatorname";
+
+    /**
+     * 设置 值转换器
+     * 
+     * @param pSSysTranslatorName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSTRANSLATORNAME)
+    public void setPSSysTranslatorName(String pSSysTranslatorName){
+        this.set(FIELD_PSSYSTRANSLATORNAME, pSSysTranslatorName);
+    }
+    
+    /**
+     * 获取 值转换器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysTranslatorName(){
+        Object objValue = this.get(FIELD_PSSYSTRANSLATORNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 值转换器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysTranslatorNameDirty(){
+        if(this.contains(FIELD_PSSYSTRANSLATORNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 值转换器
+     */
+    @JsonIgnore
+    public void resetPSSysTranslatorName(){
+        this.reset(FIELD_PSSYSTRANSLATORNAME);
+    }
+
+    /**
+     * 设置 值转换器
+     * <P>
+     * 等同 {@link #setPSSysTranslatorName}
+     * @param pSSysTranslatorName
+     */
+    @JsonIgnore
+    public PSDEMapDetail pssystranslatorname(String pSSysTranslatorName){
+        this.setPSSysTranslatorName(pSSysTranslatorName);
         return this;
     }
 

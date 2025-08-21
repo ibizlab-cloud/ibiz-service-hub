@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.der;
 
 
 /**
- * 实体1：N关系属性映射模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO}运行时对象
+ * 实体1：N关系属性映射模型对象接口
  *
  */
 public interface IPSDER1NDEFieldMap extends net.ibizsys.model.dataentity.der.IPSDERDEFieldMap{
@@ -13,8 +13,6 @@ public interface IPSDER1NDEFieldMap extends net.ibizsys.model.dataentity.der.IPS
 	/**
 	 * 获取映射类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO#FIELD_MAPTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NDEFMapType}
 	 * @return
 	 */
@@ -23,8 +21,6 @@ public interface IPSDER1NDEFieldMap extends net.ibizsys.model.dataentity.der.IPS
 	
 	/**
 	 * 获取从实体数据查询
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO#FIELD_PSDEDQID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getMinorPSDEDataQuery();

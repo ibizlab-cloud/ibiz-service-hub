@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSAPPUTIL</B>应用功能配置 模型传输对象
+ * <B>PSAPPUTIL</B>应用功能组件 模型传输对象
  * <P>
- * 应用的功能配置模型，定义指定应用功能配置参数及相关的实体信息
+ * 应用的功能组件配置模型，定义指定应用功能配置参数及相关的实体信息
  */
 public class PSAppUtil extends net.ibizsys.psmodel.core.util.PSModelBase {
 

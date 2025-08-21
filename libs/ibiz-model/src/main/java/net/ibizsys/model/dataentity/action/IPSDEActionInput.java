@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.action;
 
 
 /**
- * 实体行为输入模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEActionDTO}运行时对象
+ * 实体行为输入模型对象接口
  * <P>
  * 实体行为输入模型是实体行为模型的组成
  *

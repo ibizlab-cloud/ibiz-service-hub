@@ -3,7 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用视图逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO}运行时对象
+ * 应用视图逻辑模型对象接口
  *
  */
 public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取注入属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_ATTRNAME}
 	 * @return
 	 */
 	java.lang.String getAttrName();
@@ -21,8 +19,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取事件参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_EVENTARG}
 	 * @return
 	 */
 	java.lang.String getEventArg();
@@ -30,8 +26,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取事件参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_EVENTARG2}
 	 * @return
 	 */
 	java.lang.String getEventArg2();
@@ -39,8 +33,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取事件名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_EVENTNAMES}
 	 * @return
 	 */
 	java.lang.String getEventNames();
@@ -48,8 +40,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取子项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_ITEMNAME}
 	 * @return
 	 */
 	java.lang.String getItemName();
@@ -71,8 +61,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑触发
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSAPPVIEWLOGICTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewLogicTrigger}
 	 * @return
@@ -98,8 +86,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用实体界面行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUIAction getPSAppDEUIAction();
@@ -114,8 +100,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用实体界面逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUILogic getPSAppDEUILogic();
@@ -144,8 +128,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用预置界面逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.logic.IPSAppUILogic getPSAppUILogic();
@@ -174,8 +156,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取调用视图逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSSYSVIEWLOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppViewLogic getPSAppViewLogic();
@@ -204,8 +184,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取应用前端插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSSYSPFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin();
@@ -220,8 +198,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取部件名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_PSDEVIEWCTRLNAME}
 	 * @return
 	 */
 	java.lang.String getPSViewCtrlName();
@@ -229,8 +205,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -238,8 +212,6 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取定时间隔（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewLogicDTO#FIELD_TIMER}
 	 * @return
 	 */
 	int getTimer();

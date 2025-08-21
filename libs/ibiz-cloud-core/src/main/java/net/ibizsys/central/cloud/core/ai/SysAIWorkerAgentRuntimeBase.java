@@ -42,6 +42,10 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 	@Override
 	protected void onInit() throws Exception {
 		
+		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
+			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
+		}
+		
 		if(this.getPSModelObject().getPSDataEntity() != null) {
 			this.iDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(this.getPSModelObject().getPSDataEntityMust().getId(), false);
 		}

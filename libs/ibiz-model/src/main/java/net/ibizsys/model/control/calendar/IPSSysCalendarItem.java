@@ -3,7 +3,7 @@ package net.ibizsys.model.control.calendar;
 
 
 /**
- * 系统日历部件项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO}运行时对象
+ * 系统日历部件项模型对象接口
  *
  */
 public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.IPSDECalendarItem{
@@ -12,8 +12,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取背景颜色应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_BKCOLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getBKColorPSAppDEField();
@@ -28,8 +26,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取开始时间应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_BEGINPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getBeginTimePSAppDEField();
@@ -44,8 +40,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取项样式表值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_CLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEField();
@@ -60,8 +54,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取文本颜色应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_COLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getColorPSAppDEField();
@@ -76,8 +68,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取内容应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_CONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getContentPSAppDEField();
@@ -92,8 +82,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取建立数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_CREATEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getCreatePSAppDEAction();
@@ -108,8 +96,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取建立要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_CREATEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getCreatePSDEOPPriv();
@@ -124,8 +110,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取附加查询条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_CUSTOMCOND}
 	 * @return
 	 */
 	java.lang.String getCustomCond();
@@ -133,8 +117,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取数据值2应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_DATA2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getData2PSAppDEField();
@@ -149,8 +131,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取数据值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_DATAPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getDataPSAppDEField();
@@ -179,8 +159,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取结束时间应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_ENDPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getEndTimePSAppDEField();
@@ -195,8 +173,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取项图标值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_ICONPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIconPSAppDEField();
@@ -211,8 +187,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取项标识值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_KEYPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getIdPSAppDEField();
@@ -227,8 +201,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取级别应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_LEVELPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getLevelPSAppDEField();
@@ -243,8 +215,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取链接值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_LINKPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getLinkPSAppDEField();
@@ -259,8 +229,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取应用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet();
@@ -303,8 +271,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取删除数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_REMOVEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getRemovePSAppDEAction();
@@ -319,8 +285,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取删除要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_REMOVEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getRemovePSDEOPPriv();
@@ -335,8 +299,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取标记值2应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_TAG2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTag2PSAppDEField();
@@ -351,8 +313,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取标记值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_TAGPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTagPSAppDEField();
@@ -367,8 +327,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取项文本值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
@@ -383,8 +341,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取提示应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_TIPSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEField();
@@ -399,8 +355,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取更新数据应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_UPDATEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getUpdatePSAppDEAction();
@@ -415,8 +369,6 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	
 	/**
 	 * 获取更新要求操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarItemDTO#FIELD_UPDATEPSDEOPPRIVID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getUpdatePSDEOPPriv();

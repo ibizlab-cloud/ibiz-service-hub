@@ -12,8 +12,6 @@ public interface IPSLinkDEField extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取实体关系对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDER();
@@ -56,8 +54,6 @@ public interface IPSLinkDEField extends net.ibizsys.model.dataentity.defield.IPS
 	
 	/**
 	 * 获取链接属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_DERPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getRelatedPSDEField();

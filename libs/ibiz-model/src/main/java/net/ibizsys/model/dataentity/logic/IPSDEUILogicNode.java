@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.logic;
 
 
 /**
- * 实体界面逻辑节点模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getLogicNodeType}
+ * 实体界面逻辑节点模型对象接口
  *
  */
 public interface IPSDEUILogicNode extends net.ibizsys.model.dataentity.logic.IPSDELogicNodeBase{
@@ -14,8 +12,6 @@ public interface IPSDEUILogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_dstpsdlparamid}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParam();
@@ -72,8 +68,6 @@ public interface IPSDEUILogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getSrcPSDEUILogicParam();

@@ -674,6 +674,10 @@
       "name" : "SYS_PERMISSIONID",
       "codeName" : "PermissionId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "SYS_PERMISSIONNAME",
+      "codeName" : "PermissionName"
+    },
     "rSMode" : 2
   } ] ]
 }

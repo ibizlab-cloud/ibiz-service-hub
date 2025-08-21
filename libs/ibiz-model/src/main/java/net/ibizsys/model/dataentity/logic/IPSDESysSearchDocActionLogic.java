@@ -14,8 +14,6 @@ public interface IPSDESysSearchDocActionLogic extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESysSearchDocActionLogic extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取检索文档
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSSEARCHDOCID}
 	 * @return
 	 */
 	net.ibizsys.model.search.IPSSysSearchDoc getPSSysSearchDoc();
@@ -46,8 +42,6 @@ public interface IPSDESysSearchDocActionLogic extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取全文检索体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSSEARCHSCHEMEID}
 	 * @return
 	 */
 	net.ibizsys.model.search.IPSSysSearchScheme getPSSysSearchScheme();
@@ -62,8 +56,6 @@ public interface IPSDESysSearchDocActionLogic extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取检索文档操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBTableAction}
 	 * @return

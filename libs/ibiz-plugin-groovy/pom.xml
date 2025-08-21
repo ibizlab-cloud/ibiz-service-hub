@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.570.29.1</version>
+    <version>8.1.0.570.34.1</version>
   </parent>
   <artifactId>ibiz-plugin-groovy</artifactId>
 	<name>ibiz-plugin-groovy</name>
@@ -13,12 +13,19 @@
 	
 		<dependencies>
 
-		<dependency>
-			<groupId>cn.ibizlab.plugin</groupId>
-			<artifactId>ibiz-cloud-core</artifactId>
-			<version>${ibiz.cloud.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>cn.ibizlab.plugin</groupId>
+				<artifactId>ibiz-cloud-core</artifactId>
+				<version>${ibiz.cloud.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.ibizlab.plugin</groupId>
+				<artifactId>ibiz-codegen-groovy</artifactId>
+				<version>${ibiz.cloud.version}</version>
+			</dependency>
 
 
-	</dependencies>
+
+		</dependencies>
 </project>

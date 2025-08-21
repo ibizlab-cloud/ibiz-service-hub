@@ -3,7 +3,7 @@ package net.ibizsys.model.app.res;
 
 
 /**
- * 应用编辑器样式引用模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysEditorStyleDTO}运行时对象
+ * 应用编辑器样式引用模型对象接口
  * <P>
  * 定义前端应用对系统编辑器样式的引用，根据使用自动计算
  *

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.datamap;
 
 
 /**
- * 实体映射行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMapActionDTO}运行时对象
+ * 实体映射行为模型对象接口
  *
  */
 public interface IPSDEMapAction extends net.ibizsys.model.dataentity.datamap.IPSDEMapObject{
@@ -12,8 +12,6 @@ public interface IPSDEMapAction extends net.ibizsys.model.dataentity.datamap.IPS
 	
 	/**
 	 * 获取目标实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapActionDTO#FIELD_DSTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getDstPSDEAction();
@@ -44,8 +42,6 @@ public interface IPSDEMapAction extends net.ibizsys.model.dataentity.datamap.IPS
 	
 	/**
 	 * 获取源实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapActionDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getSrcPSDEAction();

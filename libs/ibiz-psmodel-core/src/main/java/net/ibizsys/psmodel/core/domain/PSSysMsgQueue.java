@@ -227,6 +227,151 @@ public class PSSysMsgQueue extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>CONTENTTYPEPSDEFID</B>&nbsp;内容类型属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_CONTENTTYPEPSDEFID = "contenttypepsdefid";
+
+    /**
+     * 设置 内容类型属性
+     * 
+     * @param contentTypePSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_CONTENTTYPEPSDEFID)
+    public void setContentTypePSDEFId(String contentTypePSDEFId){
+        this.set(FIELD_CONTENTTYPEPSDEFID, contentTypePSDEFId);
+    }
+    
+    /**
+     * 获取 内容类型属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getContentTypePSDEFId(){
+        Object objValue = this.get(FIELD_CONTENTTYPEPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 内容类型属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isContentTypePSDEFIdDirty(){
+        if(this.contains(FIELD_CONTENTTYPEPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 内容类型属性
+     */
+    @JsonIgnore
+    public void resetContentTypePSDEFId(){
+        this.reset(FIELD_CONTENTTYPEPSDEFID);
+    }
+
+    /**
+     * 设置 内容类型属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFId}
+     * @param contentTypePSDEFId
+     */
+    @JsonIgnore
+    public PSSysMsgQueue contenttypepsdefid(String contentTypePSDEFId){
+        this.setContentTypePSDEFId(contentTypePSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 内容类型属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysMsgQueue contenttypepsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setContentTypePSDEFId(null);
+            this.setContentTypePSDEFName(null);
+        }
+        else{
+            this.setContentTypePSDEFId(pSDEField.getPSDEFieldId());
+            this.setContentTypePSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>CONTENTTYPEPSDEFNAME</B>&nbsp;内容类型属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_CONTENTTYPEPSDEFID}
+     */
+    public final static String FIELD_CONTENTTYPEPSDEFNAME = "contenttypepsdefname";
+
+    /**
+     * 设置 内容类型属性
+     * 
+     * @param contentTypePSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_CONTENTTYPEPSDEFNAME)
+    public void setContentTypePSDEFName(String contentTypePSDEFName){
+        this.set(FIELD_CONTENTTYPEPSDEFNAME, contentTypePSDEFName);
+    }
+    
+    /**
+     * 获取 内容类型属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getContentTypePSDEFName(){
+        Object objValue = this.get(FIELD_CONTENTTYPEPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 内容类型属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isContentTypePSDEFNameDirty(){
+        if(this.contains(FIELD_CONTENTTYPEPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 内容类型属性
+     */
+    @JsonIgnore
+    public void resetContentTypePSDEFName(){
+        this.reset(FIELD_CONTENTTYPEPSDEFNAME);
+    }
+
+    /**
+     * 设置 内容类型属性
+     * <P>
+     * 等同 {@link #setContentTypePSDEFName}
+     * @param contentTypePSDEFName
+     */
+    @JsonIgnore
+    public PSSysMsgQueue contenttypepsdefname(String contentTypePSDEFName){
+        this.setContentTypePSDEFName(contentTypePSDEFName);
+        return this;
+    }
+
+    /**
      * <B>CREATEDATE</B>&nbsp;建立时间
      */
     public final static String FIELD_CREATEDATE = "createdate";

@@ -3,7 +3,7 @@ package net.ibizsys.central.cloud.ai.core.addin;
 import net.ibizsys.central.cloud.core.util.domain.AIAccess;
 
 /**
- * OPEN AI 接口兼容平台
+ * QWEN OPEN AI 接口兼容平台
  * @author lionlau
  *
  */

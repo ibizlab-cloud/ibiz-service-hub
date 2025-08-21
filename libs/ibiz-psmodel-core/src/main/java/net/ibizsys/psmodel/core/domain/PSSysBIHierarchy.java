@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIHIERARCHY</B>智能报表维度体系 模型传输对象
  * <P>
- * 
+ * 智能报表系统中用于定义维度层级结构的核心模型，支持实体型（如组织架构）和时间型（如年-月-日）层级体系。它通过关联代码表、实体属性或自定义层级，构建多维分析中的钻取路径，并与立方体维度层级关联，实现数据的分层展示与分析
  */
 public class PSSysBIHierarchy extends net.ibizsys.psmodel.core.util.PSModelBase {
 

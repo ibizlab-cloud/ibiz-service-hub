@@ -15,8 +15,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取实体关系项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DRITEMTAG}
 	 * @return
 	 */
 	java.lang.String getDRItemTag();
@@ -24,8 +22,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取自定义遮罩信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_MASKINFO}
 	 * @return
 	 */
 	java.lang.String getMaskInfo();
@@ -33,8 +29,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取遮罩模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_MASKMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDRUIPartMaskMode}
 	 * @return
@@ -44,8 +38,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取遮罩信息语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_MASKPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getMaskPSLanguageRes();
@@ -74,8 +66,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取调用表单项更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFIUPDATEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.form.IPSDEFormItemUpdate getPSDEFormItemUpdate();
@@ -90,8 +80,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取界面参数项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_VALUEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getParamItem();
@@ -106,8 +94,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取界面刷新触发表单项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_RESETITEMNAME}
 	 * @return
 	 */
 	java.lang.String getRefreshItems();
@@ -115,8 +101,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取是否需要进行保存
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_WBDEFMODE}
 	 * @return
 	 */
 	boolean isNeedSave();
@@ -124,8 +108,6 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	
 	/**
 	 * 获取是否附加刷新项只赋值不刷新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_BUILDINACTION}
 	 * @return
 	 */
 	boolean isRefreshItemsSetParamOnly();

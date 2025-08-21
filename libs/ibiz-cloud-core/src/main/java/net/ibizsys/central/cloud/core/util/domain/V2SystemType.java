@@ -6,6 +6,8 @@ public enum V2SystemType {
     ,
     EXTENSION("EXTENSION","扩展功能")
     ,
+    MERGENCE("MERGENCE","合并功能")
+    ,
     BASE("BASE","基础功能")
     ,
     COMPONENT("COMPONENT","组件")

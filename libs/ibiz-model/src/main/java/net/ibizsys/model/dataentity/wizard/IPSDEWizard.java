@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.wizard;
 
 
 /**
- * 实体向导模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO}运行时对象
+ * 实体向导模型对象接口
  *
  */
 public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -26,8 +26,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取完成标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_FINISHPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getFinishCapPSLanguageRes();
@@ -42,8 +40,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取完成标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_FINISHCAPTION}
 	 * @return
 	 */
 	java.lang.String getFinishCaption();
@@ -72,8 +68,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取下一步标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_NEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getNextCapPSLanguageRes();
@@ -88,8 +82,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取下一步标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_NEXTCAPTION}
 	 * @return
 	 */
 	java.lang.String getNextCaption();
@@ -146,8 +138,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取上一步标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_PREVPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getPrevCapPSLanguageRes();
@@ -162,8 +152,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取上一步标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_PREVCAPTION}
 	 * @return
 	 */
 	java.lang.String getPrevCaption();
@@ -171,8 +159,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取向导样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_WIZARDSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WizardStyle}
 	 * @return
@@ -189,8 +175,6 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否状态向导
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_STATEWIZARDFLAG}
 	 * @return
 	 */
 	boolean isStateWizard();

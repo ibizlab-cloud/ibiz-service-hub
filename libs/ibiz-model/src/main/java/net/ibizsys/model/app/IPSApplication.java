@@ -3,7 +3,7 @@ package net.ibizsys.model.app;
 
 
 /**
- * 应用模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysAppDTO}运行时对象
+ * 应用模型对象接口
  *
  */
 public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
@@ -826,8 +826,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_APPPKGNAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -835,8 +833,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否默认应用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_DEFAULTPUB}
 	 * @return
 	 */
 	boolean getDefaultFlag();
@@ -866,8 +862,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取动态系统模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_ENABLEDYNASYS}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DynaSysMode}
 	 * @return
 	 */
@@ -890,8 +884,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前端模板样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_PSPFSTYLEID}
 	 * @return
 	 */
 	java.lang.String getPFStyle();
@@ -899,8 +891,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前端模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_PSPFID}
 	 * @return
 	 */
 	java.lang.String getPFType();
@@ -908,8 +898,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码包名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_APPPKGNAME}
 	 * @return
 	 */
 	java.lang.String getPKGCodeName();
@@ -1015,8 +1003,6 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取视图代码标识模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_CODENAMEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return

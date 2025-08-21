@@ -17,8 +17,6 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	/**
 	 * 获取按钮行为类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BTNACTIONTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PanelButtonActionType}
 	 * @return
 	 */
@@ -27,8 +25,6 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	
 	/**
 	 * 获取动态标题绑定值项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getCaptionItemName();
@@ -50,8 +46,6 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	
 	/**
 	 * 获取调用界面行为，除了显式指定界面行为，其它类型{@link #getActionType}也会被仿真为界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIAction getPSUIAction();

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield.valuerule;
 
 
 /**
- * 实体属性值规则模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO}运行时对象
+ * 实体属性值规则模型对象接口
  *
  */
 public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IPSDEFieldObject
@@ -62,8 +62,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取规则信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_RULEINFO}
 	 * @return
 	 */
 	java.lang.String getRuleInfo();
@@ -92,8 +90,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取规则标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_RULETAG}
 	 * @return
 	 */
 	java.lang.String getRuleTag();
@@ -101,8 +97,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取规则标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_RULETAG2}
 	 * @return
 	 */
 	java.lang.String getRuleTag2();
@@ -110,8 +104,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -119,8 +111,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取是否默认检查
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_CHECKDEFAULT}
 	 * @return
 	 */
 	boolean isCheckDefault();
@@ -135,8 +125,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取是否默认规则 
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_DEFAULTMODE}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -144,8 +132,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取是否支持后台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_RULEHOLDER}
 	 * @return
 	 */
 	boolean isEnableBackend();
@@ -153,8 +139,6 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	
 	/**
 	 * 获取是否支持前台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFValueRuleDTO#FIELD_RULEHOLDER}
 	 * @return
 	 */
 	boolean isEnableFront();

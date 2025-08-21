@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "CID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "CNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -507,6 +515,7 @@
     "length" : 100,
     "logicName" : "部件标识",
     "name" : "CID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -634,6 +643,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "CNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -761,6 +771,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -903,6 +914,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1066,6 +1078,7 @@
     "length" : 100,
     "logicName" : "应用标识",
     "name" : "APPID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1217,6 +1230,7 @@
     "length" : 100,
     "logicName" : "类型",
     "name" : "CTYPE",
+    "orderValue" : 6,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSCODELISTS/ComponentType.json"
@@ -1362,6 +1376,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1557,6 +1572,7 @@
     "length" : 100,
     "logicName" : "主实体",
     "name" : "ENTITYNAME",
+    "orderValue" : 8,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/DstComponent/PSDERS/DER1N_DST_COMPONENT_META_ENTITY_ENTITYID.json"
@@ -1695,6 +1711,7 @@
     "length" : 1048576,
     "logicName" : "配置",
     "name" : "CFG",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1804,6 +1821,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 101,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

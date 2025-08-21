@@ -6,12 +6,12 @@
     <parent>
         <artifactId>ibiz-service-runner</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>${ibiz.cloud.version}</version>
+        <version>8.1.0.570.34.1</version>
     </parent>
 
     <artifactId>ibizservicerunner-core</artifactId>
     <name>iBiz Service Runner Core</name>
-    <description></description>
+    <description>iBiz Service Runner Core</description>
 
     <dependencies>
    
@@ -41,6 +41,7 @@
                     <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYSLOGID",
+        "codeName" : "SysLogId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYSLOGNAME",
+        "codeName" : "SysLogName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -630,6 +638,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -738,6 +747,7 @@
     "length" : 200,
     "logicName" : "用户数据",
     "name" : "USERDATA",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -835,6 +845,7 @@
     "length" : 100,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -944,6 +955,7 @@
     "length" : 200,
     "logicName" : "日志信息",
     "name" : "SYSLOGNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1051,6 +1063,7 @@
     "length" : 60,
     "logicName" : "日志标识",
     "name" : "SYSLOGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1151,6 +1164,7 @@
     "length" : 100,
     "logicName" : "操作人",
     "name" : "OPPERSONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1248,6 +1262,7 @@
     "length" : 60,
     "logicName" : "组织部门标识",
     "name" : "DEPTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1354,6 +1369,7 @@
     "length" : 60,
     "logicName" : "日志类别",
     "name" : "LOGCAT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1451,6 +1467,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1554,6 +1571,7 @@
     "length" : 1048576,
     "logicName" : "日志信息",
     "name" : "LOGINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1641,6 +1659,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1750,6 +1769,7 @@
     "length" : 200,
     "logicName" : "用户数据2",
     "name" : "USERDATA2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1847,6 +1867,7 @@
     "length" : 60,
     "logicName" : "组织机构标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1934,6 +1955,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "日志时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2027,6 +2049,7 @@
     "length" : 60,
     "logicName" : "日志级别",
     "name" : "LOGLEVEL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2156,6 +2179,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/log/PSDATAENTITIES/SysLog/PSDERS/DER1N_SYS_LOG_SYS_DC_SYSTEM_DCSYSTEMID2.json"
@@ -2286,6 +2310,7 @@
     "length" : 100,
     "logicName" : "租户系统",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

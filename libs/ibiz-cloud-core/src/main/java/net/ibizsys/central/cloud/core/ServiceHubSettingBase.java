@@ -56,7 +56,7 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	private int workThreadMaximumPoolSize = 40;
 	private int workThreadBlockingQueueSize = 2000;
 
-	private int monitorDebugModelPathsTimer = -1;
+	public int monitorDebugModelPathsTimer = -1;
 	
 	private Map<String, String> systemRuntimeClass = null;
 	

@@ -1109,6 +1109,10 @@
               "name" : "DCSYSTEMID",
               "codeName" : "DCSystemId"
             },
+            "getParentTextPSAppDEField" : {
+              "name" : "DCSYSTEMNAME",
+              "codeName" : "DCSystemName"
+            },
             "rSMode" : 2
           } ] ]
         },

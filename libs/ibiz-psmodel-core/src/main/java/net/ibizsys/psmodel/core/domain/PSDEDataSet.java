@@ -244,12 +244,12 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>AFTERCODE</B>&nbsp;前端执行之后代码
+     * <B>AFTERCODE</B>&nbsp;前端执行之后代码，定义前端在行为执行之后附加的执行代码
      */
     public final static String FIELD_AFTERCODE = "aftercode";
 
     /**
-     * 设置 前端执行之后代码
+     * 设置 前端执行之后代码，详细说明：{@link #FIELD_AFTERCODE}
      * 
      * @param afterCode
      * 
@@ -293,7 +293,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 前端执行之后代码
+     * 设置 前端执行之后代码，详细说明：{@link #FIELD_AFTERCODE}
      * <P>
      * 等同 {@link #setAfterCode}
      * @param afterCode
@@ -450,12 +450,12 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BEFORECODE</B>&nbsp;前端执行之前代码
+     * <B>BEFORECODE</B>&nbsp;前端执行之前代码，定义前端在行为执行之前附加的执行代码
      */
     public final static String FIELD_BEFORECODE = "beforecode";
 
     /**
-     * 设置 前端执行之前代码
+     * 设置 前端执行之前代码，详细说明：{@link #FIELD_BEFORECODE}
      * 
      * @param beforeCode
      * 
@@ -499,7 +499,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 前端执行之前代码
+     * 设置 前端执行之前代码，详细说明：{@link #FIELD_BEFORECODE}
      * <P>
      * 等同 {@link #setBeforeCode}
      * @param beforeCode
@@ -1190,12 +1190,12 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCODE</B>&nbsp;脚本代码
+     * <B>CUSTOMCODE</B>&nbsp;内联代码
      */
     public final static String FIELD_CUSTOMCODE = "customcode";
 
     /**
-     * 设置 脚本代码
+     * 设置 内联代码
      * 
      * @param customCode
      * 
@@ -1206,7 +1206,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 脚本代码  
+     * 获取 内联代码  
      * @return
      */
     @JsonIgnore
@@ -1219,7 +1219,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 脚本代码 是否指定值，包括空值
+     * 判断 内联代码 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1231,7 +1231,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 脚本代码
+     * 重置 内联代码
      */
     @JsonIgnore
     public void resetCustomCode(){
@@ -1239,7 +1239,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 脚本代码
+     * 设置 内联代码
      * <P>
      * 等同 {@link #setCustomCode}
      * @param customCode
@@ -1251,14 +1251,14 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式
+     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式，进一步指定脚本代码的模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode2} 
      */
     public final static String FIELD_CUSTOMMODE = "custommode";
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * 
      * @param customMode
      * 
@@ -1302,7 +1302,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -1314,7 +1314,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -2031,7 +2031,7 @@ public class PSDEDataSet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEGROUP</B>&nbsp;启用分组，指定数据集合是否提供数据分组能力，启用数据分组能力需要进一步定义结果集合的分组参数，未指定时为【否】
+     * <B>ENABLEGROUP</B>&nbsp;启用分组，指定数据集合是否启用数据分组能力，启用数据分组时需定义分组参数或配置聚合关系，未指定时为【无】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDataSetGroupMode} 
      */

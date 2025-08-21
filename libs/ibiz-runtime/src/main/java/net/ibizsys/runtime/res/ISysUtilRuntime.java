@@ -20,6 +20,5 @@ public interface ISysUtilRuntime extends IModelRuntime {
 	 */
 	void init(ISystemRuntimeContext iSystemRuntimeContext, IPSSysUtil iPSSysUtil) throws Exception;
 
-	
 
 }

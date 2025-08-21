@@ -26,8 +26,6 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -74,8 +72,6 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	
 	/**
 	 * 获取标签直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LABELRAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getLabelCssStyle();

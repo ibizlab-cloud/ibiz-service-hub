@@ -19,7 +19,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定实体数据同步的代码标识，需要在所在的实体中具有唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，指定实体数据同步的代码标识，需在所属实体中具有唯一性
      * <P>
      * 字符串：最大长度 30，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -925,7 +925,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>INPSDEDATASETID</B>&nbsp;输入数据集，指定实体数据同步输入的数据集，一般使用该数据集的查询条件作为输入过滤条件
+     * <B>INPSDEDATASETID</B>&nbsp;输入数据集，指定实体数据同步输入的过滤数据集，使用该数据集的查询条件作为输入过滤条件
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
@@ -1644,7 +1644,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTPSDEDATASETID</B>&nbsp;输出数据集，指定实体数据同步输出的数据集，一般使用该数据集的查询条件作为输出过滤条件
+     * <B>OUTPSDEDATASETID</B>&nbsp;输出数据集，指定实体数据同步输出的过滤数据集，使用该数据集的查询条件作为输入过滤条件
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */

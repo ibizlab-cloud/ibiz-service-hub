@@ -3,7 +3,7 @@ package net.ibizsys.model.database;
 
 
 /**
- * 数据库体系对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO}运行时对象
+ * 数据库体系对象接口
  *
  */
 public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServiceAPIBase{
@@ -40,8 +40,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取代码名称2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_CODENAME2}
 	 * @return
 	 */
 	java.lang.String getCodeName2();
@@ -57,8 +55,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	/**
 	 * 获取对象名称转化
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_OBJNAMECASE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
@@ -68,8 +64,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	/**
 	 * 获取默认数据源
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_DSLINK}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
@@ -78,8 +72,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取系统模型组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_PSSYSMODELGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSysModelGroup getPSSysModelGroup();
@@ -94,8 +86,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取后台扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -110,8 +100,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -140,8 +128,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取体系标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_SCHEMETAG}
 	 * @return
 	 */
 	java.lang.String getSchemeTag();
@@ -149,8 +135,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取体系标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_SCHEMETAG2}
 	 * @return
 	 */
 	java.lang.String getSchemeTag2();
@@ -158,8 +142,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取是否自动扩展结构
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_AUTOEXTENDMODEL}
 	 * @return
 	 */
 	boolean isAutoExtendModel();
@@ -167,8 +149,6 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	
 	/**
 	 * 获取是否现有数据结构
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBSchemeDTO#FIELD_EXISTINGMODEL}
 	 * @return
 	 */
 	boolean isExistingModel();

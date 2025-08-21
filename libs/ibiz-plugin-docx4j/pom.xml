@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <artifactId>ibiz-plugin</artifactId>
+    <version>8.1.0.570.34.1</version>
+  </parent>
+  <artifactId>ibiz-plugin-docx4j</artifactId>
+    <name>ibiz-plugin-docx4j</name>
+  <properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>
+   <dependencies>
+       	
+		<dependency>
+		  <groupId>org.docx4j</groupId>
+		  <artifactId>docx4j-JAXB-Internal</artifactId>
+		  <version>8.3.8</version>
+		</dependency>
+
+       <dependency>
+           <groupId>org.docx4j</groupId>
+           <artifactId>docx4j-ImportXHTML</artifactId>
+           <version>8.3.8</version>
+           <exclusions>
+               <!-- 排除依赖使用JRE自带解析器 -->
+               <exclusion>
+                   <groupId>xerces</groupId>
+                   <artifactId>xercesImpl</artifactId>
+               </exclusion>
+           </exclusions>
+       </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-cloud-core</artifactId>
+            <version>8.1.0.570.34.1</version>
+        </dependency>
+		
+
+    </dependencies>
+</project>

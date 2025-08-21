@@ -14,8 +14,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_FORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getFormCodeName();
@@ -23,8 +21,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取移动端操作表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBFORMCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobFormCodeName();
@@ -32,8 +28,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取移动端启动视图代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBVIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getMobStartViewCodeName();
@@ -41,8 +35,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取移动端启动视图名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_MOBPSDEVIEWNAME}
 	 * @return
 	 */
 	java.lang.String getMobStartViewName();
@@ -50,8 +42,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取启动视图代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_VIEWCODENAME}
 	 * @return
 	 */
 	java.lang.String getStartViewCodeName();
@@ -59,8 +49,6 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	
 	/**
 	 * 获取启动视图名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFProcessDTO#FIELD_PSDEVIEWBASENAME}
 	 * @return
 	 */
 	java.lang.String getStartViewName();

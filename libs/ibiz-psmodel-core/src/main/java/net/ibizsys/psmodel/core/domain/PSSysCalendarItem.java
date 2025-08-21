@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSCALENDARITEM</B>系统日历视图项 模型传输对象
+ * <B>PSSYSCALENDARITEM</B>日历部件项 模型传输对象
  * <P>
- * 日历部件项模型，定义日历部件的子项数据源，包括子项的界面表现及处理逻辑
+ * 日历部件项模型，定义日历部件的子项数据源、界面表现及处理逻辑
  */
 public class PSSysCalendarItem extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -8065,14 +8065,14 @@ public class PSSysCalendarItem extends net.ibizsys.psmodel.core.util.PSModelBase
 
 
     /**
-     *  系统日历项相关视图 成员集合
+     *  日历项引用视图 成员集合
      */
     public final static String FIELD_PSSYSCALENDARITEMRVS = "pssyscalendaritemrvs";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysCalendarItemRV> pssyscalendaritemrvs;
 
     /**
-     * 获取 系统日历项相关视图 成员集合
+     * 获取 日历项引用视图 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSCALENDARITEMRVS)
@@ -8081,7 +8081,7 @@ public class PSSysCalendarItem extends net.ibizsys.psmodel.core.util.PSModelBase
     }
 
     /**
-     * 设置 系统日历项相关视图 成员集合  
+     * 设置 日历项引用视图 成员集合  
      * @param pssyscalendaritemrvs
      */
     @JsonProperty(FIELD_PSSYSCALENDARITEMRVS)
@@ -8090,7 +8090,7 @@ public class PSSysCalendarItem extends net.ibizsys.psmodel.core.util.PSModelBase
     }
 
     /**
-     * 获取 系统日历项相关视图 成员集合，不存在时建立集合对象
+     * 获取 日历项引用视图 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

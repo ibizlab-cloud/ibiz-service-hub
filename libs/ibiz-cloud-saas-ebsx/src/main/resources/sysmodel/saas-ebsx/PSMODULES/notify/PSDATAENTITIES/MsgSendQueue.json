@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MSGSENDQUEUEID",
+        "codeName" : "MsgSendQueueId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MSGSENDQUEUENAME",
+        "codeName" : "MsgSendQueueName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -691,6 +699,7 @@
     "length" : 2000,
     "logicName" : "URL",
     "name" : "URL",
+    "orderValue" : 280,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -786,6 +795,7 @@
     "length" : 2000,
     "logicName" : "移动端URL",
     "name" : "MOBILEURL",
+    "orderValue" : 290,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -889,6 +899,7 @@
     "length" : 200,
     "logicName" : "消息名称",
     "name" : "MSGSENDQUEUENAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -994,6 +1005,7 @@
     "length" : 100,
     "logicName" : "内容类型",
     "name" : "CONTENTTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/CodeList42.json"
@@ -1095,6 +1107,7 @@
     "length" : 1048576,
     "logicName" : "目标地址",
     "name" : "DSTADDRESSES",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1193,6 +1206,7 @@
     "length" : 1048576,
     "logicName" : "消息内容",
     "name" : "CONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1291,6 +1305,7 @@
     "length" : 200,
     "logicName" : "用户数据3",
     "name" : "USERDATA3",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1382,6 +1397,7 @@
     "importOrder" : 1000,
     "logicName" : "消息类型",
     "name" : "MSGTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/MsgType.json"
@@ -1482,6 +1498,7 @@
     "length" : 1000,
     "logicName" : "短消息内容",
     "name" : "SMSCONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1579,6 +1596,7 @@
     "length" : 200,
     "logicName" : "消息标题",
     "name" : "SUBJECT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1676,6 +1694,7 @@
     "length" : 1048576,
     "logicName" : "钉钉消息内容",
     "name" : "DDCONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1774,6 +1793,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "SYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1860,6 +1880,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "处理时间",
     "name" : "PROCESSTIME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1945,6 +1966,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "计划发送时间",
     "name" : "PLANSENDTIME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2041,6 +2063,7 @@
     "length" : 1048576,
     "logicName" : "IM消息内容",
     "name" : "IMCONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2128,6 +2151,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2226,6 +2250,7 @@
     "length" : 200,
     "logicName" : "用户数据",
     "name" : "USERDATA",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2323,6 +2348,7 @@
     "length" : 1048576,
     "logicName" : "错误信息",
     "name" : "ERRORINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2421,6 +2447,7 @@
     "length" : 500,
     "logicName" : "文件附件3",
     "name" : "FILEAT3",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2516,6 +2543,7 @@
     "importOrder" : 1000,
     "logicName" : "重要程度",
     "name" : "IMPORTANCEFLAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2612,6 +2640,7 @@
     "length" : 200,
     "logicName" : "用户数据4",
     "name" : "USERDATA4",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2709,6 +2738,7 @@
     "length" : 1048576,
     "logicName" : "全部地址",
     "name" : "TOTALDSTADDRESSES",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2807,6 +2837,7 @@
     "length" : 500,
     "logicName" : "文件附件",
     "name" : "FILEAT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2912,6 +2943,7 @@
     "length" : 100,
     "logicName" : "消息发送队列标识",
     "name" : "MSGSENDQUEUEID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3012,6 +3044,7 @@
     "length" : 100,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -3109,6 +3142,7 @@
     "importOrder" : 1000,
     "logicName" : "是否发送",
     "name" : "ISSEND",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3209,6 +3243,7 @@
     "length" : 500,
     "logicName" : "文件附件4",
     "name" : "FILEAT4",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3306,6 +3341,7 @@
     "length" : 100,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -3409,6 +3445,7 @@
     "length" : 1048576,
     "logicName" : "微信消息内容",
     "name" : "WXCONTENT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3496,6 +3533,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3594,6 +3632,7 @@
     "length" : 500,
     "logicName" : "文件附件2",
     "name" : "FILEAT2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3691,6 +3730,7 @@
     "length" : 200,
     "logicName" : "发送者",
     "name" : "SENDTAG",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3788,6 +3828,7 @@
     "length" : 1048576,
     "logicName" : "目标用户",
     "name" : "DSTUSERS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3880,6 +3921,7 @@
     "importOrder" : 1000,
     "logicName" : "发送失败",
     "name" : "ISERROR",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -3980,6 +4022,7 @@
     "length" : 200,
     "logicName" : "用户数据2",
     "name" : "USERDATA2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4110,6 +4153,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/MsgSendQueue/PSDERS/DER1N_MSG_SEND_QUEUE_SYS_DC_SYSTEM_DCSYSTEMID.json"
@@ -4240,6 +4284,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -4358,6 +4403,7 @@
     "length" : 100,
     "logicName" : "消息模板标记",
     "name" : "TEMPLATEID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.control;
 
 
 /**
- * 应用计数器模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysCounterDTO}运行时对象
+ * 应用计数器模型对象接口
  *
  */
 public interface IPSAppCounter extends net.ibizsys.model.control.counter.IPSSysCounter
@@ -14,8 +14,6 @@ public interface IPSAppCounter extends net.ibizsys.model.control.counter.IPSSysC
 	
 	/**
 	 * 获取计算应用实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCounterDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEAction getGetPSAppDEAction();
@@ -30,8 +28,6 @@ public interface IPSAppCounter extends net.ibizsys.model.control.counter.IPSSysC
 	
 	/**
 	 * 获取计算应用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCounterDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getGetPSAppDEDataSet();
@@ -46,8 +42,6 @@ public interface IPSAppCounter extends net.ibizsys.model.control.counter.IPSSysC
 	
 	/**
 	 * 获取应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCounterDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();

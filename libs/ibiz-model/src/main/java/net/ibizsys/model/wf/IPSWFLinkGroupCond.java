@@ -15,8 +15,6 @@ public interface IPSWFLinkGroupCond extends net.ibizsys.model.wf.IPSWFLinkCond{
 	/**
 	 * 获取组合条件
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkCondDTO#FIELD_GROUPOP}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */
@@ -46,8 +44,6 @@ public interface IPSWFLinkGroupCond extends net.ibizsys.model.wf.IPSWFLinkCond{
 	
 	/**
 	 * 获取是否逻辑取反
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFLinkCondDTO#FIELD_GROUPNOTFLAG}
 	 * @return
 	 */
 	boolean isNotMode();

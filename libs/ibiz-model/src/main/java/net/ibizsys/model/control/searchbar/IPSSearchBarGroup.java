@@ -32,8 +32,6 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	
 	/**
 	 * 获取分组提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -41,8 +39,6 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	
 	/**
 	 * 获取分组提示信息多语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
@@ -57,8 +53,6 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	
 	/**
 	 * 获取宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_WIDTH}
 	 * @return
 	 */
 	double getWidth();
@@ -66,8 +60,6 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	
 	/**
 	 * 获取是否添加分隔栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_ADDSEPARATOR}
 	 * @return
 	 */
 	boolean isAddSeparator();
@@ -75,8 +67,6 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	
 	/**
 	 * 获取是否默认分组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefaultGroup();

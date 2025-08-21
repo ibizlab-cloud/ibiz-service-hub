@@ -11,8 +11,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取目标实体数据查询对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEDATAQUERYID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getDstPSDEDataQuery();
@@ -27,8 +25,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取目标实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getDstPSDEDataSet();
@@ -43,8 +39,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();
@@ -59,8 +53,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取大数据库体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSBDSCHEMEID}
 	 * @return
 	 */
 	net.ibizsys.model.ba.IPSSysBDScheme getPSSysBDScheme();
@@ -75,8 +67,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取数据表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSBDTABLEID}
 	 * @return
 	 */
 	net.ibizsys.model.ba.IPSSysBDTable getPSSysBDTable();
@@ -91,8 +81,6 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	
 	/**
 	 * 获取子类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICNODESUBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysBDSchemeSourceType}
 	 * @return

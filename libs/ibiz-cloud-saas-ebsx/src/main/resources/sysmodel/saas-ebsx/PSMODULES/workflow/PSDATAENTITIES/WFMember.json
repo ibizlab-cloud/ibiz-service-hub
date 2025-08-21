@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "MEMBERID",
+        "codeName" : "MemberId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "MEMBERNAME",
+        "codeName" : "MemberName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -680,6 +688,7 @@
     "length" : 100,
     "logicName" : "组成员标识",
     "name" : "MEMBERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -807,6 +816,7 @@
     "length" : 100,
     "logicName" : "组成员名称",
     "name" : "MEMBERNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -951,6 +961,7 @@
     "length" : 100,
     "logicName" : "组标识",
     "name" : "GROUPID",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1148,6 +1159,7 @@
     "length" : 100,
     "logicName" : "用户组",
     "name" : "GROUPNAME",
+    "orderValue" : 4,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_WF_GROUP_GROUPID.json"
@@ -1310,6 +1322,7 @@
     "length" : 100,
     "logicName" : "单位",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -1464,6 +1477,7 @@
     "length" : 100,
     "logicName" : "业务编码",
     "name" : "BCODE",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -1578,6 +1592,7 @@
     "importOrder" : 1000,
     "logicName" : "删除标识",
     "name" : "ENABLE",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -1730,6 +1745,7 @@
     "length" : 100,
     "logicName" : "单位",
     "name" : "ORGNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -1898,6 +1914,7 @@
     "length" : 100,
     "logicName" : "用户",
     "name" : "PERSONNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -2060,6 +2077,7 @@
     "length" : 100,
     "logicName" : "部门",
     "name" : "MDEPTID",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -2213,6 +2231,7 @@
     "length" : 100,
     "logicName" : "部门",
     "name" : "MDEPTNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -2352,6 +2371,7 @@
     "length" : 100,
     "logicName" : "组标识",
     "name" : "GROUPCODE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2491,6 +2511,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/workflow/PSDATAENTITIES/WFMember/PSDERS/DER1N_WF_GROUP_MEMBER_SYS_EMP_USERID.json"
@@ -2631,6 +2652,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

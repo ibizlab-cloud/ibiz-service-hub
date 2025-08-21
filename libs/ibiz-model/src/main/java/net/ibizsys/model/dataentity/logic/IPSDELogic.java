@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.logic;
 
 
 /**
- * 实体处理逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getLogicSubType}
+ * 实体处理逻辑模型对象接口
  *
  */
 public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityObject
@@ -17,8 +15,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	/**
 	 * 获取附加模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_ATTACHMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionLogicAttachMode}
 	 * @return
 	 */
@@ -27,8 +23,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取附加到指定行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_ATTACHTOPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getAttachToPSDEAction();
@@ -43,8 +37,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取附加到指定数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_ATTACHTOPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getAttachToPSDEDataSet();
@@ -59,8 +51,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取调试模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_DEBUGMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicDebugMode}
 	 * @return
@@ -77,8 +67,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取监控事件模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_EVENTMODEL}
 	 * @return
 	 */
 	java.lang.String getEventModel();
@@ -86,8 +74,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取监控事件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_EVENTS}
 	 * @return
 	 */
 	java.lang.String getEvents();
@@ -95,8 +81,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取逻辑子类
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_LOGICSUBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicSubType}
 	 * @return
@@ -162,8 +146,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -186,8 +168,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	/**
 	 * 获取线程模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_THREADRUNMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicThreadRunMode}
 	 * @return
 	 */
@@ -196,8 +176,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取定时触发策略
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_TIMERPOLICY}
 	 * @return
 	 */
 	java.lang.String getTimerPolicy();
@@ -205,8 +183,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取是否自定义脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();
@@ -228,8 +204,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取是否忽略异常
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_IGNOREEXCEPTION}
 	 * @return
 	 */
 	boolean isIgnoreException();
@@ -237,8 +211,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取是否模板逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_TEMPLFLAG}
 	 * @return
 	 */
 	boolean isTemplate();
@@ -246,8 +218,6 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	/**
 	 * 获取是否启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicDTO#FIELD_VALIDFLAG}
 	 * @return
 	 */
 	boolean isValid();

@@ -21,8 +21,6 @@ public interface IPSDEFormUserControl extends net.ibizsys.model.control.form.IPS
 	
 	/**
 	 * 获取预置类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PREDEFINEDTYPE}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();

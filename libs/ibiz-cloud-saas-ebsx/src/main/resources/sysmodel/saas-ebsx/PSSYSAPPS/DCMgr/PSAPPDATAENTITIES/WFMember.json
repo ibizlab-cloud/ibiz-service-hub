@@ -306,6 +306,7 @@
     "codeName" : "OrgId",
     "logicName" : "单位",
     "name" : "ORGID",
+    "predefinedType" : "ORGID",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
@@ -323,6 +324,7 @@
     "codeName" : "OrgName",
     "logicName" : "单位",
     "name" : "ORGNAME",
+    "predefinedType" : "ORGNAME",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
@@ -1140,6 +1142,10 @@
       "name" : "USERID",
       "codeName" : "UserId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "PERSONNAME",
+      "codeName" : "PersonName"
+    },
     "rSMode" : 2
   }, {
     "actionRSMode" : 1,
@@ -1161,6 +1167,10 @@
     "getParentPSAppDEField" : {
       "name" : "GROUPID",
       "codeName" : "GroupId"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "GROUPNAME",
+      "codeName" : "GroupName"
     },
     "rSMode" : 2
   } ],

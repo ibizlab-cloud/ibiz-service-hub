@@ -3,7 +3,7 @@ package net.ibizsys.model.control.form;
 
 
 /**
- * 实体表单模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFormDTO}运行时对象
+ * 实体表单模型基础对象接口
  *
  */
 public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
@@ -14,8 +14,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取默认标签宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_LABELWIDTH}
 	 * @return
 	 */
 	int getDefaultLabelWidth();
@@ -23,8 +21,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取表单功能模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_FUNCMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormFuncMode}
 	 * @return
@@ -34,8 +30,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取表单样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_FORMSTYLE}
 	 * @return
 	 */
 	java.lang.String getFormStyle();
@@ -43,8 +37,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取表单宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_FORMWIDTH}
 	 * @return
 	 */
 	double getFormWidth();
@@ -52,8 +44,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取应用实体属性输入提示集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_PSDEFINPUTTIPSETID}
 	 * @return
 	 */
 	net.ibizsys.model.app.res.IPSAppDEFInputTipSet getPSAppDEFInputTipSet();
@@ -153,8 +143,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	/**
 	 * 获取表单分页头部位置
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_TABHEADERPOS}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TabHeaderPos}
 	 * @return
 	 */
@@ -163,8 +151,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取是否启用表单项过滤器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_ENABLEITEMFILTER}
 	 * @return
 	 */
 	boolean isEnableItemFilter();
@@ -172,8 +158,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取是否移动端部件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_MOBFLAG}
 	 * @return
 	 */
 	boolean isMobileControl();
@@ -181,8 +165,6 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取是否隐藏分页头部
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDTO#FIELD_SHOWTABHEADER}
 	 * @return
 	 */
 	boolean isNoTabHeader();

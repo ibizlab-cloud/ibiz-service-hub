@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "RELATIONID",
+        "codeName" : "RelationId"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -441,6 +449,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "ID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -581,6 +590,7 @@
     "length" : 100,
     "logicName" : "关系标识",
     "name" : "RELATIONID",
+    "orderValue" : 2,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaLookup/PSDERS/DER1N_META_LOOKUP_META_RELATION_RELATIONID.json"
@@ -715,6 +725,7 @@
     "length" : 100,
     "logicName" : "属性名称",
     "name" : "FIELDNAME",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -826,6 +837,7 @@
     "length" : 100,
     "logicName" : "引用属性名称",
     "name" : "REFFIELDNAME",
+    "orderValue" : 4,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"

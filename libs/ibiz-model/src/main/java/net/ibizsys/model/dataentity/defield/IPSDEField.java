@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO}运行时对象
+ * 实体属性模型对象接口
  *
  */
 public interface IPSDEField extends net.ibizsys.model.IPSModelObject
@@ -100,8 +100,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取审计格式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_AUDITINFOFORMAT}
 	 * @return
 	 */
 	java.lang.String getAuditInfoFormat();
@@ -109,8 +107,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取业务标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_BIZTAG}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFBizTag}
 	 * @return
@@ -141,8 +137,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值计算表达式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_COMPUTEEXP}
 	 * @return
 	 */
 	java.lang.String getComputeExpression();
@@ -165,8 +159,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取属性类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_DEFTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFType}
 	 * @return
 	 */
@@ -176,8 +168,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取主状态属性模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_STATEFIELD}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMSFieldMode}
 	 * @return
 	 */
@@ -186,8 +176,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PSDATATYPEID}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDataType}
 	 * @return
@@ -211,8 +199,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_DEFAULTVALUE}
 	 * @return
 	 */
 	java.lang.String getDefaultValue();
@@ -235,8 +221,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取默认值类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_DVT}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
@@ -245,8 +229,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取重复值检查
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_DUPCHECKMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDupCheckMode}
 	 * @return
@@ -284,8 +266,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取属性标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_FIELDTAG}
 	 * @return
 	 */
 	java.lang.String getFieldTag();
@@ -293,8 +273,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取属性标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_FIELDTAG2}
 	 * @return
 	 */
 	java.lang.String getFieldTag2();
@@ -302,8 +280,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取导入次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_IMPORTORDER}
 	 * @return
 	 */
 	int getImportOrder();
@@ -311,8 +287,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取导入标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_IMPORTTAG}
 	 * @return
 	 */
 	java.lang.String getImportTag();
@@ -334,8 +308,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取Json格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_JSONFORMAT}
 	 * @return
 	 */
 	java.lang.String getJsonFormat();
@@ -357,8 +329,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取字段长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_LENGTH}
 	 * @return
 	 */
 	int getLength();
@@ -366,8 +336,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -375,8 +343,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取最大值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MAXVALUE}
 	 * @return
 	 */
 	java.lang.String getMaxValueString();
@@ -384,8 +350,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取最小字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MINSTRLENGTH}
 	 * @return
 	 */
 	int getMinStringLength();
@@ -393,8 +357,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取最小值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MINVALUE}
 	 * @return
 	 */
 	java.lang.String getMinValueString();
@@ -402,8 +364,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据空值排序模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_NULLVALORDER}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBNullValueOrderMode}
 	 * @return
@@ -427,8 +387,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取排序值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_ORDERVALUE}
 	 * @return
 	 */
 	int getOrderValue();
@@ -436,8 +394,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取属性代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getPSCodeList();
@@ -480,8 +436,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统值序列
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PSSYSSEQUENCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSequence getPSSysSequence();
@@ -496,8 +450,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统值转换器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getPSSysTranslator();
@@ -512,8 +464,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取数据精度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PRECISION}
 	 * @return
 	 */
 	int getPrecision();
@@ -521,8 +471,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取预置业务类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PREDEFINEDTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedFieldType}
 	 * @return
@@ -532,8 +480,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取预置类型参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PREDEFINEDTYPEPARAM}
 	 * @return
 	 */
 	java.lang.String getPredefinedTypeParam();
@@ -541,8 +487,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取查询选项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_QUERYCS}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFQueryCSMode}
 	 * @return
@@ -553,8 +497,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取值序列使用模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_SEQUENCEMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFSequenceMode}
 	 * @return
 	 */
@@ -563,8 +505,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取服务代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_SERVICECODENAME}
 	 * @return
 	 */
 	java.lang.String getServiceCodeName();
@@ -572,8 +512,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标准数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_STDDATATYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
@@ -584,8 +522,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取字符串转化
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_STRINGCASE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StringCaseMode}
 	 * @return
 	 */
@@ -594,8 +530,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取最大字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_STRLENGTH}
 	 * @return
 	 */
 	int getStringLength();
@@ -603,8 +537,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值转换器使用模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_TRANSLATORMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFTranslatorMode}
 	 * @return
@@ -614,8 +546,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取联合键值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_UNIONKEYVALUE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UnionKeyValueMode}
 	 * @return
@@ -681,8 +611,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -690,8 +618,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值项属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_VALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField();
@@ -706,8 +632,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取查询列级别
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_VIEWCOLLEVEL}
 	 * @return
 	 */
 	int getViewLevel();
@@ -715,8 +639,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否允许空值输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();
@@ -724,8 +646,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否检查递归
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_CHECKRECURSION}
 	 * @return
 	 */
 	boolean isCheckRecursion();
@@ -747,8 +667,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持审计
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_ENABLEAUDIT}
 	 * @return
 	 */
 	boolean isEnableAudit();
@@ -777,8 +695,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持字段权限
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_ENABLECOLPRIV}
 	 * @return
 	 */
 	boolean isEnablePrivilege();
@@ -786,8 +702,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持快速搜索
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_ENABLEQS}
 	 * @return
 	 */
 	boolean isEnableQuickSearch();
@@ -816,8 +730,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否索引类型属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_INDEXTYPE}
 	 * @return
 	 */
 	boolean isIndexTypeDEField();
@@ -832,8 +744,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否主键属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PKEY}
 	 * @return
 	 */
 	boolean isKeyDEField();
@@ -841,8 +751,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否键名属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MAJORFIELD}
 	 * @return
 	 */
 	boolean isKeyNameDEField();
@@ -857,8 +765,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否主属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MAJORFIELD}
 	 * @return
 	 */
 	boolean isMajorDEField();
@@ -866,8 +772,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否多表单识别属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_MULTIFORMFIELD}
 	 * @return
 	 */
 	boolean isMultiFormDEField();
@@ -875,8 +779,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否拷贝重置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PASTERESET}
 	 * @return
 	 */
 	boolean isPasteReset();
@@ -891,8 +793,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否查询列
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_QUERYCOLUMN}
 	 * @return
 	 */
 	boolean isQueryColumn();
@@ -914,8 +814,6 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否唯一业务标识属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_PKEY}
 	 * @return
 	 */
 	boolean isUniTagField();

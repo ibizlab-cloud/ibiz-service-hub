@@ -14,8 +14,6 @@ public interface IPSDERawCodeLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取直接代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getCode();
@@ -23,8 +21,6 @@ public interface IPSDERawCodeLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取代码类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getCodeType();
@@ -32,8 +28,6 @@ public interface IPSDERawCodeLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -48,8 +42,6 @@ public interface IPSDERawCodeLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

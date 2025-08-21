@@ -3,6 +3,10 @@
     "codeName" : "Default",
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/MetaEntity.json"
+    },
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
       "name" : "value",
@@ -366,12 +370,14 @@
     "codeName" : "CreateDate",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
     "codeName" : "UpdateDate",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {

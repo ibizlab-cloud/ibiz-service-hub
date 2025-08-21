@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.priv;
 
 
 /**
- * 实体用户角色模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEUserRoleDTO}运行时对象
+ * 实体用户角色模型对象接口
  *
  */
 public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntityObject
@@ -33,20 +33,6 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	
 	/**
-	 * 获取访问属性组
-	 * @return
-	 */
-	net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroup();
-
-
-	/**
-	 * 获取访问属性组，不存在时抛出异常
-	 * @return
-	 */
-	net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroupMust();
-	
-	
-	/**
 	 * 获取授权操作标识集合
 	 * @return
 	 */
@@ -69,8 +55,6 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取用户数据范围对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUserRoleDTO#FIELD_PSSYSUSERDRID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUserDR getPSSysUserDR();
@@ -85,8 +69,6 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取用户数据范围对象2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUserRoleDTO#FIELD_PSSYSUSERDRID2}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUserDR getPSSysUserDR2();
@@ -101,8 +83,6 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取角色标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUserRoleDTO#FIELD_USERROLETAG}
 	 * @return
 	 */
 	java.lang.String getRoleTag();

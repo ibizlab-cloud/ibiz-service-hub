@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dts;
 
 
 /**
- * 实体分布事务队列模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDTSQueueDTO}运行时对象
+ * 实体分布事务队列模型对象接口
  *
  */
 public interface IPSDEDTSQueue extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -117,8 +117,6 @@ public interface IPSDEDTSQueue extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取是否默认异步处理队列
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDTSQueueDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();

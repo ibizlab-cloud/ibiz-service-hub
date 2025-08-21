@@ -14,8 +14,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.Integer getMaxValue();
@@ -23,8 +21,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.Integer getMinValue();
@@ -32,8 +28,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取实体数据查询对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEDQID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataQuery getPSDEDataQuery();
@@ -48,8 +42,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取是否始终检查
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM9}
 	 * @return
 	 */
 	boolean isAlwaysCheck();
@@ -57,8 +49,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取是否含最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM6}
 	 * @return
 	 */
 	boolean isIncludeMaxValue();
@@ -66,8 +56,6 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取是否含最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAM5}
 	 * @return
 	 */
 	boolean isIncludeMinValue();

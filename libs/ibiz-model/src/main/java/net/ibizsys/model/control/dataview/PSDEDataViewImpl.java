@@ -41,6 +41,8 @@ public class PSDEDataViewImpl extends net.ibizsys.model.control.PSMDAjaxControlC
 	public final static String ATTR_GETPSDEDATAVIEWITEMS = "getPSDEDataViewItems";
 	public final static String ATTR_GETPAGINGMODE = "pagingMode";
 	public final static String ATTR_GETPAGINGSIZE = "pagingSize";
+	public final static String ATTR_GETSWIMLANEPSAPPDEFIELD = "getSwimlanePSAppDEField";
+	public final static String ATTR_GETSWIMLANEPSCODELIST = "getSwimlanePSCodeList";
 	public final static String ATTR_HASWFDATAITEMS = "hasWFDataItems";
 	public final static String ATTR_ISAPPENDDEITEMS = "appendDEItems";
 	public final static String ATTR_ISENABLECARDEDIT = "enableCardEdit";
@@ -589,6 +591,50 @@ public class PSDEDataViewImpl extends net.ibizsys.model.control.PSMDAjaxControlC
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.app.dataentity.IPSAppDEField swimlanepsappdefield;
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEField(){
+		if(this.swimlanepsappdefield != null) return this.swimlanepsappdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSWIMLANEPSAPPDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.swimlanepsappdefield = getPSModelObject(net.ibizsys.model.app.dataentity.IPSAppDEField.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSWIMLANEPSAPPDEFIELD);
+		return this.swimlanepsappdefield;
+	}
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEFieldMust(){
+		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getSwimlanePSAppDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定泳道应用实体属性");}
+		return value;
+	}
+
+	public void setSwimlanePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField swimlanepsappdefield){
+		this.swimlanepsappdefield = swimlanepsappdefield;
+	}
+
+	private net.ibizsys.model.codelist.IPSCodeList swimlanepscodelist;
+
+	public net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeList(){
+		if(this.swimlanepscodelist != null) return this.swimlanepscodelist;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSWIMLANEPSCODELIST);
+		if(value == null){
+			return null;
+		}
+		this.swimlanepscodelist = getPSModelObject(net.ibizsys.model.codelist.IPSCodeList.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSWIMLANEPSCODELIST);
+		return this.swimlanepscodelist;
+	}
+
+	public net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeListMust(){
+		net.ibizsys.model.codelist.IPSCodeList value = this.getSwimlanePSCodeList();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定泳道代码表");}
+		return value;
+	}
+
+	public void setSwimlanePSCodeList(net.ibizsys.model.codelist.IPSCodeList swimlanepscodelist){
+		this.swimlanepscodelist = swimlanepscodelist;
+	}
+
 
 	public boolean hasWFDataItems(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_HASWFDATAITEMS);

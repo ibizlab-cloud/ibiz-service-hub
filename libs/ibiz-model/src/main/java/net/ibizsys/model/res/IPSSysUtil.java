@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统预置功能组件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO}运行时对象
+ * 系统预置功能组件模型对象接口
  *
  */
 public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
@@ -13,8 +13,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证token路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHACCESSTOKENURI}
 	 * @return
 	 */
 	java.lang.String getAuthAccessTokenUrl();
@@ -22,8 +20,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证客户端标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHCLIENTID}
 	 * @return
 	 */
 	java.lang.String getAuthClientId();
@@ -31,8 +27,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证客户端密码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHCLIENTSECRET}
 	 * @return
 	 */
 	java.lang.String getAuthClientSecret();
@@ -40,8 +34,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
@@ -51,8 +43,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHPARAM}
 	 * @return
 	 */
 	java.lang.String getAuthParam();
@@ -60,8 +50,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取认证参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_AUTHPARAM2}
 	 * @return
 	 */
 	java.lang.String getAuthParam2();
@@ -76,8 +64,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取输入系统数据同步代理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_INPSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getInPSSysDataSyncAgent();
@@ -92,8 +78,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取排序值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_ORDERVALUE}
 	 * @return
 	 */
 	int getOrderValue();
@@ -101,8 +85,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取输出系统数据同步代理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_OUTPSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getOutPSSysDataSyncAgent();
@@ -117,8 +99,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取输出系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_OUTPSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getOutPSSysResource();
@@ -133,8 +113,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取外部服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_PSSUBSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPI getPSSubSysServiceAPI();
@@ -149,8 +127,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取系统实体组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_PSDEGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSSysDEGroup getPSSysDEGroup();
@@ -165,8 +141,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取系统模型组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_PSSYSMODELGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSysModelGroup getPSSysModelGroup();
@@ -181,8 +155,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();
@@ -197,8 +169,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -213,8 +183,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取运行时对象名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_UTILOBJ}
 	 * @return
 	 */
 	java.lang.String getRTObjectName();
@@ -222,8 +190,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取服务参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_SERVICEPARAM}
 	 * @return
 	 */
 	java.lang.String getServiceParam();
@@ -231,8 +197,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取服务参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_SERVICEPARAM2}
 	 * @return
 	 */
 	java.lang.String getServiceParam2();
@@ -240,8 +204,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取服务路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_SERVICEPATH}
 	 * @return
 	 */
 	java.lang.String getServicePath();
@@ -319,8 +281,6 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	
 	/**
 	 * 获取功能类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUtilDTO#FIELD_UTILTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysUtilType}
 	 * @return

@@ -15,8 +15,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	/**
 	 * 获取请求内容类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceReqContentType}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -41,8 +37,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取外部服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSUBSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPI getPSSubSysServiceAPI();
@@ -58,8 +52,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	/**
 	 * 获取请求模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RequestMethod}
 	 * @return
 	 */
@@ -68,8 +60,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取请求路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getRequestPath();
@@ -77,8 +67,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();
@@ -93,8 +81,6 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	
 	/**
 	 * 获取是否返回响应数据对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM7}
 	 * @return
 	 */
 	boolean isReturnRepEntity();

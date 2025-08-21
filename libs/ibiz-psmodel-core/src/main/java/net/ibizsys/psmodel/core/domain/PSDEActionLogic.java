@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEACTIONLOGIC</B>实体行为逻辑 模型传输对象
+ * <B>PSDEACTIONLOGIC</B>实体行为附加逻辑 模型传输对象
  * <P>
- * 实体行为附加逻辑模型，支持在实体行为上以不同模式附加内部处理逻辑或外部行为。处理逻辑一般作为实体内部逻辑，所以不直接附加外部实体的处理逻辑（行为可以包含逻辑）
+ * 实体行为附加逻辑模型，支持在实体行为上以不同模式附加内部处理逻辑或外部行为等
  */
 public class PSDEActionLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
 

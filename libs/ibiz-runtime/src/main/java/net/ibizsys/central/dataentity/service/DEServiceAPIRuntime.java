@@ -1,5 +1,6 @@
-package net.ibizsys.central.dataentity.service;
+ package net.ibizsys.central.dataentity.service;
 
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.stream.IntStream;
 
 import javax.servlet.ServletResponse;
 
+import net.ibizsys.central.util.domain.ExportDataResult;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
@@ -52,8 +54,12 @@ import net.ibizsys.runtime.dataentity.print.IDEPrintRuntime;
 import net.ibizsys.runtime.dataentity.report.IDEReportRuntime;
 import net.ibizsys.runtime.dataentity.service.DEMethodInputTypes;
 import net.ibizsys.runtime.dataentity.service.DEMethodReturnTypes;
+import net.ibizsys.runtime.dataentity.util.IDEFileUtilRuntime;
 import net.ibizsys.runtime.security.DataAccessActions;
 import net.ibizsys.runtime.security.UserContext;
+import net.ibizsys.runtime.sysutil.ISysFileUtilRuntime;
+import net.ibizsys.runtime.util.ActionSession;
+import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.AppContext;
 import net.ibizsys.runtime.util.Conditions;
 import net.ibizsys.runtime.util.DataTypeUtils;
@@ -1159,7 +1165,13 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		Object objRet = this.invokeMethod(strScope, iDEServiceAPIRSRuntime, strParentKey, strMethodName, objBody, strKey, null);
 		
 
-		this.getDataEntityRuntime().exportData(strExportTag, objRet, outputStream);
+		//this.getDataEntityRuntime().exportData(strExportTag, objRet, outputStream);
+		//return null;
+		return this.doExportData(strExportTag, objRet, outputStream);
+	}
+	
+	protected Object doExportData(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
+		this.getDataEntityRuntime().exportData(strExportTag, objData, outputStream);
 		return null;
 	}
 	
@@ -1170,16 +1182,6 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 	}
 
 	protected Object onAsyncExportData(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strExportTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
-
-		OutputStream outputStream = null;
-		if (objTag instanceof OutputStream) {
-			outputStream = (OutputStream) objTag;
-		}
-
-		if (outputStream == null) {
-			throw new DEServiceAPIRuntimeException(this, String.format("导出数据未传入输出流对象"));
-		}
-		
 		
 		IDEDataExportRuntime iDEDataExportRuntime = this.getDataEntityRuntime().getDEDataExportRuntime(strExportTag);
 
@@ -1190,16 +1192,16 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		} else {
 			iPSDEServiceAPIMethod = getPSDEServiceAPIMethod(strMethodName, false);
 		}
-		
+
 		if (iPSDEServiceAPIMethod.getPSDEDataSet() != null) {
-			
+
 			Object size = null;
-			if(objBody instanceof Map) {
-				size = ((Map)objBody).get(ISearchContextDTO.PARAM_SIZE);
+			if (objBody instanceof Map) {
+				size = ((Map) objBody).get(ISearchContextDTO.PARAM_SIZE);
 			}
-			
+
 			Object[] args = getDataSetArgs(iPSDEServiceAPIMethod, iDEServiceAPIRSRuntime, strParentKey, objBody);
-			
+
 			if (args.length > 0 && args[0] instanceof ISearchContextDTO) {
 				ISearchContextDTO iSearchContextDTO = (ISearchContextDTO) args[0];
 				// 强行调整导出的最大数量
@@ -1221,46 +1223,53 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				} else {
 					iSearchContextDTO.limit(nMaxSize);
 				}
-				
-				//将已经处理的过滤对象设置到Body对象
+
+				// 将已经处理的过滤对象设置到Body对象
 				objBody = iSearchContextDTO;
 			}
 		}
-		
-		// 进行实际方法执行
-//		Object objRet = this.invokeMethod(strScope, iDEServiceAPIRSRuntime, strParentKey, strMethodName, objBody, strKey, null);
-//		this.getDataEntityRuntime().exportData(strExportTag, objRet, outputStream);
-//		return null;
-		
-		
+
+		ISysFileUtilRuntime iSysFileUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysFileUtilRuntime.class, false);
+		java.io.File tempFile = java.io.File.createTempFile("dataexport_" + this.getSystemRuntime().getDeploySystemId(), ".xlsx");
 		
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
 		actionTagMap.put("actiontype", "DEEXPORTDATA");
 		actionTagMap.put("actionparam", getDataEntityRuntime().getName());
 		actionTagMap.put("actionparam2", strExportTag);
-		
-
+		StringBuffer strExportFileName = new StringBuffer();
 		Object objBody2 = objBody;
-		OutputStream outputStream2 = outputStream;
 		return this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				Object objRet = invokeMethod(strScope, iDEServiceAPIRSRuntime, strParentKey, strMethodName, objBody2, strKey, null);
-				getDataEntityRuntime().exportData(strExportTag, objRet, outputStream2);
+				try(OutputStream outputStream = new FileOutputStream(tempFile)) {
+					Object objRet = invokeMethod(strScope, iDEServiceAPIRSRuntime, strParentKey, strMethodName, objBody2, strKey, null);
+//					getDataEntityRuntime().exportData(strExportTag, objRet, outputStream);
+					Object ret = doExportData(strExportTag, objRet, outputStream);
+					ExportDataResult exportDataResult = null;
+					if(ret instanceof ExportDataResult) {
+						exportDataResult = (ExportDataResult)ret;
+						if(StringUtils.hasLength(exportDataResult.getFileName())) {
+							strExportFileName.append(exportDataResult.getFileName());
+						}
+					}
+				}
+				net.ibizsys.runtime.util.domain.File ossFile = iSysFileUtilRuntime.createOSSFile(tempFile, IDEFileUtilRuntime.FILECAT_TEMP);
+				if(StringUtils.hasLength(strExportFileName)){
+					ossFile.setFileName(strExportFileName.toString());
+				}
+				ActionSessionManager.getCurrentSessionMust().setActionParam(ActionSession.PARAM_ASYNCACTION_DOWNLOADURL, ossFile);
 				return null;
 			}
 
 			@Override
 			public String getName() {
-				if(StringUtils.hasLength(strExportTag)) {
+				if (StringUtils.hasLength(strExportTag)) {
 					return String.format("[%1$s]数据导出作业[%2$s]", getDataEntityRuntime().getLogicName(), strExportTag);
-				}
-				else {
+				} else {
 					return String.format("[%1$s]数据导出作业", getDataEntityRuntime().getLogicName());
 				}
 			}
 		}, null, actionTagMap);
-		
 	}
 	
 

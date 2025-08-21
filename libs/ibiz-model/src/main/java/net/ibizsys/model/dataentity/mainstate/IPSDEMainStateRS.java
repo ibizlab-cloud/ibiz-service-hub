@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.mainstate;
 
 
 /**
- * 实体主状态关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMainStateRSDTO}运行时对象
+ * 实体主状态关系模型对象接口
  *
  */
 public interface IPSDEMainStateRS extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -19,8 +19,6 @@ public interface IPSDEMainStateRS extends net.ibizsys.model.dataentity.IPSDataEn
 	
 	/**
 	 * 获取进入主状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateRSDTO#FIELD_NEXTPSDEMSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.mainstate.IPSDEMainState getNextPSDEMainState();
@@ -35,8 +33,6 @@ public interface IPSDEMainStateRS extends net.ibizsys.model.dataentity.IPSDataEn
 	
 	/**
 	 * 获取前序主状态
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMainStateRSDTO#FIELD_PREVPSDEMSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.mainstate.IPSDEMainState getPrevPSDEMainState();

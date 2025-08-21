@@ -116,6 +116,13 @@
       "codeName" : "DCSystemName"
     }
   }, {
+    "id" : "authorizeall",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "AUTHORIZEALL",
+      "codeName" : "AuthorizeAll"
+    }
+  }, {
     "id" : "dcsystemid",
     "hidden" : true,
     "dataType" : 25,
@@ -318,7 +325,6 @@
           "groupOP" : "AND",
           "logicCat" : "PANELVISIBLE",
           "logicType" : "GROUP",
-          "name" : "表单成员[dcsystemname][面板显示]逻辑",
           "getPSDEFDLogics" : [ {
             "condOP" : "EQ",
             "dEFDName" : "globalflag",
@@ -332,7 +338,6 @@
           "groupOP" : "AND",
           "logicCat" : "ITEMBLANK",
           "logicType" : "GROUP",
-          "name" : "表单成员[dcsystemname][表单项空输入]逻辑",
           "getPSDEFDLogics" : [ {
             "condOP" : "EQ",
             "dEFDName" : "globalflag",
@@ -386,6 +391,68 @@
         },
         "valueItemName" : "dcsystemid",
         "allowEmpty" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "授权全部用户",
+        "codeName" : "authorizeall",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 230.0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "authorizeall",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "AUTHORIZEALL",
+          "codeName" : "AuthorizeAll"
+        },
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "groupOP" : "OR",
+            "logicType" : "GROUP",
+            "name" : "OR",
+            "getPSDEFDLogics" : [ {
+              "condOP" : "EQ",
+              "dEFDName" : "usermode",
+              "logicType" : "SINGLE",
+              "name" : "usermode 等于(=) (ACCESSUSER)",
+              "value" : "ACCESSUSER"
+            }, {
+              "condOP" : "EQ",
+              "dEFDName" : "usermode",
+              "logicType" : "SINGLE",
+              "name" : "usermode 等于(=) (ACCESSADMIN)",
+              "value" : "ACCESSADMIN"
+            } ],
+            "notMode" : false
+          } ],
+          "relatedDetailNames" : [ "usermode" ],
+          "notMode" : false
+        } ],
+        "getPSEditor" : {
+          "editorType" : "DROPDOWNLIST_100",
+          "editorWidth" : 100.0,
+          "name" : "authorizeall",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/DCMgr/PSAPPCODELISTS/YesNo.json"
+          },
+          "singleSelect" : true
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 8,
+          "colSM" : 8,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
         "showCaption" : true
       }, {
         "caption" : "租户系统标识",
@@ -1603,6 +1670,10 @@
             "name" : "SYS_ROLEID",
             "codeName" : "RoleId"
           },
+          "getParentTextPSAppDEField" : {
+            "name" : "SYS_ROLENAME",
+            "codeName" : "RoleName"
+          },
           "rSMode" : 2
         } ], [ {
           "actionRSMode" : 1,
@@ -1624,6 +1695,10 @@
           "getParentPSAppDEField" : {
             "name" : "SYS_PERMISSIONID",
             "codeName" : "PermissionId"
+          },
+          "getParentTextPSAppDEField" : {
+            "name" : "SYS_PERMISSIONNAME",
+            "codeName" : "PermissionName"
           },
           "rSMode" : 2
         } ] ]
@@ -2616,6 +2691,10 @@
             "name" : "SYS_ROLEID",
             "codeName" : "RoleId"
           },
+          "getParentTextPSAppDEField" : {
+            "name" : "SYS_ROLENAME",
+            "codeName" : "RoleName"
+          },
           "rSMode" : 2
         } ], [ {
           "actionRSMode" : 1,
@@ -2637,6 +2716,10 @@
           "getParentPSAppDEField" : {
             "name" : "USERID",
             "codeName" : "UserId"
+          },
+          "getParentTextPSAppDEField" : {
+            "name" : "PERSONNAME",
+            "codeName" : "PersonName"
           },
           "rSMode" : 2
         } ] ]

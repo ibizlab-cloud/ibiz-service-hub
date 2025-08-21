@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表聚合表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBIAggTableDTO}运行时对象
+ * 智能报表聚合表模型对象接口
  *
  */
 public interface IPSSysBIAggTable extends net.ibizsys.model.bi.IPSBIAggTable

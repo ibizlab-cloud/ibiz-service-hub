@@ -1041,6 +1041,151 @@ public class PSDEUserRole extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>PSDEFGROUPID</B>&nbsp;授权属性组
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
+     */
+    public final static String FIELD_PSDEFGROUPID = "psdefgroupid";
+
+    /**
+     * 设置 授权属性组
+     * 
+     * @param pSDEFGroupId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPID)
+    public void setPSDEFGroupId(String pSDEFGroupId){
+        this.set(FIELD_PSDEFGROUPID, pSDEFGroupId);
+    }
+    
+    /**
+     * 获取 授权属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupId(){
+        Object objValue = this.get(FIELD_PSDEFGROUPID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 授权属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupIdDirty(){
+        if(this.contains(FIELD_PSDEFGROUPID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 授权属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupId(){
+        this.reset(FIELD_PSDEFGROUPID);
+    }
+
+    /**
+     * 设置 授权属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroupId
+     */
+    @JsonIgnore
+    public PSDEUserRole psdefgroupid(String pSDEFGroupId){
+        this.setPSDEFGroupId(pSDEFGroupId);
+        return this;
+    }
+
+    /**
+     * 设置 授权属性组，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroup 引用对象
+     */
+    @JsonIgnore
+    public PSDEUserRole psdefgroupid(PSDEFGroup pSDEFGroup){
+        if(pSDEFGroup == null){
+            this.setPSDEFGroupId(null);
+            this.setPSDEFGroupName(null);
+        }
+        else{
+            this.setPSDEFGroupId(pSDEFGroup.getPSDEFGroupId());
+            this.setPSDEFGroupName(pSDEFGroup.getPSDEFGroupName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFGROUPNAME</B>&nbsp;授权属性组
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFGROUPID}
+     */
+    public final static String FIELD_PSDEFGROUPNAME = "psdefgroupname";
+
+    /**
+     * 设置 授权属性组
+     * 
+     * @param pSDEFGroupName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPNAME)
+    public void setPSDEFGroupName(String pSDEFGroupName){
+        this.set(FIELD_PSDEFGROUPNAME, pSDEFGroupName);
+    }
+    
+    /**
+     * 获取 授权属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupName(){
+        Object objValue = this.get(FIELD_PSDEFGROUPNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 授权属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupNameDirty(){
+        if(this.contains(FIELD_PSDEFGROUPNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 授权属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupName(){
+        this.reset(FIELD_PSDEFGROUPNAME);
+    }
+
+    /**
+     * 设置 授权属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupName}
+     * @param pSDEFGroupName
+     */
+    @JsonIgnore
+    public PSDEUserRole psdefgroupname(String pSDEFGroupName){
+        this.setPSDEFGroupName(pSDEFGroupName);
+        return this;
+    }
+
+    /**
      * <B>PSDEID</B>&nbsp;实体，指定操作角色所在的实体对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDataEntity} 

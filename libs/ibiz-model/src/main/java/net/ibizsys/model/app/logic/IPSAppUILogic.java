@@ -4,8 +4,6 @@ package net.ibizsys.model.app.logic;
 
 /**
  * 应用全局界面逻辑模型对象接口
- * <P>
- * 子接口扩展识别值 {@link #getViewLogicType}
  *
  */
 public interface IPSAppUILogic extends net.ibizsys.model.res.IPSSysViewLogic{

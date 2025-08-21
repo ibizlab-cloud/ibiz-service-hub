@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "NODEID",
+        "codeName" : "UserTaskId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "NODENAME",
+        "codeName" : "UserTaskName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -532,6 +540,7 @@
     "length" : 100,
     "logicName" : "节点标识",
     "name" : "NODEID",
+    "orderValue" : 1,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -651,6 +660,7 @@
     "length" : 100,
     "logicName" : "节点名称",
     "name" : "NODENAME",
+    "orderValue" : 2,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -770,6 +780,7 @@
     "length" : 100,
     "logicName" : "DefinitionKey",
     "name" : "DEFINITIONKEY",
+    "orderValue" : 3,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -881,6 +892,7 @@
     "length" : 100,
     "logicName" : "流程定义名称",
     "name" : "DEFINITIONNAME",
+    "orderValue" : 4,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s"
@@ -976,6 +988,7 @@
     "importOrder" : 1000,
     "logicName" : "版本",
     "name" : "VERSION",
+    "orderValue" : 6,
     "stdDataType" : 9,
     "valueFormat" : "%1$s"
   }, {
@@ -1070,6 +1083,7 @@
     "importOrder" : 1000,
     "logicName" : "数量",
     "name" : "CNT",
+    "orderValue" : 7,
     "stdDataType" : 9,
     "valueFormat" : "%1$s"
   } ],

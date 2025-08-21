@@ -14,8 +14,6 @@ public interface IPSAppDEExplorerView extends net.ibizsys.model.app.view.IPSAppE
 	/**
 	 * 获取打开数据模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VIEWPARAM13}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */
@@ -31,8 +29,6 @@ public interface IPSAppDEExplorerView extends net.ibizsys.model.app.view.IPSAppE
 	
 	/**
 	 * 获取是否显示信息栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VIEWPARAM6}
 	 * @return
 	 */
 	boolean isShowDataInfoBar();

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.wf;
 
 
 /**
- * 实体工作流配置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSWFDEDTO}运行时对象
+ * 实体工作流配置模型对象接口
  *
  */
 public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -75,8 +75,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程完成实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_FINISHPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getFinishPSDEAction();
@@ -105,8 +103,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程初始化实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_INITPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getInitPSDEAction();
@@ -121,8 +117,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取我的数据标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_MYWFDATAPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getMyWFDataCapPSLanguageRes();
@@ -137,8 +131,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取我的数据标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_MYWFDATA}
 	 * @return
 	 */
 	java.lang.String getMyWFDataCaption();
@@ -146,8 +138,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取我的工作标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_MYWFWORKPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getMyWFWorkCapPSLanguageRes();
@@ -162,8 +152,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取我的工作标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_MYWFWORK}
 	 * @return
 	 */
 	java.lang.String getMyWFWorkCaption();
@@ -185,8 +173,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取父流程实例属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_PWFINSTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPWFInstPSDEField();
@@ -215,8 +201,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取代理数据存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_PROXYDATAPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getProxyDataPSDEField();
@@ -245,8 +229,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取用户状态属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_STATEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUDStatePSDEField();
@@ -261,8 +243,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程操作者属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFACTORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFActorsPSDEField();
@@ -277,8 +257,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程分类代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFCATCODE}
 	 * @return
 	 */
 	java.lang.String getWFCatCode();
@@ -286,8 +264,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程实例属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFINSTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFInstPSDEField();
@@ -302,8 +278,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFMODE}
 	 * @return
 	 */
 	java.lang.String getWFMode();
@@ -311,8 +285,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取工作流代理模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFPROXYMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProxyMode}
 	 * @return
@@ -322,8 +294,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取嵌入流程返回值存放属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFRETPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFRetPSDEField();
@@ -345,8 +315,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程状态属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFSTATEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFStatePSDEField();
@@ -375,8 +343,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程步骤属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFSTEPPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFStepPSDEField();
@@ -391,8 +357,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取流程版本存放属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFVERPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWFVerPSDEField();
@@ -407,8 +371,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取工作流存放属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_WFIDPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWorkflowPSDEField();
@@ -430,8 +392,6 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	
 	/**
 	 * 获取是否支持用户启动
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSWFDEDTO#FIELD_USERSTART}
 	 * @return
 	 */
 	boolean isEnableUserStart();

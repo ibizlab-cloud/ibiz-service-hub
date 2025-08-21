@@ -3,7 +3,7 @@ package net.ibizsys.model.msg;
 
 
 /**
- * 系统消息模板模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO}运行时对象
+ * 系统消息模板模型对象接口
  *
  */
 public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
@@ -26,8 +26,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模板内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_CONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getContentPSDEField();
@@ -65,8 +63,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取内容类型值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_CONTENTTYPEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getContentTypePSDEField();
@@ -88,8 +84,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取钉钉消息模板内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_DDCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getDDContentPSDEField();
@@ -125,8 +119,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取即时消息模板内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_IMCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getIMContentPSDEField();
@@ -155,8 +147,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取语言值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_LANPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getLanPSDEField();
@@ -178,8 +168,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取移动端任务路径值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_MOBTASKURLPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMobTaskUrlPSDEField();
@@ -194,8 +182,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_MSGTEMPLPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getMsgTemplParams();
@@ -226,8 +212,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取目标数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -242,8 +226,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -258,8 +240,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取后台扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -274,8 +254,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -297,8 +275,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取短消息模板内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_SMSCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getSMSContentPSDEField();
@@ -364,8 +340,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取标题值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_SUBJECTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getSubjectPSDEField();
@@ -387,8 +361,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取任务路径值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_TASKURLPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTaskUrlPSDEField();
@@ -412,8 +384,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模板标记值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_TEMPLTAGPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTemplTagPSDEField();
@@ -428,8 +398,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取用户自定义2值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_USER2PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUser2PSDEField();
@@ -444,8 +412,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取用户自定义值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_USERPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getUserPSDEField();
@@ -467,8 +433,6 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取微信消息模板内容值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysMsgTemplDTO#FIELD_WCCONTENTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getWXContentPSDEField();

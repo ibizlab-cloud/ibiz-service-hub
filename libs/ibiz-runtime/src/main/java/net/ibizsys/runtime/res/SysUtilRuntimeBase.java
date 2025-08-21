@@ -1,6 +1,5 @@
 package net.ibizsys.runtime.res;
 
-import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.res.IPSSysUtil;
 import net.ibizsys.runtime.ISystemRuntimeContext;
 import net.ibizsys.runtime.SystemModelRuntimeBase;
@@ -26,12 +25,5 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 	public IPSSysUtil getPSSysUtil() {
 		return this.iPSSysUtil;
 	}
-	
-	@Override
-	public IPSModelObject getPSModelObject() {
-		return this.getPSSysUtil();
-	}
-	
-
 
 }

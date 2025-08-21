@@ -64,6 +64,14 @@ public interface IWFInstanceService extends IDEService<WFInstanceDTO, SearchCont
    */
   String FIELD_REALINSTID = "REALINSTID";
   /**
+   * 属性: 参数
+   */
+  String FIELD_PARAM = "PARAM";
+  /**
+   * 属性: 参数2
+   */
+  String FIELD_PARAM2 = "PARAM2";
+  /**
    * 属性: 流程状态
    */
   String FIELD_WFSTATE = "WFSTATE";

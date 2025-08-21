@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSBICUBEMEASURE</B>智能报表立方体指标 模型传输对象
+ * <B>PSSYSBICUBEMEASURE</B>智能立方体指标 模型传输对象
  * <P>
- * 
+ * 智能报表立方体核心模型，用于定义多维分析中的指标。它支持常规指标和动态计算指标，允许配置聚合方式、数据格式、钻取行为等，并与视图、代码表等组件关联
  */
 public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -1713,14 +1713,14 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性
+     * <B>PSDEFID</B>&nbsp;实体属性，指定常规指标相关的属性，
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
     public final static String FIELD_PSDEFID = "psdefid";
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * 
      * @param pSDEFId
      * 
@@ -1764,7 +1764,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * <P>
      * 等同 {@link #setPSDEFId}
      * @param pSDEFId

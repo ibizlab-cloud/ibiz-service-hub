@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSVIEWLOGIC</B>系统界面逻辑 模型传输对象
+ * <B>PSSYSVIEWLOGIC</B>系统预置界面逻辑 模型传输对象
  * <P>
  * 系统的全局界面逻辑模型，定义全局通用的界面处理逻辑供界面行为或视图、部件处理逻辑等调用
  */
@@ -2144,49 +2148,10 @@ public class PSSysViewLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
-
-    /**
-     *  系统界面逻辑参数 成员集合
-     */
-    public final static String FIELD_PSSYSVIEWLOGICPARAMS = "pssysviewlogicparams";
-
-    private java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewLogicParam> pssysviewlogicparams;
-
-    /**
-     * 获取 系统界面逻辑参数 成员集合
-     * @return
-     */
-    @JsonProperty(FIELD_PSSYSVIEWLOGICPARAMS)
-    public java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewLogicParam> getPSSysViewLogicParams(){
-        return this.pssysviewlogicparams;
-    }
-
-    /**
-     * 设置 系统界面逻辑参数 成员集合  
-     * @param pssysviewlogicparams
-     */
-    @JsonProperty(FIELD_PSSYSVIEWLOGICPARAMS)
-    public void setPSSysViewLogicParams(java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewLogicParam> pssysviewlogicparams){
-        this.pssysviewlogicparams = pssysviewlogicparams;
-    }
-
-    /**
-     * 获取 系统界面逻辑参数 成员集合，不存在时建立集合对象
-     * @return
-     */
-    @JsonIgnore
-    public java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewLogicParam> getPSSysViewLogicParamsIf(){
-        if(this.pssysviewlogicparams == null){
-            this.pssysviewlogicparams = new java.util.ArrayList<net.ibizsys.psmodel.core.domain.PSSysViewLogicParam>();          
-        }
-        return this.pssysviewlogicparams;
-    }
-
     @Override
     public void copyTo(net.ibizsys.psmodel.core.util.IPSModel iPSModel){
         if(iPSModel instanceof PSSysViewLogic){
             PSSysViewLogic model = (PSSysViewLogic)iPSModel;
-            model.setPSSysViewLogicParams(this.getPSSysViewLogicParams());
         }
         super.copyTo(iPSModel);
     }

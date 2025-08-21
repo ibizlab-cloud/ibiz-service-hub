@@ -86,4 +86,5 @@ public interface ISysAIAgentRuntimeContext extends IModelRuntimeContext, IAIAgen
 	 * @return
 	 */
 	String rawChatCompletion(String strAIPlatformType, String strMessage);
+
 }

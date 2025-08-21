@@ -40,10 +40,13 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudOSSUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.security.AuthenticationUser;
 import net.ibizsys.central.cloud.core.util.RestUtils;
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.cloud.core.util.error.InternalServerErrorException;
 import net.ibizsys.central.cloud.oss.core.IOSSUtilSystemRuntime;
 import net.ibizsys.central.cloud.oss.core.cloudutil.ISimpleFileStorageService;
+import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTicketMode;
 import net.ibizsys.central.cloud.oss.core.util.domain.FileItem;
+import net.ibizsys.runtime.util.EntityBase;
 
 @RestController()
 @RequestMapping("")
@@ -57,8 +60,6 @@ public class OSSRestController {
 	@Value("${ibiz.cloud.oss.ignoreauth:true}")
 	private boolean ignoreAuth;
 	
-	@Value("${ibiz.cloud.oss.enabledownloadticket:false}")
-	private boolean enableDownloadTicket;
 	
 	@PostConstruct
 	protected void postConstruct() {
@@ -167,15 +168,24 @@ public class OSSRestController {
 	@GetMapping(value = "${ibiz.cloud.oss.downloadpath:/ibizutil/download/{id}}")
 	@ResponseStatus(HttpStatus.OK)
 	public void download(@PathVariable String id, HttpServletResponse response, HttpServletRequest request){
-//		File file= getSimpleFileStorageService().getFile(null, id);
-//		response.setHeader("Content-Disposition", "attachment;filename="+getFileName(file.getName()));
-//		this.sendResponse(response, file);
-		if(this.enableDownloadTicket) {
-			this.getSimpleFileStorageService().downloadFileByTicket(id, response);
+		
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
 		}
-		else {
-			this.getSimpleFileStorageService().downloadFile(null, id, response);
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			this.getSimpleFileStorageService().downloadFileByTicket(null, id, response, bApiUser);
+			return;
+		case EXCLUSION:
+			this.getSimpleFileStorageService().downloadFileByTicket(null, id, response, bApiUser);
+			return;
+		default:
+			break;
 		}
+		
+		this.getSimpleFileStorageService().downloadFile(null, id, response);
 		
 	}
 	
@@ -194,34 +204,59 @@ public class OSSRestController {
 	@GetMapping(value = "${ibiz.cloud.oss.downloadpath2:/ibizutil/download/{cat}/{id}}")
 	@ResponseStatus(HttpStatus.OK)
 	public void download(@PathVariable String cat, @PathVariable String id, HttpServletResponse response){
-//		File file= getSimpleFileStorageService().getFile(cat, id);
-//		response.setHeader("Content-Disposition", "attachment;filename="+getFileName(file.getName()));
-//		this.sendResponse(response, file);
-		if(this.enableDownloadTicket) {
-			this.getSimpleFileStorageService().downloadFileByTicket(id, response);
-		}
-		else {
-			this.getSimpleFileStorageService().downloadFile(cat, id, response);
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
 		}
 		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			if(this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadFileByTicket(cat, id, response, bApiUser);
+				return;
+			}
+			break;
+		case EXCLUSION:
+			if(!this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadFileByTicket(cat, id, response, bApiUser);
+				return;
+			}
+			break;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadFile(cat, id, response);
 	}
 	
 	@GetMapping(value = "${ibiz.cloud.oss.createdownloadticketpath:/ibizutil/createdownloadticket/{id}}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<ObjectNode> createDownloadTicket(@PathVariable String id){
-		if(!this.enableDownloadTicket) {
+	public ResponseEntity<DownloadTicket> createDownloadTicket(@PathVariable String id, HttpServletResponse response){
+		if(this.getSimpleFileStorageService().getDownloadTicketMode() == DownloadTicketMode.DISABLED) {
 			throw new InternalServerErrorException("不支持");
 		}
+		
+		if(AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+    		response.setStatus(HttpStatus.FORBIDDEN.value());
+    		return null;
+    	}
+		
 		return ResponseEntity.ok().body(getSimpleFileStorageService().createDownloadTicket(null, id, -1));
 	}
 	
 	
 	@GetMapping(value = "${ibiz.cloud.oss.createdownloadticketpath2:/ibizutil/createdownloadticket/{cat}/{id}}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<ObjectNode> createDownloadTicket(@PathVariable String cat, @PathVariable String id){
-		if(!this.enableDownloadTicket) {
+	public ResponseEntity<DownloadTicket> createDownloadTicket(@PathVariable String cat, @PathVariable String id, HttpServletResponse response){
+		if(this.getSimpleFileStorageService().getDownloadTicketMode() == DownloadTicketMode.DISABLED) {
 			throw new InternalServerErrorException("不支持");
 		}
+		
+		if(AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+    		response.setStatus(HttpStatus.FORBIDDEN.value());
+    		return null;
+    	}
+		
 		return ResponseEntity.ok().body(getSimpleFileStorageService().createDownloadTicket(cat, id, -1));
 	}
 	
@@ -230,7 +265,7 @@ public class OSSRestController {
 	@PostMapping(value = "${ibiz.cloud.oss.downloadpath3:/ibizutil/download}")
 	@ResponseStatus(HttpStatus.OK)
 	public void download(@RequestBody List<JsonNode> list, HttpServletResponse response, @RequestParam(value = "packmode", required = false, defaultValue=ISimpleFileStorageService.PACKMODE_DEFAULT) String packmode){
-		if(this.enableDownloadTicket) {
+		if(this.getSimpleFileStorageService().getDownloadTicketMode() != DownloadTicketMode.DISABLED) {
 			throw new InternalServerErrorException("不支持");
 		}
 		File file= getSimpleFileStorageService().getFile(null, list, packmode);
@@ -242,7 +277,7 @@ public class OSSRestController {
 	@PostMapping(value = "${ibiz.cloud.oss.downloadpath4:/ibizutil/download/{cat}}")
 	@ResponseStatus(HttpStatus.OK)
 	public void download(@PathVariable String cat, @RequestBody List<JsonNode> list, HttpServletResponse response, @RequestParam(value = "packmode", required = false, defaultValue=ISimpleFileStorageService.PACKMODE_DEFAULT) String packmode){
-		if(this.enableDownloadTicket) {
+		if(this.getSimpleFileStorageService().getDownloadTicketMode() != DownloadTicketMode.DISABLED) {
 			throw new InternalServerErrorException("不支持");
 		}
 		File file= getSimpleFileStorageService().getFile(cat, list, packmode);

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIAGGTABLE</B>智能报表聚合数据 模型传输对象
  * <P>
- * 
+ * 智能报表系统中用于定义数据聚合逻辑的核心模型，支持预计算聚合或实时动态聚合，以提升查询性能和分析效率。它基于宽表实体构建聚合数据集，并与立方体、报表体系深度集成，实现高性能多维分析
  */
 public class PSSysBIAggTable extends net.ibizsys.psmodel.core.util.PSModelBase {
 

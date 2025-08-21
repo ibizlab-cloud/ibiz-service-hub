@@ -3,7 +3,7 @@ package net.ibizsys.model.control.form;
 
 
 /**
- * 实体属性预定义表单项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO}运行时对象
+ * 实体属性预定义表单项模型对象接口
  *
  */
 public interface IPSDEFFormItem extends net.ibizsys.model.dataentity.defield.IPSDEFUIItem{

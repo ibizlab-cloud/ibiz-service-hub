@@ -91,6 +91,7 @@ import net.ibizsys.runtime.util.ISearchGroupCond;
 import net.ibizsys.runtime.util.ISearchItemsCond;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.SearchCustomCond;
+import net.ibizsys.runtime.util.SearchItemsCond;
 import net.ibizsys.runtime.util.SearchFieldCond;
 import net.ibizsys.runtime.util.SearchGroupCond;
 import net.ibizsys.runtime.util.SearchPredefinedCond;
@@ -129,6 +130,7 @@ public class MybatisSqlUtil {
 	public final static String TERM_OPERATOR_NOTIN = "'not in'";
 	public final static String TERM_OPERATOR_LIKE = "'like'";
 	public final static String TERM_OPERATOR_NOTLIKE = "'not like'";
+	public final static String TERM_ITEMS_FILED_SYMBOL = ".";
 
 	/**
 	 * 分组数据集的sql
@@ -170,7 +172,7 @@ public class MybatisSqlUtil {
 		GroupQuery groupQuery = new GroupQuery();
 		List<IPSDEDataQuery> minorDEDataQueryList = null;
 		IDataEntityRuntime minorDataEntityRuntime = null;
-		
+
 		// 准备数据源查询
 		if (iPSDEDataSet.getGroupMode() == DEDataSetGroupModes.GROUPPARAMS
 				|| iPSDEDataSet.getGroupMode() == DEDataSetGroupModes.GROUPPARAMSEX) {
@@ -196,13 +198,13 @@ public class MybatisSqlUtil {
 					if (!StringUtils.hasLength(strCondition)) {
 						continue;
 					}
-					
+
 					if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
 						IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
 						if(iDEDQSQLCustomCondParser == null) {
 							throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
 						}
-						
+
 						try {
 							strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
 						}
@@ -210,7 +212,7 @@ public class MybatisSqlUtil {
 							throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
 						}
 					}
-					
+
 					if (!bOutputWhere) {
 						sb.append(" WHERE ");
 						bOutputWhere = true;
@@ -331,19 +333,19 @@ public class MybatisSqlUtil {
 			}
 			for (Map.Entry<String, IPSDEDataSetGroupParam> entry : psDEDataSetGroupParamMap.entrySet()) {
 				IPSDEDataSetGroupParam imp = entry.getValue();
-				
+
 				if(StringUtils.hasLength(imp.getGroupJoinCode())) {
 					if(!"NONE".equalsIgnoreCase(imp.getGroupJoinCode())) {
 						groupQuery.getDataJoins().add(imp.getGroupJoinCode());
 					}
-					
+
 					groupQuery.getJoinFields().add(imp.getGroupCode());
-					
+
 					if(imp.isEnableGroup()) {
 						//进一步计算
 						String[] fields = imp.getGroupCode().split("[,]");
 						for(String strField : fields) {
-							
+
 							int nPos = strField.toUpperCase().indexOf(" AS ");
 							if(nPos == -1) {
 								String[] items = strField.split("[.]");
@@ -369,7 +371,7 @@ public class MybatisSqlUtil {
 				}
 				else {
 					String strAlias = StringUtils.hasLength(imp.getAlias())?imp.getAlias():imp.getName();
-					
+
 					if (StringUtils.hasLength(imp.getGroupCode())) {
 						if(imp.isEnableGroup()) {
 							if(groupQuery.getDatafield().contains(strAlias)){
@@ -397,7 +399,7 @@ public class MybatisSqlUtil {
 									}
 								}
 							}
-							
+
 //							if(groupQuery.getResultfield().contains(strAlias)){
 //								groupQuery.getResultfield().remove(strAlias);
 //							}
@@ -427,7 +429,7 @@ public class MybatisSqlUtil {
 							}
 						}
 					}
-					
+
 					if (imp.isEnableGroup()) {
 						groupQuery.getResultfield().add(strAlias);
 						groupQuery.getGroup().add(strAlias);
@@ -436,22 +438,22 @@ public class MybatisSqlUtil {
 							groupQuery.getResultfield().add(String.format("COUNT(1) AS %1$s", strAlias));
 						}
 						else
-							if(AggMode.AVG.value.equals(imp.getAggMode())
-									||AggMode.MAX.value.equals(imp.getAggMode())
-									||AggMode.MIN.value.equals(imp.getAggMode())
-									||AggMode.SUM.value.equals(imp.getAggMode())
-									){
-								groupQuery.getResultfield().add(String.format("%2$s(%1$s) AS %1$s", strAlias, imp.getAggMode()));
+						if(AggMode.AVG.value.equals(imp.getAggMode())
+								||AggMode.MAX.value.equals(imp.getAggMode())
+								||AggMode.MIN.value.equals(imp.getAggMode())
+								||AggMode.SUM.value.equals(imp.getAggMode())
+						){
+							groupQuery.getResultfield().add(String.format("%2$s(%1$s) AS %1$s", strAlias, imp.getAggMode()));
+						}
+						else {
+							if(StringUtils.hasLength(imp.getGroupCode())) {
+								groupQuery.getResultfield().add(String.format("%1$s AS %2$s", imp.getGroupCode(), strAlias));
 							}
 							else {
-								if(StringUtils.hasLength(imp.getGroupCode())) {
-									groupQuery.getResultfield().add(String.format("%1$s AS %2$s", imp.getGroupCode(), strAlias));
-								}
-								else {
-									groupQuery.getResultfield().add(strAlias);
-								}
+								groupQuery.getResultfield().add(strAlias);
 							}
-								
+						}
+
 					}
 				}
 			}
@@ -469,7 +471,7 @@ public class MybatisSqlUtil {
 			}
 			return groupQuery;
 		}
-		
+
 		if (iPSDEDataSet.getGroupMode() == DEDataSetGroupModes.DERAGGDATA) {
 			IPSDERAggData iPSDERAggData = iPSDEDataSet.getPSDERAggData();
 			if (iPSDERAggData == null)
@@ -604,13 +606,13 @@ public class MybatisSqlUtil {
 						if (!StringUtils.hasLength(strCondition)) {
 							continue;
 						}
-						
+
 						if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
 							IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
 							if(iDEDQSQLCustomCondParser == null) {
 								throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
 							}
-							
+
 							try {
 								strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
 							}
@@ -618,7 +620,7 @@ public class MybatisSqlUtil {
 								throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
 							}
 						}
-						
+
 						groupQuery.resultConditions.add(strCondition);
 					}
 				}
@@ -732,14 +734,14 @@ public class MybatisSqlUtil {
 			String str = composeDataQuery(service, iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query);
 			sqlList.add(str);
 		}
-		
+
 		if(DEDataSetUnionMode.UNIONALL.value.equalsIgnoreCase(iPSDEDataSet.getUnionMode())) {
 			return String.join(" UNION ALL", sqlList);
 		}
 		else {
 			return String.join(" UNION ", sqlList);
 		}
-		
+
 	}
 
 	/**
@@ -779,7 +781,7 @@ public class MybatisSqlUtil {
 					if(iDEDQSQLCustomCondParser == null) {
 						throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iPSDEDataQueryCodeCond.getCustomType()));
 					}
-					
+
 					try {
 						strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
 					}
@@ -787,7 +789,7 @@ public class MybatisSqlUtil {
 						throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iPSDEDataQueryCodeCond.getCustomCond(), ex.getMessage()), ex);
 					}
 				}
-				
+
 				if (!bOutputWhere) {
 					sb.append(" WHERE ");
 					bOutputWhere = true;
@@ -845,9 +847,9 @@ public class MybatisSqlUtil {
 
 		Sort sort = iSearchContext.getPageSort();
 		if (sort != null && Sort.unsorted() != sort) {
-			
+
 			IDBDialect iDBDialect = iDataEntityRuntime!=null?iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType):DBDialectUtils.getInstance().get(strDBType);
-			
+
 			List<Sort.Order> items = sort.toList();
 			for (Sort.Order order : items) {
 
@@ -998,7 +1000,7 @@ public class MybatisSqlUtil {
 						if(iDEDQSQLCustomCondParser == null) {
 							throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iSearchCustomCond.getCustomType()));
 						}
-						
+
 						String strRealCustomCond = null;
 						try {
 							strRealCustomCond = iDEDQSQLCustomCondParser.parse(iSearchCustomCond, iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
@@ -1006,13 +1008,13 @@ public class MybatisSqlUtil {
 						catch (Throwable ex) {
 							throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iSearchCustomCond.getCustomCond(), ex.getMessage()), ex);
 						}
-						
+
 						query.apply(strRealCustomCond);
 					}
 					else {
 						query.apply(((ISearchCustomCond) iSearchCond).getCustomCond());
 					}
-					
+
 					break;
 				case ISearchCond.CONDTYPE_PREDEFINED:
 					// ((ISearchPredefinedCond) iSearchCond).getPredefinedType();
@@ -1106,7 +1108,7 @@ public class MybatisSqlUtil {
 						if(iDEDQSQLCustomCondParser == null) {
 							throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iSearchCustomCond.getCustomType()));
 						}
-						
+
 						String strRealCustomCond = null;
 						try {
 							strRealCustomCond = iDEDQSQLCustomCondParser.parse(iSearchCustomCond, iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
@@ -1114,7 +1116,7 @@ public class MybatisSqlUtil {
 						catch (Throwable ex) {
 							throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iSearchCustomCond.getCustomCond(), ex.getMessage()), ex);
 						}
-						
+
 						query.apply(strRealCustomCond);
 					}
 					else {
@@ -1156,7 +1158,8 @@ public class MybatisSqlUtil {
 	public static ISearchCond parsePredefinedCond(net.ibizsys.runtime.dataentity.IDataEntityRuntime dataEntityRuntime, String strPredefinedCond) {
 		ISearchCond searchCond = null;
 		Stack<Object> conditions_in = new Stack<>();
-		Pattern bracketPattern = Pattern.compile("\\[(.*?)]");
+		strPredefinedCond = strPredefinedCond.replace("\r\n", "").replace("\r", "").replace("\n", "");
+		Pattern bracketPattern =  Pattern.compile("^\\[(.*?)]$");
 		Matcher matcher = bracketPattern.matcher(strPredefinedCond);
 		if (matcher.find()) {
 			strPredefinedCond = matcher.group().substring(1, matcher.group().length() - 1);
@@ -1173,6 +1176,9 @@ public class MybatisSqlUtil {
 		}
 
 		if (conditions.size() >= 3) {
+			if(!(conditions.get(0).equals(OPERATION_AND) || conditions.get(0).equals(OPERATION_OR))){
+				conditions.add(0, OPERATION_AND);
+			}
 			searchCond = convertPredefinedCond(dataEntityRuntime, conditions, conditions_in);
 		}
 
@@ -1255,6 +1261,83 @@ public class MybatisSqlUtil {
 		searchFieldCond.setValue(fieldValue);
 		if (String.valueOf(fieldValue).startsWith("#{")) {
 			searchFieldCond.setParamMode(true);
+		}
+		//处理属性存在多层分隔转换为Exist查询
+		if (strFieldQueryExp.contains(TERM_ITEMS_FILED_SYMBOL)) {
+			int firstIndex = strFieldQueryExp.indexOf(TERM_ITEMS_FILED_SYMBOL);
+			String strFieldQueryItemsExp =  (firstIndex != -1) ?  strFieldQueryExp.substring(0,firstIndex) : "";
+			String remainingField  = (firstIndex != -1) ? strFieldQueryExp.substring(firstIndex + TERM_ITEMS_FILED_SYMBOL.length()) : "";
+			SearchItemsCond searchItemsCond = new SearchItemsCond();
+			searchItemsCond.setCondOp(Conditions.EXISTS);
+			searchItemsCond.setFieldName(strFieldQueryItemsExp);
+			ArrayList<ISearchCond> searchItemsConds = new ArrayList<>();
+			IPSDEField iPSDEField = iDataEntityRuntime.getPSDEField(strFieldQueryItemsExp);
+			if(iPSDEField != null) {
+				IDataEntityRuntime itemDataEntityRuntime = null;
+				IPSDEField joinPSDEField = null;
+				IPSDERBase iPSDERBase = null;
+				IPSDERCustom iPSDERCustom = null;
+				boolean bMinorMode = false;
+				// 更加属性类型进行操作
+				if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
+					IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;
+					iPSDERBase = iPSOne2ManyDataDEField.getPSDER();
+					if (iPSDERBase == null) {
+						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", searchItemsCond.getName(), searchItemsCond.getFieldName()));
+					}
+					itemDataEntityRuntime = (IDataEntityRuntime) iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMinorPSDataEntityMust().getId());
+					bMinorMode = true;
+					// 获取连接数据集
+					if (iPSDERBase instanceof IPSDER1N) {
+						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+					} else if (iPSDERBase instanceof IPSDERCustom) {
+						iPSDERCustom = (IPSDERCustom) iPSDERBase;
+						joinPSDEField = iPSDERCustom.getPickupPSDEField();
+					}
+				} else if (DEFDataType.PICKUPOBJECT.value.equals(iPSDEField.getDataType())) {
+					IPSPickupObjectDEField iPSPickupObjectDEField = (IPSPickupObjectDEField) iPSDEField;
+					iPSDERBase = iPSPickupObjectDEField.getPSDER();
+					if (iPSDERBase == null) {
+						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", searchItemsCond.getName(), searchItemsCond.getFieldName()));
+					}
+
+					itemDataEntityRuntime = (IDataEntityRuntime) iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
+					bMinorMode = false;
+					// 获取连接数据集
+					if (iPSDERBase instanceof IPSDER1N) {
+						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+					} else if (iPSDERBase instanceof IPSDERCustom) {
+						iPSDERCustom = (IPSDERCustom) iPSDERBase;
+						joinPSDEField = iPSDERCustom.getPickupPSDEField();
+					}
+				} else if (DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())) {
+					IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEField;
+					iPSDERBase = iPSPickupDEField.getPSDER();
+					if (iPSDERBase == null) {
+						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", searchItemsCond.getName(), searchItemsCond.getFieldName()));
+					}
+
+					itemDataEntityRuntime = (IDataEntityRuntime) iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
+					bMinorMode = false;
+					// 获取连接数据集
+					if (iPSDERBase instanceof IPSDER1N) {
+						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+					} else if (iPSDERBase instanceof IPSDERCustom) {
+						iPSDERCustom = (IPSDERCustom) iPSDERBase;
+						joinPSDEField = iPSDERCustom.getPickupPSDEField();
+					}
+				}
+				if (joinPSDEField == null) {
+					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]无法获取连接属性", searchItemsCond.getName(), searchItemsCond.getFieldName()));
+				}
+				//递归下钻生成SearchCond
+				searchItemsConds.add(parseTerm(itemDataEntityRuntime, condition.replace(strFieldQueryExp,remainingField)));
+				searchItemsCond.setSearchConds(searchItemsConds);
+			}
+			return searchItemsCond;
 		}
 		if (args[1].trim().equals(TERM_OPERATOR_EQ)) {
 			if ("false".equalsIgnoreCase(args[2].trim().replace("'", ""))) {
@@ -1409,7 +1492,7 @@ public class MybatisSqlUtil {
 					}
 				}
 			}
-			
+
 			if (existPSDEFSearchMode == null) {
 				log.warn(String.format("指定属性[%1$s]搜索模式[%2$s]不存在", column, cond.getCondOp()));
 				return false;
@@ -1420,9 +1503,9 @@ public class MybatisSqlUtil {
 						existPSDEFDER = ((IPSPickupObjectDEField) iPSDEField).getPSDER();
 					}
 					else
-						if(DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())){
-							existPSDEFDER = ((IPSPickupDEField) iPSDEField).getPSDER();
-						}
+					if(DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())){
+						existPSDEFDER = ((IPSPickupDEField) iPSDEField).getPSDER();
+					}
 					if(existPSDEFDER == null) {
 						log.warn(String.format("指定属性[%1$s]搜索模式[%2$s]未指定连接关系", column, cond.getCondOp()));
 						return false;
@@ -1510,7 +1593,7 @@ public class MybatisSqlUtil {
 					}
 				}
 			}
-			
+
 			if (existPSDEFSearchMode == null) {
 				log.warn(String.format("指定属性[%1$s]搜索模式[%2$s]不存在", column, cond.getCondOp()));
 				return;
@@ -1521,9 +1604,9 @@ public class MybatisSqlUtil {
 						existPSDEFDER = ((IPSPickupObjectDEField) iPSDEField).getPSDER();
 					}
 					else
-						if(DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())){
-							existPSDEFDER = ((IPSPickupDEField) iPSDEField).getPSDER();
-						}
+					if(DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())){
+						existPSDEFDER = ((IPSPickupDEField) iPSDEField).getPSDER();
+					}
 					if(existPSDEFDER == null) {
 						log.warn(String.format("指定属性[%1$s]搜索模式[%2$s]未指定连接关系", column, cond.getCondOp()));
 						return;
@@ -1662,7 +1745,7 @@ public class MybatisSqlUtil {
 						IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEField;
 						iPSDERBase = iPSPickupDEField.getPSDER();
 					}
-					
+
 					if (iPSDERBase == null) {
 						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", cond.getName(), cond.getFieldName()));
 					}
@@ -1722,13 +1805,13 @@ public class MybatisSqlUtil {
 							if (!StringUtils.hasLength(strCondition)) {
 								continue;
 							}
-							
+
 							if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
 								IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
 								if(iDEDQSQLCustomCondParser == null) {
 									throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
 								}
-								
+
 								try {
 									strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext,iSearchContext!=null?iSearchContext.any():null);
 								}
@@ -1736,7 +1819,7 @@ public class MybatisSqlUtil {
 									throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
 								}
 							}
-							
+
 							if (!bOutputWhere) {
 								sb.append(" WHERE ");
 								bOutputWhere = true;
@@ -1853,18 +1936,18 @@ public class MybatisSqlUtil {
 					} else if (val instanceof List) {
 						list = (List) val;
 					}
-					
+
 					if(existPSDEFSearchMode.getDstPSDEFSearchMode() == null) {
-						
+
 						strSql += String.format(" AND %1$s.%2$s ", minorDataEntityRuntime.getTableName(), existPSDEFSearchMode.getDstPSDEFieldMust().getName());
-						
+
 						boolean bVarchar = DataTypeUtils.isStringDataType(existPSDEFSearchMode.getDstPSDEFieldMust().getStdDataType());
 						if (ObjectUtils.isEmpty(list)) {
 							strSql += " IS NOT NULL";
 						} else {
 							strSql += " IN (";
 							boolean bFirst = true;
-							
+
 							for (Object item : list) {
 								if (bFirst) {
 									bFirst = false;
@@ -1885,30 +1968,30 @@ public class MybatisSqlUtil {
 						}
 					}
 					else {
-					
+
 						Object realValue = null;
 						switch(existPSDEFSearchMode.getDstPSDEFSearchMode().getValueOP()) {
-						case Conditions.IN:
-						case Conditions.NOTIN:
-							realValue = list;
-							break;
-						default:
-							if(!ObjectUtils.isEmpty(list)) {
-								realValue = list.get(0);
-							}
-							break;
+							case Conditions.IN:
+							case Conditions.NOTIN:
+								realValue = list;
+								break;
+							default:
+								if(!ObjectUtils.isEmpty(list)) {
+									realValue = list.get(0);
+								}
+								break;
 						}
-						
+
 						try {
 							String strCondition = iDEDataQueryCodeRuntime.getDBDialect().getConditionSQL(
-									String.format("%1$s.%2$s", minorDataEntityRuntime.getTableName(), existPSDEFSearchMode.getDstPSDEFieldMust().getName())	
+									String.format("%1$s.%2$s", minorDataEntityRuntime.getTableName(), existPSDEFSearchMode.getDstPSDEFieldMust().getName())
 									, existPSDEFSearchMode.getDstPSDEFieldMust().getStdDataType(), existPSDEFSearchMode.getDstPSDEFSearchMode().getValueOP(), realValue, false, null);
 							strSql += String.format(" AND %1$s", strCondition);
 						}
 						catch (Throwable ex) {
 							throw new RuntimeException(String.format("获取子项条件[%1$s]发生异常，%2$s", cond.getName(), ex.getMessage()), ex);
 						}
-						
+
 					}
 				}
 				if (Conditions.EXISTS.equals(cond.getCondOp())) {
@@ -2007,8 +2090,8 @@ public class MybatisSqlUtil {
 				joinPSDEField = iPSDERCustom.getPickupPSDEField();
 			}
 		}
-			
-		
+
+
 
 		if (joinPSDEField == null) {
 			throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]无法获取连接属性", cond.getName(), cond.getFieldName()));
@@ -2140,13 +2223,13 @@ public class MybatisSqlUtil {
 						if (!StringUtils.hasLength(strCondition)) {
 							continue;
 						}
-						
+
 						if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
 							IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
 							if(iDEDQSQLCustomCondParser == null) {
 								throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
 							}
-							
+
 							try {
 								strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
 							}
@@ -2154,7 +2237,7 @@ public class MybatisSqlUtil {
 								throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
 							}
 						}
-						
+
 						if (!bOutputWhere) {
 							sb.append(" WHERE ");
 							bOutputWhere = true;
@@ -2311,14 +2394,14 @@ public class MybatisSqlUtil {
 			}
 		} else if (cond instanceof ISearchCustomCond) {
 			ISearchCustomCond iSearchCustomCond = (ISearchCustomCond) cond;
-			
+
 			if(StringUtils.hasLength(iSearchCustomCond.getCustomType())) {
 				//获取自定义解析器
 				IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, iSearchCustomCond.getCustomType());
 				if(iDEDQSQLCustomCondParser == null) {
 					throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iSearchCustomCond.getCustomType()));
 				}
-				
+
 				String strRealCustomCond = null;
 				try {
 					IDBDialect iDBDialect =	iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType);
@@ -2327,229 +2410,169 @@ public class MybatisSqlUtil {
 				catch (Throwable ex) {
 					throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iSearchCustomCond.getCustomCond(), ex.getMessage()), ex);
 				}
-				
+
 				strCond.append(strRealCustomCond);
 			}
 			else {
 				strCond.append(iSearchCustomCond.getCustomCond());
 			}
 		}
-		else 
-			if (cond instanceof ISearchItemsCond) {
-				ISearchItemsCond iSearchItemsCond = (ISearchItemsCond) cond;
-				// 尝试获取子项属性
-				if (!StringUtils.hasLength(iSearchItemsCond.getFieldName())) {
-					throw new RuntimeException(String.format("子项条件[%1$s]未指定属性名称", iSearchItemsCond.getName()));
+		else
+		if (cond instanceof ISearchItemsCond) {
+			ISearchItemsCond iSearchItemsCond = (ISearchItemsCond) cond;
+			// 尝试获取子项属性
+			if (!StringUtils.hasLength(iSearchItemsCond.getFieldName())) {
+				throw new RuntimeException(String.format("子项条件[%1$s]未指定属性名称", iSearchItemsCond.getName()));
+			}
+
+			// 尝试获取属性
+			IPSDEField iPSDEField = iDataEntityRuntime.getPSDEField(iSearchItemsCond.getFieldName(), true);
+			if (iPSDEField == null) {
+				// 后续考虑支持嵌套属性集合
+				throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
+			}
+
+			IDataEntityRuntime itemDataEntityRuntime = null;
+			IPSDEDataSet itemPSDEDataSet = null;
+			IPSDEField joinPSDEField = null;
+			IPSDERBase iPSDERBase = null;
+			IPSDERCustom iPSDERCustom = null;
+			boolean bMinorMode = false;
+			// 更加属性类型进行操作
+			if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
+				IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;
+				iPSDERBase = iPSOne2ManyDataDEField.getPSDER();
+				if (iPSDERBase == null) {
+					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
 				}
 
-				// 尝试获取属性
-				IPSDEField iPSDEField = iDataEntityRuntime.getPSDEField(iSearchItemsCond.getFieldName(), true);
-				if (iPSDEField == null) {
-					// 后续考虑支持嵌套属性集合
-					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
+				itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMinorPSDataEntityMust().getId());
+				bMinorMode = true;
+				// 获取连接数据集
+				if (iPSDERBase instanceof IPSDER1N) {
+					IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+					itemPSDEDataSet = iPSDER1N.getNestedPSDEDataSet();
+					joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+				} else if (iPSDERBase instanceof IPSDERCustom) {
+					iPSDERCustom = (IPSDERCustom) iPSDERBase;
+					itemPSDEDataSet = iPSDERCustom.getNestedPSDEDataSet();
+					joinPSDEField = iPSDERCustom.getPickupPSDEField();
+				}
+			} else if (DEFDataType.PICKUPOBJECT.value.equals(iPSDEField.getDataType())) {
+				IPSPickupObjectDEField iPSPickupObjectDEField = (IPSPickupObjectDEField) iPSDEField;
+				iPSDERBase = iPSPickupObjectDEField.getPSDER();
+				if (iPSDERBase == null) {
+					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
 				}
 
-				IDataEntityRuntime itemDataEntityRuntime = null;
-				IPSDEDataSet itemPSDEDataSet = null;
-				IPSDEField joinPSDEField = null;
-				IPSDERBase iPSDERBase = null;
-				IPSDERCustom iPSDERCustom = null;
-				boolean bMinorMode = false;
-				// 更加属性类型进行操作
-				if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
-					IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;
-					iPSDERBase = iPSOne2ManyDataDEField.getPSDER();
-					if (iPSDERBase == null) {
-						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
-					}
-
-					itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMinorPSDataEntityMust().getId());
-					bMinorMode = true;
-					// 获取连接数据集
-					if (iPSDERBase instanceof IPSDER1N) {
-						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
-						itemPSDEDataSet = iPSDER1N.getNestedPSDEDataSet();
-						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
-					} else if (iPSDERBase instanceof IPSDERCustom) {
-						iPSDERCustom = (IPSDERCustom) iPSDERBase;
-						itemPSDEDataSet = iPSDERCustom.getNestedPSDEDataSet();
-						joinPSDEField = iPSDERCustom.getPickupPSDEField();
-					}
-				} else if (DEFDataType.PICKUPOBJECT.value.equals(iPSDEField.getDataType())) {
-					IPSPickupObjectDEField iPSPickupObjectDEField = (IPSPickupObjectDEField) iPSDEField;
-					iPSDERBase = iPSPickupObjectDEField.getPSDER();
-					if (iPSDERBase == null) {
-						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
-					}
-
-					itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
-					bMinorMode = false;
-					// 获取连接数据集
-					if (iPSDERBase instanceof IPSDER1N) {
-						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
-						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
-						itemPSDEDataSet = iPSDER1N.getRefPSDEDataSet();
-					}else if (iPSDERBase instanceof IPSDERCustom) {
-						iPSDERCustom = (IPSDERCustom) iPSDERBase;
-						itemPSDEDataSet = iPSDERCustom.getRefPSDEDataSet();
-						joinPSDEField = iPSDERCustom.getPickupPSDEField();
-					}
-				} else if (DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())) {
-					IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEField;
-					iPSDERBase = iPSPickupDEField.getPSDER();
-					if (iPSDERBase == null) {
-						throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
-					}
-
-					itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
-					bMinorMode = false;
-					// 获取连接数据集
-					if (iPSDERBase instanceof IPSDER1N) {
-						IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
-						joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
-						itemPSDEDataSet = iPSDER1N.getRefPSDEDataSet();
-					}else if (iPSDERBase instanceof IPSDERCustom) {
-						iPSDERCustom = (IPSDERCustom) iPSDERBase;
-						itemPSDEDataSet = iPSDERCustom.getRefPSDEDataSet();
-						joinPSDEField = iPSDERCustom.getPickupPSDEField();
-					}
+				itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
+				bMinorMode = false;
+				// 获取连接数据集
+				if (iPSDERBase instanceof IPSDER1N) {
+					IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+					joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+					itemPSDEDataSet = iPSDER1N.getRefPSDEDataSet();
+				}else if (iPSDERBase instanceof IPSDERCustom) {
+					iPSDERCustom = (IPSDERCustom) iPSDERBase;
+					itemPSDEDataSet = iPSDERCustom.getRefPSDEDataSet();
+					joinPSDEField = iPSDERCustom.getPickupPSDEField();
 				}
-					
-				
-
-				if (joinPSDEField == null) {
-					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]无法获取连接属性", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
+			} else if (DEFDataType.PICKUP.value.equals(iPSDEField.getDataType())) {
+				IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEField;
+				iPSDERBase = iPSPickupDEField.getPSDER();
+				if (iPSDERBase == null) {
+					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系不存在", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
 				}
 
-				if (itemPSDEDataSet == null) {
-					itemPSDEDataSet = itemDataEntityRuntime.getDefaultPSDEDataSet();
+				itemDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId());
+				bMinorMode = false;
+				// 获取连接数据集
+				if (iPSDERBase instanceof IPSDER1N) {
+					IPSDER1N iPSDER1N = (IPSDER1N) iPSDERBase;
+					joinPSDEField = iPSDER1N.getPSPickupDEFieldMust();
+					itemPSDEDataSet = iPSDER1N.getRefPSDEDataSet();
+				}else if (iPSDERBase instanceof IPSDERCustom) {
+					iPSDERCustom = (IPSDERCustom) iPSDERBase;
+					itemPSDEDataSet = iPSDERCustom.getRefPSDEDataSet();
+					joinPSDEField = iPSDERCustom.getPickupPSDEField();
 				}
+			}
 
-				List<IPSDEDataQuery> psDEDataQueryList = itemPSDEDataSet.getPSDEDataQueries();
-				if (ObjectUtils.isEmpty(psDEDataQueryList)) {
-					throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系数据集未包含查询", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
-				}
 
-				IDEDataQueryCodeRuntime itemDEDataQueryCodeRuntime = itemDataEntityRuntime.getDEDataQueryCodeRuntime(psDEDataQueryList.get(0), strDBType, false);
-				// 判断操作
-				switch (iSearchItemsCond.getCondOp()) {
-					
-					case Conditions.EXISTS:
-					case Conditions.NOTEXISTS:
-						String strSubQueryIdExp = bMinorMode ? itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(joinPSDEField.getName(), false).getExpression() : itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(itemDataEntityRuntime.getKeyPSDEField().getName(), false).getExpression();
 
-						StringBuilder sb = new StringBuilder();
-						IPSDEDataQueryCode curDBPSDEDataQueryCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCode();
-						// 重新编译SQL
-						String strQueryCode = null;
-						try {
-							Select select = (Select) CCJSqlParserUtil.parse(curDBPSDEDataQueryCode.getQueryCode());
-							select.getSelectBody().accept(new SelectVisitorAdapter() {
-								@Override
-								public void visit(PlainSelect plainSelect) {
-									plainSelect.getSelectItems().clear();
-									try {
-										plainSelect.getSelectItems().add(new SelectExpressionItem(CCJSqlParserUtil.parseExpression(strSubQueryIdExp)));
-									} catch (JSQLParserException ex) {
-										log.error(ex);
-									}
-								}
-							});
+			if (joinPSDEField == null) {
+				throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]无法获取连接属性", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
+			}
 
-							strQueryCode = select.toString();
-						} catch (JSQLParserException ex) {
-							log.error(ex);
-							strQueryCode = curDBPSDEDataQueryCode.getQueryCode();
-						}
+			if (itemPSDEDataSet == null) {
+				itemPSDEDataSet = itemDataEntityRuntime.getDefaultPSDEDataSet();
+			}
 
-						sb.append(strQueryCode);
-						
-						IDBDialect iDBDialect =	iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType);
-						
-						// 查询模型 自身条件
-						boolean bOutputWhere = false;
-						boolean bCondFirst = true;
-						if (curDBPSDEDataQueryCode.getPSDEDataQueryCodeConds() != null) {
-							for (IPSDEDataQueryCodeCond queryCodeCond : curDBPSDEDataQueryCode.getPSDEDataQueryCodeConds()) {
-								String strCondition = queryCodeCond.getCustomCond();
-								if (!StringUtils.hasLength(strCondition)) {
-									continue;
-								}
-								
-								if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
-									IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
-									if(iDEDQSQLCustomCondParser == null) {
-										throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
-									}
-									
-									try {
-										strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), itemDEDataQueryCodeRuntime.getDBDialect(), itemDEDataQueryCodeRuntime.getDataEntityRuntime(), itemDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
-									}
-									catch (Throwable ex) {
-										throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
-									}
-								}
-								
-								if (!bOutputWhere) {
-									sb.append(" WHERE ");
-									bOutputWhere = true;
-								}
-								if (bCondFirst) {
-									bCondFirst = false;
-								} else {
-									sb.append(" AND ");
-								}
-								sb.append(String.format("(%1$s)", strCondition));
-							}
-						}
+			List<IPSDEDataQuery> psDEDataQueryList = itemPSDEDataSet.getPSDEDataQueries();
+			if (ObjectUtils.isEmpty(psDEDataQueryList)) {
+				throw new RuntimeException(String.format("子项条件[%1$s]指定属性[%2$s]关系数据集未包含查询", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
+			}
 
-						QueryWrapper<Object> subQuery = new QueryWrapper<Object>();
+			IDEDataQueryCodeRuntime itemDEDataQueryCodeRuntime = itemDataEntityRuntime.getDEDataQueryCodeRuntime(psDEDataQueryList.get(0), strDBType, false);
+			// 判断操作
+			switch (iSearchItemsCond.getCondOp()) {
 
-						// 判断进一步附加子类型条件
-						if (bMinorMode && iPSDERCustom != null) {
-							IPSDEField parentTypePSDEField = itemDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE.value, itemDataEntityRuntime.getDEType() != DETypes.DYNAATTACHED);
-							IPSDEField parentSubTypePSDEField = itemDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE.value, true);
-							String strParentType = null;
-							String strParentSubType = null;
-							if(parentTypePSDEField != null) {
-								strParentType = iPSDERCustom.getParentType();
-								if(!StringUtils.hasLength(strParentType)) {
-									//strParentType = iDataEntityRuntime.getName();
-									strParentType = iDataEntityRuntime.getDERParentType();
+				case Conditions.EXISTS:
+				case Conditions.NOTEXISTS:
+					String strSubQueryIdExp = bMinorMode ? itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(joinPSDEField.getName(), false).getExpression() : itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(itemDataEntityRuntime.getKeyPSDEField().getName(), false).getExpression();
+
+					StringBuilder sb = new StringBuilder();
+					IPSDEDataQueryCode curDBPSDEDataQueryCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCode();
+					// 重新编译SQL
+					String strQueryCode = null;
+					try {
+						Select select = (Select) CCJSqlParserUtil.parse(curDBPSDEDataQueryCode.getQueryCode());
+						select.getSelectBody().accept(new SelectVisitorAdapter() {
+							@Override
+							public void visit(PlainSelect plainSelect) {
+								plainSelect.getSelectItems().clear();
+								try {
+									plainSelect.getSelectItems().add(new SelectExpressionItem(CCJSqlParserUtil.parseExpression(strSubQueryIdExp)));
+								} catch (JSQLParserException ex) {
+									log.error(ex);
 								}
 							}
-							if (parentSubTypePSDEField != null) {
-								strParentSubType = iPSDERCustom.getParentSubType();
-								if (!StringUtils.hasLength(strParentSubType)) {
-									strParentSubType = iPSDERBase.getMinorCodeName();
+						});
+
+						strQueryCode = select.toString();
+					} catch (JSQLParserException ex) {
+						log.error(ex);
+						strQueryCode = curDBPSDEDataQueryCode.getQueryCode();
+					}
+
+					sb.append(strQueryCode);
+
+					IDBDialect iDBDialect =	iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType);
+
+					// 查询模型 自身条件
+					boolean bOutputWhere = false;
+					boolean bCondFirst = true;
+					if (curDBPSDEDataQueryCode.getPSDEDataQueryCodeConds() != null) {
+						for (IPSDEDataQueryCodeCond queryCodeCond : curDBPSDEDataQueryCode.getPSDEDataQueryCodeConds()) {
+							String strCondition = queryCodeCond.getCustomCond();
+							if (!StringUtils.hasLength(strCondition)) {
+								continue;
+							}
+
+							if(StringUtils.hasLength(queryCodeCond.getCustomType())) {
+								IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, queryCodeCond.getCustomType());
+								if(iDEDQSQLCustomCondParser == null) {
+									throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", queryCodeCond.getCustomType()));
+								}
+
+								try {
+									strCondition = iDEDQSQLCustomCondParser.parse(SearchCustomCond.of(strCondition), itemDEDataQueryCodeRuntime.getDBDialect(), itemDEDataQueryCodeRuntime.getDataEntityRuntime(), itemDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
+								}
+								catch (Throwable ex) {
+									throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", queryCodeCond.getCustomCond(), ex.getMessage()), ex);
 								}
 							}
-							if (parentTypePSDEField != null) {
-								String strParentTypeCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(parentTypePSDEField.getName(), false).getExpression();
-								subQuery.eq(strParentTypeCode, strParentType);
-							}
-							if (parentSubTypePSDEField != null) {
-								String strParentSubTypeCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(parentSubTypePSDEField.getName(), false).getExpression();
-								if (StringUtils.hasLength(strParentSubType)) {
-									try {
-										subQuery.eq(strParentSubTypeCode, DataTypeUtils.convert(parentSubTypePSDEField.getStdDataType(), strParentSubType));
-									} catch (Exception ex) {
-										log.error(ex);
-										subQuery.eq(strParentSubTypeCode, strParentSubType);
-									}
-								} else {
-									subQuery.isNull(strParentSubTypeCode);
-								}
-							}
-						}
 
-						List<ISearchCond> items = iSearchItemsCond.getSearchConds();
-						if (!ObjectUtils.isEmpty(items)) {
-							calcSearchCondItems(itemDataEntityRuntime, itemDEDataQueryCodeRuntime, iSearchContext, subQuery, Conditions.AND, items);
-						}
-
-						String strCondition = subQuery.getSqlSegment();
-						if (StringUtils.hasLength(strCondition)) {
 							if (!bOutputWhere) {
 								sb.append(" WHERE ");
 								bOutputWhere = true;
@@ -2561,61 +2584,121 @@ public class MybatisSqlUtil {
 							}
 							sb.append(String.format("(%1$s)", strCondition));
 						}
+					}
 
-						//
+					QueryWrapper<Object> subQuery = new QueryWrapper<Object>();
 
-						String strSql;
-						if (bMinorMode) {
-
-							String strKeyExpCode = iDBDialect.getDBObjStandardName(iDataEntityRuntime.getKeyPSDEField().getName());
-							try {
-								strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName()), strKeyExpCode);
-							} catch (Throwable ex) {
-								strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), joinPSDEField.getName(), strKeyExpCode);
-							}
-						} else {
-
-							String strKeyExpCode = iDBDialect.getDBObjStandardName(joinPSDEField.getName());
-
-							try {
-								strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName()), strKeyExpCode);
-							} catch (Throwable ex) {
-								strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDataEntityRuntime.getKeyPSDEField().getName(), strKeyExpCode);
+					// 判断进一步附加子类型条件
+					if (bMinorMode && iPSDERCustom != null) {
+						IPSDEField parentTypePSDEField = itemDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE.value, itemDataEntityRuntime.getDEType() != DETypes.DYNAATTACHED);
+						IPSDEField parentSubTypePSDEField = itemDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE.value, true);
+						String strParentType = null;
+						String strParentSubType = null;
+						if(parentTypePSDEField != null) {
+							strParentType = iPSDERCustom.getParentType();
+							if(!StringUtils.hasLength(strParentType)) {
+								//strParentType = iDataEntityRuntime.getName();
+								strParentType = iDataEntityRuntime.getDERParentType();
 							}
 						}
-
-						// 替换变量
-						if (!ObjectUtils.isEmpty(subQuery.getParamNameValuePairs())) {
-							String strParamName = "q" + KeyValueUtils.genUniqueId();
-							strSql = strSql.replace("ew.paramNameValuePairs.MPGENVAL", "ew.paramNameValuePairs." + strParamName);
-							for (java.util.Map.Entry<String, Object> entry : subQuery.getParamNameValuePairs().entrySet()) {
-								String strNewKey = entry.getKey().replace("MPGENVAL", strParamName);
-								//query.getParamNameValuePairs().put(strNewKey, entry.getValue());
-								String strValueExpression = null;
-								if(entry.getValue() instanceof String) {
-									strValueExpression = String.format("'%1$s'", entry.getValue().toString().replace("'", "''"));
+						if (parentSubTypePSDEField != null) {
+							strParentSubType = iPSDERCustom.getParentSubType();
+							if (!StringUtils.hasLength(strParentSubType)) {
+								strParentSubType = iPSDERBase.getMinorCodeName();
+							}
+						}
+						if (parentTypePSDEField != null) {
+							String strParentTypeCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(parentTypePSDEField.getName(), false).getExpression();
+							subQuery.eq(strParentTypeCode, strParentType);
+						}
+						if (parentSubTypePSDEField != null) {
+							String strParentSubTypeCode = itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(parentSubTypePSDEField.getName(), false).getExpression();
+							if (StringUtils.hasLength(strParentSubType)) {
+								try {
+									subQuery.eq(strParentSubTypeCode, DataTypeUtils.convert(parentSubTypePSDEField.getStdDataType(), strParentSubType));
+								} catch (Exception ex) {
+									log.error(ex);
+									subQuery.eq(strParentSubTypeCode, strParentSubType);
 								}
-								else {
-									strValueExpression = entry.getValue().toString();
-								}
-								strSql = strSql.replace(String.format("#{ew.paramNameValuePairs.%1$s}", strNewKey), strValueExpression);
+							} else {
+								subQuery.isNull(strParentSubTypeCode);
 							}
 						}
+					}
 
-						if (Conditions.EXISTS.equalsIgnoreCase(iSearchItemsCond.getCondOp())) {
-							//query.exists(strSql);
-							strCond.append(String.format("EXISTS(%1$s)", strSql));
-						} else {
-							//query.notExists(strSql);
-							strCond.append(String.format("NOT EXISTS(%1$s)", strSql));
+					List<ISearchCond> items = iSearchItemsCond.getSearchConds();
+					if (!ObjectUtils.isEmpty(items)) {
+						calcSearchCondItems(itemDataEntityRuntime, itemDEDataQueryCodeRuntime, iSearchContext, subQuery, Conditions.AND, items);
+					}
+
+					String strCondition = subQuery.getSqlSegment();
+					if (StringUtils.hasLength(strCondition)) {
+						if (!bOutputWhere) {
+							sb.append(" WHERE ");
+							bOutputWhere = true;
 						}
+						if (bCondFirst) {
+							bCondFirst = false;
+						} else {
+							sb.append(" AND ");
+						}
+						sb.append(String.format("(%1$s)", strCondition));
+					}
 
-						break;
-					default:
-						throw new RuntimeException(String.format("子项条件[%1$s]条件操作[%2$s]未支持", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
-				}
+					//
 
+					String strSql;
+					if (bMinorMode) {
+
+						String strKeyExpCode = iDBDialect.getDBObjStandardName(iDataEntityRuntime.getKeyPSDEField().getName());
+						try {
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName()), strKeyExpCode);
+						} catch (Throwable ex) {
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), joinPSDEField.getName(), strKeyExpCode);
+						}
+					} else {
+
+						String strKeyExpCode = iDBDialect.getDBObjStandardName(joinPSDEField.getName());
+
+						try {
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName()), strKeyExpCode);
+						} catch (Throwable ex) {
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDataEntityRuntime.getKeyPSDEField().getName(), strKeyExpCode);
+						}
+					}
+
+					// 替换变量
+					if (!ObjectUtils.isEmpty(subQuery.getParamNameValuePairs())) {
+						String strParamName = "q" + KeyValueUtils.genUniqueId();
+						strSql = strSql.replace("ew.paramNameValuePairs.MPGENVAL", "ew.paramNameValuePairs." + strParamName);
+						for (java.util.Map.Entry<String, Object> entry : subQuery.getParamNameValuePairs().entrySet()) {
+							String strNewKey = entry.getKey().replace("MPGENVAL", strParamName);
+							//query.getParamNameValuePairs().put(strNewKey, entry.getValue());
+							String strValueExpression = null;
+							if(entry.getValue() instanceof String) {
+								strValueExpression = String.format("'%1$s'", entry.getValue().toString().replace("'", "''"));
+							}
+							else {
+								strValueExpression = entry.getValue().toString();
+							}
+							strSql = strSql.replace(String.format("#{ew.paramNameValuePairs.%1$s}", strNewKey), strValueExpression);
+						}
+					}
+
+					if (Conditions.EXISTS.equalsIgnoreCase(iSearchItemsCond.getCondOp())) {
+						//query.exists(strSql);
+						strCond.append(String.format("EXISTS(%1$s)", strSql));
+					} else {
+						//query.notExists(strSql);
+						strCond.append(String.format("NOT EXISTS(%1$s)", strSql));
+					}
+
+					break;
+				default:
+					throw new RuntimeException(String.format("子项条件[%1$s]条件操作[%2$s]未支持", iSearchItemsCond.getName(), iSearchItemsCond.getFieldName()));
 			}
+
+		}
 	}
 
 	public static boolean isSearchIgnoreCase() {

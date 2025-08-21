@@ -12,6 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.LogFactory;
@@ -125,6 +126,8 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 	private String strGitUserName = null;
 
 	private String strGitPassword = null;
+	
+	private Map<String, String> ossFileMap = new ConcurrentHashMap<String, String>();
 
 	@Override
 	protected void onReloadSetting(boolean bFirst) throws Throwable {
@@ -311,8 +314,6 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 			log.warn(String.format("系统标识[%1$s]无效", strSystemId));
 			return null;
 		}
-
-	
 		
 		SystemDTO systemDTO = this.getSystemIf(strSystemId, true);
 
@@ -506,6 +507,7 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 						String strOSSFileId = configEntity.getString("modelossid", null);
 						if (StringUtils.hasLength(strOSSFileId)) {
 							// 上传文件
+							File dynaModelFolder = null;
 							String strOSSCat = OSSCAT_DYNAMODEL;
 							net.ibizsys.runtime.util.domain.File ossFile = this.getSysFileUtilRuntime().getOSSFile(strOSSFileId, strOSSCat, true);
 							if (ossFile == null) {
@@ -515,7 +517,7 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 								}
 							}
 
-							File dynaModelFolder = null;
+							
 							String strFolder = KeyValueUtils.genUniqueId(strSystemId, strOSSFileId).toLowerCase();
 							if (StringUtils.hasLength(this.getDynaModelPath())) {
 								dynaModelFolder = new File(this.getDynaModelPath() + File.separator + strFolder.substring(0, 2) + File.separator + strFolder);
@@ -530,6 +532,9 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 							if (!systemModelFile.exists()) {
 								ZipUtils.unzip(new File(ossFile.getLocalPath()), dynaModelFolder);
 							}
+							
+							this.ossFileMap.put(strOSSFileId, dynaModelFolder.getAbsolutePath());
+							
 							systemDTO.setSysModel(dynaModelFolder.getAbsolutePath());
 							//写入摘要信息
 							String strFileHashCode = "";
@@ -723,7 +728,6 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 			updateSystemModelDigest(systemDTO, iPSSystemService, params);
 		}
 		
-
 		if (strSysType.equals(DevSysTypes.DEVSYS) || strSysType.equals(DevSysTypes.DEVSYS_APP)) {
 			this.installPSApplications(systemDTO, iPSSystemService, params);
 		}
@@ -1164,30 +1168,42 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 			throw new Exception(String.format("动态配置[%1$s]未指定模型文件", metaDynaModelDTO.getConfigName()));
 		}
 
-		// 上传文件
-		String strOSSCat = OSSCAT_DYNAMODEL;
-		net.ibizsys.runtime.util.domain.File ossFile = this.getSysFileUtilRuntime().getOSSFile(strFileId, strOSSCat, true);
-		if (ossFile == null) {
-			ossFile = this.getSysFileUtilRuntime().getOSSFile(strFileId, null, true);
-			if (ossFile == null) {
-				throw new Exception(String.format("动态配置[%1$s]指定模型文件不存在", metaDynaModelDTO.getConfigName()));
+		File dynaModelFolder = null;
+		String strCachePath = this.ossFileMap.get(strFileId);
+		if(StringUtils.hasLength(strCachePath)) {
+			dynaModelFolder = new File(strCachePath);
+			File systemModelFile = new File(dynaModelFolder.getAbsolutePath() + File.separator + "PSSYSTEM.json");
+			if (!systemModelFile.exists()) {
+				dynaModelFolder = null;
 			}
 		}
-
-		File dynaModelFolder = null;
-		String strFolder = KeyValueUtils.genUniqueId(metaDynaModelDTO.getSysDynaInstId(), strFileId).toLowerCase();
-		if (StringUtils.hasLength(this.getDynaModelPath())) {
-			dynaModelFolder = new File(this.getDynaModelPath() + File.separator + strFolder.substring(0, 2) + File.separator + strFolder);
-		} else {
-			Path pathTempDirectory = Files.createTempDirectory("model");
-			dynaModelFolder = pathTempDirectory.toFile();
-		}
-
-		// 解压缩
-		// 判断文件是否存在
-		File systemModelFile = new File(dynaModelFolder.getAbsolutePath() + File.separator + "PSSYSTEM.json");
-		if (!systemModelFile.exists()) {
-			ZipUtils.unzip(new File(ossFile.getLocalPath()), dynaModelFolder);
+		if(dynaModelFolder == null) {
+			// 上传文件
+			String strOSSCat = OSSCAT_DYNAMODEL;
+			net.ibizsys.runtime.util.domain.File ossFile = this.getSysFileUtilRuntime().getOSSFile(strFileId, strOSSCat, true);
+			if (ossFile == null) {
+				ossFile = this.getSysFileUtilRuntime().getOSSFile(strFileId, null, true);
+				if (ossFile == null) {
+					throw new Exception(String.format("动态配置[%1$s]指定模型文件不存在", metaDynaModelDTO.getConfigName()));
+				}
+			}
+			
+			String strFolder = KeyValueUtils.genUniqueId(metaDynaModelDTO.getSysDynaInstId(), strFileId).toLowerCase();
+			if (StringUtils.hasLength(this.getDynaModelPath())) {
+				dynaModelFolder = new File(this.getDynaModelPath() + File.separator + strFolder.substring(0, 2) + File.separator + strFolder);
+			} else {
+				Path pathTempDirectory = Files.createTempDirectory("model");
+				dynaModelFolder = pathTempDirectory.toFile();
+			}
+			
+			// 解压缩
+			// 判断文件是否存在
+			File systemModelFile = new File(dynaModelFolder.getAbsolutePath() + File.separator + "PSSYSTEM.json");
+			if (!systemModelFile.exists()) {
+				ZipUtils.unzip(new File(ossFile.getLocalPath()), dynaModelFolder);
+			}
+			
+			this.ossFileMap.put(strFileId, dynaModelFolder.getAbsolutePath());
 		}
 
 		IPSSystemService iPSSystemService = getPSSystemService(dynaModelFolder.getAbsolutePath());
@@ -2002,6 +2018,11 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 						bUpdate = true;
 					}
 
+					if ((existsSysRole.getAuthorizeAll() != null && existsSysRole.getAuthorizeAll() != ("AuthorizeAll".equals(psSysUserRole.getUserTag())?1:0)||(existsSysRole.getAuthorizeAll() == null && "AuthorizeAll".equals(psSysUserRole.getUserTag())))) {
+						existsSysRole.setAuthorizeAll(("AuthorizeAll".equals(psSysUserRole.getUserTag())?1:0));
+						bUpdate = true;
+					}
+
 					if (bUpdate) {
 						try {
 							EBSXSystemRuntime.getInstance().getRoleService().update(existsSysRole);
@@ -2021,6 +2042,11 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 					// 是否全局角色
 					if (!psSysUserRole.isGlobalRole()) {
 						sysRole.setDCSystemId(et.getDCSystemId());
+					}
+
+					// 是否授权所有,仅授权访问用户类权限有效
+					if("AuthorizeAll".equals(psSysUserRole.getUserTag())) {
+						existsSysRole.setAuthorizeAll(("AuthorizeAll".equals(psSysUserRole.getUserTag()) ? 1 : 0));
 					}
 
 					sysRole.setSystemFlag(1);
@@ -2469,11 +2495,18 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 		}
 
 		File dynaModelFolder = null;
+		String strCachePath = this.ossFileMap.get(strFileId);
+		if(StringUtils.hasLength(strCachePath)) {
+			dynaModelFolder = new File(strCachePath);
+			File systemModelFile = new File(dynaModelFolder.getAbsolutePath() + File.separator + "PSSYSTEM.json");
+			if (systemModelFile.exists()) {
+				return dynaModelFolder.getAbsolutePath();
+			}
+			dynaModelFolder = null;
+		}
+		
 		String strFolder = KeyValueUtils.genUniqueId(metaDynaModel.getSysDynaInstId(), strFileId).toLowerCase();
 		if (StringUtils.hasLength(this.getDynaModelPath())) {
-			// dynaModelFolder = new File(this.getDynaModelPath() +
-			// File.separator + strFolder.substring(0, 2) + File.separator +
-			// strFolder);
 			String strCat = strSystemId.toLowerCase();
 			if (strCat.length() > 20) {
 				strCat = strCat.substring(0, 20);
@@ -2505,6 +2538,8 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 			ZipUtils.unzip(zipFile, dynaModelFolder);
 		}
 
+		this.ossFileMap.put(strFileId, dynaModelFolder.getAbsolutePath());
+		
 		try {
 			// 移除下载的zip文件
 			if (zipFile.exists()) {

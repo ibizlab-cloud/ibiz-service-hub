@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSBICUBEDIMENSION</B>智能报表立方体维度 模型传输对象
+ * <B>PSSYSBICUBEDIMENSION</B>智能立方体维度 模型传输对象
  * <P>
- * 
+ * 智能报表立方体的核心模型，用于定义多维分析维度，支持常规维度与动态计算维度。它通过层级结构、代码表、实体属性等配置，实现数据的分类、分组及动态计算
  */
 public class PSSysBICubeDimension extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -1129,14 +1129,14 @@ public class PSSysBICubeDimension extends net.ibizsys.psmodel.core.util.PSModelB
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性
+     * <B>PSDEFID</B>&nbsp;实体属性，指定常规维度相关的实体属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
     public final static String FIELD_PSDEFID = "psdefid";
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * 
      * @param pSDEFId
      * 
@@ -1180,7 +1180,7 @@ public class PSSysBICubeDimension extends net.ibizsys.psmodel.core.util.PSModelB
     }
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * <P>
      * 等同 {@link #setPSDEFId}
      * @param pSDEFId

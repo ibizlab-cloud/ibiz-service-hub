@@ -104,6 +104,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(ISysRefRuntime.class, SysRefType.EXTENSION_DEVSYS.value, "net.ibizsys.central.plugin.extension.system.ExtensionSysRefRuntime");
 		registerRuntimeObjectIf(ISysRefRuntime.class, SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value, "net.ibizsys.central.plugin.extension.system.ExtensionSysRefRuntime");
 		registerRuntimeObjectIf(ISysRefRuntime.class, SysRefType.EXTENSION_DEVSYS_WORKFLOW.value, "net.ibizsys.central.plugin.extension.system.ExtensionSysRefRuntime");
+		registerRuntimeObjectIf(ISysRefRuntime.class, SysRefType.MERGENCE_DEVSYS.value, "net.ibizsys.central.plugin.extension.system.ExtensionSysRefRuntime");
 
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.KAFKA, "net.ibizsys.central.plugin.kafka.eai.KafkaEAIAgentRuntime");
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.RABBITMQ, "net.ibizsys.central.plugin.rabbitmq.eai.RabbitMQEAIAgentRuntime");

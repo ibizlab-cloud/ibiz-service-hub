@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "TEAMMEMBERID",
+        "codeName" : "TeamMemberId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -474,6 +482,7 @@
     "length" : 100,
     "logicName" : "组成员标识",
     "name" : "TEAMMEMBERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -606,6 +615,7 @@
     "length" : 100,
     "logicName" : "组标识",
     "name" : "TEAMID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -784,6 +794,7 @@
     "length" : 100,
     "logicName" : "组名称",
     "name" : "TEAMNAME",
+    "orderValue" : 3,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_TEAM_TEAMID.json"
@@ -933,6 +944,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1111,6 +1123,7 @@
     "length" : 100,
     "logicName" : "姓名",
     "name" : "PERSONNAME",
+    "orderValue" : 5,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_EMP_USERID.json"
@@ -1259,6 +1272,7 @@
     "length" : 100,
     "logicName" : "岗位标识",
     "name" : "POSTID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1432,6 +1446,7 @@
     "length" : 100,
     "logicName" : "岗位",
     "name" : "POSTNAME",
+    "orderValue" : 7,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_POST_POSTID.json"
@@ -1559,6 +1574,7 @@
     "length" : 100,
     "logicName" : "区属",
     "name" : "DOMAINS",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1691,6 +1707,7 @@
     "length" : 100,
     "logicName" : "登录名",
     "name" : "USERNAME",
+    "orderValue" : 9,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/TeamMember/PSDERS/DER1N_SYS_TEAMMEMBER_SYS_EMP_USERID.json"

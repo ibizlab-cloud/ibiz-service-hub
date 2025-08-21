@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "SYSPOID",
+        "codeName" : "SysPOId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "SYSPONAME",
+        "codeName" : "SysPOName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -592,6 +600,7 @@
     "length" : 1048576,
     "logicName" : "优化信息",
     "name" : "POINFO",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -696,6 +705,7 @@
     "length" : 100,
     "logicName" : "实体",
     "name" : "DENAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -786,6 +796,7 @@
     "length" : 20,
     "logicName" : "执行时间（ms）",
     "name" : "TIME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -888,6 +899,7 @@
     "length" : 200,
     "logicName" : "性能记录名称",
     "name" : "SYSPONAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -982,6 +994,7 @@
     "length" : 60,
     "logicName" : "日志级别",
     "name" : "LOGLEVEL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1086,6 +1099,7 @@
     "length" : 60,
     "logicName" : "性能记录类别",
     "name" : "POCAT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1191,6 +1205,7 @@
     "length" : 100,
     "logicName" : "优化标识",
     "name" : "SYSPOID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1297,6 +1312,7 @@
     "length" : 100,
     "logicName" : "操作",
     "name" : "ACTION",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1386,6 +1402,7 @@
     "length" : 8,
     "logicName" : "时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1493,6 +1510,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1589,6 +1607,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1690,6 +1709,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1827,6 +1847,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "DCSYSTEMNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/center/PSDATAENTITIES/DCPO/PSDERS/DER1N_DC_PO_DC_DC_SYSTEM_DCSYSTEMID.json"
@@ -1957,6 +1978,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

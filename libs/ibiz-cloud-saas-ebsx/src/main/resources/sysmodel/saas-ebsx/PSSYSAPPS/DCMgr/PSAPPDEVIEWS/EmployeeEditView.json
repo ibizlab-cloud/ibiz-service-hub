@@ -1112,7 +1112,6 @@
                 "groupOP" : "AND",
                 "logicCat" : "ITEMENABLE",
                 "logicType" : "GROUP",
-                "name" : "表单成员[mdeptname][表单项启用]逻辑",
                 "getPSDEFDLogics" : [ {
                   "condOP" : "ISNULL",
                   "dEFDName" : "pdeptcheck",
@@ -2799,6 +2798,10 @@
                 "name" : "USERID",
                 "codeName" : "UserId"
               },
+              "getParentTextPSAppDEField" : {
+                "name" : "PERSONNAME",
+                "codeName" : "PersonName"
+              },
               "rSMode" : 2
             } ] ]
           },
@@ -3698,6 +3701,10 @@
                 "name" : "SYS_ROLEID",
                 "codeName" : "RoleId"
               },
+              "getParentTextPSAppDEField" : {
+                "name" : "SYS_ROLENAME",
+                "codeName" : "RoleName"
+              },
               "rSMode" : 2
             } ], [ {
               "actionRSMode" : 1,
@@ -3719,6 +3726,10 @@
               "getParentPSAppDEField" : {
                 "name" : "USERID",
                 "codeName" : "UserId"
+              },
+              "getParentTextPSAppDEField" : {
+                "name" : "PERSONNAME",
+                "codeName" : "PersonName"
               },
               "rSMode" : 2
             } ] ]
@@ -4614,6 +4625,10 @@
                 "name" : "GROUPID",
                 "codeName" : "GroupId"
               },
+              "getParentTextPSAppDEField" : {
+                "name" : "GROUPNAME",
+                "codeName" : "GroupName"
+              },
               "rSMode" : 2
             } ], [ {
               "actionRSMode" : 1,
@@ -4635,6 +4650,10 @@
               "getParentPSAppDEField" : {
                 "name" : "USERID",
                 "codeName" : "UserId"
+              },
+              "getParentTextPSAppDEField" : {
+                "name" : "PERSONNAME",
+                "codeName" : "PersonName"
               },
               "rSMode" : 2
             } ] ]

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "PSSYSTEMAPPID",
+        "codeName" : "PSSystemAppId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PSSYSTEMAPPNAME",
+        "codeName" : "PSSystemAppName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -1474,6 +1482,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 32,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1542,6 +1551,7 @@
     "importOrder" : 1000,
     "logicName" : "是否定制",
     "name" : "ISPERSONAL",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1637,6 +1647,7 @@
     "importOrder" : 1000,
     "logicName" : "是否移动应用",
     "name" : "MOBILEAPP",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1762,6 +1773,7 @@
     "length" : 60,
     "logicName" : "应用类别",
     "name" : "APPCATEGORY",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/AppCategory.json"
@@ -1867,6 +1879,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1977,6 +1990,7 @@
     "length" : 2000,
     "logicName" : "视图路径格式",
     "name" : "VIEWPATHFORMAT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2088,6 +2102,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2175,6 +2190,7 @@
     "length" : 100,
     "logicName" : "应用设置",
     "name" : "SETTING",
+    "orderValue" : 1000,
     "stdDataType" : 25,
     "stringLength" : 100,
     "valueFormat" : "%1$s",
@@ -2278,6 +2294,7 @@
     "length" : 200,
     "logicName" : "提示",
     "name" : "TIP",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2386,6 +2403,7 @@
     "length" : 200,
     "logicName" : "图标",
     "name" : "ICON",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2497,6 +2515,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -2621,6 +2640,7 @@
     "length" : 100,
     "logicName" : "系统应用标识",
     "name" : "PSSYSTEMAPPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2732,6 +2752,7 @@
     "length" : 500,
     "logicName" : "地址",
     "name" : "URL",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2840,6 +2861,7 @@
     "length" : 100,
     "logicName" : "服务名",
     "name" : "SERVICEID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2948,6 +2970,7 @@
     "length" : 100,
     "logicName" : "首页名称",
     "name" : "INDEXCODENAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3070,6 +3093,7 @@
     "length" : 200,
     "logicName" : "系统应用名称",
     "name" : "PSSYSTEMAPPNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3175,6 +3199,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3296,6 +3321,7 @@
     "length" : 100,
     "logicName" : "应用代码名称",
     "name" : "CODENAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3404,6 +3430,7 @@
     "length" : 200,
     "logicName" : "图标样式",
     "name" : "ICONCSS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3530,6 +3557,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -3649,6 +3677,7 @@
     "length" : 1000,
     "logicName" : "应用部署工作流",
     "name" : "APPWFS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

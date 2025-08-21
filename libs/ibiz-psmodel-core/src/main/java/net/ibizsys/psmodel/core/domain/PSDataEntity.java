@@ -953,6 +953,67 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DBVER</B>&nbsp;数据结构版本
+     */
+    public final static String FIELD_DBVER = "dbver";
+
+    /**
+     * 设置 数据结构版本
+     * 
+     * @param dBVer
+     * 
+     */
+    @JsonProperty(FIELD_DBVER)
+    public void setDBVer(Integer dBVer){
+        this.set(FIELD_DBVER, dBVer);
+    }
+    
+    /**
+     * 获取 数据结构版本  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDBVer(){
+        Object objValue = this.get(FIELD_DBVER);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 数据结构版本 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDBVerDirty(){
+        if(this.contains(FIELD_DBVER)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 数据结构版本
+     */
+    @JsonIgnore
+    public void resetDBVer(){
+        this.reset(FIELD_DBVER);
+    }
+
+    /**
+     * 设置 数据结构版本
+     * <P>
+     * 等同 {@link #setDBVer}
+     * @param dBVer
+     */
+    @JsonIgnore
+    public PSDataEntity dbver(Integer dBVer){
+        this.setDBVer(dBVer);
+        return this;
+    }
+
+    /**
      * <B>DELOCKFLAG</B>&nbsp;全局禁止子系统导入
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
@@ -1462,6 +1523,67 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DYNATABLEMODE</B>&nbsp;动态表模式
+     */
+    public final static String FIELD_DYNATABLEMODE = "dynatablemode";
+
+    /**
+     * 设置 动态表模式
+     * 
+     * @param dynaTableMode
+     * 
+     */
+    @JsonProperty(FIELD_DYNATABLEMODE)
+    public void setDynaTableMode(Integer dynaTableMode){
+        this.set(FIELD_DYNATABLEMODE, dynaTableMode);
+    }
+    
+    /**
+     * 获取 动态表模式  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDynaTableMode(){
+        Object objValue = this.get(FIELD_DYNATABLEMODE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 动态表模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDynaTableModeDirty(){
+        if(this.contains(FIELD_DYNATABLEMODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 动态表模式
+     */
+    @JsonIgnore
+    public void resetDynaTableMode(){
+        this.reset(FIELD_DYNATABLEMODE);
+    }
+
+    /**
+     * 设置 动态表模式
+     * <P>
+     * 等同 {@link #setDynaTableMode}
+     * @param dynaTableMode
+     */
+    @JsonIgnore
+    public PSDataEntity dynatablemode(Integer dynaTableMode){
+        this.setDynaTableMode(dynaTableMode);
+        return this;
+    }
+
+    /**
      * <B>ENABLEAUDIT</B>&nbsp;启用数据审计，启用数据审计将记录数据的操作日志，可在【审计模式】指定操作日志的级别
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
@@ -1862,14 +1984,14 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEENTITYCACHE</B>&nbsp;启用数据对象缓存，指定实体是否启用数据对象缓存，未定义时为【否】
+     * <B>ENABLEENTITYCACHE</B>&nbsp;启用数据缓存，指定实体是否启用数据对象缓存，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLEENTITYCACHE = "enableentitycache";
 
     /**
-     * 设置 启用数据对象缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
+     * 设置 启用数据缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
      * 
      * @param enableEntityCache
      * 
@@ -1880,7 +2002,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 启用数据对象缓存  
+     * 获取 启用数据缓存  
      * @return
      */
     @JsonIgnore
@@ -1893,7 +2015,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 启用数据对象缓存 是否指定值，包括空值
+     * 判断 启用数据缓存 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1905,7 +2027,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 启用数据对象缓存
+     * 重置 启用数据缓存
      */
     @JsonIgnore
     public void resetEnableEntityCache(){
@@ -1913,7 +2035,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 启用数据对象缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
+     * 设置 启用数据缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
      * <P>
      * 等同 {@link #setEnableEntityCache}
      * @param enableEntityCache
@@ -1925,7 +2047,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 启用数据对象缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
+     * 设置 启用数据缓存，详细说明：{@link #FIELD_ENABLEENTITYCACHE}
      * <P>
      * 等同 {@link #setEnableEntityCache}
      * @param enableEntityCache
@@ -3768,14 +3890,14 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDATAENTITYNAME</B>&nbsp;实体名称，指定实体的标识，需要在系统或所在模型组中具有唯一性
+     * <B>PSDATAENTITYNAME</B>&nbsp;实体标识，指定实体的标识，需要在系统或所在模型组中具有唯一性
      * <P>
-     * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
+     * 字符串：最大长度 60，由大写字母、数字、下划线组成，且开始必须为字母
      */
     public final static String FIELD_PSDATAENTITYNAME = "psdataentityname";
 
     /**
-     * 设置 实体名称，详细说明：{@link #FIELD_PSDATAENTITYNAME}
+     * 设置 实体标识，详细说明：{@link #FIELD_PSDATAENTITYNAME}
      * 
      * @param pSDataEntityName
      * 
@@ -3786,7 +3908,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体名称  
+     * 获取 实体标识  
      * @return
      */
     @JsonIgnore
@@ -3799,7 +3921,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体名称 是否指定值，包括空值
+     * 判断 实体标识 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3811,7 +3933,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体名称
+     * 重置 实体标识
      */
     @JsonIgnore
     public void resetPSDataEntityName(){
@@ -3819,7 +3941,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体名称，详细说明：{@link #FIELD_PSDATAENTITYNAME}
+     * 设置 实体标识，详细说明：{@link #FIELD_PSDATAENTITYNAME}
      * <P>
      * 等同 {@link #setPSDataEntityName}
      * @param pSDataEntityName
@@ -3988,69 +4110,6 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDataEntity psdefinputtipsetname(String pSDEFInputTipSetName){
         this.setPSDEFInputTipSetName(pSDEFInputTipSetName);
-        return this;
-    }
-
-    /**
-     * <B>PSDYNADETEMPLID</B>&nbsp;动态实体模板
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSDYNADETEMPLID = "psdynadetemplid";
-
-    /**
-     * 设置 动态实体模板
-     * 
-     * @param pSDynaDETemplId
-     * 
-     */
-    @JsonProperty(FIELD_PSDYNADETEMPLID)
-    public void setPSDynaDETemplId(String pSDynaDETemplId){
-        this.set(FIELD_PSDYNADETEMPLID, pSDynaDETemplId);
-    }
-    
-    /**
-     * 获取 动态实体模板  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDynaDETemplId(){
-        Object objValue = this.get(FIELD_PSDYNADETEMPLID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 动态实体模板 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDynaDETemplIdDirty(){
-        if(this.contains(FIELD_PSDYNADETEMPLID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 动态实体模板
-     */
-    @JsonIgnore
-    public void resetPSDynaDETemplId(){
-        this.reset(FIELD_PSDYNADETEMPLID);
-    }
-
-    /**
-     * 设置 动态实体模板
-     * <P>
-     * 等同 {@link #setPSDynaDETemplId}
-     * @param pSDynaDETemplId
-     */
-    @JsonIgnore
-    public PSDataEntity psdynadetemplid(String pSDynaDETemplId){
-        this.setPSDynaDETemplId(pSDynaDETemplId);
         return this;
     }
 
@@ -4393,14 +4452,14 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSUBSYSSADEID</B>&nbsp;外部服务接口实体，指定实体在支持外部接口持久化时使用的外部接口实体对象
+     * <B>PSSUBSYSSADEID</B>&nbsp;外部接口实体，指定实体在支持外部接口持久化时使用的外部接口实体对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSubSysSADE} 
      */
     public final static String FIELD_PSSUBSYSSADEID = "pssubsyssadeid";
 
     /**
-     * 设置 外部服务接口实体，详细说明：{@link #FIELD_PSSUBSYSSADEID}
+     * 设置 外部接口实体，详细说明：{@link #FIELD_PSSUBSYSSADEID}
      * 
      * @param pSSubSysSADEId
      * 
@@ -4411,7 +4470,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 外部服务接口实体  
+     * 获取 外部接口实体  
      * @return
      */
     @JsonIgnore
@@ -4424,7 +4483,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 外部服务接口实体 是否指定值，包括空值
+     * 判断 外部接口实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -4436,7 +4495,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 外部服务接口实体
+     * 重置 外部接口实体
      */
     @JsonIgnore
     public void resetPSSubSysSADEId(){
@@ -4444,7 +4503,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 外部服务接口实体，详细说明：{@link #FIELD_PSSUBSYSSADEID}
+     * 设置 外部接口实体，详细说明：{@link #FIELD_PSSUBSYSSADEID}
      * <P>
      * 等同 {@link #setPSSubSysSADEId}
      * @param pSSubSysSADEId
@@ -4456,7 +4515,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 外部服务接口实体，包括引用对象的其它关系属性
+     * 设置 外部接口实体，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSSubSysSADEId}
      * @param pSSubSysSADE 引用对象
@@ -4475,14 +4534,14 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSUBSYSSADENAME</B>&nbsp;外部服务接口实体，指定实体在支持外部接口持久化时使用的外部接口实体对象
+     * <B>PSSUBSYSSADENAME</B>&nbsp;外部接口实体，指定实体在支持外部接口持久化时使用的外部接口实体对象
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSSUBSYSSADEID}
      */
     public final static String FIELD_PSSUBSYSSADENAME = "pssubsyssadename";
 
     /**
-     * 设置 外部服务接口实体，详细说明：{@link #FIELD_PSSUBSYSSADENAME}
+     * 设置 外部接口实体，详细说明：{@link #FIELD_PSSUBSYSSADENAME}
      * 
      * @param pSSubSysSADEName
      * 
@@ -4493,7 +4552,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 外部服务接口实体  
+     * 获取 外部接口实体  
      * @return
      */
     @JsonIgnore
@@ -4506,7 +4565,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 外部服务接口实体 是否指定值，包括空值
+     * 判断 外部接口实体 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -4518,7 +4577,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 外部服务接口实体
+     * 重置 外部接口实体
      */
     @JsonIgnore
     public void resetPSSubSysSADEName(){
@@ -4526,7 +4585,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 外部服务接口实体，详细说明：{@link #FIELD_PSSUBSYSSADENAME}
+     * 设置 外部接口实体，详细说明：{@link #FIELD_PSSUBSYSSADENAME}
      * <P>
      * 等同 {@link #setPSSubSysSADEName}
      * @param pSSubSysSADEName
@@ -5404,6 +5463,151 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDataEntity pssyssfpluginname(String pSSysSFPluginName){
         this.setPSSysSFPluginName(pSSysSFPluginName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUniRes} 
+     */
+    public final static String FIELD_PSSYSUNIRESID = "pssysuniresid";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESID)
+    public void setPSSysUniResId(String pSSysUniResId){
+        this.set(FIELD_PSSYSUNIRESID, pSSysUniResId);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResId(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResIdDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResId(){
+        this.reset(FIELD_PSSYSUNIRESID);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniResId
+     */
+    @JsonIgnore
+    public PSDataEntity pssysuniresid(String pSSysUniResId){
+        this.setPSSysUniResId(pSSysUniResId);
+        return this;
+    }
+
+    /**
+     * 设置 系统统一资源，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniRes 引用对象
+     */
+    @JsonIgnore
+    public PSDataEntity pssysuniresid(PSSysUniRes pSSysUniRes){
+        if(pSSysUniRes == null){
+            this.setPSSysUniResId(null);
+            this.setPSSysUniResName(null);
+        }
+        else{
+            this.setPSSysUniResId(pSSysUniRes.getPSSysUniResId());
+            this.setPSSysUniResName(pSSysUniRes.getPSSysUniResName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESNAME</B>&nbsp;系统统一资源
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUNIRESID}
+     */
+    public final static String FIELD_PSSYSUNIRESNAME = "pssysuniresname";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESNAME)
+    public void setPSSysUniResName(String pSSysUniResName){
+        this.set(FIELD_PSSYSUNIRESNAME, pSSysUniResName);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResName(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResNameDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResName(){
+        this.reset(FIELD_PSSYSUNIRESNAME);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResName}
+     * @param pSSysUniResName
+     */
+    @JsonIgnore
+    public PSDataEntity pssysuniresname(String pSSysUniResName){
+        this.setPSSysUniResName(pSSysUniResName);
         return this;
     }
 
@@ -6905,14 +7109,14 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>VKEYSEPARATOR</B>&nbsp;主键分隔符
+     * <B>VKEYSEPARATOR</B>&nbsp;联合主键参数
      * <P>
      * 字符串：最大长度 10
      */
     public final static String FIELD_VKEYSEPARATOR = "vkeyseparator";
 
     /**
-     * 设置 主键分隔符
+     * 设置 联合主键参数
      * 
      * @param vKeySeparator
      * 
@@ -6923,7 +7127,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 主键分隔符  
+     * 获取 联合主键参数  
      * @return
      */
     @JsonIgnore
@@ -6936,7 +7140,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 主键分隔符 是否指定值，包括空值
+     * 判断 联合主键参数 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -6948,7 +7152,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 主键分隔符
+     * 重置 联合主键参数
      */
     @JsonIgnore
     public void resetVKeySeparator(){
@@ -6956,7 +7160,7 @@ public class PSDataEntity extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 主键分隔符
+     * 设置 联合主键参数
      * <P>
      * 等同 {@link #setVKeySeparator}
      * @param vKeySeparator

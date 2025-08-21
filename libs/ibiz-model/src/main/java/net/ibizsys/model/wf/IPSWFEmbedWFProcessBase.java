@@ -13,8 +13,6 @@ public interface IPSWFEmbedWFProcessBase extends net.ibizsys.model.wf.IPSWFProce
 	/**
 	 * 获取多实例模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MULTIINSTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcMultiInstMode}
 	 * @return
 	 */

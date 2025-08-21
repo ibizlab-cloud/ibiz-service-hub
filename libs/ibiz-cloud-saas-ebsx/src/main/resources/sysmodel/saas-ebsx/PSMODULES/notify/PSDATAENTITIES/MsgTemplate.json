@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "TID",
+        "codeName" : "TId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "TEMPLATE_NAME",
+        "codeName" : "TemplateName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -495,6 +503,7 @@
     "length" : 100,
     "logicName" : "模板标识",
     "name" : "TID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -627,6 +636,7 @@
     "length" : 100,
     "logicName" : "模板标题",
     "name" : "TEMPLATE_NAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -768,6 +778,7 @@
     "length" : 100,
     "logicName" : "模板类型",
     "name" : "TEMPLATE_TYPE",
+    "orderValue" : 3,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/TemplateType2.json"
@@ -892,6 +903,7 @@
     "length" : 4000,
     "logicName" : "模板内容",
     "name" : "CONTENT",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1011,6 +1023,7 @@
     "length" : 100,
     "logicName" : "模板标识",
     "name" : "TEMPLATE_ID",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1130,6 +1143,7 @@
     "length" : 1000,
     "logicName" : "URL",
     "name" : "TEMPLATE_URL",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1271,6 +1285,7 @@
     "length" : 100,
     "logicName" : "开放平台应用",
     "name" : "ACCESSID",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1466,6 +1481,7 @@
     "length" : 100,
     "logicName" : "开放应用",
     "name" : "ACCESSNAME",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1642,6 +1658,7 @@
     "length" : 100,
     "logicName" : "开放应用类型",
     "name" : "OPEN_TYPE",
+    "orderValue" : 11,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
@@ -1764,6 +1781,7 @@
     "length" : 500,
     "logicName" : "标题",
     "name" : "SUBJECT",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

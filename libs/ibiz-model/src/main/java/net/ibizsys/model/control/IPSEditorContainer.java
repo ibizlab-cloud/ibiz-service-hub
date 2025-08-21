@@ -26,8 +26,6 @@ public interface IPSEditorContainer extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_VALUEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getValueItemName();

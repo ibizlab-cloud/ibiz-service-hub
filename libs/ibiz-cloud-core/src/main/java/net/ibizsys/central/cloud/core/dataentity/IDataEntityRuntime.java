@@ -1,14 +1,17 @@
 package net.ibizsys.central.cloud.core.dataentity;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Map;
 
 import net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.wf.IDEWFRuntime;
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.cloud.core.util.domain.V2ImportSchema;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionLogic;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionSuite;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.runtime.util.EntityError;
@@ -67,6 +70,14 @@ public interface IDataEntityRuntime extends net.ibizsys.central.dataentity.IData
 	ImportDataResult importData2(String strImportTag, IEntity baseEntity, InputStream inputStream, V2ImportSchema v2ImportSchema, boolean bTestPriv, IDataEntityRuntime parentDataEntityRuntime, String strParentKey) throws Throwable;
 	
 	
+	/**
+	 * 导出数据2
+	 * @param strExportTag
+	 * @param objData
+	 * @param outputStream
+	 * @throws Throwable
+	 */
+	ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable;
 	
 	
 	/**
@@ -127,4 +138,19 @@ public interface IDataEntityRuntime extends net.ibizsys.central.dataentity.IData
 	 * @see net.ibizsys.central.dataentity.IDataEntityRuntime#getDataEntityAccessManager()
 	 */
 	IDataEntityAccessManager getDataEntityAccessManager();
+	
+	
+	
+	/**
+	 * 建立下载凭证
+	 * @param key
+	 * @param strStorageField
+	 * @param strOSSFileId
+	 * @param bTryMode 尝试模式
+	 * @return
+	 * @throws Throwable
+	 */
+	DownloadTicket createDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable;
+	
+
 }

@@ -18,7 +18,7 @@ public class PSDELogicNode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定处理逻辑节点的代码标识，需要在所在的处理逻辑中具有唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，处理逻辑节点的代码标识，需在处理逻辑中具有唯一性
      * <P>
      * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -4550,7 +4550,7 @@ public class PSDELogicNode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LOGICNODETYPE</B>&nbsp;逻辑节点类型，指定逻辑节点的类型，逻辑节点需要区分是应用的处理逻辑类型，也包括逻辑的执行容器等
+     * <B>LOGICNODETYPE</B>&nbsp;逻辑节点类型，逻辑节点的类型，逻辑节点需要区分是应用的处理逻辑类型，也包括逻辑的执行容器等
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LogicNodeType} 
      */
@@ -6444,7 +6444,7 @@ public class PSDELogicNode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDELOGICNODENAME</B>&nbsp;处理名称，指定处理节点名称
+     * <B>PSDELOGICNODENAME</B>&nbsp;处理名称，处理节点业务信息
      * <P>
      * 字符串：最大长度 200
      */

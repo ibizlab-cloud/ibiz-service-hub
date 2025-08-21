@@ -28,8 +28,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取反查数据展示视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DRILLDETAILPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getDrillDetailPSAppView();
@@ -44,8 +42,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取钻取数据展示视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DRILLDOWNPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getDrillDownPSAppView();
@@ -104,8 +100,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取阈值应用代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.app.codelist.IPSAppCodeList getPSAppCodeList();
@@ -134,8 +128,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取参数配置界面行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMPSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUIAction getParamPSAppDEUIAction();
@@ -151,8 +143,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -161,8 +151,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TEXTTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTextTemplate();
@@ -170,8 +158,6 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取提示绘制模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TIPTEMPLATE}
 	 * @return
 	 */
 	java.lang.String getTipTemplate();

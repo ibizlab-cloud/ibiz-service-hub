@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEOPPRIV</B>实体操作标识 模型传输对象
  * <P>
- * 实体数据的访问操作标识模型，访问操作标识一般用于对行数据的访问控制，一般要求在对数据进行操作之前要判断是否对该数据有相应的操作能力。操作标识可以映射为系统统一资源或是指定实体（通过关系）的操作标识
+ * 实体数据的访问操作标识模型，访问操作标识一般用于对行数据的访问控制，要求在对数据进行操作之前要判断是否对该数据有相应的操作能力。操作标识可以映射到系统统一资源或是指定实体（通过关系）的操作标识
  */
 public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -539,7 +543,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MAPSYSUNIRESMODE</B>&nbsp;映射系统统一资源，指定是否将此操作标识映射到系统统一资源，鉴权时转为对统一资源的判断，启用时需要指定映射的系统统一资源
+     * <B>MAPSYSUNIRESMODE</B>&nbsp;映射系统统一资源，指定是否将当前操作标识映射到系统统一资源，鉴权时转为对统一资源的判断，启用时需要指定映射的系统统一资源
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -678,6 +682,231 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEOPPriv memo(String memo){
         this.setMemo(memo);
+        return this;
+    }
+
+    /**
+     * <B>OPPRIVTYPE</B>&nbsp;实体操作标识类型
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEOPPrivType} 
+     */
+    public final static String FIELD_OPPRIVTYPE = "opprivtype";
+
+    /**
+     * 设置 实体操作标识类型
+     * 
+     * @param oPPrivType
+     * 
+     */
+    @JsonProperty(FIELD_OPPRIVTYPE)
+    public void setOPPrivType(String oPPrivType){
+        this.set(FIELD_OPPRIVTYPE, oPPrivType);
+    }
+    
+    /**
+     * 获取 实体操作标识类型  
+     * @return
+     */
+    @JsonIgnore
+    public String getOPPrivType(){
+        Object objValue = this.get(FIELD_OPPRIVTYPE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体操作标识类型 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOPPrivTypeDirty(){
+        if(this.contains(FIELD_OPPRIVTYPE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体操作标识类型
+     */
+    @JsonIgnore
+    public void resetOPPrivType(){
+        this.reset(FIELD_OPPRIVTYPE);
+    }
+
+    /**
+     * 设置 实体操作标识类型
+     * <P>
+     * 等同 {@link #setOPPrivType}
+     * @param oPPrivType
+     */
+    @JsonIgnore
+    public PSDEOPPriv opprivtype(String oPPrivType){
+        this.setOPPrivType(oPPrivType);
+        return this;
+    }
+
+     /**
+     * 设置 实体操作标识类型
+     * <P>
+     * 等同 {@link #setOPPrivType}
+     * @param oPPrivType
+     */
+    @JsonIgnore
+    public PSDEOPPriv opprivtype(net.ibizsys.psmodel.core.util.PSModelEnums.DEOPPrivType oPPrivType){
+        if(oPPrivType == null){
+            this.setOPPrivType(null);
+        }
+        else{
+            this.setOPPrivType(oPPrivType.value);
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFGROUPID</B>&nbsp;实体属性组
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
+     */
+    public final static String FIELD_PSDEFGROUPID = "psdefgroupid";
+
+    /**
+     * 设置 实体属性组
+     * 
+     * @param pSDEFGroupId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPID)
+    public void setPSDEFGroupId(String pSDEFGroupId){
+        this.set(FIELD_PSDEFGROUPID, pSDEFGroupId);
+    }
+    
+    /**
+     * 获取 实体属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupId(){
+        Object objValue = this.get(FIELD_PSDEFGROUPID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupIdDirty(){
+        if(this.contains(FIELD_PSDEFGROUPID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupId(){
+        this.reset(FIELD_PSDEFGROUPID);
+    }
+
+    /**
+     * 设置 实体属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroupId
+     */
+    @JsonIgnore
+    public PSDEOPPriv psdefgroupid(String pSDEFGroupId){
+        this.setPSDEFGroupId(pSDEFGroupId);
+        return this;
+    }
+
+    /**
+     * 设置 实体属性组，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFGroupId}
+     * @param pSDEFGroup 引用对象
+     */
+    @JsonIgnore
+    public PSDEOPPriv psdefgroupid(PSDEFGroup pSDEFGroup){
+        if(pSDEFGroup == null){
+            this.setPSDEFGroupId(null);
+            this.setPSDEFGroupName(null);
+        }
+        else{
+            this.setPSDEFGroupId(pSDEFGroup.getPSDEFGroupId());
+            this.setPSDEFGroupName(pSDEFGroup.getPSDEFGroupName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFGROUPNAME</B>&nbsp;实体属性组
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFGROUPID}
+     */
+    public final static String FIELD_PSDEFGROUPNAME = "psdefgroupname";
+
+    /**
+     * 设置 实体属性组
+     * 
+     * @param pSDEFGroupName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFGROUPNAME)
+    public void setPSDEFGroupName(String pSDEFGroupName){
+        this.set(FIELD_PSDEFGROUPNAME, pSDEFGroupName);
+    }
+    
+    /**
+     * 获取 实体属性组  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFGroupName(){
+        Object objValue = this.get(FIELD_PSDEFGROUPNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体属性组 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFGroupNameDirty(){
+        if(this.contains(FIELD_PSDEFGROUPNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体属性组
+     */
+    @JsonIgnore
+    public void resetPSDEFGroupName(){
+        this.reset(FIELD_PSDEFGROUPNAME);
+    }
+
+    /**
+     * 设置 实体属性组
+     * <P>
+     * 等同 {@link #setPSDEFGroupName}
+     * @param pSDEFGroupName
+     */
+    @JsonIgnore
+    public PSDEOPPriv psdefgroupname(String pSDEFGroupName){
+        this.setPSDEFGroupName(pSDEFGroupName);
         return this;
     }
 
@@ -971,7 +1200,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDERID</B>&nbsp;权限控制关系，在将当前操作标识映射到其它实体的操作标识时指定映射的实体关系
+     * <B>PSDERID</B>&nbsp;权限控制关系，将当前操作标识映射到其它实体的操作标识时指定映射的实体关系
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDER} 
      */
@@ -1410,14 +1639,14 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SYSTEMFLAG</B>&nbsp;系统使用
+     * <B>SYSTEMFLAG</B>&nbsp;系统保留使用
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_SYSTEMFLAG = "systemflag";
 
     /**
-     * 设置 系统使用
+     * 设置 系统保留使用
      * 
      * @param systemFlag
      * 
@@ -1428,7 +1657,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 系统使用  
+     * 获取 系统保留使用  
      * @return
      */
     @JsonIgnore
@@ -1441,7 +1670,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 系统使用 是否指定值，包括空值
+     * 判断 系统保留使用 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1453,7 +1682,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 系统使用
+     * 重置 系统保留使用
      */
     @JsonIgnore
     public void resetSystemFlag(){
@@ -1461,7 +1690,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统使用
+     * 设置 系统保留使用
      * <P>
      * 等同 {@link #setSystemFlag}
      * @param systemFlag
@@ -1473,7 +1702,7 @@ public class PSDEOPPriv extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 系统使用
+     * 设置 系统保留使用
      * <P>
      * 等同 {@link #setSystemFlag}
      * @param systemFlag

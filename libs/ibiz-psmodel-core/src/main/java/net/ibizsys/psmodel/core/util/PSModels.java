@@ -91,7 +91,7 @@ public class PSModels {
     public final static String PSAPPINDEXVIEW = "PSAPPINDEXVIEW";
     /**
      * 应用多语言 [PSAPPLAN]
-     * 应用多语言模型，定义前端应用支持的多语言
+     * 应用多语言模型，定义应用程序支持的多语言信息
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSAppLan}
      */
@@ -104,7 +104,7 @@ public class PSModels {
      */
     public final static String PSAPPDATAENTITY = "PSAPPDATAENTITY";
     /**
-     * 前端应用逻辑 [PSAPPLOGIC]
+     * 应用逻辑 [PSAPPLOGIC]
      * 
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSAppLogic}
@@ -223,6 +223,13 @@ public class PSModels {
      */
     public final static String PSAPPTITLEBAR = "PSAPPTITLEBAR";
     /**
+     * 云应用系统类型 [PSAPPTYPE]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSAppType}
+     */
+    public final static String PSAPPTYPE = "PSAPPTYPE";
+    /**
      * 应用界面模式 [PSAPPUISTYLE]
      * 应用界面模式模型，定义界面模式支持定义前端模板、模板样式及应用界面的相关参数。界面模式就是前端应用的界面构型
      * 
@@ -244,8 +251,8 @@ public class PSModels {
      */
     public final static String PSAPPUSERMODE = "PSAPPUSERMODE";
     /**
-     * 应用功能配置 [PSAPPUTIL]
-     * 应用的功能配置模型，定义指定应用功能配置参数及相关的实体信息
+     * 应用功能组件 [PSAPPUTIL]
+     * 应用的功能组件配置模型，定义指定应用功能配置参数及相关的实体信息
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSAppUtil}
      */
@@ -286,7 +293,7 @@ public class PSModels {
      */
     public final static String PSAPPWFVER = "PSAPPWFVER";
     /**
-     * 系统代码表项 [PSCODEITEM]
+     * 代码表项 [PSCODEITEM]
      * 系统的代码表项模型，支持定义层级代码项
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSCodeItem}
@@ -363,6 +370,13 @@ public class PSModels {
      */
     public final static String PSCTRLMSGITEM = "PSCTRLMSGITEM";
     /**
+     * 数据库值操作符 [PSDBVALUEOP]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSDBValueOP}
+     */
+    public final static String PSDBVALUEOP = "PSDBVALUEOP";
+    /**
      * 实体自填模式 [PSDEACMODE]
      * 实体自动填充模式模型，定义自填填充的数据项、界面表现等逻辑。数据项除了显示文本及值这两个基础项，还可通过自填模式数据项模型定义其它的数据项
      * 
@@ -398,8 +412,8 @@ public class PSModels {
      */
     public final static String PSDEACTIONGROUP = "PSDEACTIONGROUP";
     /**
-     * 实体行为逻辑 [PSDEACTIONLOGIC]
-     * 实体行为附加逻辑模型，支持在实体行为上以不同模式附加内部处理逻辑或外部行为。处理逻辑一般作为实体内部逻辑，所以不直接附加外部实体的处理逻辑（行为可以包含逻辑）
+     * 实体行为附加逻辑 [PSDEACTIONLOGIC]
+     * 实体行为附加逻辑模型，支持在实体行为上以不同模式附加内部处理逻辑或外部行为等
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEActionLogic}
      */
@@ -476,7 +490,7 @@ public class PSModels {
     public final static String PSDEDBINDEX = "PSDEDBINDEX";
     /**
      * 实体数据查询代码 [PSDEDQCODE]
-     * 实体数据查询代码模型，存放模型引擎对数据查询模型编译后的查询代码，支持自定义。实体查询代码模型包括了查询代码表达式及查询代码条件模型
+     * 实体数据查询代码模型，存放分析引擎对数据查询模型编译后的代码，支持自定义。查询代码模型包含表达式及条件子模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEDQCode}
      */
@@ -504,7 +518,7 @@ public class PSModels {
     public final static String PSDEDQCOND = "PSDEDQCOND";
     /**
      * 实体数据查询连接 [PSDEDQJOIN]
-     * 实体查询连接模型定义数据查询的连接，支持多种连接方式
+     * 查询连接模型定义数据查询的连接，支持多种连接方式：相关N:1（INNER JOIN）、存在1:N（EXISTS (SELECT)）等。
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEDQJoin}
      */
@@ -539,7 +553,7 @@ public class PSModels {
     public final static String PSDEDSDQ = "PSDEDSDQ";
     /**
      * 实体数据集分组参数 [PSDEDSGRPPARAM]
-     * 实体数据集合的分组项模型，定义数据分组及聚合操作逻辑
+     * 实体数据集合启用分组（GROUP）是配套的分组模型，定义数据分组及聚合操作逻辑等
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEDSGrpParam}
      */
@@ -608,7 +622,7 @@ public class PSModels {
      */
     public final static String PSDEDATASYNC = "PSDEDATASYNC";
     /**
-     * 实体卡片视图 [PSDEDATAVIEW]
+     * 实体卡片视图部件 [PSDEDATAVIEW]
      * 实体卡片视图部件模型，定义容器、卡片及分组项的界面逻辑及数据项等处理逻辑，一般需要指定卡片的布局面板。卡片视图支持启用看板（KanBan）模式，配置卡片在分组间移动的逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEDataView}
@@ -622,14 +636,14 @@ public class PSModels {
      */
     public final static String PSDEDATAVIEWLOGIC = "PSDEDATAVIEWLOGIC";
     /**
-     * 实体表单成员逻辑项 [PSDEFDLOGIC]
-     * 实体表单的动态逻辑模型，为表单成员提供动态的显示隐藏、启用禁用及空输入控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
+     * 表单成员逻辑 [PSDEFDLOGIC]
+     * 实体表单成员的动态逻辑模型。（1）为成员提供动态的显示隐藏、启用禁用及空输入控制，支持组合、单项条件类型，支持层级逻辑结构（2）事件的响应代码
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFDLogic}
      */
     public final static String PSDEFDLOGIC = "PSDEFDLOGIC";
     /**
-     * 属性数据库列 [PSDEFDTCOL]
+     * 属性数据库列配置 [PSDEFDTCOL]
      * 实体属性的数据库列配置模型，支持属性针对特定数据库类型的进行额外配置
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFDTCol}
@@ -637,21 +651,21 @@ public class PSModels {
     public final static String PSDEFDTCOL = "PSDEFDTCOL";
     /**
      * 实体属性组 [PSDEFGROUP]
-     * 实体属性组模型，在所在实体中定义包含实体属性的组对象。属性组成员可以显示指定，也可以通过指定编辑表单提取表单项的属性。实体属性组目前可应用在应用实体、服务接口实体的属性剪裁
+     * 实体属性组模型，组合所在实体的属性对象
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFGroup}
      */
     public final static String PSDEFGROUP = "PSDEFGROUP";
     /**
-     * 实体属性组成员 [PSDEFGROUPDETAIL]
-     * 实体属性组成员模型，定义属性组包含的属性对象，属性组成员提供属性基础属性的重新定义能力，支持对属性进行配置调整
+     * 属性组成员 [PSDEFGROUPDETAIL]
+     * 实体属性组成员模型，定义属性组包含的属性对象，属性组成员还提供属性参数的重新定义能力（未定义时使用属性的默认配置）
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFGroupDetail}
      */
     public final static String PSDEFGROUPDETAIL = "PSDEFGROUPDETAIL";
     /**
-     * 实体表单项更新明细 [PSDEFIUDETAIL]
-     * 实体表单项更新明细模型，定义了表单项更新的更新内容明细
+     * 表单项更新成员 [PSDEFIUDETAIL]
+     * 实体表单项更新成员模型，定义了更新内容明细
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFIUDetail}
      */
@@ -706,7 +720,7 @@ public class PSModels {
      */
     public final static String PSDEFUIMODE = "PSDEFUIMODE";
     /**
-     * 实体属性值规则项 [PSDEFVRCOND]
+     * 属性值规则项 [PSDEFVRCOND]
      * 属性值规则条件模型，支持组合、预置的单项检查类型，支持层级结构
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFVRCond}
@@ -721,14 +735,14 @@ public class PSModels {
     public final static String PSDEFVALUERULE = "PSDEFVALUERULE";
     /**
      * 实体表单 [PSDEFORM]
-     * 实体表单部件模型，支持编辑表单及搜索表单两种类型
+     * 实体表单部件模型，基于数据实体构建，专注于处理与特定实体相关的数据输入和编辑操作。支持编辑表单及搜索表单两种类型。
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEForm}
      */
     public final static String PSDEFORM = "PSDEFORM";
     /**
-     * 实体表单成员 [PSDEFORMDETAIL]
-     * 实体表单成员模型，提供多种成员类型。支持定义成员的子成员（多层）、成员的动态逻辑等。注意：模型属性根据成员类型可能存在不同的解释（版本遗留问题）
+     * 表单成员 [PSDEFORMDETAIL]
+     * 实体表单成员模型，提供多种成员类型。支持定义成员的子成员（多层）、成员的动态逻辑等。为实现界面与业务逻辑的解耦，属性界面模式（PSDEFUIMODE）支持定义属性的界面表现模式，覆盖编辑、展示、移动端适配等场景；属性搜索模式（PSDEFSFITEM）则定义属性搜索条件输入界面及处理模式，所以表单项大部分场景无需专门配置参数（由预置模式提供）
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEFormDetail}
      */
@@ -776,14 +790,14 @@ public class PSModels {
      */
     public final static String PSDEGRID = "PSDEGRID";
     /**
-     * 实体表格列 [PSDEGRIDCOL]
+     * 表格列 [PSDEGRIDCOL]
      * 实体数据表格列模型，提供多种列类型。支持定义分组列（多层）、列编辑项的动态逻辑等
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEGridCol}
      */
     public final static String PSDEGRIDCOL = "PSDEGRIDCOL";
     /**
-     * 实体表格逻辑 [PSDEGRIDLOGIC]
+     * 表格逻辑 [PSDEGRIDLOGIC]
      * 
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEGridLogic}
@@ -847,7 +861,7 @@ public class PSModels {
     public final static String PSDELISTLOGIC = "PSDELISTLOGIC";
     /**
      * 实体处理逻辑 [PSDELOGIC]
-     * 实体的处理逻辑模型，提供面向业务逻辑与界面交互的动态逻辑定义能力。处理逻辑包含逻辑参数、处理节点与处理连接等主要模型
+     * 实体的处理逻辑模型，提供面向业务逻辑、状态迁移、数据流及界面交互的动态逻辑定义能力。处理逻辑包含逻辑参数、处理节点与处理连接等主要模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDELogic}
      */
@@ -896,7 +910,7 @@ public class PSModels {
     public final static String PSDEMSOPPRIV = "PSDEMSOPPRIV";
     /**
      * 实体主状态 [PSDEMAINSTATE]
-     * 实体主状态控制模型，定义由一个或多个实体属性值组成的主状态标记、相应的行为及数据操作标识控制逻辑。主状态控制逻辑是实体的基础控制逻辑，超越权限控制，如指定状态数据拒绝删除则不管是否具备权限都将无法对数据进行删除操作
+     * 实体主状态控制模型，定义最多由三个实体属性值组成的主状态标记、相应的行为及数据操作标识控制逻辑。主状态控制逻辑是实体的基础控制逻辑，超越权限控制，如指定状态数据拒绝删除则不管是否具备权限都将无法对数据进行删除操作
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEMainState}
      */
@@ -966,7 +980,7 @@ public class PSModels {
     public final static String PSDENOTIFYTARGET = "PSDENOTIFYTARGET";
     /**
      * 实体操作标识 [PSDEOPPRIV]
-     * 实体数据的访问操作标识模型，访问操作标识一般用于对行数据的访问控制，一般要求在对数据进行操作之前要判断是否对该数据有相应的操作能力。操作标识可以映射为系统统一资源或是指定实体（通过关系）的操作标识
+     * 实体数据的访问操作标识模型，访问操作标识一般用于对行数据的访问控制，要求在对数据进行操作之前要判断是否对该数据有相应的操作能力。操作标识可以映射到系统统一资源或是指定实体（通过关系）的操作标识
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEOPPriv}
      */
@@ -1028,7 +1042,7 @@ public class PSModels {
      */
     public final static String PSDESADETAIL = "PSDESADETAIL";
     /**
-     * 实体服务接口成员参数 [PSDESADETAILPARAM]
+     * 实体服务接口方法参数 [PSDESADETAILPARAM]
      * 
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDESADetailParam}
@@ -1057,13 +1071,13 @@ public class PSModels {
     public final static String PSDESAMPLEDATA = "PSDESAMPLEDATA";
     /**
      * 实体服务接口 [PSDESERVICEAPI]
-     * 实体服务接口模型，定义实体在系统服务接口提供的能力，包括了认证模式、行为或数据集的默认提供方式等，也包含了实体服务接口方法等成员模型
+     * 实体服务接口模型，系统服务接口的成员模型。定义实体通过系统服务接口对外提供的能力，包括了认证模式、行为或数据集的默认提供方式等，也包含了实体服务接口方法等成员模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEServiceAPI}
      */
     public final static String PSDESERVICEAPI = "PSDESERVICEAPI";
     /**
-     * 实体工具栏项 [PSDETBITEM]
+     * 工具栏项 [PSDETBITEM]
      * 工具栏项模型，支持界面行为、直接内容、分组等类型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETBItem}
@@ -1084,7 +1098,7 @@ public class PSModels {
      */
     public final static String PSDETEIUPDATE = "PSDETEIUPDATE";
     /**
-     * 实体数据库表 [PSDEDBTABLE]
+     * 实体数据库表配置 [PSDEDBTABLE]
      * 实体的数据表模型，定义实体使用的数据库表，包括数据列的引用模式
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEDBTable}
@@ -1105,21 +1119,21 @@ public class PSModels {
      */
     public final static String PSDETOOLBARLOGIC = "PSDETOOLBARLOGIC";
     /**
-     * 实体树表格列 [PSDETREECOL]
+     * 树表格列 [PSDETREECOL]
      * 实体树视图表格列模型，支持定义属性列及操作列
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETreeCol}
      */
     public final static String PSDETREECOL = "PSDETREECOL";
     /**
-     * 实体树视图逻辑 [PSDETREELOGIC]
+     * 树部件逻辑 [PSDETREELOGIC]
      * 
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETreeLogic}
      */
     public final static String PSDETREELOGIC = "PSDETREELOGIC";
     /**
-     * 实体树节点 [PSDETREENODE]
+     * 树节点 [PSDETREENODE]
      * 树视图节点模型，支持定义静态及动态树节点及相关的处理逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETreeNode}
@@ -1133,7 +1147,7 @@ public class PSModels {
      */
     public final static String PSDETREENODECOL = "PSDETREENODECOL";
     /**
-     * 实体树节点关系 [PSDETREENODERS]
+     * 树节点关系 [PSDETREENODERS]
      * 树数据节点关系模型，定义树节点之间的关系。树视图默认从根节点开始加载，后续按树节点关系逻辑展开加载
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETreeNodeRS}
@@ -1147,8 +1161,8 @@ public class PSModels {
      */
     public final static String PSDETREENODERV = "PSDETREENODERV";
     /**
-     * 实体树视图 [PSDETREEVIEW]
-     * 树视图部件模型，定义树视图的界面及处理逻辑，包括了树节点与树节点的关系。支持定义树表格列及树节点表格列，为常规树表格及甘特树表格部件提供支持
+     * 实体树部件 [PSDETREEVIEW]
+     * 树视图部件模型，定义树部件的界面及处理逻辑，包括了树节点与树节点的关系。支持定义树表格列及树节点表格列，为常规树表格及甘特树表格部件提供支持
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDETreeView}
      */
@@ -1161,7 +1175,7 @@ public class PSModels {
      */
     public final static String PSDEUAGROUP = "PSDEUAGROUP";
     /**
-     * 实体界面行为组成员 [PSDEUAGROUPDETAIL]
+     * 界面行为组成员 [PSDEUAGROUPDETAIL]
      * 界面行为组成员模型，将界面行为加入到行为组中，每个界面行为只能被添加一次
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEUAGroupDetail}
@@ -1182,29 +1196,29 @@ public class PSModels {
      */
     public final static String PSDEUSERROLE = "PSDEUSERROLE";
     /**
-     * 实体功能配置 [PSDEUTIL]
-     * 实体的功能配置模型，定义指定实体功能配置参数及相关的实体信息
+     * 实体功能组件 [PSDEUTIL]
+     * 实体的功能组件配置模型，定义指定实体功能配置参数及相关的实体信息
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEUtil}
      */
     public final static String PSDEUTIL = "PSDEUTIL";
     /**
-     * 实体属性值规则组 [PSDEVRGROUP]
-     * 
+     * 实体值规则组 [PSDEVRGROUP]
+     * 实体值规则是将多个实体属性值规则组合为规则包模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEVRGroup}
      */
     public final static String PSDEVRGROUP = "PSDEVRGROUP";
     /**
-     * 实体属性值规则组成员 [PSDEVRGRPDETAIL]
-     * 
+     * 实体值规则组成员 [PSDEVRGRPDETAIL]
+     * 实体值规则组成员模型，指定引用的属性值规则对象
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEVRGrpDetail}
      */
     public final static String PSDEVRGRPDETAIL = "PSDEVRGRPDETAIL";
     /**
      * 实体视图 [PSDEVIEWBASE]
-     * 实体视图是实体的界面视图模型，包括了视图部件、视图逻辑等相关模型，实体视图既可以作为顶级视图，也可以嵌入到其它视图作为部件视图使用。实体视图必须加入到应用才会被使用，一个实体视图可以加入到多个应用中
+     * 实体视图是实体的界面视图模型，包括了视图部件、视图逻辑等模型，实体视图通过视图类型使用默认布局模板，也可以指定视图布局面板实现自定义布局。实体视图既可以独立使用，也可以作为部件视图被引用。实体视图加入到应用形成应用实体视图，一个实体视图可以加入到多个应用中。
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEViewBase}
      */
@@ -1231,8 +1245,8 @@ public class PSModels {
      */
     public final static String PSDEVIEWLOGIC = "PSDEVIEWLOGIC";
     /**
-     * 实体视图关联视图 [PSDEVIEWRV]
-     * 实体视图的关联视图模型，视图类型内置的处理逻辑会涉及视图的使用，关联视图就是将相关视图按照逻辑约定的标记注册到视图中供逻辑使用。注意：关联视图支持重新定义引用视图的打开方式、高度、宽度等，但某些模板受限于技术或代码组织会仅使用引用视图配置，在配置时需要确定模板的特性
+     * 实体视图引用视图 [PSDEVIEWRV]
+     * 实体视图的引用视图模型，视图类型内置的处理逻辑会涉及视图的使用，引用视图就是将相关视图按照逻辑约定的标记注册到视图中供逻辑使用。注意：引用视图支持重新定义引用视图的打开方式、高度、宽度等，但某些模板受限于技术或代码组织会仅使用引用视图配置，在配置时需要确定模板的特性
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEViewRV}
      */
@@ -1245,8 +1259,8 @@ public class PSModels {
      */
     public final static String PSDEWIZARD = "PSDEWIZARD";
     /**
-     * 实体向导表单 [PSDEWIZARDFORM]
-     * 实体向导表单模型，定义向导的操作界面，包括了操作表单，操作行为等
+     * 实体向导表单引用 [PSDEWIZARDFORM]
+     * 实体向导表单引用模型，定义向导的操作界面，包括引用的操作表单和操作行为等
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSDEWizardForm}
      */
@@ -1315,6 +1329,20 @@ public class PSModels {
      */
     public final static String PSMODELRT = "PSMODELRT";
     /**
+     * 前台技术架构 [PSPF]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSPF}
+     */
+    public final static String PSPF = "PSPF";
+    /**
+     * 应用样式 [PSPFSTYLE]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSPFStyle}
+     */
+    public final static String PSPFSTYLE = "PSPFSTYLE";
+    /**
      * 面板界面引擎 [PSPANELENGINE]
      * 面板部件挂接的界面引擎模型，界面引擎是预置的界面交互逻辑，面板挂接引擎并指定引擎需要的参数
      * 
@@ -1323,7 +1351,7 @@ public class PSModels {
     public final static String PSPANELENGINE = "PSPANELENGINE";
     /**
      * 面板项逻辑 [PSPANELITEMLOGIC]
-     * 面板部件的动态逻辑模型，为面板成员提供动态的显示隐藏控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
+     * 面板部件成员的动态逻辑模型，为成员提供动态的显示隐藏控制逻辑，支持组合、单项条件类型，支持层级逻辑结构
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSPanelItemLogic}
      */
@@ -1364,8 +1392,8 @@ public class PSModels {
      */
     public final static String PSSUBSYSSADETAILPARAM = "PSSUBSYSSADETAILPARAM";
     /**
-     * 外部服务接口 [PSSUBSYSSERVICEAPI]
-     * 外部服务接口模型，定义系统使用的外部服务接口，包括接口类型、认证模式等信息，外部服务接口包含外部接口实体、外部接口实体关系等模型
+     * 外部接口 [PSSUBSYSSERVICEAPI]
+     * 外部接口模型，定义系统使用的外部服务接口，包括接口类型、认证模式等信息，外部服务接口包含外部接口实体、外部接口实体关系等模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSubSysServiceAPI}
      */
@@ -1427,8 +1455,8 @@ public class PSModels {
      */
     public final static String PSSYSACTOR = "PSSYSACTOR";
     /**
-     * 前端应用 [PSSYSAPP]
-     * 前端应用程序模型，指定应用使用的技术及界面样式，包括使用的服务接口等。前端应用是前端模板的顶级目标模型对象
+     * 应用程序 [PSSYSAPP]
+     * 提供人机交互的应用程序模型，指定应用使用的技术及界面样式，包括使用的服务接口等。前端应用是前端模板的顶级目标模型对象
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysApp}
      */
@@ -1505,84 +1533,84 @@ public class PSModels {
     public final static String PSSYSBDTABLERS = "PSSYSBDTABLERS";
     /**
      * 智能报表聚合数据列 [PSSYSBIAGGCOLUMN]
-     * 
+     * 智能报表系统中定义聚合数据表列的核心模型，用于明确聚合结果中的列类型（指标、维度或自定义类型），关联立方体维度、层级或指标
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIAggColumn}
      */
     public final static String PSSYSBIAGGCOLUMN = "PSSYSBIAGGCOLUMN";
     /**
      * 智能报表聚合数据 [PSSYSBIAGGTABLE]
-     * 
+     * 智能报表系统中用于定义数据聚合逻辑的核心模型，支持预计算聚合或实时动态聚合，以提升查询性能和分析效率。它基于宽表实体构建聚合数据集，并与立方体、报表体系深度集成，实现高性能多维分析
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIAggTable}
      */
     public final static String PSSYSBIAGGTABLE = "PSSYSBIAGGTABLE";
     /**
-     * 智能报表立方体 [PSSYSBICUBE]
-     * 
+     * 智能立方体 [PSSYSBICUBE]
+     * 智能报表系统的核心模型，用于定义多维数据分析的立方体结构。它通过关联数据实体、数据源、维度、指标等组件，构建可进行多维钻取、反查和分析的数据立方体
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBICube}
      */
     public final static String PSSYSBICUBE = "PSSYSBICUBE";
     /**
-     * 智能报表立方体维度 [PSSYSBICUBEDIMENSION]
-     * 
+     * 智能立方体维度 [PSSYSBICUBEDIMENSION]
+     * 智能报表立方体的核心模型，用于定义多维分析维度，支持常规维度与动态计算维度。它通过层级结构、代码表、实体属性等配置，实现数据的分类、分组及动态计算
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBICubeDimension}
      */
     public final static String PSSYSBICUBEDIMENSION = "PSSYSBICUBEDIMENSION";
     /**
-     * 智能报表立方体维度层级 [PSSYSBICUBELEVEL]
-     * 
+     * 智能立方体维度层级 [PSSYSBICUBELEVEL]
+     * 智能报表系统中定义立方体维度具体层级的核心模型，用于将全局维度层级（如时间、地理）绑定到立方体的特定维度中，并配置数据来源、显示规则及聚合行为。它作为维度与立方体的桥梁，支撑多维数据的分层聚合、钻取及报表展示
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBICubeLevel}
      */
     public final static String PSSYSBICUBELEVEL = "PSSYSBICUBELEVEL";
     /**
-     * 智能报表立方体指标 [PSSYSBICUBEMEASURE]
-     * 
+     * 智能立方体指标 [PSSYSBICUBEMEASURE]
+     * 智能报表立方体核心模型，用于定义多维分析中的指标。它支持常规指标和动态计算指标，允许配置聚合方式、数据格式、钻取行为等，并与视图、代码表等组件关联
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBICubeMeasure}
      */
     public final static String PSSYSBICUBEMEASURE = "PSSYSBICUBEMEASURE";
     /**
      * 智能报表维度 [PSSYSBIDIMENSION]
-     * 
+     * 智能报表体系中的基础维度定义模型，用于全局定义业务分析中可复用的维度（如时间、地区、产品类别等）。它通过层级体系（Hierarchy）构建多维分析结构，并被立方体维度引用，实现跨立方体的统一维度管理
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIDimension}
      */
     public final static String PSSYSBIDIMENSION = "PSSYSBIDIMENSION";
     /**
      * 智能报表维度体系 [PSSYSBIHIERARCHY]
-     * 
+     * 智能报表系统中用于定义维度层级结构的核心模型，支持实体型（如组织架构）和时间型（如年-月-日）层级体系。它通过关联代码表、实体属性或自定义层级，构建多维分析中的钻取路径，并与立方体维度层级关联，实现数据的分层展示与分析
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIHierarchy}
      */
     public final static String PSSYSBIHIERARCHY = "PSSYSBIHIERARCHY";
     /**
      * 智能报表维度层级 [PSSYSBILEVEL]
-     * 
+     * 智能报表系统中定义维度层级节点的核心模型，用于构建多维分析中的层级结构（如时间维度的“年-季度-月”或实体维度的“国家-省份-城市”）。它通过关联实体属性、定义唯一性规则及层级类型，支撑数据的分层聚合与钻取分析
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBILevel}
      */
     public final static String PSSYSBILEVEL = "PSSYSBILEVEL";
     /**
      * 智能报表 [PSSYSBIREPORT]
-     * 
+     * 智能报表系统的核心模型，用于定义具体的报表实例，整合数据源（立方体）、展示布局、交互逻辑及扩展插件，构建完整的业务分析报表
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIReport}
      */
     public final static String PSSYSBIREPORT = "PSSYSBIREPORT";
     /**
      * 智能报表项 [PSSYSBIREPORTITEM]
-     * 
+     * 智能报表中的最小组成单元，用于定义报表中具体展示的内容（如指标、维度或自定义项），并控制其显示位置、格式及交互逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIReportItem}
      */
     public final static String PSSYSBIREPORTITEM = "PSSYSBIREPORTITEM";
     /**
      * 智能报表体系 [PSSYSBISCHEME]
-     * 
+     * 智能报表系统的顶层架构模型，用于整合分析组件（如立方体、维度、报表）及数据模型，构建完整的业务分析体系
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysBIScheme}
      */
@@ -1595,21 +1623,21 @@ public class PSModels {
      */
     public final static String PSSYSBACKSERVICE = "PSSYSBACKSERVICE";
     /**
-     * 系统日历部件 [PSSYSCALENDAR]
-     * 系统日历部件模型，定义界面表现及处理逻辑，支持多个日历项同时提供日历数据源
+     * 日历部件 [PSSYSCALENDAR]
+     * 系统日历部件模型，定义界面表现及处理逻辑，支持多个日历项同时提供数据源
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysCalendar}
      */
     public final static String PSSYSCALENDAR = "PSSYSCALENDAR";
     /**
-     * 系统日历视图项 [PSSYSCALENDARITEM]
-     * 日历部件项模型，定义日历部件的子项数据源，包括子项的界面表现及处理逻辑
+     * 日历部件项 [PSSYSCALENDARITEM]
+     * 日历部件项模型，定义日历部件的子项数据源、界面表现及处理逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysCalendarItem}
      */
     public final static String PSSYSCALENDARITEM = "PSSYSCALENDARITEM";
     /**
-     * 系统日历项相关视图 [PSSYSCALENDARITEMRV]
+     * 日历项引用视图 [PSSYSCALENDARITEMRV]
      * 
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysCalendarItemRV}
@@ -1650,6 +1678,13 @@ public class PSModels {
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysCodeSnippet}
      */
     public final static String PSSYSCODESNIPPET = "PSSYSCODESNIPPET";
+    /**
+     * 系统控制台信息 [PSSYSCONSOLE]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysConsole}
+     */
+    public final static String PSSYSCONSOLE = "PSSYSCONSOLE";
     /**
      * 系统内容 [PSSYSCONTENT]
      * 系统通用内容存储模型，提供普通内容存储能力
@@ -1700,26 +1735,19 @@ public class PSModels {
      */
     public final static String PSSYSDBCOLUMN = "PSSYSDBCOLUMN";
     /**
-     * 系统数据看板成员 [PSSYSDBPART]
+     * 系统数据库发布版本 [PSSYSDBDETAIL]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysDBDetail}
+     */
+    public final static String PSSYSDBDETAIL = "PSSYSDBDETAIL";
+    /**
+     * 数据看板成员 [PSSYSDBPART]
      * 数据看板成员模型，定义数据看板成员的界面表现及处理逻辑。支持多种类型，支持多层结构
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysDBPart}
      */
     public final static String PSSYSDBPART = "PSSYSDBPART";
-    /**
-     * 系统数据库存储过程 [PSSYSDBPROC]
-     * 数据库存储过程模型，定义存储过程的基本信息，包括过程参数对象
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSSysDBProc}
-     */
-    public final static String PSSYSDBPROC = "PSSYSDBPROC";
-    /**
-     * 系统数据库存储过程参数 [PSSYSDBPROCPARAM]
-     * 数据库存储过程参数模型，定义参数的类型、次序、输入输出等信息
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSSysDBProcParam}
-     */
-    public final static String PSSYSDBPROCPARAM = "PSSYSDBPROCPARAM";
     /**
      * 系统数据库体系 [PSSYSDBSCHEME]
      * 系统关系数据库体系模型，定义数据库体系的基本信息，包括数据表及存储过程对象
@@ -1756,8 +1784,8 @@ public class PSModels {
      */
     public final static String PSSYSDEFTYPE = "PSSYSDEFTYPE";
     /**
-     * 系统处理逻辑 [PSSYSDELOGICNODE]
-     * 系统统一的处理逻辑功能组件模型，功能组件实现后台模板约定的接口，实体处理逻辑支持定义调用系统处理逻辑
+     * 系统预置处理逻辑 [PSSYSDELOGICNODE]
+     * 系统预置的处理逻辑功能组件模型，功能组件实现后台模板约定的接口，实体处理逻辑支持定义调用系统处理逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysDELogicNode}
      */
@@ -1769,6 +1797,13 @@ public class PSModels {
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysDMItem}
      */
     public final static String PSSYSDMITEM = "PSSYSDMITEM";
+    /**
+     * 系统数据库模型关键变更 [PSSYSDMITEMLOG]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysDMItemLog}
+     */
+    public final static String PSSYSDMITEMLOG = "PSSYSDMITEMLOG";
     /**
      * 系统数据库模型版本 [PSSYSDMVER]
      * 系统数据库模型版本模型，定义系统的数据库结构版本信息
@@ -1904,7 +1939,7 @@ public class PSModels {
     public final static String PSSYSERMAPNODE = "PSSYSERMAPNODE";
     /**
      * 系统编辑器样式 [PSSYSEDITORSTYLE]
-     * 定义系统全局的编辑器样式，包括了使用的模板插件及其它配置信息。系统编辑器样式可被使用编辑器的场合显示指定使用，或是直接替换默认的编辑器类型，实现全局替换
+     * 定义系统全局的编辑器样式，包括了使用的模板插件及其它配置信息。系统编辑器样式可被使用编辑器的场合显示指定使用，或是直接替换编辑器类型默认样式，实现全局界面统一
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysEditorStyle}
      */
@@ -1917,7 +1952,14 @@ public class PSModels {
      */
     public final static String PSSYSIMAGE = "PSSYSIMAGE";
     /**
-     * 系统地图数据项 [PSSYSMAPITEM]
+     * 系统问题 [PSSYSISSUE]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysIssue}
+     */
+    public final static String PSSYSISSUE = "PSSYSISSUE";
+    /**
+     * 地图数据项 [PSSYSMAPITEM]
      * 地图部件项模型，定义地图部件的子项数据源，包括子项的界面表现及处理逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysMapItem}
@@ -1937,6 +1979,20 @@ public class PSModels {
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysMapView}
      */
     public final static String PSSYSMAPVIEW = "PSSYSMAPVIEW";
+    /**
+     * 系统模型目录 [PSSYSMODELFOLDER]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysModelFolder}
+     */
+    public final static String PSSYSMODELFOLDER = "PSSYSMODELFOLDER";
+    /**
+     * 系统模型目录成员 [PSSYSMODELFOLDERITEM]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysModelFolderItem}
+     */
+    public final static String PSSYSMODELFOLDERITEM = "PSSYSMODELFOLDERITEM";
     /**
      * 系统模型组 [PSSYSMODELGROUP]
      * 模型组解决模块模型的交换、存储问题，模块代码标识在同一个模型域要求具备唯一性，这种情况下在导入外部模型时可能会存在冲突，模型组就可以将导入的外部模型独立在一个模型域中，避免冲突
@@ -2050,6 +2106,13 @@ public class PSModels {
      */
     public final static String PSSYSRESOURCE = "PSSYSRESOURCE";
     /**
+     * 系统运行会话 [PSSYSRUNSESSION]
+     * 
+     * 
+     * {@link net.ibizsys.psmodel.core.util.domain.PSSysRunSession}
+     */
+    public final static String PSSYSRUNSESSION = "PSSYSRUNSESSION";
+    /**
      * 系统服务接口处理器 [PSSYSSAHANDLER]
      * 系统服务接口处理器模型，为接口提供预置处理能力，接口处理器可以是全功能组件或是以代码的基类对象存在
      * 
@@ -2099,7 +2162,7 @@ public class PSModels {
      */
     public final static String PSSYSSEARCHBAR = "PSSYSSEARCHBAR";
     /**
-     * 系统搜索栏项 [PSSYSSEARCHBARITEM]
+     * 搜索栏项 [PSSYSSEARCHBARITEM]
      * 搜索栏部件子项模型，定义搜索栏提供的分组条件过滤能力、属性过滤能力及快速搜索能力
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysSearchBarItem}
@@ -2156,7 +2219,7 @@ public class PSModels {
     public final static String PSSYSSEQUENCE = "PSSYSSEQUENCE";
     /**
      * 系统服务接口 [PSSYSSERVICEAPI]
-     * 系统服务接口模型，定义对外提供的服务接口，包括了接口类型、模式等信息，也包含了实体服务接口、实体服务接口关系等成员模型
+     * 系统服务接口模型，定义系统对外提供的服务接口，包括了接口类型、模式等信息，也包含了实体服务接口、实体服务接口关系等成员模型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysServiceAPI}
      */
@@ -2295,68 +2358,54 @@ public class PSModels {
      */
     public final static String PSSYSUSERROLEDATA = "PSSYSUSERROLEDATA";
     /**
-     * 系统用户角色资源 [PSSYSUSERROLERES]
+     * 系统角色资源能力 [PSSYSUSERROLERES]
      * 系统操作角色的统一资源能力定义模型，将系统统一资源分配到系统操作角色
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysUserRoleRes}
      */
     public final static String PSSYSUSERROLERES = "PSSYSUSERROLERES";
     /**
-     * 系统功能配置 [PSSYSUTIL]
-     * 系统功能配置模型，定义系统全局开启的功能模式
+     * 系统功能组件 [PSSYSUTIL]
+     * 系统功能组件配置模型，定义系统全局开启的功能模式
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysUtil}
      */
     public final static String PSSYSUTIL = "PSSYSUTIL";
     /**
-     * 系统值规则 [PSSYSVALUERULE]
+     * 系统预置值规则 [PSSYSVALUERULE]
      * 系统的全局值规则模型，支持脚本、正则式及自定义类型
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysValueRule}
      */
     public final static String PSSYSVALUERULE = "PSSYSVALUERULE";
     /**
-     * 系统界面逻辑 [PSSYSVIEWLOGIC]
+     * 系统预置界面逻辑 [PSSYSVIEWLOGIC]
      * 系统的全局界面逻辑模型，定义全局通用的界面处理逻辑供界面行为或视图、部件处理逻辑等调用
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewLogic}
      */
     public final static String PSSYSVIEWLOGIC = "PSSYSVIEWLOGIC";
     /**
-     * 系统界面逻辑参数 [PSSYSVIEWLOGICPARAM]
-     * 系统界面逻辑参数模型，定义参数的名称、值、次序等
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewLogicParam}
-     */
-    public final static String PSSYSVIEWLOGICPARAM = "PSSYSVIEWLOGICPARAM";
-    /**
-     * 系统面板 [PSSYSVIEWPANEL]
-     * 系统面板部件模型，定义面板部件的界面及处理逻辑。面板部件是支持多种布局模式的容器，多种类型的面板成员提供了灵活的界面组织能力，满足各种界面组装需求。面板部件可应用在视图或是部件的布局
+     * 面板部件 [PSSYSVIEWPANEL]
+     * 系统面板部件模型，定义面板部件的界面及处理逻辑。面板部件是支持多种布局模式的容器，多种类型的面板成员提供了灵活的界面组织能力，满足各种界面组装需求。面板模式为布局面板时可应用在视图或部件的布局
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewPanel}
      */
     public final static String PSSYSVIEWPANEL = "PSSYSVIEWPANEL";
     /**
-     * 系统面板成员 [PSSYSVIEWPANELITEM]
+     * 面板成员 [PSSYSVIEWPANELITEM]
      * 面板部件成员模型，定义面板成员的表现及处理逻辑，提供多种成员类型。支持定义成员的子项（多层）、成员的动态逻辑等
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewPanelItem}
      */
     public final static String PSSYSVIEWPANELITEM = "PSSYSVIEWPANELITEM";
     /**
-     * 系统面板逻辑 [PSSYSVIEWPANELLOGIC]
+     * 面板逻辑 [PSSYSVIEWPANELLOGIC]
      * 面板处理逻辑模型，定义面板及成员的自定义交互处理逻辑
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewPanelLogic}
      */
     public final static String PSSYSVIEWPANELLOGIC = "PSSYSVIEWPANELLOGIC";
-    /**
-     * 系统面板数据模型 [PSSYSVIEWPANELMODEL]
-     * 系统面板部件的数据项模型，定义面板部件的上下文数据对象信息，包括了键名、数据类型等。面板属性项就是绑定面板上下文数据的属性，面板成员的动态控制逻辑也基于面板上下文进行计算
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSSysViewPanelModel}
-     */
-    public final static String PSSYSVIEWPANELMODEL = "PSSYSVIEWPANELMODEL";
     /**
      * 系统工作流分类 [PSSYSWFCAT]
      * 系统工作流的分类模型，为工作流提供分类能力
@@ -2392,20 +2441,6 @@ public class PSModels {
      * {@link net.ibizsys.psmodel.core.util.domain.PSSystemRun}
      */
     public final static String PSSYSTEMRUN = "PSSYSTEMRUN";
-    /**
-     * 阈值项 [PSTHRESHOLD]
-     * 
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSThreshold}
-     */
-    public final static String PSTHRESHOLD = "PSTHRESHOLD";
-    /**
-     * 阈值组 [PSTHRESHOLDGROUP]
-     * 
-     * 
-     * {@link net.ibizsys.psmodel.core.util.domain.PSThresholdGroup}
-     */
-    public final static String PSTHRESHOLDGROUP = "PSTHRESHOLDGROUP";
     /**
      * 云平台视图类型部件 [PSVTCTRL]
      * 
@@ -2498,7 +2533,7 @@ public class PSModels {
      */
     public final static String PSWFPROCSUBWF = "PSWFPROCSUBWF";
     /**
-     * 流程处理 [PSWFPROCESS]
+     * 流程处理节点 [PSWFPROCESS]
      * 流程处理节点模型，定义流程处理的逻辑信息，支持多种类型，也包括了设计界面图元展示信息
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSWFProcess}
@@ -2519,7 +2554,7 @@ public class PSModels {
      */
     public final static String PSWFUTILUIACTION = "PSWFUTILUIACTION";
     /**
-     * 工作流版本 [PSWFVERSION]
+     * 流程定义版本 [PSWFVERSION]
      * 工作流版本模型，定义工作流不同版本的执行流程
      * 
      * {@link net.ibizsys.psmodel.core.util.domain.PSWFVersion}

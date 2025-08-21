@@ -14,8 +14,6 @@ public interface IPSDESAMethodTestCase extends net.ibizsys.model.testing.IPSSysT
 	
 	/**
 	 * 获取实体服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSDESERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.service.IPSDEServiceAPI getPSDEServiceAPI();
@@ -30,8 +28,6 @@ public interface IPSDESAMethodTestCase extends net.ibizsys.model.testing.IPSSysT
 	
 	/**
 	 * 获取实体服务接口方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSDESADETAILID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.service.IPSDEServiceAPIMethod getPSDEServiceAPIMethod();

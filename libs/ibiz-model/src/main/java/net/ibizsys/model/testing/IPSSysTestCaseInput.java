@@ -3,7 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试用例输入（调用）模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO}运行时对象
+ * 系统测试用例输入（调用）模型对象接口
  *
  */
 public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getInputPSDEAction();
@@ -28,8 +26,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTTAG}
 	 * @return
 	 */
 	java.lang.String getInputTag();
@@ -37,8 +33,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTTAG2}
 	 * @return
 	 */
 	java.lang.String getInputTag2();
@@ -46,8 +40,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTTAG3}
 	 * @return
 	 */
 	java.lang.String getInputTag3();
@@ -55,8 +47,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTTAG4}
 	 * @return
 	 */
 	java.lang.String getInputTag4();
@@ -64,8 +54,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestCaseInputType}
 	 * @return
@@ -75,8 +63,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输入值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_INPUTVALUES}
 	 * @return
 	 */
 	java.lang.String getInputValue();
@@ -105,8 +91,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_PSSYSTESTDATAID}
 	 * @return
 	 */
 	net.ibizsys.model.testing.IPSSysTestData getPSSysTestData();
@@ -121,8 +105,6 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTCInputDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();

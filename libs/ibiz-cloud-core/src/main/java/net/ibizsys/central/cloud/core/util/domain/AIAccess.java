@@ -1,6 +1,8 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -123,6 +125,11 @@ public class AIAccess extends EntityBase {
 	 */
 	public final static String FIELD_REMOVETHINK = "removethink";
 	
+
+	/**
+	 * McpServer集合
+	 */
+	public final static String FIELD_MCPSERVERS = "mcpservers";
 	
 	
 	
@@ -934,4 +941,55 @@ public class AIAccess extends EntityBase {
 		return this;
 	}
 	
+	
+	
+	/**
+	 * 设置「McpServers」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setMcpServers(List<String> val) {
+		this.set(FIELD_MCPSERVERS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「McpServers」值
+	 *
+	 */
+	@JsonIgnore
+	public List<String> getMcpServers() {
+		Object objValue = this.get(FIELD_MCPSERVERS);
+		if (objValue == null) {
+			return null;
+		}
+		
+		if(objValue instanceof String) {
+			List list = Arrays.asList(objValue.toString().split("[,]"));
+			this.set(FIELD_MCPSERVERS, list);
+			return list;
+		}
+		
+		return (List<String>) objValue;
+	}
+
+	/**
+	 * 判断 「McpServers」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMcpServers() {
+		return this.contains(FIELD_MCPSERVERS);
+	}
+
+	/**
+	 * 重置 「McpServers」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetMcpServers() {
+		this.reset(FIELD_MCPSERVERS);
+		return this;
+	}
 }

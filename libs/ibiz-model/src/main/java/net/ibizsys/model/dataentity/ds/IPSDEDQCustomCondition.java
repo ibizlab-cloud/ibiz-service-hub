@@ -14,8 +14,6 @@ public interface IPSDEDQCustomCondition extends net.ibizsys.model.dataentity.ds.
 	
 	/**
 	 * 获取自定义条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getCondition();
@@ -23,8 +21,6 @@ public interface IPSDEDQCustomCondition extends net.ibizsys.model.dataentity.ds.
 	
 	/**
 	 * 获取自定义条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_CUSTOMTYPE}
 	 * @return
 	 */
 	java.lang.String getCustomType();

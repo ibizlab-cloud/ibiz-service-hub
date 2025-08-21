@@ -3,7 +3,7 @@ package net.ibizsys.model.database;
 
 
 /**
- * 数据库表对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysDBTableDTO}运行时对象
+ * 数据库表对象接口
  *
  */
 public interface IPSSysDBTable extends net.ibizsys.model.IPSModelObject{
@@ -61,8 +61,6 @@ public interface IPSSysDBTable extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取建立SQL
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBTableDTO#FIELD_CREATESQL}
 	 * @return
 	 */
 	java.lang.String getCreateSql();
@@ -70,8 +68,6 @@ public interface IPSSysDBTable extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取移除SQL
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBTableDTO#FIELD_DROPSQL}
 	 * @return
 	 */
 	java.lang.String getDropSql();
@@ -79,11 +75,23 @@ public interface IPSSysDBTable extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑名称 
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDBTableDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
+	
+	
+	/**
+	 * 获取数据表标记
+	 * @return
+	 */
+	java.lang.String getTableTag();
+	
+	
+	/**
+	 * 获取数据表标记2
+	 * @return
+	 */
+	java.lang.String getTableTag2();
 	
 	
 	/**

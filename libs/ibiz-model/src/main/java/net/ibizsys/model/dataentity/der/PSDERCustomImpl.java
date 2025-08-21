@@ -20,6 +20,7 @@ public class PSDERCustomImpl extends net.ibizsys.model.dataentity.der.PSDERBaseI
 	public final static String ATTR_GETRRMLANRESTAG = "rRMLanResTag";
 	public final static String ATTR_GETRRMPSLANGUAGERES = "getRRMPSLanguageRes";
 	public final static String ATTR_GETREFPSDEDATASET = "getRefPSDEDataSet";
+	public final static String ATTR_GETREFPSDEFGROUP = "getRefPSDEFGroup";
 	public final static String ATTR_GETREMOVEACTIONTYPE = "removeActionType";
 	public final static String ATTR_GETREMOVEORDER = "removeOrder";
 	public final static String ATTR_GETREMOVEREJECTMSG = "removeRejectMsg";
@@ -235,6 +236,28 @@ public class PSDERCustomImpl extends net.ibizsys.model.dataentity.der.PSDERBaseI
 
 	public void setRefPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet refpsdedataset){
 		this.refpsdedataset = refpsdedataset;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEFGroup refpsdefgroup;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getRefPSDEFGroup(){
+		if(this.refpsdefgroup != null) return this.refpsdefgroup;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREFPSDEFGROUP);
+		if(value == null){
+			return null;
+		}
+		this.refpsdefgroup = this.getMajorPSDataEntityMust().getPSDEFGroup(value, false);
+		return this.refpsdefgroup;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getRefPSDEFGroupMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEFGroup value = this.getRefPSDEFGroup();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用实体属性组");}
+		return value;
+	}
+
+	public void setRefPSDEFGroup(net.ibizsys.model.dataentity.defield.IPSDEFGroup refpsdefgroup){
+		this.refpsdefgroup = refpsdefgroup;
 	}
 
 

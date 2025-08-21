@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDETBITEM</B>实体工具栏项 模型传输对象
+ * <B>PSDETBITEM</B>工具栏项 模型传输对象
  * <P>
  * 工具栏项模型，支持界面行为、直接内容、分组等类型
  */
@@ -1137,6 +1137,67 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDETBItem dynaclass(String dynaClass){
         this.setDynaClass(dynaClass);
+        return this;
+    }
+
+    /**
+     * <B>ENABLELOGIC</B>&nbsp;启用逻辑
+     */
+    public final static String FIELD_ENABLELOGIC = "enablelogic";
+
+    /**
+     * 设置 启用逻辑
+     * 
+     * @param enableLogic
+     * 
+     */
+    @JsonProperty(FIELD_ENABLELOGIC)
+    public void setEnableLogic(String enableLogic){
+        this.set(FIELD_ENABLELOGIC, enableLogic);
+    }
+    
+    /**
+     * 获取 启用逻辑  
+     * @return
+     */
+    @JsonIgnore
+    public String getEnableLogic(){
+        Object objValue = this.get(FIELD_ENABLELOGIC);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 启用逻辑 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isEnableLogicDirty(){
+        if(this.contains(FIELD_ENABLELOGIC)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 启用逻辑
+     */
+    @JsonIgnore
+    public void resetEnableLogic(){
+        this.reset(FIELD_ENABLELOGIC);
+    }
+
+    /**
+     * 设置 启用逻辑
+     * <P>
+     * 等同 {@link #setEnableLogic}
+     * @param enableLogic
+     */
+    @JsonIgnore
+    public PSDETBItem enablelogic(String enableLogic){
+        this.setEnableLogic(enableLogic);
         return this;
     }
 
@@ -4400,14 +4461,14 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TEMPLATEMODE</B>&nbsp;模板模式
+     * <B>TEMPLATEMODE</B>&nbsp;模板模式，指定直接内容输出是否使用模板机制，默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_TEMPLATEMODE = "templatemode";
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * 
      * @param templateMode
      * 
@@ -4451,7 +4512,7 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -4463,7 +4524,7 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 模板模式
+     * 设置 模板模式，详细说明：{@link #FIELD_TEMPLATEMODE}
      * <P>
      * 等同 {@link #setTemplateMode}
      * @param templateMode
@@ -5127,6 +5188,67 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>VISIBLELOGIC</B>&nbsp;可见逻辑
+     */
+    public final static String FIELD_VISIBLELOGIC = "visiblelogic";
+
+    /**
+     * 设置 可见逻辑
+     * 
+     * @param visibleLogic
+     * 
+     */
+    @JsonProperty(FIELD_VISIBLELOGIC)
+    public void setVisibleLogic(String visibleLogic){
+        this.set(FIELD_VISIBLELOGIC, visibleLogic);
+    }
+    
+    /**
+     * 获取 可见逻辑  
+     * @return
+     */
+    @JsonIgnore
+    public String getVisibleLogic(){
+        Object objValue = this.get(FIELD_VISIBLELOGIC);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 可见逻辑 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isVisibleLogicDirty(){
+        if(this.contains(FIELD_VISIBLELOGIC)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 可见逻辑
+     */
+    @JsonIgnore
+    public void resetVisibleLogic(){
+        this.reset(FIELD_VISIBLELOGIC);
+    }
+
+    /**
+     * 设置 可见逻辑
+     * <P>
+     * 等同 {@link #setVisibleLogic}
+     * @param visibleLogic
+     */
+    @JsonIgnore
+    public PSDETBItem visiblelogic(String visibleLogic){
+        this.setVisibleLogic(visibleLogic);
+        return this;
+    }
+
+    /**
      * <B>WIDTH</B>&nbsp;宽度，指定工具栏项的宽度，0为自动。未定义时为【0】
      */
     public final static String FIELD_WIDTH = "width";
@@ -5205,14 +5327,14 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体工具栏项 成员集合
+     *  工具栏项 成员集合
      */
     public final static String FIELD_PSDETBITEMS = "psdetbitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETBItem> psdetbitems;
 
     /**
-     * 获取 实体工具栏项 成员集合
+     * 获取 工具栏项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETBITEMS)
@@ -5221,7 +5343,7 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体工具栏项 成员集合  
+     * 设置 工具栏项 成员集合  
      * @param psdetbitems
      */
     @JsonProperty(FIELD_PSDETBITEMS)
@@ -5230,7 +5352,7 @@ public class PSDETBItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体工具栏项 成员集合，不存在时建立集合对象
+     * 获取 工具栏项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

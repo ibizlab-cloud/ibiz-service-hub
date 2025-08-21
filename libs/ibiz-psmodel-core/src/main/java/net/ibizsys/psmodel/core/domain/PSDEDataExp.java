@@ -979,6 +979,69 @@ public class PSDEDataExp extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>FILENAMEFORMAT</B>&nbsp;文件名称格式化
+     * <P>
+     * 字符串：最大长度 200
+     */
+    public final static String FIELD_FILENAMEFORMAT = "filenameformat";
+
+    /**
+     * 设置 文件名称格式化
+     * 
+     * @param fileNameFormat
+     * 
+     */
+    @JsonProperty(FIELD_FILENAMEFORMAT)
+    public void setFileNameFormat(String fileNameFormat){
+        this.set(FIELD_FILENAMEFORMAT, fileNameFormat);
+    }
+    
+    /**
+     * 获取 文件名称格式化  
+     * @return
+     */
+    @JsonIgnore
+    public String getFileNameFormat(){
+        Object objValue = this.get(FIELD_FILENAMEFORMAT);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 文件名称格式化 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isFileNameFormatDirty(){
+        if(this.contains(FIELD_FILENAMEFORMAT)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 文件名称格式化
+     */
+    @JsonIgnore
+    public void resetFileNameFormat(){
+        this.reset(FIELD_FILENAMEFORMAT);
+    }
+
+    /**
+     * 设置 文件名称格式化
+     * <P>
+     * 等同 {@link #setFileNameFormat}
+     * @param fileNameFormat
+     */
+    @JsonIgnore
+    public PSDEDataExp filenameformat(String fileNameFormat){
+        this.setFileNameFormat(fileNameFormat);
+        return this;
+    }
+
+    /**
      * <B>MAXROWCNT</B>&nbsp;最大记录数，指定数据导出的最大记录数，未定义时使用系统定义的【数据导出最大记录数】
      */
     public final static String FIELD_MAXROWCNT = "maxrowcnt";

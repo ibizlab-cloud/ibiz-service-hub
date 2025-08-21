@@ -631,6 +631,86 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DELETEASUPDATE</B>&nbsp;删除作为更新操作
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_DELETEASUPDATE = "deleteasupdate";
+
+    /**
+     * 设置 删除作为更新操作
+     * 
+     * @param deleteAsUpdate
+     * 
+     */
+    @JsonProperty(FIELD_DELETEASUPDATE)
+    public void setDeleteAsUpdate(Integer deleteAsUpdate){
+        this.set(FIELD_DELETEASUPDATE, deleteAsUpdate);
+    }
+    
+    /**
+     * 获取 删除作为更新操作  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDeleteAsUpdate(){
+        Object objValue = this.get(FIELD_DELETEASUPDATE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 删除作为更新操作 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDeleteAsUpdateDirty(){
+        if(this.contains(FIELD_DELETEASUPDATE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 删除作为更新操作
+     */
+    @JsonIgnore
+    public void resetDeleteAsUpdate(){
+        this.reset(FIELD_DELETEASUPDATE);
+    }
+
+    /**
+     * 设置 删除作为更新操作
+     * <P>
+     * 等同 {@link #setDeleteAsUpdate}
+     * @param deleteAsUpdate
+     */
+    @JsonIgnore
+    public PSSysUniState deleteasupdate(Integer deleteAsUpdate){
+        this.setDeleteAsUpdate(deleteAsUpdate);
+        return this;
+    }
+
+     /**
+     * 设置 删除作为更新操作
+     * <P>
+     * 等同 {@link #setDeleteAsUpdate}
+     * @param deleteAsUpdate
+     */
+    @JsonIgnore
+    public PSSysUniState deleteasupdate(Boolean deleteAsUpdate){
+        if(deleteAsUpdate == null){
+            this.setDeleteAsUpdate(null);
+        }
+        else{
+            this.setDeleteAsUpdate(deleteAsUpdate?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
+        return this;
+    }
+
+    /**
      * <B>INITPSDELOGICID</B>&nbsp;初始化逻辑
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDELogic} 

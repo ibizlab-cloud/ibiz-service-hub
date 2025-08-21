@@ -14,8 +14,6 @@ public interface IPSDESysUtilLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESysUtilLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取系统预置功能组件对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSUTILDEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysUtil getPSSysUtil();
@@ -46,8 +42,6 @@ public interface IPSDESysUtilLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();
@@ -62,8 +56,6 @@ public interface IPSDESysUtilLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取执行功能操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getUtilAction();

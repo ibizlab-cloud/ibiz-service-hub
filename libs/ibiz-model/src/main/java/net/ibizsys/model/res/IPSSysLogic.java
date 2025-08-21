@@ -18,8 +18,6 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义处理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMOBJ}
 	 * @return
 	 */
 	java.lang.String getCustomObject();
@@ -41,8 +39,6 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -57,8 +53,6 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -66,8 +60,6 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否自定义脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();

@@ -300,28 +300,28 @@ public class DeploySystem extends EntityBase{
 		return this.contains(FIELD_MAINSYSTEMID);
 	}
 	
-	
-//	/**
-//	 * 启用的服务接口清单
-//	 */
-//	public final static String FIELD_APIS = "apis";
-//
-//	@JsonIgnore
-//	public List<String> getAPIs() {
-//		Object objValue = this.get(FIELD_APIS);
-//		if (objValue == null) {
-//			return null;
-//		}
-//		return (List<String>)objValue;
-//	}
-//
-//	@JsonProperty(FIELD_APIS)
-//	public void setAPIs(List<String> value) {
-//		this.set(FIELD_APIS, value);
-//	}
-//
-//	@JsonIgnore
-//	public boolean isAPIsDirty() {
-//		return this.contains(FIELD_APIS);
-//	}
+	/**
+	 * 默认OSS文件夹
+	 */
+	public final static String FIELD_OSSFOLDER = "ossfolder";
+
+	@JsonIgnore
+	public String getOSSFolder() {
+		Object objValue = this.get(FIELD_OSSFOLDER);
+		if (objValue == null) {
+			return null;
+		}
+		return (String) objValue;
+	}
+
+	@JsonProperty(FIELD_OSSFOLDER)
+	public void setOSSFolder(String value) {
+		this.set(FIELD_OSSFOLDER, value);
+	}
+
+	@JsonIgnore
+	public boolean isOSSFolderDirty() {
+		return this.contains(FIELD_OSSFOLDER);
+	}
+
 }

@@ -14,8 +14,6 @@ public interface IPSDEDataFlow extends net.ibizsys.model.dataentity.IPSDataEntit
 	/**
 	 * 获取调试模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEBUGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicDebugMode}
 	 * @return
 	 */
@@ -24,8 +22,6 @@ public interface IPSDEDataFlow extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取逻辑子类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICSUBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataFlowSubType}
 	 * @return
@@ -77,8 +73,6 @@ public interface IPSDEDataFlow extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取数据流逻辑包模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getPackageModel();

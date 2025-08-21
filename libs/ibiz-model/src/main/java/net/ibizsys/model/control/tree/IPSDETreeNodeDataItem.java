@@ -42,8 +42,6 @@ public interface IPSDETreeNodeDataItem extends net.ibizsys.model.data.IPSDataIte
 	
 	/**
 	 * 获取应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -58,8 +56,6 @@ public interface IPSDETreeNodeDataItem extends net.ibizsys.model.data.IPSDataIte
 	
 	/**
 	 * 获取树视图列
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDETREECOLID}
 	 * @return
 	 */
 	net.ibizsys.model.control.tree.IPSDETreeColumn getPSDETreeColumn();

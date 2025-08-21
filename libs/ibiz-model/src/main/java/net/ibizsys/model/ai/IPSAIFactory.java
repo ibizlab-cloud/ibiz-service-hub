@@ -3,6 +3,7 @@ package net.ibizsys.model.ai;
 
 
 /**
+ * AI工厂对象接口
  *
  */
 public interface IPSAIFactory extends net.ibizsys.model.IPSModelObject{
@@ -11,8 +12,6 @@ public interface IPSAIFactory extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取AI工厂动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AIFACTORYPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getAIFactoryParams();
@@ -39,6 +38,13 @@ public interface IPSAIFactory extends net.ibizsys.model.IPSModelObject{
 	 * @return
 	 */
 	java.lang.String getAIFactoryType();
+	
+	
+	/**
+	 * 获取AI平台类型
+	 * @return
+	 */
+	java.lang.String getAIPlatformType();
 	
 	
 	/**

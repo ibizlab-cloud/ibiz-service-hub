@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity;
 
 
 /**
- * 系统实体组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGroupDTO}运行时对象
+ * 系统实体组模型对象接口
  *
  */
 public interface IPSSysDEGroup extends net.ibizsys.model.dataentity.IPSDEGroup{

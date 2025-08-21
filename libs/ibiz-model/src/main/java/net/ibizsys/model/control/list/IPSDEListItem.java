@@ -3,7 +3,7 @@ package net.ibizsys.model.control.list;
 
 
 /**
- * 实体列表部件项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO}运行时对象
+ * 实体列表部件项模型对象接口
  *
  */
 public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListItem{
@@ -12,8 +12,6 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	
 	/**
 	 * 获取数据项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_PSDELISTITEMNAME}
 	 * @return
 	 */
 	java.lang.String getDataItemName();
@@ -21,8 +19,6 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	
 	/**
 	 * 获取界面行为组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup getPSDEUIActionGroup();
@@ -37,8 +33,6 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -46,8 +40,6 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	
 	/**
 	 * 获取宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEListItemDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	int getWidth();

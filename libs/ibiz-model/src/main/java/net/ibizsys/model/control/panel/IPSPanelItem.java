@@ -3,9 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板项模型对象基础接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getItemType}
+ * 面板项模型对象基础接口
  *
  */
 public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelObject
@@ -16,8 +14,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -32,8 +28,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -54,9 +48,23 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	
 	/**
-	 * 获取项直接样式
+	 * 获取计数器标识
+	 * @return
+	 */
+	java.lang.String getCounterId();
+	
+	
+	/**
+	 * 获取计数器模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_RAWCSSSTYLE}
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeCounterMode}
+	 * @return
+	 */
+	int getCounterMode();
+	
+	
+	/**
+	 * 获取项直接样式
 	 * @return
 	 */
 	java.lang.String getCssStyle();
@@ -64,8 +72,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_DYNACLASS}
 	 * @return
 	 */
 	java.lang.String getDynaClass();
@@ -73,8 +79,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_HEIGHT}
 	 * @return
 	 */
 	double getHeight();
@@ -82,8 +86,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取成员样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_DETAILSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
@@ -93,8 +95,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取成员类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_ITEMTYPE}
 	 * @return
 	 */
 	java.lang.String getItemType();
@@ -102,8 +102,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取标签直接样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_LABELRAWCSSSTYLE}
 	 * @return
 	 */
 	java.lang.String getLabelCssStyle();
@@ -111,8 +109,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取标签动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_LABELDYNACLASS}
 	 * @return
 	 */
 	java.lang.String getLabelDynaClass();
@@ -120,8 +116,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取标签样式表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_LABELPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getLabelPSSysCss();
@@ -132,6 +126,20 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getLabelPSSysCssMust();
+	
+	
+	/**
+	 * 获取应用计数器引用
+	 * @return
+	 */
+	net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef();
+
+
+	/**
+	 * 获取应用计数器引用，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRefMust();
 	
 	
 	/**
@@ -185,8 +193,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取界面样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -201,8 +207,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取图片对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -231,8 +235,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	double getWidth();
@@ -240,8 +242,6 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	
 	/**
 	 * 获取是否显示标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_SHOWCAPTION}
 	 * @return
 	 */
 	boolean isShowCaption();

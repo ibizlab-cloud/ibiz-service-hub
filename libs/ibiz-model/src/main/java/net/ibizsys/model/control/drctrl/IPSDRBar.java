@@ -13,8 +13,6 @@ public interface IPSDRBar extends net.ibizsys.model.control.drctrl.IPSDRCtrl
 	
 	/**
 	 * 获取抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getTitle();
@@ -22,8 +20,6 @@ public interface IPSDRBar extends net.ibizsys.model.control.drctrl.IPSDRCtrl
 	
 	/**
 	 * 获取抬头语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();
@@ -38,8 +34,6 @@ public interface IPSDRBar extends net.ibizsys.model.control.drctrl.IPSDRCtrl
 	
 	/**
 	 * 获取是否显示标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM11}
 	 * @return
 	 */
 	boolean isShowTitle();

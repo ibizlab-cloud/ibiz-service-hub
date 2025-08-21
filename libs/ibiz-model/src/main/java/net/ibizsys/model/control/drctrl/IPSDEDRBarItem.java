@@ -3,7 +3,7 @@ package net.ibizsys.model.control.drctrl;
 
 
 /**
- * 实体数据关系边栏项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDRDetailDTO}运行时对象
+ * 实体数据关系边栏项模型对象接口
  *
  */
 public interface IPSDEDRBarItem extends net.ibizsys.model.control.drctrl.IPSDEDRCtrlItem

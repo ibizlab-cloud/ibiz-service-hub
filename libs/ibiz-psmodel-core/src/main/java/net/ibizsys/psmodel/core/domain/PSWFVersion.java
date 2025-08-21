@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSWFVERSION</B>工作流版本 模型传输对象
+ * <B>PSWFVERSION</B>流程定义版本 模型传输对象
  * <P>
  * 工作流版本模型，定义工作流不同版本的执行流程
  */
@@ -2614,14 +2618,14 @@ public class PSWFVersion extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  流程处理 成员集合
+     *  流程处理节点 成员集合
      */
     public final static String FIELD_PSWFPROCESSES = "pswfprocesses";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSWFProcess> pswfprocesses;
 
     /**
-     * 获取 流程处理 成员集合
+     * 获取 流程处理节点 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSWFPROCESSES)
@@ -2630,7 +2634,7 @@ public class PSWFVersion extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 流程处理 成员集合  
+     * 设置 流程处理节点 成员集合  
      * @param pswfprocesses
      */
     @JsonProperty(FIELD_PSWFPROCESSES)
@@ -2639,7 +2643,7 @@ public class PSWFVersion extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 流程处理 成员集合，不存在时建立集合对象
+     * 获取 流程处理节点 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

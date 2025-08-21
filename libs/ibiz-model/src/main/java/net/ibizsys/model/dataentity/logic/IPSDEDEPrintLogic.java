@@ -14,8 +14,6 @@ public interface IPSDEDEPrintLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDEDEPrintLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取目标实体打印对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEPRINTID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.print.IPSDEPrint getDstPSDEPrint();
@@ -46,8 +42,6 @@ public interface IPSDEDEPrintLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();
@@ -62,8 +56,6 @@ public interface IPSDEDEPrintLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	/**
 	 * 获取输出流逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_OSPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getOSPSDELogicParam();

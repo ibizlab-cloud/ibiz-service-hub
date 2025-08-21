@@ -20,8 +20,6 @@ public interface IPSAppUIAction extends net.ibizsys.model.view.IPSUIAction
 	
 	/**
 	 * 获取计数项标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_COUNTERID}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -29,8 +27,6 @@ public interface IPSAppUIAction extends net.ibizsys.model.view.IPSUIAction
 	
 	/**
 	 * 获取应用计数器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSCOUNTERID}
 	 * @return
 	 */
 	net.ibizsys.model.app.control.IPSAppCounter getPSAppCounter();

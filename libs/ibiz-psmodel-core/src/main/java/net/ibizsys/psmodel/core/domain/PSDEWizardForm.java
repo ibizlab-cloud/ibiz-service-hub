@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEWIZARDFORM</B>实体向导表单 模型传输对象
+ * <B>PSDEWIZARDFORM</B>实体向导表单引用 模型传输对象
  * <P>
- * 实体向导表单模型，定义向导的操作界面，包括了操作表单，操作行为等
+ * 实体向导表单引用模型，定义向导的操作界面，包括引用的操作表单和操作行为等
  */
 public class PSDEWizardForm extends net.ibizsys.psmodel.core.util.PSModelBase {
 

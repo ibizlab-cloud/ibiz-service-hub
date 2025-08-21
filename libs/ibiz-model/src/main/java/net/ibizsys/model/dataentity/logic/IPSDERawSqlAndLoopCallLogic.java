@@ -14,8 +14,6 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取目标实体行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getDstPSDEAction();
@@ -30,8 +28,6 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();
@@ -46,8 +42,6 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取数据库体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSDBSCHEMEID}
 	 * @return
 	 */
 	net.ibizsys.model.database.IPSSysDBScheme getPSSysDBScheme();
@@ -62,8 +56,6 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取SQL代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getSql();
@@ -71,8 +63,6 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	/**
 	 * 获取附加源参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();

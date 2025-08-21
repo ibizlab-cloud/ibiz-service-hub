@@ -3,7 +3,7 @@ package net.ibizsys.model.control.grid;
 
 
 /**
- * 实体表格部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridDTO}运行时对象
+ * 实体表格部件模型对象接口
  *
  */
 public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
@@ -24,8 +24,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取聚合服务应用实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_AGGPSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getAggPSAppDEDataSet();
@@ -40,8 +38,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取聚合服务应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_AGGPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getAggPSAppDataEntity();
@@ -71,8 +67,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取列过滤器模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_COLENABLEFILTER}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEGridColLinkMode}
 	 * @return
 	 */
@@ -81,8 +75,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取列链接模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_COLENABLELINK}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEGridColLinkMode}
 	 * @return
@@ -106,8 +98,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -115,8 +105,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取无值内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -131,8 +119,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取固定起始列数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_FROZENCOL}
 	 * @return
 	 */
 	int getFrozenFirstColumn();
@@ -140,8 +126,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取固定末尾列数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_FROZENLASTCOL}
 	 * @return
 	 */
 	int getFrozenLastColumn();
@@ -192,8 +176,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取表格样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GRIDSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridStyle}
 	 * @return
 	 */
@@ -203,8 +185,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取分组模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GROUPMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
@@ -213,8 +193,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GROUPPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupPSAppDEField();
@@ -229,8 +207,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取分组代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GROUPPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getGroupPSCodeList();
@@ -260,8 +236,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取分组样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GROUPSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
@@ -270,8 +244,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_GROUPTEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupTextPSAppDEField();
@@ -301,8 +273,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	/**
 	 * 获取附加排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_MINORSORTDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
@@ -311,8 +281,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取附加排序应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getMinorSortPSAppDEField();
@@ -327,8 +295,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取排序值应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_ORDERVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEField();
@@ -457,8 +423,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取分页大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_PAGINGSIZE}
 	 * @return
 	 */
 	int getPagingSize();
@@ -480,8 +444,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取排序模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_SORTMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortMode}
 	 * @return
@@ -505,8 +467,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否启用列过滤器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM8}
 	 * @return
 	 */
 	boolean isEnableColFilter();
@@ -514,8 +474,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持表格定制，未定义时使用应用全局定义{@link PSSysAppDTO#FIELD_GRIDENABLECUSTOMIZED}
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM7}
 	 * @return
 	 */
 	boolean isEnableCustomized();
@@ -530,8 +488,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持分页栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_ENABLEPAGINGBAR}
 	 * @return
 	 */
 	boolean isEnablePagingBar();
@@ -539,8 +495,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持行编辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isEnableRowEdit();
@@ -548,8 +502,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持行编辑仅提交变化值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isEnableRowEditChangedOnly();
@@ -557,8 +509,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持行次序调整
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isEnableRowEditOrder();
@@ -566,8 +516,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否支持行新建
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isEnableRowNew();
@@ -575,8 +523,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否适应屏幕宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_FORCEFIT}
 	 * @return
 	 */
 	boolean isForceFit();
@@ -584,8 +530,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否隐藏表格头部
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_SHOWHEADER}
 	 * @return
 	 */
 	boolean isHideHeader();
@@ -593,8 +537,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否默认禁用排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isNoSort();
@@ -602,8 +544,6 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	
 	/**
 	 * 获取是否单项选择
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_MULTISELECT}
 	 * @return
 	 */
 	boolean isSingleSelect();

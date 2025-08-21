@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSSYSREQMODULE</B>系统需求模块 模型传输对象
@@ -1231,7 +1235,7 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>MODULETYPE</B>&nbsp;模块类型
      * <P>
-     * 字符串：最大长度 50
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.SysReqModuleType} 
      */
     public final static String FIELD_MODULETYPE = "moduletype";
 
@@ -1288,6 +1292,23 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysReqModule moduletype(String moduleType){
         this.setModuleType(moduleType);
+        return this;
+    }
+
+     /**
+     * 设置 模块类型
+     * <P>
+     * 等同 {@link #setModuleType}
+     * @param moduleType
+     */
+    @JsonIgnore
+    public PSSysReqModule moduletype(net.ibizsys.psmodel.core.util.PSModelEnums.SysReqModuleType moduleType){
+        if(moduleType == null){
+            this.setModuleType(null);
+        }
+        else{
+            this.setModuleType(moduleType.value);
+        }
         return this;
     }
 
@@ -2103,14 +2124,14 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSREQMODULENAME</B>&nbsp;系统需求模块名称
+     * <B>PSSYSREQMODULENAME</B>&nbsp;需求模块名称
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_PSSYSREQMODULENAME = "pssysreqmodulename";
 
     /**
-     * 设置 系统需求模块名称
+     * 设置 需求模块名称
      * 
      * @param pSSysReqModuleName
      * 
@@ -2121,7 +2142,7 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 系统需求模块名称  
+     * 获取 需求模块名称  
      * @return
      */
     @JsonIgnore
@@ -2134,7 +2155,7 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 系统需求模块名称 是否指定值，包括空值
+     * 判断 需求模块名称 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2146,7 +2167,7 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 系统需求模块名称
+     * 重置 需求模块名称
      */
     @JsonIgnore
     public void resetPSSysReqModuleName(){
@@ -2154,7 +2175,7 @@ public class PSSysReqModule extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统需求模块名称
+     * 设置 需求模块名称
      * <P>
      * 等同 {@link #setPSSysReqModuleName}
      * @param pSSysReqModuleName

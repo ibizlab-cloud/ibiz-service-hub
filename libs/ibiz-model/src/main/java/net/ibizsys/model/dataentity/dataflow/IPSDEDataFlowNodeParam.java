@@ -13,8 +13,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取聚合操作模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AGGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
@@ -23,8 +21,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取目标属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMDSTPARAM}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEFNAME}
 	 * @return
 	 */
 	java.lang.String getDstField();
@@ -32,8 +28,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取目标列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTINDEX}
 	 * @return
 	 */
 	int getDstIndex();
@@ -41,8 +35,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取目标列表排序模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
@@ -52,8 +44,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取表达式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DIRECTCODE}
 	 * @return
 	 */
 	java.lang.String getExpression();
@@ -61,8 +51,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取节点参数类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowNodeParamType}
 	 * @return
@@ -72,8 +60,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统值序列对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSSEQUENCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSequence getPSSysSequence();
@@ -88,8 +74,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取系统值转换器对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getPSSysTranslator();
@@ -104,8 +88,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取源属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CUSTOMSRCPARAM}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCPSDEFNAME}
 	 * @return
 	 */
 	java.lang.String getSrcField();
@@ -113,8 +95,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取源列表参数起始位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCINDEX}
 	 * @return
 	 */
 	int getSrcIndex();
@@ -122,8 +102,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取源列表参数大小
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCSIZE}
 	 * @return
 	 */
 	int getSrcSize();
@@ -131,8 +109,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取直接值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUE}
 	 * @return
 	 */
 	java.lang.String getSrcValue();
@@ -140,8 +116,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取源值标准数据类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUESTDDATATYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
@@ -152,8 +126,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取源值类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_SRCVALUETYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowParamValueType}
 	 * @return
 	 */
@@ -162,8 +134,6 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否值输出转换
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_INOUTFLAG}
 	 * @return
 	 */
 	boolean isOutTranslate();

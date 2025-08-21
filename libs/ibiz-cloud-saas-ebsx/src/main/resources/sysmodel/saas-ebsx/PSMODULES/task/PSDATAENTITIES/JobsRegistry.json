@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "APP",
+        "codeName" : "App"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -483,6 +491,7 @@
     "length" : 100,
     "logicName" : "主键ID",
     "name" : "ID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -636,6 +645,7 @@
     "length" : 100,
     "logicName" : "服务名",
     "name" : "APP",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -779,6 +789,7 @@
     "length" : 255,
     "logicName" : "执行地址",
     "name" : "ADDRESS",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -896,6 +907,7 @@
     "importOrder" : 1000,
     "logicName" : "状态",
     "name" : "STATUS",
+    "orderValue" : 13,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSCODELISTS/JobsStatus.json"
@@ -1008,6 +1020,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATE_TIME",
+    "orderValue" : 21,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1106,6 +1119,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1238,6 +1252,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "APPNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSDATAENTITIES/JobsRegistry/PSDERS/DER1N_JOBS_REGISTRY_SYS_DC_SYSTEM_APPS23.json"

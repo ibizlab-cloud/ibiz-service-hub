@@ -602,6 +602,8 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 		}
 		if(iPSDELogicLinkCond instanceof IPSDELogicLinkSingleCond) {
 			IPSDELogicLinkSingleCond iPSDELogicLinkSingleCond = (IPSDELogicLinkSingleCond)iPSDELogicLinkCond;
+			String strParamType = iPSDELogicLinkSingleCond.getParamType();
+			
 			IDELogicParamRuntime dstDELogicParamRuntime = this.getDELogicParamRuntime(iPSDELogicLinkSingleCond.getDstLogicParamMust().getCodeName(), false);
 //			IEntity iEntity = iDELogicSession.getParam(iPSDELogicLinkSingleCond.getDstLogicParamMust().getCodeName());
 //			if(iEntity == null) {
@@ -625,13 +627,12 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 				objValue = dstDELogicParamRuntime.get(iDELogicSession, strDstFieldName.toLowerCase());
 			}
 			Object dstValue = iPSDELogicLinkSingleCond.getParamValue();
-			String strParamType = iPSDELogicLinkSingleCond.getParamType();
+			
 			if(StringUtils.hasLength(strParamType)) {
-				if(ObjectUtils.isEmpty(dstValue)) {
-					throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("连接条件[%1$s]未指定参数项名称", iPSDELogicLinkCond.getName()));
-				}
 				if(strParamType.equals(DELogicLinkSingleCondParamTypes.ENTITYFIELD)) {
-					//dstValue = iEntity.get(((String)dstValue).toLowerCase());
+					if(ObjectUtils.isEmpty(dstValue)) {
+						throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("连接条件[%1$s]未指定参数项名称", iPSDELogicLinkCond.getName()));
+					}
 					dstValue = dstDELogicParamRuntime.get(iDELogicSession, ((String)dstValue).toLowerCase());
 				}
 				else
@@ -640,6 +641,9 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 					}
 					else
 						if(strParamType.equals(DELogicLinkSingleCondParamTypes.SRCENTITYFIELD)) {
+							if(ObjectUtils.isEmpty(dstValue)) {
+								throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("连接条件[%1$s]未指定参数项名称", iPSDELogicLinkCond.getName()));
+							}
 							IDELogicParamRuntime srcDELogicParamRuntime = this.getDELogicParamRuntime(iPSDELogicLinkSingleCond.getSrcLogicParamMust().getCodeName(), false);
 							dstValue =  srcDELogicParamRuntime.get(iDELogicSession, ((String)dstValue).toLowerCase());
 						}
@@ -647,6 +651,9 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 							if(strParamType.equals(DELogicLinkSingleCondParamTypes.SRCDLPARAM)) {
 								IDELogicParamRuntime srcDELogicParamRuntime = this.getDELogicParamRuntime(iPSDELogicLinkSingleCond.getSrcLogicParamMust().getCodeName(), false);
 								dstValue =  srcDELogicParamRuntime.getReal(iDELogicSession);
+							}
+							else if(strParamType.equals(DELogicLinkSingleCondParamTypes.LASTRETURN)) {
+								dstValue = iDELogicSession.getLastReturn();
 							}
 			}
 			return testValueCond(objValue, iPSDELogicLinkSingleCond.getCondOP(), dstValue);

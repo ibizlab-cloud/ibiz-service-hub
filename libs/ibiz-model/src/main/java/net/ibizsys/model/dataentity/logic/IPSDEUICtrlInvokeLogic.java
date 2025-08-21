@@ -14,8 +14,6 @@ public interface IPSDEUICtrlInvokeLogic extends net.ibizsys.model.dataentity.log
 	
 	/**
 	 * 获取调用部件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getInvokeCtrl();
@@ -30,8 +28,6 @@ public interface IPSDEUICtrlInvokeLogic extends net.ibizsys.model.dataentity.log
 	
 	/**
 	 * 获取调用方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getInvokeMethod();
@@ -39,8 +35,6 @@ public interface IPSDEUICtrlInvokeLogic extends net.ibizsys.model.dataentity.log
 	
 	/**
 	 * 获取调用参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getInvokeParam();

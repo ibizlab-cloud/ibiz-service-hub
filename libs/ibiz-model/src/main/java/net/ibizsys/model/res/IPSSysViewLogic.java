@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统视图逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewLogicDTO}运行时对象
+ * 系统视图逻辑模型对象接口
  *
  */
 public interface IPSSysViewLogic extends net.ibizsys.model.view.IPSViewLogic{

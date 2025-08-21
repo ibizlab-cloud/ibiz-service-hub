@@ -639,10 +639,10 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			if (StringUtils.hasLength(iServiceSystemRuntime.getExtensionSessionId())) {
 				IDataEntityRuntime iDataEntityRuntime = (IDataEntityRuntime) iServiceSystemRuntime.getDataEntityRuntimeByAppDataEntityTag(strAppTag, strAppDataEntityTag, true);
 				if(iDataEntityRuntime!=null && StringUtils.hasLength(iDataEntityRuntime.getExtensionSessionId())) {
-					strFilePath = String.format("%1$s/PSSYSAPPS/%2$s/PSAPPDATAENTITIES/%4$s/%5$s/%3$s.jsonschema", strPSModelFolderPath, strAppTag, strAppDataEntityTag, iDataEntityRuntime.getExtensionSessionId(),srfScopeTag);
+					strFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/PSAPPDATAENTITIES/%4$s/%5$s/%3$s.jsonschema", strPSModelFolderPath, strAppTag, strAppDataEntityTag, iDataEntityRuntime.getExtensionSessionId(),srfScopeTag);
 				}
 				else {
-					strFilePath = String.format("%1$s/PSSYSAPPS/%2$s/PSAPPDATAENTITIES/%4$s/%5$s/%3$s.jsonschema", strPSModelFolderPath, strAppTag, strAppDataEntityTag, iServiceSystemRuntime.getExtensionSessionId(),srfScopeTag);
+					strFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/PSAPPDATAENTITIES/%4$s/%5$s/%3$s.jsonschema", strPSModelFolderPath, strAppTag, strAppDataEntityTag, iServiceSystemRuntime.getExtensionSessionId(),srfScopeTag);
 				}
 			}
 		}
@@ -740,11 +740,11 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	protected File onGetHubSubAppDataEntityJsonSchema(ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag, String strAppDataEntityTag, Object param, boolean bTryMode) throws Throwable {
 
 		String strPSModelFolderPath = iSystemRuntime.getPSSystemService().getPSModelFolderPath();
-		String strFilePath = String.format("%1$s/PSSYSAPPS/%2$s/%3$s/PSAPPDATAENTITIES/%4$s.jsonschema", strPSModelFolderPath, strAppTag, strSubAppTag, strAppDataEntityTag);
+		String strFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/%3$s/PSAPPDATAENTITIES/%4$s.jsonschema", strPSModelFolderPath, strAppTag, strSubAppTag, strAppDataEntityTag);
 		if (iSystemRuntime instanceof IServiceSystemRuntime) {
 			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iSystemRuntime;
 			if (StringUtils.hasLength(iServiceSystemRuntime.getSystemMergeSessionId())) {
-				strFilePath = String.format("%1$s/PSSYSAPPS/%2$s/%3$s/PSAPPDATAENTITIES/%5$s/%4$s.jsonschema", strPSModelFolderPath, strAppTag, strSubAppTag, strAppDataEntityTag, iServiceSystemRuntime.getSystemMergeSessionId());
+				strFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/%3$s/PSAPPDATAENTITIES/%5$s/%4$s.jsonschema", strPSModelFolderPath, strAppTag, strSubAppTag, strAppDataEntityTag, iServiceSystemRuntime.getSystemMergeSessionId());
 			}
 		}
 		File file = new File(strFilePath);
@@ -764,7 +764,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
 			if(!ObjectUtils.isEmpty(list)) {
 				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
-					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) ||
+							SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 						if (ObjectUtils.isEmpty(psApplicationList)) {
 							continue;
@@ -798,7 +799,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 					IExtensionSysRefRuntime iExtensionSysRefRuntime = (IExtensionSysRefRuntime) iSysRefRuntime;
 					// 判断系统引用类型
-					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
+							|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 						if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -983,7 +985,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
 			if(!ObjectUtils.isEmpty(list)) {
 				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
-					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
+							|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 						if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1005,7 +1008,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 					IExtensionSysRefRuntime iExtensionSysRefRuntime = (IExtensionSysRefRuntime) iSysRefRuntime;
 					// 判断系统引用类型
-					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
+							|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 						if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1051,7 +1055,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 			for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimeList) {
 				// 判断系统引用类型
-				if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+				if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+						|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 					List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 					if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1165,6 +1170,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 						subAppRefNode.put(PSSubAppRefImpl.ATTR_GETACCESSKEY, subPSApplication.getSubAppAccessKey());
 					}
 
+					subAppRefNode.put(PSSubAppRefImpl.ATTR_GETSYSREFTYPE, iExtensionSysRefRuntime.getPSSysRef().getSysRefType());
+					
 					String strSubAppMenuTag = SUBAPPMENUTAG;
 					// if(!StringUtils.hasLength(strSubAppMenuTag)) {
 					// strSubAppMenuTag = SUBAPPMENUTAG;
@@ -1419,7 +1426,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			}
 
 			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)iSystemRuntime;
-			String strNewFilePath = String.format("%1$s/PSSYSAPPS/%2$s/%3$s/%4$s/%5$s/%6$s.json", iSystemRuntime.getPSSystemService().getPSModelFolderPath(), iPSApplication.getCodeName(), strModelType, iServiceSystemRuntime.getExtensionSessionId(), srfScopeTag, iPSAppView.getCodeName());
+			String strNewFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/%3$s/%4$s/%5$s/%6$s.json", iSystemRuntime.getPSSystemService().getPSModelFolderPath(), iPSApplication.getCodeName(), strModelType, iServiceSystemRuntime.getExtensionSessionId(), srfScopeTag, iPSAppView.getCodeName());
 			File newFile = new File(strNewFilePath);
 			if(newFile.exists()) {
 				return newFile;
@@ -1455,10 +1462,15 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 					for (IPSCodeItem iPSCodeItem : psCodeItems) {
 						arrayNode.add(iPSCodeItem.getObjectNode());
 					}
+					
 					String strUniqueId = KeyValueUtils.genUniqueId(arrayNode.toString());
+					String strNewFilePath = String.format("%1$s.d/PSSYSAPPS/%2$s/%3$s/%4$s.%5$s.json", iSystemRuntime.getPSSystemService().getPSModelFolderPath(), iPSApplication.getCodeName(), "PSAPPCODELISTS", iPSAppCodeList.getCodeName(), strUniqueId);
+					File newFile = new File(strNewFilePath);
+					
 					// 判断文件是否存在
-					File newFile = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 4) + strUniqueId + ".json");
+					//File newFile = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 4) + strUniqueId + ".json");
 					if (!newFile.exists()) {
+						newFile.getParentFile().mkdirs();
 						ObjectNode objectNode = JsonUtils.toObjectNode(file);
 						objectNode.remove(PSAppCodeListImpl.ATTR_GETPSCODEITEMS);
 						objectNode.set(PSAppCodeListImpl.ATTR_GETPSCODEITEMS, arrayNode);
@@ -1632,7 +1644,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
 				if(!ObjectUtils.isEmpty(list)) {
 					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
-						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 							if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1664,7 +1677,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 						IExtensionSysRefRuntime iExtensionSysRefRuntime = (IExtensionSysRefRuntime) iSysRefRuntime;
 						// 判断系统引用类型
-						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 							if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -2458,7 +2472,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				
 				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
 					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
-							|| SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+							|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 	
 						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 						if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -2504,6 +2518,10 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	
 	protected ISystemRuntime registerSystemMergenceSystemRuntime(ISystemRuntime iSystemRuntime, V2SystemMerge v2SystemMerge, IPSSystemService iPSSystemService, DeploySystem deploySystem) throws Throwable {
 		return ServiceHub.getInstance().registerSystemRuntime(deploySystem);
+	}
+	
+	protected List<V2SystemMerge> getV2SystemMerges(String strSystemId) throws Throwable {
+		return this.getV2SystemMerges(null, strSystemId);
 	}
 	
 	protected List<V2SystemMerge> getV2SystemMerges(ISystemRuntime iSystemRuntime, String strSystemId) throws Throwable {

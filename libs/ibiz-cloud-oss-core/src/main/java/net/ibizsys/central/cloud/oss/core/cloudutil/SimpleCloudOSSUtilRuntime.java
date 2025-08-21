@@ -10,10 +10,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletResponse;
@@ -27,9 +30,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import io.jsonwebtoken.lang.Assert;
 import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.cloud.core.util.error.NotFoundException;
 import net.ibizsys.central.cloud.oss.core.addin.IOSSPreviewProvider;
+import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTicketMode;
 import net.ibizsys.central.cloud.oss.core.util.domain.FileItem;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.DataTypeUtils;
@@ -42,6 +48,10 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(SimpleCloudOSSUtilRuntime.class);
 	private String strFileRootFolder = null;
 	public final static int DOWNLOADKEY_TIMEOUT = 3600;
+	
+	private DownloadTicketMode downloadTicketMode = DownloadTicketMode.DISABLED;
+	private Set<String> downloadTicketFolderSet = null;
+	
 	@Override
 	protected void onInit() throws Exception {
 		this.setFileRootFolder(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".filepath", null));
@@ -62,6 +72,61 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 
 		super.onInit();
 	}
+	
+	@Override
+	protected boolean isEnableReloadSetting() {
+		return true;
+	}
+	
+	@Override
+	protected void onReloadSetting(boolean bFirst) throws Throwable {
+		String strDownloadTicketMode = this.getSystemRuntimeSetting().getParam(CLOUDOSSUTIL_CONFIGFOLDER + ".downloadticket.mode", null);
+		String strDownloadTicketFolder = this.getSystemRuntimeSetting().getParam(CLOUDOSSUTIL_CONFIGFOLDER + ".downloadticket.folder", null);
+		
+		DownloadTicketMode downloadTicketMode = DownloadTicketMode.DISABLED;
+		Set<String> downloadTicketFolderSet = new HashSet<String>();
+		if(StringUtils.hasLength(strDownloadTicketMode)) {
+			downloadTicketMode = DownloadTicketMode.valueOf(strDownloadTicketMode.toUpperCase());
+		}
+		else {
+			downloadTicketMode = DownloadTicketMode.DISABLED;
+		}
+		
+		if(downloadTicketMode != DownloadTicketMode.DISABLED) {
+			if(StringUtils.hasLength(strDownloadTicketFolder)) {
+				String[] folders = strDownloadTicketFolder.toLowerCase().split("[,]");
+				for(String item : folders) {
+					downloadTicketFolderSet.add(item);
+				}
+			}
+			if(downloadTicketMode == DownloadTicketMode.EXCLUSION) {
+				//补充临时目录
+				downloadTicketFolderSet.add(CAT_TEMP);
+			}
+		}
+		
+		this.downloadTicketMode = downloadTicketMode;
+		this.downloadTicketFolderSet = Collections.unmodifiableSet(downloadTicketFolderSet);
+		
+		
+		super.onReloadSetting(bFirst);
+	}
+	
+	@Override
+	public DownloadTicketMode getDownloadTicketMode() {
+		return this.downloadTicketMode;
+	}
+	
+	@Override
+	public Set<String> getDownloadTicketFolders() {
+		return this.downloadTicketFolderSet;
+	}
+	
+	@Override
+	public boolean containsDownloadTicketFolder(String strFolder) {
+		Assert.hasLength(strFolder, "传入目录无效");
+		return this.downloadTicketFolderSet.contains(strFolder.toLowerCase());
+	}
 
 	protected String getFileRootFolder() {
 		return this.strFileRootFolder;
@@ -70,6 +135,8 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 	protected void setFileRootFolder(String strFileRootFolder) {
 		this.strFileRootFolder = strFileRootFolder;
 	}
+	
+	
 
 	@Override
 	public FileItem saveFile(String strCat, MultipartFile multipartFile) {
@@ -128,6 +195,26 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 			}
 			catch (Exception ex) {
 				log.error(String.format("保存OSS文件项发生异常，%1$s", ex.getMessage()), ex);
+			}
+			
+			//判断指定文件夹是否需要建立临时凭证
+			if(this.getDownloadTicketMode() != DownloadTicketMode.DISABLED && !ObjectUtils.isEmpty(strCat)) {
+				switch(this.getDownloadTicketMode()) {
+				case INCLUSION:
+					if(this.containsDownloadTicketFolder(strCat)) {
+						DownloadTicket downloadTicket = this.createDownloadTicket(file, strCat, fileId, -1);
+						item.setTicket(downloadTicket);
+					}
+					break;
+				case EXCLUSION:
+					if(!this.containsDownloadTicketFolder(strCat)) {
+						DownloadTicket downloadTicket = this.createDownloadTicket(file, strCat, fileId, -1);
+						item.setTicket(downloadTicket);
+					}
+					break;
+				default:
+					break;
+				}
 			}
 			
 			return item;
@@ -283,8 +370,12 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 	}
 
 	@Override
-	public ObjectNode createDownloadTicket(String strCat, String strFileId, int nSeconds) {
+	public DownloadTicket createDownloadTicket(String strCat, String strFileId, int nSeconds) {
 		File file = getFile(strCat, strFileId);
+		return this.createDownloadTicket(file, strCat, strFileId, nSeconds);
+	}
+	
+	protected DownloadTicket createDownloadTicket(File file, String strCat, String strFileId, int nSeconds) {
 		
 		String strDownloadTicket = "t_" + KeyValueUtils.genUniqueId(strCat, strFileId, KeyValueUtils.genGuidEx());
 		String strCacheTag = this.getDownloadTicketCacheTag(strDownloadTicket);
@@ -298,24 +389,36 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 		
 		this.getSysCacheUtilRuntime(false).set(strCacheTag, JsonUtils.toString(map), nSeconds);
 		
-		ObjectNode ret = JsonUtils.createObjectNode();
-		ret.put("ticket", strDownloadTicket);
-		ret.put("expirein", nSeconds);
+		DownloadTicket ret = new DownloadTicket();
+		ret.setTicket(strDownloadTicket);
+		ret.setExpireIn(nSeconds);
 		
 		return ret;
 	}
 	
+	
 	@Override
-	public void downloadFileByTicket(String strDownloadTicket, HttpServletResponse response) {
+	public void downloadFileByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, boolean bTryFileId) {
+		String strRealCat = null;
+		String strFileId = null;
 		String strCacheTag = this.getDownloadTicketCacheTag(strDownloadTicket);
 		Map<String, String> map = this.getSysCacheUtilRuntime(false).get(strCacheTag, Map.class);
 		if(ObjectUtils.isEmpty(map)) {
-			throw new NotFoundException(String.format("文件[%1$s]未找到", strDownloadTicket));
+			if(bTryFileId) {
+				strRealCat = strCat;
+				strFileId = strDownloadTicket;
+			}
+			else {
+				throw new NotFoundException(String.format("文件[%1$s]未找到", strDownloadTicket));
+			}
+		}
+		else {
+			strRealCat = DataTypeUtils.asString(map.get("cat"));
+			strFileId = DataTypeUtils.asString(map.get("id"));
 		}
 		
-		String strCat = DataTypeUtils.asString(map.get("cat"));
-		String strFileId = DataTypeUtils.asString(map.get("id"));
-		File file= getFile(strCat, strFileId);
+		
+		File file= getFile(strRealCat, strFileId);
 		response.setHeader("Content-Disposition",String.format("attachment;filename=\"%1$s\"",getFileName(file.getName())));
 		this.sendResponse(response, file);
 	}

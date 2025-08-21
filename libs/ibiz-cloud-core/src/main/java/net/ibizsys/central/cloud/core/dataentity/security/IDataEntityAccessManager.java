@@ -48,12 +48,22 @@ public interface IDataEntityAccessManager extends net.ibizsys.central.dataentity
 	/**
 	 * 填充传入数据的数据操作标识
 	 * @param iEmployeeContext
-	 * @param iEntityDTOList
+	 * @param entityDTOList
 	 * @param strDataAccessActions
 	 * @return
 	 * @throws Exception
 	 */
-	void fillDataAccessActions(IEmployeeContext iEmployeeContext, List<IEntityDTO> iEntityDTOList, String strDataAccessActions, String strFieldName) throws Exception;
+	void fillDataAccessActions(IEmployeeContext iEmployeeContext, List<IEntityDTO> entityDTOList, String strDataAccessActions, String strFieldName) throws Exception;
+	
+	
+	
+	/**
+	 * 移除传入数据没有权限的属性
+	 * @param iEmployeeContext
+	 * @param entityDTOList
+	 * @throws Exception
+	 */
+	void removeUnauthorizedFields(IEmployeeContext iEmployeeContext, List<IEntityDTO> entityDTOList) throws Exception;
 	
 	
 	

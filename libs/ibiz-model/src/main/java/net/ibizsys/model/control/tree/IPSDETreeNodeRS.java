@@ -3,7 +3,7 @@ package net.ibizsys.model.control.tree;
 
 
 /**
- * 实体树节点关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO}运行时对象
+ * 实体树节点关系模型对象接口
  *
  */
 public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
@@ -13,8 +13,6 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取下级节点对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO#FIELD_CPSDETREENODEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.tree.IPSDETreeNode getChildPSDETreeNode();
@@ -50,8 +48,6 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取父值过滤项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO#FIELD_CHILDFILTER}
 	 * @return
 	 */
 	java.lang.String getParentFilter();
@@ -87,8 +83,6 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取上级节点对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO#FIELD_PPSDETREENODEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.tree.IPSDETreeNode getParentPSDETreeNode();
@@ -104,8 +98,6 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取父值级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO#FIELD_PVALUELEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeRSPValueLevel}
 	 * @return
 	 */
@@ -114,8 +106,6 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取搜索模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeNodeRSDTO#FIELD_SEARCHMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeRSSearchMode}
 	 * @return

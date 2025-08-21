@@ -1124,14 +1124,16 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDBVALUEOPID</B>&nbsp;操作符号，指定属性条件的操作符
+     * <B>PSDBVALUEOPID</B>&nbsp;条件符号，指定属性条件的操作符
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDQCondOP} 
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDBValueOP} 
      */
     public final static String FIELD_PSDBVALUEOPID = "psdbvalueopid";
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
+     * 设置 条件符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
      * 
      * @param pSDBValueOPId
      * 
@@ -1142,7 +1144,7 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 操作符号  
+     * 获取 条件符号  
      * @return
      */
     @JsonIgnore
@@ -1155,7 +1157,7 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 操作符号 是否指定值，包括空值
+     * 判断 条件符号 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1167,7 +1169,7 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 操作符号
+     * 重置 条件符号
      */
     @JsonIgnore
     public void resetPSDBValueOPId(){
@@ -1175,7 +1177,7 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 操作符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
+     * 设置 条件符号，详细说明：{@link #FIELD_PSDBVALUEOPID}
      * <P>
      * 等同 {@link #setPSDBValueOPId}
      * @param pSDBValueOPId
@@ -1183,6 +1185,25 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEDQCond psdbvalueopid(String pSDBValueOPId){
         this.setPSDBValueOPId(pSDBValueOPId);
+        return this;
+    }
+
+    /**
+     * 设置 条件符号，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDBValueOPId}
+     * @param pSDBValueOP 引用对象
+     */
+    @JsonIgnore
+    public PSDEDQCond psdbvalueopid(PSDBValueOP pSDBValueOP){
+        if(pSDBValueOP == null){
+            this.setPSDBValueOPId(null);
+            this.setPSDBValueOPName(null);
+        }
+        else{
+            this.setPSDBValueOPId(pSDBValueOP.getPSDBValueOPId());
+            this.setPSDBValueOPName(pSDBValueOP.getPSDBValueOPName());
+        }
         return this;
     }
 
@@ -2098,9 +2119,9 @@ public class PSDEDQCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSVARTYPEID</B>&nbsp;变量类型，指定属性条件的条件变量类型
+     * <B>PSVARTYPEID</B>&nbsp;变量类型，指定条件的变量类型，条件值指定变量属性
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDQVarType} 
      */
     public final static String FIELD_PSVARTYPEID = "psvartypeid";
 

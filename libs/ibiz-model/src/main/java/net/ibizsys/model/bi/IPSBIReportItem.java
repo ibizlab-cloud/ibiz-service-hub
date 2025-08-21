@@ -12,8 +12,6 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CODENAME}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -28,8 +26,6 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	
 	/**
 	 * 获取报表项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG}
 	 * @return
 	 */
 	java.lang.String getItemTag();
@@ -37,8 +33,6 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	
 	/**
 	 * 获取报表项标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTAG2}
 	 * @return
 	 */
 	java.lang.String getItemTag2();
@@ -46,8 +40,6 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	
 	/**
 	 * 获取报表项类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPITEMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemType}
 	 * @return

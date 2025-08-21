@@ -3,7 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试项目模块模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTestModuleDTO}运行时对象
+ * 系统测试项目模块模型对象接口
  *
  */
 public interface IPSSysTestModule extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysTestModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestModuleDTO#FIELD_MODULETAG}
 	 * @return
 	 */
 	java.lang.String getModuleTag();
@@ -28,8 +26,6 @@ public interface IPSSysTestModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestModuleDTO#FIELD_MODULETAG2}
 	 * @return
 	 */
 	java.lang.String getModuleTag2();

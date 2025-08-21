@@ -15,8 +15,6 @@ public interface IPSDEFVRTestCase extends net.ibizsys.model.testing.IPSSysTestCa
 	
 	/**
 	 * 获取相关实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();

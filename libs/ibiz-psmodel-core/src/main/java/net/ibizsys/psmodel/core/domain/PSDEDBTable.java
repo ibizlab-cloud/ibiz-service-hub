@@ -1,10 +1,14 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEDBTABLE</B>实体数据库表 模型传输对象
+ * <B>PSDEDBTABLE</B>实体数据库表配置 模型传输对象
  * <P>
  * 实体的数据表模型，定义实体使用的数据库表，包括数据列的引用模式
  */

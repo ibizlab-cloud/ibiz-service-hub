@@ -20,6 +20,7 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 	public final static String ATTR_GETPSUIACTION = "getPSUIAction";
 	public final static String ATTR_GETRENDERMODE = "renderMode";
 	public final static String ATTR_GETTOOLTIP = "tooltip";
+	public final static String ATTR_GETTOOLTIPPSLANGUAGERES = "getTooltipPSLanguageRes";
 	public final static String ATTR_GETUIACTIONPARAMJO = "uIActionParamJO";
 	public final static String ATTR_GETUIACTIONTARGET = "uIActionTarget";
 	public final static String ATTR_GETXDATACONTROLNAME = "xDataControlName";
@@ -123,6 +124,10 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 		return value;
 	}
 
+	public void setInlinePSUIAction(net.ibizsys.model.view.IPSUIAction inlinepsuiaction){
+		this.inlinepsuiaction = inlinepsuiaction;
+	}
+
 	private net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref;
 
 	@Deprecated
@@ -140,6 +145,10 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppCounterRef]返回空值");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 	private net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction;
@@ -160,6 +169,10 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 		return value;
 	}
 
+	public void setPSAppViewUIAction(net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction){
+		this.psappviewuiaction = psappviewuiaction;
+	}
+
 	private net.ibizsys.model.view.IPSUIAction psuiaction;
 
 	public net.ibizsys.model.view.IPSUIAction getPSUIAction(){
@@ -178,6 +191,10 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 		return value;
 	}
 
+	public void setPSUIAction(net.ibizsys.model.view.IPSUIAction psuiaction){
+		this.psuiaction = psuiaction;
+	}
+
 
 	public java.lang.String getRenderMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRENDERMODE);
@@ -194,6 +211,28 @@ public class PSSysPanelButtonImpl extends net.ibizsys.model.control.panel.PSSysP
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres;
+
+	public net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes(){
+		if(this.tooltippslanguageres != null) return this.tooltippslanguageres;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOOLTIPPSLANGUAGERES);
+		if(value == null){
+			return null;
+		}
+		this.tooltippslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETTOOLTIPPSLANGUAGERES);
+		return this.tooltippslanguageres;
+	}
+
+	public net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageResMust(){
+		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定操作提示语言资源");}
+		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
+	}
+
 
 	@Deprecated
 	public com.fasterxml.jackson.databind.node.ObjectNode getUIActionParamJO(){

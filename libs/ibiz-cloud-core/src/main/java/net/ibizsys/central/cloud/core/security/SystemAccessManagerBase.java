@@ -22,6 +22,7 @@ import net.ibizsys.central.Version;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.dataentity.security.DataEntityAccessManager;
 import net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager;
+import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUAAUtilRuntime;
 import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.RestUtils;
@@ -292,7 +293,7 @@ public abstract class SystemAccessManagerBase extends net.ibizsys.central.securi
 
 		return appData;
 	}
-
+	
 	/**
 	 * 进一步添加应用数据
 	 * @param appData
@@ -300,11 +301,10 @@ public abstract class SystemAccessManagerBase extends net.ibizsys.central.securi
 	 */
 	protected void onFillAppData(AppData appData) throws Throwable {
 		
+		Entity session = new Entity();
 		ISysLogicRuntime iSysLogicRuntime = getFillAppDataSysLogicRuntime();
 		if (iSysLogicRuntime != null) {
 			try {
-				Entity session = new Entity();
-
 				boolean bJavaScriptMode = false;
 				if(iSysLogicRuntime instanceof ISysScriptLogicRuntime) {
 					ISysScriptLogicRuntime iSysScriptLogicRuntime = (ISysScriptLogicRuntime)iSysLogicRuntime;
@@ -321,19 +321,69 @@ public abstract class SystemAccessManagerBase extends net.ibizsys.central.securi
 				if(!bJavaScriptMode) {
 					iSysLogicRuntime.execute(appData, appData.getContext(), session);
 				}
-				
-				Map<String, Object> sessionParams = session.any();
-				if(!ObjectUtils.isEmpty(sessionParams)) {
-					//写入会话
-					this.getSysUAAUtilRuntime().updateCurrentEmployeeSession(sessionParams);
-				}
-				
 			} catch (Throwable ex) {
-				throw new SystemRuntimeException(this.getSystemRuntime(), String.format("附加填充上下文逻辑发生异常，%1$s", ex.getMessage()), ex);
+				throw new RuntimeException(String.format("附加填充上下文逻辑发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		
+		if(this.getServiceSystemRuntime(true) != null) {
+			Collection<IExtensionSysRefRuntime> list = this.getServiceSystemRuntime(false).getExtensionSysRefRuntimes(true);
+			if(!ObjectUtils.isEmpty(list)) {
+				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
+					iExtensionSysRefRuntime.fillAddinAppData(appData, session);
+				}
+			}
+		}
+		
+		Map<String, Object> sessionParams = session.any();
+		if(!ObjectUtils.isEmpty(sessionParams)) {
+			//写入会话
+			this.getSysUAAUtilRuntime().updateCurrentEmployeeSession(sessionParams);
+		}
+	}
+
+	
+	@Override
+	public void fillAddinAppData(AppData appData, Entity session) {
+		Assert.notNull(appData, "传入应用数据对象无效");
+		Assert.notNull(session, "传入会话数据对象无效");
+		try {
+			onFillAddinAppData(appData, session);
+		} catch (Throwable ex) {
+			throw new SystemRuntimeException(this.getSystemRuntime(), String.format("填充当前用户插件应用数据发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	/**
+	 * 进一步添加应用数据
+	 * @param appData
+	 * @throws Throwable
+	 */
+	protected void onFillAddinAppData(AppData appData, Entity session) throws Throwable {
+		
+		ISysLogicRuntime iSysLogicRuntime = getFillAppDataSysLogicRuntime();
+		if (iSysLogicRuntime != null) {
+			boolean bJavaScriptMode = false;
+			if(iSysLogicRuntime instanceof ISysScriptLogicRuntime) {
+				ISysScriptLogicRuntime iSysScriptLogicRuntime = (ISysScriptLogicRuntime)iSysLogicRuntime;
+				if(ISystemUtilRuntime.SCRIPTENGINE_JAVASCRIPT.equals(iSysScriptLogicRuntime.getScriptEngine())) {
+					IScriptEntity appScriptEntity = this.getSystemRuntime().createScriptEntity(appData);
+					IScriptEntity ctxScriptEntity = this.getSystemRuntime().createScriptEntity(appData.getContext());
+					
+					IScriptEntity sessionScriptEntity = this.getSystemRuntime().createScriptEntity(session);
+					iSysLogicRuntime.execute(appScriptEntity, ctxScriptEntity, sessionScriptEntity);
+					bJavaScriptMode = true;
+				}
+			}
+			
+			if(!bJavaScriptMode) {
+				iSysLogicRuntime.execute(appData, appData.getContext(), session);
 			}
 		}
 	}
 
+	
+	
 	protected ISysLogicRuntime getFillAppDataSysLogicRuntime() {
 		if (!bCalcFillAppDataSysLogicRuntime) {
 			this.fillAppDataSysLogicRuntime = onGetFillAppDataSysLogicRuntime();

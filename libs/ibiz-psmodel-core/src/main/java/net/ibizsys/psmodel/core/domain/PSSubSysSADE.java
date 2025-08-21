@@ -927,6 +927,67 @@ public class PSSubSysSADE extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSubSysSADE ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
      * <B>PREDEFINEDTYPE</B>&nbsp;预定义类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.SubSysSADEPredefinedType} 

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "DATASETID",
+        "codeName" : "Dataset_id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "DATASETNAME",
+        "codeName" : "Dataset_name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -482,6 +490,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "DATASETID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -609,6 +618,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "DATASETNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -752,6 +762,7 @@
     "length" : 100,
     "logicName" : "实体标识",
     "name" : "ENTITYID",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -948,6 +959,7 @@
     "length" : 100,
     "logicName" : "实体",
     "name" : "ENTITYNAME",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1103,6 +1115,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1223,6 +1236,7 @@
     "length" : 1048576,
     "logicName" : "代码",
     "name" : "DSCODE",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1343,6 +1357,7 @@
     "length" : 1048576,
     "logicName" : "模型",
     "name" : "DSMODEL",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

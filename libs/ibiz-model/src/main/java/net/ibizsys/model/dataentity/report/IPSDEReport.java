@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.report;
 
 
 /**
- * 实体报表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEReportDTO}运行时对象
+ * 实体报表模型对象接口
  *
  */
 public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -20,8 +20,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	/**
 	 * 获取内容类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_CONTENTTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ReportContentType}
 	 * @return
 	 */
@@ -30,8 +28,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取性能优化预警时长（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_POTIME}
 	 * @return
 	 */
 	int getPOTime();
@@ -39,8 +35,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -55,8 +49,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取实体数据集对象2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID2}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet2();
@@ -71,8 +63,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取实体数据集对象3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID3}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet3();
@@ -87,8 +77,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取实体数据集对象4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSDEDSID4}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet4();
@@ -124,8 +112,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统智能报表立方体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSSYSBICUBEID}
 	 * @return
 	 */
 	net.ibizsys.model.bi.IPSSysBICube getPSSysBICube();
@@ -140,8 +126,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统智能报表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSSYSBIREPORTID}
 	 * @return
 	 */
 	net.ibizsys.model.bi.IPSSysBIReport getPSSysBIReport();
@@ -156,8 +140,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取系统智能报表体系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSSYSBISCHEMEID}
 	 * @return
 	 */
 	net.ibizsys.model.bi.IPSSysBIScheme getPSSysBIScheme();
@@ -172,8 +154,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取前端扩展插件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_PSSYSPFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin();
@@ -216,8 +196,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTFILE}
 	 * @return
 	 */
 	java.lang.String getReportFile();
@@ -225,8 +203,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTMODEL}
 	 * @return
 	 */
 	java.lang.String getReportModel();
@@ -234,8 +210,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getReportParams();
@@ -243,8 +217,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTTAG}
 	 * @return
 	 */
 	java.lang.String getReportTag();
@@ -252,8 +224,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTTAG2}
 	 * @return
 	 */
 	java.lang.String getReportTag2();
@@ -261,8 +231,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTTYPE}
 	 * @return
 	 */
 	java.lang.String getReportType();
@@ -270,8 +238,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取报表界面模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_REPORTUIMODEL}
 	 * @return
 	 */
 	java.lang.String getReportUIModel();
@@ -286,8 +252,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否支持日志
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_ENABLELOG}
 	 * @return
 	 */
 	boolean isEnableLog();
@@ -295,8 +259,6 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	/**
 	 * 获取是否多页报表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEReportDTO#FIELD_MULTIPAGE}
 	 * @return
 	 */
 	boolean isMultiPage();

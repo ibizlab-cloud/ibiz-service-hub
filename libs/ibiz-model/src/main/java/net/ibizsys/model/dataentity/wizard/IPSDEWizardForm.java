@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.wizard;
 
 
 /**
- * 实体向导表单模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO}运行时对象
+ * 实体向导表单模型对象接口
  *
  */
 public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取下一步确认信息2语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_CMPSLANRESID2}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCM2PSLanguageRes();
@@ -28,8 +26,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取下一步确认信息语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_CMPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCMPSLanguageRes();
@@ -44,8 +40,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取下一步确认信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_CONFIRMINFO}
 	 * @return
 	 */
 	java.lang.String getConfirmMsg();
@@ -53,8 +47,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取下一步确认信息2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_CONFIRMINFO2}
 	 * @return
 	 */
 	java.lang.String getConfirmMsg2();
@@ -62,8 +54,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取向导表单标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_FORMTAG}
 	 * @return
 	 */
 	java.lang.String getFormTag();
@@ -71,8 +61,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取完成启用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_FINISHENABLELOGIC}
 	 * @return
 	 */
 	java.lang.String getGoFinishEnableScriptCode();
@@ -80,8 +68,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取下一步启用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_NEXTENABLELOGIC}
 	 * @return
 	 */
 	java.lang.String getGoNextEnableScriptCode();
@@ -89,8 +75,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取上一步启用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_PREVENABLELOGIC}
 	 * @return
 	 */
 	java.lang.String getGoPrevEnableScriptCode();
@@ -98,8 +82,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体表单名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_PSDEFORMNAME}
 	 * @return
 	 */
 	java.lang.String getPSDEFormName();
@@ -107,8 +89,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取向导步骤对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_PSDEWIZARDSTEPID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.wizard.IPSDEWizardStep getPSDEWizardStep();
@@ -137,8 +117,6 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否首表单
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardFormDTO#FIELD_FIRSTFORM}
 	 * @return
 	 */
 	boolean isFirstForm();

@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表维度层次体系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBIHierarchyDTO}运行时对象
+ * 智能报表维度层次体系模型对象接口
  *
  */
 public interface IPSSysBIHierarchy extends net.ibizsys.model.bi.IPSBIHierarchy
@@ -13,8 +13,6 @@ public interface IPSSysBIHierarchy extends net.ibizsys.model.bi.IPSBIHierarchy
 	
 	/**
 	 * 获取全部数据标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBIHierarchyDTO#FIELD_ALLCAPTION}
 	 * @return
 	 */
 	java.lang.String getAllCaption();
@@ -43,8 +41,6 @@ public interface IPSSysBIHierarchy extends net.ibizsys.model.bi.IPSBIHierarchy
 	
 	/**
 	 * 获取是否启用全部数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysBIHierarchyDTO#FIELD_HASALL}
 	 * @return
 	 */
 	boolean hasAll();

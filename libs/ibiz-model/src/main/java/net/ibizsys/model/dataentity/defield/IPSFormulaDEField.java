@@ -12,8 +12,6 @@ public interface IPSFormulaDEField extends net.ibizsys.model.dataentity.defield.
 	
 	/**
 	 * 获取公式列参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_FORMULAFIELDS}
 	 * @return
 	 */
 	java.lang.String getFormulaColumns();
@@ -21,8 +19,6 @@ public interface IPSFormulaDEField extends net.ibizsys.model.dataentity.defield.
 	
 	/**
 	 * 获取公式列格式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_FORMULAFORMAT}
 	 * @return
 	 */
 	java.lang.String getFormulaFormat();

@@ -11,8 +11,6 @@ public interface IPSBILevel extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取聚合标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_AGGCAPTION}
 	 * @return
 	 */
 	java.lang.String getAggCaption();
@@ -71,8 +69,6 @@ public interface IPSBILevel extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否唯一标记成员
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_UNIQUEMEMBERS}
 	 * @return
 	 */
 	boolean isUniqueMembers();

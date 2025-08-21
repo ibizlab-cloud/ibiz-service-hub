@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据查询代码条件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDQCodeCondDTO}运行时对象
+ * 实体数据查询代码条件模型对象接口
  *
  */
 public interface IPSDEDataQueryCodeCond extends net.ibizsys.model.IPSModelObject{

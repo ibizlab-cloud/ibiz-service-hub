@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性类型模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO}运行时对象
+ * 实体属性类型模型基础对象接口
  *
  */
 public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
@@ -34,8 +34,6 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	/**
 	 * 获取表格列对齐
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO#FIELD_GRIDCOLALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
@@ -44,8 +42,6 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	
 	/**
 	 * 获取最大值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO#FIELD_MAXVALUE}
 	 * @return
 	 */
 	java.lang.String getMaxValueString();
@@ -53,8 +49,6 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	
 	/**
 	 * 获取最小字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO#FIELD_MINSTRLENGTH}
 	 * @return
 	 */
 	int getMinStringLength();
@@ -62,8 +56,6 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	
 	/**
 	 * 获取最小值（字符串）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO#FIELD_MINVALUE}
 	 * @return
 	 */
 	java.lang.String getMinValueString();
@@ -92,8 +84,6 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	
 	/**
 	 * 获取字符串长度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysDEFTypeDTO#FIELD_STRLENGTH}
 	 * @return
 	 */
 	int getStringLength();

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSUTIL</B>系统功能配置 模型传输对象
+ * <B>PSSYSUTIL</B>系统功能组件 模型传输对象
  * <P>
- * 系统功能配置模型，定义系统全局开启的功能模式
+ * 系统功能组件配置模型，定义系统全局开启的功能模式
  */
 public class PSSysUtil extends net.ibizsys.psmodel.core.util.PSModelBase {
 

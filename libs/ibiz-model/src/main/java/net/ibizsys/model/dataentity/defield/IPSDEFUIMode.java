@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性界面配置模式模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO}运行时对象
+ * 实体属性界面配置模式模型对象接口
  *
  */
 public interface IPSDEFUIMode extends net.ibizsys.model.dataentity.defield.IPSDEFieldObject{
@@ -33,8 +33,6 @@ public interface IPSDEFUIMode extends net.ibizsys.model.dataentity.defield.IPSDE
 	
 	/**
 	 * 获取应用模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFUIModeDTO#FIELD_FTMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFUIMode}
 	 * @return

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDETREEVIEW</B>实体树视图 模型传输对象
+ * <B>PSDETREEVIEW</B>实体树部件 模型传输对象
  * <P>
- * 树视图部件模型，定义树视图的界面及处理逻辑，包括了树节点与树节点的关系。支持定义树表格列及树节点表格列，为常规树表格及甘特树表格部件提供支持
+ * 树视图部件模型，定义树部件的界面及处理逻辑，包括了树节点与树节点的关系。支持定义树表格列及树节点表格列，为常规树表格及甘特树表格部件提供支持
  */
 public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -3451,6 +3451,86 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>TREESTYLE</B>&nbsp;树部件样式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.TreeStyle} 
+     */
+    public final static String FIELD_TREESTYLE = "treestyle";
+
+    /**
+     * 设置 树部件样式
+     * 
+     * @param treeStyle
+     * 
+     */
+    @JsonProperty(FIELD_TREESTYLE)
+    public void setTreeStyle(String treeStyle){
+        this.set(FIELD_TREESTYLE, treeStyle);
+    }
+    
+    /**
+     * 获取 树部件样式  
+     * @return
+     */
+    @JsonIgnore
+    public String getTreeStyle(){
+        Object objValue = this.get(FIELD_TREESTYLE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 树部件样式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isTreeStyleDirty(){
+        if(this.contains(FIELD_TREESTYLE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 树部件样式
+     */
+    @JsonIgnore
+    public void resetTreeStyle(){
+        this.reset(FIELD_TREESTYLE);
+    }
+
+    /**
+     * 设置 树部件样式
+     * <P>
+     * 等同 {@link #setTreeStyle}
+     * @param treeStyle
+     */
+    @JsonIgnore
+    public PSDETreeView treestyle(String treeStyle){
+        this.setTreeStyle(treeStyle);
+        return this;
+    }
+
+     /**
+     * 设置 树部件样式
+     * <P>
+     * 等同 {@link #setTreeStyle}
+     * @param treeStyle
+     */
+    @JsonIgnore
+    public PSDETreeView treestyle(net.ibizsys.psmodel.core.util.PSModelEnums.TreeStyle treeStyle){
+        if(treeStyle == null){
+            this.setTreeStyle(null);
+        }
+        else{
+            this.setTreeStyle(treeStyle.value);
+        }
+        return this;
+    }
+
+    /**
      * <B>UPDATEDATE</B>&nbsp;更新时间
      */
     public final static String FIELD_UPDATEDATE = "updatedate";
@@ -3592,14 +3672,14 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体树表格列 成员集合
+     *  树表格列 成员集合
      */
     public final static String FIELD_PSDETREECOLS = "psdetreecols";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETreeCol> psdetreecols;
 
     /**
-     * 获取 实体树表格列 成员集合
+     * 获取 树表格列 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETREECOLS)
@@ -3608,7 +3688,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体树表格列 成员集合  
+     * 设置 树表格列 成员集合  
      * @param psdetreecols
      */
     @JsonProperty(FIELD_PSDETREECOLS)
@@ -3617,7 +3697,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体树表格列 成员集合，不存在时建立集合对象
+     * 获取 树表格列 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -3630,14 +3710,14 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体树节点 成员集合
+     *  树节点 成员集合
      */
     public final static String FIELD_PSDETREENODES = "psdetreenodes";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETreeNode> psdetreenodes;
 
     /**
-     * 获取 实体树节点 成员集合
+     * 获取 树节点 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETREENODES)
@@ -3646,7 +3726,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体树节点 成员集合  
+     * 设置 树节点 成员集合  
      * @param psdetreenodes
      */
     @JsonProperty(FIELD_PSDETREENODES)
@@ -3655,7 +3735,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体树节点 成员集合，不存在时建立集合对象
+     * 获取 树节点 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -3706,14 +3786,14 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体树节点关系 成员集合
+     *  树节点关系 成员集合
      */
     public final static String FIELD_PSDETREENODERS = "psdetreenoders";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETreeNodeRS> psdetreenoders;
 
     /**
-     * 获取 实体树节点关系 成员集合
+     * 获取 树节点关系 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETREENODERS)
@@ -3722,7 +3802,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体树节点关系 成员集合  
+     * 设置 树节点关系 成员集合  
      * @param psdetreenoders
      */
     @JsonProperty(FIELD_PSDETREENODERS)
@@ -3731,7 +3811,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体树节点关系 成员集合，不存在时建立集合对象
+     * 获取 树节点关系 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore
@@ -3744,14 +3824,14 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体树视图逻辑 成员集合
+     *  树部件逻辑 成员集合
      */
     public final static String FIELD_PSDETREELOGICS = "psdetreelogics";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETreeLogic> psdetreelogics;
 
     /**
-     * 获取 实体树视图逻辑 成员集合
+     * 获取 树部件逻辑 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETREELOGICS)
@@ -3760,7 +3840,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体树视图逻辑 成员集合  
+     * 设置 树部件逻辑 成员集合  
      * @param psdetreelogics
      */
     @JsonProperty(FIELD_PSDETREELOGICS)
@@ -3769,7 +3849,7 @@ public class PSDETreeView extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体树视图逻辑 成员集合，不存在时建立集合对象
+     * 获取 树部件逻辑 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

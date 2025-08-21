@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "VKEY",
+        "codeName" : "ValueKey"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "LABEL",
+        "codeName" : "Label"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -510,6 +518,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "VKEY",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -668,6 +677,7 @@
     "length" : 100,
     "logicName" : "目录代码",
     "name" : "CID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -869,6 +879,7 @@
     "length" : 100,
     "logicName" : "目录",
     "name" : "CNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1044,6 +1055,7 @@
     "length" : 40,
     "logicName" : "代码值",
     "name" : "VAL",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1175,6 +1187,7 @@
     "length" : 100,
     "logicName" : "名称",
     "name" : "LABEL",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1318,6 +1331,7 @@
     "length" : 40,
     "logicName" : "父代码值",
     "name" : "PVAL",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1458,6 +1472,7 @@
     "length" : 500,
     "logicName" : "过滤项",
     "name" : "VFILTER",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1584,6 +1599,7 @@
     "length" : 500,
     "logicName" : "栏目样式",
     "name" : "CLS",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1703,6 +1719,7 @@
     "length" : 255,
     "logicName" : "图标",
     "name" : "ICONCLS",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1816,6 +1833,7 @@
     "importOrder" : 1000,
     "logicName" : "是否禁用",
     "name" : "DISABLED",
+    "orderValue" : 10,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1932,6 +1950,7 @@
     "importOrder" : 1000,
     "logicName" : "过期/失效",
     "name" : "EXPIRED",
+    "orderValue" : 11,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2038,6 +2057,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2156,6 +2176,7 @@
     "length" : 1000,
     "logicName" : "扩展",
     "name" : "EXTENSION",
+    "orderValue" : 13,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2264,6 +2285,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 18,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2373,6 +2395,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 19,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

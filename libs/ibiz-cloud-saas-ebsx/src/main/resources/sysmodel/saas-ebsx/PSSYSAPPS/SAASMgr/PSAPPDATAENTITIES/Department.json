@@ -459,11 +459,13 @@
     },
     "logicName" : "逻辑有效",
     "name" : "ENABLE",
+    "predefinedType" : "LOGICVALID",
     "stdDataType" : 9
   }, {
     "codeName" : "OrgName",
     "logicName" : "单位",
     "name" : "ORGNAME",
+    "predefinedType" : "ORGNAME",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
@@ -479,6 +481,7 @@
     },
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
@@ -488,6 +491,7 @@
     },
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {

@@ -13,8 +13,6 @@ public interface IPSDEViewPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取标题语言资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -29,8 +27,6 @@ public interface IPSDEViewPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -38,8 +34,6 @@ public interface IPSDEViewPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取嵌入视图对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_PSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppDEView getEmbeddedPSAppDEView();

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEDATAVIEW</B>实体卡片视图 模型传输对象
+ * <B>PSDEDATAVIEW</B>实体卡片视图部件 模型传输对象
  * <P>
  * 实体卡片视图部件模型，定义容器、卡片及分组项的界面逻辑及数据项等处理逻辑，一般需要指定卡片的布局面板。卡片视图支持启用看板（KanBan）模式，配置卡片在分组间移动的逻辑
  */
@@ -4094,6 +4094,151 @@ public class PSDEDataView extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEDataView groupstyle(String groupStyle){
         this.setGroupStyle(groupStyle);
+        return this;
+    }
+
+    /**
+     * <B>GROUPTEXTPSDEFID</B>&nbsp;分组文本属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_GROUPTEXTPSDEFID = "grouptextpsdefid";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFID)
+    public void setGroupTextPSDEFId(String groupTextPSDEFId){
+        this.set(FIELD_GROUPTEXTPSDEFID, groupTextPSDEFId);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFId(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFIdDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFId(){
+        this.reset(FIELD_GROUPTEXTPSDEFID);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param groupTextPSDEFId
+     */
+    @JsonIgnore
+    public PSDEDataView grouptextpsdefid(String groupTextPSDEFId){
+        this.setGroupTextPSDEFId(groupTextPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 分组文本属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSDEDataView grouptextpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setGroupTextPSDEFId(null);
+            this.setGroupTextPSDEFName(null);
+        }
+        else{
+            this.setGroupTextPSDEFId(pSDEField.getPSDEFieldId());
+            this.setGroupTextPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>GROUPTEXTPSDEFNAME</B>&nbsp;分组文本属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_GROUPTEXTPSDEFID}
+     */
+    public final static String FIELD_GROUPTEXTPSDEFNAME = "grouptextpsdefname";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFNAME)
+    public void setGroupTextPSDEFName(String groupTextPSDEFName){
+        this.set(FIELD_GROUPTEXTPSDEFNAME, groupTextPSDEFName);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFName(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFNameDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFName(){
+        this.reset(FIELD_GROUPTEXTPSDEFNAME);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFName}
+     * @param groupTextPSDEFName
+     */
+    @JsonIgnore
+    public PSDEDataView grouptextpsdefname(String groupTextPSDEFName){
+        this.setGroupTextPSDEFName(groupTextPSDEFName);
         return this;
     }
 
@@ -8926,6 +9071,151 @@ public class PSDEDataView extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEDataView swimlanepscodelistname(String swimlanePSCodeListName){
         this.setSwimlanePSCodeListName(swimlanePSCodeListName);
+        return this;
+    }
+
+    /**
+     * <B>SWIMLANEPSDEFID</B>&nbsp;泳道属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_SWIMLANEPSDEFID = "swimlanepsdefid";
+
+    /**
+     * 设置 泳道属性
+     * 
+     * @param swimlanePSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_SWIMLANEPSDEFID)
+    public void setSwimlanePSDEFId(String swimlanePSDEFId){
+        this.set(FIELD_SWIMLANEPSDEFID, swimlanePSDEFId);
+    }
+    
+    /**
+     * 获取 泳道属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getSwimlanePSDEFId(){
+        Object objValue = this.get(FIELD_SWIMLANEPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 泳道属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isSwimlanePSDEFIdDirty(){
+        if(this.contains(FIELD_SWIMLANEPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 泳道属性
+     */
+    @JsonIgnore
+    public void resetSwimlanePSDEFId(){
+        this.reset(FIELD_SWIMLANEPSDEFID);
+    }
+
+    /**
+     * 设置 泳道属性
+     * <P>
+     * 等同 {@link #setSwimlanePSDEFId}
+     * @param swimlanePSDEFId
+     */
+    @JsonIgnore
+    public PSDEDataView swimlanepsdefid(String swimlanePSDEFId){
+        this.setSwimlanePSDEFId(swimlanePSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 泳道属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setSwimlanePSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSDEDataView swimlanepsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setSwimlanePSDEFId(null);
+            this.setSwimlanePSDEFName(null);
+        }
+        else{
+            this.setSwimlanePSDEFId(pSDEField.getPSDEFieldId());
+            this.setSwimlanePSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>SWIMLANEPSDEFNAME</B>&nbsp;泳道属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_SWIMLANEPSDEFID}
+     */
+    public final static String FIELD_SWIMLANEPSDEFNAME = "swimlanepsdefname";
+
+    /**
+     * 设置 泳道属性
+     * 
+     * @param swimlanePSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_SWIMLANEPSDEFNAME)
+    public void setSwimlanePSDEFName(String swimlanePSDEFName){
+        this.set(FIELD_SWIMLANEPSDEFNAME, swimlanePSDEFName);
+    }
+    
+    /**
+     * 获取 泳道属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getSwimlanePSDEFName(){
+        Object objValue = this.get(FIELD_SWIMLANEPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 泳道属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isSwimlanePSDEFNameDirty(){
+        if(this.contains(FIELD_SWIMLANEPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 泳道属性
+     */
+    @JsonIgnore
+    public void resetSwimlanePSDEFName(){
+        this.reset(FIELD_SWIMLANEPSDEFNAME);
+    }
+
+    /**
+     * 设置 泳道属性
+     * <P>
+     * 等同 {@link #setSwimlanePSDEFName}
+     * @param swimlanePSDEFName
+     */
+    @JsonIgnore
+    public PSDEDataView swimlanepsdefname(String swimlanePSDEFName){
+        this.setSwimlanePSDEFName(swimlanePSDEFName);
         return this;
     }
 

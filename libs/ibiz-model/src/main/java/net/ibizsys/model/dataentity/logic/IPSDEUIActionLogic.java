@@ -14,8 +14,6 @@ public interface IPSDEUIActionLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取调用应用实体界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_psdeuiactionid}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUIAction getDstPSAppDEUIAction();
@@ -30,8 +28,6 @@ public interface IPSDEUIActionLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取目标应用实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_dstpsdeid}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getDstPSAppDataEntity();

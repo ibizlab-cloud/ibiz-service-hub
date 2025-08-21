@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dr;
 
 
 /**
- * 实体关系数据分组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDRGroupDTO}运行时对象
+ * 实体关系数据分组模型对象接口
  *
  */
 public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取标题语言资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRGroupDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -28,8 +26,6 @@ public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRGroupDTO#FIELD_PSDEDRGROUPNAME}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -58,8 +54,6 @@ public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取分组图标资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRGroupDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -74,8 +68,6 @@ public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntity
 	
 	/**
 	 * 获取是否隐藏分组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDRGroupDTO#FIELD_HIDDENFLAG}
 	 * @return
 	 */
 	boolean isHidden();

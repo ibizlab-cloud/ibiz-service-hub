@@ -35,8 +35,6 @@ public interface IPSDERAggData extends net.ibizsys.model.dataentity.der.IPSDERBa
 	
 	/**
 	 * 获取源数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_MINORPSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getSourcePSDEDataSet();

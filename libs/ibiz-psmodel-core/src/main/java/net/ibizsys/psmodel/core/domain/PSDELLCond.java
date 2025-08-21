@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDELLCOND</B>实体处理逻辑连接条件 模型传输对象
@@ -1210,7 +1214,9 @@ public class PSDELLCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDBVALUEOPID</B>&nbsp;值操作，直接逻辑处理连接条件的操作符
      * <P>
-     * 字符串：最大长度 100
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DBValueOP3} 
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDBValueOP} 
      */
     public final static String FIELD_PSDBVALUEOPID = "psdbvalueopid";
 
@@ -1267,6 +1273,25 @@ public class PSDELLCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDELLCond psdbvalueopid(String pSDBValueOPId){
         this.setPSDBValueOPId(pSDBValueOPId);
+        return this;
+    }
+
+    /**
+     * 设置 值操作，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDBValueOPId}
+     * @param pSDBValueOP 引用对象
+     */
+    @JsonIgnore
+    public PSDELLCond psdbvalueopid(PSDBValueOP pSDBValueOP){
+        if(pSDBValueOP == null){
+            this.setPSDBValueOPId(null);
+            this.setPSDBValueOPName(null);
+        }
+        else{
+            this.setPSDBValueOPId(pSDBValueOP.getPSDBValueOPId());
+            this.setPSDBValueOPName(pSDBValueOP.getPSDBValueOPName());
+        }
         return this;
     }
 
@@ -1397,7 +1422,7 @@ public class PSDELLCond extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDELLCONDNAME</B>&nbsp;条件名称，指定条件的名称
+     * <B>PSDELLCONDNAME</B>&nbsp;条件名称，连接条件业务描述
      * <P>
      * 字符串：最大长度 200
      */

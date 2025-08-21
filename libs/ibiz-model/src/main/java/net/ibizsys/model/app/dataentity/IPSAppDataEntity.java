@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO}运行时对象
+ * 应用实体模型对象接口
  *
  */
 public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalDE{
@@ -456,8 +456,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	/**
 	 * 获取实体访问控制体系
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_ACCCTRLARCH}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AccCtrlArch}
 	 * @return
 	 */
@@ -466,8 +464,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取实体数据访问控制方式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_DATAACCMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataAccCtrlMode}
 	 * @return
@@ -614,8 +610,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -728,8 +722,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取实体服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_PSDESERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.service.IPSDEServiceAPI getPSDEServiceAPI();
@@ -744,8 +736,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -831,8 +821,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	/**
 	 * 获取本地存储模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_ENABLESTORAGE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppDEStorageMode}
 	 * @return
 	 */
@@ -869,8 +857,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取是否实体默认
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -927,8 +913,6 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	
 	/**
 	 * 获取是否主实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppDataEntityDTO#FIELD_MAJORFLAG}
 	 * @return
 	 */
 	boolean isMajor();

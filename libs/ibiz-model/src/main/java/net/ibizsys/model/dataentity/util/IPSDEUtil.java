@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.util;
 
 
 /**
- * 实体功能配置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEUtilDTO}运行时对象
+ * 实体功能配置模型对象接口
  *
  */
 public interface IPSDEUtil extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -390,8 +390,6 @@ public interface IPSDEUtil extends net.ibizsys.model.dataentity.IPSDataEntityObj
 	
 	/**
 	 * 获取动态功能参数集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUtilDTO#FIELD_UTILPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getUtilParams();
@@ -413,8 +411,6 @@ public interface IPSDEUtil extends net.ibizsys.model.dataentity.IPSDataEntityObj
 	
 	/**
 	 * 获取功能类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUtilDTO#FIELD_UTILTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEUtilType}
 	 * @return

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSUBSYSSERVICEAPI</B>外部服务接口 模型传输对象
+ * <B>PSSUBSYSSERVICEAPI</B>外部接口 模型传输对象
  * <P>
- * 外部服务接口模型，定义系统使用的外部服务接口，包括接口类型、认证模式等信息，外部服务接口包含外部接口实体、外部接口实体关系等模型
+ * 外部接口模型，定义系统使用的外部服务接口，包括接口类型、认证模式等信息，外部服务接口包含外部接口实体、外部接口实体关系等模型
  */
 public class PSSubSysServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -2631,6 +2631,67 @@ public class PSSubSysServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSubSysServiceAPI ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
      * <B>PREDEFINEDTYPE</B>&nbsp;预定义类型，指定外部服务接口的平台预定义类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.PredefinedServiceAPIClient} 
@@ -2772,7 +2833,6 @@ public class PSSubSysServiceAPI extends net.ibizsys.psmodel.core.util.PSModelBas
         this.setPSDevSlnSysAPIId(pSDevSlnSysAPIId);
         return this;
     }
-
 
     /**
      * <B>PSDEVSLNSYSAPINAME</B>&nbsp;开发系统接口，接口来源为【外部开发系统服务接口】时指定当前开发方案的开发系统服务接口

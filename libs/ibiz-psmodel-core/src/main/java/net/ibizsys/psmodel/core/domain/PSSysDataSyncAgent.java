@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSSYSDATASYNCAGENT</B>系统数据同步代理 模型传输对象
@@ -1212,14 +1216,14 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>PSSUBSYSSERVICEAPIID</B>&nbsp;外部服务接口
+     * <B>PSSUBSYSSERVICEAPIID</B>&nbsp;外部服务接口，指定通过外部接口发送消息
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSubSysServiceAPI} 
      */
     public final static String FIELD_PSSUBSYSSERVICEAPIID = "pssubsysserviceapiid";
 
     /**
-     * 设置 外部服务接口
+     * 设置 外部服务接口，详细说明：{@link #FIELD_PSSUBSYSSERVICEAPIID}
      * 
      * @param pSSubSysServiceAPIId
      * 
@@ -1263,7 +1267,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 外部服务接口
+     * 设置 外部服务接口，详细说明：{@link #FIELD_PSSUBSYSSERVICEAPIID}
      * <P>
      * 等同 {@link #setPSSubSysServiceAPIId}
      * @param pSSubSysServiceAPIId
@@ -1789,14 +1793,14 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>RAWDATAMODE</B>&nbsp;直接数据模式
+     * <B>RAWDATAMODE</B>&nbsp;直接数据模式，指定是否为直接数据模式，启用直接数据将不附加数据包头（实体类型，身份等），直接发送内容，默认为【否】。如果接收方为外部系统，一般设置为【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_RAWDATAMODE = "rawdatamode";
 
     /**
-     * 设置 直接数据模式
+     * 设置 直接数据模式，详细说明：{@link #FIELD_RAWDATAMODE}
      * 
      * @param rawDataMode
      * 
@@ -1840,7 +1844,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 直接数据模式
+     * 设置 直接数据模式，详细说明：{@link #FIELD_RAWDATAMODE}
      * <P>
      * 等同 {@link #setRawDataMode}
      * @param rawDataMode
@@ -1852,7 +1856,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
      /**
-     * 设置 直接数据模式
+     * 设置 直接数据模式，详细说明：{@link #FIELD_RAWDATAMODE}
      * <P>
      * 等同 {@link #setRawDataMode}
      * @param rawDataMode

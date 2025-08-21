@@ -14,8 +14,6 @@ public interface IPSDESortParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取目标排序属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_CUSTOMDSTPARAM}
 	 * @return
 	 */
 	java.lang.String getDstFieldName();
@@ -23,8 +21,6 @@ public interface IPSDESortParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -39,8 +35,6 @@ public interface IPSDESortParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取目标列表排序模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTSORTDIR}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortMode}
 	 * @return

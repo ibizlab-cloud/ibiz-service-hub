@@ -3,7 +3,7 @@ package net.ibizsys.model.control.calendar;
 
 
 /**
- * 实体日历部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO}运行时对象
+ * 实体日历部件模型对象接口
  *
  */
 public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCalendar{
@@ -12,8 +12,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPHEIGHT}
 	 * @return
 	 */
 	int getGroupHeight();
@@ -21,8 +19,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组布局
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPLAYOUT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupLayout}
 	 * @return
@@ -33,8 +29,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	/**
 	 * 获取分组模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
@@ -43,8 +37,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupPSAppDEField();
@@ -59,8 +51,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组代码表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getGroupPSCodeList();
@@ -75,8 +65,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组默认界面样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getGroupPSSysCss();
@@ -105,8 +93,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPTEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getGroupTextPSAppDEField();
@@ -135,8 +121,6 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	
 	/**
 	 * 获取分组宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysCalendarDTO#FIELD_GROUPWIDTH}
 	 * @return
 	 */
 	int getGroupWidth();

@@ -18,7 +18,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>BUSYINDICATOR</B>&nbsp;显示处理提示，指定表单项更新操作在发送请求到接受反馈这段时间是否显示【处理中】等加载信息，未定义时为【是】
+     * <B>BUSYINDICATOR</B>&nbsp;显示处理提示，指定表单项更新操作是否显示【处理中】等加载信息，未定义时为【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -98,7 +98,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定表单项更新的代码标识，必须在所在表单中具备唯一性
+     * <B>CODENAME</B>&nbsp;代码标识，表单项更新代码标识，需在所在表单中保证唯一
      * <P>
      * 字符串：最大长度 60，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -346,14 +346,14 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式
+     * <B>CUSTOMMODE</B>&nbsp;脚本代码模式，启用脚本代码模式，默认为（否）
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_CUSTOMMODE = "custommode";
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * 
      * @param customMode
      * 
@@ -397,7 +397,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -409,7 +409,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 脚本代码模式
+     * 设置 脚本代码模式，详细说明：{@link #FIELD_CUSTOMMODE}
      * <P>
      * 等同 {@link #setCustomMode}
      * @param customMode
@@ -1482,14 +1482,14 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表单项更新明细 成员集合
+     *  表单项更新成员 成员集合
      */
     public final static String FIELD_PSDEFIDETAILS = "psdefiudetails";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFIUDetail> psdefiudetails;
 
     /**
-     * 获取 实体表单项更新明细 成员集合
+     * 获取 表单项更新成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFIDETAILS)
@@ -1498,7 +1498,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表单项更新明细 成员集合  
+     * 设置 表单项更新成员 成员集合  
      * @param psdefiudetails
      */
     @JsonProperty(FIELD_PSDEFIDETAILS)
@@ -1507,7 +1507,7 @@ public class PSDEFIUpdate extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表单项更新明细 成员集合，不存在时建立集合对象
+     * 获取 表单项更新成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

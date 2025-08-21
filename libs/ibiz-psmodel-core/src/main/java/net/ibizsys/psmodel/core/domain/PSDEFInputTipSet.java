@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEFINPUTTIPSET</B>实体属性输入提示集合 模型传输对象
@@ -1272,6 +1276,296 @@ public class PSDEFInputTipSet extends net.ibizsys.psmodel.core.util.PSModelBase 
     @JsonIgnore
     public PSDEFInputTipSet psmodulename(String pSModuleName){
         this.setPSModuleName(pSModuleName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSPFPLUGINID</B>&nbsp;前端扩展插件
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysPFPlugin} 
+     */
+    public final static String FIELD_PSSYSPFPLUGINID = "pssyspfpluginid";
+
+    /**
+     * 设置 前端扩展插件
+     * 
+     * @param pSSysPFPluginId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSPFPLUGINID)
+    public void setPSSysPFPluginId(String pSSysPFPluginId){
+        this.set(FIELD_PSSYSPFPLUGINID, pSSysPFPluginId);
+    }
+    
+    /**
+     * 获取 前端扩展插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysPFPluginId(){
+        Object objValue = this.get(FIELD_PSSYSPFPLUGINID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 前端扩展插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysPFPluginIdDirty(){
+        if(this.contains(FIELD_PSSYSPFPLUGINID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 前端扩展插件
+     */
+    @JsonIgnore
+    public void resetPSSysPFPluginId(){
+        this.reset(FIELD_PSSYSPFPLUGINID);
+    }
+
+    /**
+     * 设置 前端扩展插件
+     * <P>
+     * 等同 {@link #setPSSysPFPluginId}
+     * @param pSSysPFPluginId
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyspfpluginid(String pSSysPFPluginId){
+        this.setPSSysPFPluginId(pSSysPFPluginId);
+        return this;
+    }
+
+    /**
+     * 设置 前端扩展插件，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysPFPluginId}
+     * @param pSSysPFPlugin 引用对象
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyspfpluginid(PSSysPFPlugin pSSysPFPlugin){
+        if(pSSysPFPlugin == null){
+            this.setPSSysPFPluginId(null);
+            this.setPSSysPFPluginName(null);
+        }
+        else{
+            this.setPSSysPFPluginId(pSSysPFPlugin.getPSSysPFPluginId());
+            this.setPSSysPFPluginName(pSSysPFPlugin.getPSSysPFPluginName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSPFPLUGINNAME</B>&nbsp;前端扩展插件
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSPFPLUGINID}
+     */
+    public final static String FIELD_PSSYSPFPLUGINNAME = "pssyspfpluginname";
+
+    /**
+     * 设置 前端扩展插件
+     * 
+     * @param pSSysPFPluginName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSPFPLUGINNAME)
+    public void setPSSysPFPluginName(String pSSysPFPluginName){
+        this.set(FIELD_PSSYSPFPLUGINNAME, pSSysPFPluginName);
+    }
+    
+    /**
+     * 获取 前端扩展插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysPFPluginName(){
+        Object objValue = this.get(FIELD_PSSYSPFPLUGINNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 前端扩展插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysPFPluginNameDirty(){
+        if(this.contains(FIELD_PSSYSPFPLUGINNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 前端扩展插件
+     */
+    @JsonIgnore
+    public void resetPSSysPFPluginName(){
+        this.reset(FIELD_PSSYSPFPLUGINNAME);
+    }
+
+    /**
+     * 设置 前端扩展插件
+     * <P>
+     * 等同 {@link #setPSSysPFPluginName}
+     * @param pSSysPFPluginName
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyspfpluginname(String pSSysPFPluginName){
+        this.setPSSysPFPluginName(pSSysPFPluginName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSSFPLUGINID</B>&nbsp;后端扩展插件
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysSFPlugin} 
+     */
+    public final static String FIELD_PSSYSSFPLUGINID = "pssyssfpluginid";
+
+    /**
+     * 设置 后端扩展插件
+     * 
+     * @param pSSysSFPluginId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSSFPLUGINID)
+    public void setPSSysSFPluginId(String pSSysSFPluginId){
+        this.set(FIELD_PSSYSSFPLUGINID, pSSysSFPluginId);
+    }
+    
+    /**
+     * 获取 后端扩展插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysSFPluginId(){
+        Object objValue = this.get(FIELD_PSSYSSFPLUGINID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 后端扩展插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysSFPluginIdDirty(){
+        if(this.contains(FIELD_PSSYSSFPLUGINID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 后端扩展插件
+     */
+    @JsonIgnore
+    public void resetPSSysSFPluginId(){
+        this.reset(FIELD_PSSYSSFPLUGINID);
+    }
+
+    /**
+     * 设置 后端扩展插件
+     * <P>
+     * 等同 {@link #setPSSysSFPluginId}
+     * @param pSSysSFPluginId
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyssfpluginid(String pSSysSFPluginId){
+        this.setPSSysSFPluginId(pSSysSFPluginId);
+        return this;
+    }
+
+    /**
+     * 设置 后端扩展插件，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysSFPluginId}
+     * @param pSSysSFPlugin 引用对象
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyssfpluginid(PSSysSFPlugin pSSysSFPlugin){
+        if(pSSysSFPlugin == null){
+            this.setPSSysSFPluginId(null);
+            this.setPSSysSFPluginName(null);
+        }
+        else{
+            this.setPSSysSFPluginId(pSSysSFPlugin.getPSSysSFPluginId());
+            this.setPSSysSFPluginName(pSSysSFPlugin.getPSSysSFPluginName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSSFPLUGINNAME</B>&nbsp;后端扩展插件
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSSFPLUGINID}
+     */
+    public final static String FIELD_PSSYSSFPLUGINNAME = "pssyssfpluginname";
+
+    /**
+     * 设置 后端扩展插件
+     * 
+     * @param pSSysSFPluginName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSSFPLUGINNAME)
+    public void setPSSysSFPluginName(String pSSysSFPluginName){
+        this.set(FIELD_PSSYSSFPLUGINNAME, pSSysSFPluginName);
+    }
+    
+    /**
+     * 获取 后端扩展插件  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysSFPluginName(){
+        Object objValue = this.get(FIELD_PSSYSSFPLUGINNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 后端扩展插件 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysSFPluginNameDirty(){
+        if(this.contains(FIELD_PSSYSSFPLUGINNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 后端扩展插件
+     */
+    @JsonIgnore
+    public void resetPSSysSFPluginName(){
+        this.reset(FIELD_PSSYSSFPLUGINNAME);
+    }
+
+    /**
+     * 设置 后端扩展插件
+     * <P>
+     * 等同 {@link #setPSSysSFPluginName}
+     * @param pSSysSFPluginName
+     */
+    @JsonIgnore
+    public PSDEFInputTipSet pssyssfpluginname(String pSSysSFPluginName){
+        this.setPSSysSFPluginName(pSSysSFPluginName);
         return this;
     }
 

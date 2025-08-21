@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体界面行为组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEUIActionGroupDTO}运行时对象
+ * 应用实体界面行为组模型对象接口
  *
  */
 public interface IPSAppDEUIActionGroup extends net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup
@@ -13,8 +13,6 @@ public interface IPSAppDEUIActionGroup extends net.ibizsys.model.dataentity.uiac
 	
 	/**
 	 * 获取应用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEUIActionGroupDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();

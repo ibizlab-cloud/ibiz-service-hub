@@ -499,6 +499,45 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
+	
+	@Override
+	public Object invokeDECreateDownloadTicket(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strKey, String strStorageField, String strOSSFileId, Object objTag) throws Throwable {
+		IUserContext lastUserContext = this.prepareAccessUser();
+		try {
+			testAccessUser();
+			if(StringUtils.hasLength(strParentDEName)) {
+				prepareAppContext(strParentDEName);
+			}
+			
+			IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime = null;
+			if (StringUtils.hasLength(strParentDEName)) {
+				iDEServiceAPIRSRuntime = this.getDEServiceAPIRSRuntime(String.format("%1$s|%2$s", strParentDEName, strDataEntityName).toUpperCase(), false);
+				// 重写实体名称
+				String strMinorDEServiceAPIName = iDEServiceAPIRSRuntime.getMinorDEServiceAPIRuntime().getName();
+				if (!strMinorDEServiceAPIName.equalsIgnoreCase(strDataEntityName)) {
+					log.debug(String.format("实体服务接口标识调整[%1$s] => [%2$s]", strDataEntityName, strMinorDEServiceAPIName));
+					strDataEntityName = strMinorDEServiceAPIName;
+				}
+			}
+
+			IDEServiceAPIRuntime iDEServiceAPIRuntime = (IDEServiceAPIRuntime) this.getDEServiceAPIRuntime(strDataEntityName, false);
+			if (iDEServiceAPIRuntime.getAPIMode() == DEServiceAPIModes.NESTED) {
+				throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]模式为[嵌套成员]不对外提供服务", iDEServiceAPIRuntime.getName()));
+			}
+
+			if (iDEServiceAPIRSRuntime == null && iDEServiceAPIRuntime.getAPIMode() == DEServiceAPIModes.MINOR) {
+				throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]模式为[从接口]必须同时指定主接口", iDEServiceAPIRuntime.getName()));
+			}
+
+			if (iDEServiceAPIRuntime instanceof net.ibizsys.central.cloud.core.dataentity.service.IDEServiceAPIRuntime) {
+				return ((net.ibizsys.central.cloud.core.dataentity.service.IDEServiceAPIRuntime) iDEServiceAPIRuntime).createDownloadTicket(strScope, iDEServiceAPIRSRuntime, strParentKey, strKey, strStorageField, strOSSFileId, objTag);
+			}
+
+			throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]类型不正确", iDEServiceAPIRuntime.getName()));
+		} finally {
+			UserContext.setCurrent(lastUserContext);
+		}
+	}
 
 	protected IUserContext prepareAccessUser() throws Throwable {
 		IUserContext iUserContext = UserContext.getCurrent();

@@ -14,8 +14,6 @@ public interface IPSDEDFDEActionSinkNode extends net.ibizsys.model.dataentity.da
 	
 	/**
 	 * 获取目标实体行为对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getDstPSDEAction();
@@ -30,8 +28,6 @@ public interface IPSDEDFDEActionSinkNode extends net.ibizsys.model.dataentity.da
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();

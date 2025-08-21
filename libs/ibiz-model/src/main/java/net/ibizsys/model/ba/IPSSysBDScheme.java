@@ -97,8 +97,6 @@ public interface IPSSysBDScheme extends net.ibizsys.model.ba.IPSBDScheme
 	/**
 	 * 获取对象名称转化
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_OBJNAMECASE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */

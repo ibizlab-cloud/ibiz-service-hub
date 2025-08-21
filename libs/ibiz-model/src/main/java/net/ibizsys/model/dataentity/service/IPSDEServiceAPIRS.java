@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.service;
 
 
 /**
- * 服务接口实体关系模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDESARSDTO}运行时对象
+ * 服务接口实体关系模型对象接口
  *
  */
 public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
@@ -26,8 +26,6 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取主接口对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESARSDTO#FIELD_PPSDESERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.service.IPSDEServiceAPI getMajorPSDEServiceAPI();
@@ -42,8 +40,6 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取从接口对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESARSDTO#FIELD_CPSDESERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.service.IPSDEServiceAPI getMinorPSDEServiceAPI();
@@ -65,8 +61,6 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取关系对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESARSDTO#FIELD_PSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDER();
@@ -102,8 +96,6 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取关系项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESARSDTO#FIELD_CHILDFILTER}
 	 * @return
 	 */
 	java.lang.String getParentFilter();
@@ -125,8 +117,6 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取父类型过滤项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESARSDTO#FIELD_TYPEFILTER}
 	 * @return
 	 */
 	java.lang.String getParentTypeFilter();

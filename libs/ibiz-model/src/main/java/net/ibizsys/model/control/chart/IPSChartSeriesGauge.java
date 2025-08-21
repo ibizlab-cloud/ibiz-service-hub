@@ -14,8 +14,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取结束角度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_ENDANGLE}
 	 * @return
 	 */
 	java.lang.Integer getEndAngle();
@@ -23,8 +21,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取最大值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_MAXVALUE}
 	 * @return
 	 */
 	java.lang.Integer getMaxValue();
@@ -32,8 +28,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取最小值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_MINVALUE}
 	 * @return
 	 */
 	java.lang.Integer getMinValue();
@@ -41,8 +35,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取半径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_RADIUS}
 	 * @return
 	 */
 	java.lang.Object getRadius();
@@ -50,8 +42,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取分割段数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_SPLITNUMBER}
 	 * @return
 	 */
 	java.lang.Integer getSplitNumber();
@@ -59,8 +49,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取起始角度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_STARTANGLE}
 	 * @return
 	 */
 	java.lang.Integer getStartAngle();
@@ -68,8 +56,6 @@ public interface IPSChartSeriesGauge extends net.ibizsys.model.control.chart.IPS
 	
 	/**
 	 * 获取是否顺时针
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_CLOCKWISE}
 	 * @return
 	 */
 	boolean isClockwise();

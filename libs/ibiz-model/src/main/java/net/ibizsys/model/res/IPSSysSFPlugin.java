@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统后台扩展插件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO}运行时对象
+ * 系统后台扩展插件模型对象接口
  *
  */
 public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -49,8 +47,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取插件动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_PLUGINPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getPluginParams();
@@ -58,8 +54,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取插件标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_PLUGINTAG}
 	 * @return
 	 */
 	java.lang.String getPluginTag();
@@ -67,8 +61,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取插件标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_PLUGINTAG2}
 	 * @return
 	 */
 	java.lang.String getPluginTag2();
@@ -76,8 +68,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取插件类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_PLUGINTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SFPluginType}
 	 * @return
@@ -87,8 +77,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取运行时对象名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_RTOBJECTNAME}
 	 * @return
 	 */
 	java.lang.String getRTObjectName();
@@ -96,8 +84,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取运行时对象仓库
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_RTOBJECTREPO}
 	 * @return
 	 */
 	java.lang.String getRTObjectRepo();
@@ -105,8 +91,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取运行时对象来源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_RTOBJECTMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PluginRTMode}
 	 * @return
@@ -165,8 +149,6 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否单例模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSFPluginDTO#FIELD_SINGLEINSTMODE}
 	 * @return
 	 */
 	boolean isSingleInstance();

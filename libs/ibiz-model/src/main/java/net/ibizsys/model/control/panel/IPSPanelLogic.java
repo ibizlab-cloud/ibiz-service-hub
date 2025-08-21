@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板逻辑模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelLogicDTO}运行时对象
+ * 面板逻辑模型对象接口
  *
  */
 public interface IPSPanelLogic extends net.ibizsys.model.control.panel.IPSPanelObject

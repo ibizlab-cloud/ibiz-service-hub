@@ -3,7 +3,7 @@ package net.ibizsys.model.codelist;
 
 
 /**
- * 代码表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCodeListDTO}运行时对象
+ * 代码表模型对象接口
  *
  */
 public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取全部显示文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ALLTEXT}
 	 * @return
 	 */
 	java.lang.String getAllText();
@@ -35,8 +33,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取背景颜色属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_BKCOLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getBKColorPSDEField();
@@ -65,8 +61,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取缓存超时时长
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_CACHETIMEOUT}
 	 * @return
 	 */
 	int getCacheTimeout();
@@ -74,8 +68,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取项样式属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_CLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getClsPSDEField();
@@ -113,8 +105,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前景颜色属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_COLORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getColorPSDEField();
@@ -129,8 +119,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取自定义条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_CUSTOMCOND}
 	 * @return
 	 */
 	java.lang.String getCustomCond();
@@ -138,8 +126,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取数据属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_DATAPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getDataPSDEField();
@@ -154,8 +140,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取禁用值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_DISABLEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getDisablePSDEField();
@@ -202,8 +186,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取空白显示文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -239,8 +221,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取图标样式属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONCLSPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getIconClsPSDEField();
@@ -255,8 +235,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取图标样式(x)属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONCLSXPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getIconClsXPSDEField();
@@ -271,8 +249,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取图标路径(x)属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ICONPATHXPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getIconPathXPSDEField();
@@ -288,8 +264,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取包含开始值模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_INCBEGINVALUE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ThresholdIncValueMode}
 	 * @return
 	 */
@@ -298,8 +272,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取包含结束值模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_INCENDVALUE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ThresholdIncValueMode}
 	 * @return
@@ -310,8 +282,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取默认排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_MINORSORTDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
@@ -320,8 +290,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取默认排序属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMinorSortPSDEField();
@@ -336,8 +304,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取多项代码表或模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ORMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DesignCodeListOrMode}
 	 * @return
@@ -375,8 +341,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -391,8 +355,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体主状态逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSDEMSLOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEMSLogic getPSDEMSLogic();
@@ -407,8 +369,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -451,8 +411,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -467,8 +425,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取父值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PVALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPValuePSDEField();
@@ -483,8 +439,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取预置代码表类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_PREDEFINEDTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedCodeListType}
 	 * @return
@@ -508,8 +462,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取显示文本属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getTextPSDEField();
@@ -524,8 +476,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本分隔符
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_SEPERATOR}
 	 * @return
 	 */
 	java.lang.String getTextSeparator();
@@ -533,8 +483,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_VALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField();
@@ -549,8 +497,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值分隔符
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_VALUESEPERATOR}
 	 * @return
 	 */
 	java.lang.String getValueSeparator();
@@ -558,8 +504,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否代码项值为数值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_NUMBERITEM}
 	 * @return
 	 */
 	boolean isCodeItemValueNumber();
@@ -567,8 +511,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否启用缓存
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_ENABLECACHE}
 	 * @return
 	 */
 	boolean isEnableCache();
@@ -597,8 +539,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否阈值组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_THRESHOLDGROUPFLAG}
 	 * @return
 	 */
 	boolean isThresholdGroup();
@@ -606,8 +546,6 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否用户范围
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeListDTO#FIELD_USERSCOPE}
 	 * @return
 	 */
 	boolean isUserScope();

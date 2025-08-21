@@ -186,6 +186,26 @@ public class DataEntityAccessManager implements IDataEntityAccessManager {
 			return true;
 		}
 		
+		if (DataAccessActions.COPY.equalsIgnoreCase(strAccessAction)) {
+			Object lastKey = null;
+			if(inputEntityDTO != null) {
+				lastKey = this.getDataEntityRuntime().getKeyFieldValue(inputEntityDTO);
+				inputEntityDTO.reset(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName());
+			}
+			try {
+				//先判断获取数据
+				if(!this.testDataAccessAction(iUserContext, parentDataEntityRuntime, strParentKey, objKey, null, DataAccessActions.READ)) {
+					return false;
+				}
+				return this.testDataAccessAction(iUserContext, parentDataEntityRuntime, strParentKey, null, inputEntityDTO, DataAccessActions.CREATE);
+			}
+			finally {
+				if(inputEntityDTO != null && lastKey != null) {
+					inputEntityDTO.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), lastKey);
+				}
+			}
+		}
+		
 
 		IEntityDTO iEntityDTO = null;
 
@@ -375,18 +395,6 @@ public class DataEntityAccessManager implements IDataEntityAccessManager {
 				}
 			}
 		}
-		
-//		
-//		
-//		if(objKey != null) {
-//			if(this.getDataEntityRuntime().isEnableVersionControl()) {
-//				String strKey = objKey.toString();
-//				if(strKey.indexOf(IDEVersionControlUtilRuntime.SEPARATOR_VERSIONID) != -1) {
-//					objKey = StringUtils.split(strKey, IDEVersionControlUtilRuntime.SEPARATOR_VERSIONID)[0];
-//				}
-//			}
-//		}
-		
 
 		IPSDEOPPriv iPSDEOPPriv = null;
 		switch (nDataAccCtrlMode) {
@@ -472,9 +480,6 @@ public class DataEntityAccessManager implements IDataEntityAccessManager {
 		default:
 			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), String.format("无法识别的数据访问控制模式[%1$s]", nDataAccCtrlMode), Errors.ACCESSDENY);
 		}
-
-		// return onTestDataAccessAction(iUserContext, parentDataEntityRuntime,
-		// strParentKey, iSearchContextDTO, strAccessAction);
 	}
 
 	protected boolean onTestDataAccessAction(IUserContext iUserContext, IDataEntityRuntime parentDataEntityRuntime, String strParentKey, ISearchContextDTO iSearchContextDTO, String strAccessAction) throws Exception {

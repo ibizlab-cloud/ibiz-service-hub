@@ -23,6 +23,13 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 */
 	public final static String ADDIN_AIPLATFORM_PREFIX = "AIPLATFORM:";
 	
+	
+	/**
+	 * McpServer插件前缀
+	 */
+	public final static String ADDIN_MCPSERVER_PREFIX = "MCPSERVER:";
+	
+	
 	/**
 	 * AI平台：OPENAI 接口兼容平台
 	 */
@@ -63,12 +70,21 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 */
 	public final static String AIPLATFORM_QWEN = "QWEN";
 	
-	
+	/**
+	 * AI平台：RAGFLOW
+	 */
+	public final static String AIPLATFORM_RAGFLOW = "RAGFLOW";
 	
 	/**
 	 * AI平台：默认，由Cloud平台默认AI引擎提供服务
 	 */
 	public final static String AIPLATFORM_DEFAULT = "DEFAULT";
+	
+	
+	/**
+	 * McpServer：默认，由Cloud平台默认McpServer提供服务
+	 */
+	public final static String MCPSERVER_DEFAULT = "DEFAULT";
 	
 	
 	/**

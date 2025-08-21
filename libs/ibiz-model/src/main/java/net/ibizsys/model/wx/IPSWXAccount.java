@@ -18,8 +18,6 @@ public interface IPSWXAccount extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();

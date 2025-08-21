@@ -143,6 +143,130 @@ public class PSSysAIPipelineJob extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
+     * <B>JOBPARAMS</B>&nbsp;作业参数
+     */
+    public final static String FIELD_JOBPARAMS = "jobparams";
+
+    /**
+     * 设置 作业参数
+     * 
+     * @param jobParams
+     * 
+     */
+    @JsonProperty(FIELD_JOBPARAMS)
+    public void setJobParams(String jobParams){
+        this.set(FIELD_JOBPARAMS, jobParams);
+    }
+    
+    /**
+     * 获取 作业参数  
+     * @return
+     */
+    @JsonIgnore
+    public String getJobParams(){
+        Object objValue = this.get(FIELD_JOBPARAMS);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 作业参数 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isJobParamsDirty(){
+        if(this.contains(FIELD_JOBPARAMS)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 作业参数
+     */
+    @JsonIgnore
+    public void resetJobParams(){
+        this.reset(FIELD_JOBPARAMS);
+    }
+
+    /**
+     * 设置 作业参数
+     * <P>
+     * 等同 {@link #setJobParams}
+     * @param jobParams
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob jobparams(String jobParams){
+        this.setJobParams(jobParams);
+        return this;
+    }
+
+    /**
+     * <B>JOBTAG</B>&nbsp;作业标记
+     * <P>
+     * 字符串：最大长度 100
+     */
+    public final static String FIELD_JOBTAG = "jobtag";
+
+    /**
+     * 设置 作业标记
+     * 
+     * @param jobTag
+     * 
+     */
+    @JsonProperty(FIELD_JOBTAG)
+    public void setJobTag(String jobTag){
+        this.set(FIELD_JOBTAG, jobTag);
+    }
+    
+    /**
+     * 获取 作业标记  
+     * @return
+     */
+    @JsonIgnore
+    public String getJobTag(){
+        Object objValue = this.get(FIELD_JOBTAG);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 作业标记 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isJobTagDirty(){
+        if(this.contains(FIELD_JOBTAG)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 作业标记
+     */
+    @JsonIgnore
+    public void resetJobTag(){
+        this.reset(FIELD_JOBTAG);
+    }
+
+    /**
+     * 设置 作业标记
+     * <P>
+     * 等同 {@link #setJobTag}
+     * @param jobTag
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob jobtag(String jobTag){
+        this.setJobTag(jobTag);
+        return this;
+    }
+
+    /**
      * <B>MEMO</B>&nbsp;备注
      * <P>
      * 字符串：最大长度 4000
@@ -202,6 +326,275 @@ public class PSSysAIPipelineJob extends net.ibizsys.psmodel.core.util.PSModelBas
     @JsonIgnore
     public PSSysAIPipelineJob memo(String memo){
         this.setMemo(memo);
+        return this;
+    }
+
+    /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
+     * <B>PSDEDATASETID</B>&nbsp;作业数据集
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
+     */
+    public final static String FIELD_PSDEDATASETID = "psdedatasetid";
+
+    /**
+     * 设置 作业数据集
+     * 
+     * @param pSDEDataSetId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEDATASETID)
+    public void setPSDEDataSetId(String pSDEDataSetId){
+        this.set(FIELD_PSDEDATASETID, pSDEDataSetId);
+    }
+    
+    /**
+     * 获取 作业数据集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEDataSetId(){
+        Object objValue = this.get(FIELD_PSDEDATASETID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 作业数据集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEDataSetIdDirty(){
+        if(this.contains(FIELD_PSDEDATASETID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 作业数据集
+     */
+    @JsonIgnore
+    public void resetPSDEDataSetId(){
+        this.reset(FIELD_PSDEDATASETID);
+    }
+
+    /**
+     * 设置 作业数据集
+     * <P>
+     * 等同 {@link #setPSDEDataSetId}
+     * @param pSDEDataSetId
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob psdedatasetid(String pSDEDataSetId){
+        this.setPSDEDataSetId(pSDEDataSetId);
+        return this;
+    }
+
+    /**
+     * 设置 作业数据集，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEDataSetId}
+     * @param pSDEDataSet 引用对象
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob psdedatasetid(PSDEDataSet pSDEDataSet){
+        if(pSDEDataSet == null){
+            this.setPSDEDataSetId(null);
+            this.setPSDEDataSetName(null);
+        }
+        else{
+            this.setPSDEDataSetId(pSDEDataSet.getPSDEDataSetId());
+            this.setPSDEDataSetName(pSDEDataSet.getPSDEDataSetName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEDATASETNAME</B>&nbsp;作业数据集
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEDATASETID}
+     */
+    public final static String FIELD_PSDEDATASETNAME = "psdedatasetname";
+
+    /**
+     * 设置 作业数据集
+     * 
+     * @param pSDEDataSetName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEDATASETNAME)
+    public void setPSDEDataSetName(String pSDEDataSetName){
+        this.set(FIELD_PSDEDATASETNAME, pSDEDataSetName);
+    }
+    
+    /**
+     * 获取 作业数据集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEDataSetName(){
+        Object objValue = this.get(FIELD_PSDEDATASETNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 作业数据集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEDataSetNameDirty(){
+        if(this.contains(FIELD_PSDEDATASETNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 作业数据集
+     */
+    @JsonIgnore
+    public void resetPSDEDataSetName(){
+        this.reset(FIELD_PSDEDATASETNAME);
+    }
+
+    /**
+     * 设置 作业数据集
+     * <P>
+     * 等同 {@link #setPSDEDataSetName}
+     * @param pSDEDataSetName
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob psdedatasetname(String pSDEDataSetName){
+        this.setPSDEDataSetName(pSDEDataSetName);
+        return this;
+    }
+
+    /**
+     * <B>PSDEID</B>&nbsp;PSDEID
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSAIWORKERAGENTID}
+     */
+    public final static String FIELD_PSDEID = "psdeid";
+
+    /**
+     * 设置 PSDEID
+     * 
+     * @param pSDEId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEID)
+    public void setPSDEId(String pSDEId){
+        this.set(FIELD_PSDEID, pSDEId);
+    }
+    
+    /**
+     * 获取 PSDEID  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEId(){
+        Object objValue = this.get(FIELD_PSDEID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 PSDEID 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEIdDirty(){
+        if(this.contains(FIELD_PSDEID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 PSDEID
+     */
+    @JsonIgnore
+    public void resetPSDEId(){
+        this.reset(FIELD_PSDEID);
+    }
+
+    /**
+     * 设置 PSDEID
+     * <P>
+     * 等同 {@link #setPSDEId}
+     * @param pSDEId
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob psdeid(String pSDEId){
+        this.setPSDEId(pSDEId);
         return this;
     }
 
@@ -634,6 +1027,153 @@ public class PSSysAIPipelineJob extends net.ibizsys.psmodel.core.util.PSModelBas
     @JsonIgnore
     public PSSysAIPipelineJob name(String strName){
         this.setPSSysAIPipelineJobName(strName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAIWORKERAGENTID</B>&nbsp;AI工作者代理
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysAIWorkerAgent} 
+     */
+    public final static String FIELD_PSSYSAIWORKERAGENTID = "pssysaiworkeragentid";
+
+    /**
+     * 设置 AI工作者代理
+     * 
+     * @param pSSysAIWorkerAgentId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAIWORKERAGENTID)
+    public void setPSSysAIWorkerAgentId(String pSSysAIWorkerAgentId){
+        this.set(FIELD_PSSYSAIWORKERAGENTID, pSSysAIWorkerAgentId);
+    }
+    
+    /**
+     * 获取 AI工作者代理  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIWorkerAgentId(){
+        Object objValue = this.get(FIELD_PSSYSAIWORKERAGENTID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI工作者代理 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIWorkerAgentIdDirty(){
+        if(this.contains(FIELD_PSSYSAIWORKERAGENTID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI工作者代理
+     */
+    @JsonIgnore
+    public void resetPSSysAIWorkerAgentId(){
+        this.reset(FIELD_PSSYSAIWORKERAGENTID);
+    }
+
+    /**
+     * 设置 AI工作者代理
+     * <P>
+     * 等同 {@link #setPSSysAIWorkerAgentId}
+     * @param pSSysAIWorkerAgentId
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob pssysaiworkeragentid(String pSSysAIWorkerAgentId){
+        this.setPSSysAIWorkerAgentId(pSSysAIWorkerAgentId);
+        return this;
+    }
+
+    /**
+     * 设置 AI工作者代理，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysAIWorkerAgentId}
+     * @param pSSysAIWorkerAgent 引用对象
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob pssysaiworkeragentid(PSSysAIWorkerAgent pSSysAIWorkerAgent){
+        if(pSSysAIWorkerAgent == null){
+            this.setPSDEId(null);
+            this.setPSSysAIWorkerAgentId(null);
+            this.setPSSysAIWorkerAgentName(null);
+        }
+        else{
+            this.setPSDEId(pSSysAIWorkerAgent.getPSDEId());
+            this.setPSSysAIWorkerAgentId(pSSysAIWorkerAgent.getPSSysAIWorkerAgentId());
+            this.setPSSysAIWorkerAgentName(pSSysAIWorkerAgent.getPSSysAIWorkerAgentName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAIWORKERAGENTNAME</B>&nbsp;AI工作者代理
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSAIWORKERAGENTID}
+     */
+    public final static String FIELD_PSSYSAIWORKERAGENTNAME = "pssysaiworkeragentname";
+
+    /**
+     * 设置 AI工作者代理
+     * 
+     * @param pSSysAIWorkerAgentName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAIWORKERAGENTNAME)
+    public void setPSSysAIWorkerAgentName(String pSSysAIWorkerAgentName){
+        this.set(FIELD_PSSYSAIWORKERAGENTNAME, pSSysAIWorkerAgentName);
+    }
+    
+    /**
+     * 获取 AI工作者代理  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIWorkerAgentName(){
+        Object objValue = this.get(FIELD_PSSYSAIWORKERAGENTNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI工作者代理 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIWorkerAgentNameDirty(){
+        if(this.contains(FIELD_PSSYSAIWORKERAGENTNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI工作者代理
+     */
+    @JsonIgnore
+    public void resetPSSysAIWorkerAgentName(){
+        this.reset(FIELD_PSSYSAIWORKERAGENTNAME);
+    }
+
+    /**
+     * 设置 AI工作者代理
+     * <P>
+     * 等同 {@link #setPSSysAIWorkerAgentName}
+     * @param pSSysAIWorkerAgentName
+     */
+    @JsonIgnore
+    public PSSysAIPipelineJob pssysaiworkeragentname(String pSSysAIWorkerAgentName){
+        this.setPSSysAIWorkerAgentName(pSSysAIWorkerAgentName);
         return this;
     }
 

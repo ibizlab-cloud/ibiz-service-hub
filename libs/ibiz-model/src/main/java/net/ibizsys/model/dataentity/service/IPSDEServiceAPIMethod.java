@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.service;
 
 
 /**
- * 服务接口实体方法模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO}运行时对象
+ * 服务接口实体方法模型对象接口
  *
  */
 public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
@@ -33,8 +33,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取方法参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_DETAILPARAM}
 	 * @return
 	 */
 	java.lang.String getMethodParam();
@@ -42,8 +40,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取方法参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_DETAILPARAM2}
 	 * @return
 	 */
 	java.lang.String getMethodParam2();
@@ -51,8 +47,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取方法类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_DETAILTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SADEMethodType}
 	 * @return
@@ -62,8 +56,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getPSDEAction();
@@ -78,8 +70,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取数据集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_PSDEDSID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();
@@ -166,8 +156,6 @@ public interface IPSDEServiceAPIMethod extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取请求方式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDESADetailDTO#FIELD_REQUESTMETHOD}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RequestMethod}
 	 * @return

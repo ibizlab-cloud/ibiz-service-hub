@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据集合分组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO}运行时对象
+ * 实体数据集合分组模型对象接口
  *
  */
 public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject{
@@ -13,8 +13,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取聚合模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_AGGMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
@@ -23,8 +21,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取别名
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_ALIASNAME}
 	 * @return
 	 */
 	java.lang.String getAlias();
@@ -32,8 +28,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取分组代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_GROUPCODE}
 	 * @return
 	 */
 	java.lang.String getGroupCode();
@@ -41,8 +35,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取分组连接代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_GROUPJOINCODE}
 	 * @return
 	 */
 	java.lang.String getGroupJoinCode();
@@ -50,8 +42,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取实体属性，使用指定属性名称或分组项标识进行尝试获取
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_CUSTOMDEFNAME}、{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_PSDEFNAME}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -74,8 +64,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取排序方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_ORDERDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
@@ -85,8 +73,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取标准数据类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_STDDATATYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StdDataType}
 	 * @return
 	 */
@@ -95,8 +81,6 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否分组项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDSGrpParamDTO#FIELD_GROUPFLAG}
 	 * @return
 	 */
 	boolean isEnableGroup();

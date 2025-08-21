@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEACTIONPARAM</B>实体行为参数 模型传输对象
@@ -1379,14 +1383,14 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEFGROUPID</B>&nbsp;引用属性组
+     * <B>REFPSDEFGROUPID</B>&nbsp;引用实体的属性组
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFGroup} 
      */
     public final static String FIELD_REFPSDEFGROUPID = "refpsdefgroupid";
 
     /**
-     * 设置 引用属性组
+     * 设置 引用实体的属性组
      * 
      * @param refPSDEFGroupId
      * 
@@ -1397,7 +1401,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 引用属性组  
+     * 获取 引用实体的属性组  
      * @return
      */
     @JsonIgnore
@@ -1410,7 +1414,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 引用属性组 是否指定值，包括空值
+     * 判断 引用实体的属性组 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1422,7 +1426,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 引用属性组
+     * 重置 引用实体的属性组
      */
     @JsonIgnore
     public void resetRefPSDEFGroupId(){
@@ -1430,7 +1434,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用属性组
+     * 设置 引用实体的属性组
      * <P>
      * 等同 {@link #setRefPSDEFGroupId}
      * @param refPSDEFGroupId
@@ -1442,7 +1446,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用属性组，包括引用对象的其它关系属性
+     * 设置 引用实体的属性组，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setRefPSDEFGroupId}
      * @param pSDEFGroup 引用对象
@@ -1461,14 +1465,14 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>REFPSDEFGROUPNAME</B>&nbsp;引用属性组
+     * <B>REFPSDEFGROUPNAME</B>&nbsp;引用实体的属性组
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_REFPSDEFGROUPID}
      */
     public final static String FIELD_REFPSDEFGROUPNAME = "refpsdefgroupname";
 
     /**
-     * 设置 引用属性组
+     * 设置 引用实体的属性组
      * 
      * @param refPSDEFGroupName
      * 
@@ -1479,7 +1483,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 引用属性组  
+     * 获取 引用实体的属性组  
      * @return
      */
     @JsonIgnore
@@ -1492,7 +1496,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 引用属性组 是否指定值，包括空值
+     * 判断 引用实体的属性组 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1504,7 +1508,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 引用属性组
+     * 重置 引用实体的属性组
      */
     @JsonIgnore
     public void resetRefPSDEFGroupName(){
@@ -1512,7 +1516,7 @@ public class PSDEActionParam extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 引用属性组
+     * 设置 引用实体的属性组
      * <P>
      * 等同 {@link #setRefPSDEFGroupName}
      * @param refPSDEFGroupName

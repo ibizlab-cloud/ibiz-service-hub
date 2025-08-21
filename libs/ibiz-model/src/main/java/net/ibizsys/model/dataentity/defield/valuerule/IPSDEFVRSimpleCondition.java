@@ -14,8 +14,6 @@ public interface IPSDEFVRSimpleCondition extends net.ibizsys.model.dataentity.de
 	
 	/**
 	 * 获取条件操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDBVALUEOPID}
 	 * @return
 	 */
 	java.lang.String getCondOp();
@@ -23,8 +21,6 @@ public interface IPSDEFVRSimpleCondition extends net.ibizsys.model.dataentity.de
 	
 	/**
 	 * 获取参数类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARAMTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRParamType}
 	 * @return
@@ -34,8 +30,6 @@ public interface IPSDEFVRSimpleCondition extends net.ibizsys.model.dataentity.de
 	
 	/**
 	 * 获取参数值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getParamValue();

@@ -127,6 +127,7 @@ import net.ibizsys.model.PSModelEnums.DEDataQueryViewLevel;
 import net.ibizsys.model.PSModelEnums.DEDataSetGroupMode;
 import net.ibizsys.model.PSModelEnums.DEDataSetOption;
 import net.ibizsys.model.PSModelEnums.DEExtendMode;
+import net.ibizsys.model.PSModelEnums.DEFDataType;
 import net.ibizsys.model.PSModelEnums.DEFType;
 import net.ibizsys.model.PSModelEnums.DEMethodInputType;
 import net.ibizsys.model.PSModelEnums.DER1NDEFMapType;
@@ -246,6 +247,7 @@ import net.ibizsys.runtime.util.Conditions;
 import net.ibizsys.runtime.util.DBTypes;
 import net.ibizsys.runtime.util.DataEntityRuntimeHolder;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.DataTypes;
 import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.EntityError;
 import net.ibizsys.runtime.util.EntityException;
@@ -280,6 +282,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DataEntityRuntime.class);
 
 	public final static String DEFAULTTAG = "DEFAULT";
+	
+	public static final String ACTIONSESSIONPARAM_COPYSOURCE_X = "_COPYSOURCE__%1$s__%2$s";
 
 	private ISystemRuntimeContext iSystemRuntimeContext = null;
 	private String strId = null;
@@ -315,12 +319,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private Map<String, List<IDEFValueRuleRuntimeBase>> defValueRuleRuntimeBaseListMap = null;
 
 	private Map<String, List<IDataEntityInheritLogic>> dataEntityInheritLogicListMap = null;
-	
+
 	private Map<String, List<IDataEntityExtendLogic>> dataEntityExtendLogicListMap = null;
 
 	private Map<String, List<IDERRuntimeBase>> derRuntimeBaseListMap = null;
-	
-	
+
 	private IDEMethodDTORuntime defaultDEMethodDTORuntime = null;
 	private IDEFilterDTORuntime defaultDEFilterDTORuntime = null;
 	private ISystemPersistentAdapter iSystemPersistentAdapter = null;
@@ -350,12 +353,17 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private Boolean bEnableDEOPPrivLogicIncludeMaster = null;
 
 	private boolean bTranslateSearchFieldCondBeforeProceed = false;
-	
+
 	private List<IPSDEField> extendedPSDEFieldList = null;
-	
+
 	private List<IPSDEField> dynaStoragePSDEFieldList = null;
-	
+
 	private List<IPSDEField> extendedDynaStoragePSDEFieldList = null;
+	
+	private List<IPSDEField> attachmentPSDEFieldList = null;
+
+	private List<IPSDEField> extendedAttachmentPSDEFieldList = null;
+	
 
 	private static ThreadLocal<Boolean> IgnoreExecuteDEOPPrivLogics = new ThreadLocal<Boolean>() {
 		protected Boolean initialValue() {
@@ -434,6 +442,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		List<IPSDEField> psDEFieldList = this.getPSDataEntity().getAllPSDEFields();
 		if (psDEFieldList != null) {
 			ArrayList<IPSDEField> dynaStoragePSDEFieldList = new ArrayList<IPSDEField>();
+			ArrayList<IPSDEField> attachmentPSDEFieldList = new ArrayList<IPSDEField>();
 			for (IPSDEField iPSDEField : psDEFieldList) {
 				List<IPSDEFSearchMode> psDEFSearchModeList = iPSDEField.getAllPSDEFSearchModes();
 				if (psDEFSearchModeList != null) {
@@ -450,12 +459,17 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				if (StringUtils.hasLength(iPSDEField.getCodeName())) {
 					this.psDEFieldMap2.put(iPSDEField.getCodeName().toLowerCase(), iPSDEField);
 				}
-				
-				if(iPSDEField.isDynaStorageDEField()) {
+
+				if(this.isDynaStoragePSDEField(iPSDEField, true)) {
 					dynaStoragePSDEFieldList.add(iPSDEField);
+				}
+				
+				if(this.isAttachmentPSDEField(iPSDEField, true)) {
+					attachmentPSDEFieldList.add(iPSDEField);
 				}
 			}
 			this.dynaStoragePSDEFieldList = Collections.unmodifiableList(dynaStoragePSDEFieldList);
+			this.attachmentPSDEFieldList = Collections.unmodifiableList(attachmentPSDEFieldList);
 		}
 
 		List<IPSDERBase> psDERBases = this.getPSDataEntity().getMinorPSDERs();
@@ -704,27 +718,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		prepareSystemPersistentAdapter();
 	}
-	
+
 	protected void prepareSystemPersistentAdapter() throws Exception {
 		IDEPersistentUtilRuntime iDEPersistentUtil = this.getDEUtilRuntime(IDEPersistentUtilRuntime.class, true);
-		if(iDEPersistentUtil != null) {
+		if (iDEPersistentUtil != null) {
 			ISystemPersistentAdapter iSystemPersistentAdapter = iDEPersistentUtil.getSystemPersistentAdapter();
-			if(iSystemPersistentAdapter != null) {
+			if (iSystemPersistentAdapter != null) {
 				this.setSystemPersistentAdapter(iSystemPersistentAdapter);
-				if(iSystemPersistentAdapter instanceof ISysDBPersistentAdapter) {
-					this.setSysDBSchemeRuntime(((ISysDBPersistentAdapter)iSystemPersistentAdapter).getSysDBSchemeRuntime());
+				if (iSystemPersistentAdapter instanceof ISysDBPersistentAdapter) {
+					this.setSysDBSchemeRuntime(((ISysDBPersistentAdapter) iSystemPersistentAdapter).getSysDBSchemeRuntime());
+				} else if (iSystemPersistentAdapter instanceof ISysBDPersistentAdapter) {
+					this.setSysBDSchemeRuntime(((ISysBDPersistentAdapter) iSystemPersistentAdapter).getSysBDSchemeRuntime());
 				}
-				else
-					if(iSystemPersistentAdapter instanceof ISysBDPersistentAdapter) {
-						this.setSysBDSchemeRuntime(((ISysBDPersistentAdapter)iSystemPersistentAdapter).getSysBDSchemeRuntime());
-					}
-			}
-			else {
+			} else {
 				log.warn(String.format("实体持久化组件未提供系统持久化适配器"));
 			}
 		}
 	}
-	
 
 	private DataEntityRuntime getSelf() {
 		return this;
@@ -732,26 +742,40 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 	@Override
 	public List<IPSDEField> getPSDEFields(boolean bExtension) {
-		if(bExtension && this.extendedPSDEFieldList!=null) {
+		if (bExtension && this.extendedPSDEFieldList != null) {
 			return this.extendedPSDEFieldList;
 		}
 		return this.getPSDEFields();
 	}
-	
+
 	@Override
 	public List<IPSDEField> getDynaStoragePSDEFields() {
 		this.prepare();
 		return this.dynaStoragePSDEFieldList;
 	}
-	
+
 	@Override
 	public List<IPSDEField> getDynaStoragePSDEFields(boolean bExtension) {
-		if(bExtension && this.extendedDynaStoragePSDEFieldList!=null) {
+		if (bExtension && this.extendedDynaStoragePSDEFieldList != null) {
 			return this.extendedDynaStoragePSDEFieldList;
 		}
 		return this.getDynaStoragePSDEFields();
 	}
 
+	@Override
+	public List<IPSDEField> getAttachmentPSDEFields() {
+		this.prepare();
+		return this.attachmentPSDEFieldList;
+	}
+
+	@Override
+	public List<IPSDEField> getAttachmentPSDEFields(boolean bExtension) {
+		if (bExtension && this.extendedAttachmentPSDEFieldList != null) {
+			return this.extendedAttachmentPSDEFieldList;
+		}
+		return this.getAttachmentPSDEFields();
+	}
+	
 	@Override
 	protected IDataEntityRuntimeContext getDataEntityRuntimeContext() {
 		return this.iDataEntityRuntimeContext;
@@ -1093,7 +1117,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		return totalList;
 	}
-	
 
 	@Override
 	public List<Object> getDescendantIds(Object key, boolean recursive) {
@@ -1128,7 +1151,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		return totalList;
 	}
-	
+
 	/**
 	 * 准备实体工作流
 	 *
@@ -1336,7 +1359,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	}
 
 	protected IDEDataQueryCodeRuntime createDEDataQueryCodeRuntime(IPSDEDataQueryCode iPSDEDataQueryCode) {
-	
+
 		if (this.getSystemModuleUtilRuntime() != null) {
 			IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = this.getSystemModuleUtilRuntime().createDEDataQueryCodeRuntime(iPSDEDataQueryCode);
 			if (iDEDataQueryCodeRuntime != null) {
@@ -1346,13 +1369,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		return this.createDefaultDEDataQueryCodeRuntime(iPSDEDataQueryCode);
 	}
-	
+
 	protected IDEDataQueryCodeRuntime createDefaultDEDataQueryCodeRuntime(IPSDEDataQueryCode iPSDEDataQueryCode) {
-		
+
 		return new DEDataQueryCodeRuntime();
 	}
-	
-	
 
 	/**
 	 * 获取实体方法对象
@@ -1374,18 +1395,17 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	public String getName() {
 		return this.strName;
 	}
-	
+
 	@Override
 	public String getDERParentType() {
-		if(this.getDEType() == DEType.ABSTRACT.value) {
-			IDataEntityRuntime childDataEntityRuntime = (IDataEntityRuntime) DataEntityRuntimeHolder.peekChildDataEntityRuntime(); 
-			if(childDataEntityRuntime != null) {
+		if (this.getDEType() == DEType.ABSTRACT.value) {
+			IDataEntityRuntime childDataEntityRuntime = (IDataEntityRuntime) DataEntityRuntimeHolder.peekChildDataEntityRuntime();
+			if (childDataEntityRuntime != null) {
 				return childDataEntityRuntime.getDERParentType();
 			}
 		}
 		return super.getDERParentType();
 	}
-	
 
 	@Override
 	public IDataEntityAccessManager getDataEntityAccessManager() {
@@ -1689,8 +1709,15 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 
 		if (iPSDEAction == null) {
-			// return super.onExecuteAction(strActionName, iPSDEAction, args,
-			// actionData);
+			if(DEActions.COPY.equalsIgnoreCase(strActionName)) {
+				if(args!=null && args.length > 0 && args[0] instanceof IEntityDTO) {
+					return this.onCopy((IEntityDTO)args[0]);
+				}
+				else {
+					throw new Exception("拷贝操作传入参数不正确");
+				}
+			}
+			
 			return super.onExecuteActionReal(strActionName, iPSDEAction, args, actionData);
 		}
 
@@ -2130,9 +2157,17 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			}
 			return null;
 		}
-
+		
+		if (DEActionModes.COPY.equals(strActionMode)) {
+			if(args!=null && args.length > 0 && args[0] instanceof IEntityDTO) {
+				return this.onCopy((IEntityDTO)args[0]);
+			}
+			else {
+				throw new Exception("拷贝操作传入参数不正确");
+			}
+		}
+		
 		return super.onExecuteActionReal(strActionName, iPSDEAction, args, actionData);
-		// throw new DataEntityRuntimeException(this, String)
 	}
 
 	@Override
@@ -2404,7 +2439,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		this.prepare();
 		return this.iSystemPersistentAdapter;
 	}
-	
+
 	protected void setSystemPersistentAdapter(ISystemPersistentAdapter iSystemPersistentAdapter) {
 		this.iSystemPersistentAdapter = iSystemPersistentAdapter;
 	}
@@ -2414,7 +2449,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		this.prepare();
 		return this.iSysDBSchemeRuntime;
 	}
-	
+
 	protected void setSysDBSchemeRuntime(ISysDBSchemeRuntime iSysDBSchemeRuntime) {
 		this.iSysDBSchemeRuntime = iSysDBSchemeRuntime;
 	}
@@ -2433,20 +2468,22 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		this.prepare();
 		return this.iSubSysServiceAPIRuntime;
 	}
-	
-//	protected void setSubSysServiceAPIRuntime(ISubSysServiceAPIRuntime iSubSysServiceAPIRuntime) {
-//		this.iSubSysServiceAPIRuntime = iSubSysServiceAPIRuntime;
-//	}
+
+	// protected void setSubSysServiceAPIRuntime(ISubSysServiceAPIRuntime
+	// iSubSysServiceAPIRuntime) {
+	// this.iSubSysServiceAPIRuntime = iSubSysServiceAPIRuntime;
+	// }
 
 	@Override
 	public ISubSysServiceAPIDERuntime getSubSysServiceAPIDERuntime() {
 		this.prepare();
 		return this.iSubSysServiceAPIDERuntime;
 	}
-	
-//	protected void setSubSysServiceAPIDERuntime(ISubSysServiceAPIDERuntime iSubSysServiceAPIDERuntime) {
-//		this.iSubSysServiceAPIDERuntime = iSubSysServiceAPIDERuntime;
-//	}
+
+	// protected void setSubSysServiceAPIDERuntime(ISubSysServiceAPIDERuntime
+	// iSubSysServiceAPIDERuntime) {
+	// this.iSubSysServiceAPIDERuntime = iSubSysServiceAPIDERuntime;
+	// }
 
 	@Override
 	public ISearchContextDTO createSearchContext(Map<String, Object> params) {
@@ -2622,7 +2659,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				IPSDEField parentSubTypePSDEField = this.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE.value, true);
 				String strParentType = iPSDERCustom.getParentType();
 				if (!StringUtils.hasLength(strParentType)) {
-					//strParentType = this.getName();
+					// strParentType = this.getName();
 					strParentType = this.getDERParentType();
 				}
 				String strParentSubType = null;
@@ -2722,7 +2759,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				String strParentSubType = null;
 				String strParentType = iPSDERCustom.getParentType();
 				if (!StringUtils.hasLength(strParentType)) {
-					//strParentType = this.getName();
+					// strParentType = this.getName();
 					strParentType = this.getDERParentType();
 				}
 				if (parentSubTypePSDEField != null) {
@@ -2836,7 +2873,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				IPSDEField parentSubTypePSDEField = this.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE.value, true);
 				String strParentType = iPSDERCustom.getParentType();
 				if (!StringUtils.hasLength(strParentType)) {
-					//strParentType = this.getName();
+					// strParentType = this.getName();
 					strParentType = this.getDERParentType();
 				}
 				String strParentSubType = null;
@@ -2997,9 +3034,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			List<IEntityDTO> entityDTOList = this.getEntityDTOList(list, iPSDataQuery);
 			if (!ObjectUtils.isEmpty(entityDTOList)) {
 				this.translateEntitiesAfterProceed(iSearchContextDTO, entityDTOList, iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(), null, null);
-//				for (IEntityDTO iEntityDTO : entityDTOList) {
-//					this.translateEntityAfterProceed(iEntityDTO, iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(), null, null);
-//				}
+				// for (IEntityDTO iEntityDTO : entityDTOList) {
+				// this.translateEntityAfterProceed(iEntityDTO,
+				// iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(),
+				// null, null);
+				// }
 			}
 
 			return entityDTOList;
@@ -3034,9 +3073,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			List<IEntityDTO> entityDTOList = this.getEntityDTOList(list, iPSDEDataQuery);
 			if (!ObjectUtils.isEmpty(entityDTOList)) {
 				this.translateEntitiesAfterProceed(iSearchContextDTO, entityDTOList, iPSDEDataQuery.getName(), iPSDEDataQuery, this.getPSDataEntity(), null, null);
-//				for (IEntityDTO iEntityDTO : entityDTOList) {
-//					this.translateEntityAfterProceed(iEntityDTO, iPSDEDataQuery.getName(), iPSDEDataQuery, this.getPSDataEntity(), null, null);
-//				}
+				// for (IEntityDTO iEntityDTO : entityDTOList) {
+				// this.translateEntityAfterProceed(iEntityDTO,
+				// iPSDEDataQuery.getName(), iPSDEDataQuery,
+				// this.getPSDataEntity(), null, null);
+				// }
 			}
 
 			return entityDTOList;
@@ -3061,9 +3102,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			page = getEntityDTOPage(page, iPSDataQuery, iSearchContextDTO.getPageable());
 			if (page != null && !ObjectUtils.isEmpty(page.getContent())) {
 				this.translateEntitiesAfterProceed(iSearchContextDTO, page.getContent(), iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(), null, null);
-//				for (Object item : page.getContent()) {
-//					this.translateEntityAfterProceed(item, iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(), null, null);
-//				}
+				// for (Object item : page.getContent()) {
+				// this.translateEntityAfterProceed(item,
+				// iPSDataQuery.getName(), iPSDataQuery, this.getPSDataEntity(),
+				// null, null);
+				// }
 			}
 			return page;
 
@@ -4161,8 +4204,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 					return null;
 				} else
 					throw new DataEntityRuntimeException(this, String.format("无法执行实体行为[%1$s]，传入参数无效", strActionName), Errors.INPUTERROR);
-
 			}
+			
 
 			if (iPSDEAction.getPSDEActionInputMust().getPSDEMethodDTO() != null) {
 				// 判断参数DTO对象是否有运行时
@@ -4598,8 +4641,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.fillEntityFullInfo(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4617,8 +4659,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.translateEntityBeforeProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4634,8 +4675,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.resetReferenceBeforeRemove(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4651,8 +4691,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.removeReferenceBeforeRemove(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4737,8 +4776,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.translateEntityNestedDERsBeforeProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4825,7 +4863,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 												if (parentTypePSDEField != null) {
 													strParentType = iPSDERCustom.getParentType();
 													if (!StringUtils.hasLength(strParentType)) {
-														//strParentType = this.getName();
+														// strParentType =
+														// this.getName();
 														strParentType = this.getDERParentType();
 													}
 												}
@@ -4906,8 +4945,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.checkEntityNestedDERsBeforeProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -4937,8 +4975,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.translateEntityNestedDERsAfterProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5053,7 +5090,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				if (parentTypePSDEField != null) {
 					strParentType = iPSDERCustom.getParentType();
 					if (!StringUtils.hasLength(strParentType)) {
-						//strParentType = this.getName();
+						// strParentType = this.getName();
 						strParentType = this.getDERParentType();
 					}
 				}
@@ -5080,7 +5117,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		Object objKeyValue = iEntityDTO.get(getKeyPSDEField().getLowerCaseName());
 
-		//重新计算外键
+		// 重新计算外键
 		if (relatedPickupPSDEField != null) {
 			objKeyValue = iEntityDTO.get(relatedPickupPSDEField.getLowerCaseName());
 		}
@@ -5161,8 +5198,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.checkEntityAfterProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5184,61 +5220,57 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.translateEntityAfterProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
 	}
-	
+
 	@Override
 	protected void translateEntityAfterProceed(Object arg0, String strDataSetName, IPSDEDataSet iPSDEDataSet, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.translateEntityAfterProceed(arg0, strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);
-		
+
 	}
-	
+
 	@Override
 	protected void translateEntityAfterProceed(Object arg0, String strDataQueryName, IPSDEDataQuery iPSDEDataQuery, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.translateEntityAfterProceed(arg0, strDataQueryName, iPSDEDataQuery, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
-	
+
 	@Override
 	protected void translateEntitiesAfterProceed(ISearchContextBase arg0, List<? extends IEntityBase> list, String strDataQueryName, IPSDEDataQuery iPSDEDataQuery, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.translateEntitiesAfterProceed(arg0, list, strDataQueryName, iPSDEDataQuery, iPSDataEntity, iDynaInstRuntime, actionData);
-		
+
 		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
 		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList) && !ObjectUtils.isEmpty(list) && (arg0 instanceof ISearchContextDTO) && list.get(0) instanceof IEntityDTO) {
 			try {
 				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-					iDataEntityInheritLogic.translateEntitiesAfterProceed(this.getDataEntityRuntimeContext(), (ISearchContextDTO) arg0, (List<? extends IEntityDTO>)list, strDataQueryName, iPSDEDataQuery);
+					iDataEntityInheritLogic.translateEntitiesAfterProceed(this.getDataEntityRuntimeContext(), (ISearchContextDTO) arg0, (List<? extends IEntityDTO>) list, strDataQueryName, iPSDEDataQuery);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	protected void translateEntitiesAfterProceed(ISearchContextBase arg0, List<? extends IEntityBase> list, String strDataSetName, IPSDEDataSet iPSDEDataSet, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.translateEntitiesAfterProceed(arg0, list, strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);
-		
+
 		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
 		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList) && !ObjectUtils.isEmpty(list) && (arg0 instanceof ISearchContextDTO) && list.get(0) instanceof IEntityDTO) {
 			try {
 				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-					iDataEntityInheritLogic.translateEntitiesAfterProceed(this.getDataEntityRuntimeContext(), (ISearchContextDTO) arg0, (List<? extends IEntityDTO>)list, strDataSetName, iPSDEDataSet);
+					iDataEntityInheritLogic.translateEntitiesAfterProceed(this.getDataEntityRuntimeContext(), (ISearchContextDTO) arg0, (List<? extends IEntityDTO>) list, strDataSetName, iPSDEDataSet);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
 	}
-	
 
 	@Override
 	protected boolean isEnableBPMNExecuteMode() {
@@ -5796,8 +5828,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.fillEntityDefaultValues(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5814,8 +5845,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.fillEntitySequenceValues(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5824,14 +5854,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	@Override
 	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.checkReferenceBeforeRemove(arg0, strActionName, iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData);
-		
+
 		final List<IDERRuntimeBase> derRuntimeBaseList = this.getDERRuntimeBases();
-		if(!ObjectUtils.isEmpty(derRuntimeBaseList)) {
-			for(IDERRuntimeBase iDERRuntimeBase : derRuntimeBaseList) {
+		if (!ObjectUtils.isEmpty(derRuntimeBaseList)) {
+			for (IDERRuntimeBase iDERRuntimeBase : derRuntimeBaseList) {
 				this.checkReferenceBeforeRemove(arg0, strActionName, iPSDEAction, iDERRuntimeBase, actionData);
 			}
 		}
-		
+
 		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
 		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
 			try {
@@ -5839,15 +5869,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.checkReferenceBeforeRemove(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
 	}
-	
+
 	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IDERRuntimeBase iDERRuntimeBase, Object actionData) throws Throwable {
-		
+
 	}
 
 	@Override
@@ -5861,8 +5890,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.buildParentPathBeforeProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5879,8 +5907,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.checkEntityBeforeProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5899,12 +5926,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				} else {
 					iEntityDTO = (IEntityDTO) arg0;
 				}
-	
+
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.buildParentPathAfterProceed(this.getDataEntityRuntimeContext(), iEntityDTO, strActionName, iPSDEAction);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -5921,8 +5947,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 						return iDataEntityInheritLogic.executeAction(this.getDataEntityRuntimeContext(), strActionName, iPSDEAction, args);
 					}
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -6114,8 +6139,162 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				return iDEVersionStorageUtilRuntime.executeAction(strActionName, iPSDEAction, args, actionData);
 			}
 		}
+		
+		
+		
 
 		return super.onExecuteAction(strActionName, iPSDEAction, args, actionData);
+	}
+	
+	
+	protected IEntityDTO onCopy(IEntityDTO iEntityDTO) throws Throwable {
+		
+		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
+		
+		Object objKeyValue = this.getKeyFieldValue(iEntityDTO);
+		if(ObjectUtils.isEmpty(objKeyValue)) {
+			throw new Exception("传入数据键值无效");
+		}
+		
+		IEntityDTO ret = this.get(objKeyValue);
+		
+		this.rebuildCopyEntityDTO(ret, true, true);
+		
+		java.util.List<IPSDEField> psDEFields = this.getPSDEFields(true);
+		if (psDEFields != null) {
+			for (IPSDEField iPSDEField : psDEFields) {
+				if(iPSDEField.isKeyDEField()) {
+					continue;
+				}
+				if(iEntityDTO.contains(iPSDEField.getLowerCaseName())) {
+					ret.set(iPSDEField.getLowerCaseName(), iEntityDTO.get(iPSDEField.getLowerCaseName()));
+				}
+			}
+		}
+		
+		//进一步填充外键
+		List<IPSDERBase> psDERBaseList = this.getPSDERBases(true);
+		if(!ObjectUtils.isEmpty(psDERBaseList)) {
+			for(IPSDERBase iPSDERBase : psDERBaseList) {
+				if(!(iPSDERBase instanceof IPSDER1NBase)) {
+					continue;
+				}
+				
+				IPSDER1NBase iPSDER1NBase = (IPSDER1NBase)iPSDERBase;
+				if(iPSDER1NBase.getCloneOrder() < 0) {
+					continue;
+				}
+				
+				IPSDEField pickupPSDEField = iPSDER1NBase.getPickupPSDEFieldMust();
+				//IPSDEMethodDTOField field = iDEMethodDTORuntime.getPSDEMethodDTOFieldByDEField(pickupPSDEField.getName(), true);
+				Object value = ret.get(pickupPSDEField.getLowerCaseName());
+				
+				if(value == null) {
+					continue;
+				}
+				
+				String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, iPSDER1NBase.getMajorPSDataEntityMust().getId(), value);
+				Object cache = actionSession.getActionParam(strTag);
+				if(cache instanceof IEntityDTO) {
+					IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDER1NBase.getMajorPSDataEntityMust().getId());
+					IEntityDTO cacheEntityDTO = (IEntityDTO)cache;
+					ret.set(pickupPSDEField.getLowerCaseName(), majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
+				}
+			}
+		}
+		
+		//建立新数据
+		this.create(ret);
+		
+		Object newKeyValue = this.getKeyFieldValue(ret);
+		
+		//放入缓存
+		String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, this.getId(), objKeyValue);
+		actionSession.setActionParam(strTag, ret);
+		
+		//获取全部克隆关系
+		List<IPSDER1NBase> clonelist = this.getClonePSDER1Ns(true);
+		if(!ObjectUtils.isEmpty(clonelist)) {
+			for(IPSDER1NBase iPSDERBase : clonelist) {
+				IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMinorPSDataEntityMust().getId());
+				// 找到外键
+				IPSDEField pickupPSDEField = null;
+				IPSDEField parentTypePSDEField = null;
+				IPSDEField parentSubTypePSDEField = null;
+
+				String strParentSubType = null;
+				String strParentType = null;
+
+				IPSDEDataSet nestedPSDEDataSet = null;
+				
+				if (iPSDERBase instanceof IPSDER1N) {
+					pickupPSDEField = ((IPSDER1N) iPSDERBase).getPSPickupDEFieldMust();
+					nestedPSDEDataSet = ((IPSDER1N) iPSDERBase).getNestedPSDEDataSet();
+				} else if (iPSDERBase instanceof IPSDERCustom) {
+					IPSDERCustom iPSDERCustom = (IPSDERCustom) iPSDERBase;
+					pickupPSDEField = iPSDERCustom.getPickupPSDEField();
+					nestedPSDEDataSet = iPSDERCustom.getNestedPSDEDataSet();
+					if (refDataEntityRuntime.getDEType() == DETypes.DYNAATTACHED || DERSubType.DER1N.value.equalsIgnoreCase(iPSDERCustom.getDERSubType())) {
+						parentTypePSDEField = refDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE, refDataEntityRuntime.getDEType() != DETypes.DYNAATTACHED);
+						if (parentTypePSDEField != null) {
+							strParentType = iPSDERCustom.getParentType();
+							if (!StringUtils.hasLength(strParentType)) {
+								// strParentType = this.getName();
+								strParentType = this.getDERParentType();
+							}
+						}
+						parentSubTypePSDEField = refDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
+						if (parentSubTypePSDEField != null) {
+							strParentSubType = iPSDERCustom.getParentSubType();
+							if (!StringUtils.hasLength(strParentSubType)) {
+								strParentSubType = iPSDERBase.getMinorCodeName();
+							}
+						}
+					}
+				}
+				if (pickupPSDEField == null) {
+					throw new Exception(String.format("克隆关系[%1$s]未定义连接属性", iPSDERBase.getName()));
+				}
+				
+
+				ISearchContextDTO iSearchContextDTO = refDataEntityRuntime.createSearchContext();
+				iSearchContextDTO.all().count(false);
+				refDataEntityRuntime.setSearchCondition(iSearchContextDTO, pickupPSDEField, Conditions.EQ, objKeyValue);
+				if (parentTypePSDEField != null) {
+					refDataEntityRuntime.setSearchCondition(iSearchContextDTO, parentTypePSDEField, Conditions.EQ, strParentType);
+				}
+				if (parentSubTypePSDEField != null) {
+					if (StringUtils.hasLength(strParentSubType)) {
+						refDataEntityRuntime.setSearchCondition(iSearchContextDTO, parentSubTypePSDEField, Conditions.EQ, DataTypeUtils.convert(parentSubTypePSDEField.getStdDataType(), strParentSubType));
+					} else {
+						refDataEntityRuntime.setSearchCondition(iSearchContextDTO, parentSubTypePSDEField, Conditions.ISNULL, null);
+					}
+				}
+
+				// 设置排序信息
+				IPSDEField orderValuePSDEField = refDataEntityRuntime.getOrderValuePSDEField();
+				if (orderValuePSDEField != null) {
+					refDataEntityRuntime.setSearchSort(iSearchContextDTO, orderValuePSDEField, SortDir.ASC.value);
+				}
+				List<IEntityDTO> lastList = null;
+				if (nestedPSDEDataSet != null) {
+					lastList = refDataEntityRuntime.selectDataSet(nestedPSDEDataSet, iSearchContextDTO);
+				} else {
+					lastList = refDataEntityRuntime.select(iSearchContextDTO);
+				}
+				
+				if(!ObjectUtils.isEmpty(lastList)) {
+					for(IEntityDTO item : lastList) {
+						IEntityDTO newItem = refDataEntityRuntime.createEntity();
+						newItem.set(refDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), refDataEntityRuntime.getKeyFieldValue(item));
+						//newItem.set(pickupPSDEField.getLowerCaseName(), objValue);
+						refDataEntityRuntime.copy(newItem);
+					}
+				}
+			}
+		}
+		
+		return ret;
 	}
 
 	@Override
@@ -6776,7 +6955,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		return this.iSysBDSchemeRuntime;
 	}
-	
+
 	protected void setSysBDSchemeRuntime(ISysBDSchemeRuntime iSysBDSchemeRuntime) {
 		this.iSysBDSchemeRuntime = iSysBDSchemeRuntime;
 	}
@@ -6814,8 +6993,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					iDataEntityInheritLogic.translateSearchContextBeforeProceed(this.getDataEntityRuntimeContext(), iSearchContextDTO, strDataSetName, iPSDEDataSet);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -8073,7 +8251,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 	@Override
 	public synchronized void registerDataEntityInheritLogic(IDataEntityInheritLogic iDataEntityInheritLogic) {
-		
+
 		Assert.notNull(iDataEntityInheritLogic, "未传入实体继承逻辑对象");
 
 		if (this.dataEntityInheritLogicListMap == null) {
@@ -8117,10 +8295,10 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		return null;
 	}
-	
+
 	@Override
 	public synchronized void registerDataEntityExtendLogic(IDataEntityExtendLogic iDataEntityExtendLogic) {
-		
+
 		Assert.notNull(iDataEntityExtendLogic, "未传入实体扩展逻辑对象");
 
 		if (this.dataEntityExtendLogicListMap == null) {
@@ -8156,7 +8334,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 			boolean bRet = newList.remove(iDataEntityExtendLogic);
 			this.dataEntityExtendLogicListMap.put(DEFAULTTAG, Collections.unmodifiableList(newList));
-			if(bRet) {
+			if (bRet) {
 				try {
 					this.prepareExtendedPSDEFieldList(list);
 				} catch (Exception ex) {
@@ -8176,56 +8354,102 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		return null;
 	}
-	
-	
+
 	protected void prepareExtendedPSDEFieldList(List<IDataEntityExtendLogic> list) throws Exception {
-		//加入
+		// 加入
 		Map<String, IPSDEField> psDEFieldMap = new LinkedHashMap<String, IPSDEField>();
 		Map<String, IPSDEField> dynaStoragePSDEFieldMap = new LinkedHashMap<String, IPSDEField>();
+		Map<String, IPSDEField> attachmentPSDEFieldMap = new LinkedHashMap<String, IPSDEField>();
 		List<IPSDEField> psDEFieldList = this.getPSDEFields();
-		for(IPSDEField iPSDEField : psDEFieldList) {
+		for (IPSDEField iPSDEField : psDEFieldList) {
 			psDEFieldMap.put(iPSDEField.getName(), iPSDEField);
 		}
-		
+
 		List<IPSDEField> dynaStoragePSDEFieldList = this.getDynaStoragePSDEFields();
-		if(!ObjectUtils.isEmpty(dynaStoragePSDEFieldList)) {
-			for(IPSDEField iPSDEField : dynaStoragePSDEFieldList) {
+		if (!ObjectUtils.isEmpty(dynaStoragePSDEFieldList)) {
+			for (IPSDEField iPSDEField : dynaStoragePSDEFieldList) {
 				dynaStoragePSDEFieldMap.put(iPSDEField.getName(), iPSDEField);
 			}
 		}
 		
+		List<IPSDEField> attachmentPSDEFieldList = this.getAttachmentPSDEFields();
+		if (!ObjectUtils.isEmpty(attachmentPSDEFieldList)) {
+			for (IPSDEField iPSDEField : attachmentPSDEFieldList) {
+				attachmentPSDEFieldMap.put(iPSDEField.getName(), iPSDEField);
+			}
+		}
+		
+
 		final List<IDataEntityExtendLogic> dataEntityExtendLogicList = this.getDataEntityExtendLogics();
-		if(!ObjectUtils.isEmpty(dataEntityExtendLogicList)) {
-			for(IDataEntityExtendLogic iDataEntityExtendLogic : dataEntityExtendLogicList) {
+		if (!ObjectUtils.isEmpty(dataEntityExtendLogicList)) {
+			for (IDataEntityExtendLogic iDataEntityExtendLogic : dataEntityExtendLogicList) {
 				List<IPSDEField> psDEFieldList2 = iDataEntityExtendLogic.getPSDEFields();
-				if(!ObjectUtils.isEmpty(psDEFieldList2)) {
-					for(IPSDEField iPSDEField : psDEFieldList2) {
-						if(psDEFieldMap.containsKey(iPSDEField.getName())) {
+				if (!ObjectUtils.isEmpty(psDEFieldList2)) {
+					for (IPSDEField iPSDEField : psDEFieldList2) {
+						if (psDEFieldMap.containsKey(iPSDEField.getName())) {
 							continue;
 						}
-						
+
 						IPSDEField iPSDEField2 = this.cloneExtendedPSDEField(iDataEntityExtendLogic, iPSDEField, null);
-						if(iPSDEField2 == null) {
+						if (iPSDEField2 == null) {
 							continue;
 						}
-						
-						//判断类型，构建新属性
+
+						// 判断类型，构建新属性
 						psDEFieldMap.put(iPSDEField2.getName(), iPSDEField2);
-						if(iPSDEField2.isDynaStorageDEField()) {
+						if(this.isDynaStoragePSDEField(iPSDEField2, false)) {
 							dynaStoragePSDEFieldMap.put(iPSDEField.getName(), iPSDEField2);
+						}
+						if(this.isAttachmentPSDEField(iPSDEField2, false)) {
+							attachmentPSDEFieldMap.put(iPSDEField.getName(), iPSDEField2);
 						}
 					}
 				}
 			}
 		}
-		
+
 		this.extendedPSDEFieldList = java.util.Collections.unmodifiableList(new ArrayList<IPSDEField>(psDEFieldMap.values()));
 		this.extendedDynaStoragePSDEFieldList = java.util.Collections.unmodifiableList(new ArrayList<IPSDEField>(dynaStoragePSDEFieldMap.values()));
+		this.extendedAttachmentPSDEFieldList = java.util.Collections.unmodifiableList(new ArrayList<IPSDEField>(attachmentPSDEFieldMap.values()));
 	}
 	
+	/**
+	 * 是否附件存储属性
+	 * @param iPSDEField
+	 * @return
+	 */
+	protected boolean isAttachmentPSDEField(IPSDEField iPSDEField, boolean bInherit) {
+		IPSDEField realPSDEField = iPSDEField;
+		if(bInherit) {
+			while (realPSDEField instanceof IPSInheritDEField) {
+				realPSDEField = ((IPSInheritDEField) realPSDEField).getRelatedPSDEFieldMust();
+			}
+		}
+		String strDataType = realPSDEField.getDataType();
+		if(DEFDataType.FILE.value.equals(strDataType)
+				|| DEFDataType.FILELIST.value.equals(strDataType)
+				|| DEFDataType.LONGFILELIST.value.equals(strDataType)
+				|| DEFDataType.PICTURE.value.equals(strDataType)
+				|| DEFDataType.PICTURELIST.value.equals(strDataType)
+				|| DEFDataType.LONGPICTURELIST.value.equals(strDataType)) {
+			return true;
+		}
+		return false;
+	}
+	
+	protected boolean isDynaStoragePSDEField(IPSDEField iPSDEField, boolean bInherit) {
+		IPSDEField realPSDEField = iPSDEField;
+		if(bInherit) {
+			while (realPSDEField instanceof IPSInheritDEField) {
+				realPSDEField = ((IPSInheritDEField) realPSDEField).getRelatedPSDEFieldMust();
+			}
+		}
+		return realPSDEField.isDynaStorageDEField();
+	}
+
 	protected IPSDEField cloneExtendedPSDEField(IDataEntityExtendLogic iDataEntityExtendLogic, IPSDEField iPSDEField, ObjectNode psDEFieldNode) throws Exception {
-		if(psDEFieldNode == null) {
-			if(iPSDEField.getDEFType() != DEFType.DYNASTORAGE.value && iPSDEField.getDEFType() != DEFType.PHISICAL.value) {
+		if (psDEFieldNode == null) {
+			if (iPSDEField.getDEFType() != DEFType.DYNASTORAGE.value && iPSDEField.getDEFType() != DEFType.PHISICAL.value) {
 				return null;
 			}
 			psDEFieldNode = iPSDEField.getObjectNode().deepCopy();
@@ -8234,9 +8458,9 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			psDEFieldNode.put(PSDEFieldImpl.ATTR_GETEXTENDMODE, DEExtendMode.SUBSYSEXTEND.value);
 		}
 
-		return this.getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime)this.getPSDataEntity(), IPSDEField.class, psDEFieldNode);
+		return this.getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) this.getPSDataEntity(), IPSDEField.class, psDEFieldNode);
 	}
-	
+
 	@Override
 	public synchronized void registerDERRuntimeBase(IDERRuntimeBase iDERRuntime) {
 
@@ -8282,7 +8506,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		return null;
 	}
-	
 
 	@Override
 	protected Object executeActionLogics(Object[] args, Object ret, IPSDEAction iPSDEAction, String strAttachMode, net.ibizsys.runtime.dataentity.IDynaInstDataEntityRuntime iDynaInstDataEntityRuntime, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
@@ -8307,8 +8530,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
 					ret = iDataEntityInheritLogic.executeActionLogics(this.getDataEntityRuntimeContext(), args, ret, iPSDEAction, strAttachMode);
 				}
-			}
-			finally {
+			} finally {
 				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
 			}
 		}
@@ -8340,9 +8562,9 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (super.isEnableActionLogic(iPSDEAction, strAttachMode)) {
 			return true;
 		}
-		
+
 		List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-		if(!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
 			return true;
 		}
 
@@ -8508,7 +8730,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 								if (parentTypePSDEField != null) {
 									strParentType = ((IPSDERCustom) iPSDERBase).getParentType();
 									if (!StringUtils.hasLength(strParentType)) {
-										//strParentType = refDataEntityRuntime.getName();
+										// strParentType =
+										// refDataEntityRuntime.getName();
 										strParentType = refDataEntityRuntime.getDERParentType();
 									}
 								}
@@ -8625,7 +8848,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 								if (parentTypePSDEField != null) {
 									strParentType = ((IPSDERCustom) iPSDERBase).getParentType();
 									if (!StringUtils.hasLength(strParentType)) {
-										//strParentType = iPSDERBase.getMajorPSDataEntityMust().getName();
+										// strParentType =
+										// iPSDERBase.getMajorPSDataEntityMust().getName();
 										strParentType = this.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId(), false).getDERParentType();
 									}
 								}
@@ -9016,20 +9240,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().checkEntityDynaFieldsBeforeProceed(arg0, strActionName, iPSDEAction);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try {
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.checkEntityDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.checkEntityDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(),
+		// arg0, strActionName, iPSDEAction);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.checkEntityDynaFieldsBeforeProceed(arg0, strActionName,
 		// iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
@@ -9039,20 +9266,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().translateEntityDynaFieldsBeforeProceed(arg0, strActionName, iPSDEAction);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try {
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.translateEntityDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.translateEntityDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(),
+		// arg0, strActionName, iPSDEAction);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.translateEntityDynaFieldsBeforeProceed(arg0, strActionName,
 		// iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
@@ -9062,20 +9292,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().translateEntityDynaFieldsAfterProceed(arg0, objRet, strActionName, iPSDEAction);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try { 
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.translateEntityDynaFieldsAfterProceed(this.getDataEntityRuntimeContext(), arg0, objRet, strActionName, iPSDEAction);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.translateEntityDynaFieldsAfterProceed(this.getDataEntityRuntimeContext(),
+		// arg0, objRet, strActionName, iPSDEAction);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.translateEntityDynaFieldsAfterProceed(arg0, objRet,
 		// strActionName, iPSDEAction, iPSDataEntity, iDynaInstRuntime,
 		// actionData);
@@ -9086,20 +9319,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().removeEntityDynaFieldsBeforeRemove(arg0, strActionName, iPSDEAction);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try {
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.removeEntityDynaFieldsBeforeRemove(this.getDataEntityRuntimeContext(), arg0, strActionName, iPSDEAction);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.removeEntityDynaFieldsBeforeRemove(this.getDataEntityRuntimeContext(),
+		// arg0, strActionName, iPSDEAction);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.removeEntityDynaFieldsBeforeRemove(arg0, strActionName,
 		// iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
@@ -9109,20 +9345,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().translateSearchContextDynaFieldsBeforeProceed(arg0, strDataSetName, iPSDEDataSet);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try {
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.translateSearchContextDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(), arg0, strDataSetName, iPSDEDataSet);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.translateSearchContextDynaFieldsBeforeProceed(this.getDataEntityRuntimeContext(),
+		// arg0, strDataSetName, iPSDEDataSet);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.translateSearchContextDynaFieldsBeforeProceed(arg0,
 		// strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime,
 		// actionData);
@@ -9134,25 +9373,26 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (this.isEnableDynaStorage() && this.getDEDynaStorageUtilRuntime() != null) {
 			this.getDEDynaStorageUtilRuntime().translateEntityDynaFieldsAfterProceed(arg0, list, strDataSetName, iPSDEDataSet);
 		}
-		
-//		final List<IDataEntityInheritLogic> dataEntityInheritLogicList = this.getDataEntityInheritLogics();
-//		if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
-//			try {
-//				DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
-//				for (IDataEntityInheritLogic iDataEntityInheritLogic : dataEntityInheritLogicList) {
-//					iDataEntityInheritLogic.translateEntityDynaFieldsAfterProceed(this.getDataEntityRuntimeContext(), arg0, list, strDataSetName, iPSDEDataSet);
-//				}
-//			}
-//			finally {
-//				DataEntityRuntimeHolder.pollChildDataEntityRuntime();
-//			}
-//		}
-		
+
+		// final List<IDataEntityInheritLogic> dataEntityInheritLogicList =
+		// this.getDataEntityInheritLogics();
+		// if (!ObjectUtils.isEmpty(dataEntityInheritLogicList)) {
+		// try {
+		// DataEntityRuntimeHolder.pushChildDataEntityRuntime(this);
+		// for (IDataEntityInheritLogic iDataEntityInheritLogic :
+		// dataEntityInheritLogicList) {
+		// iDataEntityInheritLogic.translateEntityDynaFieldsAfterProceed(this.getDataEntityRuntimeContext(),
+		// arg0, list, strDataSetName, iPSDEDataSet);
+		// }
+		// }
+		// finally {
+		// DataEntityRuntimeHolder.pollChildDataEntityRuntime();
+		// }
+		// }
+
 		// super.translatePageDynaFieldsAfterProceed(arg0, page, strDataSetName,
 		// iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
-
-
 
 	@Override
 	public IDENotifyRuntime createDENotifyRuntime(IPSDENotify iPSDENotify) {
@@ -10271,7 +10511,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			if (parentTypePSDEField != null) {
 				strParentType = iPSDERCustom.getParentType();
 				if (!StringUtils.hasLength(strParentType)) {
-					//strParentType = iPSDER1NBase.getMajorPSDataEntityMust().getName();
+					// strParentType =
+					// iPSDER1NBase.getMajorPSDataEntityMust().getName();
 					strParentType = this.getSystemRuntime().getDataEntityRuntime(iPSDER1NBase.getMajorPSDataEntityMust().getId(), false).getDERParentType();
 				}
 			}
@@ -10469,8 +10710,298 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		return true;
 	}
+
+	@Override
+	public Object convertEntityDTOFieldValue(String strFieldName, Object value) {
+		Assert.hasLength(strFieldName, "传入DTO属性名称无效");
+		if (value == null) {
+			return value;
+		}
+		IPSDEMethodDTOField iPSDEMethodDTOField = this.getDEMethodDTORuntime(this.getDefaultPSDEMethodDTO(), false).getPSDEMethodDTOField(strFieldName, true);
+		if (iPSDEMethodDTOField == null) {
+			iPSDEMethodDTOField = this.getDEMethodDTORuntime(this.getDefaultPSDEMethodDTO(), false).getPSDEMethodDTOFieldByDEField(strFieldName, true);
+		}
+		if (iPSDEMethodDTOField == null) {
+			return value;
+		}
+		return this.convertEntityDTOFieldValue(iPSDEMethodDTOField, value);
+	}
+
+	@Override
+	public Object convertEntityDTOFieldValue(IPSDEMethodDTOField iPSDEMethodDTOField, Object value) {
+		Assert.notNull(iPSDEMethodDTOField, "传入DTO属性模型对象无效");
+		if (value == null) {
+			return value;
+		}
+		if ((DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType()) || DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType()))) {
+			if (iPSDEMethodDTOField.getRefPSDataEntity() != null) {
+				IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
+				if (DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+					if (iPSDEMethodDTOField.isListMap()) {
+
+						if (!(value instanceof Map)) {
+							// 执行序列化，此处代码有问题
+							value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+						}
+
+						Map srcMap = (Map) value;
+						if(ObjectUtils.isEmpty(srcMap)) {
+							return value;
+						}
+						
+						for (Object key : srcMap.keySet()) {
+							Object item = srcMap.get(key);
+							if(item instanceof IEntityDTO) {
+								return value;
+							}
+							else
+								break;
+						}
+						
+						Map dtoMap = new LinkedHashMap();
+						for (Object key : srcMap.keySet()) {
+							try {
+								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), srcMap.get(key));
+								dtoMap.put(key, iDEMethodDTO);
+							} catch (Exception ex) {
+								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+							}
+						}
+
+						return dtoMap;
+					} else {
+						// 列表模式
+						if (!(value instanceof List)) {
+							value = refDataEntityRuntime.getSystemRuntime().deserialize(value, List.class);
+						}
+
+						List list = (List) value;
+						if(ObjectUtils.isEmpty(list)) {
+							return value;
+						}
+						
+						for (Object item : list) {
+							if(item instanceof IEntityDTO) {
+								return value;
+							}
+							else
+								break;
+						}
+						
+						List dtoList = new ArrayList();
+						for (Object item : list) {
+							try {
+								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), item);
+								dtoList.add(iDEMethodDTO);
+							} catch (Exception ex) {
+								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+							}
+						}
+						return dtoList;
+					}
+				} else {
+
+					if (!(value instanceof Map) && !(value instanceof IEntityDTO)) {
+						// 执行序列化，此处代码有问题
+						value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+					}
+					
+					if(value instanceof IEntityDTO) {
+						return value;
+					}
+					try {
+						return refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), value);
+					} catch (Exception ex) {
+						throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+					}
+				}
+			}
+		}
+		else
+			if(DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())
+					||DEMethodDTOFieldTypes.SIMPLES.equals(iPSDEMethodDTOField.getType())) {
+				int nStdDataType = iPSDEMethodDTOField.getStdDataType();
+				if(nStdDataType != DataTypes.UNKNOWN){
+					try {
+						if(DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())) {
+							return this.getSystemRuntime().convertValue(nStdDataType, value);
+						}
+						else {
+							return this.getSystemRuntime().convertListValue(nStdDataType, value);
+						}
+					} catch (Exception ex) {
+						throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]发生异常，%3$s", value, DataTypeUtils.getTypeName(nStdDataType), ex.getMessage())	,ex);
+					}
+				}
+			}
+		return value;
+	}
 	
+	@Override
+	public void rebuildCopyEntityDTO(IEntityDTO iEntityDTO, boolean bResetUncopyValues, boolean bFillDefaultValues) throws Throwable {
+		Assert.notNull(iEntityDTO, "未传入DTO数据对象");
+		prepare();
+		
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		boolean bOpenActionSession = (actionSession == null);
+		if (bOpenActionSession) {
+			actionSession = ActionSessionManager.openSession();
+			actionSession.setName(this.getName());
+			actionSession.setDEName(this.getName());
+			actionSession.setUserContext(this.getUserContext());
+		}
+		
+		try {
+			onRebuildCopyEntityDTO(iEntityDTO, bResetUncopyValues, bFillDefaultValues);
+			if(bOpenActionSession) {
+				ActionSessionManager.closeSession(true);
+			}
+		} catch (Throwable ex) {
+
+			DataEntityRuntimeException.rethrow(this, ex);
+			if(bOpenActionSession) {
+				ActionSessionManager.closeSession(false);
+			}
+			
+			throw new DataEntityRuntimeException(this, String.format("重建拷贝数据对象发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	protected void onRebuildCopyEntityDTO(IEntityDTO iEntityDTO, boolean bResetUncopyValues, boolean bFillDefaultValues) throws Throwable {
+
+		IDEMethodDTORuntime iDEMethodDTORuntime = iEntityDTO.getDEMethodDTORuntime();
+		if (iDEMethodDTORuntime == null) {
+			return;
+		}
+
+		List<IPSDEMethodDTOField> psDEMethodDTOFieldList = iDEMethodDTORuntime.getPSDEMethodDTO().getPSDEMethodDTOFields();
+		if (ObjectUtils.isEmpty(psDEMethodDTOFieldList)) {
+			return;
+		}
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
+		Object originKey = iEntityDTO.get(this.getKeyPSDEField().getLowerCaseName());
+		iEntityDTO.reset(this.getKeyPSDEField().getLowerCaseName());
+		
+		if(bResetUncopyValues) {
+			java.util.List<IPSDEField> psDEFields = this.getPSDEFields(true);
+			if (psDEFields != null) {
+				for (IPSDEField iPSDEField : psDEFields) {
+					if (iPSDEField.isKeyDEField() || iPSDEField.isUniTagField()) {
+						iEntityDTO.reset(iPSDEField.getLowerCaseName());
+						continue;
+					}
+					
+					if(iPSDEField.isPasteReset()) {
+						iEntityDTO.reset(iPSDEField.getLowerCaseName());
+					}
+				}
+			}
+		}
+		
+		if(bFillDefaultValues) {
+			this.fillEntityDefaultValues(iEntityDTO, DEActions.COPY);
+		}
 	
+		
+//		for (IPSDEMethodDTOField iPSDEMethodDTOField : psDEMethodDTOFieldList) {
+//
+//			if (DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())) {
+//				Object value = iEntityDTO.get(iPSDEMethodDTOField.getLowerCaseName());
+//				if (ObjectUtils.isEmpty(value)) {
+//					continue;
+//				}
+//
+//				if (iPSDEMethodDTOField.getPSDEField() != null) {
+//					// 判断是否为引用值
+//					if (iPSDEMethodDTOField.getPSDEField() instanceof IPSPickupDEField) {
+//						IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEMethodDTOField.getPSDEField();
+//						if (iPSPickupDEField.getPSDERMust() instanceof IPSDER1N) {
+//							IPSDER1N iPSDER1N = (IPSDER1N) iPSPickupDEField.getPSDERMust();
+//							String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, iPSDER1N.getMajorPSDataEntityMust().getId(), value);
+//							Object cache = actionSession.getActionParam(strTag);
+//							if(cache instanceof IEntityDTO) {
+//								IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDER1N.getMajorPSDataEntityMust().getId());
+//								IEntityDTO cacheEntityDTO = (IEntityDTO)cache;
+//								iEntityDTO.set(iPSDEMethodDTOField.getLowerCaseName(), majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
+//							}
+//						}
+//						continue;
+//					}
+//				}
+//			}
+//		}
+
+		if (!ObjectUtils.isEmpty(this.getPSDERBases())){
+			for(IPSDERBase ipsderBase: this.getPSDERBases()){
+				if(ipsderBase instanceof  IPSDER1NBase) {
+					IPSDER1NBase iPSDER1N = (IPSDER1NBase) ipsderBase;
+					if (iPSDER1N.getPickupPSDEField() != null) {
+						Object value = iEntityDTO.get(iPSDER1N.getPickupPSDEField().getLowerCaseName());
+						if (ObjectUtils.isEmpty(value)) {
+							continue;
+						}
+						String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, iPSDER1N.getMajorPSDataEntityMust().getId(), value);
+						Object cache = actionSession.getActionParam(strTag);
+						if (cache instanceof IEntityDTO) {
+							IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDER1N.getMajorPSDataEntityMust().getId());
+							IEntityDTO cacheEntityDTO = (IEntityDTO) cache;
+							iEntityDTO.set(iPSDER1N.getPickupPSDEField().getLowerCaseName(), majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
+						}
+					}
+				}
+			}
+		}
+		
+		//重新填充键值
+		this.fillEntityKeyValue(iEntityDTO);
+		
+		String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, this.getId(), originKey);
+		actionSession.setActionParam(strTag, iEntityDTO);
+		
+		
+		for (IPSDEMethodDTOField iPSDEMethodDTOField : psDEMethodDTOFieldList) {
+			if (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType()) || DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+
+				Object value = iEntityDTO.get(iPSDEMethodDTOField.getLowerCaseName());
+				if (ObjectUtils.isEmpty(value)) {
+					continue;
+				}
+				
+				if (iPSDEMethodDTOField.getRefPSDataEntity() == null) {
+					continue;
+				}
+
+				IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntimeContext().getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
+				if (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType()) && iPSDEMethodDTOField.getPSDEField() instanceof IPSPickupObjectDEField) {
+					if (value instanceof IEntityDTO) {
+						refDataEntityRuntime.rebuildCopyEntityDTO((IEntityDTO) value, bResetUncopyValues, bFillDefaultValues);
+					}
+					continue;
+				}
+
+				Collection<?> collection = null;
+
+				if (value instanceof List) {
+					collection = (List) value;
+				} else if (value instanceof Map) {
+					collection = ((Map) value).values();
+				}
+
+				if (!ObjectUtils.isEmpty(collection)) {
+					for (Object item : collection) {
+						if (!(item instanceof IEntityDTO)) {
+							continue;
+						}
+						refDataEntityRuntime.rebuildCopyEntityDTO((IEntityDTO) item, bResetUncopyValues, bFillDefaultValues);
+					}
+				}
+
+				continue;
+
+			}
+		}
+	}
 
 	@Override
 	protected void onShutdown() throws Exception {
@@ -10553,26 +11084,24 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		if (!ObjectUtils.isEmpty(this.defValueRuleRuntimeBaseListMap)) {
 			this.defValueRuleRuntimeBaseListMap.clear();
 		}
-		
+
 		if (!ObjectUtils.isEmpty(this.defValueRuleRuntimeBaseListMap)) {
 			this.defValueRuleRuntimeBaseListMap.clear();
 		}
-		
+
 		if (!ObjectUtils.isEmpty(this.dataEntityInheritLogicListMap)) {
 			this.dataEntityInheritLogicListMap.clear();
 		}
-		
+
 		if (!ObjectUtils.isEmpty(this.dataEntityExtendLogicListMap)) {
 			this.dataEntityExtendLogicListMap.clear();
 		}
-		
+
 		if (!ObjectUtils.isEmpty(this.derRuntimeBaseListMap)) {
 			this.derRuntimeBaseListMap.clear();
 		}
-		
+
 		super.onShutdown();
 	}
-
-	
 
 }

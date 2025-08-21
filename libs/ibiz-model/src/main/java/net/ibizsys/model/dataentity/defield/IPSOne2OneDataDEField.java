@@ -12,8 +12,6 @@ public interface IPSOne2OneDataDEField extends net.ibizsys.model.dataentity.defi
 	
 	/**
 	 * 获取一对一关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_O2OPSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDER();

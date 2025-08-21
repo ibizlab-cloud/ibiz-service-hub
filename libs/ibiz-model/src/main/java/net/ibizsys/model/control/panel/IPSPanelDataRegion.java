@@ -20,8 +20,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	/**
 	 * 获取数据区域类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DATAPANELMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataPanelMode}
 	 * @return
 	 */
@@ -31,8 +29,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	/**
 	 * 获取数据源类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DATASOURCE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataPanelSource}
 	 * @return
 	 */
@@ -41,8 +37,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	
 	/**
 	 * 获取应用实体处理逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDELogic getPSAppDELogic();
@@ -57,8 +51,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	
 	/**
 	 * 获取应用实体方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEACTIONID}、{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod();
@@ -73,8 +65,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	
 	/**
 	 * 获取应用实体
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
@@ -89,8 +79,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	
 	/**
 	 * 获取数据刷新间隔(ms)
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_GETDATATIMER}
 	 * @return
 	 */
 	int getReloadTimer();
@@ -105,8 +93,6 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	
 	/**
 	 * 获取是否显示处理提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BUSYINDICATOR}
 	 * @return
 	 */
 	boolean isShowBusyIndicator();

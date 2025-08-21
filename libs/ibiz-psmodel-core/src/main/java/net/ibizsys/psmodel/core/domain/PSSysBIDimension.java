@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIDIMENSION</B>智能报表维度 模型传输对象
  * <P>
- * 
+ * 智能报表体系中的基础维度定义模型，用于全局定义业务分析中可复用的维度（如时间、地区、产品类别等）。它通过层级体系（Hierarchy）构建多维分析结构，并被立方体维度引用，实现跨立方体的统一维度管理
  */
 public class PSSysBIDimension extends net.ibizsys.psmodel.core.util.PSModelBase {
 

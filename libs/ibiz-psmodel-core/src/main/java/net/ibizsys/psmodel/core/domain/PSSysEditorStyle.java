@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSEDITORSTYLE</B>系统编辑器样式 模型传输对象
  * <P>
- * 定义系统全局的编辑器样式，包括了使用的模板插件及其它配置信息。系统编辑器样式可被使用编辑器的场合显示指定使用，或是直接替换默认的编辑器类型，实现全局替换
+ * 定义系统全局的编辑器样式，包括了使用的模板插件及其它配置信息。系统编辑器样式可被使用编辑器的场合显示指定使用，或是直接替换编辑器类型默认样式，实现全局界面统一
  */
 public class PSSysEditorStyle extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -1823,6 +1823,8 @@ public class PSSysEditorStyle extends net.ibizsys.psmodel.core.util.PSModelBase 
     /**
      * <B>PSEDITORTYPEID</B>&nbsp;编辑器类型
      * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.EditorType} 
+     * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSEditorType} 
      */
     public final static String FIELD_PSEDITORTYPEID = "pseditortypeid";
@@ -2623,7 +2625,7 @@ public class PSSysEditorStyle extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>REPDEFAULT</B>&nbsp;替换默认样式，指定将此编辑器样式作为当前编辑器类型的默认样式，默认为【否】
+     * <B>REPDEFAULT</B>&nbsp;替换默认样式，指定将此编辑器样式作为当前系统该编辑器类型的默认样式，统一界面呈现，默认为【否】。
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */

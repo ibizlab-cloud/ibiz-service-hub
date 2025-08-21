@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.unistate;
 
 
 /**
- * 实体统一状态模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO}运行时对象
+ * 实体统一状态模型对象接口
  *
  */
 public interface IPSDEUniState extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEUniState extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取代码标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNIQUETAG}
 	 * @return
 	 */
 	java.lang.String getCodeName();
@@ -35,8 +33,6 @@ public interface IPSDEUniState extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取是否实体默认
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_DEDEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();

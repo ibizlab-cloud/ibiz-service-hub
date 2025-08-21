@@ -22,6 +22,7 @@ import net.ibizsys.central.cloud.open.core.addin.OpenAccessAgentBase;
 import net.ibizsys.central.service.client.IWebClientRep;
 import net.ibizsys.central.util.ISearchContext;
 import net.ibizsys.central.util.SearchContextDTO;
+import net.ibizsys.runtime.msg.MsgTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.domain.MsgSendQueue;
@@ -40,6 +41,11 @@ public class WXWorkOpenAccessAgent extends OpenAccessAgentBase {
 		return ICloudOpenUtilRuntime.OPENPLATFORM_WXWORK;
 	}
 
+	@Override
+	public int getSupportMsgType() {
+		return MsgTypes.WXWORK;
+	}
+	
 	@Override
 	protected String doRequestToken() throws Throwable {
 		
@@ -210,7 +216,10 @@ public class WXWorkOpenAccessAgent extends OpenAccessAgentBase {
 		if (ObjectUtils.isEmpty(strDstUsers)) {
 			throw new Exception("未指定目标用户");
 		}
-
+		Integer strMsgType = DataTypeUtils.getIntegerValue(msgSendQueue.getMsgType(), 0);
+		if (strMsgType != MsgTypes.WXWORK) {
+			throw new Exception("非当前代理对象类型消息");
+		}
 		if (strDstUsers.indexOf("[") == 0) {
 			ArrayNode arrayNode = JsonUtils.toArrayNode(strDstUsers);
 			for (int i = 0; i < arrayNode.size(); i++) {

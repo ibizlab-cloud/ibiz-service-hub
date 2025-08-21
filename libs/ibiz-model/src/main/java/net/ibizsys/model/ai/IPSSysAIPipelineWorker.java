@@ -3,7 +3,7 @@ package net.ibizsys.model.ai;
 
 
 /**
- * AI工厂生产线工作者模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysAIPipelineWorkerDTO}运行时对象
+ * AI工厂生产线工作者模型对象接口
  *
  */
 public interface IPSSysAIPipelineWorker extends net.ibizsys.model.ai.IPSAIPipelineWorker
@@ -13,8 +13,6 @@ public interface IPSSysAIPipelineWorker extends net.ibizsys.model.ai.IPSAIPipeli
 	
 	/**
 	 * 获取AI工作者代理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAIPipelineWorkerDTO#FIELD_PSSYSAIWORKERAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.ai.IPSSysAIWorkerAgent getPSSysAIWorkerAgent();

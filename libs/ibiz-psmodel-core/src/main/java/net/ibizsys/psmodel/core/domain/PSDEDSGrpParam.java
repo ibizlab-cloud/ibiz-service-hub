@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDEDSGRPPARAM</B>实体数据集分组参数 模型传输对象
  * <P>
- * 实体数据集合的分组项模型，定义数据分组及聚合操作逻辑
+ * 实体数据集合启用分组（GROUP）是配套的分组模型，定义数据分组及聚合操作逻辑等
  */
 public class PSDEDSGrpParam extends net.ibizsys.psmodel.core.util.PSModelBase {
 

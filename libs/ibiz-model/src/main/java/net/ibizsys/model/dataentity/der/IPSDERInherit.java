@@ -16,8 +16,6 @@ public interface IPSDERInherit extends net.ibizsys.model.dataentity.der.IPSDERBa
 	/**
 	 * 获取继承处理模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDTO#FIELD_INHERITMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERInheritMode}
 	 * @return
 	 */

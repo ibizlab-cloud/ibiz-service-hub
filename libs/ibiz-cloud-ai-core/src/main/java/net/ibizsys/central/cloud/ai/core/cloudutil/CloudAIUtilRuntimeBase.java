@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import net.ibizsys.central.cloud.ai.core.addin.IAIAccessAgent;
 import net.ibizsys.central.cloud.ai.core.addin.IAIPlatform;
 import net.ibizsys.central.cloud.ai.core.addin.ICloudAIUtilRTAddin;
+import net.ibizsys.central.cloud.ai.core.addin.IMcpServerAgent;
+import net.ibizsys.central.cloud.ai.core.addin.IMcpServerProvider;
 import net.ibizsys.central.cloud.core.cloudutil.CloudUtilRuntimeBase;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
@@ -28,6 +30,7 @@ import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
+import net.ibizsys.central.cloud.core.util.domain.McpServer;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.util.IAction;
@@ -46,11 +49,19 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:BAICHUAN", "net.ibizsys.central.cloud.ai.baichuanai.addin.BaichuanAIPlatform");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:OLLAMA", "net.ibizsys.central.cloud.ai.ollama.addin.OllamaPlatform");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:QWEN", "net.ibizsys.central.cloud.ai.core.addin.QwenPlatform");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:RAGFLOW", "net.ibizsys.central.cloud.ai.core.addin.RAGFlowPlatform");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "MCPSERVER:DEFAULT", "net.ibizsys.central.cloud.ai.core.addin.DefaultMcpServerProvider");
 	}
 
 	private Map<String, IAIAccessAgent> aiAccessAgentMap = new HashMap<String, IAIAccessAgent>();
 	private Map<String, IAIPlatform> aiPlatformMap = null;
 	private Map<String, IConfigListener> aiAccessConfigListenerMap = new HashMap<String, IConfigListener>();
+	
+	private Map<String, IMcpServerAgent> mcpServerAgentMap = new HashMap<String, IMcpServerAgent>();
+	private Map<String, IMcpServerProvider> mcpServerProviderMap = null;
+	private Map<String, IConfigListener> mcpServerConfigListenerMap = new HashMap<String, IConfigListener>();
+	
 	
 	
 	private String strCloudAIUtilRuntimeUniqueTag = null;
@@ -95,7 +106,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 
 		this.strCloudAIUtilRuntimeUniqueTag = KeyValueUtils.genUniqueId(ICloudAIUtilRuntime.class.getCanonicalName(), ICloudUtilRuntime.CLOUDSERVICE_AI);
 		this.aiPlatformMap = this.getAddins(IAIPlatform.class, ADDIN_AIPLATFORM_PREFIX);
-
+		this.mcpServerProviderMap = this.getAddins(IMcpServerProvider.class, ADDIN_MCPSERVER_PREFIX);
 	}
 
 	@Override
@@ -121,19 +132,40 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		super.onReloadSetting(bFirst);
 		
 		if(!bFirst) {
-			List<IAIAccessAgent> list = new ArrayList<IAIAccessAgent>();
-			synchronized (this.aiAccessAgentMap) {
-				list.addAll(this.aiAccessAgentMap.values());
-				this.aiAccessAgentMap.clear();
+			if(true) {
+				List<IAIAccessAgent> list = new ArrayList<IAIAccessAgent>();
+				synchronized (this.aiAccessAgentMap) {
+					list.addAll(this.aiAccessAgentMap.values());
+					this.aiAccessAgentMap.clear();
+				}
+				
+				if(!ObjectUtils.isEmpty(list)) {
+					for(IAIAccessAgent iAIAccessAgent : list) {
+						try {
+							iAIAccessAgent.stop();
+						}
+						catch (Exception ex) {
+							log.error(String.format("停止AI应用代理[%1$s]发生异常，%2$s", iAIAccessAgent.getName(), ex.getMessage()), ex);
+						}
+					}
+				}
 			}
 			
-			if(!ObjectUtils.isEmpty(list)) {
-				for(IAIAccessAgent iAIAccessAgent : list) {
-					try {
-						iAIAccessAgent.stop();
-					}
-					catch (Exception ex) {
-						log.error(String.format("停止AI应用代理[%1$s]发生异常，%2$s", iAIAccessAgent.getName(), ex.getMessage()), ex);
+			if(true) {
+				List<IMcpServerAgent> list = new ArrayList<IMcpServerAgent>();
+				synchronized (this.mcpServerAgentMap) {
+					list.addAll(this.mcpServerAgentMap.values());
+					this.mcpServerAgentMap.clear();
+				}
+				
+				if(!ObjectUtils.isEmpty(list)) {
+					for(IMcpServerAgent iMcpServerAgent : list) {
+						try {
+							iMcpServerAgent.stop();
+						}
+						catch (Exception ex) {
+							log.error(String.format("停止McpServer代理[%1$s]发生异常，%2$s", iMcpServerAgent.getName(), ex.getMessage()), ex);
+						}
 					}
 				}
 			}
@@ -442,6 +474,108 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	protected void setSimpleAgent(String strSimpleAgent) {
 		this.strSimpleAgent = strSimpleAgent;
 	}
+	
+	
+	protected IMcpServerAgent getMcpServerAgent(String strMcpServerId) throws Throwable {
+
+		strMcpServerId = strMcpServerId.toUpperCase();
+
+		IMcpServerAgent iMcpServerAgent = this.mcpServerAgentMap.get(strMcpServerId);
+		if (iMcpServerAgent != null) {
+			return iMcpServerAgent;
+		}
+
+		McpServer mcpServer = getMcpServer(strMcpServerId);
+		IMcpServerProvider iMcpServerProvider = getMcpServerProvider(mcpServer.getType().toUpperCase());
+		return this.onGetMcpServerAgent(iMcpServerProvider, mcpServer);
+	}
+
+	protected synchronized IMcpServerAgent onGetMcpServerAgent(IMcpServerProvider iMcpServerProvider, McpServer mcpServer) throws Throwable {
+
+		synchronized (this.mcpServerAgentMap) {
+			IMcpServerAgent iMcpServerAgent = this.mcpServerAgentMap.get(mcpServer.getId());
+			if (iMcpServerAgent != null) {
+				return iMcpServerAgent;
+			}
+
+			iMcpServerAgent = iMcpServerProvider.createMcpServerAgent(mcpServer);
+			iMcpServerAgent.init(this.getModelRuntimeContext(), mcpServer);
+			iMcpServerAgent.start();
+			this.mcpServerAgentMap.put(mcpServer.getId(), iMcpServerAgent);
+			return iMcpServerAgent;
+		}
+		
+	}
+	
+	protected void resetMcpServerAgent(String strMcpServerId) {
+		IMcpServerAgent iMcpServerAgent = null;
+		synchronized (this.mcpServerAgentMap) {
+			iMcpServerAgent = this.mcpServerAgentMap.remove(strMcpServerId);
+		}
+		if(iMcpServerAgent!=null) {
+			try {
+				iMcpServerAgent.stop();
+			}
+			catch (Exception ex) {
+				log.error(String.format("停止McpServer代理[%1$s]发生异常，%2$s", iMcpServerAgent.getName(), ex.getMessage()), ex);
+			}
+		}
+	}
+
+	protected IMcpServerProvider getMcpServerProvider(String strMcpServerProviderType) throws Throwable {
+
+		IMcpServerProvider iMcpServerProvider = this.mcpServerProviderMap.get(strMcpServerProviderType);
+		if (iMcpServerProvider != null) {
+			return iMcpServerProvider;
+		}
+
+		throw new Exception(String.format("无法获取指定McpServer提供器对象[%1$s]", strMcpServerProviderType));
+	}
+
+	public McpServer getMcpServer(String strMcpServerId) {
+		McpServer mcpServer = new McpServer();
+
+		Map<String, Object> params = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".mcpserver." + strMcpServerId.toLowerCase(), null);
+		if (ObjectUtils.isEmpty(params)) {
+			// 尝试从Cloud获取
+			String strConfigId = String.format("%1$s-mcpserver-%2$s", getCloudConfigId(), strMcpServerId.toLowerCase());
+			String strConfig = ServiceHub.getInstance().getConfig(strConfigId);
+			if (StringUtils.hasLength(strConfig)) {
+				ConfigEntity configEntity = new ConfigEntity(strConfig);
+				params = configEntity.any();
+			}
+			
+			synchronized (this.mcpServerConfigListenerMap) {
+				if(!this.mcpServerConfigListenerMap.containsKey(strConfigId)) {
+					IConfigListener iConfigListener = new IConfigListener() {
+						@Override
+						public void receiveConfigInfo(String configInfo) {
+							resetMcpServerAgent(strMcpServerId);
+						}
+						
+						@Override
+						public Executor getExecutor() {
+							return null;
+						}
+					};
+					ServiceHub.getInstance().addConfigListener(strConfigId, iConfigListener);
+					this.mcpServerConfigListenerMap.put(strConfigId, iConfigListener);
+				}
+			}
+		}
+
+		if (!ObjectUtils.isEmpty(params)) {
+			mcpServer.putAll(params);
+		}
+
+		mcpServer.setId(strMcpServerId);
+		if(!StringUtils.hasLength(mcpServer.getType())) {
+			mcpServer.setType(MCPSERVER_DEFAULT);
+		}
+
+		return mcpServer;
+	}
+	
 
 	protected String getCloudAIUtilRuntimeUniqueTag() {
 		return this.strCloudAIUtilRuntimeUniqueTag;

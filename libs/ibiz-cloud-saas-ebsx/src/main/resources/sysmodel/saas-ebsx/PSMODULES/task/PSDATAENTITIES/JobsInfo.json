@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "HANDLER",
+        "codeName" : "Handler"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -260,15 +268,6 @@
       "output" : true
     },
     "getPSDEActionParams" : [ {
-      "name" : "STATUS",
-      "getPSDEField" : {
-        "name" : "STATUS",
-        "codeName" : "Status"
-      },
-      "stdDataType" : 9,
-      "value" : "1",
-      "valueType" : "VALUE"
-    }, {
       "name" : "LAST_TIME",
       "getPSDEField" : {
         "name" : "LAST_TIME",
@@ -276,6 +275,15 @@
       },
       "stdDataType" : 1,
       "value" : "0",
+      "valueType" : "VALUE"
+    }, {
+      "name" : "STATUS",
+      "getPSDEField" : {
+        "name" : "STATUS",
+        "codeName" : "Status"
+      },
+      "stdDataType" : 9,
+      "value" : "1",
       "valueType" : "VALUE"
     }, {
       "name" : "NEXT_TIME",
@@ -650,6 +658,7 @@
     "length" : 100,
     "logicName" : "主键ID",
     "name" : "ID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -774,6 +783,7 @@
     "length" : 400,
     "logicName" : "实例标识（真实）",
     "name" : "TENANT_ID",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -926,6 +936,7 @@
     "length" : 100,
     "logicName" : "服务名",
     "name" : "APP",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1069,6 +1080,7 @@
     "length" : 100,
     "logicName" : "任务执行CRON",
     "name" : "CRON",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1200,6 +1212,7 @@
     "length" : 255,
     "logicName" : "执行器任务HANDLER",
     "name" : "HANDLER",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1324,6 +1337,7 @@
     "length" : 4000,
     "logicName" : "执行器任务参数",
     "name" : "PARAM",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1435,6 +1449,7 @@
     "importOrder" : 1000,
     "logicName" : "任务执行超时时间（秒）",
     "name" : "TIMEOUT",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1549,6 +1564,7 @@
     "importOrder" : 1000,
     "logicName" : "失败重试次数",
     "name" : "FAIL_RETRY_COUNT",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1654,6 +1670,7 @@
     "importOrder" : 1000,
     "logicName" : "上次调度时间",
     "name" : "LAST_TIME",
+    "orderValue" : 9,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1758,6 +1775,7 @@
     "importOrder" : 1000,
     "logicName" : "下次调度时间",
     "name" : "NEXT_TIME",
+    "orderValue" : 10,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1878,6 +1896,7 @@
     "length" : 30,
     "logicName" : "所有者",
     "name" : "AUTHOR",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1999,6 +2018,7 @@
     "length" : 30,
     "logicName" : "备注",
     "name" : "REMARK",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2118,6 +2138,7 @@
     "importOrder" : 1000,
     "logicName" : "状态",
     "name" : "STATUS",
+    "orderValue" : 13,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSCODELISTS/JobsStatus.json"
@@ -2232,6 +2253,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "更新时间",
     "name" : "UPDATE_TIME",
+    "orderValue" : 21,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2347,6 +2369,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATE_TIME",
+    "orderValue" : 22,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2448,6 +2471,7 @@
     "length" : 100,
     "logicName" : "租户",
     "name" : "SRFDCID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2558,6 +2582,7 @@
     "length" : 100,
     "logicName" : "动态实例标识",
     "name" : "SYSDYNAINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2665,6 +2690,7 @@
     "length" : 100,
     "logicName" : "任务类型",
     "name" : "TASKTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskType.json"
@@ -2776,6 +2802,7 @@
     "length" : 100,
     "logicName" : "预定义类型",
     "name" : "PREDEFINEDTYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSCODELISTS/SysBackendTaskPredefinedType.json"
@@ -2912,6 +2939,7 @@
     "length" : 200,
     "logicName" : "系统",
     "name" : "APPNAME",
+    "orderValue" : 1000,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/task/PSDATAENTITIES/JobsInfo/PSDERS/DER1N_JOBS_INFO_SYS_DC_SYSTEM_DCSYSTEMID.json"

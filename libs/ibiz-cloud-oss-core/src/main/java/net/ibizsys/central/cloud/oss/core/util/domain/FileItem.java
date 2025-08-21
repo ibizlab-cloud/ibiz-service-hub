@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.runtime.util.domain.File;
 
 /**
@@ -24,6 +25,9 @@ public class FileItem extends File {
 	 * 预览类型
 	 */
 	public final static String FIELD_PREVIEWTYPE = "previewtype";
+	
+	
+	
 
 	@JsonIgnore
 	public String getPreviewType() {
@@ -70,6 +74,29 @@ public class FileItem extends File {
 		return this.contains(FIELD_PREVIEWINFO);
 	}
 	
+	/**
+	 * 下载凭证
+	 */
+	public final static String FIELD_TICKET = "ticket";
+	
+	@JsonIgnore
+	public DownloadTicket getTicket() {
+		Object objValue = this.get(FIELD_TICKET);
+		if (objValue == null) {
+			return null;
+		}
+		return (DownloadTicket) objValue;
+	}
+
+	@JsonProperty(FIELD_TICKET)
+	public void setTicket(DownloadTicket downloadTicket) {
+		this.set(FIELD_TICKET, downloadTicket);
+	}
+
+	@JsonIgnore
+	public boolean isTicketDirty() {
+		return this.contains(FIELD_TICKET);
+	}
 	
 	
 	

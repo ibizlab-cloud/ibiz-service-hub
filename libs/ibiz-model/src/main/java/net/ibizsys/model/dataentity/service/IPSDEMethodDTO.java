@@ -4,8 +4,6 @@ package net.ibizsys.model.dataentity.service;
 
 /**
  * 实体方法DTO对象接口
- * <P>
- * 子接口扩展识别值 {@link #getType}
  *
  */
 public interface IPSDEMethodDTO extends net.ibizsys.model.dataentity.IPSDataEntityObject{

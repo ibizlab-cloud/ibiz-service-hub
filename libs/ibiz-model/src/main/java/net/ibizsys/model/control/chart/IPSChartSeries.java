@@ -3,7 +3,7 @@ package net.ibizsys.model.control.chart;
 
 
 /**
- * 图表数据序列模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO}运行时对象
+ * 图表数据序列模型基础对象接口
  *
  */
 public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
@@ -20,8 +20,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -36,8 +34,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -45,8 +41,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取分类属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_XFIELD}
 	 * @return
 	 */
 	java.lang.String getCatalogField();
@@ -54,8 +48,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取分类代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_XFPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getCatalogPSCodeList();
@@ -70,8 +62,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_DATAFIELD}
 	 * @return
 	 */
 	java.lang.String getDataField();
@@ -88,8 +78,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取扩展值2属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_EXTFIELD2}
 	 * @return
 	 */
 	java.lang.String getExtValue2Field();
@@ -97,8 +85,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取扩展值3属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_EXTFIELD3}
 	 * @return
 	 */
 	java.lang.String getExtValue3Field();
@@ -106,8 +92,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取扩展值4属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_EXTFIELD4}
 	 * @return
 	 */
 	java.lang.String getExtValue4Field();
@@ -115,8 +99,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取扩展值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_EXTFIELD}
 	 * @return
 	 */
 	java.lang.String getExtValueField();
@@ -124,8 +106,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取分组模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_TIMEGROUP}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartSeriesGroupMode}
 	 * @return
@@ -135,8 +115,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取序列标识属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_ZFIELD}
 	 * @return
 	 */
 	java.lang.String getIdField();
@@ -200,8 +178,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取序列名称属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_SERIESFIELD}
 	 * @return
 	 */
 	java.lang.String getSeriesField();
@@ -209,8 +185,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取结果集行列模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_SERIESLAYOUTBY}
 	 * @return
 	 */
 	java.lang.String getSeriesLayoutBy();
@@ -218,8 +192,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取序列代码表对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_SFPSCODELISTID}
 	 * @return
 	 */
 	net.ibizsys.model.codelist.IPSCodeList getSeriesPSCodeList();
@@ -235,8 +207,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取图形类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_CHARTTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartType}
 	 * @return
 	 */
@@ -245,8 +215,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标记属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_TAGFIELD}
 	 * @return
 	 */
 	java.lang.String getTagField();
@@ -254,8 +222,6 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取值属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO#FIELD_YFIELD}
 	 * @return
 	 */
 	java.lang.String getValueField();

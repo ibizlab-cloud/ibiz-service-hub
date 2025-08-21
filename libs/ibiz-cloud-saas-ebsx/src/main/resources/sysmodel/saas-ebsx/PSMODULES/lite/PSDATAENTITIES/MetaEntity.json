@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ENTITYID",
+        "codeName" : "EntityId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ENTITYNAME",
+        "codeName" : "EntityName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -565,6 +573,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "ENTITYID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -697,6 +706,7 @@
     "length" : 100,
     "logicName" : "实体名",
     "name" : "ENTITYNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -825,6 +835,7 @@
     "length" : 100,
     "logicName" : "逻辑名称",
     "name" : "LOGICNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -950,6 +961,7 @@
     "length" : 100,
     "logicName" : "代码名称",
     "name" : "CODENAME",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1075,6 +1087,7 @@
     "length" : 100,
     "logicName" : "表名称",
     "name" : "TABLENAME",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1216,6 +1229,7 @@
     "length" : 100,
     "logicName" : "系统标识",
     "name" : "SYSTEMID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1412,6 +1426,7 @@
     "length" : 100,
     "logicName" : "系统",
     "name" : "SYSTEMNAME",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1578,6 +1593,7 @@
     "length" : 100,
     "logicName" : "数据源标识",
     "name" : "DSID",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1773,6 +1789,7 @@
     "length" : 100,
     "logicName" : "数据源",
     "name" : "DSNAME",
+    "orderValue" : 9,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDERS/DER1N_META_ENTITY_DST_DATASOURCE_DSID.json"
@@ -1933,6 +1950,7 @@
     "length" : 100,
     "logicName" : "模块标识",
     "name" : "MODULEID",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2128,6 +2146,7 @@
     "length" : 100,
     "logicName" : "模块",
     "name" : "MODULENAME",
+    "orderValue" : 12,
     "getPSDER" : {
       "modelref" : true,
       "path" : "PSMODULES/lite/PSDATAENTITIES/MetaEntity/PSDERS/DER1N_META_ENTITY_META_MODULE_MODULEID.json"
@@ -2266,6 +2285,7 @@
     "length" : 1048576,
     "logicName" : "扩展参数",
     "name" : "EXTPARAMS",
+    "orderValue" : 20,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2370,6 +2390,7 @@
     "importOrder" : 1000,
     "logicName" : "排序",
     "name" : "SHOWORDER",
+    "orderValue" : 49,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2477,6 +2498,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "orderValue" : 100,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2586,6 +2608,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "最后修改时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 101,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2690,6 +2713,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

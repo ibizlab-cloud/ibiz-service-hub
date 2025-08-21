@@ -3,7 +3,7 @@ package net.ibizsys.model.app;
 
 
 /**
- * 应用语言模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppLanDTO}运行时对象
+ * 应用语言模型对象接口
  *
  */
 public interface IPSAppLan extends net.ibizsys.model.app.IPSApplicationObject
@@ -34,8 +34,6 @@ public interface IPSAppLan extends net.ibizsys.model.app.IPSApplicationObject
 	
 	/**
 	 * 获取语言
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppLanDTO#FIELD_PSLANGUAGEID}
 	 * @return
 	 */
 	java.lang.String getLanguage();

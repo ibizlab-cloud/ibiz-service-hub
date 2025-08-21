@@ -3,7 +3,7 @@ package net.ibizsys.model.control.map;
 
 
 /**
- * 系统地图部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysMapDTO}运行时对象
+ * 系统地图部件模型对象接口
  *
  */
 public interface IPSSysMap extends net.ibizsys.model.control.map.IPSMap{

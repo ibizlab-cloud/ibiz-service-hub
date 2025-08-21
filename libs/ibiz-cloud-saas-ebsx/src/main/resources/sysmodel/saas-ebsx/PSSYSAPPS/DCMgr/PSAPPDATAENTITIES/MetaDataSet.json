@@ -717,6 +717,10 @@
       "name" : "ENTITYID",
       "codeName" : "EntityId"
     },
+    "getParentTextPSAppDEField" : {
+      "name" : "ENTITYNAME",
+      "codeName" : "EntityName"
+    },
     "rSMode" : 2
   } ],
   "name" : "META_DATASET",

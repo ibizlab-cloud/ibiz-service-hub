@@ -12,8 +12,6 @@ public interface IPSOne2ManyDataDEField extends net.ibizsys.model.dataentity.def
 	
 	/**
 	 * 获取一对多关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_O2MPSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDER();

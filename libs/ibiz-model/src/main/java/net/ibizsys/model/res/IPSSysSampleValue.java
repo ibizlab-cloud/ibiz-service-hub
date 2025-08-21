@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统示例值模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysSampleValueDTO}运行时对象
+ * 系统示例值模型对象接口
  *
  */
 public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSampleValueDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -42,8 +40,6 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取示例值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSampleValueDTO#FIELD_VALUE}
 	 * @return
 	 */
 	java.lang.String getValue();
@@ -51,8 +47,6 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否空值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSampleValueDTO#FIELD_NULLVALUE}
 	 * @return
 	 */
 	boolean isNullValue();

@@ -548,34 +548,36 @@ public abstract class DynaTableDEDynaStorageUtilRuntimeBase extends DEDynaStorag
 				bFillDefaultMode = false;
 			}
 		}
-
-		if(!bFillDefaultMode) {
-			if(this.getDEExtensionUtilRuntime()!=null) {
-				if(ObjectUtils.isEmpty(this.getDEExtensionUtilRuntime().getPSDEFields(null))) {
-					return;
-				}
-			}
-			else
-				return;
-		}
+		//已判断dynaPSDEFieldMap不为空，此处忽略
+//		if(!bFillDefaultMode) {
+//			if(this.getDEExtensionUtilRuntime()!=null) {
+//				if(ObjectUtils.isEmpty(this.getDEExtensionUtilRuntime().getPSDEFields(null))) {
+//					return;
+//				}
+//			}
+//			else
+//				return;
+//		}
 		
-		String strSQL = String.format("SELECT * FROM %1$s WHERE %2$s = ?", iDBDialect.getDBObjStandardName(strTableName), iDBDialect.getDBObjStandardName(this.getDataEntityRuntime().getKeyPSDEField().getName()));
-		List<?> list = this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().executeSelectSQL(strSQL, Arrays.asList(key));
-		if (!ObjectUtils.isEmpty(list)) {
-			if (list.get(0) instanceof Map) {
-				Map<String, Object> map = (Map) list.get(0);
-				for (java.util.Map.Entry<String, Object> entry : map.entrySet()) {
-					IPSDEField iPSDEField = dynaPSDEFieldMap.get(entry.getKey().toUpperCase());
-					if (iPSDEField == null) {
-						if(iEntityBase.contains(entry.getKey().toLowerCase())) {
-							continue;
-						}						
-						this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getKey().toLowerCase(), entry.getValue());
-					} else {
-						if(iEntityBase.contains(iPSDEField.getLowerCaseName())) {
-							continue;
+		if (dynaFieldValueMap != null) {
+			String strSQL = String.format("SELECT * FROM %1$s WHERE %2$s = ?", iDBDialect.getDBObjStandardName(strTableName), iDBDialect.getDBObjStandardName(this.getDataEntityRuntime().getKeyPSDEField().getName()));
+			List<?> list = this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().executeSelectSQL(strSQL, Arrays.asList(key));
+			if (!ObjectUtils.isEmpty(list)) {
+				if (list.get(0) instanceof Map) {
+					Map<String, Object> map = (Map) list.get(0);
+					for (java.util.Map.Entry<String, Object> entry : map.entrySet()) {
+						IPSDEField iPSDEField = dynaPSDEFieldMap.get(entry.getKey().toUpperCase());
+						if (iPSDEField == null) {
+							if(iEntityBase.contains(entry.getKey().toLowerCase())) {
+								continue;
+							}						
+							this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getKey().toLowerCase(), entry.getValue());
+						} else {
+							if(iEntityBase.contains(iPSDEField.getLowerCaseName())) {
+								continue;
+							}
+							this.getDataEntityRuntime().setFieldValue(iEntityBase, iPSDEField, entry.getValue());
 						}
-						this.getDataEntityRuntime().setFieldValue(iEntityBase, iPSDEField, entry.getValue());
 					}
 				}
 			}
@@ -862,13 +864,9 @@ public abstract class DynaTableDEDynaStorageUtilRuntimeBase extends DEDynaStorag
 		}
 		
 		if(!bFillDefaultMode) {
-			if(this.getDEExtensionUtilRuntime()!=null) {
-				if(ObjectUtils.isEmpty(this.getDEExtensionUtilRuntime().getPSDEFields(null))) {
-					return;
-				}
-			}
-			else
+			if(ObjectUtils.isEmpty(dynaPSDEFieldMap)) {
 				return;
+			}
 		}
 		
 		StringBuilder sb = new StringBuilder();

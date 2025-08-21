@@ -3,7 +3,7 @@ package net.ibizsys.model.control.searchbar;
 
 
 /**
- * 搜索栏部件模型对象基础接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysSearchBarDTO}运行时对象
+ * 搜索栏部件模型对象基础接口
  *
  */
 public interface IPSSearchBar extends net.ibizsys.model.control.IPSControlContainer
@@ -20,8 +20,6 @@ public interface IPSSearchBar extends net.ibizsys.model.control.IPSControlContai
 	
 	/**
 	 * 获取分组模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysSearchBarDTO#FIELD_GROUPMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchBarGroupMode}
 	 * @return

@@ -35,6 +35,13 @@ public class PSDEDQJoinMerger extends net.ibizsys.model.util.merger.PSModelMerge
 				iPSModelListMerger.mergeSingle(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETPSDEDQGROUPCONDITION);
 			}
 		}
+
+		if(isEnableMergeChild(iPSModelMergeContext, ATTR_GETSELECTEDPSDEDQCOLUMNS)){
+			IPSModelListMerger iPSModelListMerger = iPSModelMergeContext.getPSModelListMerger(net.ibizsys.model.dataentity.ds.IPSDEDQColumn.class, true);
+			if(iPSModelListMerger != null){
+				iPSModelListMerger.merge(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETSELECTEDPSDEDQCOLUMNS);
+			}
+		}
 		super.onMerge(iPSModelMergeContext, objectNode, mergeObjectNode);
 	}
 }

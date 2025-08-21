@@ -15,6 +15,8 @@ public class PSRawItemImplBase extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETPREDEFINEDTYPE = "predefinedType";
 	public final static String ATTR_GETRAWITEMHEIGHT = "rawItemHeight";
 	public final static String ATTR_GETRAWITEMWIDTH = "rawItemWidth";
+	public final static String ATTR_GETTOOLTIP = "tooltip";
+	public final static String ATTR_GETTOOLTIPPSLANGUAGERES = "getTooltipPSLanguageRes";
 	public final static String ATTR_ISTEMPLATEMODE = "templateMode";
 
 	public java.lang.String getContentType(){
@@ -154,6 +156,10 @@ public class PSRawItemImplBase extends net.ibizsys.model.PSObjectImpl implements
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 
 	public java.lang.String getPredefinedType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPREDEFINEDTYPE);
@@ -178,6 +184,36 @@ public class PSRawItemImplBase extends net.ibizsys.model.PSObjectImpl implements
 		}
 		return value.asDouble();
 	}
+
+	public java.lang.String getTooltip(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOOLTIP);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres;
+
+	public net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes(){
+		if(this.tooltippslanguageres != null) return this.tooltippslanguageres;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOOLTIPPSLANGUAGERES);
+		if(value == null){
+			return null;
+		}
+		this.tooltippslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETTOOLTIPPSLANGUAGERES);
+		return this.tooltippslanguageres;
+	}
+
+	public net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageResMust(){
+		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定操作提示语言资源");}
+		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
+	}
+
 
 	public boolean isTemplateMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISTEMPLATEMODE);

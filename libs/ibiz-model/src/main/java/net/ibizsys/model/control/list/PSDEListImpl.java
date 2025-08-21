@@ -20,10 +20,13 @@ public class PSDEListImpl extends net.ibizsys.model.control.list.PSListImpl impl
 	public final static String ATTR_GETMINORSORTDIR = "minorSortDir";
 	public final static String ATTR_GETMINORSORTPSAPPDEFIELD = "getMinorSortPSAppDEField";
 	public final static String ATTR_GETMOBLISTSTYLE = "mobListStyle";
+	public final static String ATTR_GETORDERVALUEPSAPPDEFIELD = "getOrderValuePSAppDEField";
 	public final static String ATTR_GETPSDELISTDATAITEMS = "getPSDEListDataItems";
 	public final static String ATTR_GETPSDELISTITEMS = "getPSDEListItems";
 	public final static String ATTR_GETPAGINGMODE = "pagingMode";
 	public final static String ATTR_GETPAGINGSIZE = "pagingSize";
+	public final static String ATTR_GETSWIMLANEPSAPPDEFIELD = "getSwimlanePSAppDEField";
+	public final static String ATTR_GETSWIMLANEPSCODELIST = "getSwimlanePSCodeList";
 	public final static String ATTR_HASWFDATAITEMS = "hasWFDataItems";
 	public final static String ATTR_ISENABLEGROUP = "enableGroup";
 	public final static String ATTR_ISENABLEPAGINGBAR = "enablePagingBar";
@@ -302,6 +305,28 @@ public class PSDEListImpl extends net.ibizsys.model.control.list.PSListImpl impl
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.app.dataentity.IPSAppDEField ordervaluepsappdefield;
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEField(){
+		if(this.ordervaluepsappdefield != null) return this.ordervaluepsappdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUEPSAPPDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.ordervaluepsappdefield = getPSModelObject(net.ibizsys.model.app.dataentity.IPSAppDEField.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETORDERVALUEPSAPPDEFIELD);
+		return this.ordervaluepsappdefield;
+	}
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getOrderValuePSAppDEFieldMust(){
+		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getOrderValuePSAppDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定排序值应用实体属性");}
+		return value;
+	}
+
+	public void setOrderValuePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField ordervaluepsappdefield){
+		this.ordervaluepsappdefield = ordervaluepsappdefield;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.list.IPSDEListDataItem> psdelistdataitems = null;
 	public java.util.List<net.ibizsys.model.control.list.IPSDEListDataItem> getPSDEListDataItems(){
@@ -366,6 +391,50 @@ public class PSDEListImpl extends net.ibizsys.model.control.list.PSListImpl impl
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.app.dataentity.IPSAppDEField swimlanepsappdefield;
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEField(){
+		if(this.swimlanepsappdefield != null) return this.swimlanepsappdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSWIMLANEPSAPPDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.swimlanepsappdefield = getPSModelObject(net.ibizsys.model.app.dataentity.IPSAppDEField.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSWIMLANEPSAPPDEFIELD);
+		return this.swimlanepsappdefield;
+	}
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEField getSwimlanePSAppDEFieldMust(){
+		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getSwimlanePSAppDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定泳道应用实体属性");}
+		return value;
+	}
+
+	public void setSwimlanePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField swimlanepsappdefield){
+		this.swimlanepsappdefield = swimlanepsappdefield;
+	}
+
+	private net.ibizsys.model.codelist.IPSCodeList swimlanepscodelist;
+
+	public net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeList(){
+		if(this.swimlanepscodelist != null) return this.swimlanepscodelist;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSWIMLANEPSCODELIST);
+		if(value == null){
+			return null;
+		}
+		this.swimlanepscodelist = getPSModelObject(net.ibizsys.model.codelist.IPSCodeList.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSWIMLANEPSCODELIST);
+		return this.swimlanepscodelist;
+	}
+
+	public net.ibizsys.model.codelist.IPSCodeList getSwimlanePSCodeListMust(){
+		net.ibizsys.model.codelist.IPSCodeList value = this.getSwimlanePSCodeList();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定泳道代码表");}
+		return value;
+	}
+
+	public void setSwimlanePSCodeList(net.ibizsys.model.codelist.IPSCodeList swimlanepscodelist){
+		this.swimlanepscodelist = swimlanepscodelist;
+	}
+
 
 	public boolean hasWFDataItems(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_HASWFDATAITEMS);

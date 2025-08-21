@@ -411,69 +411,6 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FROMOBJID</B>&nbsp;源标识
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_FROMOBJID = "fromobjid";
-
-    /**
-     * 设置 源标识
-     * 
-     * @param fromObjId
-     * 
-     */
-    @JsonProperty(FIELD_FROMOBJID)
-    public void setFromObjId(String fromObjId){
-        this.set(FIELD_FROMOBJID, fromObjId);
-    }
-    
-    /**
-     * 获取 源标识  
-     * @return
-     */
-    @JsonIgnore
-    public String getFromObjId(){
-        Object objValue = this.get(FIELD_FROMOBJID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 源标识 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isFromObjIdDirty(){
-        if(this.contains(FIELD_FROMOBJID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 源标识
-     */
-    @JsonIgnore
-    public void resetFromObjId(){
-        this.reset(FIELD_FROMOBJID);
-    }
-
-    /**
-     * 设置 源标识
-     * <P>
-     * 等同 {@link #setFromObjId}
-     * @param fromObjId
-     */
-    @JsonIgnore
-    public PSAppFunc fromobjid(String fromObjId){
-        this.setFromObjId(fromObjId);
-        return this;
-    }
-
-    /**
      * <B>FUNCSN</B>&nbsp;功能编号，指定应用功能的编号
      * <P>
      * 字符串：最大长度 60
@@ -1499,69 +1436,6 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSAPPSUBAPPID</B>&nbsp;子应用
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSAPPSUBAPPID = "psappsubappid";
-
-    /**
-     * 设置 子应用
-     * 
-     * @param pSAppSubAppId
-     * 
-     */
-    @JsonProperty(FIELD_PSAPPSUBAPPID)
-    public void setPSAppSubAppId(String pSAppSubAppId){
-        this.set(FIELD_PSAPPSUBAPPID, pSAppSubAppId);
-    }
-    
-    /**
-     * 获取 子应用  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSAppSubAppId(){
-        Object objValue = this.get(FIELD_PSAPPSUBAPPID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 子应用 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSAppSubAppIdDirty(){
-        if(this.contains(FIELD_PSAPPSUBAPPID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 子应用
-     */
-    @JsonIgnore
-    public void resetPSAppSubAppId(){
-        this.reset(FIELD_PSAPPSUBAPPID);
-    }
-
-    /**
-     * 设置 子应用
-     * <P>
-     * 等同 {@link #setPSAppSubAppId}
-     * @param pSAppSubAppId
-     */
-    @JsonIgnore
-    public PSAppFunc psappsubappid(String pSAppSubAppId){
-        this.setPSAppSubAppId(pSAppSubAppId);
-        return this;
-    }
-
-    /**
      * <B>PSAPPSUBAPPNAME</B>&nbsp;子应用
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSAPPSUBAPPID}
@@ -1766,6 +1640,151 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSAppFunc psappviewname(String pSAppViewName){
         this.setPSAppViewName(pSAppViewName);
+        return this;
+    }
+
+    /**
+     * <B>PSDEACMODEID</B>&nbsp;实体自填模式
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEACMode} 
+     */
+    public final static String FIELD_PSDEACMODEID = "psdeacmodeid";
+
+    /**
+     * 设置 实体自填模式
+     * 
+     * @param pSDEACModeId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEACMODEID)
+    public void setPSDEACModeId(String pSDEACModeId){
+        this.set(FIELD_PSDEACMODEID, pSDEACModeId);
+    }
+    
+    /**
+     * 获取 实体自填模式  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEACModeId(){
+        Object objValue = this.get(FIELD_PSDEACMODEID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体自填模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEACModeIdDirty(){
+        if(this.contains(FIELD_PSDEACMODEID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体自填模式
+     */
+    @JsonIgnore
+    public void resetPSDEACModeId(){
+        this.reset(FIELD_PSDEACMODEID);
+    }
+
+    /**
+     * 设置 实体自填模式
+     * <P>
+     * 等同 {@link #setPSDEACModeId}
+     * @param pSDEACModeId
+     */
+    @JsonIgnore
+    public PSAppFunc psdeacmodeid(String pSDEACModeId){
+        this.setPSDEACModeId(pSDEACModeId);
+        return this;
+    }
+
+    /**
+     * 设置 实体自填模式，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEACModeId}
+     * @param pSDEACMode 引用对象
+     */
+    @JsonIgnore
+    public PSAppFunc psdeacmodeid(PSDEACMode pSDEACMode){
+        if(pSDEACMode == null){
+            this.setPSDEACModeId(null);
+            this.setPSDEACModeName(null);
+        }
+        else{
+            this.setPSDEACModeId(pSDEACMode.getPSDEACModeId());
+            this.setPSDEACModeName(pSDEACMode.getPSDEACModeName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEACMODENAME</B>&nbsp;实体自填模式
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEACMODEID}
+     */
+    public final static String FIELD_PSDEACMODENAME = "psdeacmodename";
+
+    /**
+     * 设置 实体自填模式
+     * 
+     * @param pSDEACModeName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEACMODENAME)
+    public void setPSDEACModeName(String pSDEACModeName){
+        this.set(FIELD_PSDEACMODENAME, pSDEACModeName);
+    }
+    
+    /**
+     * 获取 实体自填模式  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEACModeName(){
+        Object objValue = this.get(FIELD_PSDEACMODENAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 实体自填模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEACModeNameDirty(){
+        if(this.contains(FIELD_PSDEACMODENAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体自填模式
+     */
+    @JsonIgnore
+    public void resetPSDEACModeName(){
+        this.reset(FIELD_PSDEACMODENAME);
+    }
+
+    /**
+     * 设置 实体自填模式
+     * <P>
+     * 等同 {@link #setPSDEACModeName}
+     * @param pSDEACModeName
+     */
+    @JsonIgnore
+    public PSAppFunc psdeacmodename(String pSDEACModeName){
+        this.setPSDEACModeName(pSDEACModeName);
         return this;
     }
 
@@ -2100,258 +2119,6 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSAppFunc pspdtappfuncname(String pSPDTAppFuncName){
         this.setPSPDTAppFuncName(pSPDTAppFuncName);
-        return this;
-    }
-
-    /**
-     * <B>PSSUBAPPID</B>&nbsp;子系统应用
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSSUBAPPID = "pssubappid";
-
-    /**
-     * 设置 子系统应用
-     * 
-     * @param pSSubAppId
-     * 
-     */
-    @JsonProperty(FIELD_PSSUBAPPID)
-    public void setPSSubAppId(String pSSubAppId){
-        this.set(FIELD_PSSUBAPPID, pSSubAppId);
-    }
-    
-    /**
-     * 获取 子系统应用  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSubAppId(){
-        Object objValue = this.get(FIELD_PSSUBAPPID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 子系统应用 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSubAppIdDirty(){
-        if(this.contains(FIELD_PSSUBAPPID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 子系统应用
-     */
-    @JsonIgnore
-    public void resetPSSubAppId(){
-        this.reset(FIELD_PSSUBAPPID);
-    }
-
-    /**
-     * 设置 子系统应用
-     * <P>
-     * 等同 {@link #setPSSubAppId}
-     * @param pSSubAppId
-     */
-    @JsonIgnore
-    public PSAppFunc pssubappid(String pSSubAppId){
-        this.setPSSubAppId(pSSubAppId);
-        return this;
-    }
-
-    /**
-     * <B>PSSUBAPPNAME</B>&nbsp;子系统应用
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSUBAPPID}
-     */
-    public final static String FIELD_PSSUBAPPNAME = "pssubappname";
-
-    /**
-     * 设置 子系统应用
-     * 
-     * @param pSSubAppName
-     * 
-     */
-    @JsonProperty(FIELD_PSSUBAPPNAME)
-    public void setPSSubAppName(String pSSubAppName){
-        this.set(FIELD_PSSUBAPPNAME, pSSubAppName);
-    }
-    
-    /**
-     * 获取 子系统应用  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSubAppName(){
-        Object objValue = this.get(FIELD_PSSUBAPPNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 子系统应用 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSubAppNameDirty(){
-        if(this.contains(FIELD_PSSUBAPPNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 子系统应用
-     */
-    @JsonIgnore
-    public void resetPSSubAppName(){
-        this.reset(FIELD_PSSUBAPPNAME);
-    }
-
-    /**
-     * 设置 子系统应用
-     * <P>
-     * 等同 {@link #setPSSubAppName}
-     * @param pSSubAppName
-     */
-    @JsonIgnore
-    public PSAppFunc pssubappname(String pSSubAppName){
-        this.setPSSubAppName(pSSubAppName);
-        return this;
-    }
-
-    /**
-     * <B>PSSUBAPPVIEWID</B>&nbsp;子应用视图
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSSUBAPPVIEWID = "pssubappviewid";
-
-    /**
-     * 设置 子应用视图
-     * 
-     * @param pSSubAppViewId
-     * 
-     */
-    @JsonProperty(FIELD_PSSUBAPPVIEWID)
-    public void setPSSubAppViewId(String pSSubAppViewId){
-        this.set(FIELD_PSSUBAPPVIEWID, pSSubAppViewId);
-    }
-    
-    /**
-     * 获取 子应用视图  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSubAppViewId(){
-        Object objValue = this.get(FIELD_PSSUBAPPVIEWID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 子应用视图 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSubAppViewIdDirty(){
-        if(this.contains(FIELD_PSSUBAPPVIEWID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 子应用视图
-     */
-    @JsonIgnore
-    public void resetPSSubAppViewId(){
-        this.reset(FIELD_PSSUBAPPVIEWID);
-    }
-
-    /**
-     * 设置 子应用视图
-     * <P>
-     * 等同 {@link #setPSSubAppViewId}
-     * @param pSSubAppViewId
-     */
-    @JsonIgnore
-    public PSAppFunc pssubappviewid(String pSSubAppViewId){
-        this.setPSSubAppViewId(pSSubAppViewId);
-        return this;
-    }
-
-    /**
-     * <B>PSSUBAPPVIEWNAME</B>&nbsp;子应用视图
-     * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSUBAPPVIEWID}
-     */
-    public final static String FIELD_PSSUBAPPVIEWNAME = "pssubappviewname";
-
-    /**
-     * 设置 子应用视图
-     * 
-     * @param pSSubAppViewName
-     * 
-     */
-    @JsonProperty(FIELD_PSSUBAPPVIEWNAME)
-    public void setPSSubAppViewName(String pSSubAppViewName){
-        this.set(FIELD_PSSUBAPPVIEWNAME, pSSubAppViewName);
-    }
-    
-    /**
-     * 获取 子应用视图  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSSubAppViewName(){
-        Object objValue = this.get(FIELD_PSSUBAPPVIEWNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 子应用视图 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSSubAppViewNameDirty(){
-        if(this.contains(FIELD_PSSUBAPPVIEWNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 子应用视图
-     */
-    @JsonIgnore
-    public void resetPSSubAppViewName(){
-        this.reset(FIELD_PSSUBAPPVIEWNAME);
-    }
-
-    /**
-     * 设置 子应用视图
-     * <P>
-     * 等同 {@link #setPSSubAppViewName}
-     * @param pSSubAppViewName
-     */
-    @JsonIgnore
-    public PSAppFunc pssubappviewname(String pSSubAppViewName){
-        this.setPSSubAppViewName(pSSubAppViewName);
         return this;
     }
 

@@ -89,7 +89,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	@Override
 	protected EmbeddingResult onEmbedding(EmbeddingRequest completionRequest) throws Throwable {
 
-		String strServiceUrl = String.format("%1$s/v1/embeddings", this.getAgentData().getServiceUrl());
+		String strServiceUrl = getEmbeddingServiceUrl();
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
 			HttpPost request = new HttpPost(strServiceUrl);
@@ -127,7 +127,18 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 			}
 		}
 	}
+	
+	protected String getEmbeddingServiceUrl() {
+		return String.format("%1$s/v1/embeddings", this.getAgentData().getServiceUrl());
+	}
+	
+	protected String getCompletionsServiceUrl() {
+		return String.format("%1$s/v1/chat/completions", this.getAgentData().getServiceUrl());
+	}
 
+	protected String getChatCompletionDataPrefix() {
+		return "data: ";
+	}
 
 	@Override
 	protected ChatCompletionResult onChatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable {
@@ -154,6 +165,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				if (!StringUtils.hasLength(message.getRole())) {
 					continue;
 				}
+				
 				Map<String, Object> history = new LinkedHashMap<String, Object>();
 				history.put("role", message.getRole().toLowerCase());
 				
@@ -206,9 +218,8 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 					bStream = false;
 				}
 		}
-	//	bStream = true;
 
-		String strServiceUrl = String.format("%1$s/v1/chat/completions", this.getAgentData().getServiceUrl());
+		String strServiceUrl = this.getCompletionsServiceUrl();
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
 			ActionSession actionSession = ActionSessionManager.getCurrentSession();
@@ -286,8 +297,8 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 								continue;
 							}
 							log.debug(line);
-							if (line.indexOf("data: ") == 0) {
-								line = line.substring("data: ".length()).trim();
+							if (line.indexOf(getChatCompletionDataPrefix()) == 0) {
+								line = line.substring(getChatCompletionDataPrefix().length()).trim();
 								if (line.equals("[DONE]")) {
 									break;
 								}
@@ -320,6 +331,9 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 										strRole = (String) deltaMap.get("role");
 									}
 									String strFinishReason = (String) map.get("finish_reason");
+									if("stop".equals(strFinishReason)) {
+										break;
+									}
 									Object tool_calls = deltaMap.get("tool_calls");
 									// if(tool_call) {
 									if (!ObjectUtils.isEmpty(tool_calls) || "tool_calls".equals(strFinishReason)) {

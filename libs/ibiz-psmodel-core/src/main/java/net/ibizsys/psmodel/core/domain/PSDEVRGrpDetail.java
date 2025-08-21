@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEVRGRPDETAIL</B>实体属性值规则组成员 模型传输对象
+ * <B>PSDEVRGRPDETAIL</B>实体值规则组成员 模型传输对象
  * <P>
- * 
+ * 实体值规则组成员模型，指定引用的属性值规则对象
  */
 public class PSDEVRGrpDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -389,14 +393,14 @@ public class PSDEVRGrpDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFVALUERULEID</B>&nbsp;属性值规则
+     * <B>PSDEFVALUERULEID</B>&nbsp;属性值规则，指向引用的属性值规则对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFValueRule} 
      */
     public final static String FIELD_PSDEFVALUERULEID = "psdefvalueruleid";
 
     /**
-     * 设置 属性值规则
+     * 设置 属性值规则，详细说明：{@link #FIELD_PSDEFVALUERULEID}
      * 
      * @param pSDEFValueRuleId
      * 
@@ -440,7 +444,7 @@ public class PSDEVRGrpDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性值规则
+     * 设置 属性值规则，详细说明：{@link #FIELD_PSDEFVALUERULEID}
      * <P>
      * 等同 {@link #setPSDEFValueRuleId}
      * @param pSDEFValueRuleId
@@ -471,14 +475,14 @@ public class PSDEVRGrpDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFVALUERULENAME</B>&nbsp;属性值规则
+     * <B>PSDEFVALUERULENAME</B>&nbsp;属性值规则，指向引用的属性值规则对象
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFVALUERULEID}
      */
     public final static String FIELD_PSDEFVALUERULENAME = "psdefvaluerulename";
 
     /**
-     * 设置 属性值规则
+     * 设置 属性值规则，详细说明：{@link #FIELD_PSDEFVALUERULENAME}
      * 
      * @param pSDEFValueRuleName
      * 
@@ -522,7 +526,7 @@ public class PSDEVRGrpDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 属性值规则
+     * 设置 属性值规则，详细说明：{@link #FIELD_PSDEFVALUERULENAME}
      * <P>
      * 等同 {@link #setPSDEFValueRuleName}
      * @param pSDEFValueRuleName

@@ -3,9 +3,7 @@ package net.ibizsys.model.testing;
 
 
 /**
- * 系统测试用例模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getTestCaseType}
+ * 系统测试用例模型对象接口
  *
  */
 public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
@@ -14,8 +12,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取断言异常数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_EXCEPTIONDATA}
 	 * @return
 	 */
 	java.lang.String getAssertExceptionData();
@@ -23,8 +19,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取断言异常数据2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_EXCEPTIONDATA2}
 	 * @return
 	 */
 	java.lang.String getAssertExceptionData2();
@@ -32,8 +26,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取断言异常名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_EXCEPTIONNAME}
 	 * @return
 	 */
 	java.lang.String getAssertExceptionName();
@@ -41,8 +33,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试断言类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_ASSERTTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestCaseAssertType}
 	 * @return
@@ -66,8 +56,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();
@@ -124,8 +112,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSSYSTESTDATAID}
 	 * @return
 	 */
 	net.ibizsys.model.testing.IPSSysTestData getPSSysTestData();
@@ -140,8 +126,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取测试用例编号
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_TESTCASESN}
 	 * @return
 	 */
 	java.lang.String getTestCaseSN();
@@ -149,8 +133,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取用例类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_TARGETTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestCaseTargetType}
 	 * @return
@@ -160,8 +142,6 @@ public interface IPSSysTestCase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否事务回滚
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_ROLLBACKTRAN}
 	 * @return
 	 */
 	boolean isRollbackTransaction();

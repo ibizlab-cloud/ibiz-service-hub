@@ -34,6 +34,7 @@ import net.ibizsys.central.cloud.open.core.addin.IOpenAccessAgent;
 import net.ibizsys.central.cloud.open.core.addin.IOpenPlatform;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.security.UserContext;
+import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.LogLevels;
@@ -201,6 +202,12 @@ public abstract class CloudOpenUtilRuntimeBase extends CloudUtilRuntimeBase impl
 
 	protected void onSendMessages(String strOpenAccessId, MsgSendQueue[] msgSendQueues) throws Throwable {
 		IOpenAccessAgent iOpenAccessAgent = this.getOpenAccessAgent(strOpenAccessId);
+		//判断消息类型
+		for(MsgSendQueue msgSendQueue : msgSendQueues) {
+			if((iOpenAccessAgent.getSupportMsgType() != 0) && (iOpenAccessAgent.getSupportMsgType() & DataTypeUtils.asInteger(msgSendQueue.getMsgType(), 0)) == 0) {
+				throw new Exception("未支持消息类型");
+			}
+		}
 		iOpenAccessAgent.sendMessages(msgSendQueues);
 	}
 

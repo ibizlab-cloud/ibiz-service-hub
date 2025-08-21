@@ -16,15 +16,6 @@
     "output" : true
   },
   "getPSDEActionParams" : [ {
-    "name" : "STATUS",
-    "getPSDEField" : {
-      "name" : "STATUS",
-      "codeName" : "Status"
-    },
-    "stdDataType" : 9,
-    "value" : "1",
-    "valueType" : "VALUE"
-  }, {
     "name" : "LAST_TIME",
     "getPSDEField" : {
       "name" : "LAST_TIME",
@@ -32,6 +23,15 @@
     },
     "stdDataType" : 1,
     "value" : "0",
+    "valueType" : "VALUE"
+  }, {
+    "name" : "STATUS",
+    "getPSDEField" : {
+      "name" : "STATUS",
+      "codeName" : "Status"
+    },
+    "stdDataType" : 9,
+    "value" : "1",
     "valueType" : "VALUE"
   }, {
     "name" : "NEXT_TIME",

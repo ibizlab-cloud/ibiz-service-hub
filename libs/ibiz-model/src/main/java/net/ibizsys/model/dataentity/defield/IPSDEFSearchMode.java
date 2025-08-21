@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.defield;
 
 
 /**
- * 实体属性搜索模式模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO}运行时对象
+ * 实体属性搜索模式模型对象接口
  *
  */
 public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.IPSDEFieldObject
@@ -64,8 +64,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_ITEMTAG}
 	 * @return
 	 */
 	java.lang.String getItemTag();
@@ -73,8 +71,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取项标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_ITEMTAG2}
 	 * @return
 	 */
 	java.lang.String getItemTag2();
@@ -82,8 +78,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取搜索模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_SEARCHMODE}
 	 * @return
 	 */
 	java.lang.String getMode();
@@ -119,8 +113,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取系统值转换器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_PSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getPSSysTranslator();
@@ -144,8 +136,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -160,8 +150,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取值操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_PSDBVALUEOPID}
 	 * @return
 	 */
 	java.lang.String getValueOP();
@@ -169,8 +157,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取值分隔符
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_VALUESEPERATOR}
 	 * @return
 	 */
 	java.lang.String getValueSeparator();
@@ -185,8 +171,6 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	
 	/**
 	 * 获取是否默认搜索项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFSFItemDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();

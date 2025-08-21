@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.datamap;
 
 
 /**
- * 实体映射模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEMapDTO}运行时对象
+ * 实体映射模型对象接口
  *
  */
 public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -19,8 +19,6 @@ public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObje
 	
 	/**
 	 * 获取映射目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDE();
@@ -35,8 +33,6 @@ public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObje
 	
 	/**
 	 * 获取逻辑名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getLogicName();
@@ -163,8 +159,6 @@ public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObje
 	
 	/**
 	 * 获取是否启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEMapDTO#FIELD_VALIDFLAG}
 	 * @return
 	 */
 	boolean isValid();

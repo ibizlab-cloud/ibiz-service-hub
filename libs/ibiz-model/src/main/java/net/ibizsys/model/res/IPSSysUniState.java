@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统统一状态模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO}运行时对象
+ * 系统统一状态模型对象接口
  *
  */
 public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取缓存分类
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_CACHECAT}
 	 * @return
 	 */
 	java.lang.String getCacheCat();
@@ -21,8 +19,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取缓存超时
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_CACHETIMEOUT}
 	 * @return
 	 */
 	int getCacheTimeout();
@@ -170,8 +166,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取监控器格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_MONITORFORMAT}
 	 * @return
 	 */
 	java.lang.String getMonitorFormat();
@@ -235,8 +229,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取后端模板插件对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_PSSYSSFPLUGINID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
@@ -251,8 +243,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_PSMODULEID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
@@ -267,8 +257,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取目录格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_KEYFORMAT}
 	 * @return
 	 */
 	java.lang.String getPathFormat();
@@ -276,8 +264,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取刷新间隔（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_RELOADTIMER}
 	 * @return
 	 */
 	int getReloadTimer();
@@ -398,8 +384,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取状态协同模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNISTATEMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UniStateMode}
 	 * @return
 	 */
@@ -408,8 +392,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取转换器动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNISTATEPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getUniStateParams();
@@ -417,8 +399,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取统一状态标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNISTATETAG}
 	 * @return
 	 */
 	java.lang.String getUniStateTag();
@@ -426,8 +406,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取统一状态标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNISTATETAG2}
 	 * @return
 	 */
 	java.lang.String getUniStateTag2();
@@ -435,8 +413,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取状态协同类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNISTATETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UniStateType}
 	 * @return
@@ -446,8 +422,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取唯一业务标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_UNIQUETAG}
 	 * @return
 	 */
 	java.lang.String getUniqueTag();
@@ -455,8 +429,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否全部数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_ALLDATAFLAG}
 	 * @return
 	 */
 	boolean isAllData();
@@ -464,8 +436,6 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否删除作为更新操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysUniStateDTO#FIELD_DELETEASUPDATE}
 	 * @return
 	 */
 	boolean isDeleteAsUpdate();

@@ -1,6 +1,7 @@
 package net.ibizsys.central.cloud.core.security;
 
 import net.ibizsys.central.cloud.core.util.domain.AppData;
+import net.ibizsys.runtime.util.Entity;
 
 public interface ISystemAccessManager extends net.ibizsys.central.security.ISystemAccessManager {
 
@@ -20,6 +21,16 @@ public interface ISystemAccessManager extends net.ibizsys.central.security.ISyst
 	 */
 	AppData getAppData(String strDCSystemTag);
 	
+	
+	
+	/**
+	 * 填充插件系统的应用数据
+	 * @param appData
+	 * @param session 会话变量
+	 */
+	default void fillAddinAppData(AppData appData, Entity session) {
+		
+	}
 	
 	
 	/**

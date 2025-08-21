@@ -4,8 +4,6 @@ package net.ibizsys.model.control;
 
 /**
  * 界面部件直接内容成员模型基础对象接口
- * <P>
- * 子接口扩展识别值 {@link #getContentType}
  *
  */
 public interface IPSRawItemBase extends net.ibizsys.model.IPSModelObject{
@@ -150,6 +148,27 @@ public interface IPSRawItemBase extends net.ibizsys.model.IPSModelObject{
 	 * @return
 	 */
 	double getRawItemWidth();
+	
+	
+	/**
+	 * 获取操作提示信息
+	 * @return
+	 */
+	java.lang.String getTooltip();
+	
+	
+	/**
+	 * 获取操作提示语言资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageRes();
+
+
+	/**
+	 * 获取操作提示语言资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getTooltipPSLanguageResMust();
 	
 	
 	/**

@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.action;
 
 
 /**
- * 实体行为组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEActionGroupDTO}运行时对象
+ * 实体行为组模型对象接口
  * <P>
  * 实体行为组包含实体行为、数据集对象
  *
@@ -28,8 +28,6 @@ public interface IPSDEActionGroup extends net.ibizsys.model.dataentity.IPSDataEn
 	
 	/**
 	 * 获取分组标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionGroupDTO#FIELD_GROUPTAG}
 	 * @return
 	 */
 	java.lang.String getGroupTag();
@@ -37,8 +35,6 @@ public interface IPSDEActionGroup extends net.ibizsys.model.dataentity.IPSDataEn
 	
 	/**
 	 * 获取分组标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionGroupDTO#FIELD_GROUPTAG2}
 	 * @return
 	 */
 	java.lang.String getGroupTag2();

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSAPP</B>前端应用 模型传输对象
+ * <B>PSSYSAPP</B>应用程序 模型传输对象
  * <P>
- * 前端应用程序模型，指定应用使用的技术及界面样式，包括使用的服务接口等。前端应用是前端模板的顶级目标模型对象
+ * 提供人机交互的应用程序模型，指定应用使用的技术及界面样式，包括使用的服务接口等。前端应用是前端模板的顶级目标模型对象
  */
 public class PSSysApp extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -3079,6 +3079,67 @@ public class PSSysApp extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>ORDERVALUE</B>&nbsp;排序值
+     */
+    public final static String FIELD_ORDERVALUE = "ordervalue";
+
+    /**
+     * 设置 排序值
+     * 
+     * @param orderValue
+     * 
+     */
+    @JsonProperty(FIELD_ORDERVALUE)
+    public void setOrderValue(Integer orderValue){
+        this.set(FIELD_ORDERVALUE, orderValue);
+    }
+    
+    /**
+     * 获取 排序值  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getOrderValue(){
+        Object objValue = this.get(FIELD_ORDERVALUE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 排序值 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isOrderValueDirty(){
+        if(this.contains(FIELD_ORDERVALUE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 排序值
+     */
+    @JsonIgnore
+    public void resetOrderValue(){
+        this.reset(FIELD_ORDERVALUE);
+    }
+
+    /**
+     * 设置 排序值
+     * <P>
+     * 等同 {@link #setOrderValue}
+     * @param orderValue
+     */
+    @JsonIgnore
+    public PSSysApp ordervalue(Integer orderValue){
+        this.setOrderValue(orderValue);
+        return this;
+    }
+
+    /**
      * <B>ORIENTATIONMODE</B>&nbsp;移动端横竖屏设置，指定应用在移动端模型下的横竖屏设置
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.MobAppOrientationMode} 
@@ -3512,69 +3573,6 @@ public class PSSysApp extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEVSLNSYSAPPID</B>&nbsp;开发系统应用标识
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSDEVSLNSYSAPPID = "psdevslnsysappid";
-
-    /**
-     * 设置 开发系统应用标识
-     * 
-     * @param pSDevSlnSysAppId
-     * 
-     */
-    @JsonProperty(FIELD_PSDEVSLNSYSAPPID)
-    public void setPSDevSlnSysAppId(String pSDevSlnSysAppId){
-        this.set(FIELD_PSDEVSLNSYSAPPID, pSDevSlnSysAppId);
-    }
-    
-    /**
-     * 获取 开发系统应用标识  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDevSlnSysAppId(){
-        Object objValue = this.get(FIELD_PSDEVSLNSYSAPPID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 开发系统应用标识 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDevSlnSysAppIdDirty(){
-        if(this.contains(FIELD_PSDEVSLNSYSAPPID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 开发系统应用标识
-     */
-    @JsonIgnore
-    public void resetPSDevSlnSysAppId(){
-        this.reset(FIELD_PSDEVSLNSYSAPPID);
-    }
-
-    /**
-     * 设置 开发系统应用标识
-     * <P>
-     * 等同 {@link #setPSDevSlnSysAppId}
-     * @param pSDevSlnSysAppId
-     */
-    @JsonIgnore
-    public PSSysApp psdevslnsysappid(String pSDevSlnSysAppId){
-        this.setPSDevSlnSysAppId(pSDevSlnSysAppId);
-        return this;
-    }
-
-    /**
      * <B>PSPFID</B>&nbsp;前端模板，指定应用使用的前端模板
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSPF} 
@@ -3636,7 +3634,6 @@ public class PSSysApp extends net.ibizsys.psmodel.core.util.PSModelBase {
         this.setPSPFId(pSPFId);
         return this;
     }
-
 
     /**
      * <B>PSPFNAME</B>&nbsp;前端模板，指定应用使用的前端模板
@@ -3763,7 +3760,6 @@ public class PSSysApp extends net.ibizsys.psmodel.core.util.PSModelBase {
         this.setPSPFStyleId(pSPFStyleId);
         return this;
     }
-
 
     /**
      * <B>PSPFSTYLENAME</B>&nbsp;应用样式，指定应用使用的前端模板样式

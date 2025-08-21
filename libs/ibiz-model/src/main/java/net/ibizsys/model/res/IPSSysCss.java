@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统界面样式表模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysCssDTO}运行时对象
+ * 系统界面样式表模型对象接口
  *
  */
 public interface IPSSysCss extends net.ibizsys.model.IPSModelObject{

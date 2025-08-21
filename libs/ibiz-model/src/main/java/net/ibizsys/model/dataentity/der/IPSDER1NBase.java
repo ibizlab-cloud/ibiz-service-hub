@@ -12,8 +12,6 @@ public interface IPSDER1NBase extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取克隆次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CLONEORDERVALUE}
 	 * @return
 	 */
 	int getCloneOrder();
@@ -21,8 +19,6 @@ public interface IPSDER1NBase extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取自定义导出次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EXPORTSCOPE}
 	 * @return
 	 */
 	int getCustomExportOrder();
@@ -30,8 +26,6 @@ public interface IPSDER1NBase extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取自定义导出次序2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_EXPORTSCOPE2}
 	 * @return
 	 */
 	int getCustomExportOrder2();
@@ -39,8 +33,6 @@ public interface IPSDER1NBase extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取主控次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MASTERORDERVALUE}
 	 * @return
 	 */
 	int getMasterOrder();
@@ -48,8 +40,6 @@ public interface IPSDER1NBase extends net.ibizsys.model.dataentity.der.IPSDERBas
 	
 	/**
 	 * 获取主从关系类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MASTERRS}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NMasterRS}
 	 * @return
@@ -74,8 +64,6 @@ net.ibizsys.model.dataentity.defield.IPSDEField getPickupPSDEFieldMust();
 	
 	/**
 	 * 获取删除拒绝消息语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_REMOVEREJECTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getRRMPSLanguageRes();
@@ -93,9 +81,21 @@ net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSetMust();
 	
 	
 	/**
+	 * 获取引用实体属性组
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEFGroup getRefPSDEFGroup();
+
+
+	/**
+	 * 获取引用实体属性组，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEFGroup getRefPSDEFGroupMust();
+	
+	
+	/**
 	 * 获取删除方式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_REMOVEACTIONTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NRemoveActionType}
 	 * @return
@@ -105,8 +105,6 @@ net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSetMust();
 	
 	/**
 	 * 获取删除次序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_REMOVEORDER}
 	 * @return
 	 */
 	int getRemoveOrder();
@@ -114,8 +112,6 @@ net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSetMust();
 	
 	/**
 	 * 获取删除拒绝消息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_REMOVEREJECTMSG}
 	 * @return
 	 */
 	java.lang.String getRemoveRejectMsg();

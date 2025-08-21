@@ -3,7 +3,7 @@ package net.ibizsys.model.control.wizardpanel;
 
 
 /**
- * 实体向导面板部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO}运行时对象
+ * 实体向导面板部件模型对象接口
  *
  */
 public interface IPSDEWizardPanel extends net.ibizsys.model.control.wizardpanel.IPSWizardPanel{
@@ -61,8 +61,6 @@ public interface IPSDEWizardPanel extends net.ibizsys.model.control.wizardpanel.
 	
 	/**
 	 * 获取实体向导对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_PSDEWIZARDID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.wizard.IPSDEWizard getPSDEWizard();
@@ -77,8 +75,6 @@ public interface IPSDEWizardPanel extends net.ibizsys.model.control.wizardpanel.
 	
 	/**
 	 * 获取状态应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEWizardDTO#FIELD_STATEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getStatePSAppDEField();
@@ -93,8 +89,6 @@ public interface IPSDEWizardPanel extends net.ibizsys.model.control.wizardpanel.
 	
 	/**
 	 * 获取是否显示操作栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM5}
 	 * @return
 	 */
 	boolean isShowActionBar();
@@ -102,8 +96,6 @@ public interface IPSDEWizardPanel extends net.ibizsys.model.control.wizardpanel.
 	
 	/**
 	 * 获取是否显示步骤栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM6}
 	 * @return
 	 */
 	boolean isShowStepBar();

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDETREECOL</B>实体树表格列 模型传输对象
+ * <B>PSDETREECOL</B>树表格列 模型传输对象
  * <P>
  * 实体树视图表格列模型，支持定义属性列及操作列
  */

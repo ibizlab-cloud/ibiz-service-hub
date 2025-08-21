@@ -131,8 +131,6 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前端模板样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSPFSTYLEID}
 	 * @return
 	 */
 	java.lang.String getPFStyle();
@@ -140,8 +138,6 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取前端模板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSPFID}
 	 * @return
 	 */
 	java.lang.String getPFType();

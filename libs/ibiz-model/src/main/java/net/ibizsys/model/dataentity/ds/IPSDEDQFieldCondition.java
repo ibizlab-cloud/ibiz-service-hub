@@ -14,8 +14,6 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取条件操作
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_PSDBVALUEOPID}
 	 * @return
 	 */
 	java.lang.String getCondOp();
@@ -23,8 +21,6 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取条件值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getCondValue();
@@ -39,8 +35,6 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField();
@@ -55,8 +49,6 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取变量类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_PSVARTYPEID}
 	 * @return
 	 */
 	java.lang.String getPSVARTypeId();
@@ -85,8 +77,6 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取是否忽略空值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCondDTO#FIELD_IGNOREEMPTY}
 	 * @return
 	 */
 	boolean isIgnoreEmpty();

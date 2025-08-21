@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 部件消息项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCtrlMsgItemDTO}运行时对象
+ * 部件消息项模型对象接口
  *
  */
 public interface IPSCtrlMsgItem extends net.ibizsys.model.IPSModelObject{

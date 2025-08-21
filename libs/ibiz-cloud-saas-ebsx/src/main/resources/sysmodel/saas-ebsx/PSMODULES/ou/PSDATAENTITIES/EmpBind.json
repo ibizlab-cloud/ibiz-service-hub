@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "USERID",
+        "codeName" : "UserId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PERSONNAME",
+        "codeName" : "PersonName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -542,6 +550,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -650,6 +659,7 @@
     "length" : 100,
     "logicName" : "姓名",
     "name" : "PERSONNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -756,6 +766,7 @@
     "length" : 100,
     "logicName" : "微信用户标识",
     "name" : "WXWORKUNIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -859,6 +870,7 @@
     "length" : 100,
     "logicName" : "钉钉用户标识",
     "name" : "DDUNIONID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -962,6 +974,7 @@
     "length" : 100,
     "logicName" : "UAA用户标识",
     "name" : "UAAUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1065,6 +1078,7 @@
     "length" : 100,
     "logicName" : "钉钉用户标识",
     "name" : "DDUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1168,6 +1182,7 @@
     "length" : 100,
     "logicName" : "企业微信用户标识",
     "name" : "WXWORKUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

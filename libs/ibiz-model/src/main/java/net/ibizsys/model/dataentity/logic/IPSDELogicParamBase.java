@@ -19,8 +19,6 @@ public interface IPSDELogicParamBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否默认参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DEFAULTPARAM}
 	 * @return
 	 */
 	boolean isDefault();

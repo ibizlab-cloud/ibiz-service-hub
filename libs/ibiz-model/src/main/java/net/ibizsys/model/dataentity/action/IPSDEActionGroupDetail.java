@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.action;
 
 
 /**
- * 实体行为组成员模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEAGDetailDTO}运行时对象
+ * 实体行为组成员模型对象接口
  *
  */
 public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject{
@@ -27,8 +27,6 @@ public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取成员类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEAGDetailDTO#FIELD_DETAILTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodGroupDetailType}
 	 * @return
 	 */
@@ -44,8 +42,6 @@ public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEAGDetailDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getPSDEAction();
@@ -60,8 +56,6 @@ public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取实体数据集
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEAGDetailDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet();

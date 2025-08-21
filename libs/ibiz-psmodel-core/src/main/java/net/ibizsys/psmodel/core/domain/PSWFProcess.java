@@ -2159,12 +2159,10 @@ public class PSWFProcess extends net.ibizsys.psmodel.core.util.PSModelBase {
         if(pSDEViewBase == null){
             this.setMobPSDEViewId(null);
             this.setMobPSDEViewName(null);
-            this.setMobPSDynaDEViewTemplId(null);
         }
         else{
             this.setMobPSDEViewId(pSDEViewBase.getPSDEViewBaseId());
             this.setMobPSDEViewName(pSDEViewBase.getPSDEViewBaseName());
-            this.setMobPSDynaDEViewTemplId(pSDEViewBase.getPSDynaDEViewTemplId());
         }
         return this;
     }
@@ -4603,12 +4601,10 @@ public class PSWFProcess extends net.ibizsys.psmodel.core.util.PSModelBase {
         if(pSDEViewBase == null){
             this.setPSDEViewBaseId(null);
             this.setPSDEViewBaseName(null);
-            this.setPSDynaDEViewTemplId(null);
         }
         else{
             this.setPSDEViewBaseId(pSDEViewBase.getPSDEViewBaseId());
             this.setPSDEViewBaseName(pSDEViewBase.getPSDEViewBaseName());
-            this.setPSDynaDEViewTemplId(pSDEViewBase.getPSDynaDEViewTemplId());
         }
         return this;
     }

@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDELOGICLINK</B>实体处理逻辑连接 模型传输对象
@@ -714,69 +718,6 @@ public class PSDELogicLink extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LINKCOND2</B>&nbsp;连接条件2
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_LINKCOND2 = "linkcond2";
-
-    /**
-     * 设置 连接条件2
-     * 
-     * @param linkCond2
-     * 
-     */
-    @JsonProperty(FIELD_LINKCOND2)
-    public void setLinkCond2(String linkCond2){
-        this.set(FIELD_LINKCOND2, linkCond2);
-    }
-    
-    /**
-     * 获取 连接条件2  
-     * @return
-     */
-    @JsonIgnore
-    public String getLinkCond2(){
-        Object objValue = this.get(FIELD_LINKCOND2);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 连接条件2 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isLinkCond2Dirty(){
-        if(this.contains(FIELD_LINKCOND2)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 连接条件2
-     */
-    @JsonIgnore
-    public void resetLinkCond2(){
-        this.reset(FIELD_LINKCOND2);
-    }
-
-    /**
-     * 设置 连接条件2
-     * <P>
-     * 等同 {@link #setLinkCond2}
-     * @param linkCond2
-     */
-    @JsonIgnore
-    public PSDELogicLink linkcond2(String linkCond2){
-        this.setLinkCond2(linkCond2);
-        return this;
-    }
-
-    /**
      * <B>MEMO</B>&nbsp;备注
      * <P>
      * 字符串：最大长度 2000
@@ -1046,7 +987,7 @@ public class PSDELogicLink extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDELOGICLINKNAME</B>&nbsp;连接名称，指定连接的名称
+     * <B>PSDELOGICLINKNAME</B>&nbsp;连接名称，逻辑连接的业务描述
      * <P>
      * 字符串：最大长度 200
      */

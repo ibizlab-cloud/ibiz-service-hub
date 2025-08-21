@@ -15,8 +15,6 @@ public interface IPSDEFormTabPage extends net.ibizsys.model.control.form.IPSDEFo
 	
 	/**
 	 * 获取实体关系项标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_DRITEMTAG}
 	 * @return
 	 */
 	java.lang.String getDRItemTag();

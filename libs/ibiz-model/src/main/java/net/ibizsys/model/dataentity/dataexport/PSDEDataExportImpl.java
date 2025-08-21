@@ -7,15 +7,19 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 		,net.ibizsys.model.IPSModelSortable{
 
 	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETCONTENTTYPE = "contentType";
 	public final static String ATTR_GETEXPPARAMS = "expParams";
 	public final static String ATTR_GETEXPTAG = "expTag";
 	public final static String ATTR_GETEXPTAG2 = "expTag2";
+	public final static String ATTR_GETFILENAMEFORMAT = "fileNameFormat";
 	public final static String ATTR_GETGROUPLEVEL = "groupLevel";
 	public final static String ATTR_GETMAXROWCOUNT = "maxRowCount";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPOTIME = "pOTime";
+	public final static String ATTR_GETPSAPPDEDATASET = "getPSAppDEDataSet";
 	public final static String ATTR_GETPSDEDATAEXPORTGROUPS = "getPSDEDataExportGroups";
 	public final static String ATTR_GETPSDEDATAEXPORTITEMS = "getPSDEDataExportItems";
+	public final static String ATTR_GETPSDEDATASET = "getPSDEDataSet";
 	public final static String ATTR_GETPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
 	public final static String ATTR_ISDEFAULTMODE = "defaultMode";
@@ -25,6 +29,14 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getContentType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENTTYPE);
 		if(value == null){
 			return null;
 		}
@@ -49,6 +61,14 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 
 	public java.lang.String getExpTag2(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXPTAG2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getFileNameFormat(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFILENAMEFORMAT);
 		if(value == null){
 			return null;
 		}
@@ -87,6 +107,29 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset;
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet(){
+		if(this.psappdedataset != null) return this.psappdedataset;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSAPPDEDATASET);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.app.dataentity.IPSAppDataEntity ipsappdataentity = getParentPSModelObject(net.ibizsys.model.app.dataentity.IPSAppDataEntity.class);
+		this.psappdedataset = ipsappdataentity.getPSAppDEDataSet(value, false);
+		return this.psappdedataset;
+	}
+
+	public net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSetMust(){
+		net.ibizsys.model.app.dataentity.IPSAppDEDataSet value = this.getPSAppDEDataSet();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体数据集合");}
+		return value;
+	}
+
+	public void setPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset){
+		this.psappdedataset = psappdedataset;
+	}
+
 
 	private java.util.List<net.ibizsys.model.dataentity.dataexport.IPSDEDataExportGroup> psdedataexportgroups = null;
 	public java.util.List<net.ibizsys.model.dataentity.dataexport.IPSDEDataExportGroup> getPSDEDataExportGroups(){
@@ -135,6 +178,29 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 	public void setPSDEDataExportItems(java.util.List<net.ibizsys.model.dataentity.dataexport.IPSDEDataExportItem> list){
 		this.psdedataexportitems = list;
 	}
+	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
+
+	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet(){
+		if(this.psdedataset != null) return this.psdedataset;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEDATASET);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
+		this.psdedataset = ipsdataentity.getPSDEDataSet(value, false);
+		return this.psdedataset;
+	}
+
+	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSetMust(){
+		net.ibizsys.model.dataentity.ds.IPSDEDataSet value = this.getPSDEDataSet();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定默认数据集");}
+		return value;
+	}
+
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){

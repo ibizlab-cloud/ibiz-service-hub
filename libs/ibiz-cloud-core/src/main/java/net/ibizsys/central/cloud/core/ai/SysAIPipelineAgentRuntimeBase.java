@@ -1,6 +1,7 @@
 package net.ibizsys.central.cloud.core.ai;
 
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.model.ai.IPSSysAIPipelineAgent;
@@ -30,6 +31,10 @@ public abstract class SysAIPipelineAgentRuntimeBase extends SysAIAgentRuntimeBas
 
 	@Override
 	protected void onInit() throws Exception {
+		
+		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
+			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
+		}
 		
 		if(this.getPSModelObject().getPSDataEntity() != null) {
 			this.iDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(this.getPSModelObject().getPSDataEntityMust().getId(), false);

@@ -15,8 +15,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取标题，非空白标题时返回配置的标题内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -24,8 +22,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取动态标题绑定值项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LEVELTAG}
 	 * @return
 	 */
 	java.lang.String getCaptionItemName();
@@ -33,8 +29,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取建立默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CREATEDV}
 	 * @return
 	 */
 	java.lang.String getCreateDV();
@@ -42,8 +36,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取建立默认值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CREATEDVT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
@@ -63,8 +55,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	/**
 	 * 获取启用条件
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLECOND}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditItemEnableCond}
 	 * @return
 	 */
@@ -73,8 +63,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取绑定属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getFieldName();
@@ -82,8 +70,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取忽略输入模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_IGNOREINPUT}
 	 * @return
 	 */
 	int getIgnoreInput();
@@ -91,8 +77,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取输入提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INPUTTIP}
 	 * @return
 	 */
 	java.lang.String getInputTip();
@@ -100,8 +84,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取输入提示信息语言标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INPUTTIPLANRESTAG}
 	 * @return
 	 */
 	java.lang.String getInputTipLanResTag();
@@ -109,8 +91,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取输入提示全局标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INPUTTIPUNIQUETAG}
 	 * @return
 	 */
 	java.lang.String getInputTipUniqueTag();
@@ -118,8 +98,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取输入提示链接
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INPUTTIPURL}
 	 * @return
 	 */
 	java.lang.String getInputTipUrl();
@@ -148,8 +126,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取标签动态样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELDYNACLASS}
 	 * @return
 	 */
 	java.lang.String getLabelDynaClass();
@@ -157,8 +133,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取标签位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELPOS}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LabelPos}
 	 * @return
@@ -168,8 +142,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取标签宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_LABELWIDTH}
 	 * @return
 	 */
 	int getLabelWidth();
@@ -177,8 +149,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取无权限显示模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_NOPRIVDM}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NoPrivDisplayMode}
 	 * @return
@@ -188,8 +158,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取输出代码表配置模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CODELISTCONFIGMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.OutputCodeListMode}
 	 * @return
@@ -213,8 +181,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -229,8 +195,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取表单项更新
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSDEFIUPDATEID}
 	 * @return
 	 */
 	net.ibizsys.model.control.form.IPSDEFormItemUpdate getPSDEFormItemUpdate();
@@ -245,8 +209,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取表单项图片对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -289,8 +251,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取更新默认值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_UPDATEDV}
 	 * @return
 	 */
 	java.lang.String getUpdateDV();
@@ -298,8 +258,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取更新默认值类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_UPDATEDVT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
@@ -309,8 +267,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_VALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getValueFormat();
@@ -318,8 +274,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否允许空值输入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ALLOWEMPTY}
 	 * @return
 	 */
 	boolean isAllowEmpty();
@@ -334,8 +288,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否转换为代码项文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_CONVERTCITEXT}
 	 * @return
 	 */
 	boolean isConvertToCodeItemText();
@@ -343,8 +295,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否空白标签
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_EMPTYCAPTION}
 	 * @return
 	 */
 	boolean isEmptyCaption();
@@ -352,8 +302,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否提供锚点
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLEANCHOR}
 	 * @return
 	 */
 	boolean isEnableAnchor();
@@ -361,8 +309,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否支持输入提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLEINPUTTIP}
 	 * @return
 	 */
 	boolean isEnableInputTip();
@@ -370,8 +316,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否启用项权限控制
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_ENABLEITEMPRIV}
 	 * @return
 	 */
 	boolean isEnableItemPriv();
@@ -393,8 +337,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否输入提示支持关闭
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_INPUTTIPCLOSABLE}
 	 * @return
 	 */
 	boolean isInputTipClosable();
@@ -402,8 +344,6 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	
 	/**
 	 * 获取是否需要代码表配置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFormDetailDTO#FIELD_NEEDCODELISTCONFIG}
 	 * @return
 	 */
 	boolean isNeedCodeListConfig();

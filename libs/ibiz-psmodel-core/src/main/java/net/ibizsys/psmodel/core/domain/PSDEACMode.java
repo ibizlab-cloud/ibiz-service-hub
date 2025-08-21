@@ -2055,6 +2055,151 @@ public class PSDEACMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>LINKPSDEVIEWID</B>&nbsp;数据链接视图
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
+     */
+    public final static String FIELD_LINKPSDEVIEWID = "linkpsdeviewid";
+
+    /**
+     * 设置 数据链接视图
+     * 
+     * @param linkPSDEViewId
+     * 
+     */
+    @JsonProperty(FIELD_LINKPSDEVIEWID)
+    public void setLinkPSDEViewId(String linkPSDEViewId){
+        this.set(FIELD_LINKPSDEVIEWID, linkPSDEViewId);
+    }
+    
+    /**
+     * 获取 数据链接视图  
+     * @return
+     */
+    @JsonIgnore
+    public String getLinkPSDEViewId(){
+        Object objValue = this.get(FIELD_LINKPSDEVIEWID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 数据链接视图 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isLinkPSDEViewIdDirty(){
+        if(this.contains(FIELD_LINKPSDEVIEWID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 数据链接视图
+     */
+    @JsonIgnore
+    public void resetLinkPSDEViewId(){
+        this.reset(FIELD_LINKPSDEVIEWID);
+    }
+
+    /**
+     * 设置 数据链接视图
+     * <P>
+     * 等同 {@link #setLinkPSDEViewId}
+     * @param linkPSDEViewId
+     */
+    @JsonIgnore
+    public PSDEACMode linkpsdeviewid(String linkPSDEViewId){
+        this.setLinkPSDEViewId(linkPSDEViewId);
+        return this;
+    }
+
+    /**
+     * 设置 数据链接视图，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setLinkPSDEViewId}
+     * @param pSDEViewBase 引用对象
+     */
+    @JsonIgnore
+    public PSDEACMode linkpsdeviewid(PSDEViewBase pSDEViewBase){
+        if(pSDEViewBase == null){
+            this.setLinkPSDEViewId(null);
+            this.setLinkPSDEViewName(null);
+        }
+        else{
+            this.setLinkPSDEViewId(pSDEViewBase.getPSDEViewBaseId());
+            this.setLinkPSDEViewName(pSDEViewBase.getPSDEViewBaseName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>LINKPSDEVIEWNAME</B>&nbsp;数据链接视图
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_LINKPSDEVIEWID}
+     */
+    public final static String FIELD_LINKPSDEVIEWNAME = "linkpsdeviewname";
+
+    /**
+     * 设置 数据链接视图
+     * 
+     * @param linkPSDEViewName
+     * 
+     */
+    @JsonProperty(FIELD_LINKPSDEVIEWNAME)
+    public void setLinkPSDEViewName(String linkPSDEViewName){
+        this.set(FIELD_LINKPSDEVIEWNAME, linkPSDEViewName);
+    }
+    
+    /**
+     * 获取 数据链接视图  
+     * @return
+     */
+    @JsonIgnore
+    public String getLinkPSDEViewName(){
+        Object objValue = this.get(FIELD_LINKPSDEVIEWNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 数据链接视图 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isLinkPSDEViewNameDirty(){
+        if(this.contains(FIELD_LINKPSDEVIEWNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 数据链接视图
+     */
+    @JsonIgnore
+    public void resetLinkPSDEViewName(){
+        this.reset(FIELD_LINKPSDEVIEWNAME);
+    }
+
+    /**
+     * 设置 数据链接视图
+     * <P>
+     * 等同 {@link #setLinkPSDEViewName}
+     * @param linkPSDEViewName
+     */
+    @JsonIgnore
+    public PSDEACMode linkpsdeviewname(String linkPSDEViewName){
+        this.setLinkPSDEViewName(linkPSDEViewName);
+        return this;
+    }
+
+    /**
      * <B>LOGICNAME</B>&nbsp;中文名称，指定自填模式的逻辑名称
      * <P>
      * 字符串：最大长度 100
@@ -3204,6 +3349,296 @@ public class PSDEACMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEACMode psdeuagroupname(String pSDEUAGroupName){
         this.setPSDEUAGroupName(pSDEUAGroupName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAICHATAGENTID</B>&nbsp;AI交谈者代理
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysAIChatAgent} 
+     */
+    public final static String FIELD_PSSYSAICHATAGENTID = "pssysaichatagentid";
+
+    /**
+     * 设置 AI交谈者代理
+     * 
+     * @param pSSysAIChatAgentId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAICHATAGENTID)
+    public void setPSSysAIChatAgentId(String pSSysAIChatAgentId){
+        this.set(FIELD_PSSYSAICHATAGENTID, pSSysAIChatAgentId);
+    }
+    
+    /**
+     * 获取 AI交谈者代理  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIChatAgentId(){
+        Object objValue = this.get(FIELD_PSSYSAICHATAGENTID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI交谈者代理 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIChatAgentIdDirty(){
+        if(this.contains(FIELD_PSSYSAICHATAGENTID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI交谈者代理
+     */
+    @JsonIgnore
+    public void resetPSSysAIChatAgentId(){
+        this.reset(FIELD_PSSYSAICHATAGENTID);
+    }
+
+    /**
+     * 设置 AI交谈者代理
+     * <P>
+     * 等同 {@link #setPSSysAIChatAgentId}
+     * @param pSSysAIChatAgentId
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaichatagentid(String pSSysAIChatAgentId){
+        this.setPSSysAIChatAgentId(pSSysAIChatAgentId);
+        return this;
+    }
+
+    /**
+     * 设置 AI交谈者代理，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysAIChatAgentId}
+     * @param pSSysAIChatAgent 引用对象
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaichatagentid(PSSysAIChatAgent pSSysAIChatAgent){
+        if(pSSysAIChatAgent == null){
+            this.setPSSysAIChatAgentId(null);
+            this.setPSSysAIChatAgentName(null);
+        }
+        else{
+            this.setPSSysAIChatAgentId(pSSysAIChatAgent.getPSSysAIChatAgentId());
+            this.setPSSysAIChatAgentName(pSSysAIChatAgent.getPSSysAIChatAgentName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAICHATAGENTNAME</B>&nbsp;AI交谈者代理
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSAICHATAGENTID}
+     */
+    public final static String FIELD_PSSYSAICHATAGENTNAME = "pssysaichatagentname";
+
+    /**
+     * 设置 AI交谈者代理
+     * 
+     * @param pSSysAIChatAgentName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAICHATAGENTNAME)
+    public void setPSSysAIChatAgentName(String pSSysAIChatAgentName){
+        this.set(FIELD_PSSYSAICHATAGENTNAME, pSSysAIChatAgentName);
+    }
+    
+    /**
+     * 获取 AI交谈者代理  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIChatAgentName(){
+        Object objValue = this.get(FIELD_PSSYSAICHATAGENTNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI交谈者代理 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIChatAgentNameDirty(){
+        if(this.contains(FIELD_PSSYSAICHATAGENTNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI交谈者代理
+     */
+    @JsonIgnore
+    public void resetPSSysAIChatAgentName(){
+        this.reset(FIELD_PSSYSAICHATAGENTNAME);
+    }
+
+    /**
+     * 设置 AI交谈者代理
+     * <P>
+     * 等同 {@link #setPSSysAIChatAgentName}
+     * @param pSSysAIChatAgentName
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaichatagentname(String pSSysAIChatAgentName){
+        this.setPSSysAIChatAgentName(pSSysAIChatAgentName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAIFACTORYID</B>&nbsp;AI工厂
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysAIFactory} 
+     */
+    public final static String FIELD_PSSYSAIFACTORYID = "pssysaifactoryid";
+
+    /**
+     * 设置 AI工厂
+     * 
+     * @param pSSysAIFactoryId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAIFACTORYID)
+    public void setPSSysAIFactoryId(String pSSysAIFactoryId){
+        this.set(FIELD_PSSYSAIFACTORYID, pSSysAIFactoryId);
+    }
+    
+    /**
+     * 获取 AI工厂  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIFactoryId(){
+        Object objValue = this.get(FIELD_PSSYSAIFACTORYID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI工厂 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIFactoryIdDirty(){
+        if(this.contains(FIELD_PSSYSAIFACTORYID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI工厂
+     */
+    @JsonIgnore
+    public void resetPSSysAIFactoryId(){
+        this.reset(FIELD_PSSYSAIFACTORYID);
+    }
+
+    /**
+     * 设置 AI工厂
+     * <P>
+     * 等同 {@link #setPSSysAIFactoryId}
+     * @param pSSysAIFactoryId
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaifactoryid(String pSSysAIFactoryId){
+        this.setPSSysAIFactoryId(pSSysAIFactoryId);
+        return this;
+    }
+
+    /**
+     * 设置 AI工厂，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysAIFactoryId}
+     * @param pSSysAIFactory 引用对象
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaifactoryid(PSSysAIFactory pSSysAIFactory){
+        if(pSSysAIFactory == null){
+            this.setPSSysAIFactoryId(null);
+            this.setPSSysAIFactoryName(null);
+        }
+        else{
+            this.setPSSysAIFactoryId(pSSysAIFactory.getPSSysAIFactoryId());
+            this.setPSSysAIFactoryName(pSSysAIFactory.getPSSysAIFactoryName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSAIFACTORYNAME</B>&nbsp;AI工厂
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSAIFACTORYID}
+     */
+    public final static String FIELD_PSSYSAIFACTORYNAME = "pssysaifactoryname";
+
+    /**
+     * 设置 AI工厂
+     * 
+     * @param pSSysAIFactoryName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSAIFACTORYNAME)
+    public void setPSSysAIFactoryName(String pSSysAIFactoryName){
+        this.set(FIELD_PSSYSAIFACTORYNAME, pSSysAIFactoryName);
+    }
+    
+    /**
+     * 获取 AI工厂  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysAIFactoryName(){
+        Object objValue = this.get(FIELD_PSSYSAIFACTORYNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 AI工厂 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysAIFactoryNameDirty(){
+        if(this.contains(FIELD_PSSYSAIFACTORYNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 AI工厂
+     */
+    @JsonIgnore
+    public void resetPSSysAIFactoryName(){
+        this.reset(FIELD_PSSYSAIFACTORYNAME);
+    }
+
+    /**
+     * 设置 AI工厂
+     * <P>
+     * 等同 {@link #setPSSysAIFactoryName}
+     * @param pSSysAIFactoryName
+     */
+    @JsonIgnore
+    public PSDEACMode pssysaifactoryname(String pSSysAIFactoryName){
+        this.setPSSysAIFactoryName(pSSysAIFactoryName);
         return this;
     }
 

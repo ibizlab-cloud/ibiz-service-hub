@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.datasync;
 
 
 /**
- * 实体数据同步模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO}运行时对象
+ * 实体数据同步模型对象接口
  *
  */
 public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntityObject
@@ -21,8 +21,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	/**
 	 * 获取事件类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_EVENTTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncInformType}
 	 * @return
 	 */
@@ -31,8 +29,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取导入实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_IMPORTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getImportPSDEAction();
@@ -47,8 +43,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输入数据集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_INPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getInPSDEDataSet();
@@ -63,8 +57,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输入系统数据同步代理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_INPSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getInPSSysDataSyncAgent();
@@ -79,8 +71,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输入调用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_INCUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getInScriptCode();
@@ -88,8 +78,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输入判断实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_INPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getInTestPSDEAction();
@@ -104,8 +92,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输出数据集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTPSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.ds.IPSDEDataSet getOutPSDEDataSet();
@@ -120,8 +106,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输出系统数据同步代理对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTPSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getOutPSSysDataSyncAgent();
@@ -136,8 +120,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输出调用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTCUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getOutScriptCode();
@@ -145,8 +127,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取输出判断实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getOutTestPSDEAction();
@@ -162,8 +142,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	/**
 	 * 获取同步输出模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncOutMode}
 	 * @return
 	 */
@@ -173,8 +151,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	/**
 	 * 获取同步方向
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_SYNCDIR}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncDir}
 	 * @return
 	 */
@@ -183,8 +159,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取是否导出全部
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_EXPORTFULL}
 	 * @return
 	 */
 	boolean isExportFull();
@@ -192,8 +166,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取是否自定义输入处理脚本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_INCUSTOMMODE}
 	 * @return
 	 */
 	boolean isInCustomCode();
@@ -201,8 +173,6 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	/**
 	 * 获取是否自定义输出处理脚本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataSyncDTO#FIELD_OUTCUSTOMMODE}
 	 * @return
 	 */
 	boolean isOutCustomCode();

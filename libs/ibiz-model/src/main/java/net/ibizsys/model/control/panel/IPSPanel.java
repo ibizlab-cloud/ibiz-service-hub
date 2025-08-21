@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板部件模型对象基础接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO}运行时对象
+ * 面板部件模型对象基础接口
  *
  */
 public interface IPSPanel extends net.ibizsys.model.control.IPSControl
@@ -80,8 +80,6 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	/**
 	 * 获取布局模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO#FIELD_LAYOUTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LayoutMode}
 	 * @return
 	 */
@@ -90,8 +88,6 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取面板样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO#FIELD_PANELSTYLE}
 	 * @return
 	 */
 	java.lang.String getPanelStyle();
@@ -99,8 +95,6 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取面板宽度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO#FIELD_PANELWIDTH}
 	 * @return
 	 */
 	double getPanelWidth();
@@ -129,8 +123,6 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取是否布局面板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO#FIELD_VIEWLAYOUTFLAG}
 	 * @return
 	 */
 	boolean isLayoutPanel();
@@ -138,8 +130,6 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	
 	/**
 	 * 获取是否移动端面板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelDTO#FIELD_MOBFLAG}
 	 * @return
 	 */
 	boolean isMobilePanel();

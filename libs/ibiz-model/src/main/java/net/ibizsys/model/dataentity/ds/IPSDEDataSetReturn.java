@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据集合返回模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataSetDTO}运行时对象
+ * 实体数据集合返回模型对象接口
  * <P>
  * 实体数据集合返回模型是实体数据集合模型的组成
  *

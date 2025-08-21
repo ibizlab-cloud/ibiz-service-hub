@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ac;
 
 
 /**
- * 实体自动填充数据项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEACModeItemDTO}运行时对象
+ * 实体自动填充数据项模型对象接口
  *
  */
 public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
@@ -19,8 +19,6 @@ public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
 	
 	/**
 	 * 获取应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeItemDTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();
@@ -49,8 +47,6 @@ public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeItemDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -58,8 +54,6 @@ public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
 	
 	/**
 	 * 获取是否脚本代码模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeItemDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();

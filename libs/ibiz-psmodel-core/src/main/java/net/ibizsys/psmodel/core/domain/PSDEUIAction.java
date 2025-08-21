@@ -98,14 +98,14 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ACTIONTARGET</B>&nbsp;数据目标，指定界面行为的操作目标
+     * <B>ACTIONTARGET</B>&nbsp;操作目标，指定界面行为的操作目标
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.UIActionTarget} 
      */
     public final static String FIELD_ACTIONTARGET = "actiontarget";
 
     /**
-     * 设置 数据目标，详细说明：{@link #FIELD_ACTIONTARGET}
+     * 设置 操作目标，详细说明：{@link #FIELD_ACTIONTARGET}
      * 
      * @param actionTarget
      * 
@@ -116,7 +116,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 数据目标  
+     * 获取 操作目标  
      * @return
      */
     @JsonIgnore
@@ -129,7 +129,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 数据目标 是否指定值，包括空值
+     * 判断 操作目标 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -141,7 +141,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 数据目标
+     * 重置 操作目标
      */
     @JsonIgnore
     public void resetActionTarget(){
@@ -149,7 +149,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 数据目标，详细说明：{@link #FIELD_ACTIONTARGET}
+     * 设置 操作目标，详细说明：{@link #FIELD_ACTIONTARGET}
      * <P>
      * 等同 {@link #setActionTarget}
      * @param actionTarget
@@ -161,7 +161,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 数据目标，详细说明：{@link #FIELD_ACTIONTARGET}
+     * 设置 操作目标，详细说明：{@link #FIELD_ACTIONTARGET}
      * <P>
      * 等同 {@link #setActionTarget}
      * @param actionTarget
@@ -1208,6 +1208,67 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>ENABLELOGIC</B>&nbsp;启用逻辑
+     */
+    public final static String FIELD_ENABLELOGIC = "enablelogic";
+
+    /**
+     * 设置 启用逻辑
+     * 
+     * @param enableLogic
+     * 
+     */
+    @JsonProperty(FIELD_ENABLELOGIC)
+    public void setEnableLogic(String enableLogic){
+        this.set(FIELD_ENABLELOGIC, enableLogic);
+    }
+    
+    /**
+     * 获取 启用逻辑  
+     * @return
+     */
+    @JsonIgnore
+    public String getEnableLogic(){
+        Object objValue = this.get(FIELD_ENABLELOGIC);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 启用逻辑 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isEnableLogicDirty(){
+        if(this.contains(FIELD_ENABLELOGIC)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 启用逻辑
+     */
+    @JsonIgnore
+    public void resetEnableLogic(){
+        this.reset(FIELD_ENABLELOGIC);
+    }
+
+    /**
+     * 设置 启用逻辑
+     * <P>
+     * 等同 {@link #setEnableLogic}
+     * @param enableLogic
+     */
+    @JsonIgnore
+    public PSDEUIAction enablelogic(String enableLogic){
+        this.setEnableLogic(enableLogic);
+        return this;
+    }
+
+    /**
      * <B>ENABLERTMODEL</B>&nbsp;支持运行时模型，设置是否启用运行时模型，启用运行时模型将支持运行环境的动态配置系统进行动态组装，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
@@ -1671,69 +1732,6 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ITEMOBJ</B>&nbsp;处理对象，指定自定义处理对象
-     * <P>
-     * 字符串：最大长度 250
-     */
-    public final static String FIELD_ITEMOBJ = "itemobj";
-
-    /**
-     * 设置 处理对象，详细说明：{@link #FIELD_ITEMOBJ}
-     * 
-     * @param itemObj
-     * 
-     */
-    @JsonProperty(FIELD_ITEMOBJ)
-    public void setItemObj(String itemObj){
-        this.set(FIELD_ITEMOBJ, itemObj);
-    }
-    
-    /**
-     * 获取 处理对象  
-     * @return
-     */
-    @JsonIgnore
-    public String getItemObj(){
-        Object objValue = this.get(FIELD_ITEMOBJ);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 处理对象 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isItemObjDirty(){
-        if(this.contains(FIELD_ITEMOBJ)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 处理对象
-     */
-    @JsonIgnore
-    public void resetItemObj(){
-        this.reset(FIELD_ITEMOBJ);
-    }
-
-    /**
-     * 设置 处理对象，详细说明：{@link #FIELD_ITEMOBJ}
-     * <P>
-     * 等同 {@link #setItemObj}
-     * @param itemObj
-     */
-    @JsonIgnore
-    public PSDEUIAction itemobj(String itemObj){
-        this.setItemObj(itemObj);
-        return this;
-    }
-
-    /**
      * <B>MEMO</B>&nbsp;备注
      * <P>
      * 字符串：最大长度 2000
@@ -1797,14 +1795,14 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>MOBPSDEVIEWID</B>&nbsp;移动端打开视图
+     * <B>MOBPSDEVIEWID</B>&nbsp;移动端打开视图，指定前台调用打开的实体视图（移动端）
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEViewBase} 
      */
     public final static String FIELD_MOBPSDEVIEWID = "mobpsdeviewid";
 
     /**
-     * 设置 移动端打开视图
+     * 设置 移动端打开视图，详细说明：{@link #FIELD_MOBPSDEVIEWID}
      * 
      * @param mobPSDEViewId
      * 
@@ -1848,7 +1846,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 移动端打开视图
+     * 设置 移动端打开视图，详细说明：{@link #FIELD_MOBPSDEVIEWID}
      * <P>
      * 等同 {@link #setMobPSDEViewId}
      * @param mobPSDEViewId
@@ -2455,14 +2453,14 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEACMODEID</B>&nbsp;实体自填模式
+     * <B>PSDEACMODEID</B>&nbsp;实体AIChat模式，前台处理模式为【打开聊天界面】时指定的实体聊天模式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEACMode} 
      */
     public final static String FIELD_PSDEACMODEID = "psdeacmodeid";
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体AIChat模式，详细说明：{@link #FIELD_PSDEACMODEID}
      * 
      * @param pSDEACModeId
      * 
@@ -2473,7 +2471,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 实体自填模式  
+     * 获取 实体AIChat模式  
      * @return
      */
     @JsonIgnore
@@ -2486,7 +2484,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 实体自填模式 是否指定值，包括空值
+     * 判断 实体AIChat模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2498,7 +2496,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 实体自填模式
+     * 重置 实体AIChat模式
      */
     @JsonIgnore
     public void resetPSDEACModeId(){
@@ -2506,7 +2504,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体AIChat模式，详细说明：{@link #FIELD_PSDEACMODEID}
      * <P>
      * 等同 {@link #setPSDEACModeId}
      * @param pSDEACModeId
@@ -2518,7 +2516,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体自填模式，包括引用对象的其它关系属性
+     * 设置 实体AIChat模式，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEACModeId}
      * @param pSDEACMode 引用对象
@@ -8878,6 +8876,67 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
         else{
             this.setViewLogicType(viewLogicType.value);
         }
+        return this;
+    }
+
+    /**
+     * <B>VISIBLELOGIC</B>&nbsp;可见逻辑
+     */
+    public final static String FIELD_VISIBLELOGIC = "visiblelogic";
+
+    /**
+     * 设置 可见逻辑
+     * 
+     * @param visibleLogic
+     * 
+     */
+    @JsonProperty(FIELD_VISIBLELOGIC)
+    public void setVisibleLogic(String visibleLogic){
+        this.set(FIELD_VISIBLELOGIC, visibleLogic);
+    }
+    
+    /**
+     * 获取 可见逻辑  
+     * @return
+     */
+    @JsonIgnore
+    public String getVisibleLogic(){
+        Object objValue = this.get(FIELD_VISIBLELOGIC);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 可见逻辑 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isVisibleLogicDirty(){
+        if(this.contains(FIELD_VISIBLELOGIC)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 可见逻辑
+     */
+    @JsonIgnore
+    public void resetVisibleLogic(){
+        this.reset(FIELD_VISIBLELOGIC);
+    }
+
+    /**
+     * 设置 可见逻辑
+     * <P>
+     * 等同 {@link #setVisibleLogic}
+     * @param visibleLogic
+     */
+    @JsonIgnore
+    public PSDEUIAction visiblelogic(String visibleLogic){
+        this.setVisibleLogic(visibleLogic);
         return this;
     }
 

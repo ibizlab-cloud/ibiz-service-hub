@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIREPORT</B>智能报表 模型传输对象
  * <P>
- * 
+ * 智能报表系统的核心模型，用于定义具体的报表实例，整合数据源（立方体）、展示布局、交互逻辑及扩展插件，构建完整的业务分析报表
  */
 public class PSSysBIReport extends net.ibizsys.psmodel.core.util.PSModelBase {
 

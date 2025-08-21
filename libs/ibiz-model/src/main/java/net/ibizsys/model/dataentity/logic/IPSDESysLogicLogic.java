@@ -14,8 +14,6 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取逻辑调用参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
 	 * @return
 	 */
 	java.lang.String getLogicParam();
@@ -39,8 +35,6 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取逻辑调用参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getLogicParam2();
@@ -48,8 +42,6 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取系统逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSDELOGICNODEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysLogic getPSSysLogic();
@@ -64,8 +56,6 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

@@ -3,7 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用视图模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppViewDTO}运行时对象
+ * 应用视图模型基础对象接口
  *
  */
 public interface IPSAppViewBase extends net.ibizsys.model.app.IPSApplicationObject{
@@ -28,8 +28,6 @@ public interface IPSAppViewBase extends net.ibizsys.model.app.IPSApplicationObje
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -289,8 +287,6 @@ net.ibizsys.model.app.view.IPSAppViewMsgGroup getPSAppViewMsgGroupMust();
 	
 	/**
 	 * 获取子标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_SUBCAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getSubCapPSLanguageRes();
@@ -319,8 +315,6 @@ net.ibizsys.model.app.view.IPSAppViewMsgGroup getPSAppViewMsgGroupMust();
 	
 	/**
 	 * 获取抬头语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppViewDTO#FIELD_TITLEPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();

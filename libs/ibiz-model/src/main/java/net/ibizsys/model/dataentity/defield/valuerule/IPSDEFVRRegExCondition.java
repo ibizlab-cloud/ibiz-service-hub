@@ -14,8 +14,6 @@ public interface IPSDEFVRRegExCondition extends net.ibizsys.model.dataentity.def
 	
 	/**
 	 * 获取正则式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_CONDVALUE}
 	 * @return
 	 */
 	java.lang.String getRegExCode();

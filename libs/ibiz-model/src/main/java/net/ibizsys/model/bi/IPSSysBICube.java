@@ -3,7 +3,7 @@ package net.ibizsys.model.bi;
 
 
 /**
- * 智能报表立方体模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysBICubeDTO}运行时对象
+ * 智能报表立方体模型对象接口
  *
  */
 public interface IPSSysBICube extends net.ibizsys.model.bi.IPSSysBISchemeObject

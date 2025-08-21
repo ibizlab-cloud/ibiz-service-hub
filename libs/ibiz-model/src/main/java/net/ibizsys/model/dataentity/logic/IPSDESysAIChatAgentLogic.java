@@ -14,8 +14,6 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取AI交谈代理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSAICHATAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.ai.IPSSysAIChatAgent getPSSysAIChatAgent();
@@ -46,8 +42,6 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取AI工厂
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSYSAIFACTORYID}
 	 * @return
 	 */
 	net.ibizsys.model.ai.IPSSysAIFactory getPSSysAIFactory();
@@ -62,8 +56,6 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

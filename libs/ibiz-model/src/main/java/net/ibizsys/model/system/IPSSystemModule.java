@@ -3,7 +3,7 @@ package net.ibizsys.model.system;
 
 
 /**
- * 系统模块模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSModuleDTO}运行时对象
+ * 系统模块模型对象接口
  *
  */
 public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
@@ -83,8 +83,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取默认数据源
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_DSLINK}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
@@ -93,8 +91,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块编号
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_MODULESN}
 	 * @return
 	 */
 	java.lang.String getModuleSN();
@@ -102,8 +98,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_MODTAG}
 	 * @return
 	 */
 	java.lang.String getModuleTag();
@@ -111,8 +105,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_MODTAG2}
 	 * @return
 	 */
 	java.lang.String getModuleTag2();
@@ -120,8 +112,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_MODTAG3}
 	 * @return
 	 */
 	java.lang.String getModuleTag3();
@@ -129,8 +119,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模块标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_MODTAG4}
 	 * @return
 	 */
 	java.lang.String getModuleTag4();
@@ -138,8 +126,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取包代码名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_PKGCODENAME}
 	 * @return
 	 */
 	java.lang.String getPKGCodeName();
@@ -147,8 +133,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统模型组
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_PSSYSMODELGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSysModelGroup getPSSysModelGroup();
@@ -163,8 +147,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统引用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_PSSYSREFID}
 	 * @return
 	 */
 	net.ibizsys.model.system.IPSSysRef getPSSysRef();
@@ -193,8 +175,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取运行时类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_RUNTIMETYPE}
 	 * @return
 	 */
 	java.lang.String getRuntimeType();
@@ -234,8 +214,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否默认模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefaultModule();
@@ -250,8 +228,6 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否子系统模块
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSModuleDTO#FIELD_SUBSYSMODULE}
 	 * @return
 	 */
 	boolean isSubSysModule();

@@ -6,6 +6,8 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCODENAME2 = "codeName2";
+	public final static String ATTR_GETCOLUMNTAG = "columnTag";
+	public final static String ATTR_GETCOLUMNTAG2 = "columnTag2";
 	public final static String ATTR_GETCREATESQL = "createSql";
 	public final static String ATTR_GETDATATYPE = "dataType";
 	public final static String ATTR_GETDEFAULTVALUE = "defaultValue";
@@ -32,6 +34,22 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 
 	public java.lang.String getCodeName2(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getColumnTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOLUMNTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getColumnTag2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOLUMNTAG2);
 		if(value == null){
 			return null;
 		}
@@ -111,6 +129,10 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 		return value;
 	}
 
+	public void setRefPSSysDBColumn(net.ibizsys.model.database.IPSSysDBColumn refpssysdbcolumn){
+		this.refpssysdbcolumn = refpssysdbcolumn;
+	}
+
 	private net.ibizsys.model.database.IPSSysDBTable refpssysdbtable;
 
 	public net.ibizsys.model.database.IPSSysDBTable getRefPSSysDBTable(){
@@ -128,6 +150,10 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 		net.ibizsys.model.database.IPSSysDBTable value = this.getRefPSSysDBTable();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用数据表");}
 		return value;
+	}
+
+	public void setRefPSSysDBTable(net.ibizsys.model.database.IPSSysDBTable refpssysdbtable){
+		this.refpssysdbtable = refpssysdbtable;
 	}
 
 

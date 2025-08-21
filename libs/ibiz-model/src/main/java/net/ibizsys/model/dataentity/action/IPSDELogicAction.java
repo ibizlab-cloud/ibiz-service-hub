@@ -15,8 +15,6 @@ public interface IPSDELogicAction extends net.ibizsys.model.dataentity.action.IP
 	/**
 	 * 获取行为持有者，行为未定义时使用处理逻辑{@link #getPSDELogic}的逻辑持有者配置
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_ACTIONHOLDER}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicHolder}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDELogicAction extends net.ibizsys.model.dataentity.action.IP
 	
 	/**
 	 * 获取实体处理逻辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEActionDTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogic getPSDELogic();

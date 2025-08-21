@@ -26,8 +26,6 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取左侧位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LEFTPOS}
 	 * @return
 	 */
 	int getLeftPos();
@@ -35,8 +33,6 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取逻辑节点类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICNODETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicNodeType}
 	 * @return
@@ -46,8 +42,6 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取上方位置
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_TOPPOS}
 	 * @return
 	 */
 	int getTopPos();
@@ -62,8 +56,6 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否平行输出
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PARALLELOUTPUT}
 	 * @return
 	 */
 	boolean isParallelOutput();

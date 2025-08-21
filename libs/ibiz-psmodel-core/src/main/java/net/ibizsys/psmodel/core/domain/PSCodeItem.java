@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSCODEITEM</B>系统代码表项 模型传输对象
+ * <B>PSCODEITEM</B>代码表项 模型传输对象
  * <P>
  * 系统的代码表项模型，支持定义层级代码项
  */
@@ -143,14 +143,14 @@ public class PSCodeItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODEITEMVALUE</B>&nbsp;代码项值
+     * <B>CODEITEMVALUE</B>&nbsp;代码项值，指定的枚举值
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_CODEITEMVALUE = "codeitemvalue";
 
     /**
-     * 设置 代码项值
+     * 设置 代码项值，详细说明：{@link #FIELD_CODEITEMVALUE}
      * 
      * @param codeItemValue
      * 
@@ -194,7 +194,7 @@ public class PSCodeItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 代码项值
+     * 设置 代码项值，详细说明：{@link #FIELD_CODEITEMVALUE}
      * <P>
      * 等同 {@link #setCodeItemValue}
      * @param codeItemValue
@@ -3257,14 +3257,14 @@ public class PSCodeItem extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统代码表项 成员集合
+     *  代码表项 成员集合
      */
     public final static String FIELD_PSCODEITEMS = "pscodeitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSCodeItem> pscodeitems;
 
     /**
-     * 获取 系统代码表项 成员集合
+     * 获取 代码表项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSCODEITEMS)
@@ -3273,7 +3273,7 @@ public class PSCodeItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统代码表项 成员集合  
+     * 设置 代码表项 成员集合  
      * @param pscodeitems
      */
     @JsonProperty(FIELD_PSCODEITEMS)
@@ -3282,7 +3282,7 @@ public class PSCodeItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统代码表项 成员集合，不存在时建立集合对象
+     * 获取 代码表项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

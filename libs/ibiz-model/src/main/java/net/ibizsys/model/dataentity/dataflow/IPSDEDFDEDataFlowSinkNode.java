@@ -11,8 +11,6 @@ public interface IPSDEDFDEDataFlowSinkNode extends net.ibizsys.model.dataentity.
 	
 	/**
 	 * 获取目标实体数据流逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEDATAFLOWID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.dataflow.IPSDEDataFlow getDstPSDEDataFlow();
@@ -27,8 +25,6 @@ public interface IPSDEDFDEDataFlowSinkNode extends net.ibizsys.model.dataentity.
 	
 	/**
 	 * 获取目标实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_DSTPSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getDstPSDataEntity();

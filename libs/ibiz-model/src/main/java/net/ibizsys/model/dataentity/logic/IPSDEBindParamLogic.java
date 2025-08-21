@@ -14,8 +14,6 @@ public interface IPSDEBindParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDEBindParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取源属性名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_CUSTOMSRCPARAM}
 	 * @return
 	 */
 	java.lang.String getSrcFieldName();
@@ -39,8 +35,6 @@ public interface IPSDEBindParamLogic extends net.ibizsys.model.dataentity.logic.
 	
 	/**
 	 * 获取源逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParam();

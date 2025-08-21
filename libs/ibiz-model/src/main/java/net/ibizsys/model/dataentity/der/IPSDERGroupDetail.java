@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.der;
 
 
 /**
- * 实体关系组成员模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDERGroupDetailDTO}运行时对象
+ * 实体关系组成员模型对象接口
  *
  */
 public interface IPSDERGroupDetail extends net.ibizsys.model.IPSModelObject{
@@ -54,8 +54,6 @@ public interface IPSDERGroupDetail extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取实体关系
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERGroupDetailDTO#FIELD_PSDERID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDER();

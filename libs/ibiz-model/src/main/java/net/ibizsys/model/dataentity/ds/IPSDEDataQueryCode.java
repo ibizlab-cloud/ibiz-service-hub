@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.ds;
 
 
 /**
- * 实体数据查询代码模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDQCodeDTO}运行时对象
+ * 实体数据查询代码模型对象接口
  *
  */
 public interface IPSDEDataQueryCode extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSDEDataQueryCode extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取数据库类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCodeDTO#FIELD_DBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBType}
 	 * @return
@@ -65,8 +63,6 @@ public interface IPSDEDataQueryCode extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取查询代码，优先使用用户查询代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDQCodeDTO#FIELD_USERQUERYCODE}、{@link net.ibizsys.centralstudio.dto.PSDEDQCodeDTO#FIELD_QUERYCODE}
 	 * @return
 	 */
 	java.lang.String getQueryCode();

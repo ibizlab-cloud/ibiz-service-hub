@@ -3,7 +3,7 @@ package net.ibizsys.model.control.chart;
 
 
 /**
- * 图表位置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEChartSeriesDTO}运行时对象
+ * 图表位置模型对象接口
  *
  */
 public interface IPSChartPosition{

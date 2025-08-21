@@ -1106,6 +1106,67 @@ public class PSSystem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DEDSMAXROWCNT</B>&nbsp;实体数据集最大记录数
+     */
+    public final static String FIELD_DEDSMAXROWCNT = "dedsmaxrowcnt";
+
+    /**
+     * 设置 实体数据集最大记录数
+     * 
+     * @param dEDSMaxRowCnt
+     * 
+     */
+    @JsonProperty(FIELD_DEDSMAXROWCNT)
+    public void setDEDSMaxRowCnt(Integer dEDSMaxRowCnt){
+        this.set(FIELD_DEDSMAXROWCNT, dEDSMaxRowCnt);
+    }
+    
+    /**
+     * 获取 实体数据集最大记录数  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDEDSMaxRowCnt(){
+        Object objValue = this.get(FIELD_DEDSMAXROWCNT);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 实体数据集最大记录数 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDEDSMaxRowCntDirty(){
+        if(this.contains(FIELD_DEDSMAXROWCNT)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 实体数据集最大记录数
+     */
+    @JsonIgnore
+    public void resetDEDSMaxRowCnt(){
+        this.reset(FIELD_DEDSMAXROWCNT);
+    }
+
+    /**
+     * 设置 实体数据集最大记录数
+     * <P>
+     * 等同 {@link #setDEDSMaxRowCnt}
+     * @param dEDSMaxRowCnt
+     */
+    @JsonIgnore
+    public PSSystem dedsmaxrowcnt(Integer dEDSMaxRowCnt){
+        this.setDEDSMaxRowCnt(dEDSMaxRowCnt);
+        return this;
+    }
+
+    /**
      * <B>DEEXPMAXROWCNT</B>&nbsp;数据导出最大记录数，指定系统默认的数据导出最大记录数，过大的导出数量会导致系统负载过重，未定义时为【1000】。实体导出等对象未指定值时使用此配置
      */
     public final static String FIELD_DEEXPMAXROWCNT = "deexpmaxrowcnt";
@@ -2997,7 +3058,7 @@ public class PSSystem extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSSFID</B>&nbsp;后台技术架构，指定系统使用后台技术架
      * <P>
-     * 字符串：最大长度 100
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSF} 
      */
     public final static String FIELD_PSSFID = "pssfid";
 

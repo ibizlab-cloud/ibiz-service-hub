@@ -360,7 +360,7 @@
     "logicName" : "实例名称",
     "name" : "INSTANCENAME",
     "stdDataType" : 25,
-    "stringLength" : 300,
+    "stringLength" : 2000,
     "enableQuickSearch" : true,
     "majorField" : true
   }, {
@@ -368,7 +368,7 @@
     "logicName" : "DefinitionKey",
     "name" : "DEFINITIONKEY",
     "stdDataType" : 25,
-    "stringLength" : 100
+    "stringLength" : 200
   }, {
     "codeName" : "ProcessDefinitionName",
     "logicName" : "流程定义名称",
@@ -412,6 +412,18 @@
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
+    "codeName" : "Param",
+    "logicName" : "参数",
+    "name" : "PARAM",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "codeName" : "Param2",
+    "logicName" : "参数2",
+    "name" : "PARAM2",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
     "codeName" : "Wfstate",
     "logicName" : "流程状态",
     "name" : "WFSTATE",
@@ -433,12 +445,14 @@
     "codeName" : "UpdateMan",
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "predefinedType" : "UPDATEMAN",
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
     "codeName" : "CreateDate",
     "logicName" : "创建时间",
     "name" : "CREATEDATE",
+    "predefinedType" : "CREATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
@@ -457,6 +471,7 @@
     "codeName" : "UpdateDate",
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "predefinedType" : "UPDATEDATE",
     "stdDataType" : 5,
     "valueFormat" : "YYYY-MM-DD HH:mm:ss"
   }, {
@@ -469,6 +484,7 @@
     "codeName" : "CreateMan",
     "logicName" : "创建人",
     "name" : "CREATEMAN",
+    "predefinedType" : "CREATEMAN",
     "stdDataType" : 25,
     "stringLength" : 100
   } ],
@@ -585,6 +601,28 @@
       "getPSAppDEField" : {
         "name" : "STARTUSERNAME",
         "codeName" : "StartUserName"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Param",
+      "logicName" : "参数",
+      "name" : "Param",
+      "getPSAppDEField" : {
+        "name" : "PARAM",
+        "codeName" : "Param"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "Param2",
+      "logicName" : "参数2",
+      "name" : "Param2",
+      "getPSAppDEField" : {
+        "name" : "PARAM2",
+        "codeName" : "Param2"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,

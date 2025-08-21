@@ -15,8 +15,6 @@ public interface IPSBorderLayoutPos extends net.ibizsys.model.control.layout.IPS
 	/**
 	 * 获取布局占位
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSLayoutDTO#FIELD_AL_POS}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderLayoutPos}
 	 * @return
 	 */

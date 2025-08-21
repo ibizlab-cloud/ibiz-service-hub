@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSBIAGGCOLUMN</B>智能报表聚合数据列 模型传输对象
  * <P>
- * 
+ * 智能报表系统中定义聚合数据表列的核心模型，用于明确聚合结果中的列类型（指标、维度或自定义类型），关联立方体维度、层级或指标
  */
 public class PSSysBIAggColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -630,14 +630,14 @@ public class PSSysBIAggColumn extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性
+     * <B>PSDEFID</B>&nbsp;实体属性，指定聚合数据中属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
     public final static String FIELD_PSDEFID = "psdefid";
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * 
      * @param pSDEFId
      * 
@@ -681,7 +681,7 @@ public class PSSysBIAggColumn extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 实体属性
+     * 设置 实体属性，详细说明：{@link #FIELD_PSDEFID}
      * <P>
      * 等同 {@link #setPSDEFId}
      * @param pSDEFId

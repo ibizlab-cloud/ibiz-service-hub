@@ -4,8 +4,6 @@ package net.ibizsys.model.control;
 
 /**
  * 编辑器部件模型基础对象接口
- * <P>
- * 子接口扩展识别值 {@link #getEditorType}
  *
  */
 public interface IPSEditor extends net.ibizsys.model.IPSModelObject{

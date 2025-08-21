@@ -3,7 +3,7 @@ package net.ibizsys.model.control.toolbar;
 
 
 /**
- * 上下文菜单分组模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO}运行时对象
+ * 上下文菜单分组模型对象接口
  * <P>
  * 扩展父接口类型[ITEMS]
  *
@@ -15,8 +15,6 @@ public interface IPSDECMGroupItem extends net.ibizsys.model.control.toolbar.IPSD
 	/**
 	 * 获取行为级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_ACTIONLEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionLevel}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSDECMGroupItem extends net.ibizsys.model.control.toolbar.IPSD
 	/**
 	 * 获取边框样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_BORDERSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
@@ -36,8 +32,6 @@ public interface IPSDECMGroupItem extends net.ibizsys.model.control.toolbar.IPSD
 	
 	/**
 	 * 获取按钮样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_ITEMSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return

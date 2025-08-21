@@ -1498,6 +1498,10 @@
                 "name" : "GROUPID",
                 "codeName" : "GroupId"
               },
+              "getParentTextPSAppDEField" : {
+                "name" : "GROUPNAME",
+                "codeName" : "GroupName"
+              },
               "rSMode" : 2
             } ], [ {
               "actionRSMode" : 1,
@@ -1519,6 +1523,10 @@
               "getParentPSAppDEField" : {
                 "name" : "USERID",
                 "codeName" : "UserId"
+              },
+              "getParentTextPSAppDEField" : {
+                "name" : "PERSONNAME",
+                "codeName" : "PersonName"
               },
               "rSMode" : 2
             } ] ]

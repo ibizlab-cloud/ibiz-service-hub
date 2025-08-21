@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ACCESSID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "ACCESSNAME",
+        "codeName" : "Name"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -615,6 +623,7 @@
     "length" : 100,
     "logicName" : "开放应用",
     "name" : "ACCESSID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -747,6 +756,7 @@
     "length" : 100,
     "logicName" : "应用名称",
     "name" : "ACCESSNAME",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -884,6 +894,7 @@
     "length" : 100,
     "logicName" : "平台类型",
     "name" : "OPEN_TYPE",
+    "orderValue" : 3,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
@@ -1010,6 +1021,7 @@
     "length" : 100,
     "logicName" : "AccessKey(AppId,CropId)",
     "name" : "ACCESS_KEY",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1130,6 +1142,7 @@
     "length" : 100,
     "logicName" : "SecretKey(AppSecret)",
     "name" : "SECRET_KEY",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1250,6 +1263,7 @@
     "length" : 100,
     "logicName" : "RegionId",
     "name" : "REGION_ID",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1370,6 +1384,7 @@
     "length" : 1000,
     "logicName" : "管理账号token",
     "name" : "ACCESS_TOKEN",
+    "orderValue" : 7,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1479,6 +1494,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "管理账号token过期时间",
     "name" : "EXPIRES_TIME",
+    "orderValue" : 8,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1592,6 +1608,7 @@
     "importOrder" : 1000,
     "logicName" : "是否禁用",
     "name" : "DISABLED",
+    "orderValue" : 10,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1715,6 +1732,7 @@
     "length" : 500,
     "logicName" : "RedirectURI",
     "name" : "REDIRECT_URI",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1835,6 +1853,7 @@
     "length" : 500,
     "logicName" : "NotifyUrl",
     "name" : "NOTIFY_URL",
+    "orderValue" : 12,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1939,6 +1958,7 @@
     "importOrder" : 1000,
     "logicName" : "AGENT_ID",
     "name" : "AGENT_ID",
+    "orderValue" : 13,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2047,6 +2067,7 @@
     "length" : 100,
     "logicName" : "单位",
     "name" : "ORGID",
+    "orderValue" : 15,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2145,6 +2166,7 @@
     "importOrder" : 1000,
     "logicName" : "是否移动接入应用",
     "name" : "ISMOBACCAPP",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2240,6 +2262,7 @@
     "importOrder" : 1000,
     "logicName" : "默认应用",
     "name" : "DEFAULTFLAG",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -2339,6 +2362,7 @@
     "length" : 200,
     "logicName" : "回调标识",
     "name" : "CALLBACK_TOKEN",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2435,6 +2459,7 @@
     "length" : 200,
     "logicName" : "回调参数",
     "name" : "CALLBACK_PARAM",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2531,6 +2556,7 @@
     "length" : 200,
     "logicName" : "回调参数2",
     "name" : "CALLBACK_PARAM2",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

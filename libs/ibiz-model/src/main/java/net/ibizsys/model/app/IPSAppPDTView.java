@@ -3,7 +3,7 @@ package net.ibizsys.model.app;
 
 
 /**
- * 应用预置视图模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppPDTViewDTO}运行时对象
+ * 应用预置视图模型对象接口
  *
  */
 public interface IPSAppPDTView extends net.ibizsys.model.app.IPSApplicationObject{
@@ -12,8 +12,6 @@ public interface IPSAppPDTView extends net.ibizsys.model.app.IPSApplicationObjec
 	
 	/**
 	 * 获取目标应用视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppPDTViewDTO#FIELD_PSAPPVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getPSAppView();
@@ -28,8 +26,6 @@ public interface IPSAppPDTView extends net.ibizsys.model.app.IPSApplicationObjec
 	
 	/**
 	 * 获取系统预置视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppPDTViewDTO#FIELD_PSSYSPDTVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysPDTView getPSSysPDTView();

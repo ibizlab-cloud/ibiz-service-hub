@@ -22,8 +22,6 @@ public interface IPSAppDEWFActionView extends net.ibizsys.model.app.view.IPSAppD
 	/**
 	 * 获取工作流辅助功能类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_WFVIEWPARAM4}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFUtilUIActionType}
 	 * @return
 	 */

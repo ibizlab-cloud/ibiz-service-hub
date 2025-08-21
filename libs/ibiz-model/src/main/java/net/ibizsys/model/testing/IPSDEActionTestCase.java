@@ -15,8 +15,6 @@ public interface IPSDEActionTestCase extends net.ibizsys.model.testing.IPSSysTes
 	
 	/**
 	 * 获取测试实体行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysTestCaseDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getPSDEAction();

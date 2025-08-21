@@ -1116,14 +1116,14 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板模式
+     * <B>LAYOUTPANELMODE</B>&nbsp;布局面板应用模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutPanelMode} 
      */
     public final static String FIELD_LAYOUTPANELMODE = "layoutpanelmode";
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * 
      * @param layoutPanelMode
      * 
@@ -1134,7 +1134,7 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 布局面板模式  
+     * 获取 布局面板应用模式  
      * @return
      */
     @JsonIgnore
@@ -1147,7 +1147,7 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 布局面板模式 是否指定值，包括空值
+     * 判断 布局面板应用模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1159,7 +1159,7 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 布局面板模式
+     * 重置 布局面板应用模式
      */
     @JsonIgnore
     public void resetLayoutPanelMode(){
@@ -1167,7 +1167,7 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode
@@ -1179,7 +1179,7 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 布局面板模式
+     * 设置 布局面板应用模式
      * <P>
      * 等同 {@link #setLayoutPanelMode}
      * @param layoutPanelMode
@@ -2700,6 +2700,151 @@ public class PSDEPrint extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSDEPrint pssyssfpluginname(String pSSysSFPluginName){
         this.setPSSysSFPluginName(pSSysSFPluginName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUniRes} 
+     */
+    public final static String FIELD_PSSYSUNIRESID = "pssysuniresid";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESID)
+    public void setPSSysUniResId(String pSSysUniResId){
+        this.set(FIELD_PSSYSUNIRESID, pSSysUniResId);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResId(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResIdDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResId(){
+        this.reset(FIELD_PSSYSUNIRESID);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniResId
+     */
+    @JsonIgnore
+    public PSDEPrint pssysuniresid(String pSSysUniResId){
+        this.setPSSysUniResId(pSSysUniResId);
+        return this;
+    }
+
+    /**
+     * 设置 系统统一资源，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysUniResId}
+     * @param pSSysUniRes 引用对象
+     */
+    @JsonIgnore
+    public PSDEPrint pssysuniresid(PSSysUniRes pSSysUniRes){
+        if(pSSysUniRes == null){
+            this.setPSSysUniResId(null);
+            this.setPSSysUniResName(null);
+        }
+        else{
+            this.setPSSysUniResId(pSSysUniRes.getPSSysUniResId());
+            this.setPSSysUniResName(pSSysUniRes.getPSSysUniResName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSUNIRESNAME</B>&nbsp;系统统一资源
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUNIRESID}
+     */
+    public final static String FIELD_PSSYSUNIRESNAME = "pssysuniresname";
+
+    /**
+     * 设置 系统统一资源
+     * 
+     * @param pSSysUniResName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSUNIRESNAME)
+    public void setPSSysUniResName(String pSSysUniResName){
+        this.set(FIELD_PSSYSUNIRESNAME, pSSysUniResName);
+    }
+    
+    /**
+     * 获取 系统统一资源  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysUniResName(){
+        Object objValue = this.get(FIELD_PSSYSUNIRESNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统统一资源 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysUniResNameDirty(){
+        if(this.contains(FIELD_PSSYSUNIRESNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统统一资源
+     */
+    @JsonIgnore
+    public void resetPSSysUniResName(){
+        this.reset(FIELD_PSSYSUNIRESNAME);
+    }
+
+    /**
+     * 设置 系统统一资源
+     * <P>
+     * 等同 {@link #setPSSysUniResName}
+     * @param pSSysUniResName
+     */
+    @JsonIgnore
+    public PSDEPrint pssysuniresname(String pSSysUniResName){
+        this.setPSSysUniResName(pSSysUniResName);
         return this;
     }
 

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSVIEWPANELITEM</B>系统面板成员 模型传输对象
+ * <B>PSSYSVIEWPANELITEM</B>面板成员 模型传输对象
  * <P>
  * 面板部件成员模型，定义面板成员的表现及处理逻辑，提供多种成员类型。支持定义成员的子项（多层）、成员的动态逻辑等
  */
@@ -992,7 +992,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>CHILD_COL_LG</B>&nbsp;内容大型列宽，面板成员父容器布局模式为【栅格布局】时指定项在大型界面的默认列占位数量
+     * <B>CHILD_COL_LG</B>&nbsp;内容大型列宽，指定子成员在【栅格布局】模式下的大型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_LG = "child_col_lg";
 
@@ -1053,7 +1053,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>CHILD_COL_MD</B>&nbsp;内容中型列宽，面板成员父容器布局模式为【栅格布局】时指定项在中型界面的默认列占位数量
+     * <B>CHILD_COL_MD</B>&nbsp;内容中型列宽，指定子成员在【栅格布局】模式下的中型界面的默认占位数量，未定义为当前栅格列数（占满）
      */
     public final static String FIELD_CHILD_COL_MD = "child_col_md";
 
@@ -1114,7 +1114,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>CHILD_COL_SM</B>&nbsp;内容小型列宽，面板成员父容器布局模式为【栅格布局】时指定项在小型界面的默认列占位数量
+     * <B>CHILD_COL_SM</B>&nbsp;内容小型列宽，指定子成员在【栅格布局】模式下的小型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_SM = "child_col_sm";
 
@@ -1175,7 +1175,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>CHILD_COL_XS</B>&nbsp;内容超小列宽，面板成员父容器布局模式为【栅格布局】时指定项在超小型界面的默认列占位数量
+     * <B>CHILD_COL_XS</B>&nbsp;内容超小列宽，指定子成员在【栅格布局】模式下的超小型界面的默认占位数量
      */
     public final static String FIELD_CHILD_COL_XS = "child_col_xs";
 
@@ -1297,7 +1297,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COLLAPSIBLEFLAG</B>&nbsp;折叠模式，面板成员父容器布局模式为【边缘布局】时指定成员的折叠模式
+     * <B>COLLAPSIBLEFLAG</B>&nbsp;折叠模式，父容器布局模式为【边缘布局】时指定成员的折叠模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.PanelCollapsibleMode} 
      */
@@ -1501,7 +1501,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_LG</B>&nbsp;大型列宽，面板成员父容器布局模式为【栅格布局】时指定成员在大型界面的列占位数量，未定义时使用父容器的默认大型界面列占位数量
+     * <B>COL_LG</B>&nbsp;大型列宽，成员在【栅格布局】模式下的大型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_LG = "col_lg";
 
@@ -1562,7 +1562,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_LG_OS</B>&nbsp;大型偏移，面板成员父容器布局模式为【栅格布局】时指定成员在大型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_LG_OS</B>&nbsp;大型偏移，成员在【栅格布局】模式下大型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_LG_OS = "col_lg_os";
 
@@ -1623,7 +1623,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_MD</B>&nbsp;中型列宽，面板成员父容器布局模式为【栅格布局】时指定成员在中型界面的列占位数量，未定义时使用父容器的默认中型界面列占位数量
+     * <B>COL_MD</B>&nbsp;中型列宽，成员在【栅格布局】模式下的中型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_MD = "col_md";
 
@@ -1684,7 +1684,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_MD_OS</B>&nbsp;中型偏移，面板成员父容器布局模式为【栅格布局】时指定成员在中型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_MD_OS</B>&nbsp;中型偏移，成员在【栅格布局】模式下的中型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_MD_OS = "col_md_os";
 
@@ -1745,7 +1745,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_SM</B>&nbsp;小型列宽，面板成员父容器布局模式为【栅格布局】时指定成员在小型界面的列占位数量，未定义时使用父容器的默认小型界面列占位数量
+     * <B>COL_SM</B>&nbsp;小型列宽，成员在【栅格布局】模式下的小型界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_SM = "col_sm";
 
@@ -1806,7 +1806,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_SM_OS</B>&nbsp;小型偏移，面板成员父容器布局模式为【栅格布局】时指定成员在小型界面的列偏移数量，未定义时为【-1】
+     * <B>COL_SM_OS</B>&nbsp;小型偏移，成员在【栅格布局】模式下的小型界面的列偏移数量，未定义时为【-1】
      */
     public final static String FIELD_COL_SM_OS = "col_sm_os";
 
@@ -1928,7 +1928,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_XS</B>&nbsp;超小列宽，面板成员父容器布局模式为【栅格布局】时指定成员在超小界面的列占位数量，未定义时使用父容器的默认超小界面列占位数量
+     * <B>COL_XS</B>&nbsp;超小列宽，成员在【栅格布局】模式下的超小界面的占位数量，未定义时使用父容器的默认配置
      */
     public final static String FIELD_COL_XS = "col_xs";
 
@@ -1989,7 +1989,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>COL_XS_OS</B>&nbsp;超小偏移，面板成员父容器布局模式为【栅格布局】时指定成员在超小界面的列偏移数量，未定义时为【-1】
+     * <B>COL_XS_OS</B>&nbsp;超小偏移，成员在【栅格布局】模式下的超小界面的列偏移数量，默认为【-1】
      */
     public final static String FIELD_COL_XS_OS = "col_xs_os";
 
@@ -2125,6 +2125,149 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
         }
         else{
             this.setContentType(contentType.value);
+        }
+        return this;
+    }
+
+    /**
+     * <B>COUNTERID</B>&nbsp;计数器标识
+     * <P>
+     * 字符串：最大长度 30
+     */
+    public final static String FIELD_COUNTERID = "counterid";
+
+    /**
+     * 设置 计数器标识
+     * 
+     * @param counterId
+     * 
+     */
+    @JsonProperty(FIELD_COUNTERID)
+    public void setCounterId(String counterId){
+        this.set(FIELD_COUNTERID, counterId);
+    }
+    
+    /**
+     * 获取 计数器标识  
+     * @return
+     */
+    @JsonIgnore
+    public String getCounterId(){
+        Object objValue = this.get(FIELD_COUNTERID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 计数器标识 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCounterIdDirty(){
+        if(this.contains(FIELD_COUNTERID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 计数器标识
+     */
+    @JsonIgnore
+    public void resetCounterId(){
+        this.reset(FIELD_COUNTERID);
+    }
+
+    /**
+     * 设置 计数器标识
+     * <P>
+     * 等同 {@link #setCounterId}
+     * @param counterId
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem counterid(String counterId){
+        this.setCounterId(counterId);
+        return this;
+    }
+
+    /**
+     * <B>COUNTERMODE</B>&nbsp;计数器模式
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.TreeNodeCounterMode} 
+     */
+    public final static String FIELD_COUNTERMODE = "countermode";
+
+    /**
+     * 设置 计数器模式
+     * 
+     * @param counterMode
+     * 
+     */
+    @JsonProperty(FIELD_COUNTERMODE)
+    public void setCounterMode(Integer counterMode){
+        this.set(FIELD_COUNTERMODE, counterMode);
+    }
+    
+    /**
+     * 获取 计数器模式  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getCounterMode(){
+        Object objValue = this.get(FIELD_COUNTERMODE);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 计数器模式 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isCounterModeDirty(){
+        if(this.contains(FIELD_COUNTERMODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 计数器模式
+     */
+    @JsonIgnore
+    public void resetCounterMode(){
+        this.reset(FIELD_COUNTERMODE);
+    }
+
+    /**
+     * 设置 计数器模式
+     * <P>
+     * 等同 {@link #setCounterMode}
+     * @param counterMode
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem countermode(Integer counterMode){
+        this.setCounterMode(counterMode);
+        return this;
+    }
+
+     /**
+     * 设置 计数器模式
+     * <P>
+     * 等同 {@link #setCounterMode}
+     * @param counterMode
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem countermode(net.ibizsys.psmodel.core.util.PSModelEnums.TreeNodeCounterMode counterMode){
+        if(counterMode == null){
+            this.setCounterMode(null);
+        }
+        else{
+            this.setCounterMode(counterMode.value);
         }
         return this;
     }
@@ -3293,7 +3436,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     /**
      * <B>EDITORTYPE</B>&nbsp;编辑器类型，指定面板属性项的编辑器类型
      * <P>
-     * 字符串：最大长度 40
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.EditorType} 
      */
     public final static String FIELD_EDITORTYPE = "editortype";
 
@@ -3353,8 +3496,25 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
         return this;
     }
 
+     /**
+     * 设置 编辑器类型，详细说明：{@link #FIELD_EDITORTYPE}
+     * <P>
+     * 等同 {@link #setEditorType}
+     * @param editorType
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem editortype(net.ibizsys.psmodel.core.util.PSModelEnums.EditorType editorType){
+        if(editorType == null){
+            this.setEditorType(null);
+        }
+        else{
+            this.setEditorType(editorType.value);
+        }
+        return this;
+    }
+
     /**
-     * <B>EMPTYCAPTION</B>&nbsp;空白标题，指定面板属性项是否启用空白标签，空白标签是指使用无内容的标签进行占位。未定义时为【否】
+     * <B>EMPTYCAPTION</B>&nbsp;空白标题，是否启用空白标签占位。默认为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -3434,14 +3594,14 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>ENABLEANCHOR</B>&nbsp;支持锚点
+     * <B>ENABLEANCHOR</B>&nbsp;启用锚点，启用锚点提供了定位当前项能力，默认【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLEANCHOR = "enableanchor";
 
     /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * 
      * @param enableAnchor
      * 
@@ -3452,7 +3612,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
     
     /**
-     * 获取 支持锚点  
+     * 获取 启用锚点  
      * @return
      */
     @JsonIgnore
@@ -3465,7 +3625,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 判断 支持锚点 是否指定值，包括空值
+     * 判断 启用锚点 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3477,7 +3637,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 重置 支持锚点
+     * 重置 启用锚点
      */
     @JsonIgnore
     public void resetEnableAnchor(){
@@ -3485,7 +3645,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -3497,7 +3657,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
      /**
-     * 设置 支持锚点
+     * 设置 启用锚点，详细说明：{@link #FIELD_ENABLEANCHOR}
      * <P>
      * 等同 {@link #setEnableAnchor}
      * @param enableAnchor
@@ -3514,7 +3674,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>FIELDNAME</B>&nbsp;数据属性，指定面板属性项绑定的面板模型属性
+     * <B>FIELDNAME</B>&nbsp;数据属性，指定面板项绑定的数据属性名称
      * <P>
      * 字符串：最大长度 30
      */
@@ -3661,7 +3821,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，面板成员容器布局模式为【Flex布局】时指定横轴对齐方式
+     * <B>FLEXALIGN</B>&nbsp;Flex横轴对齐，成员在【Flex布局】模式下指定横轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexAlign} 
      */
@@ -3802,7 +3962,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>FLEXDIR</B>&nbsp;Flex布局方向，面板成员容器布局模式为【Flex布局】时指定布局方向
+     * <B>FLEXDIR</B>&nbsp;Flex布局方向，成员在【Flex布局】模式下指定布局方向
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexLayoutDir} 
      */
@@ -3882,7 +4042,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>FLEXGROW</B>&nbsp;Flex延展值，面板成员父容器布局模式为【Flex布局】时指定成员的延展值，未定义时为【-1】
+     * <B>FLEXGROW</B>&nbsp;Flex延展值，成员在【Flex布局】模式下延展值，未定义时为【-1】
      */
     public final static String FIELD_FLEXGROW = "flexgrow";
 
@@ -4004,7 +4164,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，面板成员容器布局模式为【Flex布局】时指定纵轴对齐方式
+     * <B>FLEXVALIGN</B>&nbsp;Flex纵轴对齐，容器布局模式为【Flex布局】时指定纵轴对齐方式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FlexVAlign} 
      */
@@ -7866,69 +8026,6 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>PSCTRLID</B>&nbsp;部件标识
-     * <P>
-     * 字符串：最大长度 60
-     */
-    public final static String FIELD_PSCTRLID = "psctrlid";
-
-    /**
-     * 设置 部件标识
-     * 
-     * @param pSCtrlId
-     * 
-     */
-    @JsonProperty(FIELD_PSCTRLID)
-    public void setPSCtrlId(String pSCtrlId){
-        this.set(FIELD_PSCTRLID, pSCtrlId);
-    }
-    
-    /**
-     * 获取 部件标识  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSCtrlId(){
-        Object objValue = this.get(FIELD_PSCTRLID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 部件标识 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSCtrlIdDirty(){
-        if(this.contains(FIELD_PSCTRLID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 部件标识
-     */
-    @JsonIgnore
-    public void resetPSCtrlId(){
-        this.reset(FIELD_PSCTRLID);
-    }
-
-    /**
-     * 设置 部件标识
-     * <P>
-     * 等同 {@link #setPSCtrlId}
-     * @param pSCtrlId
-     */
-    @JsonIgnore
-    public PSSysViewPanelItem psctrlid(String pSCtrlId){
-        this.setPSCtrlId(pSCtrlId);
-        return this;
-    }
-
-    /**
      * <B>PSCTRLLOGICGROUPID</B>&nbsp;界面逻辑组
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSCtrlLogicGroup} 
@@ -8070,69 +8167,6 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     @JsonIgnore
     public PSSysViewPanelItem psctrllogicgroupname(String pSCtrlLogicGroupName){
         this.setPSCtrlLogicGroupName(pSCtrlLogicGroupName);
-        return this;
-    }
-
-    /**
-     * <B>PSCTRLNAME</B>&nbsp;部件名称
-     * <P>
-     * 字符串：最大长度 100
-     */
-    public final static String FIELD_PSCTRLNAME = "psctrlname";
-
-    /**
-     * 设置 部件名称
-     * 
-     * @param pSCtrlName
-     * 
-     */
-    @JsonProperty(FIELD_PSCTRLNAME)
-    public void setPSCtrlName(String pSCtrlName){
-        this.set(FIELD_PSCTRLNAME, pSCtrlName);
-    }
-    
-    /**
-     * 获取 部件名称  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSCtrlName(){
-        Object objValue = this.get(FIELD_PSCTRLNAME);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 部件名称 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSCtrlNameDirty(){
-        if(this.contains(FIELD_PSCTRLNAME)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 部件名称
-     */
-    @JsonIgnore
-    public void resetPSCtrlName(){
-        this.reset(FIELD_PSCTRLNAME);
-    }
-
-    /**
-     * 设置 部件名称
-     * <P>
-     * 等同 {@link #setPSCtrlName}
-     * @param pSCtrlName
-     */
-    @JsonIgnore
-    public PSSysViewPanelItem psctrlname(String pSCtrlName){
-        this.setPSCtrlName(pSCtrlName);
         return this;
     }
 
@@ -11178,6 +11212,151 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     @JsonIgnore
     public PSSysViewPanelItem pssyscalendarname(String pSSysCalendarName){
         this.setPSSysCalendarName(pSSysCalendarName);
+        return this;
+    }
+
+    /**
+     * <B>PSSYSCOUNTERID</B>&nbsp;系统计数器
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysCounter} 
+     */
+    public final static String FIELD_PSSYSCOUNTERID = "pssyscounterid";
+
+    /**
+     * 设置 系统计数器
+     * 
+     * @param pSSysCounterId
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSCOUNTERID)
+    public void setPSSysCounterId(String pSSysCounterId){
+        this.set(FIELD_PSSYSCOUNTERID, pSSysCounterId);
+    }
+    
+    /**
+     * 获取 系统计数器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysCounterId(){
+        Object objValue = this.get(FIELD_PSSYSCOUNTERID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统计数器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysCounterIdDirty(){
+        if(this.contains(FIELD_PSSYSCOUNTERID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统计数器
+     */
+    @JsonIgnore
+    public void resetPSSysCounterId(){
+        this.reset(FIELD_PSSYSCOUNTERID);
+    }
+
+    /**
+     * 设置 系统计数器
+     * <P>
+     * 等同 {@link #setPSSysCounterId}
+     * @param pSSysCounterId
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem pssyscounterid(String pSSysCounterId){
+        this.setPSSysCounterId(pSSysCounterId);
+        return this;
+    }
+
+    /**
+     * 设置 系统计数器，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSSysCounterId}
+     * @param pSSysCounter 引用对象
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem pssyscounterid(PSSysCounter pSSysCounter){
+        if(pSSysCounter == null){
+            this.setPSSysCounterId(null);
+            this.setPSSysCounterName(null);
+        }
+        else{
+            this.setPSSysCounterId(pSSysCounter.getPSSysCounterId());
+            this.setPSSysCounterName(pSSysCounter.getPSSysCounterName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSSYSCOUNTERNAME</B>&nbsp;系统计数器
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSCOUNTERID}
+     */
+    public final static String FIELD_PSSYSCOUNTERNAME = "pssyscountername";
+
+    /**
+     * 设置 系统计数器
+     * 
+     * @param pSSysCounterName
+     * 
+     */
+    @JsonProperty(FIELD_PSSYSCOUNTERNAME)
+    public void setPSSysCounterName(String pSSysCounterName){
+        this.set(FIELD_PSSYSCOUNTERNAME, pSSysCounterName);
+    }
+    
+    /**
+     * 获取 系统计数器  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSSysCounterName(){
+        Object objValue = this.get(FIELD_PSSYSCOUNTERNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统计数器 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSSysCounterNameDirty(){
+        if(this.contains(FIELD_PSSYSCOUNTERNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统计数器
+     */
+    @JsonIgnore
+    public void resetPSSysCounterName(){
+        this.reset(FIELD_PSSYSCOUNTERNAME);
+    }
+
+    /**
+     * 设置 系统计数器
+     * <P>
+     * 等同 {@link #setPSSysCounterName}
+     * @param pSSysCounterName
+     */
+    @JsonIgnore
+    public PSSysViewPanelItem pssyscountername(String pSSysCounterName){
+        this.setPSSysCounterName(pSSysCounterName);
         return this;
     }
 
@@ -14967,14 +15146,14 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>SWAPMODE</B>&nbsp;内容换行模式
+     * <B>SWAPMODE</B>&nbsp;内容换行模式，直接内容文本的换行模式
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.WrapMode} 
      */
     public final static String FIELD_SWAPMODE = "swapmode";
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * 
      * @param swapMode
      * 
@@ -15018,7 +15197,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * <P>
      * 等同 {@link #setSwapMode}
      * @param swapMode
@@ -15030,7 +15209,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
      /**
-     * 设置 内容换行模式
+     * 设置 内容换行模式，详细说明：{@link #FIELD_SWAPMODE}
      * <P>
      * 等同 {@link #setSwapMode}
      * @param swapMode
@@ -16483,14 +16662,14 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
 
 
     /**
-     *  系统面板成员 成员集合
+     *  面板成员 成员集合
      */
     public final static String FIELD_PSSYSVIEWPANELITEMS = "pssysviewpanelitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysViewPanelItem> pssysviewpanelitems;
 
     /**
-     * 获取 系统面板成员 成员集合
+     * 获取 面板成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELITEMS)
@@ -16499,7 +16678,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 系统面板成员 成员集合  
+     * 设置 面板成员 成员集合  
      * @param pssysviewpanelitems
      */
     @JsonProperty(FIELD_PSSYSVIEWPANELITEMS)
@@ -16508,7 +16687,7 @@ public class PSSysViewPanelItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 获取 系统面板成员 成员集合，不存在时建立集合对象
+     * 获取 面板成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

@@ -15,8 +15,6 @@ public interface IPSAppDEFLogic extends net.ibizsys.model.app.dataentity.IPSAppD
 	
 	/**
 	 * 获取应用实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField();

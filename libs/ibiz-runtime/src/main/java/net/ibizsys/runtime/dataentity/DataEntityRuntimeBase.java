@@ -3655,9 +3655,95 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	 * @throws Throwable
 	 */
 	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IPSDER1N iPSDER1N, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
-		IPSDataEntity minorPSDataEntity = iPSDER1N.getMinorPSDataEntity();
+//		IPSDataEntity minorPSDataEntity = iPSDER1N.getMinorPSDataEntity();
+//		if (minorPSDataEntity == null) {
+//			throw new ModelException(iPSDER1N, String.format("关系[%1$s]从实体无效", iPSDER1N.getName()));
+//		}
+//
+//		IDataEntityRuntime minorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(minorPSDataEntity.getDynaModelFilePath());
+//		if (minorDataEntityRuntime == null) {
+//			throw new DataEntityRuntimeException(this, String.format("关系从实体[%1$s]运行时对象无效", minorPSDataEntity.getDynaModelFilePath()));
+//		}
+//
+//		Object objKey = null;
+//		if (arg0 instanceof IEntityBase) {
+//			objKey = this.getFieldValue((IEntityBase) arg0, this.getKeyPSDEField());
+//		} else {
+//			objKey = arg0;
+//		}
+//
+//		//DTO内存在待更新数据则忽略删除限制
+//		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+//		String strPendingCacheTag = String.format(DataEntityUtilRuntimeBase.ACTIONSESSIONPARAM_FILLENTITYFULLINFO_X, this.getId(),objKey);
+//
+//		if (((actionSession != null)?actionSession.containsActionParam(strPendingCacheTag):false)) {
+//			return;
+//		}
+//
+//		if (minorDataEntityRuntime.containsForeignKey(iPSDER1N.getPSPickupDEField(), objKey, iPSDER1N)) {
+//			if(StringUtils.hasLength(iPSDER1N.getRemoveRejectMsg())) {
+//				throw new DataEntityRuntimeException(this, iPSDER1N.getRemoveRejectMsg(), Errors.DELETEREJECT);
+//			}
+//			else {
+//				throw new DataEntityRuntimeException(this, String.format("引用数据[%1$s]限制删除", minorDataEntityRuntime.getPSDataEntity().getLogicName()), Errors.DELETEREJECT);
+//			}
+//		}
+		this.checkReferenceBeforeRemove(arg0, strActionName, iPSDEAction, (IPSDER1NBase)iPSDER1N, iPSDataEntity, iDynaInstRuntime, actionData);
+	}
+
+	/**
+	 * 删除之前检查数据引用
+	 *
+	 * @param arg0
+	 * @param strActionName
+	 * @param iPSDEAction
+	 * @param iPSDERCustom
+	 * @param iPSDataEntity
+	 * @param joinPoint
+	 * @throws Throwable
+	 */
+	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IPSDERCustom iPSDERCustom, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
+//		IPSDataEntity minorPSDataEntity = iPSDERCustom.getMinorPSDataEntity();
+//		if (minorPSDataEntity == null) {
+//			throw new ModelException(iPSDERCustom, String.format("关系[%1$s]从实体无效", iPSDERCustom.getName()));
+//		}
+//
+//		IDataEntityRuntime minorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(minorPSDataEntity.getDynaModelFilePath());
+//		if (minorDataEntityRuntime == null) {
+//			throw new DataEntityRuntimeException(this, String.format("关系从实体[%1$s]运行时对象无效", minorPSDataEntity.getDynaModelFilePath()));
+//		}
+//
+//		Object objKey = null;
+//		if (arg0 instanceof IEntityBase) {
+//			objKey = this.getFieldValue((IEntityBase) arg0, this.getKeyPSDEField());
+//		} else {
+//			objKey = arg0;
+//		}
+//		
+//		//DTO内存在待更新数据则忽略删除限制
+//		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+//		String strPendingCacheTag = String.format(DataEntityUtilRuntimeBase.ACTIONSESSIONPARAM_FILLENTITYFULLINFO_X, this.getId(),objKey);
+//
+//		if (((actionSession != null)?actionSession.containsActionParam(strPendingCacheTag):false)) {
+//			return;
+//		}
+//
+//		if (minorDataEntityRuntime.containsForeignKey(iPSDERCustom.getPickupPSDEField(), objKey, iPSDERCustom)) {
+//			if(StringUtils.hasLength(iPSDERCustom.getRemoveRejectMsg())) {
+//				throw new DataEntityRuntimeException(this, iPSDERCustom.getRemoveRejectMsg(), Errors.DELETEREJECT);
+//			}
+//			else {
+//				throw new DataEntityRuntimeException(this, String.format("引用数据[%1$s]限制删除", minorDataEntityRuntime.getPSDataEntity().getLogicName()), Errors.DELETEREJECT);
+//			}
+//		}
+		
+		this.checkReferenceBeforeRemove(arg0, strActionName, iPSDEAction, (IPSDER1NBase)iPSDERCustom, iPSDataEntity, iDynaInstRuntime, actionData);
+	}
+	
+	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IPSDER1NBase iPSDER1NBase, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
+		IPSDataEntity minorPSDataEntity = iPSDER1NBase.getMinorPSDataEntity();
 		if (minorPSDataEntity == null) {
-			throw new ModelException(iPSDER1N, String.format("关系[%1$s]从实体无效", iPSDER1N.getName()));
+			throw new ModelException(iPSDER1NBase, String.format("关系[%1$s]从实体无效", iPSDER1NBase.getName()));
 		}
 
 		IDataEntityRuntime minorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(minorPSDataEntity.getDynaModelFilePath());
@@ -3680,55 +3766,16 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			return;
 		}
 
-		if (minorDataEntityRuntime.containsForeignKey(iPSDER1N.getPSPickupDEField(), objKey, iPSDER1N)) {
-			if(StringUtils.hasLength(iPSDER1N.getRemoveRejectMsg())) {
-				throw new DataEntityRuntimeException(this, iPSDER1N.getRemoveRejectMsg(), Errors.DELETEREJECT);
+		if (minorDataEntityRuntime.containsForeignKey(iPSDER1NBase.getPickupPSDEField(), objKey, iPSDER1NBase)) {
+			if(StringUtils.hasLength(iPSDER1NBase.getRemoveRejectMsg())) {
+				throw new DataEntityRuntimeException(this, iPSDER1NBase.getRemoveRejectMsg(), Errors.DELETEREJECT);
 			}
 			else {
 				throw new DataEntityRuntimeException(this, String.format("引用数据[%1$s]限制删除", minorDataEntityRuntime.getPSDataEntity().getLogicName()), Errors.DELETEREJECT);
 			}
 		}
 	}
-
-	/**
-	 * 删除之前检查数据引用
-	 *
-	 * @param arg0
-	 * @param strActionName
-	 * @param iPSDEAction
-	 * @param iPSDERCustom
-	 * @param iPSDataEntity
-	 * @param joinPoint
-	 * @throws Throwable
-	 */
-	protected void checkReferenceBeforeRemove(Object arg0, String strActionName, IPSDEAction iPSDEAction, IPSDERCustom iPSDERCustom, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
-		IPSDataEntity minorPSDataEntity = iPSDERCustom.getMinorPSDataEntity();
-		if (minorPSDataEntity == null) {
-			throw new ModelException(iPSDERCustom, String.format("关系[%1$s]从实体无效", iPSDERCustom.getName()));
-		}
-
-		IDataEntityRuntime minorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(minorPSDataEntity.getDynaModelFilePath());
-		if (minorDataEntityRuntime == null) {
-			throw new DataEntityRuntimeException(this, String.format("关系从实体[%1$s]运行时对象无效", minorPSDataEntity.getDynaModelFilePath()));
-		}
-
-		Object objKey = null;
-		if (arg0 instanceof IEntityBase) {
-			objKey = this.getFieldValue((IEntityBase) arg0, this.getKeyPSDEField());
-		} else {
-			objKey = arg0;
-		}
-
-		if (minorDataEntityRuntime.containsForeignKey(iPSDERCustom.getPickupPSDEField(), objKey, iPSDERCustom)) {
-			if(StringUtils.hasLength(iPSDERCustom.getRemoveRejectMsg())) {
-				throw new DataEntityRuntimeException(this, iPSDERCustom.getRemoveRejectMsg(), Errors.DELETEREJECT);
-			}
-			else {
-				throw new DataEntityRuntimeException(this, String.format("引用数据[%1$s]限制删除", minorDataEntityRuntime.getPSDataEntity().getLogicName()), Errors.DELETEREJECT);
-			}
-			
-		}
-	}
+	
 
 	/**
 	 * 重置数据引用
@@ -5794,10 +5841,11 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 
 	@Override
 	public IEntityBase clone(IEntityBase iEntityBase, boolean bResetUncopyValues) throws Throwable {
-
+		this.prepare();
+		
 		IEntityBase newEntityBase = this.createEntity();
 
-		java.util.List<IPSDEField> psDEFields = iPSDataEntity.getAllPSDEFields();
+		java.util.List<IPSDEField> psDEFields = this.getPSDEFields();
 		if (psDEFields != null) {
 
 			for (IPSDEField iPSDEField : psDEFields) {

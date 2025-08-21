@@ -102,6 +102,9 @@ public class DEActions {
 	public final static String SYSGET = "sysGet";
 	
 	
-	
+	/**
+	 * 拷贝
+	 */
+	public final static String COPY = "copy";
 	
 }

@@ -2711,6 +2711,10 @@
             </column>
             <column name="MODELVERSION" remarks="模型版本" type="INT">
             </column>
+            <column name="PARAM" remarks="参数" type="VARCHAR(100)">
+            </column>
+            <column name="PARAM2" remarks="参数2" type="VARCHAR(100)">
+            </column>
             <column name="PROCESSDIAGRAM" remarks="流程图" type="VARCHAR(1000)">
             </column>
             <column name="PSSYSTEMID" remarks="系统标识" type="VARCHAR(100)">
@@ -2771,7 +2775,7 @@
             </column>
             <column name="MESSAGE" remarks="意见" type="VARCHAR(2000)">
             </column>
-            <column name="PROCESSDEFKEY" remarks="流程定义标识" type="VARCHAR(100)">
+            <column name="PROCESSDEFKEY" remarks="流程定义标识" type="VARCHAR(200)">
             </column>
             <column name="REALINSTID" remarks="流程实例标识" type="VARCHAR(100)">
             </column>
@@ -2799,7 +2803,7 @@
             </column>
             <column name="DCSYSTEMID" remarks="租户系统标识" type="VARCHAR(100)">
             </column>
-            <column name="DEFINITIONKEY" remarks="DefinitionKey" type="VARCHAR(100)">
+            <column name="DEFINITIONKEY" remarks="DefinitionKey" type="VARCHAR(200)">
             </column>
             <column name="DEFINITIONNAME" remarks="流程定义名称" type="VARCHAR(100)">
             </column>
@@ -2810,7 +2814,11 @@
             <column name="INSTANCEID" remarks="实例标识" type="VARCHAR(100)">
                 <constraints primaryKey="true" primaryKeyName="PK_IBZWFINSTANCE_INSTANCEID"/>
             </column>
-            <column name="INSTANCENAME" remarks="实例名称" type="VARCHAR(300)">
+            <column name="INSTANCENAME" remarks="实例名称" type="VARCHAR(2000)">
+            </column>
+            <column name="PARAM" remarks="参数" type="VARCHAR(100)">
+            </column>
+            <column name="PARAM2" remarks="参数2" type="VARCHAR(100)">
             </column>
             <column name="REALINSTID" remarks="流程实例标识" type="VARCHAR(100)">
             </column>

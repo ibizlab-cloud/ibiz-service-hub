@@ -82,14 +82,14 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BEGINPSDEFID</B>&nbsp;开始时间属性
+     * <B>BEGINPSDEFID</B>&nbsp;开始时间属性，指定当前实体的开始时间属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
     public final static String FIELD_BEGINPSDEFID = "beginpsdefid";
 
     /**
-     * 设置 开始时间属性
+     * 设置 开始时间属性，详细说明：{@link #FIELD_BEGINPSDEFID}
      * 
      * @param beginPSDEFId
      * 
@@ -133,7 +133,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 开始时间属性
+     * 设置 开始时间属性，详细说明：{@link #FIELD_BEGINPSDEFID}
      * <P>
      * 等同 {@link #setBeginPSDEFId}
      * @param beginPSDEFId
@@ -227,7 +227,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CHECKTIMER</B>&nbsp;检查间隔，指定实体通知的检查间隔，以分钟为单位
+     * <B>CHECKTIMER</B>&nbsp;检查间隔，指定定时通知的检查间隔，以分钟为单位
      */
     public final static String FIELD_CHECKTIMER = "checktimer";
 
@@ -742,14 +742,14 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENDPSDEFID</B>&nbsp;结束时间属性
+     * <B>ENDPSDEFID</B>&nbsp;结束时间属性，指定当前实体的结束时间属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
     public final static String FIELD_ENDPSDEFID = "endpsdefid";
 
     /**
-     * 设置 结束时间属性
+     * 设置 结束时间属性，详细说明：{@link #FIELD_ENDPSDEFID}
      * 
      * @param endPSDEFId
      * 
@@ -793,7 +793,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 结束时间属性
+     * 设置 结束时间属性，详细说明：{@link #FIELD_ENDPSDEFID}
      * <P>
      * 等同 {@link #setEndPSDEFId}
      * @param endPSDEFId
@@ -1671,14 +1671,14 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDSID</B>&nbsp;实体数据集
+     * <B>PSDEDSID</B>&nbsp;实体数据集，指定定时发送的检查数据集
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_PSDEDSID = "psdedsid";
 
     /**
-     * 设置 实体数据集
+     * 设置 实体数据集，详细说明：{@link #FIELD_PSDEDSID}
      * 
      * @param pSDEDSId
      * 
@@ -1722,7 +1722,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体数据集
+     * 设置 实体数据集，详细说明：{@link #FIELD_PSDEDSID}
      * <P>
      * 等同 {@link #setPSDEDSId}
      * @param pSDEDSId
@@ -3068,14 +3068,14 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TIMERMODE</B>&nbsp;定时触发模式
+     * <B>TIMERMODE</B>&nbsp;定时发送模式，指定通知是否为定时发送模式，定时发送是每隔一段时间检查发送的通知数据，否则则需要外部逻辑主动调用通知
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_TIMERMODE = "timermode";
 
     /**
-     * 设置 定时触发模式
+     * 设置 定时发送模式，详细说明：{@link #FIELD_TIMERMODE}
      * 
      * @param timerMode
      * 
@@ -3086,7 +3086,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 定时触发模式  
+     * 获取 定时发送模式  
      * @return
      */
     @JsonIgnore
@@ -3099,7 +3099,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 定时触发模式 是否指定值，包括空值
+     * 判断 定时发送模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3111,7 +3111,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 定时触发模式
+     * 重置 定时发送模式
      */
     @JsonIgnore
     public void resetTimerMode(){
@@ -3119,7 +3119,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 定时触发模式
+     * 设置 定时发送模式，详细说明：{@link #FIELD_TIMERMODE}
      * <P>
      * 等同 {@link #setTimerMode}
      * @param timerMode
@@ -3131,7 +3131,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 定时触发模式
+     * 设置 定时发送模式，详细说明：{@link #FIELD_TIMERMODE}
      * <P>
      * 等同 {@link #setTimerMode}
      * @param timerMode

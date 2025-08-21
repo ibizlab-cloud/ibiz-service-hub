@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSCALENDAR</B>系统日历部件 模型传输对象
+ * <B>PSSYSCALENDAR</B>日历部件 模型传输对象
  * <P>
- * 系统日历部件模型，定义界面表现及处理逻辑，支持多个日历项同时提供日历数据源
+ * 系统日历部件模型，定义界面表现及处理逻辑，支持多个日历项同时提供数据源
  */
 public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -2093,6 +2093,151 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>GROUPTEXTPSDEFID</B>&nbsp;分组文本属性
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
+     */
+    public final static String FIELD_GROUPTEXTPSDEFID = "grouptextpsdefid";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFId
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFID)
+    public void setGroupTextPSDEFId(String groupTextPSDEFId){
+        this.set(FIELD_GROUPTEXTPSDEFID, groupTextPSDEFId);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFId(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFIdDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFId(){
+        this.reset(FIELD_GROUPTEXTPSDEFID);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param groupTextPSDEFId
+     */
+    @JsonIgnore
+    public PSSysCalendar grouptextpsdefid(String groupTextPSDEFId){
+        this.setGroupTextPSDEFId(groupTextPSDEFId);
+        return this;
+    }
+
+    /**
+     * 设置 分组文本属性，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFId}
+     * @param pSDEField 引用对象
+     */
+    @JsonIgnore
+    public PSSysCalendar grouptextpsdefid(PSDEField pSDEField){
+        if(pSDEField == null){
+            this.setGroupTextPSDEFId(null);
+            this.setGroupTextPSDEFName(null);
+        }
+        else{
+            this.setGroupTextPSDEFId(pSDEField.getPSDEFieldId());
+            this.setGroupTextPSDEFName(pSDEField.getPSDEFieldName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>GROUPTEXTPSDEFNAME</B>&nbsp;分组文本属性
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_GROUPTEXTPSDEFID}
+     */
+    public final static String FIELD_GROUPTEXTPSDEFNAME = "grouptextpsdefname";
+
+    /**
+     * 设置 分组文本属性
+     * 
+     * @param groupTextPSDEFName
+     * 
+     */
+    @JsonProperty(FIELD_GROUPTEXTPSDEFNAME)
+    public void setGroupTextPSDEFName(String groupTextPSDEFName){
+        this.set(FIELD_GROUPTEXTPSDEFNAME, groupTextPSDEFName);
+    }
+    
+    /**
+     * 获取 分组文本属性  
+     * @return
+     */
+    @JsonIgnore
+    public String getGroupTextPSDEFName(){
+        Object objValue = this.get(FIELD_GROUPTEXTPSDEFNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 分组文本属性 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isGroupTextPSDEFNameDirty(){
+        if(this.contains(FIELD_GROUPTEXTPSDEFNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 分组文本属性
+     */
+    @JsonIgnore
+    public void resetGroupTextPSDEFName(){
+        this.reset(FIELD_GROUPTEXTPSDEFNAME);
+    }
+
+    /**
+     * 设置 分组文本属性
+     * <P>
+     * 等同 {@link #setGroupTextPSDEFName}
+     * @param groupTextPSDEFName
+     */
+    @JsonIgnore
+    public PSSysCalendar grouptextpsdefname(String groupTextPSDEFName){
+        this.setGroupTextPSDEFName(groupTextPSDEFName);
+        return this;
+    }
+
+    /**
      * <B>GROUPWIDTH</B>&nbsp;分组宽度
      */
     public final static String FIELD_GROUPWIDTH = "groupwidth";
@@ -3512,7 +3657,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSCALENDARNAME</B>&nbsp;日历部件名称，指定日历视图部件的名称
+     * <B>PSSYSCALENDARNAME</B>&nbsp;日历部件名称，指定日历部件的名称
      * <P>
      * 字符串：最大长度 200
      */
@@ -4026,7 +4171,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>QUICKPSDETOOLBARID</B>&nbsp;快速操作工具栏，指定日历部件内建的快速操作工具栏对象，快速操作工具栏一般用于新建等无选择数据的操作
+     * <B>QUICKPSDETOOLBARID</B>&nbsp;快速操作工具栏，指定日历部件内置的快速操作工具栏对象，一般用于新建等无数据操作
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEToolbar} 
      */
@@ -4108,7 +4253,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>QUICKPSDETOOLBARNAME</B>&nbsp;快速操作工具栏，指定日历部件内建的快速操作工具栏对象，快速操作工具栏一般用于新建等无选择数据的操作
+     * <B>QUICKPSDETOOLBARNAME</B>&nbsp;快速操作工具栏，指定日历部件内置的快速操作工具栏对象，快速操作工具栏一般用于新建等无数据操作
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_QUICKPSDETOOLBARID}
      */
@@ -4312,14 +4457,14 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  系统日历视图项 成员集合
+     *  日历部件项 成员集合
      */
     public final static String FIELD_PSSYSCALENDARITEMS = "pssyscalendaritems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSSysCalendarItem> pssyscalendaritems;
 
     /**
-     * 获取 系统日历视图项 成员集合
+     * 获取 日历部件项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSSYSCALENDARITEMS)
@@ -4328,7 +4473,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统日历视图项 成员集合  
+     * 设置 日历部件项 成员集合  
      * @param pssyscalendaritems
      */
     @JsonProperty(FIELD_PSSYSCALENDARITEMS)
@@ -4337,7 +4482,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 系统日历视图项 成员集合，不存在时建立集合对象
+     * 获取 日历部件项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

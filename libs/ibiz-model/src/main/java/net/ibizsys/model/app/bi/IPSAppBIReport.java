@@ -103,8 +103,6 @@ public interface IPSAppBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTTAG}
 	 * @return
 	 */
 	java.lang.String getReportTag();
@@ -112,8 +110,6 @@ public interface IPSAppBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTTAG2}
 	 * @return
 	 */
 	java.lang.String getReportTag2();
@@ -121,8 +117,6 @@ public interface IPSAppBIReport extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取报表前端模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_BIREPORTUIMODEL}
 	 * @return
 	 */
 	java.lang.String getReportUIModel();

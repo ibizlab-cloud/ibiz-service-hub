@@ -11,8 +11,6 @@ public interface IPSDEDFSysDataSyncAgentSourceNode extends net.ibizsys.model.dat
 	
 	/**
 	 * 获取系统数据同步代理
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_PSSYSDATASYNCAGENTID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysDataSyncAgent getPSSysDataSyncAgent();
@@ -27,8 +25,6 @@ public interface IPSDEDFSysDataSyncAgentSourceNode extends net.ibizsys.model.dat
 	
 	/**
 	 * 获取子类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_LOGICNODESUBTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysDataSyncAgentSourceType}
 	 * @return

@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO}运行时对象
+ * 外部系统服务接口模型对象接口
  *
  */
 public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSysServiceAPIBase{
@@ -12,8 +12,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取服务接口代码标识模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_CODENAMEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return
@@ -24,8 +22,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	/**
 	 * 获取接口来源
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_APISOURCE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysAPISource}
 	 * @return
 	 */
@@ -34,8 +30,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取接口标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_APITAG}
 	 * @return
 	 */
 	java.lang.String getAPITag();
@@ -43,8 +37,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取接口标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_APITAG2}
 	 * @return
 	 */
 	java.lang.String getAPITag2();
@@ -52,8 +44,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取接口类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_APITYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysAPIType}
 	 * @return
@@ -126,8 +116,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取认证参数3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_AUTHPARAM3}
 	 * @return
 	 */
 	java.lang.String getAuthParam3();
@@ -135,8 +123,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取认证参数4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_AUTHPARAM4}
 	 * @return
 	 */
 	java.lang.String getAuthParam4();
@@ -144,8 +130,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取认证脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_AUTHCODE}
 	 * @return
 	 */
 	java.lang.String getAuthScriptCode();
@@ -167,8 +151,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取请求头集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_HEADERPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getHeaderParams();
@@ -176,8 +158,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取方法调用脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_METHODCODE}
 	 * @return
 	 */
 	java.lang.String getMethodScriptCode();
@@ -199,8 +179,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();
@@ -244,8 +222,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	/**
 	 * 获取预定义接口类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_PREDEFINEDTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedServiceAPIClient}
 	 * @return
 	 */
@@ -254,8 +230,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取服务代码名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_SERVICECODENAME}
 	 * @return
 	 */
 	java.lang.String getServiceCodeName();
@@ -263,8 +237,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取服务参数3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_SERVICEPARAM3}
 	 * @return
 	 */
 	java.lang.String getServiceParam3();
@@ -272,8 +244,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取服务参数4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_SERVICEPARAM4}
 	 * @return
 	 */
 	java.lang.String getServiceParam4();
@@ -281,8 +251,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取服务类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_SERVICETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceType}
 	 * @return
@@ -292,8 +260,6 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	
 	/**
 	 * 获取是否启用服务接口DTO
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSubSysServiceAPIDTO#FIELD_SERVICEDTOFLAG}
 	 * @return
 	 */
 	boolean isEnableServiceAPIDTO();

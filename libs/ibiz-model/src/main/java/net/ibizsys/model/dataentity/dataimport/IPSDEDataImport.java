@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.dataimport;
 
 
 /**
- * 实体数据导入模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO}运行时对象
+ * 实体数据导入模型对象接口
  *
  */
 public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEntityObject{
@@ -12,8 +12,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取批导入数量
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_BATCHSIZE}
 	 * @return
 	 */
 	int getBatchSize();
@@ -28,8 +26,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取建立操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_CREATEPSDEOPPRIVID}
 	 * @return
 	 */
 	java.lang.String getCreateDataAccessAction();
@@ -37,8 +33,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取建立数据行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_CREATEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getCreatePSDEAction();
@@ -53,8 +47,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_IMPPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getImpParams();
@@ -62,8 +54,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取导入标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_IMPTAG}
 	 * @return
 	 */
 	java.lang.String getImpTag();
@@ -71,8 +61,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取导入标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_IMPTAG2}
 	 * @return
 	 */
 	java.lang.String getImpTag2();
@@ -80,8 +68,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取性能优化预警时长（ms）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_POTIME}
 	 * @return
 	 */
 	int getPOTime();
@@ -138,8 +124,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取更新操作标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_UPDATEPSDEOPPRIVID}
 	 * @return
 	 */
 	java.lang.String getUpdateDataAccessAction();
@@ -147,8 +131,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取更新数据行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_UPDATEPSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.action.IPSDEAction getUpdatePSDEAction();
@@ -163,8 +145,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否默认导入
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefaultMode();
@@ -172,8 +152,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持后台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_ACTIONHOLDER}
 	 * @return
 	 */
 	boolean isEnableBackend();
@@ -181,8 +159,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持自定义
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_ENABLECUSTOMIZED}
 	 * @return
 	 */
 	boolean isEnableCustomized();
@@ -190,8 +166,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否支持前台执行
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_ACTIONHOLDER}
 	 * @return
 	 */
 	boolean isEnableFront();
@@ -199,8 +173,6 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取是否忽略导入错误
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEDataImpDTO#FIELD_STOPWHENERROR}
 	 * @return
 	 */
 	boolean isIgnoreError();

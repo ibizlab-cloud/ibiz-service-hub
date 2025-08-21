@@ -9600,6 +9600,9 @@ public class PSModelEnums {
      * <li>CURTIME
      * <P>
      * 当前时间，值为当前时间
+     * <li>LASTRETURN
+     * <P>
+     * 上一次调用返回
      * </ul>     
      */
     public static enum DELLCondParamType{
@@ -9607,6 +9610,7 @@ public class PSModelEnums {
         ,SRCENTITYFIELD("SRCENTITYFIELD", "源逻辑参数属性")
         ,SRCDLPARAM("SRCDLPARAM", "源逻辑参数")
         ,CURTIME("CURTIME", "当前时间")
+        ,LASTRETURN("LASTRETURN", "上一次调用返回")
 ;
            
         public final String text;
@@ -9627,6 +9631,8 @@ public class PSModelEnums {
                     return SRCDLPARAM;
                 case "CURTIME":
                     return CURTIME;
+                case "LASTRETURN":
+                    return LASTRETURN;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -12702,6 +12708,12 @@ public class PSModelEnums {
      * <li>SIMPLELIST&nbsp;(11)
      * <P>
      * 简单数据列表变量
+     * <li>CHATCOMPLETIONREQUEST&nbsp;(13)
+     * <P>
+     * AI交谈请求
+     * <li>CHATCOMPLETIONRESULT&nbsp;(14)
+     * <P>
+     * AI交谈反馈
      * <li>CONTEXT&nbsp;(24)
      * <P>
      * 导航上下文变量，绑定当前会话导航上下文的变量
@@ -12730,6 +12742,8 @@ public class PSModelEnums {
         ,FILELIST(9, "文件对象列表变量")
         ,SIMPLE(10, "简单数据变量")
         ,SIMPLELIST(11, "简单数据列表变量")
+        ,CHATCOMPLETIONREQUEST(13, "AI交谈请求")
+        ,CHATCOMPLETIONRESULT(14, "AI交谈反馈")
         ,CONTEXT(24, "导航上下文变量")
         ,REQUEST(31, "Web上下文变量")
         ,RESPONSE(32, "Web反馈变量")
@@ -12772,6 +12786,10 @@ public class PSModelEnums {
                     return SIMPLE;
                 case 11:
                     return SIMPLELIST;
+                case 13:
+                    return CHATCOMPLETIONREQUEST;
+                case 14:
+                    return CHATCOMPLETIONRESULT;
                 case 24:
                     return CONTEXT;
                 case 31:
@@ -19832,16 +19850,57 @@ public class PSModelEnums {
     }
 
     /**
+     * 实体操作标识类型
+     * <P>
+     * <ul>
+     * <li>DEFAULT
+     * <P>
+     * 默认
+     * <li>DEFGROUP
+     * <P>
+     * 属性组
+     * </ul>     
+     */
+    public static enum DEOPPrivType{
+        DEFAULT("DEFAULT", "默认")
+        ,DEFGROUP("DEFGROUP", "属性组")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DEOPPrivType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEOPPrivType from(String value){
+            switch(value){
+                case "DEFAULT":
+                    return DEFAULT;
+                case "DEFGROUP":
+                    return DEFGROUP;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * AI交谈代理类型
      * <P>
      * <ul>
      * <li>DEFAULT
      * <P>
      * 默认
+     * <li>DE
+     * <P>
+     * 实体逻辑
      * </ul>     
      */
     public static enum AIChatAgentType{
         DEFAULT("DEFAULT", "默认")
+        ,DE("DE", "实体逻辑")
 ;
            
         public final String text;
@@ -19856,6 +19915,8 @@ public class PSModelEnums {
             switch(value){
                 case "DEFAULT":
                     return DEFAULT;
+                case "DE":
+                    return DE;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -23867,7 +23928,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台系统引用类型
+     * 系统引用类型
      * <P>
      * <ul>
      * <li>SUBSYS
@@ -23885,6 +23946,9 @@ public class PSModelEnums {
      * <li>EXTENSION_DEVSYS_WORKFLOW
      * <P>
      * 开发系统组件（工作流）
+     * <li>MERGENCE_DEVSYS
+     * <P>
+     * 开发系统组件（合并）
      * <li>DEVSYSCLOUD
      * <P>
      * 开发系统云服务，外部系统以微服务的形式提供功能
@@ -23926,6 +23990,7 @@ public class PSModelEnums {
         ,EXTENSION_DEVSYS("EXTENSION_DEVSYS", "开发系统组件（扩展）")
         ,EXTENSION_DEVSYS_PSMODELTOOL("EXTENSION_DEVSYS_PSMODELTOOL", "开发系统组件（模型工具）")
         ,EXTENSION_DEVSYS_WORKFLOW("EXTENSION_DEVSYS_WORKFLOW", "开发系统组件（工作流）")
+        ,MERGENCE_DEVSYS("MERGENCE_DEVSYS", "开发系统组件（合并）")
         ,DEVSYSCLOUD("DEVSYSCLOUD", "开发系统云服务")
         ,CLOUDHUBSUBAPP("CLOUDHUBSUBAPP", "Cloud集成子应用")
         ,ETLEXTRACT("ETLEXTRACT", "ETL展开逻辑")
@@ -23959,6 +24024,8 @@ public class PSModelEnums {
                     return EXTENSION_DEVSYS_PSMODELTOOL;
                 case "EXTENSION_DEVSYS_WORKFLOW":
                     return EXTENSION_DEVSYS_WORKFLOW;
+                case "MERGENCE_DEVSYS":
+                    return MERGENCE_DEVSYS;
                 case "DEVSYSCLOUD":
                     return DEVSYSCLOUD;
                 case "CLOUDHUBSUBAPP":
@@ -25943,6 +26010,12 @@ public class PSModelEnums {
      * <li>SYSAIPIPELINEAGENT
      * <P>
      * 系统AI生产线
+     * <li>DECISION
+     * <P>
+     * 决策
+     * <li>MEMO
+     * <P>
+     * 备注
      * <li>END
      * <P>
      * 结束
@@ -26003,6 +26076,8 @@ public class PSModelEnums {
         ,SYSBIREPORT("SYSBIREPORT", "系统智能报表")
         ,SYSAICHATAGENT("SYSAICHATAGENT", "系统AI交谈")
         ,SYSAIPIPELINEAGENT("SYSAIPIPELINEAGENT", "系统AI生产线")
+        ,DECISION("DECISION", "决策")
+        ,MEMO("MEMO", "备注")
         ,END("END", "结束")
 ;
            
@@ -26124,6 +26199,10 @@ public class PSModelEnums {
                     return SYSAICHATAGENT;
                 case "SYSAIPIPELINEAGENT":
                     return SYSAIPIPELINEAGENT;
+                case "DECISION":
+                    return DECISION;
+                case "MEMO":
+                    return MEMO;
                 case "END":
                     return END;
                 default:
@@ -40653,6 +40732,9 @@ public class PSModelEnums {
      * <li>SAVE
      * <P>
      * 保存数据，保存数据，自动判断新建或更新
+     * <li>COPY
+     * <P>
+     * 拷贝数据，拷贝数据，同时拷贝相关成员数据
      * <li>USER
      * <P>
      * 用户自定义
@@ -40679,6 +40761,7 @@ public class PSModelEnums {
         ,MOVEORDER("MOVEORDER", "移动位置")
         ,CHECKKEY("CHECKKEY", "检查主键")
         ,SAVE("SAVE", "保存数据")
+        ,COPY("COPY", "拷贝数据")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -40717,6 +40800,8 @@ public class PSModelEnums {
                     return CHECKKEY;
                 case "SAVE":
                     return SAVE;
+                case "COPY":
+                    return COPY;
                 case "USER":
                     return USER;
                 case "USER2":

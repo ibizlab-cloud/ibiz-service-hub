@@ -4,6 +4,8 @@ import java.io.File;
 
 public abstract class DefaultSysAIChatAgentRuntimeBase extends SysAIChatAgentRuntimeBase {
 
+	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DefaultSysAIChatAgentRuntimeBase.class);
+	
 	protected String getHistoriesConfigId() throws Throwable {
 		return String.format("template%1$s%2$s.%3$s.xml.tpl", File.separator, this.getAgentMode(), "history").toLowerCase();
 	}

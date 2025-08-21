@@ -81,4 +81,20 @@ public interface IDEServiceAPIRuntime extends net.ibizsys.central.dataentity.ser
 	 * @throws Throwable
 	 */
 	Object asyncImportData2(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strImportTag, String strOSSFileId, String strImportSchemaId, Object objTag) throws Throwable;
+	
+	
+	
+	/**
+	 * 建立实体建立下载数据凭证
+	 * @param strScope
+	 * @param iDEServiceAPIRSRuntime
+	 * @param strParentKey
+	 * @param strKey
+	 * @param strStorageField
+	 * @param strOSSFileId
+	 * @param objTag
+	 * @return
+	 * @throws Throwable
+	 */
+	Object createDownloadTicket(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strKey, String strStorageField, String strOSSFileId, Object objTag) throws Throwable;
 }

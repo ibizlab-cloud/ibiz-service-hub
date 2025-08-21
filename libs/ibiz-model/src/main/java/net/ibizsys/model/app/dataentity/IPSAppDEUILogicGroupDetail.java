@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体界面逻辑组成员模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCtrlLogicGrpDetailDTO}运行时对象
+ * 应用实体界面逻辑组成员模型对象接口
  *
  */
 public interface IPSAppDEUILogicGroupDetail extends net.ibizsys.model.dataentity.logic.IPSDEUILogicGroupDetail{
@@ -12,8 +12,6 @@ public interface IPSAppDEUILogicGroupDetail extends net.ibizsys.model.dataentity
 	
 	/**
 	 * 获取应用实体界面逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCtrlLogicGrpDetailDTO#FIELD_PSDELOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEUILogic getPSAppDEUILogic();
@@ -42,8 +40,6 @@ public interface IPSAppDEUILogicGroupDetail extends net.ibizsys.model.dataentity
 	
 	/**
 	 * 获取应用预置界面逻辑对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCtrlLogicGrpDetailDTO#FIELD_PSSYSVIEWLOGICID}
 	 * @return
 	 */
 	net.ibizsys.model.app.logic.IPSAppUILogic getPSAppUILogic();

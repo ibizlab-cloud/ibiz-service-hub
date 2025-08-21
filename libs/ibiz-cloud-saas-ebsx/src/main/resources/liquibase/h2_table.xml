@@ -2148,7 +2148,7 @@
     </changeSet>
 
     <!--输出实体[SYS_ROLE]数据结构 -->
-    <changeSet author="root" id="tab-sys_role-53-72">
+    <changeSet author="root" id="tab-sys_role-59-72">
         <createTable tableName="IBZROLE">
                 <column name="SYS_ROLEID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_SYS_ROLE"/>
@@ -2544,7 +2544,7 @@
     </changeSet>
 
     <!--输出实体[SYS_TODO]数据结构 -->
-    <changeSet author="root" id="tab-sys_todo-12-84">
+    <changeSet author="root" id="tab-sys_todo-14-84">
         <createTable tableName="IBZTODO">
                 <column name="PROCESSDATE" remarks="" type="DATETIME">
                 </column>
@@ -2849,7 +2849,7 @@
     </changeSet>
 
     <!--输出实体[WF_DEFINITION]数据结构 -->
-    <changeSet author="root" id="tab-wf_definition-42-90">
+    <changeSet author="root" id="tab-wf_definition-62-90">
         <createTable tableName="IBZWFDEFINITION">
                 <column name="DEFINITIONKEY" remarks="" type="VARCHAR(200)">
                     <constraints primaryKey="true" primaryKeyName="PK_WF_DEFINITION"/>
@@ -2875,6 +2875,10 @@
                 <column name="MOBILESERVICEIDS" remarks="" type="VARCHAR(200)">
                 </column>
                 <column name="DYNAMODELID" remarks="" type="VARCHAR(500)">
+                </column>
+                <column name="PARAM" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM2" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="DCSYSTEMID" remarks="" type="VARCHAR(100)">
                 </column>
@@ -2936,7 +2940,7 @@
                 </column>
                 <column name="REALINSTID" remarks="" type="VARCHAR(100)">
                 </column>
-                <column name="PROCESSDEFKEY" remarks="" type="VARCHAR(100)">
+                <column name="PROCESSDEFKEY" remarks="" type="VARCHAR(200)">
                 </column>
                 <column name="APPID" remarks="" type="VARCHAR(100)">
                 </column>
@@ -2946,14 +2950,14 @@
     </changeSet>
 
     <!--输出实体[WF_INSTANCE]数据结构 -->
-    <changeSet author="root" id="tab-wf_instance-52-93">
+    <changeSet author="root" id="tab-wf_instance-73-93">
         <createTable tableName="IBZWFINSTANCE">
                 <column name="INSTANCEID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_WF_INSTANCE"/>
                 </column>
-                <column name="INSTANCENAME" remarks="" type="VARCHAR(300)">
+                <column name="INSTANCENAME" remarks="" type="VARCHAR(2000)">
                 </column>
-                <column name="DEFINITIONKEY" remarks="" type="VARCHAR(100)">
+                <column name="DEFINITIONKEY" remarks="" type="VARCHAR(200)">
                 </column>
                 <column name="DEFINITIONNAME" remarks="" type="VARCHAR(100)">
                 </column>
@@ -2968,6 +2972,10 @@
                 <column name="STARTUSERNAME" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="REALINSTID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PARAM2" remarks="" type="VARCHAR(100)">
                 </column>
                 <column name="WFSTATE" remarks="" type="VARCHAR(60)">
                 </column>

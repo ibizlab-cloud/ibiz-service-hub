@@ -112,6 +112,12 @@ public interface IServiceSystemRuntime extends ISystemRuntime,ISystemUtilRuntime
 	 */
 	public final static String PARAM_UPDATEDBSCHEMA = "updatedbschema";
 	
+	
+	/**
+	 * 参数：默认OSS文件夹
+	 */
+	public final static String PARAM_OSSFOLDER = "ossfolder";
+	
 	/**
 	 * 获取系统访问管理对象
 	 */
@@ -339,6 +345,14 @@ public interface IServiceSystemRuntime extends ISystemRuntime,ISystemUtilRuntime
 	 * @return
 	 */
 	boolean isUpdateDBSchema();
+	
+	
+	
+	/**
+	 * 获取默认的OSS文件夹
+	 * @return
+	 */
+	String getOSSFolder();
 	
 	
 	/**

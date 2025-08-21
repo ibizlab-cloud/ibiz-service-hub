@@ -12,8 +12,6 @@ public interface IPSOne2OneObjDEField extends net.ibizsys.model.dataentity.defie
 	
 	/**
 	 * 获取引用动态模型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFieldDTO#FIELD_REFPSSYSDYNAMODELID}
 	 * @return
 	 */
 	net.ibizsys.model.dynamodel.IPSSysDynaModel getRefPSSysDynaModel();

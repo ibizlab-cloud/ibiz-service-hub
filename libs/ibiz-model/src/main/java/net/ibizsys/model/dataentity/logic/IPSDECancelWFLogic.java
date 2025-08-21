@@ -14,8 +14,6 @@ public interface IPSDECancelWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -58,8 +56,6 @@ public interface IPSDECancelWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取实体工作流对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSWFDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.wf.IPSDEWF getPSDEWF();
@@ -74,8 +70,6 @@ public interface IPSDECancelWFLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取工作流对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSWORKFLOWID}
 	 * @return
 	 */
 	net.ibizsys.model.wf.IPSWorkflow getPSWorkflow();

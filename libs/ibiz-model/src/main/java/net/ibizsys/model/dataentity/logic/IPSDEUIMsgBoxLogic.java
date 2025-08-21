@@ -15,8 +15,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	/**
 	 * 获取按钮集类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM1}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxButtonsType}
 	 * @return
 	 */
@@ -25,8 +23,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取消息内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM4}
 	 * @return
 	 */
 	java.lang.String getMessage();
@@ -34,8 +30,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取消息框参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getMsgBoxParam();
@@ -51,8 +45,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	/**
 	 * 获取消息框类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxType}
 	 * @return
 	 */
@@ -62,8 +54,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	/**
 	 * 获取显示模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM11}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxShowMode}
 	 * @return
 	 */
@@ -72,8 +62,6 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	
 	/**
 	 * 获取消息抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM3}
 	 * @return
 	 */
 	java.lang.String getTitle();

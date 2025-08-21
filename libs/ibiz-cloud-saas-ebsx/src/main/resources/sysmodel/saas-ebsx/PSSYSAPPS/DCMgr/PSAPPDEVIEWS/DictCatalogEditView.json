@@ -1558,6 +1558,10 @@
                 "name" : "CID",
                 "codeName" : "CatalogId"
               },
+              "getParentTextPSAppDEField" : {
+                "name" : "CNAME",
+                "codeName" : "CatalogName"
+              },
               "rSMode" : 2
             } ] ]
           },

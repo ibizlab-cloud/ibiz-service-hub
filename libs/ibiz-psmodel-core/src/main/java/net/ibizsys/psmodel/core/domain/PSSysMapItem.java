@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSMAPITEM</B>系统地图数据项 模型传输对象
+ * <B>PSSYSMAPITEM</B>地图数据项 模型传输对象
  * <P>
  * 地图部件项模型，定义地图部件的子项数据源，包括子项的界面表现及处理逻辑
  */

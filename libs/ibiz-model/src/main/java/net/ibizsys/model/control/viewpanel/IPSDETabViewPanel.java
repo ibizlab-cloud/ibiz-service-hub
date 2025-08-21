@@ -13,8 +13,6 @@ public interface IPSDETabViewPanel extends net.ibizsys.model.control.viewpanel.I
 	
 	/**
 	 * 获取计数器标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM3}
 	 * @return
 	 */
 	java.lang.String getCounterId();
@@ -22,8 +20,6 @@ public interface IPSDETabViewPanel extends net.ibizsys.model.control.viewpanel.I
 	
 	/**
 	 * 获取导航过滤项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM4}
 	 * @return
 	 */
 	java.lang.String getNavFilter();
@@ -31,8 +27,6 @@ public interface IPSDETabViewPanel extends net.ibizsys.model.control.viewpanel.I
 	
 	/**
 	 * 获取导航关系对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_CTRLPARAM2}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getNavPSDER();
@@ -75,8 +69,6 @@ public interface IPSDETabViewPanel extends net.ibizsys.model.control.viewpanel.I
 	
 	/**
 	 * 获取标题图标
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewCtrlDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();

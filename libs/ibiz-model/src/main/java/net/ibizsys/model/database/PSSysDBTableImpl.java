@@ -10,6 +10,8 @@ public class PSSysDBTableImpl extends net.ibizsys.model.PSObjectImpl implements 
 	public final static String ATTR_GETCREATESQL = "createSql";
 	public final static String ATTR_GETDROPSQL = "dropSql";
 	public final static String ATTR_GETLOGICNAME = "logicName";
+	public final static String ATTR_GETTABLETAG = "tableTag";
+	public final static String ATTR_GETTABLETAG2 = "tableTag2";
 	public final static String ATTR_ISAUTOEXTENDMODEL = "autoExtendModel";
 	public final static String ATTR_ISEXISTINGMODEL = "existingModel";
 
@@ -87,6 +89,22 @@ public class PSSysDBTableImpl extends net.ibizsys.model.PSObjectImpl implements 
 
 	public java.lang.String getLogicName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICNAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getTableTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTABLETAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getTableTag2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTABLETAG2);
 		if(value == null){
 			return null;
 		}

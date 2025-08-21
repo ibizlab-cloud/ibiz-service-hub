@@ -3,7 +3,7 @@ package net.ibizsys.model.ai;
 
 
 /**
- * AI工作者代理模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysAIWorkerAgentDTO}运行时对象
+ * AI工作者代理模型对象接口
  *
  */
 public interface IPSSysAIWorkerAgent extends net.ibizsys.model.ai.IPSSysAIFactoryObject
@@ -12,9 +12,21 @@ public interface IPSSysAIWorkerAgent extends net.ibizsys.model.ai.IPSSysAIFactor
 	
 	
 	/**
+	 * 获取实体逻辑
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDELogic getPSDELogic();
+
+
+	/**
+	 * 获取实体逻辑，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDELogic getPSDELogicMust();
+	
+	
+	/**
 	 * 获取实体对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysAIWorkerAgentDTO#FIELD_PSDEID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity();

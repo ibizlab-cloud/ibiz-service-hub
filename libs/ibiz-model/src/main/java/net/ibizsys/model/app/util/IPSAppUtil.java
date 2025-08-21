@@ -3,9 +3,7 @@ package net.ibizsys.model.app.util;
 
 
 /**
- * 应用功能配置模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppUtilDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getUtilType}
+ * 应用功能配置模型对象接口
  *
  */
 public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
@@ -105,8 +103,6 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	
 	/**
 	 * 获取动态功能参数集合
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppUtilDTO#FIELD_UTILPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getUtilParams();
@@ -114,8 +110,6 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	
 	/**
 	 * 获取功能标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppUtilDTO#FIELD_UTILTAG}
 	 * @return
 	 */
 	java.lang.String getUtilTag();
@@ -123,8 +117,6 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	
 	/**
 	 * 获取功能类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppUtilDTO#FIELD_UTILTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUtilType}
 	 * @return

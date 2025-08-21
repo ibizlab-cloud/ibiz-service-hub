@@ -3,6 +3,10 @@
     "codeName" : "Default",
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/DCMgr/PSAPPDATAENTITIES/WFGroup.json"
+    },
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
       "name" : "value",

@@ -3,9 +3,7 @@ package net.ibizsys.model.dataentity.defield.valuerule;
 
 
 /**
- * 实体属性值规则条件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getCondType}
+ * 实体属性值规则条件模型对象接口
  *
  */
 public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
@@ -14,8 +12,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取条件标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_CONDTAG}
 	 * @return
 	 */
 	java.lang.String getCondTag();
@@ -23,8 +19,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取条件标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_CONDTAG2}
 	 * @return
 	 */
 	java.lang.String getCondTag2();
@@ -32,8 +26,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取条件项类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_CONDTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRType}
 	 * @return
@@ -43,8 +35,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取规则信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_RULEINFO}
 	 * @return
 	 */
 	java.lang.String getRuleInfo();
@@ -73,8 +63,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否关键条件
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_KEYCONDFLAG}
 	 * @return
 	 */
 	boolean isKeyCond();
@@ -82,8 +70,6 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否逻辑取反
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEFVRCondDTO#FIELD_GROUPNOTFLAG}
 	 * @return
 	 */
 	boolean isNotMode();

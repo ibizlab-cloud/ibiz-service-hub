@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSDEFORM</B>实体表单 模型传输对象
  * <P>
- * 实体表单部件模型，支持编辑表单及搜索表单两种类型
+ * 实体表单部件模型，基于数据实体构建，专注于处理与特定实体相关的数据输入和编辑操作。支持编辑表单及搜索表单两种类型。
  */
 public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -98,7 +98,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CODENAME</B>&nbsp;代码标识，指定表单的代码标识，需要在所在的实体中具有唯一性，注意实体表单包括了编辑表单及搜索表单两类
+     * <B>CODENAME</B>&nbsp;代码标识，表单的代码标识，需要在所属的实体中唯一
      * <P>
      * 字符串：最大长度 30，由字母、数字、下划线组成，且开始必须为字母
      */
@@ -575,7 +575,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DATATYPE</B>&nbsp;表单数据类型，指定编辑表单对应的默认实体数据类型，一般指索引实体（继承）类型值、多表单识别值等
+     * <B>DATATYPE</B>&nbsp;表单数据类型，编辑表单对应的数据类型，一般指索引实体（继承）类型值、多表单识别值等
      * <P>
      * 字符串：最大长度 50
      */
@@ -638,7 +638,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DETAILSTYLE</B>&nbsp;成员默认样式，指定表单成员的默认式样，表单成员未指定式样时将使用此配置
+     * <B>DETAILSTYLE</B>&nbsp;成员默认样式，表单成员的默认式样，成员未指定式样时将使用此配置
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.CtrlDetailStyle} 
      */
@@ -1833,7 +1833,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FORMWIDTH</B>&nbsp;表单宽度，指定表单的宽度，0为自适应宽度，未定义时为【0】
+     * <B>FORMWIDTH</B>&nbsp;表单宽度，表单的宽度，默认为0，自适应容器宽度
      */
     public final static String FIELD_FORMWIDTH = "formwidth";
 
@@ -1894,7 +1894,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FUNCMODE</B>&nbsp;功能模式，指定表单的功能模式，定义表单功能模式将为附加相应的处理逻辑
+     * <B>FUNCMODE</B>&nbsp;功能模式，定义表单功能模式，附加相应的处理逻辑
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.FormFuncMode} 
      */
@@ -2264,7 +2264,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>INFOFORMFLAG</B>&nbsp;信息表单，指定启用信息表单的模式，注意信息表单的自动转换机制仅针对未直接设置编辑器类型表单项
+     * <B>INFOFORMFLAG</B>&nbsp;信息表单，设置信息表单模式，注意信息表单的自动转换机制仅针对未直接设置编辑器类型的表单项
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.InfoFormMode} 
      */
@@ -2344,7 +2344,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LABELWIDTH</B>&nbsp;默认标题宽度，指定表单项标签的默认宽度，未定义时为【130】
+     * <B>LABELWIDTH</B>&nbsp;默认标题宽度，表单项标签的默认宽度，未定义时为【130】
      */
     public final static String FIELD_LABELWIDTH = "labelwidth";
 
@@ -2405,7 +2405,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LAYOUTMODE</B>&nbsp;布局模式，指定表单容器的布局模式，未定义时使用前端应用使用模板的默认布局模式
+     * <B>LAYOUTMODE</B>&nbsp;布局模式，指定表单容器的布局模式，未定义时为`栅格布局（24列均分）`（TABLE_24COL）
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.LayoutMode} 
      */
@@ -3553,6 +3553,151 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>PSDEFINPUTTIPSETID</B>&nbsp;系统属性输入提示集，指定实体表单部件的默认属性输入提示器对象
+     * <P>
+     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFInputTipSet} 
+     */
+    public final static String FIELD_PSDEFINPUTTIPSETID = "psdefinputtipsetid";
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETID}
+     * 
+     * @param pSDEFInputTipSetId
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFINPUTTIPSETID)
+    public void setPSDEFInputTipSetId(String pSDEFInputTipSetId){
+        this.set(FIELD_PSDEFINPUTTIPSETID, pSDEFInputTipSetId);
+    }
+    
+    /**
+     * 获取 系统属性输入提示集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFInputTipSetId(){
+        Object objValue = this.get(FIELD_PSDEFINPUTTIPSETID);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统属性输入提示集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFInputTipSetIdDirty(){
+        if(this.contains(FIELD_PSDEFINPUTTIPSETID)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统属性输入提示集
+     */
+    @JsonIgnore
+    public void resetPSDEFInputTipSetId(){
+        this.reset(FIELD_PSDEFINPUTTIPSETID);
+    }
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETID}
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetId}
+     * @param pSDEFInputTipSetId
+     */
+    @JsonIgnore
+    public PSDEForm psdefinputtipsetid(String pSDEFInputTipSetId){
+        this.setPSDEFInputTipSetId(pSDEFInputTipSetId);
+        return this;
+    }
+
+    /**
+     * 设置 系统属性输入提示集，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetId}
+     * @param pSDEFInputTipSet 引用对象
+     */
+    @JsonIgnore
+    public PSDEForm psdefinputtipsetid(PSDEFInputTipSet pSDEFInputTipSet){
+        if(pSDEFInputTipSet == null){
+            this.setPSDEFInputTipSetId(null);
+            this.setPSDEFInputTipSetName(null);
+        }
+        else{
+            this.setPSDEFInputTipSetId(pSDEFInputTipSet.getPSDEFInputTipSetId());
+            this.setPSDEFInputTipSetName(pSDEFInputTipSet.getPSDEFInputTipSetName());
+        }
+        return this;
+    }
+
+    /**
+     * <B>PSDEFINPUTTIPSETNAME</B>&nbsp;系统属性输入提示集，指定实体表单部件的默认属性输入提示器对象
+     * <P>
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEFINPUTTIPSETID}
+     */
+    public final static String FIELD_PSDEFINPUTTIPSETNAME = "psdefinputtipsetname";
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETNAME}
+     * 
+     * @param pSDEFInputTipSetName
+     * 
+     */
+    @JsonProperty(FIELD_PSDEFINPUTTIPSETNAME)
+    public void setPSDEFInputTipSetName(String pSDEFInputTipSetName){
+        this.set(FIELD_PSDEFINPUTTIPSETNAME, pSDEFInputTipSetName);
+    }
+    
+    /**
+     * 获取 系统属性输入提示集  
+     * @return
+     */
+    @JsonIgnore
+    public String getPSDEFInputTipSetName(){
+        Object objValue = this.get(FIELD_PSDEFINPUTTIPSETNAME);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 系统属性输入提示集 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isPSDEFInputTipSetNameDirty(){
+        if(this.contains(FIELD_PSDEFINPUTTIPSETNAME)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 系统属性输入提示集
+     */
+    @JsonIgnore
+    public void resetPSDEFInputTipSetName(){
+        this.reset(FIELD_PSDEFINPUTTIPSETNAME);
+    }
+
+    /**
+     * 设置 系统属性输入提示集，详细说明：{@link #FIELD_PSDEFINPUTTIPSETNAME}
+     * <P>
+     * 等同 {@link #setPSDEFInputTipSetName}
+     * @param pSDEFInputTipSetName
+     */
+    @JsonIgnore
+    public PSDEForm psdefinputtipsetname(String pSDEFInputTipSetName){
+        this.setPSDEFInputTipSetName(pSDEFInputTipSetName);
+        return this;
+    }
+
+    /**
      * <B>PSDEFORMID</B>&nbsp;实体表单标识
      * <P>
      * 字符串：最大长度 100
@@ -3964,7 +4109,6 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
         this.setPSPFId(pSPFId);
         return this;
     }
-
 
     /**
      * <B>PSPFNAME</B>&nbsp;前端模板
@@ -5335,7 +5479,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SEARCHBTNSTYLE</B>&nbsp;搜索按钮样式，指定搜索表单的搜索按钮样式，未定义时为【默认】
+     * <B>SEARCHBTNSTYLE</B>&nbsp;搜索按钮样式，搜索表单的搜索按钮样式，未定义时为【默认】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.SearchFormButtonStyle} 
      */
@@ -5415,7 +5559,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>SHOWTABHEADER</B>&nbsp;显示分页头部，指定是否输出表单的分页头部，未定义时如仅有一个表单分页为【否】，否则为【是】
+     * <B>SHOWTABHEADER</B>&nbsp;显示分页头部，是否输出表单的分页头部，未定义时如仅有一个表单分页为【否】，否则为【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -5495,7 +5639,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>TABHEADERPOS</B>&nbsp;分页头部位置，指定输出的表单分页头的位置，未定义时为【上方】
+     * <B>TABHEADERPOS</B>&nbsp;分页头部位置，表单分页头的位置，未定义时为【上方】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.TabHeaderPos} 
      */
@@ -6340,14 +6484,14 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体表单成员 成员集合
+     *  表单成员 成员集合
      */
     public final static String FIELD_PSDEFORMDETAILS = "psdeformdetails";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDEFormDetail> psdeformdetails;
 
     /**
-     * 获取 实体表单成员 成员集合
+     * 获取 表单成员 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDEFORMDETAILS)
@@ -6356,7 +6500,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体表单成员 成员集合  
+     * 设置 表单成员 成员集合  
      * @param psdeformdetails
      */
     @JsonProperty(FIELD_PSDEFORMDETAILS)
@@ -6365,7 +6509,7 @@ public class PSDEForm extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体表单成员 成员集合，不存在时建立集合对象
+     * 获取 表单成员 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

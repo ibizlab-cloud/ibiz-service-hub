@@ -3,7 +3,7 @@ package net.ibizsys.model.control.menu;
 
 
 /**
- * 应用菜单部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO}运行时对象
+ * 应用菜单部件模型对象接口
  *
  */
 public interface IPSAppMenu extends net.ibizsys.model.control.IPSAjaxControl
@@ -15,8 +15,6 @@ public interface IPSAppMenu extends net.ibizsys.model.control.IPSAjaxControl
 	/**
 	 * 获取应用菜单样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO#FIELD_APPMENUSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppMenuStyle}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSAppMenu extends net.ibizsys.model.control.IPSAjaxControl
 	/**
 	 * 获取布局模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO#FIELD_LAYOUTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LayoutMode}
 	 * @return
 	 */
@@ -36,8 +32,6 @@ public interface IPSAppMenu extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取应用计数器引用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO#FIELD_PSSYSCOUNTERID}
 	 * @return
 	 */
 	net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef();
@@ -73,8 +67,6 @@ public interface IPSAppMenu extends net.ibizsys.model.control.IPSAjaxControl
 	
 	/**
 	 * 获取是否支持自定义
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSAppMenuDTO#FIELD_CUSTOMIZEDFLAG}
 	 * @return
 	 */
 	boolean isEnableCustomized();

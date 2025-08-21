@@ -3,7 +3,7 @@ package net.ibizsys.model.codelist;
 
 
 /**
- * 代码表项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO}运行时对象
+ * 代码表项模型对象接口
  *
  */
 public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取背景颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_BKCOLOR}
 	 * @return
 	 */
 	java.lang.String getBKColor();
@@ -35,8 +33,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本颜色
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_COLOR}
 	 * @return
 	 */
 	java.lang.String getColor();
@@ -44,8 +40,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_DATA}
 	 * @return
 	 */
 	java.lang.String getData();
@@ -137,8 +131,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取文本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_PSCODEITEMNAME}
 	 * @return
 	 */
 	java.lang.String getText();
@@ -167,8 +159,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取提示信息
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_TOOLTIPINFO}
 	 * @return
 	 */
 	java.lang.String getTooltip();
@@ -190,8 +180,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码项数据
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_USERDATA}
 	 * @return
 	 */
 	java.lang.String getUserData();
@@ -199,8 +187,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取代码项数据2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_USERDATA2}
 	 * @return
 	 */
 	java.lang.String getUserData2();
@@ -208,8 +194,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取值
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_CODEITEMVALUE}
 	 * @return
 	 */
 	java.lang.String getValue();
@@ -217,8 +201,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否默认代码项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_DEFAULTFLAG}
 	 * @return
 	 */
 	boolean isDefault();
@@ -226,8 +208,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否禁止选择
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_DISABLESELECT}
 	 * @return
 	 */
 	boolean isDisableSelect();
@@ -249,8 +229,6 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否显示为空白
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSCodeItemDTO#FIELD_SHOWASEMPTY}
 	 * @return
 	 */
 	boolean isShowAsEmtpy();

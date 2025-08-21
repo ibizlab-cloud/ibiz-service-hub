@@ -3,7 +3,7 @@ package net.ibizsys.model.service;
 
 
 /**
- * 系统服务接口模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO}运行时对象
+ * 系统服务接口模型对象接口
  *
  */
 public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务接口代码标识模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_CODENAMEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return
@@ -24,8 +22,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取接口级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_APILEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPILevel}
 	 * @return
 	 */
@@ -35,8 +31,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取接口模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_APIMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPIMode}
 	 * @return
 	 */
@@ -45,8 +39,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取接口标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_APITAG}
 	 * @return
 	 */
 	java.lang.String getAPITag();
@@ -54,8 +46,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取接口标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_APITAG2}
 	 * @return
 	 */
 	java.lang.String getAPITag2();
@@ -63,8 +53,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取接口类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_APITYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPIType}
 	 * @return
@@ -74,8 +62,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取接口版本
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_VER}
 	 * @return
 	 */
 	int getAPIVersion();
@@ -83,8 +69,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证token路径
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHCHECKTOKENURI}
 	 * @return
 	 */
 	java.lang.String getAuthCheckTokenUrl();
@@ -92,8 +76,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证客户端标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHCLIENTID}
 	 * @return
 	 */
 	java.lang.String getAuthClientId();
@@ -101,8 +83,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证客户端密码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHCLIENTSECRET}
 	 * @return
 	 */
 	java.lang.String getAuthClientSecret();
@@ -110,8 +90,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
@@ -121,8 +99,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHPARAM}
 	 * @return
 	 */
 	java.lang.String getAuthParam();
@@ -130,8 +106,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHPARAM2}
 	 * @return
 	 */
 	java.lang.String getAuthParam2();
@@ -139,8 +113,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证参数3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHPARAM3}
 	 * @return
 	 */
 	java.lang.String getAuthParam3();
@@ -148,8 +120,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取认证参数4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_AUTHPARAM4}
 	 * @return
 	 */
 	java.lang.String getAuthParam4();
@@ -185,8 +155,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取命名服务
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_NAMINGSERVICE}
 	 * @return
 	 */
 	java.lang.String getNamingService();
@@ -194,8 +162,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取输出值转换器
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_OUTPSSYSTRANSLATORID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysTranslator getOutPSSysTranslator();
@@ -252,8 +218,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_PSSYSRESOURCEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysResource getPSSysResource();
@@ -318,8 +282,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取预定义接口类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_PREDEFINEDTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPIPredefinedType}
 	 * @return
 	 */
@@ -328,8 +290,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务代码名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICECODENAME}
 	 * @return
 	 */
 	java.lang.String getServiceCodeName();
@@ -337,8 +297,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICEPARAM}
 	 * @return
 	 */
 	java.lang.String getServiceParam();
@@ -346,8 +304,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICEPARAM2}
 	 * @return
 	 */
 	java.lang.String getServiceParam2();
@@ -355,8 +311,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICEPARAM3}
 	 * @return
 	 */
 	java.lang.String getServiceParam3();
@@ -364,8 +318,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务参数4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICEPARAM4}
 	 * @return
 	 */
 	java.lang.String getServiceParam4();
@@ -373,8 +325,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取服务类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICETYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceType}
 	 * @return
@@ -405,8 +355,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否支持网关
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_ENABLEGATEWAY}
 	 * @return
 	 */
 	boolean isEnableGateway();
@@ -414,8 +362,6 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否启用服务接口DTO
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysServiceAPIDTO#FIELD_SERVICEDTOFLAG}
 	 * @return
 	 */
 	boolean isEnableServiceAPIDTO();

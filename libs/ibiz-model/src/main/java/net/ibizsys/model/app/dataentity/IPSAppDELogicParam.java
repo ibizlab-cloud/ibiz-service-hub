@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体处理逻辑参数模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDELogicParamDTO}运行时对象
+ * 应用实体处理逻辑参数模型对象接口
  *
  */
 public interface IPSAppDELogicParam extends net.ibizsys.model.dataentity.logic.IPSDELogicParam{

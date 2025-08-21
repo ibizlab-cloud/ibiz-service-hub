@@ -14,8 +14,6 @@ public interface IPSDEUICtrlFireEventLogic extends net.ibizsys.model.dataentity.
 	
 	/**
 	 * 获取事件名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PARAM2}
 	 * @return
 	 */
 	java.lang.String getEventName();
@@ -23,8 +21,6 @@ public interface IPSDEUICtrlFireEventLogic extends net.ibizsys.model.dataentity.
 	
 	/**
 	 * 获取事件参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getEventParam();
@@ -39,8 +35,6 @@ public interface IPSDEUICtrlFireEventLogic extends net.ibizsys.model.dataentity.
 	
 	/**
 	 * 获取触发对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_SRCPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getFireCtrl();

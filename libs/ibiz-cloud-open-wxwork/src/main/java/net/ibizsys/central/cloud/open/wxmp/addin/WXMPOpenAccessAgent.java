@@ -29,6 +29,7 @@ import net.ibizsys.central.cloud.core.util.domain.OpenQRCodeRequest;
 import net.ibizsys.central.cloud.core.util.domain.OpenQRCodeScanResult;
 import net.ibizsys.central.cloud.core.util.domain.OpenUser;
 import net.ibizsys.central.cloud.open.core.addin.OpenAccessAgentBase;
+import net.ibizsys.runtime.msg.MsgTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 
@@ -94,6 +95,12 @@ public class WXMPOpenAccessAgent extends OpenAccessAgentBase {
 	@Override
 	public String getName() {
 		return ICloudOpenUtilRuntime.OPENPLATFORM_WXMP;
+	}
+	
+	
+	@Override
+	public int getSupportMsgType() {
+		return MsgTypes.WX;
 	}
 		
 	@Override

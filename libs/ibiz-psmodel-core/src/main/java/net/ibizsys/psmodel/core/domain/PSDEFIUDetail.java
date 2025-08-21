@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEFIUDETAIL</B>实体表单项更新明细 模型传输对象
+ * <B>PSDEFIUDETAIL</B>表单项更新成员 模型传输对象
  * <P>
- * 实体表单项更新明细模型，定义了表单项更新的更新内容明细
+ * 实体表单项更新成员模型，定义了更新内容明细
  */
 public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -205,14 +205,14 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFIUDETAILNAME</B>&nbsp;更新明细名称，指定实体表单项更新明细的名称
+     * <B>PSDEFIUDETAILNAME</B>&nbsp;更新明细名称
      * <P>
      * 字符串：最大长度 200
      */
     public final static String FIELD_PSDEFIUDETAILNAME = "psdefiudetailname";
 
     /**
-     * 设置 更新明细名称，详细说明：{@link #FIELD_PSDEFIUDETAILNAME}
+     * 设置 更新明细名称
      * 
      * @param pSDEFIUDetailName
      * 
@@ -256,7 +256,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 更新明细名称，详细说明：{@link #FIELD_PSDEFIUDETAILNAME}
+     * 设置 更新明细名称
      * <P>
      * 等同 {@link #setPSDEFIUDetailName}
      * @param pSDEFIUDetailName
@@ -413,14 +413,14 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFORMDETAILID</B>&nbsp;表单成员，指定表单项更新明细指向的表单项
+     * <B>PSDEFORMDETAILID</B>&nbsp;更新表单成员，指定表单项更新明细指向的表单项
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEFormDetail} 
      */
     public final static String FIELD_PSDEFORMDETAILID = "psdeformdetailid";
 
     /**
-     * 设置 表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
+     * 设置 更新表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
      * 
      * @param pSDEFormDetailId
      * 
@@ -431,7 +431,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 表单成员  
+     * 获取 更新表单成员  
      * @return
      */
     @JsonIgnore
@@ -444,7 +444,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 表单成员 是否指定值，包括空值
+     * 判断 更新表单成员 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -456,7 +456,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 表单成员
+     * 重置 更新表单成员
      */
     @JsonIgnore
     public void resetPSDEFormDetailId(){
@@ -464,7 +464,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
+     * 设置 更新表单成员，详细说明：{@link #FIELD_PSDEFORMDETAILID}
      * <P>
      * 等同 {@link #setPSDEFormDetailId}
      * @param pSDEFormDetailId
@@ -476,7 +476,7 @@ public class PSDEFIUDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 表单成员，包括引用对象的其它关系属性
+     * 设置 更新表单成员，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEFormDetailId}
      * @param pSDEFormDetail 引用对象

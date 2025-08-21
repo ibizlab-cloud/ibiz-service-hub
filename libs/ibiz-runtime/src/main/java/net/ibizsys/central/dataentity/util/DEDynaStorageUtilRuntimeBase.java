@@ -77,7 +77,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 		return this.getStorageDataEntityRuntime().getSysDBSchemeRuntime().getDBDialect();
 		//return this.getStorageDataEntityRuntime().getSystemRuntime().getDBDialect(this.getStorageDataEntityRuntime().getSysDBSchemeRuntime().getDBType());
 	}
-	
+
 	@Override
 	public int getStorageMode() {
 		if(isLocalStorageMode()) {
@@ -138,7 +138,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 			else {
 				this.dynaPSDEFieldMap = null;
 			}
-			
+
 			//this.setDynaPSDEFieldMap(dynaPSDEFieldMap);
 			this.lastDynaStoragePSDEFieldList = dynaStoragePSDEFields;
 		}
@@ -219,7 +219,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 			}
 		}
 	}
-	
+
 	protected boolean isPrepareStoragePSDEFields() {
 		return true;
 	}
@@ -424,7 +424,67 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 				}else {
 					value = (dynaFieldValueMap != null)?dynaFieldValueMap.get(entry.getKey()):null;
 				}
+				
+				value = this.getDataEntityRuntime().convertEntityDTOFieldValue(entry.getKey().toLowerCase(), value);
 				this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), value);
+				
+//				IPSDEMethodDTOField iPSDEMethodDTOField = this.getDataEntityRuntime().getDefaultPSDEMethodDTO().getPSDEMethodDTOField(entry.getKey().toLowerCase(),true);
+//				if(iPSDEMethodDTOField !=null && (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType())
+//						||DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType()))) {
+//					if(value != null) {
+//						if(iPSDEMethodDTOField.getRefPSDataEntity() != null) {
+//							IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
+//							if(DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+//								if(iPSDEMethodDTOField.isListMap()) {
+//
+//									if(!(value instanceof Map)) {
+//										//执行序列化，此处代码有问题
+//										value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+//									}
+//
+//									Map srcMap = (Map)value;
+//									Map dtoMap = new LinkedHashMap();
+//									for(Object key : srcMap.keySet()) {
+//										IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), srcMap.get(key));
+//										dtoMap.put(key, iDEMethodDTO);
+//									}
+//
+//									this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), dtoMap);
+//								}
+//								else {
+//									//列表模式
+//									if(!(value instanceof List)) {
+//										value = refDataEntityRuntime.getSystemRuntime().deserialize(value, List.class);
+//										//throw new DataEntityRuntimeException(this.getDEMethodDTORuntime().getDataEntityRuntime(), this.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
+//									}
+//
+//									List list = (List)value;
+//									List dtoList=  new ArrayList();
+//									for(Object item : list) {
+//										IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), item);
+//										dtoList.add(iDEMethodDTO);
+//
+//									}
+//									this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), dtoList);
+//								}
+//							}
+//							else {
+//
+//								if(!(value instanceof Map) && !(value instanceof IEntity)) {
+//									//执行序列化，此处代码有问题
+//									value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+//								}
+//
+//
+//								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), value);
+//								this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), iDEMethodDTO);
+//							}
+//						}
+//					}
+//
+//				}else {
+//					this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), value);
+//				}
 			}
 
 			this.getDataEntityRuntime().resetFieldValue(iEntityBase, this.getLocalStoragePSDEField(false));
@@ -902,7 +962,67 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 					}else {
 						value = (dynaFieldValueMap != null)?dynaFieldValueMap.get(entry.getKey()):null;
 					}
+					value = this.getDataEntityRuntime().convertEntityDTOFieldValue(entry.getKey().toLowerCase(), value);
 					this.getDataEntityRuntime().setFieldValue(iEntityDTO, entry.getValue(), value);
+					
+//					IPSDEMethodDTOField iPSDEMethodDTOField = this.getDataEntityRuntime().getDefaultPSDEMethodDTO().getPSDEMethodDTOField(entry.getKey().toLowerCase(),true);
+//					if(iPSDEMethodDTOField !=null && (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType())
+//							||DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType()))) {
+//						if(value != null) {
+//							if(iPSDEMethodDTOField.getRefPSDataEntity() != null) {
+//								IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
+//								if(DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
+//									if(iPSDEMethodDTOField.isListMap()) {
+//
+//										if(!(value instanceof Map)) {
+//											//执行序列化，此处代码有问题
+//											value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+//										}
+//
+//										Map srcMap = (Map)value;
+//										Map dtoMap = new LinkedHashMap();
+//										for(Object key : srcMap.keySet()) {
+//											IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), srcMap.get(key));
+//											dtoMap.put(key, iDEMethodDTO);
+//										}
+//
+//										this.getDataEntityRuntime().setFieldValue(iEntityDTO, entry.getValue(), dtoMap);
+//									}
+//									else {
+//										//列表模式
+//										if(!(value instanceof List)) {
+//											value = refDataEntityRuntime.getSystemRuntime().deserialize(value, List.class);
+//											//throw new DataEntityRuntimeException(this.getDEMethodDTORuntime().getDataEntityRuntime(), this.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
+//										}
+//
+//										List srclist = (List)value;
+//										List dtoList=  new ArrayList();
+//										for(Object item : srclist) {
+//											IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), item);
+//											dtoList.add(iDEMethodDTO);
+//
+//										}
+//										this.getDataEntityRuntime().setFieldValue(iEntityDTO, entry.getValue(), dtoList);
+//									}
+//								}
+//								else {
+//
+//									if(!(value instanceof Map) && !(value instanceof IEntity)) {
+//										//执行序列化，此处代码有问题
+//										value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
+//									}
+//
+//
+//									IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), value);
+//									this.getDataEntityRuntime().setFieldValue(iEntityDTO, entry.getValue(), iDEMethodDTO);
+//								}
+//							}
+//						}
+//
+//					}else {
+//						this.getDataEntityRuntime().setFieldValue(iEntityDTO, entry.getValue(), value);
+//					}
+
 				}
 				this.getDataEntityRuntime().resetFieldValue(iEntityDTO, this.getLocalStoragePSDEField(false));
 			}

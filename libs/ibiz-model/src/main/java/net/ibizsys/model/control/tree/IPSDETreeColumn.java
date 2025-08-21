@@ -3,7 +3,7 @@ package net.ibizsys.model.control.tree;
 
 
 /**
- * 实体树表格列模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO}运行时对象
+ * 实体树表格列模型对象接口
  *
  */
 public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
@@ -14,8 +14,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取列对齐
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_ALIGN}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
@@ -24,8 +22,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -40,8 +36,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -49,8 +43,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取单元格样式对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_CELLPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getCellPSSysCss();
@@ -73,8 +65,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	/**
 	 * 获取树视图列样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_GRIDCOLSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColStype}
 	 * @return
 	 */
@@ -83,8 +73,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_GRIDCOLTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColType}
 	 * @return
@@ -101,8 +89,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取头部样式对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_HEADERPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getHeaderPSSysCss();
@@ -117,8 +103,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取隐藏模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_HIDEDEFAULT}
 	 * @return
 	 */
 	int getHideMode();
@@ -126,8 +110,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取头部图片对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -156,8 +138,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	int getWidth();
@@ -165,8 +145,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列宽单位
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_WIDTHUNIT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColWidthUnitType}
 	 * @return
@@ -183,8 +161,6 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETreeColDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isEnableSort();

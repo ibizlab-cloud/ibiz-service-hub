@@ -3,7 +3,7 @@ package net.ibizsys.model.dataentity.der;
 
 
 /**
- * 实体关系属性映射模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO}运行时对象
+ * 实体关系属性映射模型对象接口
  *
  */
 public interface IPSDERDEFieldMap extends net.ibizsys.model.IPSModelObject{
@@ -19,8 +19,6 @@ public interface IPSDERDEFieldMap extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取主实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO#FIELD_MAJORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMajorPSDEField();
@@ -35,8 +33,6 @@ public interface IPSDERDEFieldMap extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取从实体属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDERDEFMapDTO#FIELD_MINORPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.defield.IPSDEField getMinorPSDEField();

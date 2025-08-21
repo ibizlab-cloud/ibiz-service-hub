@@ -3,9 +3,7 @@ package net.ibizsys.model.control.grid;
 
 
 /**
- * 实体表格列模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO}运行时对象
- * <P>
- * 子接口扩展识别值 {@link #getColumnType}
+ * 实体表格列模型基础对象接口
  *
  */
 public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
@@ -15,8 +13,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取聚合值存储属性
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_AGGFIELD}
 	 * @return
 	 */
 	java.lang.String getAggField();
@@ -24,8 +20,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取聚合模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_AGGMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAggMode}
 	 * @return
@@ -35,8 +29,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取聚合值格式化
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_AGGVALUEFORMAT}
 	 * @return
 	 */
 	java.lang.String getAggValueFormat();
@@ -44,8 +36,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列水平对齐
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_ALIGN}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
@@ -55,8 +45,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CAPPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes();
@@ -71,8 +59,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取标题
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CAPTION}
 	 * @return
 	 */
 	java.lang.String getCaption();
@@ -80,8 +66,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取单元格样式对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_CELLPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getCellPSSysCss();
@@ -103,8 +87,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取表格列样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_GRIDCOLSTYLE}
 	 * @return
 	 */
 	java.lang.String getColumnStyle();
@@ -112,8 +94,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_GRIDCOLTYPE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColType}
 	 * @return
@@ -123,8 +103,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列数据项名称
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_DATAITEMS}
 	 * @return
 	 */
 	java.lang.String getDataItemName();
@@ -139,8 +117,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取头部样式对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_HEADERPSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getHeaderPSSysCss();
@@ -155,8 +131,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取隐藏模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_HIDEDEFAULT}
 	 * @return
 	 */
 	int getHideMode();
@@ -164,8 +138,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取无权限显示模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_NOPRIVDM}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NoPrivDisplayMode}
 	 * @return
@@ -175,8 +147,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取头部图片对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -205,8 +175,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列宽
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_WIDTH}
 	 * @return
 	 */
 	int getWidth();
@@ -214,8 +182,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取列宽单位
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_WIDTHUNIT}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColWidthUnitType}
 	 * @return
@@ -225,8 +191,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持行编辑
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_ENABLEROWEDIT}
 	 * @return
 	 */
 	boolean isEnableRowEdit();
@@ -234,8 +198,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否支持排序
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_NOSORT}
 	 * @return
 	 */
 	boolean isEnableSort();
@@ -243,8 +205,6 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	
 	/**
 	 * 获取是否隐藏数据项
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGridColDTO#FIELD_HIDDENDATAITEM}
 	 * @return
 	 */
 	boolean isHiddenDataItem();

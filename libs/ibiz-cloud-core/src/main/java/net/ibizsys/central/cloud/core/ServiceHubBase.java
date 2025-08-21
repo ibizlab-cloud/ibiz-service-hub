@@ -93,6 +93,7 @@ import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.spring.util.GatewayUtils;
 import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.sysutil.IHubSysDevOpsUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.IHubSysExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysDevOpsUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
@@ -796,6 +797,9 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		// 设置系统是否支持更新数据库体系
 		boolean bUpdateDBScheme = DataTypeUtils.getBooleanValue(deploySystem.getUpdateDBSchema(), false);
 		deploySystem.getSettings().put(IServiceSystemRuntime.PARAM_UPDATEDBSCHEMA, bUpdateDBScheme);
+		
+		String strOSSFolder = deploySystem.getOSSFolder();
+		deploySystem.getSettings().put(IServiceSystemRuntime.PARAM_OSSFOLDER, strOSSFolder);
 
 		iSystemRuntime.init(getSystemGatewayContext(), iPSSystemService, deploySystem.getDeploySystemId(), deploySystem.getSettings());
 		this.registerSystemRuntime(deploySystem, iSystemRuntime);
@@ -923,6 +927,20 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		}
 
 		log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", deploySystem.getDeploySystemId(), strModelDigest, strDynaModelPath));
+		
+		String strOrginDynaModelPath = strDynaModelPath;
+		V2DeploySystem v2DeploySystem = this.getV2DeploySystem(deploySystem);
+		if(v2DeploySystem != null) {
+			try {
+				IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
+				File mergeFile = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(new File(strDynaModelPath), v2DeploySystem, true);
+				strDynaModelPath = mergeFile.getCanonicalPath();
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		
 
 		// if(this.getServiceHubSetting().isEnableMergeSystem()) {
 		// //判断是否进行系统合并
@@ -958,7 +976,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		psModelServiceImpl.setPSModelFolderPath(strDynaModelPath);
 		psModelServiceImpl.setModelDigest(items[0]);
 		if(!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
-			long nLastModifiedTime = this.getLastModifiedTime(strDynaModelPath);
+			long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
 			if(nLastModifiedTime > 0) {
 				psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
 			}
@@ -1099,12 +1117,24 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			}
 
 			log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", v2DeploySystem.getId(), v2DeploySystem.getOssFile(), strDynaModelPath));
+			
+			//备份原来的模型路径
+			String strOrginDynaModelPath = strDynaModelPath;
+			
+			try {
+				IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
+				File mergeFile = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(new File(strDynaModelPath), v2DeploySystem, true);
+				strDynaModelPath = mergeFile.getCanonicalPath();
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
+			}
 
 			PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 			psModelServiceImpl.setPSModelFolderPath(strDynaModelPath);
 			psModelServiceImpl.setModelDigest(v2DeploySystem.getOssFileDigest());
 			if(!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
-				long nLastModifiedTime = this.getLastModifiedTime(strDynaModelPath);
+				long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
 				if(nLastModifiedTime > 0) {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
 				}
@@ -1128,10 +1158,20 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			File folder = this.getDeploySystemModelFolder(v2DeploySystem.getId(), strHttpUrlToRepo, false);
 			if (folder != null) {
 				log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", v2DeploySystem.getId(), strHttpUrlToRepo, folder.getCanonicalPath()));
+				
+				String strOrginDynaModelPath = folder.getCanonicalPath();
+				
+				try {
+					IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
+					folder = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(folder, v2DeploySystem, true);
+				}
+				catch (Exception ex) {
+					throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
+				}
 
 				PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 				psModelServiceImpl.setPSModelFolderPath(folder.getCanonicalPath());
-				long nLastModifiedTime = this.getLastModifiedTime(folder.getCanonicalPath());
+				long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
 				if(nLastModifiedTime > 0) {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
 				}
@@ -1997,7 +2037,8 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 
 								if (StringUtils.hasLength(strMainCodeName) && StringUtils.hasLength(strMainAppTag)) {
 									for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimes) {
-										if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+										if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || 
+												SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 											List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 											if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -2034,7 +2075,8 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 							for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimes) {
 
 								// 判断系统引用类型
-								if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+								if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+										|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 									List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 									if (ObjectUtils.isEmpty(psApplicationList)) {

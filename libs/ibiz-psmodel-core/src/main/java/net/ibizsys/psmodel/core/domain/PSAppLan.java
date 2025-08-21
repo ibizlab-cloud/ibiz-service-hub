@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSAPPLAN</B>应用多语言 模型传输对象
  * <P>
- * 应用多语言模型，定义前端应用支持的多语言
+ * 应用多语言模型，定义应用程序支持的多语言信息
  */
 public class PSAppLan extends net.ibizsys.psmodel.core.util.PSModelBase {
 

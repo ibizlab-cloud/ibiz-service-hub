@@ -3,7 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用实体工作流视图模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO}运行时对象
+ * 应用实体工作流视图模型基础对象接口
  *
  */
 public interface IPSAppDEWFView extends net.ibizsys.model.app.view.IPSAppDEView{

@@ -3,8 +3,7 @@ package net.ibizsys.model.dynamodel;
 
 
 /**
- * <P>
- * 子接口扩展识别值 {@link #getUsage}
+ * 系统动态模型对象接口
  *
  */
 public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaModel
@@ -28,8 +27,6 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	
 	/**
 	 * 获取模型标记
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MODELTAG}
 	 * @return
 	 */
 	java.lang.String getModelTag();
@@ -37,8 +34,6 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	
 	/**
 	 * 获取模型标记2
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MODELTAG2}
 	 * @return
 	 */
 	java.lang.String getModelTag2();
@@ -46,8 +41,6 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	
 	/**
 	 * 获取模型标记3
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MODELTAG3}
 	 * @return
 	 */
 	java.lang.String getModelTag3();
@@ -55,8 +48,6 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	
 	/**
 	 * 获取模型标记4
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.DTO#FIELD_MODELTAG4}
 	 * @return
 	 */
 	java.lang.String getModelTag4();

@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "OPENUSERID",
+        "codeName" : "OpenUserId"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "OPENUSERNAME",
+        "codeName" : "OpenUserName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -550,6 +558,7 @@
     "length" : 100,
     "logicName" : "AccessKey",
     "name" : "ACCESS_KEY",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -647,6 +656,7 @@
     "length" : 100,
     "logicName" : "SecretKey",
     "name" : "SECRET_KEY",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -764,6 +774,7 @@
     "length" : 100,
     "logicName" : "开放用户标识",
     "name" : "OPENUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -864,6 +875,7 @@
     "length" : 100,
     "logicName" : "所属部门信息",
     "name" : "DEPTS",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -981,6 +993,7 @@
     "length" : 100,
     "logicName" : "用户名称",
     "name" : "OPENUSERNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1092,6 +1105,7 @@
     "length" : 100,
     "logicName" : "手机号",
     "name" : "MOBILE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1184,6 +1198,7 @@
     "importOrder" : 1000,
     "logicName" : "绑定状态",
     "name" : "ISBINDING",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/YesNo.json"
@@ -1292,6 +1307,7 @@
     "length" : 100,
     "logicName" : "开放平台类型",
     "name" : "OPEN_TYPE",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSCODELISTS/OpenAccessType.json"
@@ -1386,6 +1402,7 @@
     "length" : 8,
     "logicName" : "建立时间",
     "name" : "CREATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1491,6 +1508,7 @@
     "length" : 100,
     "logicName" : "实际用户标识",
     "name" : "REALID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1590,6 +1608,7 @@
     "length" : 60,
     "logicName" : "更新人",
     "name" : "UPDATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1696,6 +1715,7 @@
     "length" : 60,
     "logicName" : "建立人",
     "name" : "CREATEMAN",
+    "orderValue" : 1000,
     "getPSCodeList" : {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSCODELISTS/SysOperator.json"
@@ -1811,6 +1831,7 @@
     "length" : 100,
     "logicName" : "用户代码",
     "name" : "OPENUSERCODE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1908,6 +1929,7 @@
     "length" : 100,
     "logicName" : "用户标识",
     "name" : "USERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1997,6 +2019,7 @@
     "length" : 8,
     "logicName" : "更新时间",
     "name" : "UPDATEDATE",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2096,6 +2119,7 @@
     "length" : 100,
     "logicName" : "系统用户标识",
     "name" : "SYSUSERID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2209,6 +2233,7 @@
     "length" : 100,
     "logicName" : "单位标识",
     "name" : "ORGID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2361,6 +2386,7 @@
     "length" : 100,
     "logicName" : "开放平台应用",
     "name" : "ACCESSNAME",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2497,6 +2523,7 @@
     "length" : 100,
     "logicName" : "开放平台应用",
     "name" : "ACCESSID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"

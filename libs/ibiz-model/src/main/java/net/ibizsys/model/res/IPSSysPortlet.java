@@ -3,7 +3,7 @@ package net.ibizsys.model.res;
 
 
 /**
- * 系统门户部件模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO}运行时对象
+ * 系统门户部件模型对象接口
  *
  */
 public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
@@ -12,8 +12,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取界面行为组展开模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_GROUPEXTRACTMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
@@ -30,8 +28,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取空白显示内容
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_EMPTYTEXT}
 	 * @return
 	 */
 	java.lang.String getEmptyText();
@@ -39,8 +35,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取空白内容语言资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_EMPTYTEXTPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getEmptyTextPSLanguageRes();
@@ -55,8 +49,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取高度
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_HEIGHT}
 	 * @return
 	 */
 	int getHeight();
@@ -64,8 +56,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统界面样式表
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PSSYSCSSID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
@@ -80,8 +70,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统图片
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PSSYSIMAGEID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysImage getPSSysImage();
@@ -110,8 +98,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取系统统一资源
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PSSYSUNIRESID}
 	 * @return
 	 */
 	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();
@@ -126,8 +112,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取部件动态参数
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PORTLETPARAMS}
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getPortletParams();
@@ -135,8 +119,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取预置样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PORTLETSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
@@ -147,8 +129,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	/**
 	 * 获取部件类型
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_PORTLETTYPE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PortletType}
 	 * @return
 	 */
@@ -157,8 +137,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取刷新间隔（毫秒）
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_RELOADTIMER}
 	 * @return
 	 */
 	int getReloadTimer();
@@ -166,8 +144,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取模板引擎
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_TEMPLENGINE}
 	 * @return
 	 */
 	java.lang.String getTemplEngine();
@@ -175,8 +151,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取抬头
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_LOGICNAME}
 	 * @return
 	 */
 	java.lang.String getTitle();
@@ -184,8 +158,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取抬头语言资源对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_TITLEPSLANRESID}
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();
@@ -214,8 +186,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否支持应用全局数据看板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_DASHBOARDSCOPE}
 	 * @return
 	 */
 	boolean isEnableAppDashboard();
@@ -223,8 +193,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否支持实体数据看板
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_DASHBOARDSCOPE}
 	 * @return
 	 */
 	boolean isEnableDEDashboard();
@@ -232,8 +200,6 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取是否显示抬头栏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysPortletDTO#FIELD_SHOWTITLEBAR}
 	 * @return
 	 */
 	boolean isShowTitleBar();

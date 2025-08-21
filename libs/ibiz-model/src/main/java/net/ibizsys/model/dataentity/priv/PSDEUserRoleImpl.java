@@ -14,7 +14,6 @@ public class PSDEUserRoleImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETORGDR = "orgDR";
 	public final static String ATTR_GETPSDEDATASET = "getPSDEDataSet";
-	public final static String ATTR_GETPSDEFGROUP = "getPSDEFGroup";
 	public final static String ATTR_GETPSDEUSERROLEOPPRIVS = "getPSDEUserRoleOPPrivs";
 	public final static String ATTR_GETPSSYSUSERDR = "getPSSysUserDR";
 	public final static String ATTR_GETPSSYSUSERDR2 = "getPSSysUserDR2";
@@ -116,29 +115,6 @@ public class PSDEUserRoleImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 
 	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
 		this.psdedataset = psdedataset;
-	}
-
-	private net.ibizsys.model.dataentity.defield.IPSDEFGroup psdefgroup;
-
-	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroup(){
-		if(this.psdefgroup != null) return this.psdefgroup;
-		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEFGROUP);
-		if(value == null){
-			return null;
-		}
-		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
-		this.psdefgroup = ipsdataentity.getPSDEFGroup(value, false);
-		return this.psdefgroup;
-	}
-
-	public net.ibizsys.model.dataentity.defield.IPSDEFGroup getPSDEFGroupMust(){
-		net.ibizsys.model.dataentity.defield.IPSDEFGroup value = this.getPSDEFGroup();
-		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定访问属性组");}
-		return value;
-	}
-
-	public void setPSDEFGroup(net.ibizsys.model.dataentity.defield.IPSDEFGroup psdefgroup){
-		this.psdefgroup = psdefgroup;
 	}
 
 

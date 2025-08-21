@@ -3,7 +3,7 @@ package net.ibizsys.model.control.panel;
 
 
 /**
- * 面板容器项模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO}运行时对象
+ * 面板容器项模型对象接口
  * <P>
  * 扩展父接口类型[CONTAINER]
  *
@@ -16,8 +16,6 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_ITEMPARAM4}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -26,8 +24,6 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	
 	/**
 	 * 获取动态标题绑定值项，仅在数据区域类型{@link #getDataRegionType}为无(NONE)及继承(INHERIT)时启用
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_FIELDNAME}
 	 * @return
 	 */
 	java.lang.String getCaptionItemName();
@@ -56,8 +52,6 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	
 	/**
 	 * 获取界面行为组对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PSDEUAGROUPID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup();
@@ -72,8 +66,6 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	
 	/**
 	 * 获取预置类型
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_PREDEFINEDTYPE}
 	 * @return
 	 */
 	java.lang.String getPredefinedType();
@@ -81,8 +73,6 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	
 	/**
 	 * 获取标题栏关闭模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSSysViewPanelItemDTO#FIELD_TITLEBARCLOSEMODE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupTitleBarCloseMode}
 	 * @return

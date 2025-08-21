@@ -5,10 +5,18 @@
     "name" : "DEFAULT",
     "getPSDEACModeDataItems" : [ {
       "dataType" : 25,
-      "name" : "value"
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "HISTID",
+        "codeName" : "Id"
+      }
     }, {
       "dataType" : 25,
-      "name" : "text"
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "AUTHORNAME",
+        "codeName" : "AuthorName"
+      }
     } ],
     "pagingSize" : 50,
     "defaultMode" : true,
@@ -506,6 +514,7 @@
     "length" : 100,
     "logicName" : "标识",
     "name" : "HISTID",
+    "orderValue" : 1,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -633,6 +642,7 @@
     "length" : 100,
     "logicName" : "操作者标识",
     "name" : "AUTHOR",
+    "orderValue" : 2,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -759,6 +769,7 @@
     "length" : 100,
     "logicName" : "操作者",
     "name" : "AUTHORNAME",
+    "orderValue" : 3,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -880,6 +891,7 @@
     "length" : 2000,
     "logicName" : "意见",
     "name" : "MESSAGE",
+    "orderValue" : 4,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -988,6 +1000,7 @@
     "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
     "logicName" : "时间",
     "name" : "ACTIONTIME",
+    "orderValue" : 5,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1106,6 +1119,7 @@
     "length" : 100,
     "logicName" : "意见类型",
     "name" : "ACTIONTYPE",
+    "orderValue" : 6,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1231,6 +1245,7 @@
     "length" : 100,
     "logicName" : "任务标识",
     "name" : "TASKID",
+    "orderValue" : 11,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1351,6 +1366,7 @@
     "length" : 100,
     "logicName" : "实例标识",
     "name" : "INSTANCEID",
+    "orderValue" : 13,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1470,6 +1486,7 @@
     "length" : 100,
     "logicName" : "业务键值",
     "name" : "BUSINESSKEY",
+    "orderValue" : 14,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1567,6 +1584,7 @@
     "length" : 100,
     "logicName" : "租户系统标识",
     "name" : "DCSYSTEMID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1664,6 +1682,7 @@
     "length" : 100,
     "logicName" : "步骤标识",
     "name" : "TASKDEFKEY",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1767,6 +1786,7 @@
     "length" : 100,
     "logicName" : "流程实例标识",
     "name" : "REALINSTID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1815,7 +1835,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[PROCESSDEFKEY][流程定义标识]",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1826,7 +1846,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[PROCESSDEFKEY][流程定义标识]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1843,16 +1863,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "PROCESSDEFKEY",
-          "maxValue" : 100,
+          "maxValue" : 200,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[200]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[200]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[200]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1862,9 +1882,10 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 200,
     "logicName" : "流程定义标识",
     "name" : "PROCESSDEFKEY",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -1874,7 +1895,7 @@
       "id" : "PROCESSDEFKEY"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 200,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1962,6 +1983,7 @@
     "length" : 100,
     "logicName" : "应用标识",
     "name" : "APPID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2059,6 +2081,7 @@
     "length" : 100,
     "logicName" : "实体",
     "name" : "ENTITYID",
+    "orderValue" : 1000,
     "getPSDEDBTable" : {
       "modelref" : true,
       "id" : "Table"
@@ -2214,7 +2237,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 200,
       "type" : "SIMPLE"
     }, {
       "logicName" : "流程实例标识",

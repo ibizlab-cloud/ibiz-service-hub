@@ -14,8 +14,6 @@ public interface IPSDESubSysSAMethodLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取目标逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_DSTPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam();
@@ -30,8 +28,6 @@ public interface IPSDESubSysSAMethodLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取外部服务接口
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSUBSYSSERVICEAPIID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPI getPSSubSysServiceAPI();
@@ -60,8 +56,6 @@ public interface IPSDESubSysSAMethodLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取外部服务接口方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_PSSUBSYSSADETAILID}
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDEMethod getPSSubSysServiceAPIDEMethod();
@@ -76,8 +70,6 @@ public interface IPSDESubSysSAMethodLogic extends net.ibizsys.model.dataentity.l
 	
 	/**
 	 * 获取返回值绑定逻辑参数对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDELogicNodeDTO#FIELD_RETPSDLPARAMID}
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam();

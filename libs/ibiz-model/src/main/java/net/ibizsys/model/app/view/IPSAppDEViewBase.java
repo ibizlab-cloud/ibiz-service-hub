@@ -3,7 +3,7 @@ package net.ibizsys.model.app.view;
 
 
 /**
- * 应用实体视图模型基础对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO}运行时对象
+ * 应用实体视图模型基础对象接口
  *
  */
 public interface IPSAppDEViewBase{
@@ -49,8 +49,6 @@ public interface IPSAppDEViewBase{
 	
 	/**
 	 * 获取实体视图标识
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEViewBaseDTO#FIELD_PSDEVIEWBASEID}
 	 * @return
 	 */
 	java.lang.String getPSDEViewId();

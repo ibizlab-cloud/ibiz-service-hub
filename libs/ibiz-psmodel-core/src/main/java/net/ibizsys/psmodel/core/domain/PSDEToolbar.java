@@ -2991,14 +2991,14 @@ public class PSDEToolbar extends net.ibizsys.psmodel.core.util.PSModelBase {
 
 
     /**
-     *  实体工具栏项 成员集合
+     *  工具栏项 成员集合
      */
     public final static String FIELD_PSDETBITEMS = "psdetbitems";
 
     private java.util.List<net.ibizsys.psmodel.core.domain.PSDETBItem> psdetbitems;
 
     /**
-     * 获取 实体工具栏项 成员集合
+     * 获取 工具栏项 成员集合
      * @return
      */
     @JsonProperty(FIELD_PSDETBITEMS)
@@ -3007,7 +3007,7 @@ public class PSDEToolbar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体工具栏项 成员集合  
+     * 设置 工具栏项 成员集合  
      * @param psdetbitems
      */
     @JsonProperty(FIELD_PSDETBITEMS)
@@ -3016,7 +3016,7 @@ public class PSDEToolbar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 获取 实体工具栏项 成员集合，不存在时建立集合对象
+     * 获取 工具栏项 成员集合，不存在时建立集合对象
      * @return
      */
     @JsonIgnore

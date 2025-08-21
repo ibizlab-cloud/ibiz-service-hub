@@ -3,7 +3,7 @@ package net.ibizsys.model.app.dataentity;
 
 
 /**
- * 应用实体自填模式模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO}运行时对象
+ * 应用实体自填模式模型对象接口
  *
  */
 public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACMode{
@@ -26,8 +26,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取数据链接视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_LINKPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getLinkPSAppView();
@@ -42,8 +40,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取从排序应用属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_MINORSORTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getMinorSortPSAppDEField();
@@ -58,8 +54,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取应用实体数据集对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PSDEDATASETID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet();
@@ -88,8 +82,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取嵌入选择视图
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_PICKUPPSDEVIEWID}
 	 * @return
 	 */
 	net.ibizsys.model.app.view.IPSAppView getPickupPSAppView();
@@ -104,8 +96,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取文本应用属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_TEXTPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
@@ -120,8 +110,6 @@ public interface IPSAppDEACMode extends net.ibizsys.model.dataentity.ac.IPSDEACM
 	
 	/**
 	 * 获取值应用属性对象
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEACModeDTO#FIELD_VALUEPSDEFID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEField getValuePSAppDEField();

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSBICUBE</B>智能报表立方体 模型传输对象
+ * <B>PSSYSBICUBE</B>智能立方体 模型传输对象
  * <P>
- * 
+ * 智能报表系统的核心模型，用于定义多维数据分析的立方体结构。它通过关联数据实体、数据源、维度、指标等组件，构建可进行多维钻取、反查和分析的数据立方体
  */
 public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -1200,14 +1200,14 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEDATASETID</B>&nbsp;数据源
+     * <B>PSDEDATASETID</B>&nbsp;立方体数据源
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_PSDEDATASETID = "psdedatasetid";
 
     /**
-     * 设置 数据源
+     * 设置 立方体数据源
      * 
      * @param pSDEDataSetId
      * 
@@ -1218,7 +1218,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 数据源  
+     * 获取 立方体数据源  
      * @return
      */
     @JsonIgnore
@@ -1231,7 +1231,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 数据源 是否指定值，包括空值
+     * 判断 立方体数据源 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1243,7 +1243,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 数据源
+     * 重置 立方体数据源
      */
     @JsonIgnore
     public void resetPSDEDataSetId(){
@@ -1251,7 +1251,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 数据源
+     * 设置 立方体数据源
      * <P>
      * 等同 {@link #setPSDEDataSetId}
      * @param pSDEDataSetId
@@ -1263,7 +1263,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 数据源，包括引用对象的其它关系属性
+     * 设置 立方体数据源，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSDEDataSetId}
      * @param pSDEDataSet 引用对象

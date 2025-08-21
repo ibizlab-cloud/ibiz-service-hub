@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSDEFGROUPDETAIL</B>实体属性组成员 模型传输对象
+ * <B>PSDEFGROUPDETAIL</B>属性组成员 模型传输对象
  * <P>
- * 实体属性组成员模型，定义属性组包含的属性对象，属性组成员提供属性基础属性的重新定义能力，支持对属性进行配置调整
+ * 实体属性组成员模型，定义属性组包含的属性对象，属性组成员还提供属性参数的重新定义能力（未定义时使用属性的默认配置）
  */
 public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -922,14 +922,14 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>MAXVALUE</B>&nbsp;最大值，指定属性组属性成员的最大值，未定义时使用属性定义的最大值
+     * <B>MAXVALUE</B>&nbsp;最大值
      * <P>
      * 字符串：最大长度 50
      */
     public final static String FIELD_MAXVALUE = "maxvalue";
 
     /**
-     * 设置 最大值，详细说明：{@link #FIELD_MAXVALUE}
+     * 设置 最大值
      * 
      * @param maxValue
      * 
@@ -973,7 +973,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 最大值，详细说明：{@link #FIELD_MAXVALUE}
+     * 设置 最大值
      * <P>
      * 等同 {@link #setMaxValue}
      * @param maxValue
@@ -1048,12 +1048,12 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>MINSTRLENGTH</B>&nbsp;最小字符长度，指定属性组属性成员的最小字符串长度，未定义时使用属性定义的最小字符串长度
+     * <B>MINSTRLENGTH</B>&nbsp;最小字符长度
      */
     public final static String FIELD_MINSTRLENGTH = "minstrlength";
 
     /**
-     * 设置 最小字符长度，详细说明：{@link #FIELD_MINSTRLENGTH}
+     * 设置 最小字符长度
      * 
      * @param minStrLength
      * 
@@ -1097,7 +1097,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 最小字符长度，详细说明：{@link #FIELD_MINSTRLENGTH}
+     * 设置 最小字符长度
      * <P>
      * 等同 {@link #setMinStrLength}
      * @param minStrLength
@@ -1109,14 +1109,14 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>MINVALUE</B>&nbsp;最小值，指定属性组属性成员的最小值，未定义时使用属性定义的最小值
+     * <B>MINVALUE</B>&nbsp;最小值
      * <P>
      * 字符串：最大长度 50
      */
     public final static String FIELD_MINVALUE = "minvalue";
 
     /**
-     * 设置 最小值，详细说明：{@link #FIELD_MINVALUE}
+     * 设置 最小值
      * 
      * @param minValue
      * 
@@ -1160,7 +1160,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 最小值，详细说明：{@link #FIELD_MINVALUE}
+     * 设置 最小值
      * <P>
      * 等同 {@link #setMinValue}
      * @param minValue
@@ -1313,12 +1313,12 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>PRECISION</B>&nbsp;浮点精度，指定属性组属性成员的浮点精度，未定义时使用属性定义的浮点精度
+     * <B>PRECISION</B>&nbsp;浮点精度
      */
     public final static String FIELD_PRECISION = "precision";
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 浮点精度
      * 
      * @param precision
      * 
@@ -1374,7 +1374,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 浮点精度
      * <P>
      * 等同 {@link #setPrecision}
      * @param precision
@@ -1844,7 +1844,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性，指定属性组成员引用的属性对象，来自属性组所在实体。需在所在的属性组具备唯一性
+     * <B>PSDEFID</B>&nbsp;实体属性，指定成员关联的属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
@@ -2342,12 +2342,12 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>SEARCHMODES</B>&nbsp;支持搜索模式
+     * <B>SEARCHMODES</B>&nbsp;支持搜索模式，指定属性支持的搜索模型
      */
     public final static String FIELD_SEARCHMODES = "searchmodes";
 
     /**
-     * 设置 支持搜索模式
+     * 设置 支持搜索模式，详细说明：{@link #FIELD_SEARCHMODES}
      * 
      * @param searchModes
      * 
@@ -2391,7 +2391,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 支持搜索模式
+     * 设置 支持搜索模式，详细说明：{@link #FIELD_SEARCHMODES}
      * <P>
      * 等同 {@link #setSearchModes}
      * @param searchModes
@@ -2466,12 +2466,12 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * <B>STRLENGTH</B>&nbsp;字符长度，指定属性组成员的字符串长度，未定义时使用实体属性配置
+     * <B>STRLENGTH</B>&nbsp;字符长度
      */
     public final static String FIELD_STRLENGTH = "strlength";
 
     /**
-     * 设置 字符长度，详细说明：{@link #FIELD_STRLENGTH}
+     * 设置 字符长度
      * 
      * @param strLength
      * 
@@ -2515,7 +2515,7 @@ public class PSDEFGroupDetail extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
-     * 设置 字符长度，详细说明：{@link #FIELD_STRLENGTH}
+     * 设置 字符长度
      * <P>
      * 等同 {@link #setStrLength}
      * @param strLength

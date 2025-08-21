@@ -3,7 +3,7 @@ package net.ibizsys.model.control.grid;
 
 
 /**
- * 实体表格编辑项更新模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSDEGEIUpdateDTO}运行时对象
+ * 实体表格编辑项更新模型对象接口
  *
  */
 public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
@@ -20,8 +20,6 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取处理应用实体方法
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGEIUpdateDTO#FIELD_PSDEACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod();
@@ -57,8 +55,6 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGEIUpdateDTO#FIELD_CUSTOMCODE}
 	 * @return
 	 */
 	java.lang.String getScriptCode();
@@ -66,8 +62,6 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取是否自定义脚本代码
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGEIUpdateDTO#FIELD_CUSTOMMODE}
 	 * @return
 	 */
 	boolean isCustomCode();
@@ -75,8 +69,6 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	
 	/**
 	 * 获取是否显示处理提示
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDEGEIUpdateDTO#FIELD_BUSYINDICATOR}
 	 * @return
 	 */
 	boolean isShowBusyIndicator();

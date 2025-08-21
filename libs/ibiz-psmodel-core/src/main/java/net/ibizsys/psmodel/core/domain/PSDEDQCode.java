@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSDEDQCODE</B>实体数据查询代码 模型传输对象
  * <P>
- * 实体数据查询代码模型，存放模型引擎对数据查询模型编译后的查询代码，支持自定义。实体查询代码模型包括了查询代码表达式及查询代码条件模型
+ * 实体数据查询代码模型，存放分析引擎对数据查询模型编译后的代码，支持自定义。查询代码模型包含表达式及条件子模型
  */
 public class PSDEDQCode extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -140,7 +144,7 @@ public class PSDEDQCode extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>DBTYPE</B>&nbsp;数据库类型，指定数据查询代码对对应的数据库类型
      * <P>
-     * 字符串：最大长度 20
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.CodeList33} 
      */
     public final static String FIELD_DBTYPE = "dbtype";
 

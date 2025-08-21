@@ -17,8 +17,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	/**
 	 * 获取行为级别
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_ACTIONLEVEL}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionLevel}
 	 * @return
 	 */
@@ -27,8 +25,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	
 	/**
 	 * 获取边框样式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_BORDERSTYLE}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
@@ -39,8 +35,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	/**
 	 * 获取按钮样式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_ITEMSTYLE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
@@ -50,8 +44,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	/**
 	 * 获取界面行为组展开模式
 	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_GROUPEXTRACTMODE}
-	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
@@ -60,8 +52,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	
 	/**
 	 * 获取无权限显示模式
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_NOPRIVDM}
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BtnNoPrivDisplayMode}
 	 * @return
@@ -92,8 +82,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	
 	/**
 	 * 获取界面行为对象，除了显式指定界面行为，其它类型{@link PSDETBItemDTO#FIELD_BTNACTIONTYPE}也会被仿真为界面行为
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_PSDEUIACTIONID}
 	 * @return
 	 */
 	net.ibizsys.model.view.IPSUIAction getPSUIAction();
@@ -124,8 +112,6 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	
 	/**
 	 * 获取是否隐藏
-	 * <P>
-	 * 相关模型：{@link net.ibizsys.centralstudio.dto.PSDETBItemDTO#FIELD_HIDDENITEM}
 	 * @return
 	 */
 	boolean isHiddenItem();

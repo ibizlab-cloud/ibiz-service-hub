@@ -1,12 +1,16 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * <B>PSSYSDELOGICNODE</B>系统处理逻辑 模型传输对象
+ * <B>PSSYSDELOGICNODE</B>系统预置处理逻辑 模型传输对象
  * <P>
- * 系统统一的处理逻辑功能组件模型，功能组件实现后台模板约定的接口，实体处理逻辑支持定义调用系统处理逻辑
+ * 系统预置的处理逻辑功能组件模型，功能组件实现后台模板约定的接口，实体处理逻辑支持定义调用系统处理逻辑
  */
 public class PSSysDELogicNode extends net.ibizsys.psmodel.core.util.PSModelBase {
 

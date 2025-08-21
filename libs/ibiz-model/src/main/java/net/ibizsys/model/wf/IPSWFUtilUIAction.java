@@ -3,7 +3,7 @@ package net.ibizsys.model.wf;
 
 
 /**
- * 工作流辅助操作界面行为模型对象接口，标准模型{@link net.ibizsys.centralstudio.dto.PSWFUtilUIActionDTO}运行时对象
+ * 工作流辅助操作界面行为模型对象接口
  *
  */
 public interface IPSWFUtilUIAction extends net.ibizsys.model.IPSModelObject{

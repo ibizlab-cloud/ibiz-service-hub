@@ -2,13 +2,18 @@ package net.ibizsys.central.plugin.groovy.support;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import groovy.lang.Closure;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
+import net.ibizsys.codegen.groovy.support.PSDataEntityExtension;
+import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.ITransactionalUtil;
+import net.ibizsys.runtime.util.JsonUtils;
 
 /**
  * @author lionlau
@@ -113,6 +118,18 @@ public class DataEntityRuntimeExtension {
 	 */
 	public static IDEMSLogicRuntime mslogic(IDataEntityRuntime iDataEntityRuntime, IEntityDTO iEntityDTO, boolean tryMode) {
 		return iDataEntityRuntime.getDEMSLogicRuntime(iEntityDTO, tryMode);
+	}
+	
+	
+	public static ObjectNode getJsonSchemaModel(net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime iDataEntityRuntime) {
+		if(iDataEntityRuntime.isEnableExtension() && iDataEntityRuntime.getDEExtensionUtilRuntime() != null) {
+			return iDataEntityRuntime.getDEExtensionUtilRuntime().getJsonSchemaModel(null);
+		}
+		try {
+			return JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iDataEntityRuntime.getPSDataEntity()));
+		} catch (Exception ex) {
+			throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("获取JsonSchema发生异常，%1$s", ex.getMessage()), ex);
+		}
 	}
 	
 //	Object supports(IAction iAction, Object[] args) throws Throwable;
