@@ -703,7 +703,7 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 
 						if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 							if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
-								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getProductMarketMode());
+								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
 							}
 							else {
 								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
@@ -790,7 +790,7 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					
 					if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 						if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
-							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getProductMarketMode());
+							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
 						}
 						else {
 							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());

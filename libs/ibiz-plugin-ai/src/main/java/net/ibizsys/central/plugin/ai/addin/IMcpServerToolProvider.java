@@ -2,7 +2,7 @@ package net.ibizsys.central.plugin.ai.addin;
 
 import java.util.List;
 
-import net.ibizsys.central.plugin.ai.mcp.server.McpServerFeatures;
+import io.modelcontextprotocol.server.McpServerFeatures;
 import net.ibizsys.runtime.plugin.IModelRTAddin2;
 
 /**

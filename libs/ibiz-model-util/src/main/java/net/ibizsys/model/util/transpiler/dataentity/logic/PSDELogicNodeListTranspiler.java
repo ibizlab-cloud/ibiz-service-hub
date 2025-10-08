@@ -38,6 +38,8 @@ public class PSDELogicNodeListTranspiler extends net.ibizsys.model.util.transpil
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDEActionLogicImpl.class, false);
 			case "DEBUGPARAM":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDebugParamLogicImpl.class, false);
+			case "DECISION":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDecisionLogicImpl.class, false);
 			case "DEDATAFLOW":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDEDataFlowLogicImpl.class, false);
 			case "DEDATAQUERY":
@@ -64,6 +66,8 @@ public class PSDELogicNodeListTranspiler extends net.ibizsys.model.util.transpil
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEFilterParam2LogicImpl.class, false);
 			case "LOOPSUBCALL":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDELoopSubCallLogicImpl.class, false);
+			case "MEMO":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMemoLogicImpl.class, false);
 			case "MERGEPARAM":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMergeParamLogicImpl.class, false);
 			case "PREPAREPARAM":

@@ -201,6 +201,12 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	IDEMSLogicRuntime getDEMSLogicRuntime(IEntity iEntity, boolean bTryMode);
 	
 	
+	/**
+	 * 是否支持实体主状态逻辑
+	 * @return
+	 */
+	boolean isEnableDEMSLogic();
+	
 	
 	/**
 	 * 检查传入数据及执行行为是否满足主状态

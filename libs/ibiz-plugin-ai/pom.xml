@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.570.34.1</version>
+    <version>8.1.0.572.13</version>
   </parent>
   <artifactId>ibiz-plugin-ai</artifactId>
 	<name>ibiz-plugin-ai</name>
@@ -24,6 +24,12 @@
 			<groupId>cn.ibizlab.plugin</groupId>
 			<artifactId>ibiz-plugin-groovy</artifactId>
 			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-plugin-mcp</artifactId>
+			<version>8.1.0.572.13</version>
 		</dependency>
 
 		<dependency>

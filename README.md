@@ -38,7 +38,7 @@
 * 🛠 Modeling（建模工具）：[https://modeling.ibizlab.cn](https://modeling.ibizlab.cn)
 * 🔄 iBizAppHub: [https://open.ibizlab.cn/apphub](https://open.ibizlab.cn/apphub/)
 * 📱 微信公众号：iBiz开放平台
-* 💬 QQ 群：`1067434627`
+* 💬 QQ交流群：iBizLab社区开源群 👉 [1067434627](https://qm.qq.com/q/BXMu4H37Hy)
 
 
 > **案例**

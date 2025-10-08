@@ -53,9 +53,6 @@ public final class DateUtils {
 		}
 		
 		//判断是否为Long型
-		
-		
-		
 		if (strTimeString.indexOf("Z") != -1) {
 			// 有时区
 			String[] parts = strTimeString.split("[Z]");
@@ -136,10 +133,23 @@ public final class DateUtils {
 	 * @return
 	 */
 	private static String getFormatTimeString(String strOrigin) {
+		
 		int nDotPos = strOrigin.indexOf(".");
 		if (nDotPos != -1) {
 			strOrigin = strOrigin.substring(0, nDotPos);
 		}
+		
+		nDotPos = strOrigin.indexOf("+");
+		if (nDotPos != -1) {
+			strOrigin = strOrigin.substring(0, nDotPos);
+		}
+		else
+			{
+				nDotPos = strOrigin.indexOf("-");
+				if (nDotPos != -1) {
+					strOrigin = strOrigin.substring(0, nDotPos);
+				}
+			}
 
 		Object Time[] = new Object[3];
 		Time[0] = 0;

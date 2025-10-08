@@ -51,5 +51,23 @@ public interface ISysAIAgentRuntime extends IAIAgentRuntimeBase, IModelRuntime{
 	 * @return
 	 */
 	String getAgentParam(String strName, String strDefault);
+	
+	
+	
+	
+	
+	/**
+	 * 获取AI平台类型
+	 * @return
+	 */
+	String getAIPlatformType();
+	
+	
+	
+	/**
+	 * 获取代理信息
+	 * @return
+	 */
+	String getAgentInfo();
 
 }

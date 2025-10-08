@@ -192,4 +192,11 @@ public interface IPSSubAppRef extends net.ibizsys.model.app.IPSApplicationObject
 	 * @return
 	 */
 	java.lang.String getSysRefType();
+	
+	
+	/**
+	 * 获取开发系统标识
+	 * @return
+	 */
+	java.lang.String getPSDevSlnSysId();
 }

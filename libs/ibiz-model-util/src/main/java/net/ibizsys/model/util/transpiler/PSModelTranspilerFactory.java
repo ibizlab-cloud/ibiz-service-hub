@@ -727,6 +727,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEActionVRImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDEActionVRTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEBuiltinActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDEBuiltinActionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEDBSysProcActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDEDBSysProcActionTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEInheritActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDEInheritActionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDELogicActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDELogicActionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDERemoteActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDERemoteActionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEScriptActionImpl.class, net.ibizsys.model.util.transpiler.dataentity.action.PSDEScriptActionTranspiler.class);
@@ -761,6 +762,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.dr.PSDEDRSysDER11ItemImpl.class, net.ibizsys.model.util.transpiler.dataentity.dr.PSDEDRSysDER11ItemTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.dr.PSDEDRSysDER1NItemImpl.class, net.ibizsys.model.util.transpiler.dataentity.dr.PSDEDRSysDER1NItemTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.dr.PSDEDataRelationImpl.class, net.ibizsys.model.util.transpiler.dataentity.dr.PSDEDataRelationTranspiler.class);
+		//registerPSModelTranspiler(net.ibizsys.model.dataentity.ds.PSDEDQColumnImpl.class, net.ibizsys.model.util.transpiler.dataentity.ds.PSDEDQColumnTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.ds.PSDEDQCustomConditionImpl.class, net.ibizsys.model.util.transpiler.dataentity.ds.PSDEDQCustomConditionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.ds.PSDEDQFieldConditionImpl.class, net.ibizsys.model.util.transpiler.dataentity.ds.PSDEDQFieldConditionTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.ds.PSDEDQGroupConditionImpl.class, net.ibizsys.model.util.transpiler.dataentity.ds.PSDEDQGroupConditionTranspiler.class);
@@ -841,6 +843,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDEPrintLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEDEPrintLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDEReportLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEDEReportLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDebugParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEDebugParamLogicTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEDecisionLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEDecisionLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEEndLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEEndLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEFLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEFLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEFilterParam2LogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEFilterParam2LogicTranspiler.class);
@@ -858,6 +861,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMSLogicLinkImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEMSLogicLinkTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMSLogicLinkSingleCondImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEMSLogicLinkSingleCondTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMSLogicNodeImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEMSLogicNodeTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMemoLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEMemoLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEMergeParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEMergeParamLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEPrepareParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEPrepareParamLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDERawCodeLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDERawCodeLogicTranspiler.class);
@@ -892,6 +896,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDEDataSetLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIDEDataSetLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDELogicLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIDELogicLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDebugParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIDebugParamLogicTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDecisionLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIDecisionLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIEndLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIEndLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILogicGroupDetailImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUILogicGroupDetailTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILogicGroupImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUILogicGroupTranspiler.class);
@@ -903,6 +908,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILogicNodeParamImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUILogicNodeParamTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILogicParamImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUILogicParamTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILoopSubCallLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUILoopSubCallLogicTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIMemoLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIMemoLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIMsgBoxLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIMsgBoxLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIPFPluginLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIPFPluginLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIRawCodeLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEUIRawCodeLogicTranspiler.class);
@@ -1408,6 +1414,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.dr.IPSDEDRGroup.class, net.ibizsys.model.util.transpiler.extend.dataentity.dr.PSDEDRGroupListTranspilerEx.class);
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.dr.IPSDEDRItem.class, net.ibizsys.model.util.transpiler.extend.dataentity.dr.PSDEDRItemListTranspilerEx.class);
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.dr.IPSDEDataRelation.class, net.ibizsys.model.util.transpiler.extend.dataentity.dr.PSDEDataRelationListTranspilerEx.class);
+		//registerPSModelListTranspiler(net.ibizsys.model.dataentity.ds.IPSDEDQColumn.class, net.ibizsys.model.util.transpiler.extend.dataentity.ds.PSDEDQColumnListTranspilerEx.class);
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.ds.IPSDEDQCondition.class, net.ibizsys.model.util.transpiler.extend.dataentity.ds.PSDEDQConditionListTranspilerEx.class);
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.ds.IPSDEDQGroupCondition.class, net.ibizsys.model.util.transpiler.extend.dataentity.ds.PSDEDQGroupConditionListTranspilerEx.class);
 		registerPSModelListTranspiler(net.ibizsys.model.dataentity.ds.IPSDEDQJoin.class, net.ibizsys.model.util.transpiler.extend.dataentity.ds.PSDEDQJoinListTranspilerEx.class);

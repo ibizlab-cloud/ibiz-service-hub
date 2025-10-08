@@ -32,7 +32,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.central.SystemGatewayException;
 import net.ibizsys.central.cloud.core.IServiceHub;
@@ -67,6 +66,7 @@ public class OSSRestController {
 		
 		if(this.ignoreAuth) {
 			iServiceHub.registerIgnoreAuthPattern("/ibizutil/download/**");
+			iServiceHub.registerIgnoreAuthPattern("/ibizutil/downloadtxt/**");
 		}
 		
 		iServiceHub.registerNamingService(ICloudUtilRuntime.CLOUDSERVICEURL_OSS);
@@ -189,6 +189,31 @@ public class OSSRestController {
 		
 	}
 	
+	@GetMapping(value = "${ibiz.cloud.oss.downloadtxt:/ibizutil/downloadtxt/{id}}")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadText(@PathVariable String id, HttpServletResponse response, HttpServletRequest request){
+		
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
+		}
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, bApiUser);
+			return;
+		case EXCLUSION:
+			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, bApiUser);
+			return;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadText(null, id, response);
+		
+	}
+	
+	
 	@PostMapping(value = "${ibiz.cloud.oss.uploadpath2:/ibizutil/upload/{cat}}")
 	public ResponseEntity<FileItem> upload(@PathVariable String cat, @RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview){
 		return ResponseEntity.ok().body(getSimpleFileStorageService().uploadFile(cat, multipartFile, preview));
@@ -227,6 +252,34 @@ public class OSSRestController {
 		}
 		
 		this.getSimpleFileStorageService().downloadFile(cat, id, response);
+	}
+	
+	@GetMapping(value = "${ibiz.cloud.oss.downloadtxt2:/ibizutil/downloadtxt/{cat}/{id}}")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadText(@PathVariable String cat, @PathVariable String id, HttpServletResponse response){
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
+		}
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			if(this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, bApiUser);
+				return;
+			}
+			break;
+		case EXCLUSION:
+			if(!this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, bApiUser);
+				return;
+			}
+			break;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadText(cat, id, response);
 	}
 	
 	@GetMapping(value = "${ibiz.cloud.oss.createdownloadticketpath:/ibizutil/createdownloadticket/{id}}")

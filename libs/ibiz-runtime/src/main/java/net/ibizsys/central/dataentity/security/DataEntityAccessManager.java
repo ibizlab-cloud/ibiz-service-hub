@@ -251,7 +251,12 @@ public class DataEntityAccessManager implements IDataEntityAccessManager {
 							iEntityDTO = getSimpleEntity(iPSDEOPPriv.getMapPSDERMust(), strParentKey, objKey);
 						}
 
-						return parentDataEntityRuntime.getDataEntityAccessManager().testDataAccessActionIf(iUserContext, strParentKey, iPSDEOPPriv.getMapPSDEOPPrivName());
+						if(!parentDataEntityRuntime.getDataEntityAccessManager().testDataAccessActionIf(iUserContext, strParentKey, iPSDEOPPriv.getMapPSDEOPPrivName())) {
+							return false;
+						}
+						
+						//跳出进行主状态等控制
+						break;
 					}
 				}
 				iPSDEOPPriv = this.getPSDEOPPriv(null, strAccessAction);
@@ -336,7 +341,11 @@ public class DataEntityAccessManager implements IDataEntityAccessManager {
 					iEntityDTO = getSimpleEntity(masterPSDERBase, strParentKey, objKey);
 				}
 				
-				return parentDataEntityRuntime.getDataEntityAccessManager().testDataAccessActionIf(iUserContext, strParentKey, strAction);
+				if(!parentDataEntityRuntime.getDataEntityAccessManager().testDataAccessActionIf(iUserContext, strParentKey, strAction)) {
+					return false;
+				}
+				//跳出进行主状态等控制
+				break;
 			default:
 				throw new DataEntityRuntimeException(this.getDataEntityRuntime(), String.format("无法识别的数据访问控制模式[%1$s]", nDataAccCtrlMode), Errors.ACCESSDENY);
 			}

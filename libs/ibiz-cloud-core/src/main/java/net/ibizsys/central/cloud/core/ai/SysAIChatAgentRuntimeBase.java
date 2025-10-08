@@ -42,9 +42,34 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	 */
 	public final static String AIAGENTRTSCRIPTMETHOD_GETRESULT = "GET_RESULT";
 	
+	
+	/**
+	 * AI代理脚本方法：获取实际数据
+	 */
+	public final static String AIAGENTRTSCRIPTMETHOD_GETACTIVEDATA = "GET_ACTIVE_DATA";
+	
+	
+	/**
+	 * AI代理脚本方法：异步交互补全
+	 */
+	public final static String AIAGENTRTSCRIPTMETHOD_ASYNCCHATCOMPLETION = "ASYNC_CHAT_COMPLETION";
+	
+	
+	/**
+	 * AI代理脚本方法：交互补全
+	 */
+	public final static String AIAGENTRTSCRIPTMETHOD_CHATCOMPLETION = "CHAT_COMPLETION";
+	
+	
+	
 	@Override
 	protected ISysAIChatAgentRuntimeContext createModelRuntimeContext() {
 		return new SysAIChatAgentRuntimeContextBase<ISysAIChatAgentRuntime, ISysAIAgentRuntimeContext>(super.createModelRuntimeContext()) {
+
+			@Override
+			public int getHistoryCount() {
+				return SysAIChatAgentRuntimeBase.this.getHistoryCount();
+			}
 			
 		};
 	}
@@ -166,9 +191,6 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		if (exTemplParams != null) {
 			templParams.putAll(exTemplParams);
 		}
-
-//		templParams.put(TEMPLPARAM_APPDEACMODE, this.getAddinData());
-//		templParams.put(TEMPLPARAM_APPDE, this.getPSAppDataEntity());
 
 		String strContent = this.getContent(entityList, strConfigId, templParams, true);
 		if(!StringUtils.hasLength(strContent)) {
@@ -292,6 +314,13 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	
 	protected ChatCompletionResult onChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable {
 		
+		if(getHistoryCount() > 0 && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages()) && chatCompletionRequest.getMessages().size() > this.getHistoryCount()) {
+			log.debug(String.format("截取消息历史[%1$s] => [%2$s]", chatCompletionRequest.getMessages().size(), this.getHistoryCount()));
+			List<ChatMessage> list = chatCompletionRequest.getMessages().subList(chatCompletionRequest.getMessages().size() - this.getHistoryCount(), chatCompletionRequest.getMessages().size());
+			chatCompletionRequest.setMessages(list);
+			
+		}
+		
 		if(bAppendHistories) {
 			List<ChatMessage> historyList = this.getHistories(dataOrKeys, chatCompletionRequest, params);
 			if(!ObjectUtils.isEmpty(historyList)) {
@@ -306,17 +335,7 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		}
 		
 		if(bAppendSystemMessage) {
-//			if(params == null) {
-//				params = new LinkedHashMap<String, Object>();
-//			}
-//			
-//			Map<String, Object> templParams = (Map<String, Object>)params.get(PARAM_TEMPLPARAMS);
-//			if(templParams == null) {
-//				templParams = new LinkedHashMap<String, Object>();
-//				params.put(PARAM_TEMPLPARAMS, templParams);
-//			}
-//			templParams.put(TEMPLATE_PARAM_REQUEST, chatCompletionRequest);
-			
+
 			List<ChatMessage> systemMessageList = this.getSystemMessages(dataOrKeys, params);
 			if(!ObjectUtils.isEmpty(systemMessageList)) {
 				if(!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
@@ -341,7 +360,6 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		}
 		
 		return this.doChatCompletion(getAIPlatformType(), chatCompletionRequest);
-		//return this.getSysAIUtilRuntime().chatCompletion(getAIPlatformType(), chatCompletionRequest);
 	}
 
 	
@@ -414,6 +432,12 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 
 	protected PortalAsyncAction onAsyncChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable {
 		
+		if(getHistoryCount() > 0 && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages()) && chatCompletionRequest.getMessages().size() > this.getHistoryCount()) {
+			log.debug(String.format("截取消息历史[%1$s] => [%2$s]", chatCompletionRequest.getMessages().size(), this.getHistoryCount()));
+			List<ChatMessage> list = chatCompletionRequest.getMessages().subList(chatCompletionRequest.getMessages().size() - this.getHistoryCount(), chatCompletionRequest.getMessages().size());
+			chatCompletionRequest.setMessages(list);
+		}
+		
 		if(bAppendHistories) {
 			List<ChatMessage> historyList = this.getHistories(dataOrKeys, chatCompletionRequest, params);
 			if(!ObjectUtils.isEmpty(historyList)) {
@@ -428,17 +452,6 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		}
 		
 		if(bAppendSystemMessage) {
-//			if(params == null) {
-//				params = new LinkedHashMap<String, Object>();
-//			}
-//			
-//			Map<String, Object> templParams = (Map<String, Object>)params.get(PARAM_TEMPLPARAMS);
-//			if(templParams == null) {
-//				templParams = new LinkedHashMap<String, Object>();
-//				params.put(PARAM_TEMPLPARAMS, templParams);
-//			}
-//			templParams.put(TEMPLATE_PARAM_REQUEST, chatCompletionRequest);
-			
 			List<ChatMessage> systemMessageList = this.getSystemMessages(dataOrKeys, params);
 			if(!ObjectUtils.isEmpty(systemMessageList)) {
 				if(!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
@@ -519,7 +532,7 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 					}
 
 					try {
-						Thread.sleep(500);
+						Thread.sleep(200);
 					} catch (InterruptedException ex) {
 						log.error(ex);
 					}
@@ -530,6 +543,26 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	
 	@Override
 	protected ChatCompletionResult doChatCompletion(String strAIPlatformType, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		
+		if(this.getAIAgentRTScript(true)!=null && this.getAIAgentRTScript(false).contains(AIAGENTRTSCRIPTMETHOD_CHATCOMPLETION, IModelRTScript.ATTACHMODE_EXECUTE)) {
+			Object ret = this.getAIAgentRTScript(false).call(AIAGENTRTSCRIPTMETHOD_CHATCOMPLETION, IModelRTScript.ATTACHMODE_EXECUTE, new Object[] {strAIPlatformType, chatCompletionRequest});
+			if(ret != null) {
+				if(ret instanceof ChatCompletionRequest) {
+					chatCompletionRequest = (ChatCompletionRequest)ret;
+				}
+				else
+					if(ret instanceof ChatCompletionResultEx) {
+						return (ChatCompletionResultEx)ret;
+					}
+					else{
+						ChatCompletionResultEx chatCompletionResultEx = new ChatCompletionResultEx();
+						chatCompletionResultEx.setResult(ret);
+						return chatCompletionResultEx;
+					}
+			}
+		}
+		
+		
 		ChatCompletionResult chatCompletionResult = super.doChatCompletion(strAIPlatformType, chatCompletionRequest);
 		if(this.getAIAgentRTScript(true)!=null && this.getAIAgentRTScript(false).contains(AIAGENTRTSCRIPTMETHOD_GETRESULT, IModelRTScript.ATTACHMODE_EXECUTE)) {
 			Object ret = this.getAIAgentRTScript(false).call(AIAGENTRTSCRIPTMETHOD_GETRESULT, IModelRTScript.ATTACHMODE_EXECUTE, new Object[] {chatCompletionResult});
@@ -540,6 +573,26 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 			}
 		}
 		return chatCompletionResult;
+	}
+	
+	@Override
+	protected PortalAsyncAction doAsyncChatCompletion(String strAIPlatformType, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		if(this.getAIAgentRTScript(true)!=null && this.getAIAgentRTScript(false).contains(AIAGENTRTSCRIPTMETHOD_ASYNCCHATCOMPLETION, IModelRTScript.ATTACHMODE_EXECUTE)) {
+			Object ret = this.getAIAgentRTScript(false).call(AIAGENTRTSCRIPTMETHOD_ASYNCCHATCOMPLETION, IModelRTScript.ATTACHMODE_EXECUTE, new Object[] {strAIPlatformType, chatCompletionRequest});
+			if(ret != null) {
+				if(ret instanceof ChatCompletionRequest) {
+					chatCompletionRequest = (ChatCompletionRequest)ret;
+				}
+				else
+					if(ret instanceof PortalAsyncAction) {
+						return (PortalAsyncAction)ret;
+					}
+					else{
+						throw new Exception(String.format("无法识别的返回值[%1$s]", ret));
+					}
+			}
+		}
+		return super.doAsyncChatCompletion(strAIPlatformType, chatCompletionRequest);
 	}
 	
 	@Override
@@ -568,5 +621,38 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	protected String getToolsConfigId() throws Throwable {
 		throw new Exception("没有实现");
 	}
+	
+	protected String getInfoConfigId() throws Throwable {
+		return null;
+	}
 
+	@Override
+	protected List getActiveData(Object dataOrKeys) throws Throwable {
+		if(this.getAIAgentRTScript(true)!=null && this.getAIAgentRTScript(false).contains(AIAGENTRTSCRIPTMETHOD_GETACTIVEDATA, IModelRTScript.ATTACHMODE_EXECUTE)) {
+			Object ret = this.getAIAgentRTScript(false).call(AIAGENTRTSCRIPTMETHOD_GETACTIVEDATA, IModelRTScript.ATTACHMODE_EXECUTE, new Object[] {dataOrKeys});
+			if(ret instanceof List) {
+				return (List)ret;
+			}
+		}
+		return super.getActiveData(dataOrKeys);
+	}
+	
+	
+	@Override
+	public String getAgentInfo() {
+		try {
+			if(StringUtils.hasLength(getInfoConfigId())) {
+				String strAgentInfo = this.getContent(null, getInfoConfigId(), null, true);
+				if(StringUtils.hasLength(strAgentInfo)) {
+					return strAgentInfo;
+				}
+			}
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+		}
+		
+		return this.getPSModelObject().getAgentInfo();
+	}
+	
 }

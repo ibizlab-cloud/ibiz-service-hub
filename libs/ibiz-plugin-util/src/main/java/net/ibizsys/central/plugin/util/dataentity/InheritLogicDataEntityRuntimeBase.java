@@ -13,6 +13,7 @@ import net.ibizsys.central.dataentity.IDataEntityRuntimeContext;
 import net.ibizsys.central.dataentity.der.IDER1NRuntimeBase;
 import net.ibizsys.central.dataentity.der.IDERMultiInheritRuntimeBase;
 import net.ibizsys.central.dataentity.der.IDERRuntimeBase;
+import net.ibizsys.central.dataentity.service.IDEMethodDTORuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.model.IPSModelObject;
@@ -20,14 +21,17 @@ import net.ibizsys.model.PSModelEnums.DEActionLogicAttachMode;
 import net.ibizsys.model.PSModelEnums.DEActionMode;
 import net.ibizsys.model.PSModelEnums.DER1NMasterRS;
 import net.ibizsys.model.PSModelEnums.DEVirtualMode;
+import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
-import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.defield.IPSLinkDEField;
 import net.ibizsys.model.dataentity.der.IPSDER1N;
 import net.ibizsys.model.dataentity.der.IPSDER1NBase;
 import net.ibizsys.model.dataentity.der.IPSDERBase;
 import net.ibizsys.model.dataentity.der.IPSDERMultiInherit;
+import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
+import net.ibizsys.runtime.IDynaInstRuntime;
 import net.ibizsys.runtime.dataentity.action.CheckKeyStates;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
@@ -102,7 +106,7 @@ public abstract class InheritLogicDataEntityRuntimeBase extends DataEntityRuntim
 	protected IPSDERBase getInheritPSDER(IDataEntityRuntimeContext iDataEntityRuntimeContext, boolean bTryMode) throws Exception {
 		
 		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
-		String strTag = String.format("__getInheritPSDER__%1$s", iDataEntityRuntimeContext.getDataEntityRuntime().getId());
+		String strTag = String.format("__getInheritPSDER__%1$s__%2$s",this.getId(), iDataEntityRuntimeContext.getDataEntityRuntime().getId());
 		Object value = actionSession.getActionParam(strTag);
 		if(value == null) {
 			value = doGetInheritPSDER(iDataEntityRuntimeContext, bTryMode);
@@ -394,6 +398,20 @@ public abstract class InheritLogicDataEntityRuntimeBase extends DataEntityRuntim
 		
 		this.translateEntityNestedDERsAfterProceed(current, strActionName, iPSDEAction, this.getPSDataEntity(), null, null);
 		this.fillChildEntity(iDataEntityRuntimeContext, iPSDERBase, iEntityDTO, current, iPSDEAction);
+	}
+	
+	@Override
+	protected void translateEntityNestedDERAfterProceed(IEntityDTO iEntityDTO, IPSDEMethodDTOField iPSDEMethodDTOField, String strActionName, IPSDEAction iPSDEAction, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
+		
+		if(iPSDEMethodDTOField.getRelatedPSDataEntity() != null && iPSDEMethodDTOField.getRelatedPSDEMethodDTO() != null) {
+			//判断是否为当前实体
+			if(iPSDEMethodDTOField.getRelatedPSDataEntity().getId().equals(this.getId())) {
+				IDEMethodDTORuntime iDEMethodDTORuntime = this.getDEMethodDTORuntime(iPSDEMethodDTOField.getRelatedPSDEMethodDTO(), false);
+				iPSDEMethodDTOField = iDEMethodDTORuntime.getPSDEMethodDTOField(iPSDEMethodDTOField.getName(), false);
+			}
+		}
+		
+		super.translateEntityNestedDERAfterProceed(iEntityDTO, iPSDEMethodDTOField, strActionName, iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
 	
 	@Override

@@ -54,6 +54,7 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 	private IPSDELogic iPSDELogic = null; 
 	private Map<String, IDataEntityRuntime> paramDataEntityRuntimeMap = new HashMap<>();
 	private Map<String, IDELogicNodeRuntime> deLogicNodeRuntimeMap = new HashMap<>();
+	private Map<String, IPSDELogicNode> psDELogicNodeMap = new HashMap<>();
 	private Map<String, IDELogicParamRuntime> deLogicParamRuntimeMap = new HashMap<>();
 	private IDEScriptLogicRuntime iDEScriptLogicRuntime = null;
 	private int nDebugMode = DELogicDebugModes.NONE;
@@ -182,6 +183,7 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 						throw new Exception(String.format("无法建立逻辑节点[%1$s][%2$s]运行时对象", iPSDELogicNode.getName(), iPSDELogicNode.getLogicNodeType()));
 					}
 					deLogicNodeRuntimeMap.put(iPSDELogicNode.getCodeName().toUpperCase(), iDELogicNodeRuntime);
+					psDELogicNodeMap.put(iPSDELogicNode.getCodeName().toUpperCase(), iPSDELogicNode);
 				}
 			}
 			
@@ -267,6 +269,13 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 		throw new Exception(String.format("未存在指定节点[%1$s]", strName));
 	}
 
+	protected IPSDELogicNode getPSDELogicNode(String strName, boolean bTryMode) throws Exception {
+		IPSDELogicNode iPSDELogicNode =  psDELogicNodeMap.get(strName.toUpperCase());
+		if(iPSDELogicNode != null || bTryMode) {
+			return iPSDELogicNode;
+		}
+		throw new Exception(String.format("未存在指定节点[%1$s]", strName));
+	}
 	
 	@Override
 	public Object execute(Object[] args) throws Throwable{
@@ -443,6 +452,8 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 		
 		IDELogicNodeRuntime iDELogicNodeRuntime = this.getDELogicNodeRuntime(iPSDELogicNode);
 		iDELogicSession.debugEnterNode(iDELogicNodeRuntime, iPSDELogicNode);
+		Object lastNext = iDELogicSession.getNext();
+		iDELogicSession.setNext(null);
 		
 		Throwable exception = null;
 		try {
@@ -451,8 +462,6 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 				iDELogicSession.debugExitNode(iDELogicNodeRuntime, iPSDELogicNode);
 				return;
 			}
-			
-			
 		}
 		catch(Throwable ex) {
 			if(iPSDELogicNode instanceof IPSDEThrowExceptionLogic) {
@@ -467,6 +476,20 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 			}
 			return;
 		}
+		
+		if(exception == null) {
+			Object next = iDELogicSession.getNext();
+			if(next != null) {
+				iDELogicSession.debugExitNode(iDELogicNodeRuntime, iPSDELogicNode);
+				if(next == IDELogicSession.NEXT_END) {
+					return;
+				}
+				IPSDELogicNode nextPSDELogicNode =this.getPSDELogicNode(next.toString(), false);
+				this.executePSDELogicNode(iDELogicSession, nextPSDELogicNode);
+				return;
+			}
+		}
+		iDELogicSession.setNext(lastNext);
 		
 		
 		List<IPSDELogicLink> psDELogicLinkList = iPSDELogicNode.getPSDELogicLinks();

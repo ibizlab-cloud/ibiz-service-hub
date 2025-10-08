@@ -1,5 +1,7 @@
 package net.ibizsys.central.cloud.core.ai;
 
+import java.util.List;
+
 import net.ibizsys.central.ISystemModelRuntime;
 import net.ibizsys.central.ISystemRuntimeContext;
 import net.ibizsys.central.cloud.core.util.IChatResourceUtils;
@@ -141,4 +143,26 @@ public interface ISysAIFactoryRuntime extends ISystemModelRuntime, IAIFactoryRun
 	 */
 	IChatResourceUtils getChatResourceUtils();
 	
+	
+	
+	
+	/**
+	 * 获取工厂中的聊天代理运行时集合
+	 * @return
+	 */
+	List<ISysAIChatAgentRuntime> getSysAIChatAgentRuntimes();
+	
+	
+	/**
+	 * 获取工厂中的工作者代理运行时集合
+	 * @return
+	 */
+	List<ISysAIWorkerAgentRuntime> getSysAIWorkerAgentRuntimes();
+	
+	
+	/**
+	 * 获取工厂中的生产线代理运行时集合
+	 * @return
+	 */
+	List<ISysAIPipelineAgentRuntime> getSysAIPipelineAgentRuntimes();
 }

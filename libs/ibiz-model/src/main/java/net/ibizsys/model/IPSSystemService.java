@@ -97,6 +97,14 @@ public interface IPSSystemService extends IPSModelService{
 	IPSDataEntity getPSDataEntity(String strName, String strDynaInstTag,String strDynaInstTag2,boolean bTryMode);
 	
 	
+	/**
+	 * 建立并初始化节点（默认使用系统作为父模型）
+	 * @param cls
+	 * @param objNode
+	 * @return
+	 */
+	<T> T createAndInitPSModelObject(Class<T> cls, ObjectNode objNode);
+	
 	
 	/**
 	 * 建立并初始化节点

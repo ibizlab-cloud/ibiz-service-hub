@@ -88,5 +88,8 @@ public abstract class SysAIPipelineAgentRuntimeBase extends SysAIAgentRuntimeBas
 	}
 	
 	
-
+	@Override
+	public String getAgentInfo() {
+		return this.getPSModelObject().getAgentInfo();
+	}
 }

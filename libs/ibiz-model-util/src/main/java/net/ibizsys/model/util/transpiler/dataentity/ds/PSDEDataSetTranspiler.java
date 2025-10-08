@@ -31,6 +31,7 @@ public class PSDEDataSetTranspiler extends net.ibizsys.model.util.transpiler.dat
 		this.setDomainValue(iPSModelTranspileContext, domain, "logicname", realPSModelObject.getLogicName(), realPSModelObject, "getLogicName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "majorsortdir", realPSModelObject.getMajorSortDir(), realPSModelObject, "getMajorSortDir");
 		this.setDomainValue(iPSModelTranspileContext, domain, "majorpsdefid", realPSModelObject.getMajorSortPSDEField(), realPSModelObject, "getMajorSortPSDEField");
+		this.setDomainValue(iPSModelTranspileContext, domain, "maxrowcnt", realPSModelObject.getMaxRowCount(), realPSModelObject, "getMaxRowCount");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorsortdir", realPSModelObject.getMinorSortDir(), realPSModelObject, "getMinorSortDir");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorpsdefid", realPSModelObject.getMinorSortPSDEField(), realPSModelObject, "getMinorSortPSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "potime", realPSModelObject.getPOTime(), realPSModelObject, "getPOTime");
@@ -60,6 +61,7 @@ public class PSDEDataSetTranspiler extends net.ibizsys.model.util.transpiler.dat
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICNAME, domain, "logicname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAJORSORTDIR, domain, "majorsortdir", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAJORSORTPSDEFIELD, domain, "majorpsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAXROWCOUNT, domain, "maxrowcnt", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTDIR, domain, "minorsortdir", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTPSDEFIELD, domain, "minorpsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPOTIME, domain, "potime", int.class, new String[]{"-1"});

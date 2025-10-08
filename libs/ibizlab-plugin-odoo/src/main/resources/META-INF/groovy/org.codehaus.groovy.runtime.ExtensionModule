@@ -1,0 +1,4 @@
+moduleName=ibizlab-plugin-odoo
+moduleVersion=1.0
+extensionClasses=cn.ibizlab.central.plugin.odoo.support.PSModelExtension
+#staticExtensionClasses=support.StaticStringExtension

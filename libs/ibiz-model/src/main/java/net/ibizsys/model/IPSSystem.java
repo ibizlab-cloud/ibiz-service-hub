@@ -1317,6 +1317,13 @@ public interface IPSSystem extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取开发系统标识
+	 * @return
+	 */
+	java.lang.String getPSDevSlnSysId();
+	
+	
+	/**
 	 * 获取运行时对象
 	 * @return
 	 */

@@ -210,6 +210,18 @@ public class SystemContextUtils {
 		map.put(NEXTDAY, this.getNextDayTime());
 		map.put(NEXTMONTH, this.getNextMonthTime());
 		map.put(NEXTYEAR, this.getNextYearTime());
+		//小写兼容
+		map.put(DATETIME.toLowerCase(), this.getDateTime());
+		map.put(NOW.toLowerCase(), map.get(DATETIME));
+		map.put(DAY.toLowerCase(), this.getCurrentDayTime());
+		map.put(MONTH.toLowerCase(), this.getCurrentMonthTime());
+		map.put(YEAR.toLowerCase(), this.getCurrentYearTime());
+		map.put(LASTDAY.toLowerCase(), this.getLastDayTime());
+		map.put(LASTMONTH.toLowerCase(), this.getLastMonthTime());
+		map.put(LASTYEAR.toLowerCase(), this.getLastYearTime());
+		map.put(NEXTDAY.toLowerCase(), this.getNextDayTime());
+		map.put(NEXTMONTH.toLowerCase(), this.getNextMonthTime());
+		map.put(NEXTYEAR.toLowerCase(), this.getNextYearTime());
 		
 		return map;
 	}

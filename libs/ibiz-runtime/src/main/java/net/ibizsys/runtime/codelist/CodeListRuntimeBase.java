@@ -219,6 +219,28 @@ public abstract class CodeListRuntimeBase extends SystemModelRuntimeBase impleme
 	}
 
 	@Override
+	public IPSCodeItem getPSCodeItemByUserData(String strUserData, boolean bTryMode) {
+
+		Assert.hasLength(strUserData, String.format("传入用户数据无效"));
+
+		List<IPSCodeItem> psCodeItemList = this.getPSCodeItems();
+		if (psCodeItemList != null) {
+			for (IPSCodeItem item : psCodeItemList) {
+				String strTag = item.getUserData();
+				if(StringUtils.hasLength(strTag)) {
+					if(strUserData.equals(strTag)) {
+						return item;
+					}
+				}
+			}
+		}
+
+		return this.getPSCodeItem(strUserData, bTryMode);
+	}
+	
+	
+	
+	@Override
 	public String getValueSeparator() {
 		return this.strValueSeparator;
 	}

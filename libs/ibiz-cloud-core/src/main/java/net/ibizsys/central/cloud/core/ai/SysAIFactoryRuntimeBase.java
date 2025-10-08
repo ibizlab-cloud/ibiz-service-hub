@@ -2,7 +2,10 @@ package net.ibizsys.central.cloud.core.ai;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -44,6 +47,7 @@ import net.ibizsys.runtime.dataentity.IDataEntityRuntimeContext;
 import net.ibizsys.runtime.dataentity.action.IDEActionPluginRuntime;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.ExceptionUtils;
+import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
 
@@ -113,7 +117,9 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 	private boolean bInstalled = false;
 
-
+	private int nHistoryCount = -1;
+	
+	private String strAIPlatformType = null;
 	
 	private DEMethodPluginRuntimeRepo deMethodPluginRuntimeRepo = new DEMethodPluginRuntimeRepo();
 
@@ -159,6 +165,16 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			return getSystemRuntimeSetting().getParams(getConfigFolder() + strPKey, params);
 		}
 
+		@Override
+		public int getHistoryCount() {
+			return SysAIFactoryRuntimeBase.this.getHistoryCount();
+		}
+
+		@Override
+		public String getAIPlatformType() {
+			return SysAIFactoryRuntimeBase.this.getAIPlatformType();
+		}
+
 	};
 	
 
@@ -190,12 +206,12 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	protected void onInit() throws Exception {
 
 		this.iChatResourceUtils = new ChatResourceUtils(this.getSystemRuntimeContext()) {
-			public String getResource(String type, String subType, String key, boolean testPriv) throws Exception {
-				String content = getChatResource(type, subType, key, testPriv);
+			public String getResource(String type, String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception {
+				String content = getChatResource(type, subType, key, params, testPriv);
 				if(StringUtils.hasLength(content)) {
 					return content;
 				}
-				return super.getResource(type, subType, key, testPriv);
+				return super.getResource(type, subType, key, params, testPriv);
 			}
 			
 			@Override
@@ -208,6 +224,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			}
 		} ;
 		
+		this.setAIPlatformType(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".aiplatformtype", this.getAIPlatformType()));
+		
+		this.setHistoryCount(JsonUtils.getField(this.getPSSysAIFactory().getAIFactoryParams(), "historycount", this.getHistoryCount()));
+		this.setHistoryCount(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".historycount", this.getHistoryCount()));
+		
 		this.setServiceUrl(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceurl", this.getPSSysAIFactory().getServicePath()));
 
 		this.setAuthMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".authmode", this.getPSSysAIFactory().getAuthMode()));
@@ -219,6 +240,9 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 		this.setServiceParam(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceparam", this.getPSSysAIFactory().getServiceParam()));
 		this.setServiceParam2(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceparam2", this.getPSSysAIFactory().getServiceParam2()));
+		
+		
+		
 
 		this.deMethodPluginRuntimeRepo.init(this.getSystemRuntime(), true);
 		super.onInit();
@@ -263,6 +287,8 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		switch (aiChatAgentType) {
 		case DEFAULT:
 			return new DefaultSysAIChatAgentRuntime();
+		case DE:
+			return new DESysAIChatAgentRuntime();
 		default:
 			return new DefaultSysAIChatAgentRuntime();
 		}
@@ -321,10 +347,27 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		return this.strAIFactoryType;
 	}
 
+	@Override
 	public void setAIFactoryType(String strAIFactoryType) {
 		this.strAIFactoryType = strAIFactoryType;
 	}
 
+	public String getAIPlatformType() {
+		return this.strAIPlatformType;
+	}
+	
+	protected void setAIPlatformType(String strAIPlatformType) {
+		this.strAIPlatformType = strAIPlatformType;
+	}
+	
+	public int getHistoryCount() {
+		return this.nHistoryCount;
+	}
+	
+	protected void setHistoryCount(int nHistoryCount) {
+		this.nHistoryCount = nHistoryCount;
+	}
+	
 	@Override
 	public String getServiceUrl() {
 		return this.strServiceUrl;
@@ -768,25 +811,61 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		return this.getAIPipelineAgentRuntime(iPSSysAIPipelineAgent.getCodeName(), false);
 	}
 	
+	
+	
+	@Override
+	public List<ISysAIChatAgentRuntime> getSysAIChatAgentRuntimes() {
+		List<IPSSysAIChatAgent> psSysAIChatAgentList = this.getPSSysAIFactory().getAllPSSysAIChatAgents();
+		if(ObjectUtils.isEmpty(psSysAIChatAgentList)) {
+			return Collections.emptyList();
+		}
+		List<ISysAIChatAgentRuntime> list = new ArrayList<ISysAIChatAgentRuntime>();
+		for(IPSSysAIChatAgent iPSSysAIChatAgent : psSysAIChatAgentList) {
+			ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(iPSSysAIChatAgent);
+			list.add(iSysAIChatAgentRuntime);
+		}
+		return Collections.unmodifiableList(list);
+	}
+
+
+	@Override
+	public List<ISysAIWorkerAgentRuntime> getSysAIWorkerAgentRuntimes() {
+		List<IPSSysAIWorkerAgent> psSysAIWorkerAgentList = this.getPSSysAIFactory().getAllPSSysAIWorkerAgents();
+		if(ObjectUtils.isEmpty(psSysAIWorkerAgentList)) {
+			return Collections.emptyList();
+		}
+		List<ISysAIWorkerAgentRuntime> list = new ArrayList<ISysAIWorkerAgentRuntime>();
+		for(IPSSysAIWorkerAgent iPSSysAIWorkerAgent : psSysAIWorkerAgentList) {
+			ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime = this.getSysAIWorkerAgentRuntime(iPSSysAIWorkerAgent);
+			list.add(iSysAIWorkerAgentRuntime);
+		}
+		return Collections.unmodifiableList(list);
+	}
+
+
+	@Override
+	public List<ISysAIPipelineAgentRuntime> getSysAIPipelineAgentRuntimes() {
+		List<IPSSysAIPipelineAgent> psSysAIPipelineAgentList = this.getPSSysAIFactory().getAllPSSysAIPipelineAgents();
+		if(ObjectUtils.isEmpty(psSysAIPipelineAgentList)) {
+			return Collections.emptyList();
+		}
+		List<ISysAIPipelineAgentRuntime> list = new ArrayList<ISysAIPipelineAgentRuntime>();
+		for(IPSSysAIPipelineAgent iPSSysAIPipelineAgent : psSysAIPipelineAgentList) {
+			ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime = this.getSysAIPipelineAgentRuntime(iPSSysAIPipelineAgent);
+			list.add(iSysAIPipelineAgentRuntime);
+		}
+		return Collections.unmodifiableList(list);
+	}
+
+
 	@Override
 	public IChatResourceUtils getChatResourceUtils() {
 		return this.iChatResourceUtils;
 	}
 	
-	protected String getChatResource(String type, String subType, String key, boolean testPriv) throws Exception {
+	protected String getChatResource(String type, String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception {
 		final ISysAIChatResource iSysAIChatResource = this.getAIChatResource(type);
-		return iSysAIChatResource.getContent(subType, key, testPriv);
-//		final AIFactoryRTScriptBase aiFactoryRTScriptBase = this.getAIFactoryRTScript(true);
-//		if(aiFactoryRTScriptBase != null) {
-//			if(aiFactoryRTScriptBase.contains("getChatResource", AIFactoryRTScriptBase.ATTACHMODE_EXECUTE)) {
-//				Object ret = aiFactoryRTScriptBase.call("getChatResource", AIFactoryRTScriptBase.ATTACHMODE_EXECUTE, type, subType, key, testPriv);
-//				if(ret == null) {
-//					return null;
-//				}
-//				return ret.toString();
-//			}
-//		}
-//		return null;
+		return iSysAIChatResource.getContent(subType, key, params, testPriv);
 	}
 	
 	protected String getChatResourceTemplateContent(String resourcePath) throws Exception {

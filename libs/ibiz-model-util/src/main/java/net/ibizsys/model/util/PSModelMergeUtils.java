@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -36,6 +37,7 @@ import net.ibizsys.model.control.menu.IPSAppMenu;
 import net.ibizsys.model.control.menu.IPSAppMenuItem;
 import net.ibizsys.model.dataentity.IPSDEGroup;
 import net.ibizsys.model.dataentity.IPSDataEntity;
+import net.ibizsys.model.dataentity.IPSSysDEGroup;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.action.IPSDEActionGroup;
 import net.ibizsys.model.dataentity.datasync.IPSDEDataSync;
@@ -47,6 +49,22 @@ import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.print.IPSDEPrint;
 import net.ibizsys.model.dataentity.priv.IPSDEUserRole;
 import net.ibizsys.model.dataentity.report.IPSDEReport;
+import net.ibizsys.model.dts.IPSSysDTSQueue;
+import net.ibizsys.model.msg.IPSSysMsgQueue;
+import net.ibizsys.model.msg.IPSSysMsgTarget;
+import net.ibizsys.model.msg.IPSSysMsgTempl;
+import net.ibizsys.model.res.IPSSysContent;
+import net.ibizsys.model.res.IPSSysContentCat;
+import net.ibizsys.model.res.IPSSysDataSyncAgent;
+import net.ibizsys.model.res.IPSSysLogic;
+import net.ibizsys.model.res.IPSSysResource;
+import net.ibizsys.model.res.IPSSysSFPlugin;
+import net.ibizsys.model.res.IPSSysUniState;
+import net.ibizsys.model.res.IPSSysUtil;
+import net.ibizsys.model.security.IPSSysUserRole;
+import net.ibizsys.model.service.IPSSysMethodDTO;
+import net.ibizsys.model.system.IPSSysModelGroup;
+import net.ibizsys.model.system.IPSSystemModule;
 import net.ibizsys.model.util.merger.IPSModelMergeContext;
 import net.ibizsys.model.util.merger.IPSModelMerger;
 import net.ibizsys.model.util.merger.PSModelListMergerBase;
@@ -119,6 +137,175 @@ public class PSModelMergeUtils {
 			}
 		}
 
+		//重新写入模块
+		java.util.List<IPSSystemModule> psSystemModuleList = iPSSystem.getAllPSSystemModules();
+		if (!ObjectUtils.isEmpty(psSystemModuleList)) {
+			for (IPSSystemModule iPSSystemModule : psSystemModuleList) {
+				pubPSModelObjectModel(iPSSystemModule, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysMsgTempl> psSysMsgTemplList = iPSSystem.getAllPSSysMsgTempls();
+		if (!ObjectUtils.isEmpty(psSysMsgTemplList)) {
+			for (IPSSysMsgTempl iPSSysMsgTempl : psSysMsgTemplList) {
+				pubPSModelObjectModel(iPSSysMsgTempl, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysMsgTarget> psSysMsgTargetList = iPSSystem.getAllPSSysMsgTargets();
+		if (!ObjectUtils.isEmpty(psSysMsgTargetList)) {
+			for (IPSSysMsgTarget iPSSysMsgTarget : psSysMsgTargetList) {
+				pubPSModelObjectModel(iPSSysMsgTarget, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysMsgQueue> psSysMsgQueueList = iPSSystem.getAllPSSysMsgQueues();
+		if (!ObjectUtils.isEmpty(psSysMsgQueueList)) {
+			for (IPSSysMsgQueue iPSSysMsgQueue : psSysMsgQueueList) {
+				pubPSModelObjectModel(iPSSysMsgQueue, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysDataSyncAgent> psSysDataSyncAgentList = iPSSystem.getAllPSSysDataSyncAgents();
+		if (!ObjectUtils.isEmpty(psSysDataSyncAgentList)) {
+			for (IPSSysDataSyncAgent iPSSysDataSyncAgent : psSysDataSyncAgentList) {
+				pubPSModelObjectModel(iPSSysDataSyncAgent, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysUniState> psSysUniStateList = iPSSystem.getAllPSSysUniStates();
+		if (!ObjectUtils.isEmpty(psSysUniStateList)) {
+			for (IPSSysUniState iPSSysUniState : psSysUniStateList) {
+				pubPSModelObjectModel(iPSSysUniState, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysDTSQueue> psSysDTSQueueList = iPSSystem.getAllPSSysDTSQueues();
+		if (!ObjectUtils.isEmpty(psSysDTSQueueList)) {
+			for (IPSSysDTSQueue iPSSysDTSQueue : psSysDTSQueueList) {
+				pubPSModelObjectModel(iPSSysDTSQueue, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysLogic> psSysLogicList = iPSSystem.getAllPSSysLogics();
+		if (!ObjectUtils.isEmpty(psSysLogicList)) {
+			for (IPSSysLogic iPSSysLogic : psSysLogicList) {
+				pubPSModelObjectModel(iPSSysLogic, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysUserRole> psSysUserRoleList = iPSSystem.getAllPSSysUserRoles();
+		if (!ObjectUtils.isEmpty(psSysUserRoleList)) {
+			for (IPSSysUserRole iPSSysUserRole : psSysUserRoleList) {
+				pubPSModelObjectModel(iPSSysUserRole, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysSFPlugin> psSysSFPluginList = iPSSystem.getAllPSSysSFPlugins();
+		if (!ObjectUtils.isEmpty(psSysSFPluginList)) {
+			for (IPSSysSFPlugin iPSSysSFPlugin : psSysSFPluginList) {
+				pubPSModelObjectModel(iPSSysSFPlugin, iPSModelMergeContext.getDstPSModelFolderPath());
+				//判断源文件夹是否有该文件
+				String strFilePath = String.format("%1$s.txt", iPSSysSFPlugin.getDynaModelFilePath());
+				File srcFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getPSModelFolderPath(), File.separator, strFilePath));
+				if(!srcFile.exists() ) {
+					srcFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getMergePSModelFolderPath(), File.separator, strFilePath));
+				}
+				if(srcFile.exists()) {
+					File dstFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getDstPSModelFolderPath(), File.separator, strFilePath));
+					FileUtils.copyFile(srcFile, dstFile);
+				}
+			}
+		}
+		
+		java.util.List<IPSSysUtil> psSysUtilList = iPSSystem.getAllPSSysUtils();
+		if (!ObjectUtils.isEmpty(psSysUtilList)) {
+			for (IPSSysUtil iPSSysUtil : psSysUtilList) {
+				pubPSModelObjectModel(iPSSysUtil, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysResource> psSysResourceList = iPSSystem.getAllPSSysResources();
+		if (!ObjectUtils.isEmpty(psSysResourceList)) {
+			for (IPSSysResource iPSSysResource : psSysResourceList) {
+				pubPSModelObjectModel(iPSSysResource, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysDEGroup> psSysDEGroupList = iPSSystem.getAllPSSysDEGroups();
+		if (!ObjectUtils.isEmpty(psSysDEGroupList)) {
+			for (IPSSysDEGroup iPSSysDEGroup : psSysDEGroupList) {
+				pubPSModelObjectModel(iPSSysDEGroup, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysModelGroup> psSysModelGroupList = iPSSystem.getAllPSSysModelGroups();
+		if (!ObjectUtils.isEmpty(psSysModelGroupList)) {
+			for (IPSSysModelGroup iPSSysModelGroup : psSysModelGroupList) {
+				pubPSModelObjectModel(iPSSysModelGroup, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysContentCat> psSysContentCatList = iPSSystem.getAllPSSysContentCats();
+		if (!ObjectUtils.isEmpty(psSysContentCatList)) {
+			for (IPSSysContentCat iPSSysContentCat : psSysContentCatList) {
+				//
+				java.util.List<IPSSysContent> psSysContentList = iPSSysContentCat.getPSSysContents();
+				if(!ObjectUtils.isEmpty(psSysContentList)) {
+					for(IPSSysContent iPSSysContent : psSysContentList) {
+						if(!StringUtils.hasLength(iPSSysContent.getCodeName())) {
+							continue;
+						}
+						
+						//判断源文件夹是否有该文件
+						String strFilePath = String.format("%1$s.%2$s.txt", iPSSysContentCat.getDynaModelFilePath(), iPSSysContent.getCodeName().toLowerCase());
+						File srcFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getPSModelFolderPath(), File.separator, strFilePath));
+						if(!srcFile.exists() ) {
+							srcFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getMergePSModelFolderPath(), File.separator, strFilePath));
+						}
+						if(srcFile.exists()) {
+							File dstFile = new File(String.format("%1$s%2$s%3$s", iPSModelMergeContext.getDstPSModelFolderPath(), File.separator, strFilePath));
+							FileUtils.copyFile(srcFile, dstFile);
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		
+		java.util.List<IPSSysContent> initPSSysContentList = iPSSystem.getInitPSSysContents();
+		if (!ObjectUtils.isEmpty(initPSSysContentList)) {
+			for (IPSSysContent iPSSysContent : initPSSysContentList) {
+				pubPSModelObjectModel(iPSSysContent, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		
+		java.util.List<IPSSysContent> samplePSSysContentList = iPSSystem.getSamplePSSysContents();
+		if (!ObjectUtils.isEmpty(samplePSSysContentList)) {
+			for (IPSSysContent iPSSysContent : samplePSSysContentList) {
+				pubPSModelObjectModel(iPSSysContent, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysContent> testPSSysContentList = iPSSystem.getTestPSSysContents();
+		if (!ObjectUtils.isEmpty(testPSSysContentList)) {
+			for (IPSSysContent iPSSysContent : testPSSysContentList) {
+				pubPSModelObjectModel(iPSSysContent, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+		java.util.List<IPSSysMethodDTO> psSysMethodDTOList = iPSSystem.getAllPSSysMethodDTOs();
+		if (!ObjectUtils.isEmpty(psSysMethodDTOList)) {
+			for (IPSSysMethodDTO iPSSysMethodDTO : psSysMethodDTOList) {
+				pubPSModelObjectModel(iPSSysMethodDTO, iPSModelMergeContext.getDstPSModelFolderPath());
+			}
+		}
+		
+	
+		
 		// 重建缓存
 		if (iPSModelMergeContext.isEnableMergeChild(IPSApplication.class)) {
 			java.util.List<IPSApplication> psApplications = iPSSystem.getAllPSApps();

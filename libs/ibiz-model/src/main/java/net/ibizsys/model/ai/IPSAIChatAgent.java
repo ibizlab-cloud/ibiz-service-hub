@@ -18,6 +18,13 @@ public interface IPSAIChatAgent extends net.ibizsys.model.ai.IPSAIFactoryObject{
 	
 	
 	/**
+	 * 获取代理信息
+	 * @return
+	 */
+	java.lang.String getAgentInfo();
+	
+	
+	/**
 	 * 获取代理动态参数
 	 * @return
 	 */

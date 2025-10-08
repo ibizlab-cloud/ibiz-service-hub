@@ -1,13 +1,27 @@
 package net.ibizsys.central.cloud.ai.core.addin;
 
+import java.net.URLEncoder;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import io.jsonwebtoken.lang.Assert;
 import net.ibizsys.central.cloud.ai.core.cloudutil.ICloudAIUtilRuntimeContext;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
+import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysUAAUtilRuntime;
+import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.McpServer;
+import net.ibizsys.central.plugin.ai.addin.IHttpMcpServerTransportAgent;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
@@ -25,7 +39,8 @@ public abstract class McpServerAgentBase extends CloudAIUtilRTAddinBase implemen
 	private boolean bStarted = false;
 	private boolean bRunAuthTimer = false;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
-		
+	private ISysUAAUtilRuntime iSysUAAUtilRuntime = null;
+	
 	@Override
 	public void init(ICloudAIUtilRuntimeContext ctx, McpServer mcpServer) throws Exception {
 		this.setMcpServerId(mcpServer.getId());
@@ -36,6 +51,7 @@ public abstract class McpServerAgentBase extends CloudAIUtilRTAddinBase implemen
 	
 	@Override
 	protected void onInit() throws Exception {
+
 		super.onInit();
 		
 	}
@@ -68,6 +84,9 @@ public abstract class McpServerAgentBase extends CloudAIUtilRTAddinBase implemen
 		this.bRunAuthTimer = false;
 	}
 	
+	public boolean isStarted() {
+		return this.bStarted;
+	}
 	
 	@Override
 	public McpServer getAgentData() {
@@ -244,4 +263,116 @@ public abstract class McpServerAgentBase extends CloudAIUtilRTAddinBase implemen
 		}
 		return this.iSysCloudClientUtilRuntime;
 	}
+	
+	protected ISysUAAUtilRuntime getSysUAAUtilRuntime() {
+		if(this.iSysUAAUtilRuntime == null) {
+			this.iSysUAAUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysUAAUtilRuntime.class, false);
+		}
+		return this.iSysUAAUtilRuntime;
+	}
+	
+	protected Map<String, Object> getAdditionalHeaders() {
+		IEmployeeContext employeeContext = EmployeeContext.getCurrent();
+		if (employeeContext == null) {
+			return null;
+		}
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put(ISysUAAUtilRuntime.HEADER_DCID, employeeContext.getTenant());
+		map.put(ISysUAAUtilRuntime.HEADER_DCSYSTEMID, employeeContext.getDcsystemid());
+		map.put(ISysUAAUtilRuntime.HEADER_SYSTEMID, employeeContext.getSystemid());
+		if(StringUtils.hasLength(employeeContext.getOrgid())) {
+			map.put(ISysUAAUtilRuntime.HEADER_ORGID, employeeContext.getOrgid());
+		}
+		
+		map.put(ISysUAAUtilRuntime.HEADER_USERID, employeeContext.getUserid());
+		if(StringUtils.hasLength(employeeContext.getUsername())) {
+			try {
+				map.put(ISysUAAUtilRuntime.HEADER_USERNAME, URLEncoder.encode(employeeContext.getUsername(), "UTF-8"));
+			} catch (Exception ex) {
+				log.error(ex);
+				map.put(ISysUAAUtilRuntime.HEADER_USERNAME, employeeContext.getUsername());
+			}
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getUsercode())) {
+			map.put(ISysUAAUtilRuntime.HEADER_USERCODE, employeeContext.getUsercode());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getOrgcode())) {
+			map.put(ISysUAAUtilRuntime.HEADER_ORGCODE, employeeContext.getOrgcode());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getDeptid())) {
+			map.put(ISysUAAUtilRuntime.HEADER_DEPTID, employeeContext.getDeptid());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getDeptcode())) {
+			map.put(ISysUAAUtilRuntime.HEADER_DEPTCODE, employeeContext.getDeptcode());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getPorg())) {
+			map.put(ISysUAAUtilRuntime.HEADER_PORGIDS, employeeContext.getPorg());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getSorg())) {
+			map.put(ISysUAAUtilRuntime.HEADER_SORGIDS, employeeContext.getSorg());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getPdept())) {
+			map.put(ISysUAAUtilRuntime.HEADER_PDEPTIDS, employeeContext.getPdept());
+		}
+		
+		if(StringUtils.hasLength(employeeContext.getSdept())) {
+			map.put(ISysUAAUtilRuntime.HEADER_SDEPTIDS, employeeContext.getSdept());
+		}
+		
+		if(!ObjectUtils.isEmpty(employeeContext.getAuthorities())) {
+			map.put(IHttpMcpServerTransportAgent.HEADER_AUTHORITIES, JsonUtils.toString(employeeContext.getAuthorities()));
+		}
+		
+		if(employeeContext.isSuperuser()) {
+			map.put(IHttpMcpServerTransportAgent.HEADER_SUPERUSER, "1");
+		}
+		
+		
+		return map;
+	}
+	
+
+	@Override
+	public List<ChatTool> getTools() {
+		return this.onGetTools();
+	}
+	
+	protected List<ChatTool> onGetTools() {
+		return Collections.emptyList();
+	}
+
+	@Override
+	public boolean containsTool(String strToolName) {
+		Assert.hasLength(strToolName, "未传入工具名称");
+		final List<ChatTool> list = this.getTools();
+		if(!ObjectUtils.isEmpty(list)) {
+			for(ChatTool chatTool : list) {
+				if(chatTool.getFunction() != null && strToolName.equals(chatTool.getFunction().getName())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public String callTool(String strToolName, Object arg, String strAppContextData) throws Throwable {
+		Assert.hasLength(strToolName, "未传入工具名称");
+		return onCallTool(strToolName, arg, strAppContextData);
+	}
+	
+	
+	protected String onCallTool(String strToolName, Object arg, String strAppContextData) throws Throwable {
+		throw new Exception(String.format("未支持工具[%1$s]", strToolName));
+	}
+	
+	
 }

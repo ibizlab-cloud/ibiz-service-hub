@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -321,6 +322,43 @@ public abstract class DEMSLogicRuntimeBase extends DataEntityModelRuntimeBase im
 		throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("状态[%1$s]无法迁移至[%2$s]", srcPSDEMSLogicNode2.getName(), iPSDEMSLogicNode.getName()));
 	}
 	
+	@Override
+	public boolean testDataAccessAction(IEntity iEntity, String strAccessAction) {
+		Assert.notNull(iEntity, "未传入数据对象");
+		Assert.hasLength(strAccessAction, "未传入数据访问操作标识");
+		try {
+			return this.onTestDataAccessAction(iEntity, strAccessAction);
+		}
+		catch (Throwable ex) {
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("判断主状态逻辑访问操作标识发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
 	
+	protected boolean onTestDataAccessAction(IEntity iEntity, String strAccessAction) throws Throwable{
+		String strState = DataTypeUtils.getStringValue(this.getDataEntityRuntime().getFieldValue(iEntity, this.getStatePSDEField()), "");
+		IPSDEMSLogicNode iPSDEMSLogicNode = this.getPSDEMSLogicNodeByState(strState, false);
+		
+		if(iPSDEMSLogicNode.isOPPrivAllowMode()) {
+			if(!ObjectUtils.isEmpty(iPSDEMSLogicNode.getOPPrivs())) {
+				for(String strOPPriv : iPSDEMSLogicNode.getOPPrivs()) {
+					if(strAccessAction.equalsIgnoreCase(strOPPriv)) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		else {
+			if(!ObjectUtils.isEmpty(iPSDEMSLogicNode.getOPPrivs())) {
+				for(String strOPPriv : iPSDEMSLogicNode.getOPPrivs()) {
+					if(strAccessAction.equalsIgnoreCase(strOPPriv)) {
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+	}
 	
 }

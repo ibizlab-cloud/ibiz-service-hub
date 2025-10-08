@@ -24,6 +24,8 @@ public class PSDEActionListTranspiler extends net.ibizsys.model.util.transpiler.
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEBuiltinActionImpl.class, false);
 			case "DELOGIC":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDELogicActionImpl.class, false);
+			case "INHERIT":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDEInheritActionImpl.class, false);
 			case "REMOTE":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.action.PSDERemoteActionImpl.class, false);
 			case "SCRIPT":

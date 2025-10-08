@@ -2,6 +2,8 @@ package net.ibizsys.model;
 
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.system.IPSSysModelGroup;
 import net.ibizsys.model.system.IPSSystemModule;
@@ -125,7 +127,8 @@ public class PSModelUtils {
 		String[] ids = strId.split("[/]");
 		if(ids.length > 1) {
 			if(bSimple) {
-				return ids[ids.length -1].toLowerCase();
+				//return ids[ids.length -1].toLowerCase();
+				return ids[ids.length -1];
 			}
 			StringBuilder sb = new StringBuilder();
 			for(int i = 1;i<ids.length;i++) {
@@ -261,5 +264,24 @@ public class PSModelUtils {
 		return items[items.length - 1];
 	}
 	
+	
+	/**
+	 * 写入引用模型节点
+	 * @param parentNode
+	 * @param strAttrName
+	 * @param refModelObject
+	 * @return
+	 */
+	public static ObjectNode putRefPSModelObject(ObjectNode parentNode, String strAttrName, IPSModelObject refModelObject) {
+		ObjectNode refPSModelObject = parentNode.putObject(strAttrName);
+		refPSModelObject.put("modelref", true);
+		if(StringUtils.hasLength(refModelObject.getDynaModelFilePath())) {
+			refPSModelObject.put("path", refModelObject.getDynaModelFilePath());
+		}
+		else {
+			refPSModelObject.put("id", refModelObject.getId());
+		}
+		return refPSModelObject;
+	}
 
 }

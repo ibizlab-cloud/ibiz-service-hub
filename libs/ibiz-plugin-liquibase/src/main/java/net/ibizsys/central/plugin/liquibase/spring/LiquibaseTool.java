@@ -74,7 +74,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 		dataTypeMap.put("VARBINARY.MYSQL", "MEDIUMBLOB");
 		dataTypeMap.put("TEXT.MYSQL", "MEDIUMTEXT");
 	}
-	
+
 	/**
 	 * 注册数据库类型
 	 * @param strKey
@@ -83,8 +83,8 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 	public static void registerDataType(String strKey, String strDataType) {
 		dataTypeMap.put(strKey, strDataType);
 	}
-	
-	
+
+
 	/**
 	 * 获取传入标准类型的数据库类型
 	 * @param strKey
@@ -93,10 +93,10 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 	public static String getDataType(String strKey) {
 		return dataTypeMap.get(strKey);
 	}
-	
+
 
 	public final static String SNAPSHOTID = "iBizCloud";
-	
+
 	public final static int MAXRETRY = 3;
 
 	@Override
@@ -106,7 +106,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 //			log.debug(String.format("系统[%1$s]数据库[%2$s]未启用模型更新", iSystemRuntime.getDeploySystemId(), iSysDBSchemeRuntime.getDSLink()));
 //			return;
 //		}
-		
+
 		int nRetry = 0;
 		while(true) {
 			try {
@@ -122,11 +122,11 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 			}
 		}
 	}
-	
+
 	protected void doSync(ISystemRuntime iSystemRuntime, ISysDBSchemeRuntime iSysDBSchemeRuntime, DataSource dataSource, Object objTag) throws Throwable {
 
 		IPSSysDBScheme iPSSysDBScheme = iSysDBSchemeRuntime.getPSSysDBScheme();
-		
+
 
 		List<IPSSysDBTable> psSysDBTableList = iPSSysDBScheme.getAllPSSysDBTables();
 //		if (ObjectUtils.isEmpty(psSysDBTableList)) {
@@ -149,7 +149,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 		if (!ObjectUtils.isEmpty(psSysDBTableList)) {
 			String strModelDigest = KeyValueUtils.genUniqueId(iPSSysDBScheme.getObjectNode().toString());
 			String strModelTag = String.format("%1$s-%2$s-%3$s", iSystemRuntime.getDeploySystemId(), iPSSysDBScheme.getDSLink(), strModelDigest).toLowerCase();
-			
+
 			String strChangelogFile = String.format("%1$s%2$s%3$s.xml", strFolder, File.separator, strModelTag);
 			//判断错误文件是否文件
 			int nIndex = 0;
@@ -191,7 +191,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 			if (!ObjectUtils.isEmpty(psSysContentList)) {
 
 				for (IPSSysContent iPSSysContent : psSysContentList) {
-					
+
 
 					if (!StringUtils.hasLength(iPSSysContent.getCodeName())) {
 						log.warn(String.format("预置内容项[%1$s]未定义代码标识，忽略", iPSSysContent.getName()));
@@ -203,13 +203,13 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 
 					File file = new File(strChangelogFile);
 					if (!file.exists()) {
-						
+
 						String strContent = iPSSysContent.getContent();
 						if (!StringUtils.hasLength(strContent)) {
 							log.warn(String.format("预置内容项[%1$s]未定义内容，忽略", iPSSysContent.getName()));
 							continue;
 						}
-						
+
 						FileUtils.writeStringToFile(file, strContent, "UTF-8");
 					}
 
@@ -224,7 +224,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 			return;
 		}
 
-		
+
 		Map<String, Boolean> tagExistsMap = new HashMap<String, Boolean>();
 		for (java.util.Map.Entry<String, String> entry : changeLogFileMap.entrySet()) {
 			tagExistsMap.put(entry.getValue(), false);
@@ -232,10 +232,10 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 		boolean bFirst = true;
 
 		for (java.util.Map.Entry<String, String> entry : changeLogFileMap.entrySet()) {
-			
+
 			String strChangelogFile = entry.getKey();
 			String strModelTag = entry.getValue();
-			
+
 			if(!bFirst) {
 				boolean bHasTag = tagExistsMap.get(strModelTag);
 				if(bHasTag) {
@@ -251,9 +251,9 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 					continue;
 				}
 			}
-			
+
 			Database targetDatabase = CommandLineUtils.createDatabaseObject(resourceAccessor, dataSource.getJdbcUrl(), dataSource.getUsername(), dataSource.getPassword(), dataSource.getDriverClassName(), "", "", false, false, null, null, null, null, null, null, null);
-			
+
 			try (Liquibase liquibase = new Liquibase(strChangelogFile, resourceAccessor, targetDatabase)) {
 				if(bFirst) {
 					bFirst = false;
@@ -262,7 +262,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 						tagExistsMap.put(strTag, bExists);
 					}
 				}
-				
+
 				//boolean bHasTag = liquibase.tagExists(strModelTag);
 				boolean bHasTag = tagExistsMap.get(strModelTag);
 				if (!bHasTag) {
@@ -301,7 +301,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 
 							for (IPSSysDBTable iPSSysDBTable : psSysDBTableList) {
 
-								
+
 								List<IPSSysDBColumn> psSysDBColumnList = iPSSysDBTable.getAllPSSysDBColumns();
 								if (ObjectUtils.isEmpty(psSysDBColumnList)) {
 									continue;
@@ -309,13 +309,14 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 
 								Table table = new Table(null, null, iPSSysDBTable.getName());
 								table.setSnapshotId(SNAPSHOTID);
-
+								table.setRemarks(iPSSysDBTable.getLogicName());
 								List<Column> keyList = new ArrayList<Column>();
 								Map<String, IPSSysDBColumn> enableModifyPSSysDBColumnMap = new HashMap<String, IPSSysDBColumn>();
 								for (IPSSysDBColumn iPSSysDBColumn : psSysDBColumnList) {
 
 									Column column = new Column(iPSSysDBColumn.getName());
 									column.setRelation(table);
+									column.setRemarks(iPSSysDBColumn.getLogicName());
 									if (iPSSysDBColumn.isPKey() || !iPSSysDBColumn.isNullable()) {
 										column.setNullable(false);
 									}
@@ -325,7 +326,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 									if (iPSSysDBColumn.isPKey()) {
 										keyList.add(column);
 									}
-									
+
 									String strType = iPSSysDBColumn.getDataType();
 									if(StringUtils.hasLength(strType)) {
 										int nPos = strType.indexOf("(");
@@ -341,11 +342,11 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 													column.getType().setDecimalDigits(iPSSysDBColumn.getPrecision());
 												}
 											}
-											
+
 											if (iPSSysDBColumn.isPKey() && iPSSysDBColumn.isAutoIncrement()) {
 												column.setAutoIncrementInformation(new Column.AutoIncrementInformation());
 											}
-											
+
 											continue;
 										}
 									}
@@ -358,11 +359,16 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 										strType = dataTypeMap.get(strTypeKey);
 									}
 									else if (dataTypeMap.containsKey(strType)) {
-											strType = dataTypeMap.get(strType);
-										}
+										strType = dataTypeMap.get(strType);
+									}
 
 									column.setType(new DataType(strType));
-									
+
+									String columnKey = iPSSysDBTable.getName().toUpperCase() + "." +iPSSysDBColumn.getName().toUpperCase();
+									if(columnMap.containsKey(columnKey)  && !iPSSysDBColumn.getLogicName().equals(columnMap.get(columnKey).getRemarks())) {
+										enableModifyPSSysDBColumnMap.put(iPSSysDBColumn.getName().toUpperCase(), iPSSysDBColumn);
+									}
+
 									if (DataTypeUtils.isStringDataType(nStdDataType)) {
 										if(!DataTypeUtils.isLongStringDataType(nStdDataType)) {
 											if (iPSSysDBColumn.getLength() > 0) {
@@ -372,7 +378,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 										}
 										continue;
 									}
-									
+
 									if (DataTypeUtils.isDoubleDataType(nStdDataType)) {
 										if (iPSSysDBColumn.getLength() > 0) {
 											column.getType().setColumnSize(iPSSysDBColumn.getLength());
@@ -384,14 +390,14 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 											}
 											column.getType().setDecimalDigits(iPSSysDBColumn.getPrecision());
 										}
-										
+
 										/*
 										 * liquibase 无符号是通过类型传入，后续处理
 										 * if(iPSSysDBColumn.isUnsigned()) {
-										 * 
+										 *
 											column.getType().
 										}*/
-										
+
 										continue;
 									}
 									if (DataTypeUtils.isIntDataType(nStdDataType)) {
@@ -433,6 +439,13 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 									}
 
 								} else {
+									//表备注
+									if (!table.getRemarks().equals(tableMap.get(table.getName().toUpperCase()).getRemarks())) {
+										ObjectDifferences tableDifferences = null;
+										tableDifferences = new ObjectDifferences(CompareControl.STANDARD);
+										tableDifferences.addDifference("remarks", tableMap.get(table.getName().toUpperCase()).getRemarks(), table.getRemarks());
+										diffResult.addChangedObject(table, tableDifferences);
+									}
 									// 判断列是否丢失
 									List<Column> columnList = table.getColumns();
 									if (!ObjectUtils.isEmpty(columnList)) {
@@ -441,24 +454,37 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 											if (!columnMap.containsKey(strTag)) {
 												diffResult.addMissingObject(column);
 												columnMap.put(strTag, column);
-											}
-											else {
+											} else {
+												ObjectDifferences objectDifferences = null;
 												IPSSysDBColumn iPSSysDBColumn = enableModifyPSSysDBColumnMap.get(column.getName().toUpperCase());
 												if(iPSSysDBColumn != null) {
 													int nStdDataType = iPSSysDBColumn.getStdDataType();
 													Column column2 = columnMap.get(strTag);
+
+													//字段备注
+													if (!column.getRemarks().equals(column2.getRemarks())) {
+														if (objectDifferences == null) {
+															objectDifferences = new ObjectDifferences(CompareControl.STANDARD);
+														}
+														objectDifferences.addDifference("remarks", column2.getRemarks(), column.getRemarks());
+													}
+
 													if (DataTypeUtils.isStringDataType(nStdDataType)) {
-														if(!DataTypeUtils.isLongStringDataType(nStdDataType)) {
-															if(column.getType().getColumnSize() != null && column2.getType().getColumnSize() != null) {
-																if(column.getType().getColumnSize() != column2.getType().getColumnSize()) {
-																	ObjectDifferences objectDifferences = new ObjectDifferences(CompareControl.STANDARD);
-																	objectDifferences.addDifference("type", column.getType(), column2.getType());
-																	diffResult.addChangedObject(column, objectDifferences);
+														if (!DataTypeUtils.isLongStringDataType(nStdDataType)) {
+															//字符串长度变化
+															if (!ObjectUtils.nullSafeEquals(column.getType().getColumnSize(), column2.getType().getColumnSize())) {
+																if (objectDifferences == null) {
+																	objectDifferences = new ObjectDifferences(CompareControl.STANDARD);
 																}
+																objectDifferences.addDifference("type", column.getType(), column2.getType());
 															}
 														}
-														continue;
 													}
+
+													if (objectDifferences != null) {
+														diffResult.addChangedObject(column, objectDifferences);
+													}
+													continue;
 												}
 											}
 										}
@@ -498,7 +524,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 									}
 								}
 							}
-							
+
 							DiffToChangeLogEx diffToChangeLog = new DiffToChangeLogEx(diffResult, new DiffOutputControl());
 							diffToChangeLog.setChangeSetAuthor("iBiz-Cloud");
 							diffToChangeLog.setIdRoot(strModelTag);
@@ -511,24 +537,24 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 					}
 
 					DatabaseChangeLog databaseChangeLog = liquibase.getDatabaseChangeLog();
-					
+
 					if (ObjectUtils.isEmpty(databaseChangeLog) || ObjectUtils.isEmpty(databaseChangeLog.getChangeSets())) {
 						log.debug(String.format("变更文件[%1$s]未包含任何操作，忽略", strChangelogFile));
 						return;
 					} else {
-						
+
 						//插入空白操作
 						ChangeSet changeSet = new ChangeSet(String.format("%1$s-empty", strModelTag), "iBiz-Cloud", false, false, strChangelogFile, null ,null,  databaseChangeLog);
 						changeSet.addChange(new EmptyChange());
 						databaseChangeLog.addChangeSet(changeSet);
-						
+
 						liquibase.update("");
 						liquibase.tag(strModelTag);
 					}
 				} else {
 					log.debug(String.format("变更文件[%1$s]标记已操作[%2$s]，忽略", strChangelogFile, strModelTag));
 				}
-				
+
 			} catch (Throwable ex) {
 				try {
 					if (file.exists()) {

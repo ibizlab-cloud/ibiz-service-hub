@@ -1,10 +1,13 @@
 package net.ibizsys.central.cloud.core.dataentity.logic;
 
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,19 +15,33 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudLogUtilRuntime;
+import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.dataentity.logic.DELogicDebugModes;
 import net.ibizsys.central.dataentity.logic.IDELogicSession;
+import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
+import net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType;
+import net.ibizsys.model.PSModelEnums.LogicSubType;
+import net.ibizsys.model.dataentity.logic.IPSDELogicLink;
+import net.ibizsys.model.dataentity.logic.IPSDELogicNode;
+import net.ibizsys.model.dataentity.logic.IPSDELogicParam;
+import net.ibizsys.model.dataentity.logic.IPSDESysAIChatAgentLogic;
 import net.ibizsys.runtime.util.LogLevels;
 
-public class DELogicRuntime extends net.ibizsys.central.dataentity.logic.DELogicRuntime {
+public class DELogicRuntime extends net.ibizsys.central.dataentity.logic.DELogicRuntime implements IDELogicRuntime {
 
 	private static final Log log = LogFactory.getLog(DELogicRuntime.class);
 	public static final String CONSOLESENDER_DELOGICDEBUGGER = "DELogic调试信息";
 	private ISysCloudLogUtilRuntime iSysCloudLogUtilRuntime = null;
+	private ISysCacheUtilRuntime iSysCacheUtilRuntime = null;
 	
+	
+	private LogicSubType logicSubType = LogicSubType.NONE;
 	
 	@Override
 	protected void onInit() throws Exception {
+		if(StringUtils.hasLength(this.getPSDELogic().getLogicSubType())) {
+			this.logicSubType = LogicSubType.from(this.getPSDELogic().getLogicSubType());
+		}
 		if(this.getDebugMode() != DELogicDebugModes.NONE) {
 			if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
 				if(((IServiceSystemRuntime)this.getSystemRuntime()).isEnableProdMode()) {
@@ -45,13 +62,23 @@ public class DELogicRuntime extends net.ibizsys.central.dataentity.logic.DELogic
 		return this.iSysCloudLogUtilRuntime;
 	}
 	
+	protected ISysCacheUtilRuntime getSysCacheUtilRuntime() {
+		if(this.iSysCacheUtilRuntime == null) {
+			this.iSysCacheUtilRuntime = this.getDELogicRuntimeContext().getSystemRuntime().getSysUtilRuntime(ISysCacheUtilRuntime.class, false);
+		}
+		return this.iSysCacheUtilRuntime;
+	}
+	
+	public LogicSubType getLogicSubType() {
+		return this.logicSubType;
+	}
+	
 	
 	@Override
 	protected IDELogicSession createDELogicSession(Map<String, Object> params) {
 		if(params != null) {
 			return new DELogicSession(this.getDELogicRuntimeContext(), params);
 		}
-		
 		return createDELogicSession();
 	}
 	 
@@ -61,9 +88,74 @@ public class DELogicRuntime extends net.ibizsys.central.dataentity.logic.DELogic
 		return new DELogicSession(this.getDELogicRuntimeContext());
 	}
 	
+	@Override
+	protected void onExecute(IDELogicSession iDELogicSession, Object[] args) throws Throwable {
+		//判断是否为AI聊天逻辑
+		if(LogicSubType.AICHAT == getLogicSubType()) {
+			Object req = iDELogicSession.getParamObject(DELOGIC_AICHAT_PARAM_CHATREQUEST);
+			if(req instanceof ChatCompletionRequest) {
+				ChatCompletionRequest chatCompletionRequest = (ChatCompletionRequest)req;
+				String strCacheKey = String.format("ibiz-cloud-delogic-%1$s--%2$s-%3$s", this.getSystemRuntime().getServiceId(), this.getFullUniqueTag(), chatCompletionRequest.getSessionId());
+				Map<String, String> sessionParams = this.getSysCacheUtilRuntime().getAll(strCacheKey);
+				//清除
+				if(!ObjectUtils.isEmpty(sessionParams)) {
+					this.getSysCacheUtilRuntime().reset(strCacheKey);
+					String strNextId = sessionParams.get("srfnextid");
+					if(StringUtils.hasLength(strNextId)) {
+						IPSDELogicNode nextPSDELogicNode = this.getPSDELogicNode(strNextId, true);
+						if(nextPSDELogicNode != null) {
+							this.onExecutePSDELogicNode(iDELogicSession, nextPSDELogicNode);
+							return;
+						}
+					}
+				}				
+			}
+		}
+		
+		super.onExecute(iDELogicSession, args);
+	}
 	
-	
-	
+	@Override
+	protected void onExecutePSDELogicNode(IDELogicSession iDELogicSession, IPSDELogicNode iPSDELogicNode, boolean bExecuteLink) throws Throwable {
+		super.onExecutePSDELogicNode(iDELogicSession, iPSDELogicNode, bExecuteLink);
+		if(LogicSubType.AICHAT == getLogicSubType() && iDELogicSession.getNext() == IDELogicSession.NEXT_END) {
+			if(iPSDELogicNode instanceof IPSDESysAIChatAgentLogic) {
+				IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic = (IPSDESysAIChatAgentLogic)iPSDELogicNode;
+				if(DELogicSysAIChatAgentType.CHATOUTPUT.value.equals(iPSDESysAIChatAgentLogic.getSubType()) || DELogicSysAIChatAgentType.CHATAGGREGATIONOUTPUT.value.equals(iPSDESysAIChatAgentLogic.getSubType())) {
+					if(!ObjectUtils.isEmpty(iPSDESysAIChatAgentLogic.getPSDELogicLinks()) && iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
+						Object value = this.getDELogicParamRuntime(iPSDESysAIChatAgentLogic.getDstPSDELogicParam().getCodeName(), false).getReal(iDELogicSession);
+						if(value instanceof ChatCompletionRequest) {
+							ChatCompletionRequest chatCompletionRequest = (ChatCompletionRequest)value;
+							if(StringUtils.hasLength(chatCompletionRequest.getSessionId())) {
+								IPSDELogicNode dstPSDELogicNode = null;
+								for(IPSDELogicLink iPSDELogicLink : iPSDESysAIChatAgentLogic.getPSDELogicLinks()) {
+									if(iPSDELogicLink.isSubCallLink()) {
+										continue;
+									}
+									
+									dstPSDELogicNode = iPSDELogicLink.getDstPSDELogicNodeMust();
+									break;
+								}
+								
+								if(dstPSDELogicNode != null) {
+									String strCacheKey = String.format("ibiz-cloud-delogic-%1$s--%2$s-%3$s", this.getSystemRuntime().getServiceId(), this.getFullUniqueTag(), chatCompletionRequest.getSessionId());
+									Map<String, String> sessionParams = new HashMap<String, String>();
+									//备份
+									List<IPSDELogicParam> params = this.getPSDELogic().getPSDELogicParams();
+									if(!ObjectUtils.isEmpty(params)) {
+										
+									}
+									
+									sessionParams.put("srfnextid", dstPSDELogicNode.getCodeName());
+									this.getSysCacheUtilRuntime().set(strCacheKey, sessionParams, 3600);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	@Override
 	protected void outputDebugInfo(IDELogicSession iDELogicSession, Throwable ex) {
@@ -178,4 +270,6 @@ public class DELogicRuntime extends net.ibizsys.central.dataentity.logic.DELogic
 		
 		return null;
 	}
+	
+	
 }

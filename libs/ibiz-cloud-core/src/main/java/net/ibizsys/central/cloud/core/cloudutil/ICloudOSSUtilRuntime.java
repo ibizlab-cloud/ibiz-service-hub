@@ -18,6 +18,12 @@ public interface ICloudOSSUtilRuntime extends ICloudUtilRuntime{
 	
 	
 	/**
+	 * OSS文本插件前缀
+	 */
+	public final static String ADDIN_OSSTEXT_PREFIX = "OSSTEXT:";
+	
+	
+	/**
 	 * 对象唯一键标识
 	 */
 	public final static String OBJECT_UNIQUEKEY = "_id";

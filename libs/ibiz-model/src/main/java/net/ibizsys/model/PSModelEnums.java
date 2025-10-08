@@ -1376,10 +1376,14 @@ public class PSModelEnums {
      * <li>DEUIACTION
      * <P>
      * 实体界面行为，界面行为
+     * <li>DEUIACTIONGROUP
+     * <P>
+     * 实体界面行为组
      * </ul>     
      */
     public static enum UAGroupDetailType{
         DEUIACTION("DEUIACTION", "实体界面行为")
+        ,DEUIACTIONGROUP("DEUIACTIONGROUP", "实体界面行为组")
 ;
            
         public final String text;
@@ -1394,6 +1398,8 @@ public class PSModelEnums {
             switch(value){
                 case "DEUIACTION":
                     return DEUIACTION;
+                case "DEUIACTIONGROUP":
+                    return DEUIACTIONGROUP;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -4453,6 +4459,9 @@ public class PSModelEnums {
      * <li>DEOPPRIV
      * <P>
      * 实体操作标识计算逻辑，计算传入数据的操作标识，返回Entity或Map
+     * <li>AICHAT
+     * <P>
+     * AI交谈逻辑
      * <li>ATTACHTODEACTION
      * <P>
      * 附加到行为（运行时支持），附加到指定行为
@@ -4489,6 +4498,7 @@ public class PSModelEnums {
         NONE("NONE", "无")
         ,DEFIELD("DEFIELD", "属性逻辑")
         ,DEOPPRIV("DEOPPRIV", "实体操作标识计算逻辑")
+        ,AICHAT("AICHAT", "AI交谈逻辑")
         ,ATTACHTODEACTION("ATTACHTODEACTION", "附加到行为（运行时支持）")
         ,ATTACHTODEDATASET("ATTACHTODEDATASET", "附加到数据集（运行时支持）")
         ,WEBHOOK("WEBHOOK", "WebHook（运行时支持）")
@@ -4517,6 +4527,8 @@ public class PSModelEnums {
                     return DEFIELD;
                 case "DEOPPRIV":
                     return DEOPPRIV;
+                case "AICHAT":
+                    return AICHAT;
                 case "ATTACHTODEACTION":
                     return ATTACHTODEACTION;
                 case "ATTACHTODEDATASET":
@@ -33257,6 +33269,61 @@ public class PSModelEnums {
                     return MEDIALIBRARY;
                 case "READNFC":
                     return READNFC;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体逻辑系统AI聊天代理类型
+     * <P>
+     * <ul>
+     * <li>DEFAULT
+     * <P>
+     * 默认
+     * <li>CHATCATEGORY
+     * <P>
+     * 交谈问题分类
+     * <li>CHATOUTPUT
+     * <P>
+     * 交谈输出（等待输入）
+     * <li>CHATAGGREGATION
+     * <P>
+     * 交谈聚合
+     * <li>CHATAGGREGATIONOUTPUT
+     * <P>
+     * 交谈聚合（等待输入）
+     * </ul>     
+     */
+    public static enum DELogicSysAIChatAgentType{
+        DEFAULT("DEFAULT", "默认")
+        ,CHATCATEGORY("CHATCATEGORY", "交谈问题分类")
+        ,CHATOUTPUT("CHATOUTPUT", "交谈输出（等待输入）")
+        ,CHATAGGREGATION("CHATAGGREGATION", "交谈聚合")
+        ,CHATAGGREGATIONOUTPUT("CHATAGGREGATIONOUTPUT", "交谈聚合（等待输入）")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DELogicSysAIChatAgentType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DELogicSysAIChatAgentType from(String value){
+            switch(value){
+                case "DEFAULT":
+                    return DEFAULT;
+                case "CHATCATEGORY":
+                    return CHATCATEGORY;
+                case "CHATOUTPUT":
+                    return CHATOUTPUT;
+                case "CHATAGGREGATION":
+                    return CHATAGGREGATION;
+                case "CHATAGGREGATIONOUTPUT":
+                    return CHATAGGREGATIONOUTPUT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }

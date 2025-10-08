@@ -36,10 +36,11 @@ import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
-import net.ibizsys.central.util.IEntity;
 import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.plugin.ModelRTScriptBase;
+import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.ExceptionUtils;
+import net.ibizsys.runtime.util.IEntity;
 
 public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements ISysAIAgentRuntime{
 
@@ -91,6 +92,12 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	public final static String TEMPLATE_PARAM_BODY = "body";
 	
 	
+	/**
+	 * AI代理历史消息数量
+	 */
+	public final static String AIAGENTPARAM_HISTORYCOUNT = "historycount";
+	
+	
 	private String strConfigPath = null;
 	private String strAIPlatformType = ICloudAIUtilRuntime.AIPLATFORM_DEFAULT;
 	private ISysAIUtilRuntime iSysAIUtilRuntime = null;
@@ -107,9 +114,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	private ISysPortalUtilRuntime iSysPortalUtilRuntime = null;
 	
-	
-	
-	
+	private int nHistoryCount = -1;
 	
 	protected void init(ISysAIFactoryRuntimeContext ctx) throws Exception {
 		this.ctx = ctx;
@@ -124,7 +129,10 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		
 		String strAIPlatformTypeParamKey = String.format(".%1$s.%2$s.aiplatformtype", this.getAgentType(), this.getAgentMode()).toLowerCase();
 		this.setAIPlatformType(this.getSysAIFactoryRuntimeContext().getParam(strAIPlatformTypeParamKey, this.getAIPlatformType()));
-		//this.strAIPlatformType = this.getAIAgentRuntimeContext().
+
+		this.setHistoryCount(DataTypeUtils.asInteger(this.getAgentParam(AIAGENTPARAM_HISTORYCOUNT, null), this.getSysAIFactoryRuntimeContext().getHistoryCount()));
+		String strHistoryCountParamKey = String.format(".%1$s.%2$s.historycount", this.getAgentType(), this.getAgentMode()).toLowerCase();
+		this.setHistoryCount(this.getSysAIFactoryRuntimeContext().getParam(strHistoryCountParamKey, this.getHistoryCount()));
 		
 		super.onInit();
 	}
@@ -211,6 +219,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	 * 获取AI平台类型
 	 * @return
 	 */
+	@Override
 	public String getAIPlatformType() {
 		return this.strAIPlatformType;
 	}
@@ -542,6 +551,18 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	@Override
 	public String getAgentParam(String strName, String strDefault) {
 		return strDefault;
+	}
+	
+	/**
+	 * 获取历史消息数量
+	 * @return
+	 */
+	public int getHistoryCount() {
+		return this.nHistoryCount;
+	}
+	
+	protected void setHistoryCount(int nHistoryCount) {
+		this.nHistoryCount = nHistoryCount;
 	}
 	
 	@Override

@@ -108,6 +108,8 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 	
 	protected abstract IDataEntityRuntimeBaseContext getDataEntityRuntimeBaseContext();
 	
+	private boolean bHasMainStatePSDEFields = false;
+	
 	/**
 	 * 获取当前实体运行时所处的动态实例模式
 	 * @return
@@ -242,6 +244,7 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 			}
 		}
 		
+		this.bHasMainStatePSDEFields = !ObjectUtils.isEmpty(this.getPSDataEntity().getMainStatePSDEFields());
 		/**
 		 * 准备实体主状态逻辑
 		 */
@@ -657,7 +660,14 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		throw new DataEntityRuntimeException(this, String.format("无法获取实体主状态逻辑[%1$s]运行时对象",strId));
 	}
 	
-	
+	/**
+	 * 是否支持实体主状态逻辑
+	 * @return
+	 */
+	protected boolean isEnableDEMSLogic() {
+		prepare();
+		return !ObjectUtils.isEmpty(this.psDEMSLogicMap) && this.bHasMainStatePSDEFields;
+	}
 	
 	@Override
 	public IDEDataImportRuntime getDEDataImportRuntime(String strId) {

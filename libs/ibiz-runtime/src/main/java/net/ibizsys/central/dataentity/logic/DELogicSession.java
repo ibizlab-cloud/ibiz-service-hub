@@ -27,11 +27,12 @@ import net.ibizsys.runtime.util.JsonUtils;
  * @author lionlau
  *
  */
-public class DELogicSession implements IDELogicSession {
+public class DELogicSession implements IDELogicSession, Cloneable {
 
 	private static final Log log = LogFactory.getLog(DELogicSession.class);
 	
 	private static ThreadLocal<IDELogicSession> current = new ThreadLocal<IDELogicSession>();
+	private static ThreadLocal<Object> next = new ThreadLocal<Object>();
 	
 	private Map<String, Object> paramMap = new HashMap<>();
 	private Object result = null;
@@ -287,7 +288,32 @@ public class DELogicSession implements IDELogicSession {
 		return this.getDELogicRuntimeContext().getDELogicRuntime();
 	}
 
+	@Override
+	public void setNext(Object value) {
+		DELogicSession.next.set(value);
+	}
+
+	@Override
+	public Object getNext() {
+		return DELogicSession.next.get();
+	}
+
+	@Override
+	public DELogicSession clone(){
+		DELogicSession dst = clone(this.iDELogicRuntimeContext, this.paramMap);
+		this.onFillDELogicSession(dst);
+		return dst;
+	}
 	
+	protected DELogicSession clone(IDELogicRuntimeContext iDELogicRuntimeContext, Map<String, Object> params) {
+		return new DELogicSession(iDELogicRuntimeContext, params);
+	}
+	
+	protected void onFillDELogicSession(DELogicSession dst) {
+		
+	}
+
+
 	
 	
 

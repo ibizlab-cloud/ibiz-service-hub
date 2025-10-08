@@ -6,7 +6,7 @@
     <parent>
         <artifactId>ibiz-service-runner</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.570.34.1</version>
+        <version>8.1.0.572.13</version>
     </parent>
 
     <artifactId>ibizservicerunner-core</artifactId>

@@ -35,6 +35,7 @@ import net.ibizsys.model.res.IPSLanguageItem;
 import net.ibizsys.model.service.IPSSubSysServiceAPIDERS;
 import net.ibizsys.model.util.merger.extend.app.PSApplicationMergerEx;
 import net.ibizsys.model.util.merger.extend.control.menu.PSAppMenuMergerEx;
+import net.ibizsys.model.util.merger.extend.dataentity.der.PSDER1NMergerEx;
 import net.ibizsys.model.util.merger.extend.dataentity.uiaction.PSDEUIActionGroupMergerEx;
 import net.ibizsys.model.wf.PSWFVersionImpl;
 
@@ -110,15 +111,17 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 	private Map<Class<?>, IPSModelMerger> psModelMergerMap = new HashMap<>();
 	private Map<Class<?>, IPSModelListMerger> psModelListMergerMap = new HashMap<>();
 	
-	private static PSApplicationMergerEx psApplicationMergerEx = new PSApplicationMergerEx();
-	private static PSDEUIActionGroupMergerEx psDEUIActionGroupMergerEx = new PSDEUIActionGroupMergerEx();
-	private static PSAppMenuMergerEx psAppMenuMergerEx = new PSAppMenuMergerEx();
+	private final static PSApplicationMergerEx psApplicationMergerEx = new PSApplicationMergerEx();
+	private final static PSDEUIActionGroupMergerEx psDEUIActionGroupMergerEx = new PSDEUIActionGroupMergerEx();
+	private final static PSAppMenuMergerEx psAppMenuMergerEx = new PSAppMenuMergerEx();
+	private final static PSDER1NMergerEx psDER1NMergerEx = new PSDER1NMergerEx();
 	
 	
 	public PSModelMergeContext() {
 		this.registerPSModelMerger(net.ibizsys.model.app.PSApplicationImpl.class, psApplicationMergerEx);
 		this.registerPSModelMerger(net.ibizsys.model.dataentity.uiaction.PSDEUIActionGroupImpl.class, psDEUIActionGroupMergerEx);
 		this.registerPSModelMerger(net.ibizsys.model.control.menu.PSAppMenuImpl.class, psAppMenuMergerEx);
+		this.registerPSModelMerger(net.ibizsys.model.dataentity.der.PSDER1NImpl.class, psDER1NMergerEx);
 	}
 	
 	@Override

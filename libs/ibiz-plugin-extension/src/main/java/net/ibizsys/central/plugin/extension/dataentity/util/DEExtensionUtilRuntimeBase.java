@@ -50,6 +50,7 @@ import net.ibizsys.codegen.groovy.support.PSDataEntityExtension;
 import net.ibizsys.codegen.groovy.util.GroovyUtils;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.PSModelEnums.DEFDataType;
+import net.ibizsys.model.PSModelEnums.DELogicThreadRunMode;
 import net.ibizsys.model.PSModelEnums.DER1NMasterRS;
 import net.ibizsys.model.PSModelEnums.DERSubType;
 import net.ibizsys.model.PSModelEnums.StdDataType;
@@ -1272,6 +1273,12 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("获取传入数据的主状态逻辑运行时代理对象发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
+	
+	@Override
+	public boolean isEnableDEMSLogic() {
+		return !ObjectUtils.isEmpty(deMSLogicRuntimeMap);
+	}
+	
 
 	protected IDEMSLogicRuntime onGetDEMSLogicRuntime(IEntity iEntity, boolean bTryMode) throws Throwable {
 		if (ObjectUtils.isEmpty(this.getPSDataEntity().getMainStatePSDEFields())) {
@@ -1645,7 +1652,25 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 
 		IEntity iEntity = this.getEntity(objData);
-		return this.executeLogic(iDELogicRuntime, new Object[] { iEntity }, v2SystemExtensionLogic);
+		
+		IDELogicRuntime iDELogicRuntime2 = iDELogicRuntime;
+		if(iDELogicRuntime.getPSDELogic().getThreadMode() == DELogicThreadRunMode.THREAD.value) {
+			this.getSystemRuntime().threadRun(new Runnable() {
+				
+				@Override
+				public void run() {
+					try {
+						executeLogic(iDELogicRuntime2, new Object[] { iEntity }, v2SystemExtensionLogic);
+					} catch (Throwable ex) {
+						log.error(ex);
+					}
+				}
+			});
+			return null;
+		}
+		else {
+			return this.executeLogic(iDELogicRuntime, new Object[] { iEntity }, v2SystemExtensionLogic);
+		}
 	}
 
 	@Override
@@ -1925,7 +1950,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			return this.executeAction(String.format("执行扩展逻辑[%1$s]", iDELogicRuntime.getName()), new IAction() {
 				@Override
 				public Object execute(Object[] args) throws Throwable {
-					return iDELogicRuntime.execute(args);
+					return getDataEntityRuntime().executeLogic(iDELogicRuntime, args);
 				}
 			}, args);
 		} catch (Throwable ex) {

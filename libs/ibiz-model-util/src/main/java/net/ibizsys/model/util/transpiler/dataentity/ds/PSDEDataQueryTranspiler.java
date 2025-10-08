@@ -26,6 +26,7 @@ public class PSDEDataQueryTranspiler extends net.ibizsys.model.util.transpiler.d
 		this.setDomainValue(iPSModelTranspileContext, domain, "viewcollevel", realPSModelObject.getViewLevel(), realPSModelObject, "getViewLevel");
 		this.setDomainValue(iPSModelTranspileContext, domain, "custommode", realPSModelObject.isCustomCode(), realPSModelObject, "isCustomCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultmode", realPSModelObject.isDefaultMode(), realPSModelObject, "isDefaultMode");
+		this.setDomainValue(iPSModelTranspileContext, domain, "enablepql", realPSModelObject.isEnablePQL(), realPSModelObject, "isEnablePQL");
 		this.setDomainValue(iPSModelTranspileContext, domain, "queryviewflag", realPSModelObject.isQueryFromView(), realPSModelObject, "isQueryFromView");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
@@ -36,6 +37,7 @@ public class PSDEDataQueryTranspiler extends net.ibizsys.model.util.transpiler.d
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETVIEWLEVEL, domain, "viewcollevel", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCUSTOMCODE, domain, "custommode", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULTMODE, domain, "defaultmode", boolean.class, new String[]{"false"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLEPQL, domain, "enablepql", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISQUERYFROMVIEW, domain, "queryviewflag", boolean.class, new String[]{"false"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}

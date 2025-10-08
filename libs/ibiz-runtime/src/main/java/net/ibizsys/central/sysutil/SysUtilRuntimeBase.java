@@ -16,7 +16,6 @@ import net.ibizsys.central.SystemModelRuntimeBase;
 import net.ibizsys.central.eai.ISysEAIAgentRuntime;
 import net.ibizsys.central.service.ISubSysServiceAPIRuntime;
 import net.ibizsys.central.util.IUriAction;
-import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.res.IPSSysUtil;
 import net.ibizsys.runtime.IModelRuntimeContext;

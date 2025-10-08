@@ -1,6 +1,7 @@
 package net.ibizsys.central.cloud.ai.core.addin;
 
 import net.ibizsys.central.cloud.ai.core.cloudutil.ICloudAIUtilRuntimeContext;
+import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.McpServer;
 
 /**
@@ -45,5 +46,30 @@ public interface IMcpServerAgent extends ICloudAIUtilRTAddin{
 	
 	
 	
+	/**
+	 * 获取沟通工具
+	 * @return
+	 */
+	java.util.List<ChatTool> getTools();
 	
+	
+	
+	/**
+	 * 是否包含指定工具
+	 * @param strToolName
+	 * @return
+	 */
+	boolean containsTool(String strToolName);
+	
+	
+	
+	/**
+	 * 调用指定工具
+	 * @param strToolName
+	 * @param arg
+	 * @param strAppContext 应用上下文数据
+	 * @return
+	 * @throws Throwable
+	 */
+	String callTool(String strToolName, Object arg, String strAppContext) throws Throwable;
 }

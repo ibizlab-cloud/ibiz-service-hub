@@ -1,6 +1,8 @@
 package net.ibizsys.model.util.transpiler.extend.dataentity.logic;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 
 import org.springframework.util.ObjectUtils;
 
@@ -24,115 +26,139 @@ import net.ibizsys.psmodel.core.domain.PSDELogicParam;
 import net.ibizsys.psmodel.core.util.IPSModel;
 import net.ibizsys.psmodel.core.util.PSModelEnums.LogicNodeType;
 
-public class PSDELogicListTranspilerEx extends net.ibizsys.model.util.transpiler.dataentity.logic.PSDELogicListTranspiler{
-	
+public class PSDELogicListTranspilerEx extends net.ibizsys.model.util.transpiler.dataentity.logic.PSDELogicListTranspiler {
+
+	private static final ThreadLocal<Deque<IPSModel>> DECOMPILE_LOOKUP_KEY_HOLDER = new ThreadLocal<Deque<IPSModel>>() {
+		@Override
+		protected Deque<IPSModel> initialValue() {
+			return new ArrayDeque<IPSModel>();
+		}
+	};
+
+	public static IPSModel peekDecompileObject() {
+		return DECOMPILE_LOOKUP_KEY_HOLDER.get().peek();
+	}
+
+	public static void pushDecompileObject(IPSModel domain) {
+		DECOMPILE_LOOKUP_KEY_HOLDER.get().push(domain);
+	}
+
+	public static void pollDecompileObject() {
+		Deque<IPSModel> deque = DECOMPILE_LOOKUP_KEY_HOLDER.get();
+		deque.poll();
+		if (deque.isEmpty()) {
+			DECOMPILE_LOOKUP_KEY_HOLDER.remove();
+		}
+	}
+
 	@Override
 	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
-		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
-		IPSDELogic iPSDELogic = (IPSDELogic)iPSModelObject;
-		PSDELogic psDELogic = (PSDELogic)domain;
-		
-		int logicHolder = 0;
-		if(iPSDELogic.isEnableFront()) {
-			logicHolder |= DELogicHolder.FRONT.value;
-		}
-		if(iPSDELogic.isEnableBackend()) {
-			logicHolder |= DELogicHolder.BACKEND.value;
-		}
-		psDELogic.setLogicHolder(logicHolder);
-		
-		
-		if(bFullMode) {
-			
-			if(iPSDELogic.getPSDELogicParams()!=null) {
-				iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicParam.class, false).decompile(iPSModelTranspileContext, iPSDELogic.getPSDELogicParams(), psDELogic.getPSDELogicParamsIf(), bFullMode);
-				for(PSDELogicParam child : psDELogic.getPSDELogicParamsIf()) {
-					child.setPSDELogicId(psDELogic.getId());
-					child.setPSDELogicName(psDELogic.getName());
-//					child.setOrderValue(nOrder);
-//					nOrder += 100;
-				}
+
+		try {
+			PSDELogicListTranspilerEx.pushDecompileObject(domain);
+
+			super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
+			IPSDELogic iPSDELogic = (IPSDELogic) iPSModelObject;
+			PSDELogic psDELogic = (PSDELogic) domain;
+
+			int logicHolder = 0;
+			if (iPSDELogic.isEnableFront()) {
+				logicHolder |= DELogicHolder.FRONT.value;
 			}
-			
-			if(iPSDELogic.getPSDELogicNodes()!=null) {
-				iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicNode.class, false).decompile(iPSModelTranspileContext, iPSDELogic.getPSDELogicNodes(), psDELogic.getPSDELogicNodesIf(), bFullMode);
-				for(PSDELogicNode child : psDELogic.getPSDELogicNodesIf()) {
-					child.setPSDELogicId(psDELogic.getId());
-					child.setPSDELogicName(psDELogic.getName());
+			if (iPSDELogic.isEnableBackend()) {
+				logicHolder |= DELogicHolder.BACKEND.value;
+			}
+			psDELogic.setLogicHolder(logicHolder);
+
+			if (bFullMode) {
+				if (iPSDELogic.getPSDELogicParams() != null) {
+					iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicParam.class, false).decompile(iPSModelTranspileContext, iPSDELogic.getPSDELogicParams(), psDELogic.getPSDELogicParamsIf(), bFullMode);
+					for (PSDELogicParam child : psDELogic.getPSDELogicParamsIf()) {
+						child.setPSDELogicId(psDELogic.getId());
+						child.setPSDELogicName(psDELogic.getName());
+						// child.setOrderValue(nOrder);
+						// nOrder += 100;
+					}
 				}
-				
-				for(IPSDELogicNode iPSDELogicNode : iPSDELogic.getPSDELogicNodes()) {
-					if(iPSDELogicNode.getPSDELogicLinks()!=null) {
-						iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicLink.class, false).decompile(iPSModelTranspileContext, iPSDELogicNode.getPSDELogicLinks(), psDELogic.getPSDELogicLinksIf(), bFullMode);
-						int nOrder = 100;
-						for(PSDELogicLink child : psDELogic.getPSDELogicLinksIf()) {
-							child.setPSDELogicId(psDELogic.getId());
-							child.setPSDELogicName(psDELogic.getName());
-							child.setOrderValue(nOrder);
-							nOrder += 100;
+
+				if (iPSDELogic.getPSDELogicNodes() != null) {
+					iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicNode.class, false).decompile(iPSModelTranspileContext, iPSDELogic.getPSDELogicNodes(), psDELogic.getPSDELogicNodesIf(), bFullMode);
+					for (PSDELogicNode child : psDELogic.getPSDELogicNodesIf()) {
+						child.setPSDELogicId(psDELogic.getId());
+						child.setPSDELogicName(psDELogic.getName());
+					}
+
+					for (IPSDELogicNode iPSDELogicNode : iPSDELogic.getPSDELogicNodes()) {
+						if (iPSDELogicNode.getPSDELogicLinks() != null) {
+							iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicLink.class, false).decompile(iPSModelTranspileContext, iPSDELogicNode.getPSDELogicLinks(), psDELogic.getPSDELogicLinksIf(), bFullMode);
+							int nOrder = 100;
+							for (PSDELogicLink child : psDELogic.getPSDELogicLinksIf()) {
+								child.setPSDELogicId(psDELogic.getId());
+								child.setPSDELogicName(psDELogic.getName());
+								child.setOrderValue(nOrder);
+								nOrder += 100;
+							}
 						}
 					}
 				}
 			}
+		} finally {
+			PSDELogicListTranspilerEx.pollDecompileObject();
 		}
 	}
-	
+
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
-		
-		PSDELogic psDELogic = (PSDELogic)domain;
+
+		PSDELogic psDELogic = (PSDELogic) domain;
 		int logicHolder = DataTypeUtils.getIntegerValue(psDELogic.getLogicHolder(), 0);
-		if((logicHolder & DELogicHolder.FRONT.value) == DELogicHolder.FRONT.value) {
+		if ((logicHolder & DELogicHolder.FRONT.value) == DELogicHolder.FRONT.value) {
 			objectNode.put(PSDELogicImpl.ATTR_ISENABLEFRONT, true);
-		}
-		else {
+		} else {
 			objectNode.put(PSDELogicImpl.ATTR_ISENABLEFRONT, false);
 		}
-		
-		if((logicHolder & DELogicHolder.BACKEND.value) == DELogicHolder.BACKEND.value) {
+
+		if ((logicHolder & DELogicHolder.BACKEND.value) == DELogicHolder.BACKEND.value) {
 			objectNode.put(PSDELogicImpl.ATTR_ISENABLEBACKEND, true);
-		}
-		else {
+		} else {
 			objectNode.put(PSDELogicImpl.ATTR_ISENABLEBACKEND, false);
 		}
-		
-		if(!ObjectUtils.isEmpty(psDELogic.getPSDELogicParams())) {
+
+		if (!ObjectUtils.isEmpty(psDELogic.getPSDELogicParams())) {
 			ArrayNode arrayNode = objectNode.putArray(PSDELogicImpl.ATTR_GETPSDELOGICPARAMS);
 			iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicParam.class, false).compile(iPSModelTranspileContext, psDELogic.getPSDELogicParams(), arrayNode);
 		}
-		
-		if(!ObjectUtils.isEmpty(psDELogic.getPSDELogicNodes())) {
+
+		if (!ObjectUtils.isEmpty(psDELogic.getPSDELogicNodes())) {
 			ArrayNode arrayNode = objectNode.putArray(PSDELogicImpl.ATTR_GETPSDELOGICNODES);
 			iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicNode.class, false).compile(iPSModelTranspileContext, psDELogic.getPSDELogicNodes(), arrayNode);
-			
-			for(int i = 0;i<psDELogic.getPSDELogicNodes().size();i++) {
+
+			for (int i = 0; i < psDELogic.getPSDELogicNodes().size(); i++) {
 				PSDELogicNode psDELogicNode = psDELogic.getPSDELogicNodes().get(i);
-				
-				if(LogicNodeType.BEGIN.value.equalsIgnoreCase(psDELogicNode.getLogicNodeType())) {
+
+				if (LogicNodeType.BEGIN.value.equalsIgnoreCase(psDELogicNode.getLogicNodeType())) {
 					iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicNode.class, false).getModelRef(iPSModelTranspileContext, psDELogicNode.getId(), false, objectNode.putObject(PSDELogicImpl.ATTR_GETSTARTPSDELOGICNODE));
 				}
-						
+
 				ObjectNode node = (ObjectNode) arrayNode.get(i);
 				java.util.List<PSDELogicLink> psDELogicLinkList = new ArrayList<PSDELogicLink>();
-				if(!ObjectUtils.isEmpty(psDELogic.getPSDELogicLinks())) {
-					for(PSDELogicLink psDELogicLink : psDELogic.getPSDELogicLinks()) {
-						if(psDELogicNode.getId().equals(psDELogicLink.getSrcPSDELogicNodeId())) {
+				if (!ObjectUtils.isEmpty(psDELogic.getPSDELogicLinks())) {
+					for (PSDELogicLink psDELogicLink : psDELogic.getPSDELogicLinks()) {
+						if (psDELogicNode.getId().equals(psDELogicLink.getSrcPSDELogicNodeId())) {
 							psDELogicLinkList.add(psDELogicLink);
 						}
 					}
 				}
-				
-				if(!ObjectUtils.isEmpty(psDELogicLinkList)) {
+
+				if (!ObjectUtils.isEmpty(psDELogicLinkList)) {
 					ArrayNode arrayNode2 = node.putArray(PSDELogicNodeImpl.ATTR_GETPSDELOGICLINKS);
 					iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicLink.class, false).compile(iPSModelTranspileContext, psDELogicLinkList, arrayNode2);
 				}
 			}
 		}
 	}
-	
-	
-	
+
 	@Override
 	protected String[] getModelFolders() {
 		return getDataEntityModelFolder("PSDELOGICS");

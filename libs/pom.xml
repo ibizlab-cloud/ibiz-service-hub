@@ -10,7 +10,7 @@
 
     <artifactId>ibiz-plugin</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>8.1.0.570.34.1</version>
+    <version>8.1.0.572.13</version>
     <name>iBiz Plugin</name>
     <packaging>pom</packaging>
     <description>iBiz Plugin</description>
@@ -130,6 +130,9 @@
         <module>ibiz-plugin-open</module>
         <module>ibiz-plugin-autoconfigure</module>
         <module>ibiz-plugin-docx4j</module>
+        <module>ibiz-plugin-mcp</module>
+        <module>ibizlab-cloud-odoo</module>
+        <module>ibizlab-plugin-odoo</module>
     </modules>
 
 	<properties>
@@ -137,10 +140,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
         <maven.test.skip>true</maven.test.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
-        <ibiz.cloud.version>8.1.0.570.34.1</ibiz.cloud.version>
+        <ibiz.cloud.version>8.1.0.572.13</ibiz.cloud.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <spring-boot.version>2.4.0</spring-boot.version>
+        <jackson.version>2.17.3</jackson.version>
     </properties>
 
     <dependencyManagement>
@@ -169,6 +173,22 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
 

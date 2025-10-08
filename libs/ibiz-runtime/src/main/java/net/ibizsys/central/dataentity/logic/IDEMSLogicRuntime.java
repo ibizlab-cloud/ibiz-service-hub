@@ -50,4 +50,14 @@ public interface IDEMSLogicRuntime extends net.ibizsys.runtime.dataentity.logic.
 	 */
 	boolean canTransition(IEntity srcEntity, IEntity dstEntity, boolean tryMode);
 	
+	
+	/**
+	 * 判断数据访问标识
+	 * @param iEntity
+	 * @param strAccessAction
+	 * @return
+	 */
+	default boolean testDataAccessAction(IEntity iEntity, String strAccessAction) {
+		return true;
+	}
 }

@@ -67,7 +67,7 @@ public class ExtensionGatewayRestController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = { "/{id}/extension/webhooks/{key}" })
-	public ResponseEntity<Object> invokeWebHook(@PathVariable("id") String id, @PathVariable(name = "key") String key, HttpServletRequest req, HttpServletResponse response) {
+	public ResponseEntity<Object> invokeWebhook(@PathVariable("id") String id, @PathVariable(name = "key") String key, HttpServletRequest req, HttpServletResponse response) {
 
 		try {
 			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
@@ -78,9 +78,9 @@ public class ExtensionGatewayRestController {
 			Object ret = null;
 
 			if (iSysExtensionUtilRuntime instanceof IHubSysExtensionUtilRuntime && !(iSysExtensionUtilRuntime instanceof ISysUtilContainerOnly)) {
-				ret = ((IHubSysExtensionUtilRuntime) iSysExtensionUtilRuntime).invokeWebHook(iSystemRuntime, key, param);
+				ret = ((IHubSysExtensionUtilRuntime) iSysExtensionUtilRuntime).invokeWebhook(iSystemRuntime, key, param);
 			} else {
-				ret = iSysExtensionUtilRuntime.invokeWebHook(key, param);
+				ret = iSysExtensionUtilRuntime.invokeWebhook(key, param);
 			}
 			return ResponseEntity.ok(ret);
 		}
@@ -88,6 +88,30 @@ public class ExtensionGatewayRestController {
 			SystemRuntimeHolder.poll();
 		}
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = { "/{id}/extension/webhooks/{key}" })
+	public ResponseEntity<Object> invokeWebhook(@PathVariable("id") String id, @PathVariable(name = "key") String key, @RequestBody(required = false) Object body, HttpServletRequest req, HttpServletResponse response) {
+
+		try {
+			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
+			SystemRuntimeHolder.push(iSystemRuntime);
+			ISysExtensionUtilRuntime iSysExtensionUtilRuntime = iSystemRuntime.getSysUtilRuntime(ISysExtensionUtilRuntime.class, false);
+
+			Object param = body;//RestUtils.queryString2Map(req.getQueryString());
+			Object ret = null;
+
+			if (iSysExtensionUtilRuntime instanceof IHubSysExtensionUtilRuntime && !(iSysExtensionUtilRuntime instanceof ISysUtilContainerOnly)) {
+				ret = ((IHubSysExtensionUtilRuntime) iSysExtensionUtilRuntime).invokeWebhook(iSystemRuntime, key, param);
+			} else {
+				ret = iSysExtensionUtilRuntime.invokeWebhook(key, param);
+			}
+			return ResponseEntity.ok(ret);
+		}
+		finally {
+			SystemRuntimeHolder.poll();
+		}
+	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, value = { "/{id}/extension/dynamodelapi/{model}", "/{id}/extension/dynamodelapi/{model}/{key}", "/{id}/extension/dynamodelapi/{model}/{key}/{method}", "/{id}/extension/dynamodelapi/{pmodel}/{pkey}/{model}", "/{id}/extension/dynamodelapi/{pmodel}/{pkey}/{model}/{key}", "/{id}/extension/dynamodelapi/{pmodel}/{pkey}/{model}/{key}/{method}", "/{id}/extension/dynamodelapi/{ppmodel}/{ppkey}/{pmodel}/{pkey}/{model}", "/{id}/extension/dynamodelapi/{ppmodel}/{ppkey}/{pmodel}/{pkey}/{model}/{key}", "/{id}/extension/dynamodelapi/{ppmodel}/{ppkey}/{pmodel}/{pkey}/{model}/{key}/{method}" })
 	public ResponseEntity<Object> invokeDynaModelAPIGetMethod(@PathVariable("id") String id, @PathVariable(name = "model", required = true) String model, @PathVariable(name = "key", required = false) String key, @PathVariable(name = "method", required = false) String method, HttpServletRequest req, HttpServletResponse response) {

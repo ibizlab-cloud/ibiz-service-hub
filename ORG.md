@@ -43,8 +43,8 @@
 * 🌐 官网：[https://www.ibizlab.cn](https://www.ibizlab.cn)
 * 📚 开源社区：[https://open.ibizlab.cn](https://open.ibizlab.cn)
 * 🛠 Modeling（建模工具）：[https://modeling.ibizlab.cn](https://modeling.ibizlab.cn)
-* 📱 微信公众号：iBiz开放平台
-* 💬 QQ 群：`1067434627`
+* 📱 微信公众号：`iBiz 开放平台`
+* 💬 QQ交流群：iBizLab社区开源群 👉 [1067434627](https://qm.qq.com/q/BXMu4H37Hy)
 
 > **案例**
 > * 📈 iBizPLM：产品全生命周期管理系统 [https://plm.ibizlab.cn](https://plm.ibizlab.cn)

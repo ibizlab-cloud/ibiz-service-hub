@@ -29,7 +29,7 @@ public interface IChatResourceUtils {
 	 * @return
 	 * @throws Throwable
 	 */
-	String getResource(String type, String subType, String key, boolean testPriv) throws Exception;
+	String getResource(String type, String subType, Object key, Map<String, Object> arguments, boolean testPriv) throws Exception;
 	
 	
 	

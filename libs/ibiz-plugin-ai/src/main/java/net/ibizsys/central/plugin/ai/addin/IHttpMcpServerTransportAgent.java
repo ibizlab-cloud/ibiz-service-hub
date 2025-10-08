@@ -8,6 +8,24 @@ import javax.servlet.http.HttpServletResponse;
 public interface IHttpMcpServerTransportAgent extends IMcpServerTransportAgent {
 
 	/**
+	 * 请求头：授权集合
+	 */
+	final static String HEADER_AUTHORITIES = "srfauthorities";
+	
+	
+	/**
+	 * 请求头：超级用户
+	 */
+	final static String HEADER_SUPERUSER = "srfsuperuser";
+	
+	
+	/**
+	 * 请求头：应用上下文
+	 */
+	final static String HEADER_APPCONTEXT = "srfappcontext";
+	
+	
+	/**
 	 * doGet
 	 * @param request
 	 * @param response

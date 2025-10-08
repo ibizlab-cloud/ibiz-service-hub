@@ -91,6 +91,12 @@ public abstract class NacosServiceHubSettingBase extends ServiceHubSettingBase {
 	public final static String DATAID_RELOADSIGNAL_PREFIX = "reloadsignal-";
 	
 	
+	/**
+	 * 数据项：访问凭证前缀
+	 */
+	public final static String DATAID_ACCESSTOKEN_PREFIX = "accesstoken-";
+	
+	
 	@Autowired
 	private NacosConfigManager nacosConfigManager;
 

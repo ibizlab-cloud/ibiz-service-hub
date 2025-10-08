@@ -1,6 +1,6 @@
 package net.ibizsys.central.plugin.ai.addin;
 
-import net.ibizsys.central.plugin.ai.mcp.spec.McpServerTransportProvider;
+import io.modelcontextprotocol.spec.McpServerTransportProvider;
 import net.ibizsys.runtime.plugin.IModelRTAddin;
 
 public interface IMcpServerTransportAgent extends IModelRTAddin, McpServerTransportProvider{

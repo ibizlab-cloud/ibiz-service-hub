@@ -474,21 +474,7 @@ public interface ISystemRuntime extends net.ibizsys.runtime.ISystemRuntime, ISys
 	 */
 	IDataEntityRuntime getDataEntityRuntime(String strIdOrName, boolean bTryMode);
 
-	/**
-	 * 获取实体逻辑节点运行时
-	 * 
-	 * @param iPSDELogicNode
-	 * @return
-	 */
-	IDELogicNodeRuntime getDELogicNodeRuntime(IPSDELogicNode iPSDELogicNode, boolean bNewInstance);
 
-	/**
-	 * 获取实体逻辑参数运行时
-	 * 
-	 * @param iPSDELogicParam
-	 * @return
-	 */
-	IDELogicParamRuntime getDELogicParamRuntime(IPSDELogicParam iPSDELogicParam);
 
 	/**
 	 * 执行后台任务

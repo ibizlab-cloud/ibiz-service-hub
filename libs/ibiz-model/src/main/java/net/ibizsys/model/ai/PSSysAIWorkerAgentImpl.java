@@ -5,6 +5,7 @@ package net.ibizsys.model.ai;
 public class PSSysAIWorkerAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObjectImpl implements net.ibizsys.model.ai.IPSSysAIWorkerAgent{
 
 	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
+	public final static String ATTR_GETAGENTINFO = "agentInfo";
 	public final static String ATTR_GETAGENTPARAMS = "agentParams";
 	public final static String ATTR_GETAGENTTAG = "agentTag";
 	public final static String ATTR_GETAGENTTAG2 = "agentTag2";
@@ -16,6 +17,14 @@ public class PSSysAIWorkerAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryO
 
 	public java.lang.String getAIPlatformType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getAgentInfo(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTINFO);
 		if(value == null){
 			return null;
 		}

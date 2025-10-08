@@ -1,4 +1,6 @@
-package net.ibizsys.central.cloud.core.ai;
+ package net.ibizsys.central.cloud.core.ai;
+
+import java.util.Map;
 
 /**
  * AI聊天资源对象基础接口
@@ -24,5 +26,16 @@ public interface IAIChatResource {
 	 * @return
 	 * @throws Throwable
 	 */
-	String getContent(String subType, String key, boolean testPriv) throws Exception;
+	String getContent(String subType, Object key, boolean testPriv) throws Exception;
+	
+	/**
+	 * 获取聊天资源内容
+	 * @param subType
+	 * @param key
+	 * @param params
+	 * @param testPriv
+	 * @return
+	 * @throws Throwable
+	 */
+	String getContent(String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception;
 }

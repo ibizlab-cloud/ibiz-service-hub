@@ -321,7 +321,7 @@ public class ChatResourceUtils implements IChatResourceUtils {
 	}
 	
 	@Override
-	public String getResource(String type, String subType, String key, boolean testPriv) throws Exception {
+	public String getResource(String type, String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception {
 		if(RESOURCETYPE_DATAENTITY.equalsIgnoreCase(type)) {
 			Map<String, Object> data = new LinkedHashMap<String, Object>();
 			data.put("de_name", subType);
@@ -337,13 +337,13 @@ public class ChatResourceUtils implements IChatResourceUtils {
 	public IEntity getResourceEntity(String type, String version, Map data, Map metadata, boolean testPriv) throws Exception {
 		if(RESOURCETYPE_DATAENTITY.equalsIgnoreCase(type)) {
 			String templId = DataTypeUtils.asString(data.get("templ_id"));
-			String id = DataTypeUtils.asString(data.get("id"));
+			Object id = data.get("id");
 			String deName = DataTypeUtils.asString(data.get("de_name"));
 			if(!StringUtils.hasLength(deName)) {
 				throw new Exception("未指定实体名称");
 			}
 			
-			if(!StringUtils.hasLength(id)) {
+			if(ObjectUtils.isEmpty(id)) {
 				throw new Exception("未指定实体数据主键");
 			}
 			

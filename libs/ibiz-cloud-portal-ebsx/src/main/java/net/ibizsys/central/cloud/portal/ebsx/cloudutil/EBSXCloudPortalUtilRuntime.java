@@ -81,8 +81,8 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		
 		String strStepInfo = paramPTAsyncActionDTO.getStepInfo();
 		if(StringUtils.hasLength(strStepInfo)) {
-			if(strStepInfo.length()>490) {
-				int nPos = strStepInfo.length() - 490;
+			if(strStepInfo.length()>240) {
+				int nPos = strStepInfo.length() - 240;
 				strStepInfo = "..." + strStepInfo.substring(nPos);
 			}
 		}
@@ -92,7 +92,7 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		
 		String strActionResult = paramPTAsyncActionDTO.getActionResult();
 		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>3990) {
+			if(strActionResult.length()>2000) {
 				ptAsyncActionDTO.setFullResult(strActionResult);
 			}
 			else {
@@ -138,7 +138,7 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		
 		String strActionResult = paramPTAsyncActionDTO.getActionResult();
 		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>3990) {
+			if(strActionResult.length()>2000) {
 				ptAsyncActionDTO.setFullResult(strActionResult);
 			}
 			else {
@@ -187,7 +187,7 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		
 		String strActionResult = paramPTAsyncActionDTO.getActionResult();
 		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>3990) {
+			if(strActionResult.length()>2000) {
 				ptAsyncActionDTO.setFullResult(strActionResult);
 			}
 			else {

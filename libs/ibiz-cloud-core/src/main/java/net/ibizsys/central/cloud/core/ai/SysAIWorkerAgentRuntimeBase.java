@@ -96,6 +96,12 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 	
 	protected ChatCompletionResult onChatCompletion(String strMode, Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable {
 		
+		if(getHistoryCount() > 0 && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages()) && chatCompletionRequest.getMessages().size() > this.getHistoryCount()) {
+			log.debug(String.format("截取消息历史[%1$s] => [%2$s]", chatCompletionRequest.getMessages().size(), this.getHistoryCount()));
+			List<ChatMessage> list = chatCompletionRequest.getMessages().subList(chatCompletionRequest.getMessages().size() - this.getHistoryCount(), chatCompletionRequest.getMessages().size());
+			chatCompletionRequest.setMessages(list);
+		}
+		
 		if(bAppendHistories) {
 			List<ChatMessage> historyList = this.getHistories(strMode, dataOrKeys, null, params);
 			if(!ObjectUtils.isEmpty(historyList)) {
@@ -251,4 +257,8 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 		throw new Exception("没有实现");
 	}
 
+	@Override
+	public String getAgentInfo() {
+		return this.getPSModelObject().getAgentInfo();
+	}
 }

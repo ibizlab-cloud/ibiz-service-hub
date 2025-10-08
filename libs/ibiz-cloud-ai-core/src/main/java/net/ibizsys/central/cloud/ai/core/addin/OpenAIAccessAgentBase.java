@@ -3,8 +3,10 @@ package net.ibizsys.central.cloud.ai.core.addin;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -25,8 +27,11 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ConfigEntityEx;
+import net.ibizsys.central.cloud.core.util.domain.AIAccess;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatFunction;
@@ -69,9 +74,17 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	protected final static Pattern toolCallBodyPattern = Pattern.compile("(?m)^```tool_call\\s*\\n([\\s\\S]*?)\\s*\\n```");
 
 
+
+	private Deque<String> tokenDeque = new ArrayDeque<String>();
 	
 	@Override
 	protected void onInit() throws Exception {
+		
+		if(!ObjectUtils.isEmpty(this.getAgentData().getAccessToken())) {
+			List list = Arrays.asList(this.getAgentData().getAccessToken().toString().split("[,]"));
+			tokenDeque.addAll(list);
+		}
+		
 		super.onInit();
 
 	}
@@ -85,6 +98,19 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	public String getName() {
 		return ICloudAIUtilRuntime.AIPLATFORM_OPENAI;
 	}
+	
+
+	
+	protected String getAccessToken() {
+		String strAccessToken = null;
+		synchronized (this.tokenDeque) {
+			strAccessToken = this.tokenDeque.pollFirst();
+			if(StringUtils.hasLength(strAccessToken)) {
+				this.tokenDeque.addLast(strAccessToken);
+			}	
+		}
+		return strAccessToken;
+	}
 
 	@Override
 	protected EmbeddingResult onEmbedding(EmbeddingRequest completionRequest) throws Throwable {
@@ -93,7 +119,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
 			HttpPost request = new HttpPost(strServiceUrl);
-			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getAgentData().getAccessToken())));
+			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getAccessToken())));
 
 			Map<String, Object> body = new LinkedHashMap<String, Object>();
 			body.put("model", StringUtils.hasLength(this.getAgentData().getEmbeddingModel()) ? this.getAgentData().getEmbeddingModel() : EMBEDDINGMODEL_DEFAULT);
@@ -137,22 +163,29 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	}
 
 	protected String getChatCompletionDataPrefix() {
-		return "data: ";
+		return "data:";
 	}
 
 	@Override
 	protected ChatCompletionResult onChatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable {
 		
-		if(!testLoopCall(4)) {
-			ChatMessage chatMessage = new ChatMessage();
-			chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
-			chatMessage.setContent("你的问题让我查询了太多次资料，已经烧光了GPU，让我歇会，你再问问");
-			ChatCompletionResult chatCompletionResult = new ChatCompletionResult();
-			chatCompletionResult.setChoices(Arrays.asList(chatMessage));
-			return chatCompletionResult;
+		boolean bEnableTools = DataTypeUtils.asBoolean(this.getAgentData().getTools(), false);
+		boolean bToolExceed = false;
+		if(!testLoopCall(this.getToolMaxCalls())) {
+			if(bEnableTools) {
+				bToolExceed = true;
+			}
+			else {
+				ChatMessage chatMessage = new ChatMessage();
+				chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
+				chatMessage.setContent(this.getToolExceedMessage());
+				ChatCompletionResult chatCompletionResult = new ChatCompletionResult();
+				chatCompletionResult.setChoices(Arrays.asList(chatMessage));
+				return chatCompletionResult;
+			}
 		}
 
-		final boolean bEnableTools = DataTypeUtils.asBoolean(this.getAgentData().getTools(), false);
+		
 		final String strRemoveThink = this.getAgentData().getRemoveThink();
 		final String strStream = this.getAgentData().getStream();
 		boolean bRemoveInputThink = "all".equalsIgnoreCase(strRemoveThink) || "input".equalsIgnoreCase(strRemoveThink);
@@ -219,25 +252,79 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				}
 		}
 
+//		if(bToolExceed) {
+//			//临时关闭ToolCall
+//			bEnableTools = false;
+//		}
+		
 		String strServiceUrl = this.getCompletionsServiceUrl();
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
 			ActionSession actionSession = ActionSessionManager.getCurrentSession();
 
 			HttpPost request = new HttpPost(strServiceUrl);
-			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getAgentData().getAccessToken())));
+			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getAccessToken())));
 
 			Map<String, Object> body = new LinkedHashMap<String, Object>();
 			body.put("messages", historyList);
 			body.put("model", StringUtils.hasLength(this.getAgentData().getModel()) ? this.getAgentData().getModel() : MODEL_DEFAULT);
 			body.put("stream", bStream);
 			if (bEnableTools) {
+				List<ChatTool> tools = null;
 				if (!ObjectUtils.isEmpty(chatCompletionRequest.getTools())) {
 					String strTools = JsonUtils.toString(chatCompletionRequest.getTools());
-					List<ChatTool> tools = JsonUtils.as(strTools, ChatToolListType);
+					tools = JsonUtils.as(strTools, ChatToolListType);
 					for (ChatTool chatTool : tools) {
 						chatTool.getFunction().resetService();
 					}
+				}
+				
+				List<String> mcpServers = chatCompletionRequest.getMcpServers();
+				if(!ObjectUtils.isEmpty(mcpServers)) {
+					if(tools == null) {
+						tools = new ArrayList<ChatTool>();
+					}
+					for(String strMcpServerId : mcpServers) {
+						try {
+							if(strMcpServerId.indexOf("@") != -1) {
+								String[] items = strMcpServerId.split("[@]");
+								strMcpServerId = items[1];
+							}
+							IMcpServerAgent iMcpServerAgent = this.getContext().getMcpServerAgent(strMcpServerId);
+							List<ChatTool> mcpServerToolList = iMcpServerAgent.getTools();
+							if(!ObjectUtils.isEmpty(mcpServerToolList)) {
+								tools.addAll(mcpServerToolList);
+							}
+						}
+						catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
+				}
+				
+				mcpServers = this.getMcpServers();
+				if(!ObjectUtils.isEmpty(mcpServers)) {
+					if(tools == null) {
+						tools = new ArrayList<ChatTool>();
+					}
+					for(String strMcpServerId : mcpServers) {
+						try {
+							if(strMcpServerId.indexOf("@") != -1) {
+								String[] items = strMcpServerId.split("[@]");
+								strMcpServerId = items[1];
+							}
+							IMcpServerAgent iMcpServerAgent = this.getContext().getMcpServerAgent(strMcpServerId);
+							List<ChatTool> mcpServerToolList = iMcpServerAgent.getTools();
+							if(!ObjectUtils.isEmpty(mcpServerToolList)) {
+								tools.addAll(mcpServerToolList);
+							}
+						}
+						catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
+				}
+				if(!ObjectUtils.isEmpty(tools)) {
 					body.put("tools", tools);
 				}
 			}
@@ -337,29 +424,8 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 									Object tool_calls = deltaMap.get("tool_calls");
 									// if(tool_call) {
 									if (!ObjectUtils.isEmpty(tool_calls) || "tool_calls".equals(strFinishReason)) {
-										// if("tool_calls".equals(strFinishReason))
-										// {
-										// strFinishReason = "tool_calls";
-										// }
-										// Object tool_calls =
-										// deltaMap.get("tool_calls");
 										if ("tool_calls".equals(strFinishReason) && functionMap != null) {
-//											String strLast = (String) functionMap.get("arguments");
-//											if (!StringUtils.hasLength(strLast)) {
-//												strLast = "";
-//											}
-//											if (StringUtils.hasLength(strLast)) {
-//												functionMap.put("arguments", JsonUtils.toJsonNode(strLast));
-//											} else {
-//												functionMap.put("arguments", null);
-//											}
-//											if (toolCalls == null) {
-//												toolCalls = new LinkedHashMap<String, Object>();
-//												toolCallIdMap = new LinkedHashMap<String, String>();
-//											}
-//											toolCalls.put((String) functionMap.get("name"), functionMap.get("arguments"));
-//											toolCallIdMap.put((String) functionMap.get("name"), (String) functionMap.get("id"));
-//											functionMap = null;
+
 										} else {
 											if(functionMap == null) {
 												functionMap = new HashMap<Integer, Map>();
@@ -401,13 +467,19 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 																	strLast = "";
 																}
 																if (arguments.equals("}")) {
-																	if (StringUtils.hasLength(strLast)) {
-																		lastFunction.put("arguments", JsonUtils.toJsonNode(strLast));
-																	} else {
-																		lastFunction.put("arguments", null);
+																	try {
+																		if (StringUtils.hasLength(strLast)) {
+																			lastFunction.put("arguments", JsonUtils.toObjectNode(strLast));
+																		} else {
+																			lastFunction.put("arguments", null);
+																		}
+																		functionMap = null;
 																	}
-																	
-																	functionMap = null;
+																	catch (Throwable ex) {
+																		log.error(String.format("解析内容发生异常，执行兼容处理，%1$s", ex.getMessage()));
+																		strLast += arguments;
+																		lastFunction.put("arguments", strLast);
+																	}
 																} else {
 																	strLast += arguments;
 																	lastFunction.put("arguments", strLast);
@@ -632,14 +704,48 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	}
 
 	protected ChatCompletionResult doChatCompletionToolCall(ActionSession actionSession, ChatCompletionRequest chatCompletionRequest, String strContent, Map<String, Object> toolCalls, Map<String, String> toolCallIdMap, List<Map> functionList) throws Throwable {
-		
-		
 		// 分解
 		List<ChatMessage> list = new ArrayList<ChatMessage>();
 		if (chatCompletionRequest.getMessages() != null) {
 			list.addAll(chatCompletionRequest.getMessages());
 		}
 
+		//重新分析工具调用数据，调整
+		if(!ObjectUtils.isEmpty(toolCalls)) {
+			for(String strFunction : toolCalls.keySet()) {
+				Object value = toolCalls.get(strFunction);
+				if(ObjectUtils.isEmpty(value)) {
+					continue;
+				}
+				
+				if(value instanceof String) {
+					//调整为Json
+					String strValue = (String)value;
+					strValue = strValue.trim();
+					if(strValue.indexOf("{") == 0) {
+						try {
+							ObjectNode node = JsonUtils.toObjectNode(strValue);
+							toolCalls.put(strFunction, node);
+							continue;
+						}
+						catch (Throwable ex) {
+							log.error(String.format("尝试将工具调用数据[%1$s]调整为JsonObject发生异常，%2$s", strValue, ex.getMessage()));
+						}
+						
+						strValue += "}";
+						try {
+							ObjectNode node = JsonUtils.toObjectNode(strValue);
+							toolCalls.put(strFunction, node);
+							continue;
+						}
+						catch (Throwable ex) {
+							log.error(String.format("尝试将工具调用数据[%1$s]调整为JsonObject发生异常，%2$s", strValue, ex.getMessage()));
+						}
+					}
+				}
+			}
+		}
+		
 		//
 		if (!ObjectUtils.isEmpty(toolCalls)) {
 			if (functionList != null) {
@@ -679,29 +785,56 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 
 			for (java.util.Map.Entry<String, Object> call : toolCalls.entrySet()) {
 				if (actionSession != null) {
-					String strStep = String.format("%1$s\n", TOOL_CALL_BEGIN);
-					if (bFirst) {
-						bFirst = false;
-						strStep = "\n" + strStep;
+					if(this.getToolCallStep()>=AIAccess.TOOLCALLSTEP_ENABLED) {
+						String strStep = String.format("%1$s\n", TOOL_CALL_BEGIN);
+						if (bFirst) {
+							bFirst = false;
+							strStep = "\n" + strStep;
+						}
+						strContent += strStep;
+						actionSession.updateActionStep(strStep, strContent);
 					}
-					strContent += strStep;
-					actionSession.updateActionStep(strStep, strContent);
 				}
 
 				String strErrorInfo = "";
+				ObjectNode toolCallStepNode = JsonUtils.createObjectNode();
+				toolCallStepNode.put("name", call.getKey());
+				if(call.getValue() == null) {
+					toolCallStepNode.putNull("parameters");
+				}
+				else
+					{
+						toolCallStepNode.set("parameters", JsonUtils.toJsonNode(call.getValue()));
+					}
+				
+				
 				try {
+					
+					if(getLoopCallCount() > this.getToolMaxCalls()) {
+						throw new Exception(this.getToolExceedMessage());
+					}
+					
+					
 					ChatFunction chatFunction = chatFunctionMap.get(call.getKey());
 					String strResult = null;
 					if (chatFunction != null) {
 						strResult = this.doToolCall(chatFunction, call.getValue());
 					} else {
-						strResult = this.doToolCall(call.getKey(), call.getValue());
+						strResult = this.doToolCall(call.getKey(), call.getValue(), chatCompletionRequest);
 					}
 
 					if (actionSession != null) {
-						String strStep = String.format("%1$s(%2$s)\n", call.getKey(), call.getValue());
-						strContent += strStep;
-						actionSession.updateActionStep(strStep, strContent);
+						//String strStep = String.format("%1$s(%2$s)\n", call.getKey(), call.getValue());
+						if(this.getToolCallStep()>=AIAccess.TOOLCALLSTEP_ENABLED) {
+							toolCallStepNode.put("error", false);
+							if(this.getToolCallStep()==AIAccess.TOOLCALLSTEP_RESULT) {
+								toolCallStepNode.put("result", strResult);
+							}
+							String strStep = toolCallStepNode.toPrettyString();
+							strContent += strStep;
+							actionSession.updateActionStep(strStep, strContent);
+						}
+						
 					}
 
 					log.debug(String.format("工具[%1$s]调用返回：%2$s", call.getKey(), strResult));
@@ -724,14 +857,19 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				}
 
 				if (actionSession != null) {
-					if (StringUtils.hasLength(strErrorInfo)) {
-						String strStep = String.format("工具调用异常：%1$s\n", call.getKey(), call.getValue());
+					if(this.getToolCallStep()>=AIAccess.TOOLCALLSTEP_ENABLED) {
+						if (StringUtils.hasLength(strErrorInfo)) {
+							//String strStep = String.format("工具调用异常：%1$s\n", call.getKey(), call.getValue());
+							toolCallStepNode.put("error", true);
+							toolCallStepNode.put("result", strErrorInfo);
+							String strStep = toolCallStepNode.toPrettyString();
+							strContent += strStep;
+							actionSession.updateActionStep(strStep, strContent);
+						}
+						String strStep = String.format("\n%1$s\n", TOOL_CALL_END);
 						strContent += strStep;
 						actionSession.updateActionStep(strStep, strContent);
 					}
-					String strStep = String.format("%1$s\n", TOOL_CALL_END);
-					strContent += strStep;
-					actionSession.updateActionStep(strStep, strContent);
 				}
 			}
 		}
@@ -753,13 +891,6 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 			chatMessage.setContent(strRealContent);
 			list.add(chatMessage);
 		}
-		
-//		if (true) {
-//			ChatMessage chatMessage = new ChatMessage();
-//			chatMessage.setRole(ChatMessageRole.USER.getValue());
-//			chatMessage.setContent("好的，");
-//			list.add(chatMessage);
-//		}
 		
 		for(String strToolCallContent : toolCallList) {
 			
@@ -790,7 +921,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				if (chatFunction != null) {
 					strResult = this.doToolCall(chatFunction, map);
 				} else {
-					strResult = this.doToolCall(strMethodName, map);
+					strResult = this.doToolCall(strMethodName, map, chatCompletionRequest);
 				}
 				log.debug(String.format("---------------------------------------------------------------------------------------------------------------"));
 				log.debug(String.format("工具[%1$s]调用返回：%2$s", strMethodName, strResult));
@@ -827,14 +958,45 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		
 		
 
-		
-		
-
 		chatCompletionRequest.setMessages(list);
 		return this.onChatCompletion(chatCompletionRequest);
 	}
 	
-	protected String doToolCall(String strName, Object arg) throws Throwable {
+	protected String doToolCall(String strName, Object arg, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		
+		List<String> mcpServers = chatCompletionRequest.getMcpServers();
+		if(!ObjectUtils.isEmpty(mcpServers)) {
+			for(String strMcpServerId : mcpServers) {
+				String strAppContextData = null;
+				if(strMcpServerId.indexOf("@") != -1) {
+					String[] items = strMcpServerId.split("[@]");
+					strMcpServerId = items[1];
+					strAppContextData = items[0];
+				}
+				IMcpServerAgent iMcpServerAgent = this.getContext().getMcpServerAgent(strMcpServerId);
+				if(iMcpServerAgent.containsTool(strName)) {
+					return iMcpServerAgent.callTool(strName, arg, strAppContextData);
+				}
+			}
+		}
+		
+		mcpServers = this.getMcpServers();
+		if(!ObjectUtils.isEmpty(mcpServers)) {
+			for(String strMcpServerId : mcpServers) {
+				String strAppContextData = null;
+				if(strMcpServerId.indexOf("@") != -1) {
+					String[] items = strMcpServerId.split("[@]");
+					strMcpServerId = items[1];
+					strAppContextData = items[0];
+				}
+				IMcpServerAgent iMcpServerAgent = this.getContext().getMcpServerAgent(strMcpServerId);
+				if(iMcpServerAgent.containsTool(strName)) {
+					return iMcpServerAgent.callTool(strName, arg, strAppContextData);
+				}
+			}
+		}
+		
+		
 		if (strName.equalsIgnoreCase("get_current_date")) {
 			return DateUtils.getCurTimeString();
 		}

@@ -5,9 +5,13 @@ package net.ibizsys.model.dataentity.logic;
 public class PSDESysAIChatAgentLogicImpl extends net.ibizsys.model.dataentity.logic.PSDELogicNodeImpl implements net.ibizsys.model.dataentity.logic.IPSDESysAIChatAgentLogic{
 
 	public final static String ATTR_GETDSTPSDELOGICPARAM = "getDstPSDELogicParam";
+	public final static String ATTR_GETHISTORYCOUNT = "historyCount";
+	public final static String ATTR_GETMESSAGE = "message";
 	public final static String ATTR_GETPSSYSAICHATAGENT = "getPSSysAIChatAgent";
 	public final static String ATTR_GETPSSYSAIFACTORY = "getPSSysAIFactory";
+	public final static String ATTR_GETPSSYSMSGTEMPL = "getPSSysMsgTempl";
 	public final static String ATTR_GETRETPSDELOGICPARAM = "getRetPSDELogicParam";
+	public final static String ATTR_GETSUBTYPE = "subType";
 	private net.ibizsys.model.dataentity.logic.IPSDELogicParam dstpsdelogicparam;
 
 	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam(){
@@ -31,6 +35,22 @@ public class PSDESysAIChatAgentLogicImpl extends net.ibizsys.model.dataentity.lo
 		this.dstpsdelogicparam = dstpsdelogicparam;
 	}
 
+
+	public int getHistoryCount(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETHISTORYCOUNT);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
+	}
+
+	public java.lang.String getMessage(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMESSAGE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.ai.IPSSysAIChatAgent pssysaichatagent;
 
 	public net.ibizsys.model.ai.IPSSysAIChatAgent getPSSysAIChatAgent(){
@@ -76,6 +96,28 @@ public class PSDESysAIChatAgentLogicImpl extends net.ibizsys.model.dataentity.lo
 		this.pssysaifactory = pssysaifactory;
 	}
 
+	private net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl;
+
+	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl(){
+		if(this.pssysmsgtempl != null) return this.pssysmsgtempl;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSMSGTEMPL);
+		if(value == null){
+			return null;
+		}
+		this.pssysmsgtempl = getPSModelObject(net.ibizsys.model.msg.IPSSysMsgTempl.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSMSGTEMPL);
+		return this.pssysmsgtempl;
+	}
+
+	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTemplMust(){
+		net.ibizsys.model.msg.IPSSysMsgTempl value = this.getPSSysMsgTempl();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定消息模板");}
+		return value;
+	}
+
+	public void setPSSysMsgTempl(net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl){
+		this.pssysmsgtempl = pssysmsgtempl;
+	}
+
 	private net.ibizsys.model.dataentity.logic.IPSDELogicParam retpsdelogicparam;
 
 	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam(){
@@ -99,4 +141,12 @@ public class PSDESysAIChatAgentLogicImpl extends net.ibizsys.model.dataentity.lo
 		this.retpsdelogicparam = retpsdelogicparam;
 	}
 
+
+	public java.lang.String getSubType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSUBTYPE);
+		if(value == null){
+			return "DEFAULT";
+		}
+		return value.asText();
+	}
 }

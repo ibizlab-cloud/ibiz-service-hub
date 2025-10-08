@@ -1,6 +1,7 @@
 package net.ibizsys.model.util.transpiler.extend.dataentity.logic;
 
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -12,6 +13,8 @@ import net.ibizsys.model.dataentity.logic.IPSDELogicLinkGroupCond;
 import net.ibizsys.model.dataentity.logic.PSDELogicLinkGroupCondImpl;
 import net.ibizsys.model.util.transpiler.IPSModelTranspileContext;
 import net.ibizsys.psmodel.core.domain.PSDELLCond;
+import net.ibizsys.psmodel.core.domain.PSDELogic;
+import net.ibizsys.psmodel.core.domain.PSDELogicParam;
 import net.ibizsys.psmodel.core.util.IPSModel;
 
 public class PSDELogicLinkCondListTranspilerEx extends net.ibizsys.model.util.transpiler.dataentity.logic.PSDELogicLinkCondListTranspiler{
@@ -20,9 +23,11 @@ public class PSDELogicLinkCondListTranspilerEx extends net.ibizsys.model.util.tr
 	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 		
+		PSDELLCond psDELogicLinkCond = (PSDELLCond)domain;
+		
 		if(bFullMode) {
 			IPSDELogicLinkCond iPSDELogicLinkCond = (IPSDELogicLinkCond)iPSModelObject;
-			PSDELLCond psDELogicLinkCond = (PSDELLCond)domain;
+			
 			if(iPSDELogicLinkCond instanceof IPSDELogicLinkGroupCond) {
 				IPSDELogicLinkGroupCond iPSDELogicLinkGroupCond = (IPSDELogicLinkGroupCond)iPSDELogicLinkCond;
 				if(iPSDELogicLinkGroupCond.getPSDELogicLinkConds()!=null) {
@@ -33,6 +38,23 @@ public class PSDELogicLinkCondListTranspilerEx extends net.ibizsys.model.util.tr
 						child.setPPSDELLCondName(psDELogicLinkCond.getName());
 						child.setOrderValue(nOrder);
 						nOrder += 100;
+					}
+				}
+			}
+		}
+		
+		if(PSDELogicListTranspilerEx.peekDecompileObject() != null) {
+			PSDELogic psDELogic = (PSDELogic)PSDELogicListTranspilerEx.peekDecompileObject();
+			psDELogicLinkCond.setPSDElogicId(psDELogic.getPSDELogicId());
+			if(!ObjectUtils.isEmpty(psDELogic.getPSDELogicParams())) {
+				for(PSDELogicParam item : psDELogic.getPSDELogicParams()) {
+					
+//					if(StringUtils.hasLength(psDELogicLinkCond.getSrcPSDLParamId()) && !StringUtils.hasLength(psDELogicLinkCond.getSrcParamPSDEId()) && psDELogicLinkCond.getSrcPSDLParamId().equals(item.getId())) {
+//						psDELNParam.setSrcParamPSDEId(item.getParamPSDEId());
+//					}
+					
+					if(StringUtils.hasLength(psDELogicLinkCond.getDstPSDLParamId()) && !StringUtils.hasLength(psDELogicLinkCond.getDstParamPSDEId()) && psDELogicLinkCond.getDstPSDLParamId().equals(item.getId())) {
+						psDELogicLinkCond.setDstParamPSDEId(item.getParamPSDEId());
 					}
 				}
 			}

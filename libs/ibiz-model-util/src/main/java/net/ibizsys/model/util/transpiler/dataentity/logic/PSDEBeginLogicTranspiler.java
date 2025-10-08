@@ -21,10 +21,14 @@ public class PSDEBeginLogicTranspiler extends net.ibizsys.model.util.transpiler.
 			
 		}
 		net.ibizsys.model.dataentity.logic.PSDEBeginLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDEBeginLogicImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "param4", realPSModelObject.getMessage(), realPSModelObject, "getMessage");
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssysmsgtemplid", realPSModelObject.getPSSysMsgTempl(), realPSModelObject, "getPSSysMsgTempl");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMESSAGE, domain, "param4", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSMSGTEMPL, domain, "pssysmsgtemplid", net.ibizsys.model.msg.IPSSysMsgTempl.class, false);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

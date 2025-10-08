@@ -359,12 +359,16 @@ public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 		return String.format("template%1$s%2$s.groovy", File.separator, this.getResourceType()).toLowerCase();
 	}
 	
+	@Override
+	public String getContent(String subType, Object key, boolean testPriv) throws Exception {
+		return this.getContent(subType, key, null, testPriv);
+	}
 	
 	@Override
-	public String getContent(String subType, String key, boolean testPriv) throws Exception {
+	public String getContent(String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception {
 		AIAgentRTScriptBase aiAgentRTScriptBase = this.getAIAgentRTScript(true);
 		if(aiAgentRTScriptBase != null) {
-			Object ret = aiAgentRTScriptBase.call(new Object[] {subType, key, testPriv});
+			Object ret = aiAgentRTScriptBase.call(new Object[] {subType, key, params, testPriv});
 			if(ret != null) {
 				return ret.toString();
 			}

@@ -22,6 +22,7 @@ import org.quartz.SchedulerFactory;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -41,11 +42,14 @@ import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSetting;
+import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.sysutil.CloudSysUtilRuntimeBase;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudExtensionUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.SysUAAUtilRuntimeBase;
+import net.ibizsys.central.cloud.core.util.domain.AccessToken;
 import net.ibizsys.central.cloud.core.util.domain.CodeItem;
 import net.ibizsys.central.cloud.core.util.domain.CodeList;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
@@ -55,6 +59,7 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionSuite;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemMerge;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemType;
 import net.ibizsys.central.codelist.IDynamicCodeListRuntime;
+import net.ibizsys.central.dataentity.logic.IDELogicRuntime;
 import net.ibizsys.central.plugin.extension.dataentity.util.DEExtensionUtilRuntime;
 import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionPSModelRTServiceSession;
 import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionPSModelRTStorage;
@@ -73,11 +78,14 @@ import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.IPSSystem;
 import net.ibizsys.model.IPSSystemService;
 import net.ibizsys.model.PSModelEnums.AppMode;
+import net.ibizsys.model.PSModelEnums.DELogicThreadRunMode;
 import net.ibizsys.model.PSModelEnums.DeploySysType;
 import net.ibizsys.model.PSModelEnums.DevSysType;
 import net.ibizsys.model.PSModelEnums.DynaSysMode;
+import net.ibizsys.model.PSModelEnums.LogicSubType;
 import net.ibizsys.model.PSModelEnums.SysRefType;
 import net.ibizsys.model.PSModelServiceImpl;
+import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.app.PSApplicationImpl;
 import net.ibizsys.model.app.PSSubAppRefImpl;
@@ -105,6 +113,7 @@ import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.codelist.ICodeListRuntime;
 import net.ibizsys.runtime.dataentity.action.DEActions;
 import net.ibizsys.runtime.security.DataAccessActions;
+import net.ibizsys.runtime.security.UserContext;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.DataTypes;
 import net.ibizsys.runtime.util.ErrorException;
@@ -218,6 +227,9 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	private ISysUniStateUtilRuntime iSysUniStateUtilRuntime = null;
 	private Scheduler scheduler = null;
 	private ISysCloudExtensionUtilRuntime iSysCloudExtensionUtilRuntime = null;
+	
+	private String strWebHookAccessTokenMode = WEBHOOK_ACCESSTOKEN_AUTO;
+	
 
 	@Override
 	protected ISysExtensionUtilRuntimeContext createModelRuntimeContext() {
@@ -305,9 +317,20 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	protected void setProductMarketProjectId(String strProductMarketProjectId) {
 		this.strProductMarketProjectId = strProductMarketProjectId;
 	}
+	
+	public String getWebHookAccessTokenMode() {
+		return strWebHookAccessTokenMode;
+	}
+
+	protected void setWebHookAccessTokenMode(String strWebHookAccessTokenMode) {
+		this.strWebHookAccessTokenMode = strWebHookAccessTokenMode;
+	}
+	
 
 	@Override
 	protected void onPrepareDefaultSetting() throws Exception {
+
+		this.setWebHookAccessTokenMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".webhook.accesstoken", getWebHookAccessTokenMode()));
 		this.setProductMarketServiceUrl(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".productmarket.serviceurl", null));
 		if(!StringUtils.hasLength(this.getProductMarketServiceUrl()) && !this.isHubMode()) {
 			log.warn(String.format("系统扩展功能组件未定义当前系统产品市场服务路径，使用全局配置"));
@@ -423,7 +446,12 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 	@Override
 	public Object invokeWebHook(String strKey, Object param) {
-		return this.executeAction("调用WebHook", new IAction() {
+		return this.invokeWebhook(strKey, param);
+	}
+	
+	@Override
+	public Object invokeWebhook(String strKey, Object param) {
+		return this.executeAction("调用Webhook", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
 				return onInvokeWebHook(strKey, param);
@@ -431,17 +459,98 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		}, null);
 	}
 
+	@Deprecated
 	protected Object onInvokeWebHook(String strKey, Object param) throws Throwable{
 		return this.onInvokeWebHook(this.getSystemRuntime(), strKey, param);
 	}
-
+	
+	@Deprecated
 	protected Object onInvokeWebHook(ISystemRuntime iSystemRuntime, String strKey, Object param) throws Throwable{
+		return this.onInvokeWebhook(iSystemRuntime, strKey, param);
+	}
+
+	protected Object onInvokeWebhook(ISystemRuntime iSystemRuntime, String strKey, Object param) throws Throwable{
+		
+		if(WEBHOOK_ACCESSTOKEN_ENABLED.equalsIgnoreCase(this.getWebHookAccessTokenMode()) || WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebHookAccessTokenMode())) {
+			boolean bTryMode = WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebHookAccessTokenMode());
+			AccessToken accessToken = this.getWebHookAccessToken(iSystemRuntime, strKey, true, bTryMode);
+			if(accessToken != null) {
+				//获取逻辑标记
+				String strLogicId = DataTypeUtils.asString(accessToken.get("logicid"));
+				if(StringUtils.hasLength(strLogicId)) {
+					//判断是否存在 `.`，如果存在则视为预置实体逻辑
+					if(strLogicId.indexOf(".") != -1) {
+						return this.executeWebHookLogic(iSystemRuntime, strLogicId, param, accessToken);
+					}
+					//设定为新的逻辑标识
+					strKey = strLogicId;
+				}
+				
+				
+				Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebHookLogicMap.get(iSystemRuntime.getDeploySystemId());
+				V2SystemExtensionLogic v2SystemExtensionLogic = (v2SystemExtensionLogicMap!=null)?v2SystemExtensionLogicMap.get(strKey):null;
+				if(v2SystemExtensionLogic == null) {
+					throw new Exception(String.format("无法获取指定Webhook[%1$s]", strKey));
+				}
+				return this.executeExtensionLogic(v2SystemExtensionLogic, param, false, accessToken);
+			}
+		}
+
 		Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebHookLogicMap.get(iSystemRuntime.getDeploySystemId());
 		V2SystemExtensionLogic v2SystemExtensionLogic = (v2SystemExtensionLogicMap!=null)?v2SystemExtensionLogicMap.get(strKey):null;
 		if(v2SystemExtensionLogic == null) {
-			throw new Exception(String.format("无法获取指定WebHook[%1$s]", strKey));
+			throw new Exception(String.format("无法获取指定Webhook[%1$s]", strKey));
 		}
 		return this.executeExtensionLogic(v2SystemExtensionLogic, param, false);
+	}
+	
+	
+	/**
+	 *  获取访问凭证数据对象
+	 * @param iSystemRuntime
+	 * @param strToken
+	 * @param bValid
+	 * @param bTryMode
+	 * @return
+	 */
+	protected AccessToken getWebHookAccessToken(ISystemRuntime iSystemRuntime, String strToken, boolean bValid, boolean bTryMode)  throws Exception {
+		
+		AccessToken accessToken = null;
+		String strAccessTokenId = String.format("%1$s%2$s-%3$s--webhook--%4$s", NacosServiceHubSettingBase.DATAID_ACCESSTOKEN_PREFIX, iSystemRuntime.getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strToken).toLowerCase();
+		String strConfig = ServiceHub.getInstance().getConfig(strAccessTokenId);
+		if(!ObjectUtils.isEmpty(strConfig)) {
+			Yaml yaml = new Yaml();
+			accessToken = JsonUtils.as(yaml.loadAs(strConfig, Map.class), AccessToken.class);
+		}
+		
+		if(accessToken == null) {
+			if(bTryMode) {
+				return null;
+			}
+			throw new Exception("凭证不存在");
+		}
+		if(bValid) {
+			//判断有效
+			if(DataTypeUtils.asBoolean(accessToken.getDisabled(), false)) {
+				if(bTryMode) {
+					return null;
+				}
+				throw new Exception("凭证已禁用");
+			}
+			
+			java.sql.Timestamp expiresTime = accessToken.getExpiresTime();
+			if(expiresTime != null) {
+				if(expiresTime.getTime() < System.currentTimeMillis()) {
+					if(bTryMode) {
+						return null;
+					}
+					throw new Exception("凭证已过期");
+				}
+			}
+		}
+		
+		return accessToken;
+		
 	}
 	
 	
@@ -679,6 +788,38 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				}
 			}
 		}
+		
+		if (iPSApplication == null) {
+			//获取子应用
+			IServiceSystemRuntime iServiceSystemRuntime = null;
+			if(iSystemRuntime instanceof IServiceSystemRuntime) {
+				iServiceSystemRuntime = (IServiceSystemRuntime)iSystemRuntime;
+			}
+			
+			if(iServiceSystemRuntime != null) {
+				Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
+				if(!ObjectUtils.isEmpty(list)) {
+					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
+						if (SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+							psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
+							if (ObjectUtils.isEmpty(psApplicationList)) {
+								continue;
+							}
+
+							for (IPSApplication item : psApplicationList) {
+								if (item.getPKGCodeName().equalsIgnoreCase(strAppTag)) {
+									iPSApplication = item;
+									break;
+								}
+							}
+						}
+						if (iPSApplication != null) {
+							break;
+						}
+					}
+				}
+			}
+		}
 
 		if (iPSApplication == null) {
 			if (bTryMode) {
@@ -888,6 +1029,9 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			strSystemMergeSessionId = iServiceSystemRuntime.getSystemMergeSessionId();
 		}
 
+		//放入临时动态目录
+		strMetaDynaModelPath = strMetaDynaModelPath + ".d";
+		
 		if(StringUtils.hasLength(strSystemMergeSessionId)) {
 			strMetaDynaModelPath = String.format("%1$s%2$s%3$s", strMetaDynaModelPath, File.separator, strSystemMergeSessionId);
 		}
@@ -1158,6 +1302,9 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 					subAppRefNode.put("dynamodeltag", iExtensionSysRefRuntime.getPSSystemService().getModelDigest());
 					subAppRefNode.put(PSSubAppRefImpl.ATTR_GETMODELSTAMP, iExtensionSysRefRuntime.getPSSystemService().getModelDigest());
+					if(StringUtils.hasLength(iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getPSDevSlnSysId())) {
+						subAppRefNode.put(PSSubAppRefImpl.ATTR_GETPSDEVSLNSYSID, iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getPSDevSlnSysId());
+					}
 					if(StringUtils.hasLength(subPSApplication.getAppMode())) {
 						subAppRefNode.put(PSSubAppRefImpl.ATTR_GETAPPMODE, subPSApplication.getAppMode());
 					}
@@ -2627,8 +2774,12 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			this.logEvent(LogLevels.ERROR, String.format("关闭定时逻辑[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), iSystemRuntime);
 		}
 	}
-
+	
 	protected Object executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData, boolean bTimer) throws Throwable{
+		return this.executeExtensionLogic(v2SystemExtensionLogic, objData, bTimer, null);
+	}
+
+	protected Object executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData, boolean bTimer, AccessToken accessToken) throws Throwable{
 
 		String strDeploySystemId = DataTypeUtils.getStringValue(v2SystemExtensionLogic.get("_deploysystemid"), null);
 		if(bTimer) {
@@ -2643,17 +2794,28 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 		IEmployeeContext lastEmployeeContext = EmployeeContext.getCurrent();
 		try {
-			Employee employee = new Employee();
-			employee.setSrfdcid(v2SystemExtensionLogic.getExtensionTag2());
-			employee.setUserId("SYSTEM");
-			employee.setUserName("后台作业");
-			employee.setPersonName("后台作业");
-			employee.setDCSystemId(v2SystemExtensionLogic.getExtensionTag());
-
-
-			IEmployeeContext iEmployeeContext = new EmployeeContext(employee, null, strDeploySystemId);
-			EmployeeContext.setCurrent(iEmployeeContext);
-
+			if(accessToken != null && accessToken.getEmployee() != null) {
+				Employee employee = new Employee();
+				employee.putAll(accessToken.getEmployee());
+				
+				Collection<? extends GrantedAuthority> authorities = null;
+				String strAuthorities = accessToken.getAuthorities();
+				if(StringUtils.hasLength(strAuthorities)) {
+					authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+				}
+				EmployeeContext employeeContext = new EmployeeContext(employee, null, strDeploySystemId, authorities);
+				UserContext.setCurrent(employeeContext);
+			}
+			else {
+				Employee employee = new Employee();
+				employee.setSrfdcid(v2SystemExtensionLogic.getExtensionTag2());
+				employee.setUserId("SYSTEM");
+				employee.setUserName("后台作业");
+				employee.setPersonName("后台作业");
+				employee.setDCSystemId(v2SystemExtensionLogic.getExtensionTag());
+				IEmployeeContext iEmployeeContext = new EmployeeContext(employee, null, strDeploySystemId);
+				EmployeeContext.setCurrent(iEmployeeContext);
+			}
 
 			//仿真上下文
 			return this.onExecuteExtensionLogic(v2SystemExtensionLogic, objData);
@@ -2674,6 +2836,101 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		ISystemRuntime iSystemRuntime = ServiceHub.getInstance().getLoadedSystemRuntime(strDeploySystemId);
 		IDataEntityRuntime iDataEntityRuntime = (IDataEntityRuntime)iSystemRuntime.getDataEntityRuntime(strDataEntityId);
 		return iDataEntityRuntime.executeExtensionLogic(v2SystemExtensionLogic, objData);
+	}
+	
+	protected Object executeWebHookLogic(ISystemRuntime iSystemRuntime, String strKey, Object param, AccessToken accessToken) throws Throwable{
+		//获取逻辑对象
+		//获取父标识
+		String strDataEntityTag = PSModelUtils.getParentId(strKey);
+		String strLogicTag = PSModelUtils.getSimpleId(strKey);
+		IDataEntityRuntime iDataEntityRuntime = (IDataEntityRuntime)iSystemRuntime.getDataEntityRuntime(strDataEntityTag, true);
+		IDELogicRuntime iDELogicRuntime = null;
+		if(iDataEntityRuntime != null) {
+			iDELogicRuntime = iDataEntityRuntime.getDELogicRuntime(strLogicTag, true);
+		}
+		
+		if(iDELogicRuntime == null && iSystemRuntime instanceof IServiceSystemRuntime) {
+			//循环子系统扩展
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)iSystemRuntime;
+			Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(false);
+			if(!ObjectUtils.isEmpty(list)) {
+				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
+					if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+						if(iExtensionSysRefRuntime.getDeploySystem() == null) {
+							continue;
+						}
+						
+						ISystemRuntime extSystemRuntime = ServiceHub.getInstance().getLoadedSystemRuntime(iExtensionSysRefRuntime.getDeploySystem().getDeploySystemId(), false);
+						iDataEntityRuntime = (IDataEntityRuntime)extSystemRuntime.getDataEntityRuntime(strDataEntityTag, true);
+						if(iDataEntityRuntime != null) {
+							iDELogicRuntime = iDataEntityRuntime.getDELogicRuntime(strLogicTag, true);
+							if (iDELogicRuntime != null) {
+								break;
+							}
+						}
+					}
+					
+				}
+			}
+		}
+		
+		if(iDELogicRuntime == null || iDELogicRuntime.getPSDELogic() == null) {
+			throw new Exception(String.format("无法获取指定逻辑[%1$s]", strKey));
+		}
+		
+		if(!LogicSubType.WEBHOOK.value.equals(iDELogicRuntime.getPSDELogic().getLogicSubType())) {
+			throw new Exception(String.format("逻辑[%1$s]类型不正确", strKey));
+		}
+		
+		IEmployeeContext lastEmployeeContext = EmployeeContext.getCurrent();
+		try {
+			if(accessToken != null && accessToken.getEmployee() != null) {
+				Employee employee = new Employee();
+				employee.putAll(accessToken.getEmployee());
+				
+				Collection<? extends GrantedAuthority> authorities = null;
+				String strAuthorities = accessToken.getAuthorities();
+				if(StringUtils.hasLength(strAuthorities)) {
+					authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+				}
+				EmployeeContext employeeContext = new EmployeeContext(employee, null, iSystemRuntime.getDeploySystemId(), authorities);
+				UserContext.setCurrent(employeeContext);
+			}
+			else {
+				UserContext.setCurrent(iSystemRuntime.createDefaultUserContext());
+			}
+			
+			if(iDELogicRuntime.getPSDELogic().getThreadMode() == DELogicThreadRunMode.THREAD.value) {
+				IDataEntityRuntime iDataEntityRuntime2 = iDataEntityRuntime;
+				IDELogicRuntime iDELogicRuntime2 = iDELogicRuntime;
+				this.getSystemRuntime().threadRun(new Runnable() {
+					
+					@Override
+					public void run() {
+						try {
+							onExecuteWebHookLogic(iDataEntityRuntime2, iDELogicRuntime2, param);
+						} catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
+				});
+				return null;
+			}
+			else {
+				return onExecuteWebHookLogic(iDataEntityRuntime, iDELogicRuntime, param);
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("执行逻辑[%1$s]发生异常，%2$s", strKey, ex.getMessage()), ex);
+			throw new Exception(String.format("执行逻辑[%1$s]发生异常，%2$s", strKey, ex.getMessage()), ex);
+		}
+		finally {
+			EmployeeContext.setCurrent(lastEmployeeContext);
+		}
+	}
+	
+	protected Object onExecuteWebHookLogic(IDataEntityRuntime iDataEntityRuntime, IDELogicRuntime iDELogicRuntime, Object param) throws Throwable{
+		return iDataEntityRuntime.executeLogic(iDELogicRuntime, new Object[] {param});
 	}
 
 	@Override

@@ -17,6 +17,7 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntimeContext;
 import net.ibizsys.central.cloud.oss.core.addin.ICloudOSSUtilRTAddin;
 import net.ibizsys.central.cloud.oss.core.addin.IOSSPreviewProvider;
+import net.ibizsys.central.cloud.oss.core.addin.IOSSTextProvider;
 import net.ibizsys.central.util.SimpleSearchContextDTO;
 import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.runtime.SystemRuntimeException;
@@ -34,9 +35,12 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 	static {
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSPREVIEW:XLSX", "net.ibizsys.central.cloud.oss.poi.addin.XlsxPOIOSSPreviewProvider");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSPREVIEW:XLS", "net.ibizsys.central.cloud.oss.poi.addin.XlsxPOIOSSPreviewProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:PDF", "net.ibizsys.central.cloud.oss.poi.addin.PdfPOIOSSTextProvider");
 	}
 
 	private Map<String, IOSSPreviewProvider> ossPreviewProviderMap = null;
+	private Map<String, IOSSTextProvider> ossTextProviderMap = null;
 	
 	private String strCloudOSSUtilRuntimeUniqueTag = null;
 	
@@ -88,7 +92,7 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 
 		this.strCloudOSSUtilRuntimeUniqueTag = KeyValueUtils.genUniqueId(ICloudOSSUtilRuntime.class.getCanonicalName(), ICloudUtilRuntime.CLOUDSERVICE_OSS);
 		this.ossPreviewProviderMap = this.getAddins(IOSSPreviewProvider.class, ADDIN_OSSPREVIEW_PREFIX);
-
+		this.ossTextProviderMap = this.getAddins(IOSSTextProvider.class, ADDIN_OSSTEXT_PREFIX);
 	}
 
 	private CloudOSSUtilRuntimeBase getSelf() {
@@ -277,7 +281,6 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 		}
 	}
 	
-	
 	protected IOSSPreviewProvider getOSSPreviewProvider(String strFileExt, boolean tryMode) throws Exception {
 		IOSSPreviewProvider iOSSPreviewProvider = this.ossPreviewProviderMap.get(strFileExt.toUpperCase());
 		if (iOSSPreviewProvider != null || tryMode) {
@@ -287,6 +290,12 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 		throw new Exception(String.format("无法获取指定OSS预览插件[%1$s]", strFileExt));
 	}
 	
-	
-	
+	protected IOSSTextProvider getOSSTextProvider(String strFileExt, boolean tryMode) throws Exception {
+		IOSSTextProvider iOSSTextProvider = this.ossTextProviderMap.get(strFileExt.toUpperCase());
+		if (iOSSTextProvider != null || tryMode) {
+			return iOSSTextProvider;
+		}
+
+		throw new Exception(String.format("无法获取指定OSS文本插件[%1$s]", strFileExt));
+	}
 }

@@ -14,22 +14,34 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
+import org.yaml.snakeyaml.Yaml;
 
+import io.modelcontextprotocol.server.McpAsyncServer;
+import io.modelcontextprotocol.server.McpServer;
+import io.modelcontextprotocol.server.McpServerFeatures;
+import io.modelcontextprotocol.spec.McpSchema.ServerCapabilities;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
+import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.SysUtilRuntimeBase;
+import net.ibizsys.central.cloud.core.util.IConfigListener;
+import net.ibizsys.central.cloud.core.util.domain.AccessToken;
+import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerToolProvider;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerTransportAgent;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerTransportProvider;
-import net.ibizsys.central.plugin.ai.mcp.server.McpAsyncServer;
-import net.ibizsys.central.plugin.ai.mcp.server.McpServer;
-import net.ibizsys.central.plugin.ai.mcp.server.McpServerFeatures;
-import net.ibizsys.central.plugin.ai.mcp.spec.McpSchema.ServerCapabilities;
 import net.ibizsys.central.plugin.ai.sysutil.addin.DefaultMcpServerToolProvider;
 import net.ibizsys.central.plugin.ai.sysutil.addin.HttpSseMcpServerTransportProvider;
 import net.ibizsys.central.plugin.ai.sysutil.addin.ISysMcpServerUtilRTAddin;
 import net.ibizsys.central.sysutil.ISysUtilRuntimeContext;
+import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
+import net.ibizsys.runtime.security.IUserContext;
+import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IAction;
+import net.ibizsys.runtime.util.JsonUtils;
 
 
 /**
@@ -46,6 +58,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	static {
 		RuntimeObjectFactory.getInstance().registerObjectIf(ISysMcpServerUtilRTAddin.class, "*:" + ADDIN_TRANSPORT_PREFIX + TRANSPORT_HTTP_SSE, HttpSseMcpServerTransportProvider.class);
 		RuntimeObjectFactory.getInstance().registerObjectIf(ISysMcpServerUtilRTAddin.class, "*:" + ADDIN_TOOL_PREFIX + TOOL_DEFAULT, DefaultMcpServerToolProvider.class);
+		//RuntimeObjectFactory.getInstance().registerObjectIf(ISysMcpServerUtilRTAddin.class, "*:" + ADDIN_TOOL_PREFIX + TOOL_AIFACTORY, AIFactoryMcpServerToolProvider.class);
 	}
 	
 	
@@ -57,7 +70,16 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 			public String getBaseUrl() {
 				return getSelf().getBaseUrl();
 			}
+
+			@Override
+			public IUserContext getDefaultUserContext() {
+				return getSelf().getDefaultUserContext();
+			}
 			
+			@Override
+			public boolean isDefaultUserOnly() {
+				return getSelf().isDefaultUserOnly();
+			}
 		};
 	}
 	
@@ -71,12 +93,17 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	
 	private Map<String, List<IMcpServerToolProvider>> mcpServerToolProviderMap2 = new HashMap<String, List<IMcpServerToolProvider>>();
 	
+	private Map<String, AccessToken> accessTokenMap = new ConcurrentHashMap<String, AccessToken>();
+	
+	public final static AccessToken EmptyAccessToken = new AccessToken(); 
 	//private final McpSchema.ServerCapabilities serverCapabilities;
 	
 	private String strBaseUrl = null;
-	
+	private IUserContext defaultUserContext = null;
+	private boolean bDefaultUserOnly = true;
+	private String strTokenPrefix = "Bearer ";
 	private List<McpServerFeatures.AsyncToolSpecification> asyncToolSpecificationList = null;
-
+	
 	
 	@Override
 	protected void onPrepareDefaultSetting() throws Exception {
@@ -85,6 +112,20 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 		if(!StringUtils.hasLength(this.getBaseUrl()) ) {
 			this.strBaseUrl = String.format("http://%1$s:%2$s/%3$s/mcp", ServiceHub.getInstance().getIPAddress(), ServiceHub.getInstance().getPort(), this.getSystemRuntime().getServiceId());
 		}
+		
+		String strTokenPrefix = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".tokenprefix", this.strTokenPrefix);
+		if(StringUtils.hasLength(strTokenPrefix)) {
+			this.setTokenPrefix(strTokenPrefix);
+		}
+		
+		this.bDefaultUserOnly = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".defaultuseronly", isDefaultUserOnly());
+		Map<String, Object> employeeMap = this.getSystemRuntimeSetting().getParams(this.getConfigFolder()+".employee", null);
+		if(!ObjectUtils.isEmpty(employeeMap)) {
+			Employee employee = new Employee();
+	    	employee.putAll(employeeMap);
+	    	this.defaultUserContext = new EmployeeContext(employee, null, this.getSystemRuntime().getDeploySystemId());
+		}
+		
 		super.onPrepareDefaultSetting();
 	}
 	
@@ -92,6 +133,19 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 		return this.strBaseUrl;
 	}
 	
+	
+	protected IUserContext getDefaultUserContext() {
+		if(defaultUserContext == null) {
+			return (IUserContext)this.getSystemRuntime().createDefaultUserContext();
+		}
+		else {
+			return defaultUserContext;
+		}
+	}
+	
+	protected boolean isDefaultUserOnly() {
+		return this.bDefaultUserOnly;
+	}
 	
 	
 	@Override
@@ -109,6 +163,113 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	
 		this.mcpServerTransportProviderMap = this.getAddins(IMcpServerTransportProvider.class, ADDIN_TRANSPORT_PREFIX);
 		this.mcpServerToolProviderMap = this.getAddins(IMcpServerToolProvider.class, ADDIN_TOOL_PREFIX);
+		
+		this.listenReloadSignal();
+	}
+	
+	
+	protected void listenReloadSignal() throws Exception {
+		if (!(this.getSystemRuntime() instanceof IServiceSystemRuntime)) {
+			return;
+		}
+
+		String strReloadSignalId = String.format("%1$s%2$s-%3$s", NacosServiceHubSettingBase.DATAID_RELOADSIGNAL_PREFIX, this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-")).toLowerCase();
+		log.debug(String.format("McpServer组件[%1$s]监控重载配置[%2$s]", this.getName(), strReloadSignalId));
+		((IServiceSystemRuntime) this.getSystemRuntime()).getConfigListenerRepo().addConfigListener(strReloadSignalId, new IConfigListener() {
+			@Override
+			public void receiveConfigInfo(String configInfo) {
+				log.debug(String.format("%1$s接收到重载信号", getConfigFolder()));
+				reload();
+			}
+		});
+	}
+	
+	@Override
+	public void reload() {
+		try {
+			this.onReload();
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SystemRuntimeException.rethrow(this, ex);
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("重新加载发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	protected void onReload() throws Throwable {
+		this.accessTokenMap.clear();
+	}
+	
+	public String getTokenPrefix() {
+		return strTokenPrefix;
+	}
+
+	protected void setTokenPrefix(String strTokenPrefix) {
+		this.strTokenPrefix = strTokenPrefix;
+	}
+	
+	
+	@Override
+	public AccessToken getAccessToken(String strToken, boolean bValid, boolean bTryMode) {
+		Assert.hasLength(strToken, "传入凭证无效");
+		if(strToken.indexOf(this.getTokenPrefix()) != 0) {
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("传入凭证无效"));
+		}
+		
+		strToken = strToken.substring(this.getTokenPrefix().length()).trim();
+		if(!StringUtils.hasLength(strToken)) {
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("传入凭证无效"));
+		}
+		try {
+			return this.onGetAccessToken(strToken.toLowerCase(), bValid, bTryMode);
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SystemRuntimeException.rethrow(this, ex);
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("获取凭证发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	protected AccessToken onGetAccessToken(String strToken, boolean bValid, boolean bTryMode) throws Throwable{
+		AccessToken accessToken = this.accessTokenMap.get(strToken);
+		if(accessToken == null) {
+			//获取
+			String strAccessTokenId = String.format("%1$s%2$s-%3$s--%4$s", NacosServiceHubSettingBase.DATAID_ACCESSTOKEN_PREFIX, this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strToken).toLowerCase();
+			String strConfig = ServiceHub.getInstance().getConfig(strAccessTokenId);
+			if(ObjectUtils.isEmpty(strConfig)) {
+				accessToken = EmptyAccessToken;
+			}
+			else {
+				Yaml yaml = new Yaml();
+				accessToken = JsonUtils.as(yaml.loadAs(strConfig, Map.class), AccessToken.class);
+			}
+			this.accessTokenMap.put(strToken, accessToken);
+		}
+		if(accessToken == EmptyAccessToken) {
+			if(bTryMode) {
+				return null;
+			}
+			throw new Exception("凭证不存在");
+		}
+		if(bValid) {
+			//判断有效
+			if(DataTypeUtils.asBoolean(accessToken.getDisabled(), false)) {
+				if(bTryMode) {
+					return null;
+				}
+				throw new Exception("凭证已禁用");
+			}
+			
+			java.sql.Timestamp expiresTime = accessToken.getExpiresTime();
+			if(expiresTime != null) {
+				if(expiresTime.getTime() < System.currentTimeMillis()) {
+					if(bTryMode) {
+						return null;
+					}
+					throw new Exception("凭证已过期");
+				}
+			}
+		}
+		
+		return accessToken;
 	}
 	
 	@Override
@@ -129,15 +290,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 
 	protected void prepareConfig() throws Exception {
 
-//		if(this.getPSSysUtil().getPSSysResource()== null) {
-//			log.warn(String.format("AI工厂组件[%1$s]未指定配置资源", this.getName()));
-//			return;
-//		}
-//		ISysResourceRuntime iSysResourceRuntime = this.getSystemRuntime().getSysResourceRuntime(this.getPSSysUtil().getPSSysResource());
-//		if(iSysResourceRuntime instanceof ISysFileResourceRuntime) {
-//			this.setConfigFromResource(false);
-//			this.setConfigSysFileResourceRuntime((ISysFileResourceRuntime)iSysResourceRuntime);
-//		}
+
 	}
 	
 	
@@ -200,62 +353,20 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	}
 	
 	protected void prepareTransportAgent(IMcpServerTransportAgent iTransportAgent) throws Throwable {
-		
-//		Map<String, McpRequestHandler<?>> requestHandlers = prepareRequestHandlers();
-//		Map<String, McpNotificationHandler> notificationHandlers = prepareNotificationHandlers(features);
-//		
-//		iTransportAgent.setSessionFactory(transport -> new McpServerSession(UUID.randomUUID().toString(),
-//				requestTimeout, transport, this::asyncInitializeRequestHandler, requestHandlers, notificationHandlers));
 		McpAsyncServer asyncServer = McpServer.async(iTransportAgent)
-			    .serverInfo("my-server", "1.0.0")
+			    .serverInfo(this.getName(), "1.0.0")
 			    .capabilities(ServerCapabilities.builder()
 			        .resources(false, true)     // Enable resource support
 			        .tools(true)                // Enable tool support
 			        .prompts(true)              // Enable prompt support
 			        .logging()                  // Enable logging support
-			        .completions()              // Enable completions support
+			        //.completions()              // Enable completions support
 			        .build())
 			    .build();
 		
 		this.mcpServerMap.put(iTransportAgent.getType(), asyncServer);
 		
-//		String aa = "\"properties\": {\r\n" + 
-//				"          \"location\": {\r\n" + 
-//				"            \"type\": \"string\",\r\n" + 
-//				"            \"description\": \"The location to get the temperature for, in the format \\\"City, State, Country\\\".\"\r\n" + 
-//				"          },\r\n" + 
-//				"          \"unit\": {\r\n" + 
-//				"            \"type\": \"string\",\r\n" + 
-//				"            \"enum\": [\r\n" + 
-//				"              \"celsius\",\r\n" + 
-//				"              \"fahrenheit\"\r\n" + 
-//				"            ],\r\n" + 
-//				"            \"description\": \"The unit to return the temperature in. Defaults to \\\"celsius\\\".\"\r\n" + 
-//				"          }\r\n" + 
-//				"        }\r\n";
-//		// 保持原有 JSON Schema 定义不变
-//		String schema = "{\n" +
-//	               "  \"type\": \"object\",\n" +
-//	               "  \"id\": \"tool_get_current_temperature\",\n" +
-//	               aa +
-//	               "}";
-//
-//		// 使用 JDK8 的 CompletableFuture 实现异步工具
-//		
-//
-//		// 3. 构建AsyncToolSpecification（按三参数构造函数规范）
-//		McpServerFeatures.AsyncToolSpecification asyncToolSpecification = new McpServerFeatures.AsyncToolSpecification(
-//		    new Tool("get_current_temperature", "Get current temperature at a location.", schema),  // 工具定义
-//		    
-//		    // 核心异步实现（call参数）
-//		    (exchange, arguments) -> {
-//		    	String location = arguments.get("location").toString();
-//	            String unit = arguments.get("unit").toString();
-//	            Object result = "零下20摄氏度";
-//		    	return Mono.just(new CallToolResult(Arrays.asList(new TextContent(result.toString())), false));
-//
-//		    }
-//		);
+
 		List<McpServerFeatures.AsyncToolSpecification> list = this.getAsyncToolSpecifications();
 		if(!ObjectUtils.isEmpty(list)) {
 			for(McpServerFeatures.AsyncToolSpecification asyncToolSpecification : list) {
@@ -265,6 +376,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	}
 	
 	protected List<McpServerFeatures.AsyncToolSpecification> getAsyncToolSpecifications() {
+		//this.asyncToolSpecificationList  = null;
 		if(this.asyncToolSpecificationList == null ) {
 			Map<String, IMcpServerToolProvider> map = new LinkedHashMap<String, IMcpServerToolProvider>();
 			for(String key : this.mcpServerToolProviderMap2.keySet()) {
@@ -272,6 +384,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 				if(ObjectUtils.isEmpty(list)) {
 					continue;
 				}
+				
 				map.put(key, list.get(0));
 			}
 			
@@ -279,7 +392,13 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 				if(map.containsKey(key)) {
 					continue;
 				}
-				map.put(key, this.mcpServerToolProviderMap.get(key));
+				
+				IMcpServerToolProvider iMcpServerToolProvider = this.mcpServerToolProviderMap.get(key);
+				if(!iMcpServerToolProvider.isEnabled()) {
+					continue;
+				}
+				
+				map.put(key, iMcpServerToolProvider);
 			}
 			
 			List<McpServerFeatures.AsyncToolSpecification> allList = new ArrayList<McpServerFeatures.AsyncToolSpecification>();
@@ -422,4 +541,5 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 			return false;			
 		}
 	}
+	
 }

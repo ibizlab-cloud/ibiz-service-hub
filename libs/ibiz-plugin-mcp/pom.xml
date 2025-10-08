@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.ibizlab.plugin</groupId>
+    <artifactId>ibiz-plugin</artifactId>
+    <version>8.1.0.572.13</version>
+  </parent>
+  <artifactId>ibiz-plugin-mcp</artifactId>
+	<name>ibiz-plugin-mcp</name>
+    	<properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+	</properties>
+	
+	<dependencies>
+	
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-cloud-core</artifactId>
+			<version>8.1.0.572.13</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5-fluent -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents.client5</groupId>
+		    <artifactId>httpclient5</artifactId>
+		    <version>5.5</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.17.3</version>
+		</dependency>
+	</dependencies>
+</project>

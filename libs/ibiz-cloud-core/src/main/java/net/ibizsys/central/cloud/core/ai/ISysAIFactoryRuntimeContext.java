@@ -83,4 +83,19 @@ public interface ISysAIFactoryRuntimeContext extends IModelRuntimeContext, IAIFa
 	 */
 	Map<String, Object> getParams(String strPKey, Map<String, Object> params);
 	
+	
+	
+	/**
+	 * 获取聊天历史消息数量
+	 * @return
+	 */
+	int getHistoryCount();
+	
+	
+	/**
+	 * 获取默认AI平台类型
+	 * @return
+	 */
+	String getAIPlatformType();
+	
 }

@@ -1,5 +1,6 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,6 +33,17 @@ public class ChatCompletionRequest extends EntityBase {
 	
 	public final static String FIELD_MAXTOKENS = "maxtokens";
 
+	/**
+	 * 最大输入词数
+	 */
+	public final static String FIELD_MAXINPUTTOKENS = "maxinputtokens";
+	
+	
+	/**
+	 * McpServer集合
+	 */
+	public final static String FIELD_MCPSERVERS = "mcpservers";
+	
 	/**
 	 * 设置「消息集合」
 	 *
@@ -321,6 +333,87 @@ public class ChatCompletionRequest extends EntityBase {
 	@JsonIgnore
 	public ChatCompletionRequest resetMaxTokens() {
 		this.reset(FIELD_MAXTOKENS);
+		return this;
+	}
+	
+	/**
+	 * 获取「McpServers」值
+	 *
+	 */
+	@JsonIgnore
+	public List<String> getMcpServers() {
+		Object objValue = this.get(FIELD_MCPSERVERS);
+		if (objValue == null) {
+			return null;
+		}
+		
+		if(objValue instanceof String) {
+			List list = Arrays.asList(objValue.toString().split("[,]"));
+			this.set(FIELD_MCPSERVERS, list);
+			return list;
+		}
+		
+		return (List<String>) objValue;
+	}
+
+	/**
+	 * 判断 「McpServers」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMcpServers() {
+		return this.contains(FIELD_MCPSERVERS);
+	}
+
+	/**
+	 * 重置 「McpServers」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest resetMcpServers() {
+		this.reset(FIELD_MCPSERVERS);
+		return this;
+	}
+	
+	
+	
+    
+    /**
+	 * 设置「最大输入词量」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest setMaxInputTokens(Integer val) {
+		this.set(FIELD_MAXINPUTTOKENS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「最大输入词量」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getMaxInputTokens() {
+		return DataTypeUtils.asInteger(this.get(FIELD_MAXINPUTTOKENS), null);
+	}
+
+	/**
+	 * 判断 「最大输入词量」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMaxInputTokens() {
+		return this.contains(FIELD_MAXINPUTTOKENS);
+	}
+
+	/**
+	 * 重置 「最大输入词量」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest resetMaxInputTokens() {
+		this.reset(FIELD_MAXINPUTTOKENS);
 		return this;
 	}
 }

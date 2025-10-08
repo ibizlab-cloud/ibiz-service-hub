@@ -1,6 +1,6 @@
 package net.ibizsys.central.plugin.ai.sysutil.addin;
 
-import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.plugin.ai.sysutil.ISysMcpServerUtilRuntime;
 import net.ibizsys.central.plugin.ai.sysutil.ISysMcpServerUtilRuntimeContext;
 import net.ibizsys.runtime.plugin.ModelRTAddinBase2;
@@ -11,8 +11,8 @@ public abstract class SysMcpServerUtilRTAddinBase extends ModelRTAddinBase2 impl
 		return (ISysMcpServerUtilRuntimeContext)super.getContext();
 	}
 	
-	public ISystemRuntime getSystemRuntime() {
-		return getContext().getSysMcpServerUtilRuntime().getSystemRuntime();
+	public IServiceSystemRuntime getSystemRuntime() {
+		return (IServiceSystemRuntime)getContext().getSysMcpServerUtilRuntime().getSystemRuntime();
 	}
 	
 	public ISysMcpServerUtilRuntime getSysMcpServerUtilRuntime() {

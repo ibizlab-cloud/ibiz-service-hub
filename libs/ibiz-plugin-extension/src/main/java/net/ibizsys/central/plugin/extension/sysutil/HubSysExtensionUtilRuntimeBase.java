@@ -179,6 +179,10 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 
 	@Override
 	public Object invokeWebHook(ISystemRuntime iSystemRuntime, String strKey, Object param) {
+		return this.invokeWebhook(iSystemRuntime, strKey, param);
+	}
+	
+	public Object invokeWebhook(ISystemRuntime iSystemRuntime, String strKey, Object param) {
 		return this.executeAction("调用WebHook", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
@@ -878,12 +882,12 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 		return this.executeAction("发布系统合并版本", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				return onPublishSystemMergencesVerVer(id);
+				return onPublishSystemMergencesVer(id);
 			}
 		}, null, Boolean.class);
 	}
 
-	protected boolean onPublishSystemMergencesVerVer(String id) throws Throwable {
+	protected boolean onPublishSystemMergencesVer(String id) throws Throwable {
 		V2System v2System = this.getCloudExtensionClient().getSystem(id);
 		return this.doPublishSystemMergencesVer(v2System);
 	}

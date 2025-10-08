@@ -1,5 +1,9 @@
 package net.ibizsys.runtime.util;
 
+import java.util.Map;
+
+import org.springframework.util.ObjectUtils;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -20,7 +24,15 @@ public class AppContext extends EntityBase implements IAppContext {
 //		return null;
 //	}
 	
+	public AppContext() {
+		
+	}
 	
+	public AppContext(Map<String, Object> params) {
+		if(!ObjectUtils.isEmpty(params)) {
+			this.putAll(params);
+		}
+	}
 	
 	/**
 	 * 新建应用上下文

@@ -1571,7 +1571,7 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 										lastList = (List<IEntityDTO>) cacheData;
 									} else {
 										// 查出原有数据
-										ISearchContextDTO iSearchContextDTO = refDataEntityRuntime.createSearchContext().raw();
+										ISearchContextDTO iSearchContextDTO = refDataEntityRuntime.createSearchContext().all().raw();
 										refDataEntityRuntime.setSearchCondition(iSearchContextDTO, pickupPSDEField, Conditions.EQ, objKeyValue);
 
 										if (parentTypePSDEField != null) {

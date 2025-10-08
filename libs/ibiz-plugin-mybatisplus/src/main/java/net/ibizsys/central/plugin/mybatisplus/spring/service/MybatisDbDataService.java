@@ -365,7 +365,7 @@ public class MybatisDbDataService implements IDBDataService {
 			data.put("alias", alias);
 			for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
 				IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
-				if (iDEDataQueryCodeRuntime != null) {
+				if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 					iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
 						String codeExpName = iPSDEDataQueryCodeExp.getName();
 						if(codeExpName.startsWith("ALIAS.")){
@@ -415,7 +415,7 @@ public class MybatisDbDataService implements IDBDataService {
 		data.put("alias", alias);
 		for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
 			IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
-			if (iDEDataQueryCodeRuntime != null) {
+			if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
 					String codeExpName = iPSDEDataQueryCodeExp.getName();
 					if(codeExpName.startsWith("ALIAS.")){
@@ -471,7 +471,7 @@ public class MybatisDbDataService implements IDBDataService {
 			//查询别名加入参数
 			Map<String, Object> alias = new HashMap();
 			data.put("alias", alias);
-			if (iDEDataQueryCodeRuntime != null) {
+			if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
 					String codeExpName = iPSDEDataQueryCodeExp.getName();
 					if(codeExpName.startsWith("ALIAS.")){
@@ -529,7 +529,7 @@ public class MybatisDbDataService implements IDBDataService {
 			//查询别名加入参数
 			Map<String, Object> alias = new HashMap();
 			data.put("alias", alias);
-			if (iDEDataQueryCodeRuntime != null) {
+			if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
 					String codeExpName = iPSDEDataQueryCodeExp.getName();
 					if(codeExpName.startsWith("ALIAS.")){

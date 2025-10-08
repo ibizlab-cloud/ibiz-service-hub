@@ -131,7 +131,58 @@ public class AIAccess extends EntityBase {
 	 */
 	public final static String FIELD_MCPSERVERS = "mcpservers";
 	
+	/**
+	 * 最大的工具调用次数
+	 */
+	public final static String FIELD_TOOLMAXCALLS = "toolmaxcalls";
 	
+	
+	/**
+	 * 工具调用超出提示信息
+	 */
+	public final static String FIELD_TOOLEXCEEDMESSAGE = "toolexceedmessage";
+	
+	
+	/**
+	 * 工具调用步骤，1：发送步骤，2：发送步骤并返回成功结果
+	 */
+	public final static String FIELD_TOOLCALLSTEP = "toolcallstep";
+	
+	
+	/**
+	 * 平行工具调用
+	 */
+	public final static String FIELD_PARALLELTOOLCALL = "paralleltoolcall";
+	
+	
+	/**
+	 * 思考预算
+	 */
+	public final static String FIELD_THINKBUDGET = "thinkbudget";
+	
+	/**
+	 * 最大输入词数
+	 */
+	public final static String FIELD_MAXINPUTTOKENS = "maxinputtokens";
+	
+	
+	/**
+	 * 工具调用步骤：禁用
+	 */
+	public final static int TOOLCALLSTEP_DISABLED = 0;
+	
+	/**
+	 * 工具调用步骤：启用
+	 */
+	public final static int TOOLCALLSTEP_ENABLED = 1;
+	
+	/**
+	 * 工具调用步骤：启动返回成功结果
+	 */
+	public final static int TOOLCALLSTEP_RESULT = 2;
+	
+	
+
 	
 	/**
 	 * 设置「AI应用标识」
@@ -990,6 +1041,246 @@ public class AIAccess extends EntityBase {
 	@JsonIgnore
 	public AIAccess resetMcpServers() {
 		this.reset(FIELD_MCPSERVERS);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ToolMaxCalls」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setToolMaxCalls(String val) {
+		this.set(FIELD_TOOLMAXCALLS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ToolMaxCalls」值
+	 *
+	 */
+	@JsonIgnore
+	public String getToolMaxCalls() {
+		return DataTypeUtils.asString(this.get(FIELD_TOOLMAXCALLS), null);
+	}
+
+	/**
+	 * 判断 「ToolMaxCalls」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsToolMaxCalls() {
+		return this.contains(FIELD_TOOLMAXCALLS);
+	}
+
+	/**
+	 * 重置 「ToolMaxCalls」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetToolMaxCalls() {
+		this.reset(FIELD_TOOLMAXCALLS);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ToolExceedMessages」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setToolExceedMessages(String val) {
+		this.set(FIELD_TOOLEXCEEDMESSAGE, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ToolExceedMessages」值
+	 *
+	 */
+	@JsonIgnore
+	public String getToolExceedMessages() {
+		return DataTypeUtils.asString(this.get(FIELD_TOOLEXCEEDMESSAGE), null);
+	}
+
+	/**
+	 * 判断 「ToolExceedMessages」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsToolExceedMessages() {
+		return this.contains(FIELD_TOOLEXCEEDMESSAGE);
+	}
+
+	/**
+	 * 重置 「ToolExceedMessages」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetToolExceedMessages() {
+		this.reset(FIELD_TOOLEXCEEDMESSAGE);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ToolCallStep」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setToolCallStep(String val) {
+		this.set(FIELD_TOOLCALLSTEP, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ToolCallStep」值
+	 *
+	 */
+	@JsonIgnore
+	public String getToolCallStep() {
+		return DataTypeUtils.asString(this.get(FIELD_TOOLCALLSTEP), null);
+	}
+
+	/**
+	 * 判断 「ToolCallStep」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsToolCallStep() {
+		return this.contains(FIELD_TOOLCALLSTEP);
+	}
+
+	/**
+	 * 重置 「ToolCallStep」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetToolCallStep() {
+		this.reset(FIELD_TOOLCALLSTEP);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ParallelToolCall」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setParallelToolCall(String val) {
+		this.set(FIELD_PARALLELTOOLCALL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ParallelToolCall」值
+	 *
+	 */
+	@JsonIgnore
+	public String getParallelToolCall() {
+		return DataTypeUtils.asString(this.get(FIELD_PARALLELTOOLCALL), null);
+	}
+
+	/**
+	 * 判断 「ParallelToolCall」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsParallelToolCall() {
+		return this.contains(FIELD_PARALLELTOOLCALL);
+	}
+
+	/**
+	 * 重置 「ParallelToolCall」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetParallelToolCall() {
+		this.reset(FIELD_PARALLELTOOLCALL);
+		return this;
+	}
+	
+	
+    /**
+	 * 设置「思考预算」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setThinkBudget(Integer val) {
+		this.set(FIELD_THINKBUDGET, val);
+		return this;
+	}
+
+	/**
+	 * 获取「思考预算」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getThinkBudget() {
+		return DataTypeUtils.asInteger(this.get(FIELD_THINKBUDGET), null);
+	}
+
+	/**
+	 * 判断 「思考预算」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsThinkBudget() {
+		return this.contains(FIELD_THINKBUDGET);
+	}
+
+	/**
+	 * 重置 「思考预算」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetThinkBudget() {
+		this.reset(FIELD_THINKBUDGET);
+		return this;
+	}
+	
+	
+    /**
+	 * 设置「最大输入词量」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setMaxInputTokens(Integer val) {
+		this.set(FIELD_MAXINPUTTOKENS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「最大输入词量」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getMaxInputTokens() {
+		return DataTypeUtils.asInteger(this.get(FIELD_MAXINPUTTOKENS), null);
+	}
+
+	/**
+	 * 判断 「最大输入词量」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMaxInputTokens() {
+		return this.contains(FIELD_MAXINPUTTOKENS);
+	}
+
+	/**
+	 * 重置 「最大输入词量」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetMaxInputTokens() {
+		this.reset(FIELD_MAXINPUTTOKENS);
 		return this;
 	}
 }

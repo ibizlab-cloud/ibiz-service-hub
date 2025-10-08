@@ -9,6 +9,8 @@ import net.ibizsys.central.backend.ISysBackendTaskRuntime;
 import net.ibizsys.central.bi.ISysBISchemeRuntime;
 import net.ibizsys.central.database.ISysDBSchemeRuntime;
 import net.ibizsys.central.dataentity.demap.IDEMapRuntime;
+import net.ibizsys.central.dataentity.logic.IDELogicNodeRuntime;
+import net.ibizsys.central.dataentity.logic.IDELogicParamRuntime;
 import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.search.ISysSearchSchemeRuntime;
 import net.ibizsys.central.service.ISubSysServiceAPIRuntime;
@@ -26,6 +28,8 @@ import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.backservice.IPSSysBackService;
 import net.ibizsys.model.bi.IPSSysBIScheme;
 import net.ibizsys.model.database.IPSSysDBScheme;
+import net.ibizsys.model.dataentity.logic.IPSDELogicNode;
+import net.ibizsys.model.dataentity.logic.IPSDELogicParam;
 import net.ibizsys.model.res.IPSSysResource;
 import net.ibizsys.model.search.IPSSysSearchScheme;
 import net.ibizsys.model.service.IPSSubSysServiceAPI;
@@ -210,4 +214,20 @@ public interface ISystemUtilRuntime extends net.ibizsys.runtime.ISystemUtilRunti
 	 * @return
 	 */
 	ISysRefRuntime createSysRefRuntime(IPSSysRef iPSSysRef);
+	
+	/**
+	 * 获取实体逻辑节点运行时
+	 * 
+	 * @param iPSDELogicNode
+	 * @return
+	 */
+	IDELogicNodeRuntime getDELogicNodeRuntime(IPSDELogicNode iPSDELogicNode, boolean bNewInstance);
+
+	/**
+	 * 获取实体逻辑参数运行时
+	 * 
+	 * @param iPSDELogicParam
+	 * @return
+	 */
+	IDELogicParamRuntime getDELogicParamRuntime(IPSDELogicParam iPSDELogicParam);
 }

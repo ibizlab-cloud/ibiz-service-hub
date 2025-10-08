@@ -308,6 +308,12 @@ public interface IServiceHub extends ISystemGateway{
 	
 	
 	/**
+	 * 移除配置
+	 * @param strConfigId
+	 */
+	void removeConfig(String strConfigId);
+	
+	/**
 	 * 增加配置侦听器对象
 	 * @param dataId
 	 * @param listener

@@ -32,7 +32,19 @@ public interface IHubSysExtensionUtilRuntime extends ISysUtilRuntime{
 	 * @param param
 	 * @return
 	 */
+	@Deprecated
 	Object invokeWebHook(ISystemRuntime iSystemRuntime, String strKey, Object param);
+	
+	
+	/**
+	 * 调用WebHook逻辑
+	 * @param iSystemRuntime
+	 * @param strKey
+	 * @param param
+	 * @return
+	 */
+	Object invokeWebhook(ISystemRuntime iSystemRuntime, String strKey, Object param);
+	
 	
 	/**
 	 * 调用动态模型接口

@@ -358,7 +358,7 @@ public abstract class DynaTableDEDynaStorageUtilRuntimeBase extends DEDynaStorag
 	@Override
 	protected void onTranslateEntityDynaFieldsAfterProceed(Object arg0, Object objRet, String strActionName, IPSDEAction iPSDEAction) throws Throwable {
 		Map<String, IPSDEField> dynaPSDEFieldMap;
-		if (DEActionModes.READ.equals(iPSDEAction.getActionMode())) {
+		if (iPSDEAction != null && DEActionModes.READ.equals(iPSDEAction.getActionMode())) {
 			dynaPSDEFieldMap = this.getDynaPSDEFields(objRet, strActionName, iPSDEAction);
 		} else {
 			dynaPSDEFieldMap = this.getDynaPSDEFields(arg0, strActionName, iPSDEAction);
@@ -384,7 +384,7 @@ public abstract class DynaTableDEDynaStorageUtilRuntimeBase extends DEDynaStorag
 		String strDataType = null;
 		if (dataTypePSDEField == null) {
 			strDataType = DATATYPE_DEFAULT;
-		} else {
+		} else if(iPSDEAction != null){
 			if (DEActionModes.CREATE.equals(iPSDEAction.getActionMode()) || DEActionModes.READ.equals(iPSDEAction.getActionMode())) {
 				strDataType = iEntityBase.getString(dataTypePSDEField.getLowerCaseName(), null);
 			} else if (DEActionModes.UPDATE.equals(iPSDEAction.getActionMode())) {

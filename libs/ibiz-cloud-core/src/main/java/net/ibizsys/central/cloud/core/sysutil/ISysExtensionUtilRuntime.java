@@ -32,8 +32,21 @@ public interface ISysExtensionUtilRuntime extends ISysUtilRuntime{
      */
     public final static String SERVICEAPITAG_PSMODELTOOLAPI = "PSMODELTOOLAPI";
     
+    /**
+     * WebHook 访问标记模式：启用
+     */
+    public final static String WEBHOOK_ACCESSTOKEN_ENABLED = "enabled";
+    
+    /**
+     * WebHook 访问标记模式：禁用
+     */
+    public final static String WEBHOOK_ACCESSTOKEN_DISABLED = "disabled";
     
     
+    /**
+     * WebHook 访问标记模式：自动，优先尝试Token模式
+     */
+    public final static String WEBHOOK_ACCESSTOKEN_AUTO = "auto";
 
 	
 	/**
@@ -42,8 +55,17 @@ public interface ISysExtensionUtilRuntime extends ISysUtilRuntime{
 	 * @param param
 	 * @return
 	 */
+    @Deprecated
 	Object invokeWebHook(String strKey, Object param);
 	
+	
+	/**
+	 * 调用WebHook逻辑
+	 * @param strKey
+	 * @param param
+	 * @return
+	 */
+	Object invokeWebhook(String strKey, Object param);
     
 	/**
 	 * 调用动态模型接口

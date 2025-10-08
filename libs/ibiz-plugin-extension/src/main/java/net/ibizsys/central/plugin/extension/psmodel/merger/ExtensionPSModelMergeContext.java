@@ -9,7 +9,7 @@ import net.ibizsys.model.util.merger.PSModelMergeContext;
 
 public class ExtensionPSModelMergeContext extends PSModelMergeContext implements IExtensionPSModelMergeContext {
 
-	private static Map<String, Boolean> psModelMergeChildMap = new HashMap<String, Boolean>();
+	private final static Map<String, Boolean> psModelMergeChildMap = new HashMap<String, Boolean>();
 	
 	
 	static {

@@ -28,7 +28,6 @@ import net.ibizsys.central.cloud.core.bi.SysBISchemeRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
 import net.ibizsys.central.cloud.core.database.SysDBSchemeRuntime;
 import net.ibizsys.central.cloud.core.dataentity.DataEntityRuntime;
-import net.ibizsys.central.cloud.core.dataentity.logic.DELogicSysAIChatAgentNodeRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.IProxyDEService;
 import net.ibizsys.central.cloud.core.eai.SysAIAgentRuntime;
 import net.ibizsys.central.cloud.core.security.IAuthenticationUser;
@@ -56,8 +55,6 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemMerge;
 import net.ibizsys.central.cloud.core.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.central.database.ISysDBSchemeRuntime;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
-import net.ibizsys.central.dataentity.logic.DELogicNodeTypes;
-import net.ibizsys.central.dataentity.logic.IDELogicNodeRuntime;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.central.system.ISystemModuleUtilRuntime;
 import net.ibizsys.central.sysutil.ISysOSSUtilRuntime;
@@ -1187,13 +1184,7 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 		return new SysAIFactoryRuntime();
 	}
 	
-	@Override
-	protected IDELogicNodeRuntime onCreateDELogicNodeRuntime(String strLogicNodeType) throws Exception {
-		if (DELogicNodeTypes.SYSAICHATAGENT.equals(strLogicNodeType)) {
-			return new DELogicSysAIChatAgentNodeRuntime();
-		}
-		return super.onCreateDELogicNodeRuntime(strLogicNodeType);
-	}
+	
 	
 	@Override
 	public IConfigListenerRepo getConfigListenerRepo() {

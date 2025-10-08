@@ -51,4 +51,18 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPluginMust();
+	
+	
+	/**
+	 * 获取权限统一资源对象
+	 * @return
+	 */
+	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();
+
+
+	/**
+	 * 获取权限统一资源对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.security.IPSSysUniRes getPSSysUniResMust();
 }

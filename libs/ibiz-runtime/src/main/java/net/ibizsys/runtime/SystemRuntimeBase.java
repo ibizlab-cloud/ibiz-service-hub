@@ -88,7 +88,7 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(SystemRuntimeBase.class);
 	
-	public final static String VERSION = "8.1.0.570";
+	public final static String VERSION = "8.1.0.572";
 	public final static String RUNTIMETYPE_R8 = "R8";
 	
 	private final static Map<String, String> ScriptCodeEngineMap = new HashMap<String, String>();

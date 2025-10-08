@@ -1,11 +1,13 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
+import net.ibizsys.runtime.util.JsonUtils;
 
 /**
  * McpServer数据对象
@@ -14,12 +16,12 @@ import net.ibizsys.runtime.util.EntityBase;
 public class McpServer extends EntityBase {
 
 	/**
-	 * AI应用标识
+	 * McpServer标识
 	 */
 	public final static String FIELD_ID = "id";
 
 	/**
-	 * AI应用
+	 * McpServer
 	 */
 	public final static String FIELD_NAME = "name";
 
@@ -54,41 +56,10 @@ public class McpServer extends EntityBase {
 	public final static String FIELD_EXPIRESTIME = "expirestime";
 
 
-
-	/**
-	 * EmbeddingUrl
-	 */
-	public final static String FIELD_EMBEDDINGURL = "embeddingurl";
-
-	/**
-	 * ProxyUrl
-	 */
-	public final static String FIELD_PROXYURL = "proxyurl";
-	
-	
 	/**
 	 * ServiceUrl
 	 */
 	public final static String FIELD_SERVICEURL = "serviceurl";
-	
-	
-	
-	/**
-	 * Model
-	 */
-	public final static String FIELD_MODEL = "model";
-	
-	
-	/**
-	 * Embedding Model
-	 */
-	public final static String FIELD_EMBEDDINGMODEL = "embeddingmodel";
-	
-	
-	/**
-	 * 启用工具
-	 */
-	public final static String FIELD_TOOLS = "tools";
 	
 	
 	/**
@@ -98,35 +69,13 @@ public class McpServer extends EntityBase {
 	
 	
 	/**
-	 * 取值范围: [.0f, 1.0f]。 多样性，越高，多样性越好
+	 * 附加头部
 	 */
-	public final static String FIELD_TEMPERATURE = "temperature";
-	
-	
-	public final static String FIELD_MAXTOKENS = "maxtokens";
+	public final static String FIELD_HEADERS = "headers";
 	
 	
 	/**
-	 * 流模式： true, false, auto
-	 */
-	public final static String FIELD_STREAM = "stream";
-	
-	/**
-	 * 思考模式： true, false, auto
-	 */
-	public final static String FIELD_THINK = "think";
-	
-	
-	/**
-	 * 移除Think内容: all;input;output
-	 */
-	public final static String FIELD_REMOVETHINK = "removethink";
-	
-	
-	
-	
-	/**
-	 * 设置「AI应用标识」
+	 * 设置「McpServer标识」
 	 *
 	 * @param val
 	 */
@@ -137,7 +86,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 获取「AI应用标识」值
+	 * 获取「McpServer标识」值
 	 *
 	 */
 	@JsonIgnore
@@ -146,7 +95,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 判断 「AI应用标识」是否有值
+	 * 判断 「McpServer标识」是否有值
 	 *
 	 */
 	@JsonIgnore
@@ -155,7 +104,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 重置 「AI应用标识」
+	 * 重置 「McpServer标识」
 	 *
 	 */
 	@JsonIgnore
@@ -165,7 +114,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 设置「AI应用」
+	 * 设置「McpServer」
 	 *
 	 * @param val
 	 */
@@ -176,7 +125,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 获取「AI应用」值
+	 * 获取「McpServer」值
 	 *
 	 */
 	@JsonIgnore
@@ -185,7 +134,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 判断 「AI应用」是否有值
+	 * 判断 「McpServer」是否有值
 	 *
 	 */
 	@JsonIgnore
@@ -194,7 +143,7 @@ public class McpServer extends EntityBase {
 	}
 
 	/**
-	 * 重置 「AI应用」
+	 * 重置 「McpServer」
 	 *
 	 */
 	@JsonIgnore
@@ -441,88 +390,6 @@ public class McpServer extends EntityBase {
 		return this;
 	}
 
-	
-
-	/**
-	 * 设置「EmbeddingUrl」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setEmbeddingUrl(String val) {
-		this.set(FIELD_EMBEDDINGURL, val);
-		return this;
-	}
-
-	/**
-	 * 获取「EmbeddingUrl」值
-	 *
-	 */
-	@JsonIgnore
-	public String getEmbeddingUrl() {
-		return (String) this.get(FIELD_EMBEDDINGURL);
-	}
-
-	/**
-	 * 判断 「EmbeddingUrl」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsEmbeddingUrl() {
-		return this.contains(FIELD_EMBEDDINGURL);
-	}
-
-	/**
-	 * 重置 「EmbeddingUrl」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetEmbeddingUrl() {
-		this.reset(FIELD_EMBEDDINGURL);
-		return this;
-	}
-
-	
-	
-	/**
-	 * 设置「ProxyUrl」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setProxyUrl(String val) {
-		this.set(FIELD_PROXYURL, val);
-		return this;
-	}
-
-	/**
-	 * 获取「ProxyUrl」值
-	 *
-	 */
-	@JsonIgnore
-	public String getProxyUrl() {
-		return (String) this.get(FIELD_PROXYURL);
-	}
-
-	/**
-	 * 判断 「ProxyUrl」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsProxyUrl() {
-		return this.contains(FIELD_PROXYURL);
-	}
-
-	/**
-	 * 重置 「ProxyUrl」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetProxyUrl() {
-		this.reset(FIELD_PROXYURL);
-		return this;
-	}
-	
 
 	/**
 	 * 设置「ServiceUrl」
@@ -565,127 +432,6 @@ public class McpServer extends EntityBase {
 	
 	
 
-	
-	
-
-	/**
-	 * 设置「Model」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setModel(String val) {
-		this.set(FIELD_MODEL, val);
-		return this;
-	}
-
-	/**
-	 * 获取「Model」值
-	 *
-	 */
-	@JsonIgnore
-	public String getModel() {
-		return (String) this.get(FIELD_MODEL);
-	}
-
-	/**
-	 * 判断 「Model」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsModel() {
-		return this.contains(FIELD_MODEL);
-	}
-
-	/**
-	 * 重置 「Model」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetModel() {
-		this.reset(FIELD_MODEL);
-		return this;
-	}
-	
-	/**
-	 * 设置「EmbeddingModel」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setEmbeddingModel(String val) {
-		this.set(FIELD_EMBEDDINGMODEL, val);
-		return this;
-	}
-
-	/**
-	 * 获取「EmbeddingModel」值
-	 *
-	 */
-	@JsonIgnore
-	public String getEmbeddingModel() {
-		return (String) this.get(FIELD_EMBEDDINGMODEL);
-	}
-
-	/**
-	 * 判断 「EmbeddingModel」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsEmbeddingModel() {
-		return this.contains(FIELD_EMBEDDINGMODEL);
-	}
-
-	/**
-	 * 重置 「EmbeddingModel」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetEmbeddingModel() {
-		this.reset(FIELD_EMBEDDINGMODEL);
-		return this;
-	}
-	
-	
-	/**
-	 * 设置「Tools」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setTools(Boolean val) {
-		this.set(FIELD_TOOLS, val);
-		return this;
-	}
-
-	/**
-	 * 获取「Tools」值
-	 *
-	 */
-	@JsonIgnore
-	public String getTools() {
-		return DataTypeUtils.asString(this.get(FIELD_TOOLS), null);
-	}
-
-	/**
-	 * 判断 「Tools」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsTools() {
-		return this.contains(FIELD_TOOLS);
-	}
-
-	/**
-	 * 重置 「Tools」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetTools() {
-		this.reset(FIELD_TOOLS);
-		return this;
-	}
-	
 	/**
 	 * 设置「是否禁用」
 	 *
@@ -730,206 +476,56 @@ public class McpServer extends EntityBase {
 	}
 	
 	
-    /**
-     * 设置「多样性参数」
-     *
-     * @param val
-    */
-    @JsonIgnore
-    public McpServer setTemperature(Float val) {
-        this.set(FIELD_TEMPERATURE, val);
-        return this;
-    }
-
-    /**
-     * 获取「多样性参数」值
-     *
-    */
-    @JsonIgnore
-    public Float getTemperature() {
-        try{
-            return DataTypeUtils.getFloatValue(this.get(FIELD_TEMPERATURE),null);
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * 判断 「多样性参数」是否有值
-     *
-    */
-    @JsonIgnore
-    public boolean containsTemperature() {
-        return this.contains(FIELD_TEMPERATURE);
-    }
-
-    /**
-     * 重置 「多样性参数」
-     *
-    */
-    @JsonIgnore
-    public McpServer resetTemperature() {
-        this.reset(FIELD_TEMPERATURE);
-        return this;
-    }
-    
-    /**
-	 * 设置「最大词量」
+  
+	
+	/**
+	 * 设置「附加头部」
 	 *
 	 * @param val
 	 */
 	@JsonIgnore
-	public McpServer setMaxTokens(Integer val) {
-		this.set(FIELD_MAXTOKENS, val);
+	public McpServer setHeaders(Map<String, Object> val) {
+		this.set(FIELD_HEADERS, val);
 		return this;
 	}
 
 	/**
-	 * 获取「最大词量」值
+	 * 获取「附加头部」值
 	 *
 	 */
 	@JsonIgnore
-	public Integer getMaxTokens() {
-		return DataTypeUtils.asInteger(this.get(FIELD_MAXTOKENS), null);
+	public Map<String, Object> getHeaders() {
+		Object value = this.get(FIELD_HEADERS);
+		if(value == null) {
+			return null;
+		}
+		
+		if(value instanceof Map) {
+			return (Map)value;
+		}
+		
+		Map<String, Object> map = JsonUtils.asMap(value);
+		this.setHeaders(map);
+		
+		return map;
 	}
 
 	/**
-	 * 判断 「最大词量」是否有值
+	 * 判断 「附加头部」是否有值
 	 *
 	 */
 	@JsonIgnore
-	public boolean containsMaxTokens() {
-		return this.contains(FIELD_MAXTOKENS);
+	public boolean containsHeaders() {
+		return this.contains(FIELD_HEADERS);
 	}
 
 	/**
-	 * 重置 「最大词量」
+	 * 重置 「附加头部」
 	 *
 	 */
 	@JsonIgnore
-	public McpServer resetMaxTokens() {
-		this.reset(FIELD_MAXTOKENS);
-		return this;
-	}
-	
-	
-	/**
-	 * 设置「Stream」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setStream(String val) {
-		this.set(FIELD_STREAM, val);
-		return this;
-	}
-
-	/**
-	 * 获取「Stream」值
-	 *
-	 */
-	@JsonIgnore
-	public String getStream() {
-		return DataTypeUtils.asString(this.get(FIELD_STREAM), null);
-	}
-
-	/**
-	 * 判断 「Stream」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsStream() {
-		return this.contains(FIELD_STREAM);
-	}
-
-	/**
-	 * 重置 「Stream」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetStream() {
-		this.reset(FIELD_STREAM);
-		return this;
-	}
-	
-	
-	/**
-	 * 设置「RemoveThink」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setRemoveThink(String val) {
-		this.set(FIELD_REMOVETHINK, val);
-		return this;
-	}
-
-	/**
-	 * 获取「RemoveThink」值
-	 *
-	 */
-	@JsonIgnore
-	public String getRemoveThink() {
-		return DataTypeUtils.asString(this.get(FIELD_REMOVETHINK), null);
-	}
-
-	/**
-	 * 判断 「RemoveThink」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsRemoveThink() {
-		return this.contains(FIELD_REMOVETHINK);
-	}
-
-	/**
-	 * 重置 「RemoveThink」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetRemoveThink() {
-		this.reset(FIELD_REMOVETHINK);
-		return this;
-	}
-	
-	
-	
-	/**
-	 * 设置「Think」
-	 *
-	 * @param val
-	 */
-	@JsonIgnore
-	public McpServer setThink(String val) {
-		this.set(FIELD_THINK, val);
-		return this;
-	}
-
-	/**
-	 * 获取「Think」值
-	 *
-	 */
-	@JsonIgnore
-	public String getThink() {
-		return DataTypeUtils.asString(this.get(FIELD_THINK), null);
-	}
-
-	/**
-	 * 判断 「Think」是否有值
-	 *
-	 */
-	@JsonIgnore
-	public boolean containsThink() {
-		return this.contains(FIELD_THINK);
-	}
-
-	/**
-	 * 重置 「Think」
-	 *
-	 */
-	@JsonIgnore
-	public McpServer resetThink() {
-		this.reset(FIELD_THINK);
+	public McpServer resetHeaders() {
+		this.reset(FIELD_HEADERS);
 		return this;
 	}
 	

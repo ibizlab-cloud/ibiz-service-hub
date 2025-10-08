@@ -354,11 +354,9 @@ public abstract class CloudDevOpsUtilRuntimeBase extends CloudUtilRuntimeBase im
 				}
 			}, null, Object.class);
 		}
-		
 		finally {
 			EmployeeContext.setCurrent(lastEmployeeContext);
 		}
-		
 	}
 
 	protected Object onExecuteDevSystemAction(String strSystemId, String strAction, Map<String, Object> params) throws Throwable{

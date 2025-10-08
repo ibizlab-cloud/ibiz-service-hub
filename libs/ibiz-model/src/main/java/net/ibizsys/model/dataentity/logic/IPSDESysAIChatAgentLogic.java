@@ -27,6 +27,20 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	
 	/**
+	 * 获取历史消息数量
+	 * @return
+	 */
+	int getHistoryCount();
+	
+	
+	/**
+	 * 获取消息内容
+	 * @return
+	 */
+	java.lang.String getMessage();
+	
+	
+	/**
 	 * 获取AI交谈代理
 	 * @return
 	 */
@@ -55,6 +69,20 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	
 	
 	/**
+	 * 获取消息模板
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl();
+
+
+	/**
+	 * 获取消息模板，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTemplMust();
+	
+	
+	/**
 	 * 获取返回值绑定逻辑参数对象
 	 * @return
 	 */
@@ -66,4 +94,13 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParamMust();
+	
+	
+	/**
+	 * 获取子类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType} !未定义代码表
+	 * @return
+	 */
+	java.lang.String getSubType();
 }

@@ -18,4 +18,13 @@ public interface IModelRTAddin2 extends IModelRTAddin{
 	default int getPriority() {
 		return PRIORITY_DEFAULT;
 	}
+	
+	
+	/**
+	 * 是否启用
+	 * @return
+	 */
+	default boolean isEnabled() {
+		return true;
+	}
 }

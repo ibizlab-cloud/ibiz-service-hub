@@ -785,6 +785,8 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 		}
 		// QueryWrapper<User> conds = new QueryWrapper<User>();
 		String[] data = strName.split("[|,@]");
+		//重置查询参数
+		searchContextDTO = new SearchContextDTO();
 		String loginname = "";
 		String domains = "";
 		if (data.length > 0)

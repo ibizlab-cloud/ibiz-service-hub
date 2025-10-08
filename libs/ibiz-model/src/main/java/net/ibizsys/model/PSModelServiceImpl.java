@@ -626,6 +626,15 @@ public class PSModelServiceImpl extends PSModelServiceImplBase implements IPSDyn
 		}
 		return null;
 	}
+	
+	@Override
+	public <T> T createAndInitPSModelObject(Class<T> cls, ObjectNode objNode) {
+		if(this.getPSSystem() == null) {
+			throw new PSModelServiceException(this, String.format("系统模型无效"));
+		}
+		return createAndInitPSModelObject((IPSModelObjectRuntime)this.getPSSystem(), cls, objNode);
+	}
+	
 
 	@Override
 	public <T> T createAndInitPSModelObject(IPSModelObjectRuntime parentPSModelObject, Class<T> cls, ObjectNode objNode) {

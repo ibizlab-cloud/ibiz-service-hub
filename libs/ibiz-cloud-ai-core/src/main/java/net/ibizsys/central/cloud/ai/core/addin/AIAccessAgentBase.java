@@ -1,8 +1,10 @@
 package net.ibizsys.central.cloud.ai.core.addin;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -33,6 +35,7 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	public static final TypeReference<List<ChatTool>> ChatToolListType = new TypeReference<List<ChatTool>>() {
 	};
 	
+
 	private long nTokenTimeout = 0;
 	private int nDefaultTokenTimeout = 0;
 	private String strAIAccessId = null;
@@ -42,13 +45,44 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	private boolean bStarted = false;
 	private boolean bRunAuthTimer = false;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
+	private List<String> mcpServerList = null;
 	private final static ThreadLocal<Integer> loopCallThreadLocal = new ThreadLocal<Integer>();
-		
+	
+	private int nToolMaxCalls = 4;
+	
+	private String strToolExceedMessage = "你的问题让我查询了太多次资料，已经烧光了GPU，让我歇会，你再问问";
+	
+	
+	private int nToolCallStep = AIAccess.TOOLCALLSTEP_ENABLED;
+	
+	
 	@Override
 	public void init(ICloudAIUtilRuntimeContext ctx, AIAccess aiAccess) throws Exception {
 		this.setAIAccessId(aiAccess.getId());
 		this.setAIType(aiAccess.getAIType());
 		this.setDefaultTokenTimeout(60*60*1000);
+		if(!ObjectUtils.isEmpty(aiAccess.getMcpServers())) {
+			this.setMcpServers(Collections.unmodifiableList(aiAccess.getMcpServers()));
+		}
+		
+		if(StringUtils.hasLength(aiAccess.getToolMaxCalls())) {
+			int nValue = DataTypeUtils.asInteger(aiAccess.getToolMaxCalls(), nToolMaxCalls);
+			if(nValue>0) {
+				this.nToolMaxCalls = nValue;
+			}
+		}
+		
+		if(StringUtils.hasLength(aiAccess.getToolExceedMessages())) {
+			this.strToolExceedMessage = aiAccess.getToolExceedMessages();
+		}
+		
+		if(StringUtils.hasLength(aiAccess.getToolCallStep())) {
+			int nValue = DataTypeUtils.asInteger(aiAccess.getToolCallStep(), nToolCallStep);
+			if(nValue>=AIAccess.TOOLCALLSTEP_DISABLED && nValue<=AIAccess.TOOLCALLSTEP_RESULT) {
+				this.nToolCallStep = nValue;
+			}
+		}
+		
 		super.init(ctx, aiAccess);
 	}
 	
@@ -69,8 +103,30 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	}
 	
 	protected void onStart() throws Exception{
+		this.prepareMcpServerAgents();
 		this.bRunAuthTimer = true;
 		runAuthTimer();
+		
+	}
+	
+	protected void prepareMcpServerAgents() throws Exception {
+		List<String> list = this.getMcpServers();
+		if(ObjectUtils.isEmpty(list)) {
+			return;
+		}
+		
+		for(String strMcpServerId : list) {
+			if(strMcpServerId.indexOf("@") != -1) {
+				String[] items = strMcpServerId.split("[@]");
+				strMcpServerId = items[1];
+			}
+			try {
+				this.getContext().getMcpServerAgent(strMcpServerId);
+			}
+			catch (Throwable ex) {
+				log.error(String.format("准备McpServer代理[%1$s]发生异常，%2$s", strMcpServerId, ex.getMessage()), ex);
+			}
+		}
 	}
 	
 	@Override
@@ -86,6 +142,9 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 		this.bRunAuthTimer = false;
 	}
 	
+	public boolean isStarted() {
+		return this.bStarted;
+	}
 	
 	@Override
 	public AIAccess getAgentData() {
@@ -128,6 +187,25 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 		this.nDefaultTokenTimeout = nDefaultTokenTimeout;
 	}
 
+	protected List<String> getMcpServers() {
+		return this.mcpServerList;
+	}
+	
+	protected void setMcpServers(List<String> mcpServerList) {
+		this.mcpServerList = mcpServerList;
+	}
+	
+	protected int getToolMaxCalls() {
+		return this.nToolMaxCalls;
+	}
+	
+	protected String getToolExceedMessage() {
+		return this.strToolExceedMessage;
+	}
+	
+	protected int getToolCallStep() {
+		return this.nToolCallStep;
+	}
 
 	protected synchronized String getToken() {
 		if(StringUtils.hasLength(this.strToken)) {
@@ -283,6 +361,14 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 			return false;
 		}
 		return true;		
+	}
+	
+	protected int getLoopCallCount() {
+		Integer nValue = loopCallThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		return nValue;
 	}
 
 	protected ChatCompletionResult onChatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable{

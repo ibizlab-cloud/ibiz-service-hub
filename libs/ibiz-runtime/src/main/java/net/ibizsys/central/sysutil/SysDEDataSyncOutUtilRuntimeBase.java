@@ -8,15 +8,25 @@ import java.util.Map;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import net.ibizsys.central.dataentity.IDataEntityRuntime;
+import net.ibizsys.central.dataentity.action.IDEActionLogicRuntimeBase;
 import net.ibizsys.central.dataentity.service.DEMethodPluginRuntimeRepo;
+import net.ibizsys.central.util.IEntityDTO;
+import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.dataentity.IPSDEGroupDetail;
 import net.ibizsys.model.dataentity.IPSDataEntity;
+import net.ibizsys.model.dataentity.IPSSysDEGroup;
+import net.ibizsys.model.dataentity.PSDEGroupDetailImpl;
+import net.ibizsys.model.dataentity.PSSysDEGroupImpl;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
-import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.runtime.dataentity.IDataEntityRuntimeContext;
+import net.ibizsys.runtime.dataentity.action.DEActionLogicAttachModes;
 import net.ibizsys.runtime.dataentity.action.DEActionModes;
-import net.ibizsys.runtime.dataentity.action.IDEActionPluginRuntime;
-import net.ibizsys.runtime.dataentity.ds.IDEDataSetPluginRuntime;
+import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.JsonUtils;
 
 public abstract class SysDEDataSyncOutUtilRuntimeBase extends SysUtilRuntimeBase implements ISysDEDataSyncOutUtilRuntime {
 
@@ -30,11 +40,27 @@ public abstract class SysDEDataSyncOutUtilRuntimeBase extends SysUtilRuntimeBase
 	protected void onInit() throws Exception {
 
 		if(ObjectUtils.isEmpty(this.getPSDEGroupDetails())) {
-			if (this.getPSSysUtil().getPSSysDEGroup() == null) {
-				throw new Exception("未指定系统实体组模型对象");
+			IPSSysDEGroup iPSDEGroup = this.getPSSysUtil().getPSSysDEGroup();
+			if (iPSDEGroup == null) {
+				if(this.getPSSysUtil().getUtilPSDE() != null) {
+					ObjectNode psSysDEGroupNode = JsonUtils.createObjectNode();
+					psSysDEGroupNode.put(PSSysDEGroupImpl.ATTR_GETID, this.getId());
+					psSysDEGroupNode.put(PSSysDEGroupImpl.ATTR_GETNAME, String.format("系统实体数据同步组件[%1$s]自动实体组", this.getName()));
+					psSysDEGroupNode.put(PSSysDEGroupImpl.ATTR_GETCODENAME, this.getPSSysUtil().getCodeName());
+					ArrayNode psDEGroupDetailsNode = psSysDEGroupNode.putArray(PSSysDEGroupImpl.ATTR_GETPSDEGROUPDETAILS);
+					ObjectNode psDEGroupDetailNode = psDEGroupDetailsNode.addObject();
+					psDEGroupDetailNode.put(PSDEGroupDetailImpl.ATTR_GETID, this.getPSSysUtil().getUtilPSDE().getName());
+					psDEGroupDetailNode.put(PSDEGroupDetailImpl.ATTR_GETNAME, this.getPSSysUtil().getUtilPSDE().getName());
+					PSModelUtils.putRefPSModelObject(psDEGroupDetailNode, PSDEGroupDetailImpl.ATTR_GETPSDATAENTITY, this.getPSSysUtil().getUtilPSDE());
+					iPSDEGroup = this.getSystemRuntime().getPSSystemService().createAndInitPSModelObject(IPSSysDEGroup.class, psSysDEGroupNode);
+				}
+				else {
+					throw new Exception("未指定系统实体组模型对象");
+				}
+				
 			}
 			
-			List<IPSDEGroupDetail> psDEGroupDetailList = this.getPSSysUtil().getPSSysDEGroupMust().getPSDEGroupDetails();
+			List<IPSDEGroupDetail> psDEGroupDetailList = iPSDEGroup.getPSDEGroupDetails();
 			if(ObjectUtils.isEmpty(psDEGroupDetailList)) {
 				throw new Exception("指定系统实体组未包含成员对象");
 			}
@@ -91,20 +117,30 @@ public abstract class SysDEDataSyncOutUtilRuntimeBase extends SysUtilRuntimeBase
 					for(IPSDEAction iPSDEAction : psDEActions) {
 						if(DEActionModes.CREATE.equals(iPSDEAction.getActionMode())) {
 							
-							this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionPluginRuntime() {
+							this.getDEMethodPluginRuntimeRepo().registerDEActionLogicRuntimeBaseIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionLogicRuntimeBase() {
 								@Override
-								public Object execute(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
-									return doCreate(iDataEntityRuntimeContext, iPSDEAction, args, actionData);
+								public String getAttachMode() {
+									return DEActionLogicAttachModes.AFTER;
+								}
+								
+								@Override
+								public Object execute(net.ibizsys.central.dataentity.IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable {
+									return onAfterCreate(iDataEntityRuntimeContext, iPSDEAction, args, ret);
 								}
 							});
 							continue;
 						}
 						
 						if(DEActionModes.UPDATE.equals(iPSDEAction.getActionMode())) {
-							this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionPluginRuntime() {
+							this.getDEMethodPluginRuntimeRepo().registerDEActionLogicRuntimeBaseIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionLogicRuntimeBase() {
 								@Override
-								public Object execute(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
-									return doUpdate(iDataEntityRuntimeContext, iPSDEAction, args, actionData);
+								public String getAttachMode() {
+									return DEActionLogicAttachModes.AFTER;
+								}
+								
+								@Override
+								public Object execute(net.ibizsys.central.dataentity.IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable {
+									return onAfterUpdate(iDataEntityRuntimeContext, iPSDEAction, args, ret);
 								}
 							});
 							continue;
@@ -112,53 +148,83 @@ public abstract class SysDEDataSyncOutUtilRuntimeBase extends SysUtilRuntimeBase
 						
 						if(DEActionModes.REMOVE.equals(iPSDEAction.getActionMode())
 								|| DEActionModes.DELETE.equals(iPSDEAction.getActionMode())){
-							this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionPluginRuntime() {
+							this.getDEMethodPluginRuntimeRepo().registerDEActionLogicRuntimeBaseIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionLogicRuntimeBase() {
 								@Override
-								public Object execute(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
-									return doRemove(iDataEntityRuntimeContext, iPSDEAction, args, actionData);
+								public String getAttachMode() {
+									return DEActionLogicAttachModes.BEFORE;
+								}
+								
+								@Override
+								public Object execute(net.ibizsys.central.dataentity.IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable {
+									return onBeforeRemove(iDataEntityRuntimeContext, iPSDEAction, args, ret);
 								}
 							});
 							continue;
 						}
-						
-						if(DEActionModes.READ.equals(iPSDEAction.getActionMode())) {
-							this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSDataEntity.getId(), iPSDEAction.getName(), new IDEActionPluginRuntime() {
-								@Override
-								public Object execute(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
-									return doGet(iDataEntityRuntimeContext, iPSDEAction, args, actionData);
-								}
-							});
-							continue;
-						}
-					}
-				}
-				
-				List<IPSDEDataSet> psDEDataSets = iPSDataEntity.getAllPSDEDataSets();
-				if(!ObjectUtils.isEmpty(psDEDataSets)) {
-					for(IPSDEDataSet iPSDEDataSet : psDEDataSets) {
-						this.getDEMethodPluginRuntimeRepo().registerDEDataSetPluginRuntimeIf(iPSDataEntity.getId(), iPSDEDataSet.getName(), new IDEDataSetPluginRuntime() {
-							@Override
-							public Object fetch(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEDataSet iPSDEDataSet, Object[] args, Object actionData) throws Throwable {
-								return doFetch(iDataEntityRuntimeContext, iPSDEDataSet, args, actionData);
-							}
-						});
-						continue;
 					}
 				}
 			}
 		}
 	}
 	
-	protected abstract Object doCreate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable;
+	protected Object onAfterCreate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable{
+		if(ret instanceof IEntityDTO) {
+			onAfterCreate(iDataEntityRuntimeContext, iPSDEAction, (IEntityDTO)ret);
+		}
+		else
+			if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+				onAfterCreate(iDataEntityRuntimeContext, iPSDEAction, (IEntityDTO)args[0]);
+			}
+		return ret;
+	}
 	
-	protected abstract Object doUpdate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable;
+	protected void onAfterCreate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, IEntityDTO iEntityDTO) throws Throwable{
+		
+	}
 	
-	protected abstract Object doRemove(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable;
+	protected Object onAfterUpdate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable{
+		if(ret instanceof IEntityDTO) {
+			onAfterUpdate(iDataEntityRuntimeContext, iPSDEAction, (IEntityDTO)ret);
+		}
+		else
+			if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+				onAfterUpdate(iDataEntityRuntimeContext, iPSDEAction, (IEntityDTO)args[0]);
+			}
+		return ret;
+	}
 	
-	protected abstract Object doGet(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable;
+	protected void onAfterUpdate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, IEntityDTO iEntityDTO) throws Throwable{
+		
+	}
 	
-	protected abstract Object doFetch(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEDataSet iPSDEDataSet, Object[] args, Object actionData) throws Throwable;
 	
+	protected Object onBeforeRemove(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object ret) throws Throwable{
+		Object key = null;
+		if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+			key = iDataEntityRuntimeContext.getDataEntityRuntime().getKeyFieldValue((IEntityDTO)args[0]);
+		}
+		else
+			if(args != null && args.length != 0) {
+				key = DataTypeUtils.asSimple(args[0]);
+			}
+		
+		if(!ObjectUtils.isEmpty(key)) {
+			IDataEntityRuntime iDataEntityRuntime = (IDataEntityRuntime)iDataEntityRuntimeContext.getDataEntityRuntime();
+			IEntityDTO iEntityDTO = iDataEntityRuntime.getLastEntity();
+			if(iEntityDTO == null) {
+				iEntityDTO = iDataEntityRuntime.getSessionEntityIf(key);
+			}
+			if(iEntityDTO != null) {
+				onBeforeRemove(iDataEntityRuntimeContext, iPSDEAction, iEntityDTO);
+			}
+		}
+		
+		return ret;
+	}
+	
+	protected void onBeforeRemove(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, IEntityDTO iEntityDTO) throws Throwable{
+		
+	}
 
 	@Override
 	protected void onUninstall() throws Throwable {

@@ -62,7 +62,7 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(SysUAAUtilRuntimeBase.class);
 
-	public final TypeReference<Collection<IUAAGrantedAuthority>> UAAGrantedAuthorityListType =  new TypeReference<Collection<IUAAGrantedAuthority>>(){};
+	public static final TypeReference<Collection<IUAAGrantedAuthority>> UAAGrantedAuthorityListType =  new TypeReference<Collection<IUAAGrantedAuthority>>(){};
 	
 	public final static String UAAFILTERTAG = "_IBIZ_UAAFILTERTAG_";
 	

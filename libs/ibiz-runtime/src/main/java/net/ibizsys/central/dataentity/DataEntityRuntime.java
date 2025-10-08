@@ -365,11 +365,17 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private List<IPSDEField> extendedAttachmentPSDEFieldList = null;
 	
 
-	private static ThreadLocal<Boolean> IgnoreExecuteDEOPPrivLogics = new ThreadLocal<Boolean>() {
+	private final static ThreadLocal<Boolean> IgnoreExecuteDEOPPrivLogics = new ThreadLocal<Boolean>() {
 		protected Boolean initialValue() {
 			return false;
 		}
 	};
+	
+//	private final static ThreadLocal<Boolean> IgnoreTestDEMSLogicOPPriv = new ThreadLocal<Boolean>() {
+//		protected Boolean initialValue() {
+//			return false;
+//		}
+//	};
 
 	private IDataEntityRuntimeContext iDataEntityRuntimeContext = new IDataEntityRuntimeContext() {
 
@@ -3370,6 +3376,13 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			actionSession.setActionParam(strCacheTag, iEntityDTO);
 		}
 		return iEntityDTO;
+	}
+	
+	protected void setSessionEntity(IEntityDTO iEntityDTO) {
+		Object objKey = this.getKeyFieldValue(iEntityDTO);
+		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
+		String strCacheTag = String.format("__SESSIONENTITY_%1$s_%2$s", this.getId(), objKey);
+		actionSession.setActionParam(strCacheTag, iEntityDTO);
 	}
 
 	@Override
@@ -9439,6 +9452,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	protected IDENotifyRuntime createDefaultDENotifyRuntime(IPSDENotify iPSDENotify) {
 		return new DENotifyRuntime();
 	}
+	
+	
 
 	@Override
 	public net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime getDEMSLogicRuntime(IEntity iEntity, boolean bTryMode) {
@@ -9829,11 +9844,31 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	@Override
 	protected boolean onTestDataAccessAction(Object objKeyOrEntity, String strAccessAction) throws Exception {
 		boolean bRet = super.onTestDataAccessAction(objKeyOrEntity, strAccessAction);
-		if (bRet && isEnableDEOPPrivLogic()) {
+		if(!bRet){
+			return bRet;
+		}
+		IEntityDTO iEntityDTO = null;
+		if (isEnableDEMSLogic()) {
+			if(iEntityDTO == null)
+				iEntityDTO = this.getSimpleEntity(objKeyOrEntity);
+			//获取主状态逻辑
+			net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime iDEMSLogicRuntime = this.getDEMSLogicRuntime(iEntityDTO, true);
+			if(iDEMSLogicRuntime != null) {
+				try {
+					if(!iDEMSLogicRuntime.testDataAccessAction(iEntityDTO, strAccessAction)){
+						return false;
+					}
+				} catch (Throwable ex) {
+					throw new Exception(String.format("判断操作标识[%1$s]发生异常，%2$s", strAccessAction, ex.getMessage()), ex);
+				}
+			}
+		}
+		if (isEnableDEOPPrivLogic()) {
 			if (!DataTypeUtils.getBooleanValue(IgnoreExecuteDEOPPrivLogics.get(), false)) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put(strAccessAction, null);
-				IEntityDTO iEntityDTO = this.getSimpleEntity(objKeyOrEntity);
+				if(iEntityDTO == null)
+					iEntityDTO = this.getSimpleEntity(objKeyOrEntity);
 				try {
 					this.executeDEOPPrivLogics(iEntityDTO, map, true);
 					return DataTypeUtils.getBooleanValue(map.get(strAccessAction), true);

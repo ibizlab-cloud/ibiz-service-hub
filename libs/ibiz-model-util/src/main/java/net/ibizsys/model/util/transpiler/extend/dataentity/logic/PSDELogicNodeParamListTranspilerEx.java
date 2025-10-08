@@ -3,7 +3,9 @@ package net.ibizsys.model.util.transpiler.extend.dataentity.logic;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.ibizsys.model.IPSModelObject;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -11,6 +13,8 @@ import net.ibizsys.model.dataentity.logic.PSDELogicNodeParamImpl;
 import net.ibizsys.model.util.JsonUtils;
 import net.ibizsys.model.util.transpiler.IPSModelTranspileContext;
 import net.ibizsys.psmodel.core.domain.PSDELNParam;
+import net.ibizsys.psmodel.core.domain.PSDELogic;
+import net.ibizsys.psmodel.core.domain.PSDELogicParam;
 import net.ibizsys.psmodel.core.util.IPSModel;
 
 public class PSDELogicNodeParamListTranspilerEx extends net.ibizsys.model.util.transpiler.dataentity.logic.PSDELogicNodeParamListTranspiler{
@@ -82,8 +86,9 @@ public class PSDELogicNodeParamListTranspilerEx extends net.ibizsys.model.util.t
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
-		
+
 		PSDELNParam psDELNParam = (PSDELNParam) domain;
+
 		
 		//将数据对象中的值额外放入动态参数中
 		ObjectNode paramsNode = null;
@@ -113,4 +118,25 @@ public class PSDELogicNodeParamListTranspilerEx extends net.ibizsys.model.util.t
 		}
 	}
 
+	@Override
+	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
+		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
+		PSDELNParam psDELNParam = (PSDELNParam) domain;
+
+		if(PSDELogicListTranspilerEx.peekDecompileObject() != null) {
+			PSDELogic psDELogic = (PSDELogic)PSDELogicListTranspilerEx.peekDecompileObject();
+			if(!ObjectUtils.isEmpty(psDELogic.getPSDELogicParams())) {
+				for(PSDELogicParam item : psDELogic.getPSDELogicParams()) {
+
+					if(StringUtils.hasLength(psDELNParam.getSrcPSDLParamId()) && !StringUtils.hasLength(psDELNParam.getSrcParamPSDEId()) && psDELNParam.getSrcPSDLParamId().equals(item.getId())) {
+						psDELNParam.setSrcParamPSDEId(item.getParamPSDEId());
+					}
+
+					if(StringUtils.hasLength(psDELNParam.getDstPSDLParamId()) && !StringUtils.hasLength(psDELNParam.getDstParamPSDEId()) && psDELNParam.getDstPSDLParamId().equals(item.getId())) {
+						psDELNParam.setDstParamPSDEId(item.getParamPSDEId());
+					}
+				}
+			}
+		}
+	}
 }

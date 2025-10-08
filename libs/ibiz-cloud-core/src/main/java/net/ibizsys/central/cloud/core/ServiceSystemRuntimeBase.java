@@ -32,6 +32,9 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
 import net.ibizsys.central.cloud.core.dataentity.ac.DEChatCompletionRuntime;
 import net.ibizsys.central.cloud.core.dataentity.dataflow.DEDataFlowRuntime;
+import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionRequestParamRuntime;
+import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionResultParamRuntime;
+import net.ibizsys.central.cloud.core.dataentity.logic.DELogicSysAIChatAgentNodeRuntime;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.DataSetDRProvider;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.DeptDRProvider;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.OrgDRProvider;
@@ -52,6 +55,9 @@ import net.ibizsys.central.cloud.core.util.groovy.MetaClassCreationHandle;
 import net.ibizsys.central.cloud.core.util.groovy.SystemRTGroovyContext;
 import net.ibizsys.central.dataentity.ac.IDEAutoCompleteRuntime;
 import net.ibizsys.central.dataentity.dataflow.IDEDataFlowRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicNodeTypes;
+import net.ibizsys.central.dataentity.logic.IDELogicNodeRuntime;
+import net.ibizsys.central.dataentity.logic.IDELogicParamRuntime;
 import net.ibizsys.central.dataentity.security.dr.IDataEntityDRProvider;
 import net.ibizsys.central.dataentity.wf.IDEWFRuntime;
 import net.ibizsys.central.security.ISystemAccessManager;
@@ -69,6 +75,7 @@ import net.ibizsys.model.PSModelEnums.ModuleUtilType;
 import net.ibizsys.model.PSModelEnums.SysRefType;
 import net.ibizsys.model.ai.IPSSysAIFactory;
 import net.ibizsys.model.app.IPSApplication;
+import net.ibizsys.model.dataentity.logic.IPSDELogicParam;
 import net.ibizsys.model.res.IPSSysUtil;
 import net.ibizsys.model.res.PSSysUtilImpl;
 import net.ibizsys.model.wf.IPSWFRole;
@@ -84,6 +91,7 @@ import net.ibizsys.runtime.security.IUserContext;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.INamedAction;
@@ -519,6 +527,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			try {
 				iCloudPortalClient.finishAsyncAction(strAsyncActionId, portalAsyncAction);
 			} catch (Throwable ex) {
+				ex = ExceptionUtils.unwrapThrowable(ex);
 				throw new Exception(String.format("完成门户异步作业发生异常，%1$s", ex.getMessage()), ex);
 			}
 
@@ -527,6 +536,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			}
 
 		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
 			actionSession.removeActionParam(strWorkTag);
 
 			if (bOpenActionSession) {
@@ -628,7 +638,13 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 						portalAsyncAction.setStepInfo(strLastActionStep);
 
 						// 提取增加增量
-						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && strLastActionResult.length() > strTemp.length()) {
+//						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && strLastActionResult.length() > strTemp.length()) {
+//							portalAsyncAction.setActionResult(strLastActionResult.substring(strTemp.length()));
+//						} else {
+//							portalAsyncAction.setActionResult(strLastActionResult);
+//						}
+						
+						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && (strLastActionResult.indexOf(strTemp) == 0)) {
 							portalAsyncAction.setActionResult(strLastActionResult.substring(strTemp.length()));
 						} else {
 							portalAsyncAction.setActionResult(strLastActionResult);
@@ -645,7 +661,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					}
 
 					try {
-						Thread.sleep(200);
+						Thread.sleep(20);
 					} catch (InterruptedException ex) {
 						log.error(ex);
 					}
@@ -803,5 +819,26 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			}
 		}
 		return this.iCloudPortalClient;
+	}
+	
+	@Override
+	public IDELogicParamRuntime getDELogicParamRuntime(IPSDELogicParam iPSDELogicParam) {
+		if(iPSDELogicParam.isChatCompletionRequestParam()) {
+			return new DELogicChatCompletionRequestParamRuntime();
+		}
+		
+		if(iPSDELogicParam.isChatCompletionResultParam()) {
+			return new DELogicChatCompletionResultParamRuntime();
+		}
+		
+		return super.getDELogicParamRuntime(iPSDELogicParam);
+	}
+	
+	@Override
+	protected IDELogicNodeRuntime onCreateDELogicNodeRuntime(String strLogicNodeType) throws Exception {
+		if (DELogicNodeTypes.SYSAICHATAGENT.equals(strLogicNodeType)) {
+			return new DELogicSysAIChatAgentNodeRuntime();
+		}
+		return super.onCreateDELogicNodeRuntime(strLogicNodeType);
 	}
 }

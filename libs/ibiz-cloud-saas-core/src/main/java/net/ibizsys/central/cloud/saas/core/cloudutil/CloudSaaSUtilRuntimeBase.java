@@ -8,17 +8,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 
-import net.ibizsys.central.cloud.core.security.*;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-
 import net.ibizsys.central.cloud.core.cloudutil.CloudUtilRuntimeBase;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudSaaSUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntimeContext;
+import net.ibizsys.central.cloud.core.security.AuthenticationUser;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
+import net.ibizsys.central.cloud.core.security.IAuthenticationUser;
+import net.ibizsys.central.cloud.core.security.IEmployeeContext;
+import net.ibizsys.central.cloud.core.security.IUAAGrantedAuthority;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.sysutil.SysUAAUtilRuntimeBase;
 import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.ConfigEntity;
 import net.ibizsys.central.cloud.core.util.IConfigListener;
@@ -704,9 +707,9 @@ public abstract class CloudSaaSUtilRuntimeBase extends CloudUtilRuntimeBase impl
 								return onGetGrantedAuthorities(iEmployeeContext);
 							}
 							
-						}).build().get(new TypeReference<Collection<IUAAGrantedAuthority>>(){});
+						}).build().get(SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 			}
-		}, null, new TypeReference<Collection<IUAAGrantedAuthority>>(){});
+		}, null, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 	}
 	
 	

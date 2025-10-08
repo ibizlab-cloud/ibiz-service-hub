@@ -70,7 +70,17 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	private String strSimpleAgent = AIPLATFORM_SIMPLE;
 	// public final static String DEFAULTAITYPE= "GPT3";
 
-	
+	@Override
+	protected ICloudAIUtilRuntimeContext createModelRuntimeContext() {
+		return new CloudAIUtilRuntimeContextBase<ICloudAIUtilRuntime, ICloudUtilRuntimeContext>(super.createModelRuntimeContext()) {
+
+			@Override
+			public IMcpServerAgent getMcpServerAgent(String strMcpServerId) throws Throwable {
+				return CloudAIUtilRuntimeBase.this.getMcpServerAgent(strMcpServerId);
+			}
+			
+		};
+	}
 
 	@Override
 	protected String getGlobalConfigId() {
@@ -109,12 +119,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		this.mcpServerProviderMap = this.getAddins(IMcpServerProvider.class, ADDIN_MCPSERVER_PREFIX);
 	}
 
-	@Override
-	protected ICloudAIUtilRuntimeContext createModelRuntimeContext() {
-		return new CloudAIUtilRuntimeContextBase<ICloudAIUtilRuntime, ICloudUtilRuntimeContext>(super.createModelRuntimeContext()) {
-			
-		};
-	}
+
 	
 	private CloudAIUtilRuntimeBase getSelf() {
 		return this;
@@ -183,6 +188,8 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 
 	}
 
+	
+	
 	@Override
 	public ChatCompletionResult chatCompletion(String type, ChatCompletionRequest chatCompletionRequest) {
 		return (ChatCompletionResult) this.executeAction("交谈补全操作", new IAction() {
@@ -484,9 +491,10 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		if (iMcpServerAgent != null) {
 			return iMcpServerAgent;
 		}
-
+		
 		McpServer mcpServer = getMcpServer(strMcpServerId);
 		IMcpServerProvider iMcpServerProvider = getMcpServerProvider(mcpServer.getType().toUpperCase());
+		
 		return this.onGetMcpServerAgent(iMcpServerProvider, mcpServer);
 	}
 
@@ -499,8 +507,18 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 			}
 
 			iMcpServerAgent = iMcpServerProvider.createMcpServerAgent(mcpServer);
-			iMcpServerAgent.init(this.getModelRuntimeContext(), mcpServer);
-			iMcpServerAgent.start();
+			try {
+				iMcpServerAgent.init(this.getModelRuntimeContext(), mcpServer);
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("初始化McpServer代理发生异常，%1$s", ex.getMessage()), ex);
+			}
+			try {
+				iMcpServerAgent.start();
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("启动McpServer代理发生异常，%1$s", ex.getMessage()), ex);
+			}
 			this.mcpServerAgentMap.put(mcpServer.getId(), iMcpServerAgent);
 			return iMcpServerAgent;
 		}
@@ -535,10 +553,10 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	public McpServer getMcpServer(String strMcpServerId) {
 		McpServer mcpServer = new McpServer();
 
-		Map<String, Object> params = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".mcpserver." + strMcpServerId.toLowerCase(), null);
+		Map<String, Object> params = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".mcp." + strMcpServerId.toLowerCase(), null);
 		if (ObjectUtils.isEmpty(params)) {
 			// 尝试从Cloud获取
-			String strConfigId = String.format("%1$s-mcpserver-%2$s", getCloudConfigId(), strMcpServerId.toLowerCase());
+			String strConfigId = String.format("%1$s-mcp-%2$s", getCloudConfigId(), strMcpServerId.toLowerCase());
 			String strConfig = ServiceHub.getInstance().getConfig(strConfigId);
 			if (StringUtils.hasLength(strConfig)) {
 				ConfigEntity configEntity = new ConfigEntity(strConfig);

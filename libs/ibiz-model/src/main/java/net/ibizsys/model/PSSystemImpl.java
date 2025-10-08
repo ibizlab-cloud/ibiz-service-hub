@@ -78,6 +78,7 @@ public class PSSystemImpl extends net.ibizsys.model.PSObjectImpl implements net.
 	public final static String ATTR_GETENGINEVER = "engineVer";
 	public final static String ATTR_GETINITPSSYSCONTENTS = "getInitPSSysContents";
 	public final static String ATTR_GETLOGICNAME = "logicName";
+	public final static String ATTR_GETPSDEVSLNSYSID = "getPSDevSlnSysId";
 	public final static String ATTR_GETPSDYNAMODEL = "getPSDynaModel";
 	public final static String ATTR_GETRTOBJECTNAME = "rTObjectName";
 	public final static String ATTR_GETROOTPSSYSREQMODULES = "getRootPSSysReqModules";
@@ -1621,6 +1622,14 @@ public class PSSystemImpl extends net.ibizsys.model.PSObjectImpl implements net.
 
 	public java.lang.String getLogicName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICNAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getPSDevSlnSysId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEVSLNSYSID);
 		if(value == null){
 			return null;
 		}

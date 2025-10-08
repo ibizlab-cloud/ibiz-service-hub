@@ -122,8 +122,6 @@ public abstract class PSModelListMergerBase implements IPSModelListMerger{
 		String strTag = this.getTag(iPSModelMergeContext, objectNode);
 		
 		if(this.isAppendChildOnly(iPSModelMergeContext)) {
-			
-			
 			for(int i = 0;i<mergeArrayNode.size();i++) {
 				ObjectNode mergeNode = (ObjectNode)mergeArrayNode.get(i);
 				arrayNode.add(mergeNode);

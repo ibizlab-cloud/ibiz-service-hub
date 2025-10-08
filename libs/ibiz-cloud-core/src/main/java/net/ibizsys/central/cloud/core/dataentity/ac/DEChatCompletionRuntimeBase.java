@@ -115,15 +115,15 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	}
 	
 	protected String onGetResource(Object dataOrKeys, Map<String, Object> params) throws Throwable {
-		String type = DataTypeUtils.asString(params.get("type"));
-		String subType = DataTypeUtils.asString(params.get("subtype"));
-		String id = DataTypeUtils.asString(params.get("id"));
-		return this.onGetResource(dataOrKeys, type, subType, id);
+		String type = DataTypeUtils.asString(params.remove("type"));
+		String subType = DataTypeUtils.asString(params.remove("subtype"));
+		Object id = params.remove("id");
+		return this.onGetResource(dataOrKeys, type, subType, id, params);
 	}
 	
 	
-	protected String onGetResource(Object dataOrKeys,String resourceType, String resourceSubType, String resourceKey) throws Throwable {
-		return this.getChatResourceUtils().getResource(resourceType, resourceSubType, resourceKey, true);
+	protected String onGetResource(Object dataOrKeys, String resourceType, String resourceSubType, Object resourceKey, Map<String, Object> params) throws Throwable {
+		return this.getChatResourceUtils().getResource(resourceType, resourceSubType, resourceKey, params, true);
 	}
 	
 	protected IChatResourceUtils getChatResourceUtils() throws Exception{
@@ -317,7 +317,7 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 					}
 	
 					try {
-						Thread.sleep(500);
+						Thread.sleep(100);
 					} catch (InterruptedException ex) {
 						log.error(ex);
 					}

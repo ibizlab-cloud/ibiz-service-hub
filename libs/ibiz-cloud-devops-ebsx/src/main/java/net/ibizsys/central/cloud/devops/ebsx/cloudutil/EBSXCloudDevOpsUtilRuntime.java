@@ -2046,7 +2046,7 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 
 					// 是否授权所有,仅授权访问用户类权限有效
 					if("AuthorizeAll".equals(psSysUserRole.getUserTag())) {
-						existsSysRole.setAuthorizeAll(("AuthorizeAll".equals(psSysUserRole.getUserTag()) ? 1 : 0));
+						sysRole.setAuthorizeAll(("AuthorizeAll".equals(psSysUserRole.getUserTag()) ? 1 : 0));
 					}
 
 					sysRole.setSystemFlag(1);

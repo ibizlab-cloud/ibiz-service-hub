@@ -116,4 +116,14 @@ public interface ICodeListRuntime extends IModelRuntime{
 	 * @return
 	 */
 	String getEmptyText();
+	
+	
+	
+	/**
+	 * 获取指定用户数据的代码项
+	 * @param strUserData
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSCodeItem getPSCodeItemByUserData(String strUserData, boolean bTryMode);
 }

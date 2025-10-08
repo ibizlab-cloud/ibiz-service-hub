@@ -5,6 +5,7 @@ package net.ibizsys.model.ai;
 public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObjectImpl implements net.ibizsys.model.ai.IPSSysAIChatAgent{
 
 	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
+	public final static String ATTR_GETAGENTINFO = "agentInfo";
 	public final static String ATTR_GETAGENTPARAMS = "agentParams";
 	public final static String ATTR_GETAGENTTAG = "agentTag";
 	public final static String ATTR_GETAGENTTAG2 = "agentTag2";
@@ -13,9 +14,18 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETPSDELOGIC = "getPSDELogic";
 	public final static String ATTR_GETPSDATAENTITY = "getPSDataEntity";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+	public final static String ATTR_GETPSSYSUNIRES = "getPSSysUniRes";
 
 	public java.lang.String getAIPlatformType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getAgentInfo(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTINFO);
 		if(value == null){
 			return null;
 		}
@@ -126,6 +136,28 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
 		this.pssyssfplugin = pssyssfplugin;
+	}
+
+	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
+
+	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes(){
+		if(this.pssysunires != null) return this.pssysunires;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSUNIRES);
+		if(value == null){
+			return null;
+		}
+		this.pssysunires = getPSModelObject(net.ibizsys.model.security.IPSSysUniRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSUNIRES);
+		return this.pssysunires;
+	}
+
+	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniResMust(){
+		net.ibizsys.model.security.IPSSysUniRes value = this.getPSSysUniRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定权限统一资源对象");}
+		return value;
+	}
+
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
 	}
 
 }

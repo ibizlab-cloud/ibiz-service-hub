@@ -82,6 +82,16 @@ public class PSDELogicParamListTranspilerEx extends net.ibizsys.model.util.trans
 	 * 数据对象字典变量
 	 */
 	public final static int PARAMTYPE_ENTITYMAP = 12;
+	
+	/**
+	 * AI交谈请求变量
+	 */
+	public final static int PARAMTYPE_CHATCOMPLETIONREQUEST = 13;
+	
+	/**
+	 * AI交谈结果变量
+	 */
+	public final static int PARAMTYPE_CHATCOMPLETIONRESULT = 14;
 
 	/**
 	 * 应用上下文变量
@@ -274,6 +284,20 @@ public class PSDELogicParamListTranspilerEx extends net.ibizsys.model.util.trans
 			return PARAMTYPE_WEBRESPONSE;
 		}
 		
+		/**
+		 * AI交谈请求变量
+		 */
+		if (iPSDELogicParam.isChatCompletionRequestParam()) {
+			return PARAMTYPE_CHATCOMPLETIONREQUEST;
+		}
+		
+		/**
+		 * AI交谈结果变量
+		 */
+		if (iPSDELogicParam.isChatCompletionResultParam()) {
+			return PARAMTYPE_CHATCOMPLETIONRESULT;
+		}
+		
 		return PARAMTYPE_COMMON;
 	}
 	
@@ -321,6 +345,12 @@ public class PSDELogicParamListTranspilerEx extends net.ibizsys.model.util.trans
 			break;
 		case PARAMTYPE_ENTITYMAP:
 			objectNode.put(PSDELogicParamImpl.ATTR_ISENTITYMAPPARAM, true);
+			break;
+		case PARAMTYPE_CHATCOMPLETIONREQUEST:
+			objectNode.put(PSDELogicParamImpl.ATTR_ISCHATCOMPLETIONREQUESTPARAM, true);
+			break;
+		case PARAMTYPE_CHATCOMPLETIONRESULT:
+			objectNode.put(PSDELogicParamImpl.ATTR_ISCHATCOMPLETIONRESULTPARAM, true);
 			break;
 		case PARAMTYPE_APPCONTEXT:
 			objectNode.put(PSDELogicParamImpl.ATTR_ISAPPCONTEXTPARAM, true);

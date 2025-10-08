@@ -98,7 +98,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DataEntityRuntime.class);
 
 	private boolean bEnableRTCodeMode = false;
-	
+
 	private Map<Class<?>, Object> proxyDEServiceMap = null;
 	private Map<Class<?>, Map<String, String>> rtObjectNameMap = null;
 	private IDEService proxyDEService = null;
@@ -106,36 +106,36 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	private IDEExtensionUtilRuntime iDEExtensionUtilRuntime = null;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
 	private String strOSSFolder = null;
-	
-	
+
+
 	@Override
 	protected void onInit() throws Exception {
 		IServiceSystemRuntime iServiceSystemRuntime = null;
 		if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
 			iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
-    	}
-		
+		}
+
 		if(iServiceSystemRuntime!=null) {
 			this.bEnableRTCodeMode = iServiceSystemRuntime.isEnableRTCodeMode();
 			this.strOSSFolder = iServiceSystemRuntime.getOSSFolder();
 		}
-		
+
 		if(this.isEnableRTCodeMode()) {
 			registerRTObjects();
 		}
-		
+
 		if(DataTypeUtils.getIntegerValue(this.getPSDataEntity().getDynaSysMode(), 0) > 0) {
 			this.prepareDEExtensionUtilRuntime();
 		}
-		
-		
+
+
 		super.onInit();
 	}
-	
+
 	protected void registerRTObjects() throws Exception{
-		
+
 		IPSDataEntity iPSDataEntity = this.getPSDataEntity();
-		
+
 		if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
 			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
 			String strDEServiceObjectName = iServiceSystemRuntime.getRTCodeUtils().getDEServiceObjectName(iPSDataEntity);
@@ -154,7 +154,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				}
 				this.proxyDEService = proxyDEService;
 			}
-			
+
 			List<IPSDEMethodDTO> psDEMethodDTOList = iPSDataEntity.getAllPSDEMethodDTOs();
 			if(!ObjectUtils.isEmpty(psDEMethodDTOList)) {
 				for(IPSDEMethodDTO iPSDEMethodDTO : psDEMethodDTOList) {
@@ -166,23 +166,23 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			}
 		}
 	}
-	
+
 	protected boolean registerRTObjectName(Class<?> cls, String strId, String strRTObjectName) {
 		if(!StringUtils.hasLength(strId) || !StringUtils.hasLength(strRTObjectName)) {
 			return false;
 		}
-		
+
 		//要先判断外围是否已经注册部件
 		if(!RuntimeObjectFactory.getInstance().containsObject(cls, strRTObjectName)) {
 			if(!RuntimeObjectFactory.getInstance().registerObjectIf(cls, strRTObjectName, strRTObjectName)) {
 				return false;
 			}
 		}
-		
+
 		if(this.rtObjectNameMap == null) {
 			this.rtObjectNameMap = new ConcurrentHashMap<Class<?>, Map<String,String>>();
 		}
-		
+
 		Map<String, String> map = this.rtObjectNameMap.get(cls);
 		if(map == null) {
 			map = new HashMap<String, String>();
@@ -191,24 +191,24 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		map.put(strId, strRTObjectName);
 		return true;
 	}
-	
+
 	protected String getRTObjectName(Class<?> cls, String strId) {
 		if(this.rtObjectNameMap == null) {
 			return null;
 		}
-		
+
 		Map<String, String> map = this.rtObjectNameMap.get(cls);
 		if(map == null) {
 			return null;
 		}
-		
+
 		return map.get(strId);
 	}
-	
+
 	protected <T> T getRTObject(Class<T> cls, String strId) {
 		return this.getRTObject(cls, strId, true);
 	}
-	
+
 	protected <T> T  getRTObject(Class<T> cls, String strId, boolean bAutowire) {
 		String strRTObjectName = this.getRTObjectName(cls, strId);
 		if(!StringUtils.hasLength(strRTObjectName)) {
@@ -220,24 +220,24 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return t;
 	}
-	
-	
+
+
 	@Override
 	protected boolean isEnableRuntimeServiceMode() {
 		return this.isEnableRTCodeMode();
 	}
-	
+
 	@Override
 	protected IEntityDTO createEntityDTO(IPSDEMethodDTO iPSDEMethodDTO) {
 		Object object = this.getRTObject(IDEMethodDTO.class, iPSDEMethodDTO.getId(), false);
 		if(object!=null) {
 			return (IEntityDTO)object;
 		}
-		
+
 		return super.createEntityDTO(iPSDEMethodDTO);
 	}
-	
-	
+
+
 	@Override
 	protected ISearchContextDTO createSearchContextDTO(IPSDEMethodDTO iPSDEMethodDTO) {
 		Object object = this.getRTObject(IDEMethodDTO.class, iPSDEMethodDTO.getId(), false);
@@ -246,14 +246,14 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return super.createSearchContextDTO(iPSDEMethodDTO);
 	}
-	
+
 //	@Override
 //	protected List<IEntityDTO> createEntityDTOList(IPSDEMethodDTO iPSDEMethodDTO) {
 //		return super.createEntityDTOList(iPSDEMethodDTO);
 //	}
-	
-	
-  //  private static DefaultIdentifierGenerator defaultIdentifierGenerator = new DefaultIdentifierGenerator();
+
+
+	//  private static DefaultIdentifierGenerator defaultIdentifierGenerator = new DefaultIdentifierGenerator();
 
 
 //    @Override
@@ -261,18 +261,18 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 //        return AuthenticationUser.getAuthenticationUser();
 //    }
 
-    @Override
-    public boolean fillEntityKeyValue(IEntityBase objEntity) {
-    	
-    	if(DataTypeUtils.isNumberDataType(this.getKeyPSDEField().getStdDataType())) {
-    		String strDEFType = this.getKeyPSDEField().getDataType();
-    		if (DEFDataTypes.ACID.equals(strDEFType)) {
-                this.resetFieldValue(objEntity, this.getKeyPSDEField());
-            } else {
-            	this.setFieldValue(objEntity, this.getKeyPSDEField(), getNumberId());
-            }
-            return false;
-    	}
+	@Override
+	public boolean fillEntityKeyValue(IEntityBase objEntity) {
+
+		if(DataTypeUtils.isNumberDataType(this.getKeyPSDEField().getStdDataType())) {
+			String strDEFType = this.getKeyPSDEField().getDataType();
+			if (DEFDataTypes.ACID.equals(strDEFType)) {
+				this.resetFieldValue(objEntity, this.getKeyPSDEField());
+			} else {
+				this.setFieldValue(objEntity, this.getKeyPSDEField(), getNumberId());
+			}
+			return false;
+		}
 //    	if (DEFDataTypes.ACID.equals(strDEFType) || DEFDataTypes.BIGINT.equals(strDEFType)
 //                || DEFDataTypes.BIGDECIMAL.equals(strDEFType)) {
 //            if (DEFDataTypes.ACID.equals(this.getKeyPSDEField().getDataType()) && this.getSysDBSchemeRuntime().getDBType().equals(DBTypes.MYSQL5)) {
@@ -282,26 +282,26 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 //            }
 //            return false;
 //        }
-        return super.fillEntityKeyValue(objEntity);
-    }
-    
-    protected Object getNumberId() {
-    	String strTableName = this.getTableName();
-    	return KeyValueUtils.genNumberId(String.format("%1$s|%2$s", this.getSystemRuntime().getDeploySystemId(), StringUtils.hasLength(strTableName)?strTableName:this.getId()));
-    }
+		return super.fillEntityKeyValue(objEntity);
+	}
+
+	protected Object getNumberId() {
+		String strTableName = this.getTableName();
+		return KeyValueUtils.genNumberId(String.format("%1$s|%2$s", this.getSystemRuntime().getDeploySystemId(), StringUtils.hasLength(strTableName)?strTableName:this.getId()));
+	}
 
 
-    @Override
-    public void setSearchCustomCondition(ISearchContextBase iSearchContextBase, String strCustomCondition) {
-        Pattern bracketPattern = Pattern.compile("\\[(.*?)]");
-        Matcher matcher = bracketPattern.matcher(strCustomCondition);
-        if (matcher.find()) {
-            ISearchContextDTO iSearchContextDTO = getSearchContextDTO(iSearchContextBase);
-            SearchContextDTO.addSearchPredefinedCond(iSearchContextDTO, strCustomCondition, null);
-            return;
-        }
-        super.setSearchCustomCondition(iSearchContextBase, strCustomCondition);
-    }
+	@Override
+	public void setSearchCustomCondition(ISearchContextBase iSearchContextBase, String strCustomCondition) {
+		Pattern bracketPattern = Pattern.compile("\\[(.*?)]");
+		Matcher matcher = bracketPattern.matcher(strCustomCondition);
+		if (matcher.find()) {
+			ISearchContextDTO iSearchContextDTO = getSearchContextDTO(iSearchContextBase);
+			SearchContextDTO.addSearchPredefinedCond(iSearchContextDTO, strCustomCondition, null);
+			return;
+		}
+		super.setSearchCustomCondition(iSearchContextBase, strCustomCondition);
+	}
 
 //    @Override
 //    public IDEPrintRuntime createDEPrintRuntime(IPSDEPrint iPSDEPrint) {
@@ -369,131 +369,131 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 //        return new R8DENotifyRuntime();
 //    }
 
-    @Override
-    protected boolean checkFieldQueryCountCondition(Object objValue, IEntityBase arg0, IPSDEFVRQueryCountCondition iPSDEFVRQueryCountCondition, IPSDEField iPSDEField) throws Throwable {
-        String strRuleInfo = iPSDEFVRQueryCountCondition.getRuleInfo();
-        IPSDEDataQuery iPSDEDataQuery = iPSDEFVRQueryCountCondition.getPSDEDataQuery();
-        ISearchContextDTO searchContext = this.createSearchContext();
-        searchContext.setCount(true);
-        //设置上下文
-        EntityBase datacontext = (EntityBase) arg0;
+	@Override
+	protected boolean checkFieldQueryCountCondition(Object objValue, IEntityBase arg0, IPSDEFVRQueryCountCondition iPSDEFVRQueryCountCondition, IPSDEField iPSDEField) throws Throwable {
+		String strRuleInfo = iPSDEFVRQueryCountCondition.getRuleInfo();
+		IPSDEDataQuery iPSDEDataQuery = iPSDEFVRQueryCountCondition.getPSDEDataQuery();
+		ISearchContextDTO searchContext = this.createSearchContext();
+		searchContext.setCount(true);
+		//设置上下文
+		EntityBase datacontext = (EntityBase) arg0;
 		//保留原始，避免影响旧代码
-        if (datacontext != null) {
+		if (datacontext != null) {
 			searchContext.putAll(datacontext.any());
-            searchContext.set("datacontext", datacontext.any());
-        }
-        searchContext.set("sessioncontext",  ActionSessionManager.getUserContextMust().getSessionParams());
-        java.util.List result = this.selectDataQuery(iPSDEDataQuery, searchContext);
+			searchContext.set("datacontext", datacontext.any());
+		}
+		searchContext.set("sessioncontext",  ActionSessionManager.getUserContextMust().getSessionParams());
+		java.util.List result = this.selectDataQuery(iPSDEDataQuery, searchContext);
 
-        Integer nMinValue = iPSDEFVRQueryCountCondition.getMinValue();
-        Integer nMaxValue = iPSDEFVRQueryCountCondition.getMaxValue();
-        boolean bIncMinValue = iPSDEFVRQueryCountCondition.isIncludeMinValue();
-        boolean bIncMaxValue = iPSDEFVRQueryCountCondition.isIncludeMaxValue();
-        boolean bTryMode = !iPSDEFVRQueryCountCondition.isKeyCond();
-        int nSize = result.size();
-        if (nMinValue != null) {
-            if (bIncMinValue) {
-                if (nSize < nMinValue) {
-                    if (bTryMode)
-                        return false;
-                    throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
-                }
-            } else {
-                if (nSize <= nMinValue) {
-                    if (bTryMode)
-                        return false;
-                    throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
-                }
-            }
-        }
+		Integer nMinValue = iPSDEFVRQueryCountCondition.getMinValue();
+		Integer nMaxValue = iPSDEFVRQueryCountCondition.getMaxValue();
+		boolean bIncMinValue = iPSDEFVRQueryCountCondition.isIncludeMinValue();
+		boolean bIncMaxValue = iPSDEFVRQueryCountCondition.isIncludeMaxValue();
+		boolean bTryMode = !iPSDEFVRQueryCountCondition.isKeyCond();
+		int nSize = result.size();
+		if (nMinValue != null) {
+			if (bIncMinValue) {
+				if (nSize < nMinValue) {
+					if (bTryMode)
+						return false;
+					throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
+				}
+			} else {
+				if (nSize <= nMinValue) {
+					if (bTryMode)
+						return false;
+					throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
+				}
+			}
+		}
 
-        if (nMaxValue != null) {
-            if (bIncMaxValue) {
-                if (nSize > nMaxValue) {
-                    if (bTryMode)
-                        return false;
-                    throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
-                }
-            } else {
-                if (nSize >= nMaxValue) {
-                    if (bTryMode)
-                        return false;
-                    throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
-                }
-            }
-        }
+		if (nMaxValue != null) {
+			if (bIncMaxValue) {
+				if (nSize > nMaxValue) {
+					if (bTryMode)
+						return false;
+					throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
+				}
+			} else {
+				if (nSize >= nMaxValue) {
+					if (bTryMode)
+						return false;
+					throw createDEFVRConditionException(iPSDEFVRQueryCountCondition, strRuleInfo, null, iPSDEField);
+				}
+			}
+		}
 
-        return true;
-    }
-    
-    @Override
-    public IDEWFRuntime getDefaultDEWFRuntime() {
-    	return (IDEWFRuntime)super.getDefaultDEWFRuntime();
-    }
-    
-    @Override
-    public IDEWFRuntime getDEWFRuntime(IPSDEWF iPSDEWF) {
-    	return (IDEWFRuntime)super.getDEWFRuntime(iPSDEWF);
-    }
-    
-    
-    @Override
-    public IDELogicRuntime createDELogicRuntime(IPSDELogic iPSDELogic) {
-    	if(isEnableRTCodeMode() && iPSDELogic.getPSSysSFPlugin()==null) {
-    		if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
-    			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
-    			try {
-    				String strRTObjectName = iServiceSystemRuntime.getRTCodeUtils().getRTObjectName(iPSDELogic);
-    				this.registerRTObjectName(IDELogicRuntime.class, iPSDELogic.getId(), strRTObjectName);
-    				IDELogicRuntime iDELogicRuntime = this.getRTObject(IDELogicRuntime.class, iPSDELogic.getId(), true);
-    				if(iDELogicRuntime != null) {
-    					return iDELogicRuntime;
-    				}
-    			}
-    			catch (Exception ex) {
-    				throw new DataEntityRuntimeException(this, String.format("获取实体逻辑[%1$s]运行时对象发生异常，%2$s", iPSDELogic.getName(), ex.getMessage()), ex);
-    			}
-    		}
-    	}
-    	return super.createDELogicRuntime(iPSDELogic);
-    }
-    
-    
-    @Override
-    protected IDELogicRuntime createDefaultDELogicRuntime(IPSDELogic iPSDELogic) {
-    	return new DELogicRuntime();
-    }
-    
-    
-    @Override
-    protected IDEDataFlowRuntime createDefaultDEDataFlowRuntime(IPSDEDataFlow iPSDEDataFlow) {
-    	return new DEDataFlowRuntime();
-    }
-    
-    /**
-     * 实体是否启用运行时代码模式
-     * @return
-     */
-    public boolean isEnableRTCodeMode() {
-    	this.prepare();
-    	return this.bEnableRTCodeMode;
-    }
-    
-    public String getOSSFolder() {
-    	this.prepare();
-    	return this.strOSSFolder;
-    }
-    
-    @Override
-    public IDEService getDEService() {
-    	if(isEnableRTCodeMode()) {
-    		if(this.proxyDEService == null) {
-    			this.prepare();
-    		}
-    		return this.proxyDEService;
-    	}
-    	return super.getDEService();
-    }
+		return true;
+	}
+
+	@Override
+	public IDEWFRuntime getDefaultDEWFRuntime() {
+		return (IDEWFRuntime)super.getDefaultDEWFRuntime();
+	}
+
+	@Override
+	public IDEWFRuntime getDEWFRuntime(IPSDEWF iPSDEWF) {
+		return (IDEWFRuntime)super.getDEWFRuntime(iPSDEWF);
+	}
+
+
+	@Override
+	public IDELogicRuntime createDELogicRuntime(IPSDELogic iPSDELogic) {
+		if(isEnableRTCodeMode() && iPSDELogic.getPSSysSFPlugin()==null) {
+			if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
+				IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
+				try {
+					String strRTObjectName = iServiceSystemRuntime.getRTCodeUtils().getRTObjectName(iPSDELogic);
+					this.registerRTObjectName(IDELogicRuntime.class, iPSDELogic.getId(), strRTObjectName);
+					IDELogicRuntime iDELogicRuntime = this.getRTObject(IDELogicRuntime.class, iPSDELogic.getId(), true);
+					if(iDELogicRuntime != null) {
+						return iDELogicRuntime;
+					}
+				}
+				catch (Exception ex) {
+					throw new DataEntityRuntimeException(this, String.format("获取实体逻辑[%1$s]运行时对象发生异常，%2$s", iPSDELogic.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+		return super.createDELogicRuntime(iPSDELogic);
+	}
+
+
+	@Override
+	protected IDELogicRuntime createDefaultDELogicRuntime(IPSDELogic iPSDELogic) {
+		return new DELogicRuntime();
+	}
+
+
+	@Override
+	protected IDEDataFlowRuntime createDefaultDEDataFlowRuntime(IPSDEDataFlow iPSDEDataFlow) {
+		return new DEDataFlowRuntime();
+	}
+
+	/**
+	 * 实体是否启用运行时代码模式
+	 * @return
+	 */
+	public boolean isEnableRTCodeMode() {
+		this.prepare();
+		return this.bEnableRTCodeMode;
+	}
+
+	public String getOSSFolder() {
+		this.prepare();
+		return this.strOSSFolder;
+	}
+
+	@Override
+	public IDEService getDEService() {
+		if(isEnableRTCodeMode()) {
+			if(this.proxyDEService == null) {
+				this.prepare();
+			}
+			return this.proxyDEService;
+		}
+		return super.getDEService();
+	}
 
 	@Override
 	public <T> T getProxyDEService(Class<?> cls) {
@@ -511,22 +511,22 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		catch (Throwable ex) {
 			throw new DataEntityRuntimeException(this, String.format("获取实体代理服务对象[%1$s]发生异常，%2$s", cls.getName(), ex.getMessage()), ex);
 		}
-		
+
 	}
-	
+
 	protected  <T> T createProxyDEService(Class<?> cls) throws Exception {
 		DEServiceInvocationHandler<T> deServiceInvocationHandler = new DEServiceInvocationHandler(this.getDataEntityRuntimeContext(), cls);
 		return deServiceInvocationHandler.getProxyDEService();
 	}
-	
+
 	@Override
 	protected IDataEntityAccessManager createDataEntityAccessManager() {
 		if(isEnableRTCodeMode() ) {
 			if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
-    			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
-    			
-	    		try {
-	 				String strRTObjectName = iServiceSystemRuntime.getRTCodeUtils().getDEAccessManagerObjectName(this.getPSDataEntity());
+				IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
+
+				try {
+					String strRTObjectName = iServiceSystemRuntime.getRTCodeUtils().getDEAccessManagerObjectName(this.getPSDataEntity());
 					this.registerRTObjectName(IDataEntityAccessManager.class, getPSDataEntity().getId(), strRTObjectName);
 					IDataEntityAccessManager iDataEntityAccessManager = this.getRTObject(IDataEntityAccessManager.class, getPSDataEntity().getId(), true);
 					if(iDataEntityAccessManager != null) {
@@ -537,11 +537,11 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 					throw new DataEntityRuntimeException(this, String.format("获取实体访问控制运行时对象发生异常，%1$s", ex.getMessage()), ex);
 				}
 			}
-    	}
+		}
 
 		return super.createDataEntityAccessManager();
 	}
-	
+
 	@Override
 	public ImportDataResult importData2(String strImportTag, IEntity baseEntity, InputStream inputStream, V2ImportSchema v2ImportSchema, boolean bTestPriv, IDataEntityRuntime parentDataEntityRuntime, String strParentKey) throws Throwable {
 		prepare();
@@ -556,11 +556,11 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 
 		try {
 			this.pushDataSource();
-			
+
 			// 备份会话的动态实例运行时
 			ActionSessionBackup backup = actionSession.backup();
 			actionSession.setSessionId(KeyValueUtils.genGuidEx());
-			
+
 			actionSession.beginLog(this.getName(), String.format("导入数据[%1$s]", strImportTag));
 
 			ImportDataResult ret = this.onImportData2(strImportTag, baseEntity, inputStream, v2ImportSchema, bTestPriv, parentDataEntityRuntime, strParentKey);
@@ -664,7 +664,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			this.pollDataSource();
 		}
 	}
-	
+
 	protected Map<Integer, EntityError> onImportData(String strImportTag, IEntity baseEntity, InputStream inputStream, V2ImportSchema v2ImportSchema, boolean bTestPriv, IDataEntityRuntime parentDataEntityRuntime, String strParentKey) throws Throwable {
 		IDEDataImportRuntime iDEDataImportRuntime = this.getDEDataImportRuntime(strImportTag);
 		if (iDEDataImportRuntime instanceof net.ibizsys.central.cloud.core.dataentity.dataimport.IDEDataImportRuntime) {
@@ -673,8 +673,8 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 
 		throw new Exception(String.format("对象[%1$s]未支持增强导入数据", iDEDataImportRuntime));
 	}
-	
-	
+
+
 	@Override
 	public ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
 		prepare();
@@ -689,11 +689,11 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 
 		try {
 			this.pushDataSource();
-			
+
 			// 备份会话的动态实例运行时
 			ActionSessionBackup backup = actionSession.backup();
 			actionSession.setSessionId(KeyValueUtils.genGuidEx());
-			
+
 			actionSession.beginLog(this.getName(), String.format("导出数据[%1$s]", strExportTag));
 
 			ExportDataResult ret = this.onExportData2(strExportTag, objData, outputStream);
@@ -731,7 +731,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			this.pollDataSource();
 		}
 	}
-	
+
 
 	protected ExportDataResult onExportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
 		IDEDataExportRuntime iDEDataExportRuntime = this.getDEDataExportRuntime(strExportTag);
@@ -741,14 +741,14 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 
 		throw new Exception(String.format("对象[%1$s]未支持增强导出数据", iDEDataExportRuntime));
 	}
-	
+
 
 	@Override
 	public boolean isEnableExtension() {
 		this.prepare();
 		return this.bEnableExtension;
 	}
-	
+
 	protected void prepareDEExtensionUtilRuntime() throws Exception{
 		if(this.iDEExtensionUtilRuntime != null) {
 			return;
@@ -782,17 +782,17 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				objectNode.put(PSDEUtilImpl.ATTR_GETUTILTYPE, DEUtilType.EXTENSION.value);
 				objectNode.put(PSDEUtilImpl.ATTR_GETID, DEUtilType.EXTENSION.value);
 				objectNode.put(PSDEUtilImpl.ATTR_GETNAME, DEUtilType.EXTENSION.value);
-				
+
 				IPSDEUtil iPSDEUtil = this.getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime)this.getPSDataEntity(), IPSDEUtil.class, objectNode);
 				iDEExtensionUtilRuntime.init(this.getDataEntityRuntimeContext(), iPSDEUtil);
 				this.iDEExtensionUtilRuntime = iDEExtensionUtilRuntime;
 			}
-			
+
 		}
-		
+
 		this.bEnableExtension = this.iDEExtensionUtilRuntime!=null;
 	}
-	
+
 	@Override
 	public IDEExtensionUtilRuntime getDEExtensionUtilRuntime() {
 		if(isEnableExtension()) {
@@ -804,7 +804,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		else
 			return null;
 	}
-	
+
 	@Override
 	public void reloadExtension(V2SystemExtensionSuite v2SystemExtensionSuite) {
 		this.prepare();
@@ -813,7 +813,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			iDEExtensionUtilRuntime.reloadExtension(v2SystemExtensionSuite);
 		}
 	}
-	
+
 	@Override
 	protected IDELogicRuntime getDELogicRuntime(IPSDELogic iPSDELogic, boolean bTryMode) {
 		IDELogicRuntime iDELogicRuntime = super.getDELogicRuntime(iPSDELogic, bTryMode);
@@ -825,7 +825,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return iDELogicRuntime;
 	}
-	
+
 	@Override
 	protected IDEMSLogicRuntime getDEMSLogicRuntime(IPSDEMSLogic iPSDEMSLogic, boolean bTryMode) {
 		IDEMSLogicRuntime iDEMSLogicRuntime = super.getDEMSLogicRuntime(iPSDEMSLogic, bTryMode);
@@ -837,8 +837,8 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return iDEMSLogicRuntime;
 	}
-	
-	
+
+
 	@Override
 	protected boolean isEnableActionLogic(IPSDEAction iPSDEAction, String strAttachMode) {
 		final IDEExtensionUtilRuntime iDEExtensionUtilRuntime = this.getDEExtensionUtilRuntime();
@@ -849,7 +849,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return super.isEnableActionLogic(iPSDEAction, strAttachMode);
 	}
-	
+
 	@Override
 	protected void executeActionLogics(IEntityBase arg0, IPSDEAction iPSDEAction, String strAttachMode, IDynaInstDataEntityRuntime iDynaInstDataEntityRuntime, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		super.executeActionLogics(arg0, iPSDEAction, strAttachMode, iDynaInstDataEntityRuntime, iDynaInstRuntime, actionData);
@@ -858,8 +858,8 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			iDEExtensionUtilRuntime.executeActionLogics(arg0, iPSDEAction, strAttachMode);
 		}
 	}
-	
-	
+
+
 	@Override
 	public V2SystemExtensionLogic[] getExtensionLogics(String strLogicType) {
 		final IDEExtensionUtilRuntime iDEExtensionUtilRuntime = this.getDEExtensionUtilRuntime();
@@ -877,7 +877,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		throw new DataEntityRuntimeException(this, String.format("未支持实体扩展"));
 	}
-	
+
 	@Override
 	public void notify(Object key, String strEvent, Object eventData, Object eventData2, Object eventData3, Object eventData4) throws Throwable {
 		super.notify(key, strEvent, eventData, eventData2, eventData3, eventData4);
@@ -886,7 +886,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			iDEExtensionUtilRuntime.notify(key, strEvent, eventData, eventData2, eventData3, eventData4);
 		}
 	}
-	
+
 	@Override
 	public net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime getDEMSLogicRuntime(IEntity iEntity, boolean bTryMode) {
 		final IDEExtensionUtilRuntime iDEExtensionUtilRuntime = this.getDEExtensionUtilRuntime();
@@ -898,6 +898,17 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return super.getDEMSLogicRuntime(iEntity, bTryMode);
 	}
+
+	@Override
+	protected boolean isEnableDEMSLogic() {
+		final IDEExtensionUtilRuntime iDEExtensionUtilRuntime = this.getDEExtensionUtilRuntime();
+		if(iDEExtensionUtilRuntime != null) {
+			if(iDEExtensionUtilRuntime.isEnableDEMSLogic()) {
+				return true;
+			}
+		}
+		return super.isEnableDEMSLogic();
+	}
 	
 	@Override
 	protected void checkDEMainState(Object arg, IPSDEAction iPSDEAction) throws Exception {
@@ -907,7 +918,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		super.checkDEMainState(arg, iPSDEAction);
 	}
-	
+
 	@Override
 	protected boolean onTestDataAccessAction(Object dataOrKey, String strAccessAction) throws Exception {
 		final IDEExtensionUtilRuntime iDEExtensionUtilRuntime = this.getDEExtensionUtilRuntime();
@@ -927,7 +938,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return null;
 	}
-	
+
 	@Override
 	public List<IPSDEField> getPSDEFields(boolean bExtension) {
 		if(bExtension) {
@@ -947,8 +958,8 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return super.getPSDEFields(bExtension);
 	}
-	
-	
+
+
 	@Override
 	public IPSDEField getPSDEField(boolean bExtension, String strName, boolean bTryMode) {
 		if(bExtension) {
@@ -958,7 +969,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				if(iPSDEField != null) {
 					return iPSDEField;
 				}
-				
+
 				List<IPSDEField> extendPSDEFields = iDEExtensionUtilRuntime.getPSDEFields(null);
 				if(!ObjectUtils.isEmpty(extendPSDEFields)) {
 					for(IPSDEField item : extendPSDEFields) {
@@ -975,10 +986,10 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				return null;
 			}
 		}
-		
+
 		return super.getPSDEField(bExtension, strName, bTryMode);
 	}
-	
+
 	@Override
 	protected void translateSearchContextBeforeProceed(ISearchContextBase arg0, String strDataSetName, IPSDEDataSet iPSDEDataSet, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {
 		//补充数据集自身数据权限
@@ -987,15 +998,15 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			ISearchContextDTO iSearchContextDTO = this.getSearchContextDTO(arg0);
 			this.getDataEntityAccessManager().addAuthorityConditions(iEmployeeContext, iSearchContextDTO, iPSDEDataSet);
 		}
-		
+
 		super.translateSearchContextBeforeProceed(arg0, strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);
 	}
-	
+
 	@Override
 	public net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager getDataEntityAccessManager() {
 		return (net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager)super.getDataEntityAccessManager();
 	}
-	
+
 	@Override
 	public DownloadTicket createDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable {
 		//Assert.hasLength(strStorageField, "未传入存储属性");
@@ -1009,7 +1020,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 			throw new DataEntityRuntimeException(this, String.format("获取数据附件下载凭证发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
-	
+
 	protected DownloadTicket onCreateDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable {
 		IEntityDTO iEntityDTO = null;
 		if(keyOrEntity instanceof IEntityDTO) {
@@ -1018,12 +1029,12 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		else {
 			iEntityDTO = this.get(keyOrEntity);
 		}
-		
+
 		IDEMethodDTORuntime iDEMethodDTORuntime = iEntityDTO.getDEMethodDTORuntime();
 		if(iDEMethodDTORuntime == null) {
 			throw new Exception("方法DTO运行时对象无效");
 		}
-		
+
 		if(StringUtils.hasLength(strStorageField)) {
 			Object value = iEntityDTO.get(strStorageField.toLowerCase());
 			if(value == null) {
@@ -1032,40 +1043,53 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				}
 				throw new Exception(String.format("属性[%1$s]存储数据无效", strStorageField));
 			}
-			
-			List list = JsonUtils.asList(value);
-			if(ObjectUtils.isEmpty(list)) {
-				if(bTryMode) {
-					return null;
-				}
-				throw new Exception(String.format("属性[%1$s]存储数据无效", strStorageField));
-			}
-
-			for(Object item : list) {
-				if(!(item instanceof Map)){
-					continue;
-				}
-
-				Map map = (Map)item;
-				String id = DataTypeUtils.asString(map.get("id"));
-				String name = DataTypeUtils.asString(map.get("name"));
-				int size = DataTypeUtils.asInteger(map.get("size"), -1);
-				String ext = DataTypeUtils.asString(map.get("ext"));
-				String cat = DataTypeUtils.asString(map.get("folder"));
-				if(ObjectUtils.isEmpty(cat)) {
-					cat = getOSSFolder();
-				}
-
-				if(strOSSFileId.equals(id)) {
-					ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
-					if(StringUtils.hasLength(cat)) {
-						return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
-					}
-					else {
-						return iCloudOSSClient.createDownloadTicket(strOSSFileId);
-					}
+			if(strOSSFileId.equals(value)) {
+				//兼容模式
+				ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+				String cat = getOSSFolder();
+				if (StringUtils.hasLength(cat)) {
+					return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+				} else {
+					return iCloudOSSClient.createDownloadTicket(strOSSFileId);
 				}
 			}
+			try {
+				List list = JsonUtils.asList(value);
+				if (ObjectUtils.isEmpty(list)) {
+					if (bTryMode) {
+						return null;
+					}
+					throw new Exception(String.format("属性[%1$s]存储数据无效", strStorageField));
+				}
+
+				for (Object item : list) {
+					if (!(item instanceof Map)) {
+						continue;
+					}
+
+					Map map = (Map) item;
+					String id = DataTypeUtils.asString(map.get("id"));
+					String name = DataTypeUtils.asString(map.get("name"));
+					int size = DataTypeUtils.asInteger(map.get("size"), -1);
+					String ext = DataTypeUtils.asString(map.get("ext"));
+					String cat = DataTypeUtils.asString(map.get("folder"));
+					if (ObjectUtils.isEmpty(cat)) {
+						cat = getOSSFolder();
+					}
+
+					if (strOSSFileId.equals(id)) {
+						ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+						if (StringUtils.hasLength(cat)) {
+							return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+						} else {
+							return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+						}
+					}
+				}
+			}catch (Exception ex){
+				log.info(String.format("属性[%1$s]非常规文件存储格式，忽略解析",strStorageField));
+			}
+
 		}
 		else {
 			List<IPSDEField> attachmentPSDEFieldList = this.getAttachmentPSDEFields(true);
@@ -1075,40 +1099,52 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 					if(value == null) {
 						continue;
 					}
-					
-					List list = JsonUtils.asList(value);
-					if(ObjectUtils.isEmpty(list)) {
-						continue;
+					if(strOSSFileId.equals(value)) {
+						//兼容模式
+						ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+						String cat = getOSSFolder();
+						if (StringUtils.hasLength(cat)) {
+							return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+						} else {
+							return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+						}
 					}
-
-					for(Object item : list) {
-						if(!(item instanceof Map)){
+					try {
+						List list = JsonUtils.asList(value);
+						if (ObjectUtils.isEmpty(list)) {
 							continue;
 						}
 
-						Map map = (Map)item;
-						String id = DataTypeUtils.asString(map.get("id"));
-						String name = DataTypeUtils.asString(map.get("name"));
-						int size = DataTypeUtils.asInteger(map.get("size"), -1);
-						String ext = DataTypeUtils.asString(map.get("ext"));
-						String cat = DataTypeUtils.asString(map.get("folder"));
-						if(ObjectUtils.isEmpty(cat)) {
-							cat = getOSSFolder();
-						}
+						for (Object item : list) {
+							if (!(item instanceof Map)) {
+								continue;
+							}
 
-						if(strOSSFileId.equals(id)) {
-							ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
-							if(StringUtils.hasLength(cat)) {
-								return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+							Map map = (Map) item;
+							String id = DataTypeUtils.asString(map.get("id"));
+							String name = DataTypeUtils.asString(map.get("name"));
+							int size = DataTypeUtils.asInteger(map.get("size"), -1);
+							String ext = DataTypeUtils.asString(map.get("ext"));
+							String cat = DataTypeUtils.asString(map.get("folder"));
+							if (ObjectUtils.isEmpty(cat)) {
+								cat = getOSSFolder();
 							}
-							else {
-								return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+
+							if (strOSSFileId.equals(id)) {
+								ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+								if (StringUtils.hasLength(cat)) {
+									return iCloudOSSClient.createDownloadTicket(cat, strOSSFileId);
+								} else {
+									return iCloudOSSClient.createDownloadTicket(strOSSFileId);
+								}
 							}
 						}
+					}catch (Exception ex){
+						log.info(String.format("属性[%1$s]非常规文件存储格式，忽略解析", iPSDEField.getName()));
 					}
 				}
 			}
-			
+
 			//获取DTO属性
 			List<IPSDEMethodDTOField> psDEMethodDTOFieldList = iDEMethodDTORuntime.getPSDEMethodDTOFields();
 			if(!ObjectUtils.isEmpty(psDEMethodDTOFieldList)) {
@@ -1129,18 +1165,18 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 									if (!(dtoData instanceof Map)) {
 										throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
 									}
-									
+
 									collection = ((Map)dtoData).values();
-									
+
 								} else {
 									// 列表模式
 									if (!(dtoData instanceof List)) {
 										throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
 									}
-									
+
 									collection = (List)dtoData;
 								}
-								
+
 								if(!ObjectUtils.isEmpty(collection)) {
 									for(Object item : collection) {
 										DownloadTicket downloadTicket = refDataEntityRuntime.createDownloadTicket(item, null, strOSSFileId, true);
@@ -1161,22 +1197,22 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 				}
 			}
 		}
-		
+
 		if(bTryMode) {
 			return null;
 		}
-		
+
 		throw new Exception(String.format("指定OSS文件数据[%1$s]不存在", strOSSFileId));
 	}
-	
+
 	public ISysCloudClientUtilRuntime getSysCloudClientUtilRuntime() {
 		if (this.iSysCloudClientUtilRuntime == null) {
 			this.iSysCloudClientUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysCloudClientUtilRuntime.class, false);
 		}
 		return this.iSysCloudClientUtilRuntime;
 	}
-	
-	
+
+
 	@Override
 	protected void onShutdown() throws Exception {
 		if(!ObjectUtils.isEmpty(this.proxyDEServiceMap)) {
@@ -1189,5 +1225,5 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		this.iDEExtensionUtilRuntime = null;
 		super.onShutdown();
 	}
-	
+
 }

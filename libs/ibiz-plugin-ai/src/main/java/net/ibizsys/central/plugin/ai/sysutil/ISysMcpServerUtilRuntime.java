@@ -1,9 +1,15 @@
 package net.ibizsys.central.plugin.ai.sysutil;
 
 import net.ibizsys.central.cloud.core.sysutil.ISysUtilRuntime;
+import net.ibizsys.central.cloud.core.util.domain.AccessToken;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerToolProvider;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerTransportAgent;
 
+/**
+ * 系统McpServer功能组件运行时对象接口
+ * @author lionlau
+ *
+ */
 public interface ISysMcpServerUtilRuntime extends ISysUtilRuntime {
 
 	/**
@@ -22,6 +28,8 @@ public interface ISysMcpServerUtilRuntime extends ISysUtilRuntime {
 	public final static String TRANSPORT_HTTP_STREAMABLE = "HTTP_STREAMABLE";
 	
 	public final static String TOOL_DEFAULT = "DEFAULT";
+	
+	//public final static String TOOL_AIFACTORY = "AIFACTORY";
 	
 	
 	/**
@@ -75,4 +83,20 @@ public interface ISysMcpServerUtilRuntime extends ISysUtilRuntime {
 	 * @return
 	 */
 	boolean unregisterMcpServerToolProvider(String strToolName, IMcpServerToolProvider iMcpServerTool);
+	
+	
+	
+	/**
+	 * 获取访问凭证数据对象
+	 * @param strToken
+	 * @param bValid
+	 * @param bTryMode
+	 * @return
+	 */
+	AccessToken getAccessToken(String strToken, boolean bValid, boolean bTryMode);
+	
+	/**
+	 * 重新加载McpServer
+	 */
+	void reload();
 }

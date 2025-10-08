@@ -34,4 +34,10 @@ public interface ICloudOSSClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/createdownloadticket/{id}")
 	DownloadTicket createDownloadTicket(@PathVariable("id") String id);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadtxt/{cat}/{id}")
+	String downloadText(@PathVariable("cat") String cat, @PathVariable("id") String id);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadtxt/{id}")
+	String downloadText(@PathVariable("id") String id);
 }

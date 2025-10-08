@@ -16,6 +16,10 @@ import net.ibizsys.runtime.util.IWebContext;
  */
 public interface IDELogicSession {
 
+	/**
+	 * 下一步：结束并返回LastReturn
+	 */
+	public final static Object NEXT_END = new Object();
 	
 	/**
 	 * 调试信息类型：进入节点
@@ -225,6 +229,25 @@ public interface IDELogicSession {
 //	 */
 //	Object value(String  strParam) throws Throwable;
 	
+	/**
+	 * 设置下一个节点
+	 * @param next
+	 */
+	void setNext(Object next); 
 	
+	
+	/**
+	 * 获取下一个节点
+	 * @return
+	 */
+	Object getNext();
+	
+	
+	
+	/**
+	 * 克隆新会话
+	 * @return
+	 */
+	IDELogicSession clone();
 	
 }

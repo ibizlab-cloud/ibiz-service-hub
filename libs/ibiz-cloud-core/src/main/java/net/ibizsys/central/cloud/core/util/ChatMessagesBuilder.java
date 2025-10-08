@@ -41,7 +41,6 @@ public class ChatMessagesBuilder {
 	
 	public final static String TOOL_END = "</tool>";
 	
-	
 	private List<ChatMessage> list = new ArrayList<ChatMessage>();
 
 	public ChatMessagesBuilder user(String strMessage) {
@@ -265,5 +264,9 @@ public class ChatMessagesBuilder {
 		}
 		dst.addAll(this.list);
 		return dst;
+	}
+	
+	public static ChatMessagesBuilder create() {
+		return new ChatMessagesBuilder();
 	}
 }

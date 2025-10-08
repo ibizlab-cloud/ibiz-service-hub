@@ -55,5 +55,8 @@ public class DELogicSession extends net.ibizsys.central.dataentity.logic.DELogic
 		super.debugInfo(strInfo);
 	}
 
+	protected DELogicSession clone(IDELogicRuntimeContext iDELogicRuntimeContext, Map<String, Object> params) {
+		return new DELogicSession(iDELogicRuntimeContext, params);
+	}
 	
 }

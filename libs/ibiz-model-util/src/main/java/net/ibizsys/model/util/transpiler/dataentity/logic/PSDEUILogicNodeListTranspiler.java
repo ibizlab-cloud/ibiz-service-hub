@@ -32,6 +32,8 @@ public class PSDEUILogicNodeListTranspiler extends net.ibizsys.model.util.transp
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDEActionLogicImpl.class, false);
 			case "DEBUGPARAM":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDebugParamLogicImpl.class, false);
+			case "DECISION":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDecisionLogicImpl.class, false);
 			case "DEDATASET":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIDEDataSetLogicImpl.class, false);
 			case "DELOGIC":
@@ -42,6 +44,8 @@ public class PSDEUILogicNodeListTranspiler extends net.ibizsys.model.util.transp
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIEndLogicImpl.class, false);
 			case "LOOPSUBCALL":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUILoopSubCallLogicImpl.class, false);
+			case "MEMO":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIMemoLogicImpl.class, false);
 			case "MSGBOX":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEUIMsgBoxLogicImpl.class, false);
 			case "PFPLUGIN":

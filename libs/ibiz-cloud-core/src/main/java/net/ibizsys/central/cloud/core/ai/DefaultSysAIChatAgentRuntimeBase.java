@@ -24,4 +24,8 @@ public abstract class DefaultSysAIChatAgentRuntimeBase extends SysAIChatAgentRun
 		return String.format("template%1$s%2$s.%3$s.json.tpl", File.separator, this.getAgentMode(), "tools").toLowerCase();
 	}
 	
+	@Override
+	protected String getInfoConfigId() throws Throwable {
+		return String.format("template%1$s%2$s.%3$s.md.tpl", File.separator, this.getAgentMode(), "info").toLowerCase();
+	}
 }

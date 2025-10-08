@@ -97,7 +97,13 @@ public interface ISimpleFileStorageService {
 	void downloadFile(String strCat, String strFileId, HttpServletResponse response);
 	
 	
-	
+	/**
+	 * 下载文件（提取文件中文本）
+	 * @param strCat
+	 * @param strFileid
+	 * @param response
+	 */
+	void downloadText(String strCat, String strFileId, HttpServletResponse response);
 	
 	/**
 	 * 保存远程上传的文件内容
@@ -141,6 +147,14 @@ public interface ISimpleFileStorageService {
 	void downloadFileByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, boolean bTryFileId);
 	
 	
+	/**
+	 * 通过文件访问键下载文件（提取文件中文本）
+	 * @param strCat
+	 * @param strDownloadKey
+	 * @param response
+	 * @param bTryOrigin 尝试文件标识
+	 */
+	void downloadTextByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, boolean bTryFileId);
 	
 	
 	/**

@@ -3368,7 +3368,12 @@ public class PSDEDQSQLCodeGenEngine {
 					if (ObjectUtils.isEmpty(strDEFTableName)) {
 						if (this.getMajorPSDataEntity().isVirtual()) {
 							if (iPSDEField instanceof IPSLinkDEField) {
-								strDEFTableName = this.getDataEntityRuntime(getRealPSDEField(((IPSLinkDEField) iPSDEField), true).getParentPSModelObject(IPSDataEntity.class).getId()).getTableName();
+								if(this.getMajorPSDataEntity().getVirtualMode() == DEVirtualMode.MIXMINHERITMERGE.value) {
+									strDEFTableName = strMainTable;
+								}
+								else {
+									strDEFTableName = this.getDataEntityRuntime(getRealPSDEField(((IPSLinkDEField) iPSDEField), true).getParentPSModelObject(IPSDataEntity.class).getId()).getTableName();
+								}
 								iPSDEField2 = getRealPSDEField(((IPSLinkDEField) iPSDEField), true);
 							}
 						}

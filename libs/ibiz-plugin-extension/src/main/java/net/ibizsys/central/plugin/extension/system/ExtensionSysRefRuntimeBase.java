@@ -74,10 +74,22 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 	
 	protected void preparePSSystemService() throws Exception{
 		String strFileId = this.getPSSysRef().getRefParam();
-		
 		if(!StringUtils.hasLength(strFileId)) {
-			throw new Exception("未指定模型OSS文件标识");
+			//尝试合并
+			if(StringUtils.hasLength(this.getPSSysRef().getSysRefType())) {
+				String[] types = this.getPSSysRef().getSysRefType().split("[_]");
+				String strFileId2 = this.getSystemRuntime().getPSSystemService().getPSModelFolderPath() + File.separator + types[0].toLowerCase() + File.separator + this.getPSSysRef().getId();
+				File systemModelFile = new File(strFileId2 + File.separator + "PSSYSTEM.json");
+				if (systemModelFile.exists()) {
+					strFileId = strFileId2;
+				}
+			}
+			
+			if(!StringUtils.hasLength(strFileId)) {
+				throw new Exception("未指定模型OSS文件标识");
+			}
 		}
+		
 		
 		String strDynaModelPath = null;
 		//判断文件ID是否存在路径符号

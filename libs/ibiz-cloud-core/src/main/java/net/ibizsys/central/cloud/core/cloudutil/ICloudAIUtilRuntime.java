@@ -86,6 +86,10 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 */
 	public final static String MCPSERVER_DEFAULT = "DEFAULT";
 	
+	public final static String MCPSERVER_HTTP_SSE = "HTTP_SSE";
+	
+	public final static String MCPSERVER_HTTP_STREAMABLE = "HTTP_STREAMABLE";
+	
 	
 	/**
 	 * 交谈补全

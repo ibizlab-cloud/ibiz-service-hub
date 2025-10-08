@@ -2248,7 +2248,6 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 
 	@Override
 	public boolean redoFilter() throws IOException, ServletException {
-		// UserContext.setCurrent(null);
 		if (this.getServiceHubFilter() == null) {
 			return false;
 		}
@@ -2473,6 +2472,30 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		} catch (Exception ex) {
 			log.error(String.format("发布配置[%1$s]发生异常，%2$s", strConfigId, ex.getMessage()), ex);
 			throw new SystemGatewayException(this, String.format("发布配置[%1$s]发生异常，%2$s", strConfigId, ex.getMessage()), ex);
+		}
+	}
+	
+	@Override
+	public void removeConfig(String strConfigId) {
+		Assert.hasLength(strConfigId, "传入键名无效");
+
+		if (!getServiceHubSetting().isPublishConfig()) {
+			log.warn(String.format("忽略发布配置[%1$s]", strConfigId));
+			return;
+		}
+
+		String strBackupConfigId = strConfigId;
+		strConfigId = NacosConfigUtils.getDataId(strBackupConfigId);
+		if (!strBackupConfigId.equals(strConfigId)) {
+			log.warn(String.format("键名[%1$s]包含非法字符，转换至[%2$s]，可能会出现键名冲突", strBackupConfigId, strConfigId));
+		}
+
+		ConfigService configService = nacosConfigManager.getConfigService();
+		try {
+			configService.removeConfig(strConfigId, nacosConfigProperties.getGroup());
+		} catch (Exception ex) {
+			log.error(String.format("移除配置[%1$s]发生异常，%2$s", strConfigId, ex.getMessage()), ex);
+			throw new SystemGatewayException(this, String.format("移除配置[%1$s]发生异常，%2$s", strConfigId, ex.getMessage()), ex);
 		}
 	}
 

@@ -41,6 +41,7 @@ public interface IDELogicRuntime extends net.ibizsys.runtime.dataentity.logic.ID
 	boolean isOutputDebugInfo();
 	
 	
+
 	/**
 	 * 获取默认实体逻辑参数运行时对象
 	 * @return
