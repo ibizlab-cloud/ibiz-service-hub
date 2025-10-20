@@ -177,6 +177,7 @@ import net.ibizsys.model.dataentity.datasync.IPSDEDataSync;
 import net.ibizsys.model.dataentity.logic.IPSDELogicNode;
 import net.ibizsys.model.dataentity.logic.IPSDELogicParam;
 import net.ibizsys.model.msg.IPSSysMsgQueue;
+import net.ibizsys.model.msg.IPSSysMsgTempl;
 import net.ibizsys.model.res.IPSSysContent;
 import net.ibizsys.model.res.IPSSysContentCat;
 import net.ibizsys.model.res.IPSSysDataSyncAgent;
@@ -785,6 +786,23 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 				}
 			}
 		}
+		
+		// 启动消息模板
+		java.util.List<IPSSysMsgTempl> psSysMsgTempls = this.getPSSystem().getAllPSSysMsgTempls();
+		if (psSysMsgTempls != null) {
+			for (IPSSysMsgTempl iPSSysMsgTempl : psSysMsgTempls) {
+				net.ibizsys.runtime.msg.ISysMsgTemplRuntime iSysMsgTemplRuntime = this.getSysMsgTemplRuntime(iPSSysMsgTempl);
+				if (!(iSysMsgTemplRuntime instanceof ISysMsgTemplRuntime)) {
+					continue;
+				}
+				ISysMsgTemplRuntime iSysMsgTemplRuntime2 = (ISysMsgTemplRuntime) iSysMsgTemplRuntime;
+				try {
+					iSysMsgTemplRuntime2.install();
+				} catch (Throwable ex) {
+					throw new Exception(String.format("安装系统消息模板[%1$s]发生异常，%2$s", iSysMsgTemplRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
 
 		// 启动大数据体系
 		java.util.List<IPSSysBDScheme> psSysBDSchemes = this.getPSSystem().getAllPSSysBDSchemes();
@@ -882,6 +900,23 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 					iSystemModuleUtilRuntime.installData(strMode);
 				} catch (Throwable ex) {
 					throw new Exception(String.format("系统模块功能[%1$s]安装数据发生异常，%2$s", iSystemModuleRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+		
+		// 消息模板安装数据
+		java.util.List<IPSSysMsgTempl> psSysMsgTempls = this.getPSSystem().getAllPSSysMsgTempls();
+		if (psSysMsgTempls != null) {
+			for (IPSSysMsgTempl iPSSysMsgTempl : psSysMsgTempls) {
+				net.ibizsys.runtime.msg.ISysMsgTemplRuntime iSysMsgTemplRuntime = this.getSysMsgTemplRuntime(iPSSysMsgTempl);
+				if (!(iSysMsgTemplRuntime instanceof ISysMsgTemplRuntime)) {
+					continue;
+				}
+				ISysMsgTemplRuntime iSysMsgTemplRuntime2 = (ISysMsgTemplRuntime) iSysMsgTemplRuntime;
+				try {
+					iSysMsgTemplRuntime2.installData(strMode);
+				} catch (Throwable ex) {
+					throw new Exception(String.format("系统消息模板[%1$s]安装数据发生异常，%2$s", iSysMsgTemplRuntime.getName(), ex.getMessage()), ex);
 				}
 			}
 		}
@@ -3933,6 +3968,23 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 					iSysSearchSchemeRuntime.uninstall();
 				} catch (Throwable ex) {
 					throw new Exception(String.format("卸载系统搜索体系[%1$s]发生异常，%2$s", iSysSearchSchemeRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+		
+		// 卸载消息模板
+		java.util.List<IPSSysMsgTempl> psSysMsgTempls = this.getPSSystem().getAllPSSysMsgTempls();
+		if (psSysMsgTempls != null) {
+			for (IPSSysMsgTempl iPSSysMsgTempl : psSysMsgTempls) {
+				net.ibizsys.runtime.msg.ISysMsgTemplRuntime iSysMsgTemplRuntime = this.getSysMsgTemplRuntime(iPSSysMsgTempl);
+				if (!(iSysMsgTemplRuntime instanceof ISysMsgTemplRuntime)) {
+					continue;
+				}
+				ISysMsgTemplRuntime iSysMsgTemplRuntime2 = (ISysMsgTemplRuntime) iSysMsgTemplRuntime;
+				try {
+					iSysMsgTemplRuntime2.uninstall();
+				} catch (Throwable ex) {
+					throw new Exception(String.format("卸载系统消息模板[%1$s]发生异常，%2$s", iSysMsgTemplRuntime.getName(), ex.getMessage()), ex);
 				}
 			}
 		}

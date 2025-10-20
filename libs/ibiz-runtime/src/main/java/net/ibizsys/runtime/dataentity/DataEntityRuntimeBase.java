@@ -445,7 +445,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			String strConfigFolder = ISystemRuntimeSetting.CONFIGFOLDER_DATAENTITY + "." + PSModelUtils.calcUniqueTag(iPSDataEntity.getPSSystemModule(), iPSDataEntity.getName());
 			this.setSetting(new ModelRuntimeSetting(this, getSystemRuntime().getSystemRuntimeSetting(), strConfigFolder));
 			try {
-				onInit();
+				init();
 				this.bPreparePSDataEntity = false;
 			} catch (Exception ex) {
 				this.bPreparePSDataEntity = false;
@@ -470,9 +470,8 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			throw new DataEntityRuntimeException(this, String.format("加载实体模型发生异常，%1$s", e.getMessage()), e);
 		}
 	}
-
-	protected void onInit() throws Exception {
-
+	
+	private void init() throws Exception {
 		this.nStorageMode = this.onGetStorageMode();// this.getPSDataEntity().getStorageMode();
 		this.nDynaInstMode = this.getPSDataEntity().getDynaInstMode();
 		this.strDynaInstTag = this.getPSDataEntity().getDynaInstTag();
@@ -503,6 +502,11 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 				this.bInheritMinor = true;
 			}
 		}
+		
+		onInit();
+	}
+
+	protected void onInit() throws Exception {
 
 		super.onInit();
 

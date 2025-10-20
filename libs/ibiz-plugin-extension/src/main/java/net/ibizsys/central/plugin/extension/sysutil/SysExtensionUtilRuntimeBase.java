@@ -1384,6 +1384,27 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 							}
 						}
 					}
+					
+					//扩展动态代码表
+					if (subAppNode.has(PSApplicationImpl.ATTR_GETALLPSAPPCODELISTS)) {
+						ArrayNode arrayNode = (ArrayNode) subAppNode.get(PSApplicationImpl.ATTR_GETALLPSAPPCODELISTS);
+						
+						ArrayNode subAppCodeListsNode = subAppRefNode.putArray(PSApplicationImpl.ATTR_GETALLPSAPPCODELISTS);
+						for (int i = 0; i < arrayNode.size(); i++) {
+
+							ObjectNode appCodeListNode = (ObjectNode) arrayNode.get(i);
+							int nDynaSysMode = 0;
+							if(appCodeListNode.has(PSAppCodeListImpl.ATTR_GETDYNASYSMODE)) {
+								nDynaSysMode = appCodeListNode.get(PSAppCodeListImpl.ATTR_GETDYNASYSMODE).asInt();
+							}
+							
+							if(DynaSysMode.ENABLED.value != nDynaSysMode) {
+								continue;
+							}
+							
+							subAppCodeListsNode.add(appCodeListNode.deepCopy());
+						}
+					}
 
 					if (subAppNode.has(PSApplicationImpl.ATTR_GETALLPSAPPVIEWS)) {
 						ArrayNode arrayNode = (ArrayNode) subAppNode.get(PSApplicationImpl.ATTR_GETALLPSAPPVIEWS);

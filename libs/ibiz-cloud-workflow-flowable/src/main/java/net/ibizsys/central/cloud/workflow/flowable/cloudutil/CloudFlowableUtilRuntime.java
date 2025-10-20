@@ -1337,7 +1337,14 @@ public class CloudFlowableUtilRuntime extends CloudWFUtilRuntimeBase implements 
         if (sysApp == null) {
             // throw new
             // BadRequestAlertException(String.format("未获取到[%s]应用信息",strAppTag),"","");
-            throw new Exception(String.format("无法获取指定应用[%1$s]", strAppTag));
+//            throw new Exception(String.format("无法获取指定应用[%1$s]", strAppTag));
+
+            //仿真应用
+            sysApp = new Application();
+            sysApp.setCodeName(strAppTag);
+            if(strAppTag.startsWith("mob")||strAppTag.endsWith("mob")||strAppTag.endsWith("mobile")){
+                sysApp.setMobileApp(1);
+            }
         }
 
         List<WFTaskWay> taskWays = new ArrayList<>();

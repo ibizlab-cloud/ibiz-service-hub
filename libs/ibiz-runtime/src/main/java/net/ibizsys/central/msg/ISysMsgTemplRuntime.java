@@ -2,7 +2,9 @@ package net.ibizsys.central.msg;
 
 import java.util.Map;
 
-public interface ISysMsgTemplRuntime extends net.ibizsys.runtime.msg.ISysMsgTemplRuntime {
+import net.ibizsys.central.sysutil.ISysUtilRuntimeBase;
+
+public interface ISysMsgTemplRuntime extends net.ibizsys.runtime.msg.ISysMsgTemplRuntime, ISysUtilRuntimeBase {
 
 	/**
 	 * 模板参数：上一次数据

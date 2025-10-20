@@ -196,14 +196,18 @@ public abstract class OdooSysExtensionUtilRuntimeBase extends SysExtensionUtilRu
             hubAppCodeName = app.getCodeName();
             for( IPSAppView view : app.getAllPSAppViews()){
                 if (view instanceof IPSAppIndexView) {
-					if(((IPSAppIndexView) view).isBlankMode()){
+                    IPSAppIndexView indexView = (IPSAppIndexView) view;
+					if(indexView.isBlankMode() || !indexView.isEnableAppSwitch()){
 						continue;
 					}
-                    IPSAppIndexView indexView = (IPSAppIndexView) view;
                     IrModuleModuleDTO originModuleDTO = new IrModuleModuleDTO();
                     originModuleDTO.setUrl(indexView.getCodeName());
                     originModuleDTO.setName(indexView.getName());
-                    originModuleDTO.setDisplayName(indexView.getCaption());
+                    if(indexView.isDefaultPage()){
+                        originModuleDTO.setDisplayName(indexView.getSubCaption());
+                    }else {
+                        originModuleDTO.setDisplayName(indexView.getCaption());
+                    }
                     originModuleDTO.setApplication(1);
                     originModuleDTO.setState("installed");
                     if(indexView.getUserTag4() != null){
@@ -247,14 +251,18 @@ public abstract class OdooSysExtensionUtilRuntimeBase extends SysExtensionUtilRu
                 }
                 for( IPSAppView view : app.getAllPSAppViews()){
                     if (view instanceof IPSAppIndexView) {
-						if(((IPSAppIndexView) view).isBlankMode()){
+                        IPSAppIndexView indexView = (IPSAppIndexView) view;
+						if(indexView.isBlankMode() || !indexView.isEnableAppSwitch()){
 							continue;
 						}
-                        IPSAppIndexView indexView = (IPSAppIndexView) view;
                         IrModuleModuleDTO ExtensionModuleDTO = new IrModuleModuleDTO();
                         ExtensionModuleDTO.setUrl(indexView.getCodeName());
                         ExtensionModuleDTO.setName(indexView.getName());
-                        ExtensionModuleDTO.setDisplayName(indexView.getCaption());
+                        if(indexView.isDefaultPage()){
+                            ExtensionModuleDTO.setDisplayName(indexView.getSubCaption());
+                        }else {
+                            ExtensionModuleDTO.setDisplayName(indexView.getCaption());
+                        }
                         ExtensionModuleDTO.setApplication(1);
                         ExtensionModuleDTO.setState("installed");
 						if(app.getSubAppAccessKey()!=null) {

@@ -1812,7 +1812,8 @@ public abstract class CloudSaaSUtilRuntimeBase extends CloudUtilRuntimeBase impl
 		msgTemplate.setAccessId(strOpenAccessId);
 		msgTemplate.setTemplateType(strTemplateType);
 		msgTemplate.setTemplateId(strTemplateId);
-		msgTemplate.setContent(String.format("未定义默认消息模板[%1$s][%2$s]", strTemplateType, strTemplateId));
+		msgTemplate.setContent("");
+		log.warn(String.format("未定义默认消息模板[%1$s][%2$s]", strTemplateType, strTemplateId));
 		return msgTemplate;
 	}
 	

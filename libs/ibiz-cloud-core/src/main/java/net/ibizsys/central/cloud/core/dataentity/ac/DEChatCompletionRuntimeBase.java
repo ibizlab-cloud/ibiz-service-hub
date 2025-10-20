@@ -46,8 +46,6 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	
 	private boolean calcHistorySysMsgTemplRuntime = false;
 	
-	
-	
 	@Override
 	protected void onInit() throws Exception {
 		
@@ -228,7 +226,22 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	}
 	
 	protected ChatCompletionResult onChatCompletion(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
-		throw new Exception("没有实现");
+		//转化资源
+		getChatResourceUtils().convert(chatCompletionRequest, true);
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
+		if(iSysAIChatAgentRuntime != null) {
+			IEntity iEntity = null;
+			if(key instanceof IEntity) {
+				iEntity = (IEntity)key;
+			}
+			else {
+				iEntity = this.getDataEntityRuntime().createEntity();
+				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
+			}
+			return iSysAIChatAgentRuntime.chatCompletion(iEntity, chatCompletionRequest, null, true, false);
+		}
+		
+		return this.getSysAIUtilRuntime().chatCompletion(getAIPlatformType(), chatCompletionRequest);
 	}
 	
 	

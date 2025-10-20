@@ -533,6 +533,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 
 			//提取数据
 			ISearchContextDTO searchContextDTO = this.getStorageDataEntityRuntime().createSearchContext();
+			searchContextDTO.all().count(false);
 			IPSDEField parentIdPSDEField = this.getStorageDataEntityRuntime().getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTID.value, false);
 			searchContextDTO.eq(parentIdPSDEField.getName(), key);
 
@@ -749,6 +750,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 
 		//提取数据
 		ISearchContextDTO searchContextDTO = this.getStorageDataEntityRuntime().createSearchContext();
+		searchContextDTO.all().count(false);
 		IPSDEField parentIdPSDEField = this.getStorageDataEntityRuntime().getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTID.value, false);
 		searchContextDTO.eq(parentIdPSDEField.getName(), key);
 

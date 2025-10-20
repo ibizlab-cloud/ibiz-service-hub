@@ -127,6 +127,17 @@ public class SystemPersistentAdapter implements ISystemPersistentAdapter{
 												ISystemPersistentAdapter iSystemPersistentAdapter = dbPersistentAdapterMap.get(minorSysDBSchemeRuntime.getId());
 												if(iSystemPersistentAdapter != null) {
 													return iSystemPersistentAdapter;
+												}else {
+													ISysDBPersistentAdapter iSysDBPersistentAdapter = this.createSysDBPersistentAdapter(minorSysDBSchemeRuntime);
+													Assert.notNull(iSysDBPersistentAdapter,"系统数据库持久化适配器无效");
+													try {
+														iSysDBPersistentAdapter.init(this.getSystemRuntimeContext(), minorSysDBSchemeRuntime);
+													} catch (Exception ex) {
+														throw new SystemRuntimeException(getSystemRuntimeContext().getSystemRuntime(), String.format("初始化系统数据库[%1$s]持久化适配器发生异常, %2$s",
+																minorSysDBSchemeRuntime.getName(), ex.getMessage()), ex);
+													}
+													dbPersistentAdapterMap.put(minorSysDBSchemeRuntime.getId(), iSysDBPersistentAdapter);
+													return iSysDBPersistentAdapter;
 												}
 											}
 										}

@@ -270,7 +270,14 @@ public class SearchContextDTO extends EntityBase implements ISearchContextDTO {
 				for(IPSDEFilterDTOField iPSDEFilterDTOField : psDEFilterDTOFieldList) {
 					Object objValue = this.get(iPSDEFilterDTOField.getLowerCaseName());
 					if(ObjectUtils.isEmpty(objValue)) {
-						continue;
+						String strSearchMode =  iPSDEFilterDTOField.getPSDEFSearchModeMust().getName();
+						if(StringUtils.hasLength(strSearchMode)) {
+							strSearchMode = strSearchMode.split("[#]")[0];
+							objValue = this.get(strSearchMode.toLowerCase());
+						}
+						if(ObjectUtils.isEmpty(objValue)) {
+							continue;
+						}
 					}
 
 					SearchFieldCond searchFieldCond = new SearchFieldCond();

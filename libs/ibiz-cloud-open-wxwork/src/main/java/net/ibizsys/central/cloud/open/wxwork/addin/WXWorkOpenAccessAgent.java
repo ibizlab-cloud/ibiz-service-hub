@@ -257,7 +257,10 @@ public class WXWorkOpenAccessAgent extends OpenAccessAgentBase {
 		if(!StringUtils.hasLength(strWXContent)) {
 			strWXContent = this.getRealContent(msgSendQueue, MsgTemplateType.MSG.getValue());
 		}
-		
+		if(StringUtils.hasLength(strWXContent)){
+			log.warn(String.format("消息内容为空,忽略发送"));
+			return;
+		}
 		Map<String, Object> text = new LinkedHashMap<String, Object>();
 		text.put("content", strWXContent);
 		

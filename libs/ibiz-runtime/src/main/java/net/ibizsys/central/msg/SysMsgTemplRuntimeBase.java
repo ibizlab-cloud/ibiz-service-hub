@@ -13,6 +13,7 @@ import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.model.PSModelEnums.MsgTemplEngine;
 import net.ibizsys.model.PSModelEnums.MsgTemplType;
+import net.ibizsys.runtime.util.LogLevels;
 
 public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.SysMsgTemplRuntime implements ISysMsgTemplRuntime {
 
@@ -20,6 +21,7 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 	private MsgTemplType msgTemplType = MsgTemplType.STATIC;
 	private MsgTemplEngine msgTemplEngine = MsgTemplEngine.FREEMARKER;
 	private Map<String, IEntityDTO > deMsgTemplMap = null;
+	private boolean bInstalled = false;
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -32,9 +34,7 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 			this.msgTemplEngine = MsgTemplEngine.from(this.getPSSysMsgTempl().getTemplEngine());
 		}
 		
-		if(this.getMsgTemplType() == MsgTemplType.DE) {
-			this.prepareDEMsgTempl();
-		}
+		
 		
 		super.onInit();
 	}
@@ -50,6 +50,55 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 	@Override
 	public ISystemRuntime getSystemRuntime() {
 		return (ISystemRuntime)super.getSystemRuntime();
+	}
+	
+	@Override
+	public synchronized void install() throws Exception {
+		if(!this.bInstalled) {
+			this.onInstall();
+			this.bInstalled = true;
+		}
+	}
+	
+	protected void onInstall() throws Exception {
+		
+	}
+	
+	
+	@Override
+	public synchronized void uninstall() {
+		try {
+			if(this.bInstalled) {
+				onUninstall();
+				this.bInstalled = false;
+			}
+		}
+		catch(Throwable ex) {
+			log.error(String.format("卸载消息模板[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()), ex);
+			this.getSystemRuntime().log(LogLevels.ERROR, this.getClass().getName(), String.format("卸载消息模板[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()), null);
+		}
+	}
+	
+	protected void onUninstall() throws Throwable{
+		
+	}
+	
+	@Override
+	public boolean isInstalled() {
+		return this.bInstalled;
+	}
+	
+	@Override
+	public synchronized void installData(String strMode) throws Exception {
+		if(!isInstalled())
+			return;
+		this.onInstallData(strMode);
+	}
+	
+	protected void onInstallData(String strMode) throws Exception {
+		if(this.getMsgTemplType() == MsgTemplType.DE) {
+			this.prepareDEMsgTempl();
+		}
 	}
 	
 	protected void prepareDEMsgTempl() throws Exception {
