@@ -57,7 +57,6 @@ public abstract class SysDEDataSyncOutUtilRuntimeBase extends SysUtilRuntimeBase
 				else {
 					throw new Exception("未指定系统实体组模型对象");
 				}
-				
 			}
 			
 			List<IPSDEGroupDetail> psDEGroupDetailList = iPSDEGroup.getPSDEGroupDetails();

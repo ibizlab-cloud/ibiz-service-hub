@@ -19,6 +19,7 @@ import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.search.ISysSearchSchemeRuntime;
 import net.ibizsys.central.security.ISysUniResRuntime;
 import net.ibizsys.central.security.ISysUserRoleRuntime;
+import net.ibizsys.central.service.ISubSysServiceAPIRuntime;
 import net.ibizsys.central.system.ISystemModuleUtilRuntimeContext;
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.PSModelEnums.DERSubType;
@@ -49,6 +50,7 @@ import net.ibizsys.model.res.IPSSysUtil;
 import net.ibizsys.model.search.IPSSysSearchScheme;
 import net.ibizsys.model.security.IPSSysUniRes;
 import net.ibizsys.model.security.IPSSysUserRole;
+import net.ibizsys.model.service.IPSSubSysServiceAPI;
 import net.ibizsys.model.valuerule.IPSSysValueRule;
 import net.ibizsys.model.wf.IPSWFRole;
 import net.ibizsys.runtime.IModelRuntime;
@@ -790,6 +792,33 @@ public class MainSysProxySystemModuleUtilRuntimeBase extends SystemModuleUtilRun
 		}
 		return super.createSysUniResRuntime(iPSSysUniRes);
 	}
+	
+	@Override
+	public ISubSysServiceAPIRuntime createSubSysServiceAPIRuntime(IPSSubSysServiceAPI iPSSubSysServiceAPI) {
+		try {
+			mainSystemRuntime = this.getMainSystemRuntime(true);
+		} catch (Exception ex) {
+			log.error(ex);
+		}
+		if(mainSystemRuntime != null) {
+			//使用统一资源标识
+			ISubSysServiceAPIRuntime iSubSysServiceAPIRuntime = mainSystemRuntime.getSubSysServiceAPIRuntime(iPSSubSysServiceAPI.getId(), true);
+			if(iSubSysServiceAPIRuntime != null) {
+				try {
+					IMainSysModelRuntimeProxy<?> iMainSysModelRuntimeProxy = createMainSysModelRuntimeProxy(this.getModelRuntimeContext(), iPSSubSysServiceAPI, iSubSysServiceAPIRuntime);
+					synchronized (this.mainSysModelRuntimeProxyList) {
+						this.mainSysModelRuntimeProxyList.add(iMainSysModelRuntimeProxy);
+					}
+					log.info(String.format("插件系统[%1$s]系统外部接口[%2$s]使用主系统代理", this.getSystemRuntime().getName(), PSModelUtils.calcFullUniqueTag2(iPSSubSysServiceAPI)));
+					return (ISubSysServiceAPIRuntime)iMainSysModelRuntimeProxy.getProxyObject();
+				} catch (Exception ex) {
+					throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("建立主系统外部接口运行时代理对象发生异常，%1$s", ex.getMessage()), ex);
+				}
+			}
+		}
+		return super.createSubSysServiceAPIRuntime(iPSSubSysServiceAPI);
+	}
+	
 	
 	@Override
 	protected void onUninstall() throws Throwable {

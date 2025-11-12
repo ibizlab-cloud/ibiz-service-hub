@@ -75,6 +75,10 @@ public class PSWXEntAppImpl extends net.ibizsys.model.wx.PSWXAccountObjectImpl i
 		return value;
 	}
 
+	public void setPSApplication(net.ibizsys.model.app.IPSApplication psapplication){
+		this.psapplication = psapplication;
+	}
+
 	private net.ibizsys.model.res.IPSSysResource pssysresource;
 
 	public net.ibizsys.model.res.IPSSysResource getPSSysResource(){
@@ -93,6 +97,10 @@ public class PSWXEntAppImpl extends net.ibizsys.model.wx.PSWXAccountObjectImpl i
 		return value;
 	}
 
+	public void setPSSysResource(net.ibizsys.model.res.IPSSysResource pssysresource){
+		this.pssysresource = pssysresource;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -109,6 +117,10 @@ public class PSWXEntAppImpl extends net.ibizsys.model.wx.PSWXAccountObjectImpl i
 		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后台扩展插件");}
 		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
 	}
 
 

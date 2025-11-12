@@ -38,6 +38,22 @@ public class Chunk extends EntityBase {
 	public final static String FIELD_SIMILARITY = "similarity";
 	
 	
+	/**
+	 *  文档标识
+	 */
+	public final static String FIELD_DOCID = "docid";
+	
+	
+	/**
+	 *  文档名称
+	 */
+	public final static String FIELD_DOCNAME = "docname";
+	
+	/**
+	 *  文档关键字
+	 */
+	public final static String FIELD_DOCKEYWORD = "dockeyword";
+	
 	
 	/**
 	 * 设置「 数据片段标识」
@@ -239,5 +255,125 @@ public class Chunk extends EntityBase {
         this.reset(FIELD_SIMILARITY);
         return this;
     }
+    
+    
+	/**
+	 * 设置「 文档标识」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Chunk setDocId(String val) {
+		this.set(FIELD_DOCID, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 文档标识」值
+	 *
+	 */
+	@JsonIgnore
+	public String getDocId() {
+		return (String) this.get(FIELD_DOCID);
+	}
+
+	/**
+	 * 判断 「 文档标识」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDocId() {
+		return this.contains(FIELD_DOCID);
+	}
+
+	/**
+	 * 重置 「 文档标识」
+	 *
+	 */
+	@JsonIgnore
+	public Chunk resetDocId() {
+		this.reset(FIELD_DOCID);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「 文档名称」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Chunk setDocName(String val) {
+		this.set(FIELD_DOCNAME, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 文档名称」值
+	 *
+	 */
+	@JsonIgnore
+	public String getDocName() {
+		return (String) this.get(FIELD_DOCNAME);
+	}
+
+	/**
+	 * 判断 「 文档名称」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDocName() {
+		return this.contains(FIELD_DOCNAME);
+	}
+
+	/**
+	 * 重置 「 文档名称」
+	 *
+	 */
+	@JsonIgnore
+	public Chunk resetDocName() {
+		this.reset(FIELD_DOCNAME);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「 文档关键字」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Chunk setDocKeyword(String val) {
+		this.set(FIELD_DOCKEYWORD, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 文档关键字」值
+	 *
+	 */
+	@JsonIgnore
+	public String getDocKeyword() {
+		return (String) this.get(FIELD_DOCKEYWORD);
+	}
+
+	/**
+	 * 判断 「 文档关键字」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDocKeyword() {
+		return this.contains(FIELD_DOCKEYWORD);
+	}
+
+	/**
+	 * 重置 「 文档关键字」
+	 *
+	 */
+	@JsonIgnore
+	public Chunk resetDocKeyword() {
+		this.reset(FIELD_DOCKEYWORD);
+		return this;
+	}
     
 }

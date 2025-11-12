@@ -30,6 +30,7 @@ public class PSSystemModuleTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setDomainValue(iPSModelTranspileContext, domain, "pkgcodename", realPSModelObject.getPKGCodeName(), realPSModelObject, "getPKGCodeName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysmodelgroupid", realPSModelObject.getPSSysModelGroup(), realPSModelObject, "getPSSysModelGroup");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysrefid", realPSModelObject.getPSSysRef(), realPSModelObject, "getPSSysRef");
+		this.setDomainValue(iPSModelTranspileContext, domain, "runtimetype", realPSModelObject.getRuntimeType(), realPSModelObject, "getRuntimeType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultflag", realPSModelObject.isDefaultModule(), realPSModelObject, "isDefaultModule");
 		this.setDomainValue(iPSModelTranspileContext, domain, "subsysmodule", realPSModelObject.isSubSysModule(), realPSModelObject, "isSubSysModule");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
@@ -45,6 +46,7 @@ public class PSSystemModuleTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPKGCODENAME, domain, "pkgcodename", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSMODELGROUP, domain, "pssysmodelgroupid", net.ibizsys.model.system.IPSSysModelGroup.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSREF, domain, "pssysrefid", net.ibizsys.model.system.IPSSysRef.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRUNTIMETYPE, domain, "runtimetype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULTMODULE, domain, "defaultflag", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISSUBSYSMODULE, domain, "subsysmodule", boolean.class, new String[]{"false"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);

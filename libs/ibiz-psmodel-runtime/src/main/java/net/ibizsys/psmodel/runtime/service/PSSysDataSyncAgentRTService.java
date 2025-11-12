@@ -64,6 +64,6 @@ public class PSSysDataSyncAgentRTService extends PSModelRTServiceBase<PSSysDataS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysDataSyncAgent.class, this.getPSSystemService().getPSSystem().getAllPSSysDataSyncAgents(), (String)key, false);
+    	return getPSModelObject(IPSSysDataSyncAgent.class, this.getPSSystemService().getPSSystem().getAllPSSysDataSyncAgents(), (String)key, tryMode);
     }
 }

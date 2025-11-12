@@ -46,6 +46,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setCreatePSControlAction(net.ibizsys.model.control.IPSControlAction createpscontrolaction){
+		this.createpscontrolaction = createpscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction fetchpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getFetchPSControlAction(){
@@ -62,6 +66,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.control.IPSControlAction value = this.getFetchPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定查询数据行为");}
 		return value;
+	}
+
+	public void setFetchPSControlAction(net.ibizsys.model.control.IPSControlAction fetchpscontrolaction){
+		this.fetchpscontrolaction = fetchpscontrolaction;
 	}
 
 	private net.ibizsys.model.control.IPSControlAction getdraftfrompscontrolaction;
@@ -82,6 +90,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setGetDraftFromPSControlAction(net.ibizsys.model.control.IPSControlAction getdraftfrompscontrolaction){
+		this.getdraftfrompscontrolaction = getdraftfrompscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction getdraftpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getGetDraftPSControlAction(){
@@ -98,6 +110,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.control.IPSControlAction value = this.getGetDraftPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定获取草稿数据行为");}
 		return value;
+	}
+
+	public void setGetDraftPSControlAction(net.ibizsys.model.control.IPSControlAction getdraftpscontrolaction){
+		this.getdraftpscontrolaction = getdraftpscontrolaction;
 	}
 
 	private net.ibizsys.model.control.IPSControlAction getpscontrolaction;
@@ -118,6 +134,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setGetPSControlAction(net.ibizsys.model.control.IPSControlAction getpscontrolaction){
+		this.getpscontrolaction = getpscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction movepscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getMovePSControlAction(){
@@ -134,6 +154,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.control.IPSControlAction value = this.getMovePSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定移动数据行为");}
 		return value;
+	}
+
+	public void setMovePSControlAction(net.ibizsys.model.control.IPSControlAction movepscontrolaction){
+		this.movepscontrolaction = movepscontrolaction;
 	}
 
 
@@ -202,6 +226,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setPSDEDataExport(net.ibizsys.model.dataentity.dataexport.IPSDEDataExport psdedataexport){
+		this.psdedataexport = psdedataexport;
+	}
+
 	private net.ibizsys.model.dataentity.dataimport.IPSDEDataImport psdedataimport;
 
 	public net.ibizsys.model.dataentity.dataimport.IPSDEDataImport getPSDEDataImport(){
@@ -218,6 +246,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.dataentity.dataimport.IPSDEDataImport value = this.getPSDEDataImport();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据导入对象");}
 		return value;
+	}
+
+	public void setPSDEDataImport(net.ibizsys.model.dataentity.dataimport.IPSDEDataImport psdedataimport){
+		this.psdedataimport = psdedataimport;
 	}
 
 	private net.ibizsys.model.control.IPSControlAction removepscontrolaction;
@@ -238,6 +270,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setRemovePSControlAction(net.ibizsys.model.control.IPSControlAction removepscontrolaction){
+		this.removepscontrolaction = removepscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction updatepscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getUpdatePSControlAction(){
@@ -254,6 +290,10 @@ public class PSMDAjaxControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.control.IPSControlAction value = this.getUpdatePSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定更新数据行为");}
 		return value;
+	}
+
+	public void setUpdatePSControlAction(net.ibizsys.model.control.IPSControlAction updatepscontrolaction){
+		this.updatepscontrolaction = updatepscontrolaction;
 	}
 
 

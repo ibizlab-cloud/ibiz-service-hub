@@ -114,6 +114,10 @@ public class PSSysBICubeImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectImp
 		return value;
 	}
 
+	public void setKeyPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField keypsdefield){
+		this.keypsdefield = keypsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet(){
@@ -131,6 +135,10 @@ public class PSSysBICubeImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectImp
 		net.ibizsys.model.dataentity.ds.IPSDEDataSet value = this.getPSDEDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据集");}
 		return value;
+	}
+
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
@@ -151,6 +159,10 @@ public class PSSysBICubeImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectImp
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
 
 	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes(){
@@ -167,6 +179,10 @@ public class PSSysBICubeImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectImp
 		net.ibizsys.model.security.IPSSysUniRes value = this.getPSSysUniRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定权限统一资源对象");}
 		return value;
+	}
+
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield;
@@ -186,6 +202,10 @@ public class PSSysBICubeImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectImp
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getTypePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定类型存储属性");}
 		return value;
+	}
+
+	public void setTypePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield){
+		this.typepsdefield = typepsdefield;
 	}
 
 }

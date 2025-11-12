@@ -28,9 +28,9 @@ public class PSSubSysServiceAPIDEFieldTranspiler extends net.ibizsys.model.util.
 		this.setDomainValue(iPSModelTranspileContext, domain, "fieldtype", realPSModelObject.getFieldType(), realPSModelObject, "getFieldType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "length", realPSModelObject.getLength(), realPSModelObject, "getLength");
 		this.setDomainValue(iPSModelTranspileContext, domain, "logicname", realPSModelObject.getLogicName(), realPSModelObject, "getLogicName");
-		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getPrecision(), realPSModelObject, "getPrecision");
 		this.setDomainValue(iPSModelTranspileContext, domain, "predefinedtype", realPSModelObject.getPredefinedType(), realPSModelObject, "getPredefinedType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "refpssubsyssadeid", realPSModelObject.getRefPSSubSysServiceAPIDE(), realPSModelObject, "getRefPSSubSysServiceAPIDE");
+		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getScale(), realPSModelObject, "getScale");
 		this.setDomainValue(iPSModelTranspileContext, domain, "stddatatype", realPSModelObject.getStdDataType(), realPSModelObject, "getStdDataType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "allowempty", realPSModelObject.isAllowEmpty(), realPSModelObject, "isAllowEmpty");
 		this.setDomainValue(iPSModelTranspileContext, domain, "arrayflag", realPSModelObject.isArray(), realPSModelObject, "isArray");
@@ -47,9 +47,9 @@ public class PSSubSysServiceAPIDEFieldTranspiler extends net.ibizsys.model.util.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETFIELDTYPE, domain, "fieldtype", java.lang.String.class, new String[]{"SIMPLE"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLENGTH, domain, "length", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICNAME, domain, "logicname", java.lang.String.class);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRECISION, domain, "precision", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPREDEFINEDTYPE, domain, "predefinedtype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSSUBSYSSERVICEAPIDE, domain, "refpssubsyssadeid", net.ibizsys.model.service.IPSSubSysServiceAPIDE.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCALE, domain, "precision", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTDDATATYPE, domain, "stddatatype", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISALLOWEMPTY, domain, "allowempty", boolean.class, new String[]{"true"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISARRAY, domain, "arrayflag", boolean.class, new String[]{"false"});

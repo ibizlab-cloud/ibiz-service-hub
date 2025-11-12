@@ -23,6 +23,12 @@ public class PSCorePrdFuncRTService extends PSModelRTServiceBase<PSCorePrdFunc, 
    	final public static String METHOD_UNINSTALL = "UNINSTALL";
    	
    	
+   	/**
+   	 * 行为：重启
+   	 */
+   	final public static String METHOD_RELOAD = "RELOAD";
+   	
+   	
     @Override
     public PSCorePrdFunc createDomain(){
         return new PSCorePrdFunc();
@@ -71,6 +77,11 @@ public class PSCorePrdFuncRTService extends PSModelRTServiceBase<PSCorePrdFunc, 
 			return this.uninstall(domain);
 		}
 		
+		if(METHOD_RELOAD.equalsIgnoreCase(methodName)) {
+			PSCorePrdFunc domain = this.getDomain(params);
+			return this.reload(domain);
+		}
+		
 		return super.doInvoke(methodName, key, params);
 	}
 	
@@ -87,6 +98,14 @@ public class PSCorePrdFuncRTService extends PSModelRTServiceBase<PSCorePrdFunc, 
 	}
 
 	protected Object doUninstall(PSCorePrdFunc m) throws Exception {
+		throw new Exception("没有实现");
+	}
+	
+	public Object reload(PSCorePrdFunc m) throws Exception {
+		return this.doReload(m);
+	}
+
+	protected Object doReload(PSCorePrdFunc m) throws Exception {
 		throw new Exception("没有实现");
 	}
 }

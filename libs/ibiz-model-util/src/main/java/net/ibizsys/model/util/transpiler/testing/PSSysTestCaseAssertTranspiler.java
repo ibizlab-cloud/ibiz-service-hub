@@ -30,6 +30,7 @@ public class PSSysTestCaseAssertTranspiler extends net.ibizsys.model.util.transp
 		this.setDomainValue(iPSModelTranspileContext, domain, "exceptionname", realPSModelObject.getExceptionName(), realPSModelObject, "getExceptionName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exceptiondata", realPSModelObject.getExceptionTag(), realPSModelObject, "getExceptionTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exceptiondata2", realPSModelObject.getExceptionTag2(), realPSModelObject, "getExceptionTag2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssystestdataid", realPSModelObject.getPSSysTestData(), realPSModelObject, "getPSSysTestData");
 		this.setDomainValue(iPSModelTranspileContext, domain, "customcode", realPSModelObject.getScriptCode(), realPSModelObject, "getScriptCode");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
@@ -44,6 +45,7 @@ public class PSSysTestCaseAssertTranspiler extends net.ibizsys.model.util.transp
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXCEPTIONNAME, domain, "exceptionname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXCEPTIONTAG, domain, "exceptiondata", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXCEPTIONTAG2, domain, "exceptiondata2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSTESTDATA, domain, "pssystestdataid", net.ibizsys.model.testing.IPSSysTestData.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCRIPTCODE, domain, "customcode", java.lang.String.class);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}

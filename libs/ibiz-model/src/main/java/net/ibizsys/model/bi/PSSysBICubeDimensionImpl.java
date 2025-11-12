@@ -102,6 +102,10 @@ public class PSSysBICubeDimensionImpl extends net.ibizsys.model.bi.PSSysBICubeOb
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField(){
@@ -121,6 +125,10 @@ public class PSSysBICubeDimensionImpl extends net.ibizsys.model.bi.PSSysBICubeOb
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.bi.IPSSysBIDimension pssysbidimension;
 
 	public net.ibizsys.model.bi.IPSSysBIDimension getPSSysBIDimension(){
@@ -138,6 +146,10 @@ public class PSSysBICubeDimensionImpl extends net.ibizsys.model.bi.PSSysBICubeOb
 		net.ibizsys.model.bi.IPSSysBIDimension value = this.getPSSysBIDimension();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定智能报表维度");}
 		return value;
+	}
+
+	public void setPSSysBIDimension(net.ibizsys.model.bi.IPSSysBIDimension pssysbidimension){
+		this.pssysbidimension = pssysbidimension;
 	}
 
 
@@ -173,6 +185,10 @@ public class PSSysBICubeDimensionImpl extends net.ibizsys.model.bi.PSSysBICubeOb
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getTextPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定文本实体属性");}
 		return value;
+	}
+
+	public void setTextPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField textpsdefield){
+		this.textpsdefield = textpsdefield;
 	}
 
 

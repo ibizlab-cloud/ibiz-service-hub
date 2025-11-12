@@ -26,6 +26,10 @@ public class PSSubSysServiceAPIMethodReturnImpl extends net.ibizsys.model.PSObje
 		return value;
 	}
 
+	public void setPSSubSysServiceAPIDTO(net.ibizsys.model.service.IPSSubSysServiceAPIDTO pssubsysserviceapidto){
+		this.pssubsysserviceapidto = pssubsysserviceapidto;
+	}
+
 
 	public int getStdDataType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSTDDATATYPE);

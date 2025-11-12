@@ -130,6 +130,7 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取数据精度
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
 	
 	
@@ -194,6 +195,13 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * @return
 	 */
 	java.lang.String getRefPickupPSDEViewCodeName();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

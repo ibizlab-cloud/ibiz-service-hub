@@ -50,6 +50,10 @@ public class PSWFInteractiveLinkImpl extends net.ibizsys.model.wf.PSWFLinkImpl i
 		return value;
 	}
 
+	public void setFromPSWFProcess(net.ibizsys.model.wf.IPSWFInteractiveProcess frompswfprocess){
+		this.frompswfprocess = frompswfprocess;
+	}
+
 
 	public java.lang.String getMobFormCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMOBFORMCODENAME);

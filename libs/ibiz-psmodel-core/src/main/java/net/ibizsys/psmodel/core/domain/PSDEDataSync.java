@@ -700,7 +700,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>INCUSTOMMODE</B>&nbsp;自定义输入代码模式，指定实体数据同步是否启用输入自定义代码模式，未定义时为【否】
+     * <B>INCUSTOMMODE</B>&nbsp;自定义输入代码模式，指定是否启用自定义输入代码模式，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode} 
      */
@@ -1339,14 +1339,14 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>OUTCUSTOMMODE</B>&nbsp;自定义输出代码模式
+     * <B>OUTCUSTOMMODE</B>&nbsp;自定义输出代码模式，指定是否启用自定义输出代码模式，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.ScriptMode} 
      */
     public final static String FIELD_OUTCUSTOMMODE = "outcustommode";
 
     /**
-     * 设置 自定义输出代码模式
+     * 设置 自定义输出代码模式，详细说明：{@link #FIELD_OUTCUSTOMMODE}
      * 
      * @param outCustomMode
      * 
@@ -1390,7 +1390,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 自定义输出代码模式
+     * 设置 自定义输出代码模式，详细说明：{@link #FIELD_OUTCUSTOMMODE}
      * <P>
      * 等同 {@link #setOutCustomMode}
      * @param outCustomMode
@@ -1402,7 +1402,7 @@ public class PSDEDataSync extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 自定义输出代码模式
+     * 设置 自定义输出代码模式，详细说明：{@link #FIELD_OUTCUSTOMMODE}
      * <P>
      * 等同 {@link #setOutCustomMode}
      * @param outCustomMode

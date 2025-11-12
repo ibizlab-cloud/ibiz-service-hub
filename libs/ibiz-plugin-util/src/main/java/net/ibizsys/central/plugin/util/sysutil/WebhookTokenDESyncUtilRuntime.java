@@ -2,6 +2,7 @@ package net.ibizsys.central.plugin.util.sysutil;
 
 import java.util.Map;
 
+import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -15,6 +16,8 @@ import net.ibizsys.runtime.util.YamlUtils;
 
 public class WebhookTokenDESyncUtilRuntime extends AccessTokenDESyncUtilRuntime {
 
+	private static final org.apache.commons.logging.Log log = LogFactory.getLog(WebhookTokenDESyncUtilRuntime.class);
+	
 	/**
 	 * 功能参数：逻辑
 	 */
@@ -55,8 +58,6 @@ public class WebhookTokenDESyncUtilRuntime extends AccessTokenDESyncUtilRuntime 
 			}
 		}
 		
-		
-		
 		return super.getConfig(iDataEntityRuntimeContext, map, iEntityDTO);
 	}
 	
@@ -76,7 +77,6 @@ public class WebhookTokenDESyncUtilRuntime extends AccessTokenDESyncUtilRuntime 
 	
 	@Override
 	protected String getDefaultCloudConfigIdFormat(IDataEntityRuntimeContext iDataEntityRuntimeContext) throws Exception {
-		
 		return "accesstoken-{system}-{util}--webhook--{key}";
 	}
 }

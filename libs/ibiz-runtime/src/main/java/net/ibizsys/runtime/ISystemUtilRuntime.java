@@ -2,6 +2,7 @@ package net.ibizsys.runtime;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -468,6 +469,26 @@ public interface ISystemUtilRuntime {
 	 */
 	void threadCancel(String strTaskName);
 	
+	
+	/**
+	 * 线程运行，需要全部完成
+	 * @param actions
+	 * @param bIgnoreException //忽略异常
+	 * @return
+	 * @throws Throwable
+	 */
+	Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException) throws Throwable;
+	
+	
+	/**
+	 * 线程运行，需要全部完成
+	 * @param actions
+	 * @param bIgnoreException
+	 * @param env
+	 * @return
+	 * @throws Throwable
+	 */
+	Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException, Object env) throws Throwable;
 	
 	/**
 	 * 异步运行作业

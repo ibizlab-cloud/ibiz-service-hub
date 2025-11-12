@@ -33,6 +33,10 @@ public class PSDEChartDataSetFieldImpl extends net.ibizsys.model.control.chart.P
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
+
 
 	public boolean isGroupField(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISGROUPFIELD);

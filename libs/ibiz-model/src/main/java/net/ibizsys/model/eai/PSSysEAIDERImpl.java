@@ -51,6 +51,10 @@ public class PSSysEAIDERImpl extends net.ibizsys.model.eai.PSSysEAIDEObjectImpl 
 		return value;
 	}
 
+	public void setPSDER(net.ibizsys.model.dataentity.der.IPSDERBase psder){
+		this.psder = psder;
+	}
+
 	private net.ibizsys.model.eai.IPSSysEAIElementRE pssyseaielementre;
 
 	public net.ibizsys.model.eai.IPSSysEAIElementRE getPSSysEAIElementRE(){
@@ -68,6 +72,10 @@ public class PSSysEAIDERImpl extends net.ibizsys.model.eai.PSSysEAIDEObjectImpl 
 		net.ibizsys.model.eai.IPSSysEAIElementRE value = this.getPSSysEAIElementRE();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定集成元素引用属性");}
 		return value;
+	}
+
+	public void setPSSysEAIElementRE(net.ibizsys.model.eai.IPSSysEAIElementRE pssyseaielementre){
+		this.pssyseaielementre = pssyseaielementre;
 	}
 
 }

@@ -1848,6 +1848,8 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>PSDBVALUEOPID</B>&nbsp;操作符号，指定属性搜索模式的操作符
      * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DEDQCondOP} 
+     * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDBValueOP} 
      */
     public final static String FIELD_PSDBVALUEOPID = "psdbvalueopid";
@@ -2719,14 +2721,14 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSEDITORSTYLEID</B>&nbsp;云系统编辑器样式，指定属性搜索模式的编辑器的扩展样式
+     * <B>PSSYSEDITORSTYLEID</B>&nbsp;编辑器样式，指定属性搜索模式的编辑器的扩展样式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysEditorStyle} 
      */
     public final static String FIELD_PSSYSEDITORSTYLEID = "pssyseditorstyleid";
 
     /**
-     * 设置 云系统编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
+     * 设置 编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
      * 
      * @param pSSysEditorStyleId
      * 
@@ -2737,7 +2739,7 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 云系统编辑器样式  
+     * 获取 编辑器样式  
      * @return
      */
     @JsonIgnore
@@ -2750,7 +2752,7 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 云系统编辑器样式 是否指定值，包括空值
+     * 判断 编辑器样式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2762,7 +2764,7 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 云系统编辑器样式
+     * 重置 编辑器样式
      */
     @JsonIgnore
     public void resetPSSysEditorStyleId(){
@@ -2770,7 +2772,7 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 云系统编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
+     * 设置 编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
      * <P>
      * 等同 {@link #setPSSysEditorStyleId}
      * @param pSSysEditorStyleId
@@ -2782,7 +2784,7 @@ public class PSDEFSFItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 云系统编辑器样式，包括引用对象的其它关系属性
+     * 设置 编辑器样式，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSSysEditorStyleId}
      * @param pSSysEditorStyle 引用对象

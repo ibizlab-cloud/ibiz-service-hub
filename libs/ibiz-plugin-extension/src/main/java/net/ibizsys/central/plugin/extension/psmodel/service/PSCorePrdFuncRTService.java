@@ -18,11 +18,13 @@ import org.yaml.snakeyaml.Yaml;
 
 import net.ibizsys.central.cloud.core.util.domain.V2System;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemMerge;
+import net.ibizsys.central.cloud.core.util.domain.V2SystemMergeStatus;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemType;
 import net.ibizsys.central.plugin.extension.psmodel.util.IExtensionPSModelRTServiceSession;
 import net.ibizsys.central.service.client.IWebClientRep;
 import net.ibizsys.central.service.client.WebClientBase;
 import net.ibizsys.central.util.SearchContextDTO;
+import net.ibizsys.model.PSModelEnums.ProductFuncState;
 import net.ibizsys.model.util.Conditions;
 import net.ibizsys.model.util.Errors;
 import net.ibizsys.psmodel.core.domain.PSCorePrd;
@@ -43,6 +45,8 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 	public final static String FIELD_INFO = "info";
 	
 	public final static String FIELD_V2SYSTEMMERGE = "_v2systemmerge";
+	
+	 
 
 	@Override
 	protected PSCorePrdFunc doGet(String key, boolean tryMode) throws Exception {
@@ -404,10 +408,18 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 						}
 
 						psCorePrdFunc.setOrderValue(v2SystemMerge.getOrderValue());
-						if (DataTypeUtils.getBooleanValue(v2SystemMerge.getValidFlag(), false)) {
-							psCorePrdFunc.setFuncState(1);
-						} else {
-							psCorePrdFunc.setFuncState(2);
+						int nStatus = DataTypeUtils.asInteger(v2SystemMerge.getValidFlag(), 0);
+						if(V2SystemMergeStatus.INSTALLED.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.INSTALLED.value);
+						}
+						else if(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.INSTALLEDNEEDRELOAD.value);
+						}
+						else if(V2SystemMergeStatus.DISABLEDNEEDRELOAD.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.DISABLEDNEEDRELOAD.value);
+						}
+						else {
+							psCorePrdFunc.setFuncState(ProductFuncState.DISABLED.value);
 						}
 
 						psCorePrdFunc.setCurrentVersion(v2SystemMerge.getMergeSystemSourceName());
@@ -530,12 +542,20 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 						}
 
 						psCorePrdFunc.setOrderValue(v2SystemMerge.getOrderValue());
-						if (DataTypeUtils.getBooleanValue(v2SystemMerge.getValidFlag(), false)) {
-							psCorePrdFunc.setFuncState(1);
-						} else {
-							psCorePrdFunc.setFuncState(2);
+						int nStatus = DataTypeUtils.asInteger(v2SystemMerge.getValidFlag(), 0);
+						if(V2SystemMergeStatus.INSTALLED.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.INSTALLED.value);
 						}
-
+						else if(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.INSTALLEDNEEDRELOAD.value);
+						}
+						else if(V2SystemMergeStatus.DISABLEDNEEDRELOAD.value == nStatus) {
+							psCorePrdFunc.setFuncState(ProductFuncState.DISABLEDNEEDRELOAD.value);
+						}
+						else {
+							psCorePrdFunc.setFuncState(ProductFuncState.DISABLED.value);
+						}
+						
 						psCorePrdFunc.setCurrentVersion(v2SystemMerge.getMergeSystemSourceName());
 					}
 				}
@@ -645,6 +665,12 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		if (items.length < 3) {
 			throw new Exception("传入键值无效");
 		}
+		
+		Object reload = m.get("reload");
+		boolean bReload = true;
+		if(!ObjectUtils.isEmpty(reload)) {
+			bReload = DataTypeUtils.asBoolean(reload, bReload);
+		}
 
 		V2System v2System = getV2SystemIf(m.getId());
 
@@ -689,11 +715,19 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 				}
 
 				if (v2System.getId().equals(v2SystemMerge.getMergeSystemId())) {
-					if (!DataTypeUtils.getBooleanValue(v2SystemMerge.getValidFlag(), false)) {
+					int nStatus = DataTypeUtils.asInteger(v2SystemMerge.getValidFlag(), 0);
+					if(V2SystemMergeStatus.NOTINSTALLED.value == nStatus || V2SystemMergeStatus.DISABLEDNEEDRELOAD.value == nStatus) {
 						// 执行更新操作
 						V2SystemMerge v2SystemMerge2 = new V2SystemMerge();
 						v2SystemMerge2.setId(v2SystemMerge.getId());
-						v2SystemMerge2.setValidFlag(1);
+						v2SystemMerge2.setValidFlag(V2SystemMergeStatus.INSTALLED.value);
+						if(V2SystemType.MERGENCE.value.equals(v2System.getType())) {
+//							if(!bReload) {
+							//MERGENCE类型要求先进入准备状态
+							v2SystemMerge2.setValidFlag(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value);
+//							}
+						}
+						
 						v2SystemMerge2.setSettings(m.getSettings());
 						v2SystemMerge2.setDependencies(m.getDependencies());
 						V2SystemMerge ret = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().updateSystemMerge(prdV2System.getId(), v2SystemMerge2.getId(), v2SystemMerge2);
@@ -703,7 +737,10 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 
 						if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 							if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
-								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+								if(bReload) {
+									//iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+									this.doReload(m, prdV2System);
+								}
 							}
 							else {
 								iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
@@ -724,15 +761,101 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		v2SystemMerge.setOrderValue(nMaxOrderValue + 100);
 		v2SystemMerge.setSettings(m.getSettings());
 		v2SystemMerge.setDependencies(m.getDependencies());
+		//判断安装系统类型
+		if(V2SystemType.MERGENCE.value.equals(v2System.getType())) {
+//			if(!bReload) {
+			//MERGENCE类型要求先进入准备状态
+			v2SystemMerge.setValidFlag(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value);
+//			}
+		}
+	
 		V2SystemMerge ret = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().createSystemMerge(prdV2System.getId(), v2SystemMerge);
 
 		//设置返回，供外部使用
 		m.set(FIELD_V2SYSTEMMERGE, ret);
 		
 		if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
-			iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+			if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
+				if(bReload) {
+					//iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+					this.doReload(m, prdV2System);
+				}
+			}
+			else {
+				iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());
+			}
 		}
 
+		return null;
+	}
+	
+	@Override
+	protected Object doReload(PSCorePrdFunc m) throws Exception {
+		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
+
+		String[] items = m.getId().split("[.]");
+		if (items.length < 3) {
+			throw new Exception("传入键值无效");
+		}
+
+		// 查询系统引用关系
+		// 判断传入标识是否为系统标识
+		String strSystemId = null;
+		try {
+			Integer.parseInt(items[1]);
+		} catch (Throwable ex) {
+			strSystemId = items[1];
+		}
+
+		V2System prdV2System = null;
+		if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
+			PSCorePrdRTService psCorePrdRTService = (PSCorePrdRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSCOREPRD);
+			prdV2System = psCorePrdRTService.getV2SystemIf(items[1]);
+		}else {
+			if (StringUtils.hasLength(strSystemId)) {
+				prdV2System = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().getSystem(strSystemId);
+			} else {
+				PSCorePrdRTService psCorePrdRTService = (PSCorePrdRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSCOREPRD);
+				prdV2System = psCorePrdRTService.getV2SystemIf(items[1]);
+			}
+		}
+
+		return this.doReload(m, prdV2System);
+	}
+	
+	protected Object doReload(PSCorePrdFunc m, V2System prdV2System) throws Exception {
+		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
+		SearchContextDTO searchContextDTO = new SearchContextDTO();
+		searchContextDTO.all();
+		
+		//查出全部功能
+		Page<V2SystemMerge> v2SystemMergePage = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().fetchSystemMerges(prdV2System.getId(), searchContextDTO);
+		if (!ObjectUtils.isEmpty(v2SystemMergePage) && !ObjectUtils.isEmpty(v2SystemMergePage.getContent())) {
+			boolean bReload = false;
+			for (V2SystemMerge v2SystemMerge : v2SystemMergePage.getContent()) {
+				int nStatus = DataTypeUtils.asInteger(v2SystemMerge.getValidFlag(), 0);
+				if(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value == nStatus || V2SystemMergeStatus.DISABLEDNEEDRELOAD.value == nStatus) {
+					// 执行更新操作
+					V2SystemMerge v2SystemMerge2 = new V2SystemMerge();
+					v2SystemMerge2.setId(v2SystemMerge.getId());
+					if(V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value == nStatus) {
+						v2SystemMerge2.setValidFlag(1);
+					}
+					else {
+						v2SystemMerge2.setValidFlag(0);
+					}
+					
+					V2SystemMerge ret = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().updateSystemMerge(prdV2System.getId(), v2SystemMerge2.getId(), v2SystemMerge2);
+					bReload = true;
+				}
+			}
+			if(bReload) {
+				if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
+					iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+				}
+			}
+			return null;
+		}
 		return null;
 	}
 
@@ -746,7 +869,13 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		}
 
 		V2System v2System = getV2SystemIf(m.getId());
-
+		
+		Object reload = m.get("reload");
+		boolean bReload = true;
+		if(!ObjectUtils.isEmpty(reload)) {
+			bReload = DataTypeUtils.asBoolean(reload, bReload);
+		}
+		
 		// 查询系统引用关系
 		// 判断传入标识是否为系统标识
 		String strSystemId = null;
@@ -777,12 +906,19 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		Page<V2SystemMerge> v2SystemMergePage = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().fetchSystemMerges(prdV2System.getId(), searchContextDTO);
 		if (!ObjectUtils.isEmpty(v2SystemMergePage) && !ObjectUtils.isEmpty(v2SystemMergePage.getContent())) {
 			for (V2SystemMerge v2SystemMerge : v2SystemMergePage.getContent()) {
-
-				if (DataTypeUtils.getBooleanValue(v2SystemMerge.getValidFlag(), false)) {
+				int nStatus = DataTypeUtils.asInteger(v2SystemMerge.getValidFlag(), 0);
+				if(V2SystemMergeStatus.INSTALLED.value == nStatus || V2SystemMergeStatus.INSTALLEDNEEDRELOAD.value == nStatus) {
 					// 执行更新操作
 					V2SystemMerge v2SystemMerge2 = new V2SystemMerge();
 					v2SystemMerge2.setId(v2SystemMerge.getId());
-					v2SystemMerge2.setValidFlag(0);
+					v2SystemMerge2.setValidFlag(V2SystemMergeStatus.NOTINSTALLED.value);
+					if(V2SystemType.MERGENCE.value.equals(v2System.getType())) {
+//						if(!bReload) {
+						//MERGENCE类型要求先进入准备状态
+						v2SystemMerge2.setValidFlag(V2SystemMergeStatus.DISABLEDNEEDRELOAD.value);
+//						}
+					}
+					
 					V2SystemMerge ret = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().updateSystemMerge(prdV2System.getId(), v2SystemMerge2.getId(), v2SystemMerge2);
 
 					//设置返回，供外部使用
@@ -790,7 +926,10 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					
 					if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 						if(V2SystemType.MERGENCE.value.equals(ret.getMergeSystemType())) {
-							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+							if(bReload) {
+								//iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishDeploySystemVer(iExtensionPSModelRTServiceSession.getSystemRuntime().getDeploySystemId());
+								this.doReload(m, prdV2System);
+							}
 						}
 						else {
 							iExtensionPSModelRTServiceSession.getSysCloudExtensionUtilRuntimeMust().publishSystemMergencesVer(prdV2System.getId());

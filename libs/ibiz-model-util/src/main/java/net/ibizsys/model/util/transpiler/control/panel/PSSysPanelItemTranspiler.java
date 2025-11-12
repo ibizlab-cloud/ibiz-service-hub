@@ -23,6 +23,8 @@ public class PSSysPanelItemTranspiler extends net.ibizsys.model.util.transpiler.
 		net.ibizsys.model.control.panel.PSSysPanelItemImpl realPSModelObject = (net.ibizsys.model.control.panel.PSSysPanelItemImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "cappslanresid", realPSModelObject.getCapPSLanguageRes(), realPSModelObject, "getCapPSLanguageRes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "caption", realPSModelObject.getCaption(), realPSModelObject, "getCaption");
+		this.setDomainValue(iPSModelTranspileContext, domain, "counterid", realPSModelObject.getCounterId(), realPSModelObject, "getCounterId");
+		this.setDomainValue(iPSModelTranspileContext, domain, "countermode", realPSModelObject.getCounterMode(), realPSModelObject, "getCounterMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "rawcssstyle", realPSModelObject.getCssStyle(), realPSModelObject, "getCssStyle");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dynaclass", realPSModelObject.getDynaClass(), realPSModelObject, "getDynaClass");
 		this.setDomainValue(iPSModelTranspileContext, domain, "height", realPSModelObject.getHeight(), realPSModelObject, "getHeight");
@@ -31,6 +33,7 @@ public class PSSysPanelItemTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setDomainValue(iPSModelTranspileContext, domain, "labelrawcssstyle", realPSModelObject.getLabelCssStyle(), realPSModelObject, "getLabelCssStyle");
 		this.setDomainValue(iPSModelTranspileContext, domain, "labeldynaclass", realPSModelObject.getLabelDynaClass(), realPSModelObject, "getLabelDynaClass");
 		this.setDomainValue(iPSModelTranspileContext, domain, "labelpssyscssid", realPSModelObject.getLabelPSSysCss(), realPSModelObject, "getLabelPSSysCss");
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssyscounterid", realPSModelObject.getPSAppCounterRef(), realPSModelObject, "getPSAppCounterRef");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssyscssid", realPSModelObject.getPSSysCss(), realPSModelObject, "getPSSysCss");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysimageid", realPSModelObject.getPSSysImage(), realPSModelObject, "getPSSysImage");
 		this.setDomainValue(iPSModelTranspileContext, domain, "width", realPSModelObject.getWidth(), realPSModelObject, "getWidth");
@@ -41,6 +44,8 @@ public class PSSysPanelItemTranspiler extends net.ibizsys.model.util.transpiler.
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCAPPSLANGUAGERES, domain, "cappslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCAPTION, domain, "caption", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCOUNTERID, domain, "counterid", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCOUNTERMODE, domain, "countermode", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCSSSTYLE, domain, "rawcssstyle", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDYNACLASS, domain, "dynaclass", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETHEIGHT, domain, "height", double.class, new String[]{"0.0"});
@@ -49,6 +54,7 @@ public class PSSysPanelItemTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLABELCSSSTYLE, domain, "labelrawcssstyle", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLABELDYNACLASS, domain, "labeldynaclass", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLABELPSSYSCSS, domain, "labelpssyscssid", net.ibizsys.model.res.IPSSysCss.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSAPPCOUNTERREF, domain, "pssyscounterid", net.ibizsys.model.app.control.IPSAppCounterRef.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSCSS, domain, "pssyscssid", net.ibizsys.model.res.IPSSysCss.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSIMAGE, domain, "pssysimageid", net.ibizsys.model.res.IPSSysImage.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETWIDTH, domain, "width", double.class, new String[]{"0.0"});

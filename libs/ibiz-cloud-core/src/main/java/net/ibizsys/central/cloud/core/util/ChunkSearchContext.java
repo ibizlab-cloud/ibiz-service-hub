@@ -25,7 +25,7 @@ public class ChunkSearchContext extends SimpleSearchContextDTO implements IChunk
 	@JsonIgnore
 	public Float getSimilarityThreshold() {
 		Object value = this.get("n_similarity_gtandeq");
-		return DataTypeUtils.asFloat(value, new Float(0.5));
+		return DataTypeUtils.asFloat(value, new Float(0.4));
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class ChunkSearchContext extends SimpleSearchContextDTO implements IChunk
 //		if(value == null){
 //			value = this.get("n_vectorsimilarity_gtandeq");
 //		}
-		return DataTypeUtils.asFloat(value, new Float(0.7));
+		return DataTypeUtils.asFloat(value, new Float(0.3));
 	}
 	
 	@JsonIgnore

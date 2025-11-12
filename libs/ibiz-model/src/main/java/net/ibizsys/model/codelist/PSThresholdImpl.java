@@ -96,6 +96,10 @@ public class PSThresholdImpl extends net.ibizsys.model.PSObjectImpl implements n
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -112,6 +116,10 @@ public class PSThresholdImpl extends net.ibizsys.model.PSObjectImpl implements n
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图标对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 
@@ -138,6 +146,10 @@ public class PSThresholdImpl extends net.ibizsys.model.PSObjectImpl implements n
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTextPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定文本语言资源");}
 		return value;
+	}
+
+	public void setTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes textpslanguageres){
+		this.textpslanguageres = textpslanguageres;
 	}
 
 
@@ -180,6 +192,10 @@ public class PSThresholdImpl extends net.ibizsys.model.PSObjectImpl implements n
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定提示信息语言资源");}
 		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
 	}
 
 

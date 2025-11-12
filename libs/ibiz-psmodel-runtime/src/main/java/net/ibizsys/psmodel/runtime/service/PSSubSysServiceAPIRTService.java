@@ -64,6 +64,6 @@ public class PSSubSysServiceAPIRTService extends PSModelRTServiceBase<PSSubSysSe
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSubSysServiceAPI.class, this.getPSSystemService().getPSSystem().getAllPSSubSysServiceAPIs(), (String)key, false);
+    	return getPSModelObject(IPSSubSysServiceAPI.class, this.getPSSystemService().getPSSystem().getAllPSSubSysServiceAPIs(), (String)key, tryMode);
     }
 }

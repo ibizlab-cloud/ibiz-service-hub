@@ -46,6 +46,10 @@ public class PSDEFormItemUpdateImpl extends net.ibizsys.model.PSObjectImpl imple
 		return value;
 	}
 
+	public void setPSAppDEMethod(net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod){
+		this.psappdemethod = psappdemethod;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.form.IPSDEFIUpdateDetail> psdefiupdatedetails = null;
 	public java.util.List<net.ibizsys.model.control.form.IPSDEFIUpdateDetail> getPSDEFIUpdateDetails(){

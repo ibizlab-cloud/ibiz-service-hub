@@ -149,6 +149,12 @@ public interface ISystemRuntimeBase extends IModelRuntime{
 	ISysMsgQueueRuntime getSysMsgQueueRuntime(IPSSysMsgQueue iPSSysMsgQueue);
 	
 	
+	/**
+	 * 获取系统默认的消息队列
+	 * @return
+	 */
+	ISysMsgQueueRuntime getDefaultSysMsgQueueRuntime();
+	
 	
 	/**
 	 * 获取系统消息模板运行时对象
@@ -216,6 +222,13 @@ public interface ISystemRuntimeBase extends IModelRuntime{
 	 */
 	int getPSModelEngineVer();
 	
+	
+	
+	/**
+	 * 获取开发系统标识
+	 * @return
+	 */
+	String getPSDevSlnSysId();
 	
 	
 	/**

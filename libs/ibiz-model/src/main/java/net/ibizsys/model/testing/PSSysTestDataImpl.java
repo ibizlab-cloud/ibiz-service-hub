@@ -10,6 +10,7 @@ public class PSSysTestDataImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	public final static String ATTR_GETMEMO = "memo";
 	public final static String ATTR_GETPSDATAENTITY = "getPSDataEntity";
 	public final static String ATTR_GETPSSYSTESTDATAITEMS = "getPSSysTestDataItems";
+	public final static String ATTR_GETPSSYSTEMMODULE = "getPSSystemModule";
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
 	public final static String ATTR_GETTESTDATATYPE = "testDataType";
 	public final static String ATTR_ISBASEMODE = "baseMode";
@@ -63,6 +64,10 @@ public class PSSysTestDataImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 
 	private java.util.List<net.ibizsys.model.testing.IPSSysTestDataItem> pssystestdataitems = null;
 	public java.util.List<net.ibizsys.model.testing.IPSSysTestDataItem> getPSSysTestDataItems(){
@@ -87,6 +92,28 @@ public class PSSysTestDataImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	public void setPSSysTestDataItems(java.util.List<net.ibizsys.model.testing.IPSSysTestDataItem> list){
 		this.pssystestdataitems = list;
 	}
+	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
+
+	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
+		if(this.pssystemmodule != null) return this.pssystemmodule;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSTEMMODULE);
+		if(value == null){
+			return null;
+		}
+		this.pssystemmodule = getPSModelObject(net.ibizsys.model.system.IPSSystemModule.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSTEMMODULE);
+		return this.pssystemmodule;
+	}
+
+	public net.ibizsys.model.system.IPSSystemModule getPSSystemModuleMust(){
+		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
+		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 
 	public java.lang.String getScriptCode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCRIPTCODE);

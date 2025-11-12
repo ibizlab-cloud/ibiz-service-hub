@@ -20,6 +20,7 @@ public class PSAppDEFieldImpl2 extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETPREDEFINEDTYPE = "predefinedType";
 	public final static String ATTR_GETQSPHPSLANGUAGERES = "getQSPHPSLanguageRes";
 	public final static String ATTR_GETQUICKSEARCHPLACEHOLDER = "quickSearchPlaceHolder";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 	public final static String ATTR_GETUSERCAT = "userCat";
@@ -205,6 +206,7 @@ public class PSAppDEFieldImpl2 extends net.ibizsys.model.PSObjectImpl implements
 	}
 
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -249,6 +251,14 @@ public class PSAppDEFieldImpl2 extends net.ibizsys.model.PSObjectImpl implements
 			return null;
 		}
 		return value.asText();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
 	}
 
 	public int getStdDataType(){

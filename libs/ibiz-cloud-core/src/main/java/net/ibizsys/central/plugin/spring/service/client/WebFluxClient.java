@@ -1,13 +1,16 @@
 package net.ibizsys.central.plugin.spring.service.client;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import net.ibizsys.central.service.SubSysServiceAPIRuntimeException;
-import net.ibizsys.central.service.client.IWebClientRep;
-import net.ibizsys.central.service.client.WebClientBase;
-import net.ibizsys.central.service.client.WebClientRep;
-import net.ibizsys.runtime.SystemRuntimeException;
-import net.ibizsys.runtime.util.IEntity;
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -33,19 +36,19 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.RequestBodySpec;
 import org.springframework.web.reactive.function.client.WebClient.RequestHeadersSpec;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import net.ibizsys.central.service.SubSysServiceAPIRuntimeException;
+import net.ibizsys.central.service.client.IWebClientRep;
+import net.ibizsys.central.service.client.WebClientBase;
+import net.ibizsys.central.service.client.WebClientRep;
+import net.ibizsys.runtime.SystemRuntimeException;
+import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.IEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class WebFluxClient extends WebClientBase {
 
@@ -81,7 +84,7 @@ public class WebFluxClient extends WebClientBase {
 						configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(WebClientBase.MAPPER));
 						configurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(WebClientBase.OUTMAPPER));
 						configurer.defaultCodecs().maxInMemorySize(getMaxInMemorySize());
-						}).baseUrl(this.getServiceUrl()).build();
+					}).baseUrl(this.getServiceUrl()).build();
 				}
 			}
 			return this.webClient;
@@ -121,6 +124,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).get().uri(strUri, uriParams);
@@ -171,6 +177,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).post().uri(strUri, uriParams);
@@ -235,6 +244,8 @@ public class WebFluxClient extends WebClientBase {
 				}
 			}
 
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).put().uri(strUri, uriParams);
@@ -296,6 +307,9 @@ public class WebFluxClient extends WebClientBase {
 					strUri += strQueryParam;
 				}
 			}
+
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).patch().uri(strUri, uriParams);
@@ -358,6 +372,8 @@ public class WebFluxClient extends WebClientBase {
 				}
 			}
 
+			removeInvalidUriParams(strUri, uriParams);
+
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
 				s = getWebClient(strUri).delete().uri(strUri, uriParams);
@@ -410,8 +426,8 @@ public class WebFluxClient extends WebClientBase {
 
 			HttpEntity<?> fileEntity = null;
 
-			if (objFile instanceof File) {
-				fileEntity = new HttpEntity<>(new FileSystemResource((File) objFile));
+			if (objFile instanceof java.io.File) {
+				fileEntity = new HttpEntity<>(new FileSystemResource((java.io.File) objFile));
 			} else if (objFile instanceof java.io.InputStream) {
 				fileEntity = new HttpEntity<>(new InputStreamResource((java.io.InputStream) objFile));
 			} else
@@ -419,6 +435,8 @@ public class WebFluxClient extends WebClientBase {
 
 			MultiValueMap<String, Object> parts = new LinkedMultiValueMap<>();
 			parts.add("file", fileEntity);
+
+			removeInvalidUriParams(strUri, uriParams);
 
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
@@ -472,11 +490,11 @@ public class WebFluxClient extends WebClientBase {
 				}
 			}
 
-			File file = null;
+			java.io.File file = null;
 			java.io.OutputStream outputStream = null;
 			java.io.Writer writer = null;
-			if (objFile instanceof File) {
-				file = (File) objFile;
+			if (objFile instanceof java.io.File) {
+				file = (java.io.File) objFile;
 			} else if (objFile instanceof java.io.OutputStream) {
 				outputStream = (java.io.OutputStream) objFile;
 			}
@@ -486,6 +504,8 @@ public class WebFluxClient extends WebClientBase {
 			// }
 			else
 				throw new Exception("无法识别的文件输出对象");
+
+			removeInvalidUriParams(strUri, uriParams);
 
 			RequestHeadersSpec<?> s = null;
 			if (uriParams != null) {
@@ -574,11 +594,11 @@ public class WebFluxClient extends WebClientBase {
 					}
 				});
 			}).blockLast();
-			
+
 			if(!ObjectUtils.isEmpty(locations)) {
 				return onDownload(locations.get(0), null, null, null, objFile, null);
 			}
-			
+
 			File tempFile = tempFilePathHolder[0].toFile();
 			Resource resource = new FileSystemResource(tempFile);
 			if (file != null) {
@@ -625,7 +645,7 @@ public class WebFluxClient extends WebClientBase {
 
 		MultiValueMap<String, String> parts = new LinkedMultiValueMap<>();
 		if (map != null) {
-			for (Map.Entry<String, ?> entry : map.entrySet()) {
+			for (java.util.Map.Entry<String, ?> entry : map.entrySet()) {
 				Object objValue = entry.getValue();
 				if (objValue == null) {
 					parts.add(entry.getKey(), "");
@@ -641,7 +661,7 @@ public class WebFluxClient extends WebClientBase {
 	/**
 	 * Create {@code WebClientResponseException} or an HTTP status specific
 	 * subclass.
-	 * 
+	 *
 	 * @since 5.1
 	 */
 	public static WebClientResponseException createWebClientResponseException(int statusCode, String statusText, HttpHeaders headers, Object objBody) {
@@ -687,5 +707,59 @@ public class WebFluxClient extends WebClientBase {
 		}
 
 		return String.format("请求发生异常，%1$s", webClientResponseException.getMessage());
+	}
+
+	protected void removeInvalidUriParams(String strUri, Map<String, ?> uriParams) {
+		if(ObjectUtils.isEmpty(uriParams)) {
+			return;
+		}
+
+		if(!ObjectUtils.isEmpty(strUri) && (strUri.indexOf("{") != -1)) {
+			//已经存在占位
+			return;
+		}
+
+		List<String> removeKeyList = new ArrayList<String>();
+
+		int nTotalLen = 0;
+
+		for(java.util.Map.Entry<String, ?> entry : uriParams.entrySet()) {
+			Object value = entry.getValue();
+			Object simple = DataTypeUtils.asSimple(value);
+			if(simple == null) {
+				//非简单值，移除
+				removeKeyList.remove(entry.getKey());
+				continue;
+			}
+
+			String strValue = simple.toString();
+			if(strValue.length() > 500) {
+				removeKeyList.remove(entry.getKey());
+				continue;
+			}
+
+			nTotalLen += strValue.length();
+		}
+
+		for(String key : removeKeyList) {
+			uriParams.remove(key);
+		}
+
+		if(nTotalLen > 2000) {
+			//再次移除超过200的内容
+			removeKeyList.clear();
+			for(java.util.Map.Entry<String, ?> entry : uriParams.entrySet()) {
+				Object value = entry.getValue();
+				String strValue = value.toString();
+				if(strValue.length() > 200) {
+					removeKeyList.remove(entry.getKey());
+					continue;
+				}
+			}
+
+			for(String key : removeKeyList) {
+				uriParams.remove(key);
+			}
+		}
 	}
 }

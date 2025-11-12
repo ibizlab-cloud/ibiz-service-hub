@@ -33,6 +33,7 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	private boolean enableModelSnapshot = false;
 	private boolean enableMergeSystem = false;
 	private boolean concurrentLoadSystemMergences = true;
+	private boolean ignoreLoadSystemError = false;
 	
 	
 	private List<DataSource> dataSources = null;
@@ -342,7 +343,14 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	public void setConcurrentLoadSystemMergences(boolean concurrentLoadSystemMergences) {
 		this.concurrentLoadSystemMergences = concurrentLoadSystemMergences;
 	}
-	
-	
+
+	@Override
+	public boolean isIgnoreLoadSystemError() {
+		return ignoreLoadSystemError;
+	}
+
+	public void setIgnoreLoadSystemError(boolean ignoreLoadSystemError) {
+		this.ignoreLoadSystemError = ignoreLoadSystemError;
+	}
 	
 }

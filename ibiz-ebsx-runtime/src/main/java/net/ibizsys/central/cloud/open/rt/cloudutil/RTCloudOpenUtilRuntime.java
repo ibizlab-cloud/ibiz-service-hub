@@ -56,8 +56,8 @@ public class RTCloudOpenUtilRuntime extends EBSXCloudOpenUtilRuntime {
             } catch (Exception ex) {
                 throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("消息[%1$s]未标记类型", msgSendQueue.getMsgSendQueueId()));
             }
-            if((MsgTypes.DD != nMsgType && StaticDict.OpenAccessType.DINGTALK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType()))
-                || (MsgTypes.WXWORK != nMsgType && StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType())))
+            if(((MsgTypes.DD & nMsgType) == 0 && StaticDict.OpenAccessType.DINGTALK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType()))
+                || ((MsgTypes.WXWORK & nMsgType) == 0 && StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(iOpenAccessAgent.getOpenType())))
             {
                 log.error(String.format("开放应用[%1$s]发送消息发生异常，%2$s Agent 不适配发送 %3$s 类型的消息", getName(), iOpenAccessAgent.getOpenType(), nMsgType));
                 throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("开放应用[%1$s]发送消息发生异常，%2$s Agent 不适配发送 %3$s 类型的消息", getName(), iOpenAccessAgent.getOpenType(), nMsgType));
@@ -67,6 +67,7 @@ public class RTCloudOpenUtilRuntime extends EBSXCloudOpenUtilRuntime {
 
         iOpenAccessAgent.sendMessages(msgSendQueues);
     }
+
 
     @Override
     protected void onSyncOrganizationUnits(String strOpenAccessId) throws Throwable {

@@ -43,6 +43,10 @@ public interface IResPartnerService extends cn.ibizlab.central.plugin.odoo.datae
      */
     String ACTION_SAVE = "SAVE";
     /**
+     * 行为: 用户计数器
+     */
+    String ACTION_USER_COUNTER = "USER_COUNTER";
+    /**
      * 查询: DEFAULT
      */
     String DATAQUERY_DEFAULT = "DEFAULT";
@@ -55,6 +59,10 @@ public interface IResPartnerService extends cn.ibizlab.central.plugin.odoo.datae
      */
     String DATAQUERY_CHANNEL_INVITE = "CHANNEL_INVITE";
     /**
+     * 查询: 公司联系人
+     */
+    String DATAQUERY_IS_COMPANY = "IS_COMPANY";
+    /**
      * 集合: DEFAULT
      */
     String DATASET_DEFAULT = "DEFAULT";
@@ -62,7 +70,15 @@ public interface IResPartnerService extends cn.ibizlab.central.plugin.odoo.datae
      * 集合: 频道可邀请的联系人
      */
     String DATASET_CHANNEL_INVITE = "CHANNEL_INVITE";
+    /**
+     * 集合: 公司联系人
+     */
+    String DATASET_IS_COMPANY = "IS_COMPANY";
 
+    /**
+     * 行为: 用户计数器
+     */
+    void userCounter(ResPartnerDTO dto) throws Throwable;
 
     /**
      * 集合: DEFAULT
@@ -72,4 +88,8 @@ public interface IResPartnerService extends cn.ibizlab.central.plugin.odoo.datae
      * 集合: 频道可邀请的联系人
      */
     Page<ResPartnerDTO> fetchChannelInvite(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
+    /**
+     * 集合: 公司联系人
+     */
+    Page<ResPartnerDTO> fetchIsCompany(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
 }

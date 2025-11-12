@@ -66,7 +66,7 @@ public class PSModuleRTService extends PSModelRTServiceBase<PSModule, PSModuleFi
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSystemModule.class, this.getPSSystemService().getPSSystem().getAllPSSystemModules(), (String)key, false);
+    	return getPSModelObject(IPSSystemModule.class, this.getPSSystemService().getPSSystem().getAllPSSystemModules(), (String)key, tryMode);
     }
     
     

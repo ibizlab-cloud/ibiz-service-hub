@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.cloud.core.cloudutil.CloudUtilRuntimeBase;
@@ -40,7 +41,8 @@ import net.ibizsys.runtime.util.domain.MsgSendQueue;
 public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase implements ICloudNotifyUtilRuntime{
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(CloudNotifyUtilRuntimeBase.class);
-	private static Map<Integer, String> MsgTypeMap = new HashMap<Integer, String>();
+	private static final Map<Integer, String> MsgTypeMap = new HashMap<Integer, String>();
+	private static final String[] Senders = new String[] {"INTERNAL", "EMAIL", "SMS", "OPEN"};
 	static {
 		MsgTypeMap.put(MsgTypes.INTERNAL, "INTERNAL");
 		MsgTypeMap.put(MsgTypes.EMAIL, "EMAIL");
@@ -76,6 +78,7 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 	
 	
 	private Map<String, IMsgSender> msgSenderMap = null;
+	private Map<String, Object> msgSenderMap2 = null;
 	
 	@Override
 	protected ICloudNotifyUtilRuntimeContext createModelRuntimeContext() {
@@ -196,7 +199,17 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 	protected void onNotifyTimer() throws Throwable{
 	}
 	
+	@Override
+	protected boolean isEnableReloadSetting() {
+		return true;
+	}
 	
+	@Override
+	protected void onReloadSetting(boolean bFirst) throws Throwable {
+		super.onReloadSetting(bFirst);
+		
+		this.msgSenderMap2 = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".agents", new HashMap<String, Object>());
+	}
 	
 	@Override
 	public void createTodos(Todo[] todos) {
@@ -477,7 +490,6 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 	 */
 	protected void doSendMsgReal(MsgSendQueue msgSendQueue) {  
 		
-	
 		StringBuilder sb = new StringBuilder();
 		boolean bError = false;
 		
@@ -493,10 +505,22 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 				if((nMsgType & entry.getKey()) == 0) {
 					continue;
 				}
-				IMsgSender iMsgSender = this.msgSenderMap.get(String.format("%1$s-PROXY", entry.getValue()));
-				if(iMsgSender == null) {
-					iMsgSender = this.msgSenderMap.get(entry.getValue());
-				}
+				IMsgSender iMsgSender;
+				try {
+					iMsgSender = this.getMsgSender(entry.getValue(), true, true);
+				} catch (Exception ex) {
+					log.error(ex);
+					bError = true;
+					if(sb.length()>0) {
+						sb.append("\r\n");
+					}
+					sb.append(String.format("[失败]%1$s：无法获取发送对象，%2$s", entry.getValue(), ex.getMessage()));
+					continue;
+				} 
+//				this.msgSenderMap.get(String.format("%1$s-PROXY", entry.getValue()));
+//				if(iMsgSender == null) {
+//					iMsgSender = this.msgSenderMap.get(entry.getValue());
+//				}
 				if(iMsgSender == null) {
 					bError = true;
 					if(sb.length()>0) {
@@ -544,7 +568,55 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 		log.debug(String.format("发送消息[%1$s][%2$s][%3$s]", msgSendQueue.getMsgSendQueueId(), msgSendQueue.getIsError(), msgSendQueue.getErrorInfo()));
 	}
 	
-	
+	protected IMsgSender getMsgSender(String strType, boolean bProxy, boolean bTryMode) throws Exception {
+		final Map<String, Object> msgSenderMap2 = this.msgSenderMap2; 
+		IMsgSender iMsgSender = null;
+		if(bProxy) {
+			String strProxyType = String.format("%1$s-PROXY", strType);
+			if(msgSenderMap2 != null) {
+				Object sender = msgSenderMap2.get(strProxyType.toLowerCase());
+				if(!ObjectUtils.isEmpty(sender)) {
+					if(sender instanceof IMsgSender) {
+						return (IMsgSender)sender;
+					}
+					IMsgSender iMsgSender2 = this.getSystemRuntime().createObject(IMsgSender.class, (String)sender);
+					iMsgSender2.init(this.getModelRuntimeContext(), "MSGSENDER:"+strProxyType);
+					msgSenderMap2.put(strProxyType.toLowerCase(), iMsgSender2);
+					return iMsgSender2;
+				}
+			}
+			
+			iMsgSender = this.msgSenderMap.get(strProxyType);
+			if(iMsgSender != null) {
+				return iMsgSender;
+			}
+		}
+		
+		if(msgSenderMap2 != null) {
+			Object sender = msgSenderMap2.get(strType.toLowerCase());
+			if(!ObjectUtils.isEmpty(sender)) {
+				if(sender instanceof IMsgSender) {
+					return (IMsgSender)sender;
+				}
+				IMsgSender iMsgSender2 = this.getSystemRuntime().createObject(IMsgSender.class, (String)sender);
+				iMsgSender2.init(this.getModelRuntimeContext(), "MSGSENDER:"+strType);
+				msgSenderMap2.put(strType.toLowerCase(), iMsgSender2);
+				return iMsgSender2;
+			}
+		}
+		
+		iMsgSender = this.msgSenderMap.get(strType);
+		if(iMsgSender != null) {
+			return iMsgSender;
+		}
+		
+		if(bTryMode) {
+			return iMsgSender;
+		}
+		
+		throw new Exception(String.format("未指定[%1$s]消息发送者", strType));
+		
+	}
 	
 	@Override
 	public V2InternalMessage sendInternal(V2InternalMessage v2InternalMessage) {
@@ -557,7 +629,7 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 	}
 
 	protected V2InternalMessage onSendInternal(V2InternalMessage v2InternalMessage)  throws Throwable{
-		IMsgSender iMsgSender = this.msgSenderMap.get("INTERNAL");
+		IMsgSender iMsgSender = this.getMsgSender("INTERNAL", false, true);//this.msgSenderMap.get("INTERNAL");
 		if(iMsgSender instanceof IInternalMsgSender) {
 			return ((IInternalMsgSender)iMsgSender).send(v2InternalMessage);
 		}
@@ -575,7 +647,7 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 	}
 
 	protected V2InternalMessage onMarkReadInternal(String strInternalMessageId, Map<String, Object> params)  throws Throwable{
-		IMsgSender iMsgSender = this.msgSenderMap.get("INTERNAL");
+		IMsgSender iMsgSender = this.getMsgSender("INTERNAL", false, true);//this.msgSenderMap.get("INTERNAL");
 		if(iMsgSender instanceof IInternalMsgSender) {
 			return ((IInternalMsgSender)iMsgSender).markRead(strInternalMessageId, params);
 		}
@@ -624,4 +696,14 @@ public abstract class CloudNotifyUtilRuntimeBase extends CloudUtilRuntimeBase im
 		return this.strCloudNotifyUtilRuntimeUniqueTag; 
 	}
 	
+	
+	@Override
+	protected String getGlobalConfigId() {
+		return CLOUDNOTIFYUTIL_CONFIGFOLDER;
+	}
+
+	@Override
+	protected String getCloudConfigId() {
+		return CLOUDCONFIGID_NOTIFY;
+	}
 }

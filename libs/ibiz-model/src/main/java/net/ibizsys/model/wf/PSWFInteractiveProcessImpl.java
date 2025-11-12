@@ -226,6 +226,10 @@ public class PSWFInteractiveProcessImpl extends net.ibizsys.model.wf.PSWFProcess
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 
 	private java.util.List<net.ibizsys.model.wf.IPSWFProcessRole> pswfprocessroles = null;
 	public java.util.List<net.ibizsys.model.wf.IPSWFProcessRole> getPSWFProcessRoles(){

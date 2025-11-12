@@ -60,6 +60,10 @@ public class PSSysPanelContainerImplBase extends net.ibizsys.model.control.panel
 		return value;
 	}
 
+	public void setPSAppDELogic(net.ibizsys.model.app.dataentity.IPSAppDELogic psappdelogic){
+		this.psappdelogic = psappdelogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod(){
@@ -77,6 +81,10 @@ public class PSSysPanelContainerImplBase extends net.ibizsys.model.control.panel
 		net.ibizsys.model.app.dataentity.IPSAppDEMethod value = this.getPSAppDEMethod();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体方法");}
 		return value;
+	}
+
+	public void setPSAppDEMethod(net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod){
+		this.psappdemethod = psappdemethod;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
@@ -97,6 +105,10 @@ public class PSSysPanelContainerImplBase extends net.ibizsys.model.control.panel
 		return value;
 	}
 
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
+	}
+
 	private net.ibizsys.model.control.layout.IPSLayout pslayout;
 
 	public net.ibizsys.model.control.layout.IPSLayout getPSLayout(){
@@ -113,6 +125,10 @@ public class PSSysPanelContainerImplBase extends net.ibizsys.model.control.panel
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定布局设置");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

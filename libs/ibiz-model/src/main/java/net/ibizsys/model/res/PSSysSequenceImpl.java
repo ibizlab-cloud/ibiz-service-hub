@@ -63,6 +63,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setKeyPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField keypsdefield){
+		this.keypsdefield = keypsdefield;
+	}
+
 
 	public java.math.BigInteger getMaxValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMAXVALUE);
@@ -97,6 +101,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -115,6 +123,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -131,6 +143,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -200,6 +216,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setTimePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField timepsdefield){
+		this.timepsdefield = timepsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getTypePSDEField(){
@@ -219,6 +239,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setTypePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield){
+		this.typepsdefield = typepsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField(){
@@ -236,6 +260,10 @@ public class PSSysSequenceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定值存储属性");}
 		return value;
+	}
+
+	public void setValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield){
+		this.valuepsdefield = valuepsdefield;
 	}
 
 }

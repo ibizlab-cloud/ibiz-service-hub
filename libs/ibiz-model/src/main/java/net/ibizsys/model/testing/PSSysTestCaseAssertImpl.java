@@ -15,6 +15,7 @@ public class PSSysTestCaseAssertImpl extends net.ibizsys.model.PSObjectImpl impl
 	public final static String ATTR_GETEXCEPTIONTAG2 = "exceptionTag2";
 	public final static String ATTR_GETMEMO = "memo";
 	public final static String ATTR_GETPSSYSTESTCASEINPUT = "getPSSysTestCaseInput";
+	public final static String ATTR_GETPSSYSTESTDATA = "getPSSysTestData";
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
 
 	public java.lang.String getAssertTag(){
@@ -113,6 +114,32 @@ public class PSSysTestCaseAssertImpl extends net.ibizsys.model.PSObjectImpl impl
 		net.ibizsys.model.testing.IPSSysTestCaseInput value = this.getPSSysTestCaseInput();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试用例输入");}
 		return value;
+	}
+
+	public void setPSSysTestCaseInput(net.ibizsys.model.testing.IPSSysTestCaseInput pssystestcaseinput){
+		this.pssystestcaseinput = pssystestcaseinput;
+	}
+
+	private net.ibizsys.model.testing.IPSSysTestData pssystestdata;
+
+	public net.ibizsys.model.testing.IPSSysTestData getPSSysTestData(){
+		if(this.pssystestdata != null) return this.pssystestdata;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSTESTDATA);
+		if(value == null){
+			return null;
+		}
+		this.pssystestdata = getPSModelObject(net.ibizsys.model.testing.IPSSysTestData.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSTESTDATA);
+		return this.pssystestdata;
+	}
+
+	public net.ibizsys.model.testing.IPSSysTestData getPSSysTestDataMust(){
+		net.ibizsys.model.testing.IPSSysTestData value = this.getPSSysTestData();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试数据");}
+		return value;
+	}
+
+	public void setPSSysTestData(net.ibizsys.model.testing.IPSSysTestData pssystestdata){
+		this.pssystestdata = pssystestdata;
 	}
 
 

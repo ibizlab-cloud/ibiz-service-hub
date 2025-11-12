@@ -25,6 +25,10 @@ public class PSDEEditFormParamImpl extends net.ibizsys.model.control.form.PSDEFo
 		return value;
 	}
 
+	public void setPSDEWizardForm(net.ibizsys.model.dataentity.wizard.IPSDEWizardForm psdewizardform){
+		this.psdewizardform = psdewizardform;
+	}
+
 
 	public java.lang.Boolean isEnableAutoSave(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISENABLEAUTOSAVE);

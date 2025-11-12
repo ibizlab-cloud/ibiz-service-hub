@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemGeoImpl extends net.ibizsys.model.control.
 		return value;
 	}
 
+	public void setPSChartGeo(net.ibizsys.model.control.chart.IPSChartGeo pschartgeo){
+		this.pschartgeo = pschartgeo;
+	}
+
 }

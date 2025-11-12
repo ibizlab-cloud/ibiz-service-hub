@@ -987,7 +987,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体视图逻辑类型
+     * 视图逻辑类型
      * <P>
      * <ul>
      * <li>TIMER
@@ -1370,7 +1370,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台工具栏项类型（界面行为组成员）
+     * 界面行为组成员类型
      * <P>
      * <ul>
      * <li>DEUIACTION
@@ -1868,7 +1868,7 @@ public class PSModelEnums {
      * 内部逻辑，附加来自当前实体的处理逻辑
      * <li>EXTERNAL&nbsp;(0)
      * <P>
-     * 外部逻辑，附加来自指定实体的行为
+     * 外部行为，附加来自指定实体的行为
      * <li>SCRIPT&nbsp;(2)
      * <P>
      * 脚本代码，附加自定义的脚本代码
@@ -1924,7 +1924,7 @@ public class PSModelEnums {
      */
     public static enum DEActionLogicType{
         INTERNAL(1, "内部逻辑")
-        ,EXTERNAL(0, "外部逻辑")
+        ,EXTERNAL(0, "外部行为")
         ,SCRIPT(2, "脚本代码")
         ,NOTIFY(3, "实体通知")
         ,FILLMAINSTATE(4, "填充实体主状态")
@@ -2529,7 +2529,7 @@ public class PSModelEnums {
      * <ul>
      * <li>DE
      * <P>
-     * 实体
+     * 实体，监控实体数据变化，将数据投射到相应的路径并保存状态数据
      * </ul>     
      */
     public static enum UniStateType{
@@ -12183,7 +12183,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 多数据部件内置导航视图显示模式，数值项
+     * 导航视图显示模式，数值项
      * <P>
      * <ul>
      * <li>SHOWDEFAULT&nbsp;(0)
@@ -13867,12 +13867,20 @@ public class PSModelEnums {
      * <li>DISABLED&nbsp;(2)
      * <P>
      * 已禁用
+     * <li>INSTALLEDNEEDRELOAD&nbsp;(3)
+     * <P>
+     * 已安装（需重载）
+     * <li>DISABLEDNEEDRELOAD&nbsp;(4)
+     * <P>
+     * 已禁用（须重载）
      * </ul>     
      */
     public static enum ProductFuncState{
         NOTINSTALL(0, "未安装")
         ,INSTALLED(1, "已安装")
         ,DISABLED(2, "已禁用")
+        ,INSTALLEDNEEDRELOAD(3, "已安装（需重载）")
+        ,DISABLEDNEEDRELOAD(4, "已禁用（须重载）")
 ;
            
         public final String text;
@@ -13891,6 +13899,10 @@ public class PSModelEnums {
                     return INSTALLED;
                 case 2:
                     return DISABLED;
+                case 3:
+                    return INSTALLEDNEEDRELOAD;
+                case 4:
+                    return DISABLEDNEEDRELOAD;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -20284,7 +20296,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体表格分页大小，数值项
+     * 分页大小，数值项
      * <P>
      * <ul>
      * <li>SIZE_10&nbsp;(10)
@@ -20381,7 +20393,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云实体图表主题
+     * 图表主题
      * <P>
      * <ul>
      * <li>THEME1
@@ -22717,6 +22729,9 @@ public class PSModelEnums {
      * <li>DEACTION
      * <P>
      * 实体行为
+     * <li>DELOGIC
+     * <P>
+     * 实体逻辑
      * <li>DESADETAIL
      * <P>
      * 实体接口方法
@@ -22731,6 +22746,7 @@ public class PSModelEnums {
     public static enum TestCaseTargetType{
         DEFVR("DEFVR", "实体属性值规则")
         ,DEACTION("DEACTION", "实体行为")
+        ,DELOGIC("DELOGIC", "实体逻辑")
         ,DESADETAIL("DESADETAIL", "实体接口方法")
         ,APPVIEW("APPVIEW", "应用视图")
         ,CUSTOM("CUSTOM", "自定义")
@@ -22750,6 +22766,8 @@ public class PSModelEnums {
                     return DEFVR;
                 case "DEACTION":
                     return DEACTION;
+                case "DELOGIC":
+                    return DELOGIC;
                 case "DESADETAIL":
                     return DESADETAIL;
                 case "APPVIEW":
@@ -24681,15 +24699,23 @@ public class PSModelEnums {
      * <ul>
      * <li>DEFAULT
      * <P>
-     * 默认
+     * 默认，一般基于zookeeper支持
      * <li>CACHE
      * <P>
-     * 缓存
+     * 缓存，一般基于redis支持
+     * <li>CONFIG
+     * <P>
+     * 配置，一般基于nacos支持
+     * <li>USER
+     * <P>
+     * 用户自定义
      * </ul>     
      */
     public static enum UniStateMode{
         DEFAULT("DEFAULT", "默认")
         ,CACHE("CACHE", "缓存")
+        ,CONFIG("CONFIG", "配置")
+        ,USER("USER", "用户自定义")
 ;
            
         public final String text;
@@ -24706,6 +24732,10 @@ public class PSModelEnums {
                     return DEFAULT;
                 case "CACHE":
                     return CACHE;
+                case "CONFIG":
+                    return CONFIG;
+                case "USER":
+                    return USER;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -25995,9 +26025,6 @@ public class PSModelEnums {
      * <li>DEDATAEXP
      * <P>
      * 实体数据导出
-     * <li>DEDATAAUDIT
-     * <P>
-     * 实体访问审计
      * <li>SUBSYSSAMETHOD
      * <P>
      * 外部服务接口方法
@@ -26079,7 +26106,6 @@ public class PSModelEnums {
         ,DEDATASYNC("DEDATASYNC", "实体数据同步")
         ,DEDATAIMP("DEDATAIMP", "实体数据导入")
         ,DEDATAEXP("DEDATAEXP", "实体数据导出")
-        ,DEDATAAUDIT("DEDATAAUDIT", "实体访问审计")
         ,SUBSYSSAMETHOD("SUBSYSSAMETHOD", "外部服务接口方法")
         ,SYSDATASYNCAGENTOUT("SYSDATASYNCAGENTOUT", "系统数据同步代理输出")
         ,SYSDBTABLEACTION("SYSDBTABLEACTION", "系统数据库表操作")
@@ -26193,8 +26219,6 @@ public class PSModelEnums {
                     return DEDATAIMP;
                 case "DEDATAEXP":
                     return DEDATAEXP;
-                case "DEDATAAUDIT":
-                    return DEDATAAUDIT;
                 case "SUBSYSSAMETHOD":
                     return SUBSYSSAMETHOD;
                 case "SYSDATASYNCAGENTOUT":
@@ -30509,13 +30533,13 @@ public class PSModelEnums {
      * 继承关系，继承关系不算严格的一对一关系，从实体与主实体之间是特定类型数据的一对一关系。从实体只允许存在一个继承关系，从实体需要继承主实体的存储能力或逻辑能力才能提供功能，执行功能时从实体需先操作主实体（直接存储或调用逻辑）再进行自身的存储或逻辑处理
      * <li>DERINDEX
      * <P>
-     * 索引关系，从实体允许建立多个索引关系，从实体独立提供功能，功能执行后再同步至主实体
+     * 索引关系，从实体建立索引关系至主实体，一个从实体支持索引至多个索引主实体。从实体具备完整功能，从实体数据按照类型及指定属性索引至主实体
      * <li>DER11
      * <P>
      * 1:1 关系，主实体与从实体是一对一的关系，从实体的主键是连接到主实体的属性（外键）
      * <li>DERMULINH
      * <P>
-     * 多继承关系（虚拟实体），虚拟实体建立多个到主实体的虚拟继承关系，从每个主实体选择相应的数据使用一对一的连接拼装出新的实体
+     * 多继承关系，从实体建立多个到主实体的继承关系
      * <li>DERCUSTOM
      * <P>
      * 自定义关系，主实体和从实体建立自定义的关系，通过指定关系子类型进一步指定自定义关系的模式
@@ -30529,7 +30553,7 @@ public class PSModelEnums {
         ,DERINHERIT("DERINHERIT", "继承关系")
         ,DERINDEX("DERINDEX", "索引关系")
         ,DER11("DER11", "1:1 关系")
-        ,DERMULINH("DERMULINH", "多继承关系（虚拟实体）")
+        ,DERMULINH("DERMULINH", "多继承关系")
         ,DERCUSTOM("DERCUSTOM", "自定义关系")
         ,DERAGGDATA("DERAGGDATA", "聚合数据关系")
 ;
@@ -30632,6 +30656,91 @@ public class PSModelEnums {
                     return ENTITYFIELD;
                 case "CURTIME":
                     return CURTIME;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 部件逻辑目标类型
+     * <P>
+     * <ul>
+     * <li>APPDEUILOGIC
+     * <P>
+     * 应用实体界面逻辑
+     * <li>APPDEUIACTION
+     * <P>
+     * 应用实体界面行为
+     * <li>APPUILOGIC
+     * <P>
+     * 应用预置界面逻辑
+     * <li>APPVIEWLOGIC
+     * <P>
+     * 视图逻辑
+     * <li>APPVIEWENGINE
+     * <P>
+     * 视图引擎
+     * <li>PFPLUGIN
+     * <P>
+     * 前端扩展插件，前端模板插件定义的直接代码逻辑
+     * <li>SCRIPT
+     * <P>
+     * 脚本代码，运行时解释执行的脚本代码
+     * <li>DEUILOGIC
+     * <P>
+     * 实体界面逻辑（兼容），实体定义的界面处理逻辑
+     * <li>DEUIACTION
+     * <P>
+     * 实体界面行为（兼容），实体定义的界面行为逻辑
+     * <li>SYSVIEWLOGIC
+     * <P>
+     * 系统预置界面逻辑（兼容），系统定义的界面处理逻辑
+     * </ul>     
+     */
+    public static enum ControlLogicType{
+        APPDEUILOGIC("APPDEUILOGIC", "应用实体界面逻辑")
+        ,APPDEUIACTION("APPDEUIACTION", "应用实体界面行为")
+        ,APPUILOGIC("APPUILOGIC", "应用预置界面逻辑")
+        ,APPVIEWLOGIC("APPVIEWLOGIC", "视图逻辑")
+        ,APPVIEWENGINE("APPVIEWENGINE", "视图引擎")
+        ,PFPLUGIN("PFPLUGIN", "前端扩展插件")
+        ,SCRIPT("SCRIPT", "脚本代码")
+        ,DEUILOGIC("DEUILOGIC", "实体界面逻辑（兼容）")
+        ,DEUIACTION("DEUIACTION", "实体界面行为（兼容）")
+        ,SYSVIEWLOGIC("SYSVIEWLOGIC", "系统预置界面逻辑（兼容）")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private ControlLogicType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static ControlLogicType from(String value){
+            switch(value){
+                case "APPDEUILOGIC":
+                    return APPDEUILOGIC;
+                case "APPDEUIACTION":
+                    return APPDEUIACTION;
+                case "APPUILOGIC":
+                    return APPUILOGIC;
+                case "APPVIEWLOGIC":
+                    return APPVIEWLOGIC;
+                case "APPVIEWENGINE":
+                    return APPVIEWENGINE;
+                case "PFPLUGIN":
+                    return PFPLUGIN;
+                case "SCRIPT":
+                    return SCRIPT;
+                case "DEUILOGIC":
+                    return DEUILOGIC;
+                case "DEUIACTION":
+                    return DEUIACTION;
+                case "SYSVIEWLOGIC":
+                    return SYSVIEWLOGIC;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -31915,7 +32024,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 虚拟实体模式，数值项
+     * 组合实体模式，数值项
      * <P>
      * <ul>
      * <li>NO&nbsp;(0)
@@ -31923,19 +32032,19 @@ public class PSModelEnums {
      * 不启用
      * <li>MINHERIT&nbsp;(1)
      * <P>
-     * 常规多继承模式，对多个实体使用一对一关系进行剪裁组装，形成新的实体
+     * 常规多继承模式，对多个实体使用多继承关系`DERMULINH`进行剪裁组装，形成新的实体，无持久化
      * <li>INHERIT&nbsp;(2)
      * <P>
-     * 高级继承扩展模式，对指定实体进行虚拟继承，指定实体无需设置为继承主实体，一般用于对子系统或是外部服务实体的功能扩展
+     * 高级继承扩展模式，对指定实体进行虚拟继承`DERINHERIT`，指定实体无需设置为继承主实体，一般用于对子系统或是外部服务实体的功能扩展，无持久化
      * <li>INDEXMAJOR&nbsp;(3)
      * <P>
-     * 索引主实体模式，将多个索引从实体进行数据联合，以统一的视角供外部使用
+     * 索引主实体模式，将多个索引从实体`DERINDEX`进行数据联合，以统一的视角供外部使用，无持久化
      * <li>MIXMINHERIT&nbsp;(4)
      * <P>
-     * 混合多继承模式，当前实体混合多个实体使用一对一关系进行组装，形成新的实体
+     * 混合多继承模式，当前实体混合多个实体使用多继承关系`DERMULINH`进行组装，形成新的实体，支持持久化
      * <li>MIXMINHERITMERGE&nbsp;(5)
      * <P>
-     * 混合多继承模式（合并），当前实体继承多个抽象实体的属性和关系
+     * 混合多继承模式（高级），当前实体继承`DERMULINH`多个抽象实体的属性，并合并关系和处理逻辑，支持持久化
      * </ul>     
      */
     public static enum DEVirtualMode{
@@ -31944,7 +32053,7 @@ public class PSModelEnums {
         ,INHERIT(2, "高级继承扩展模式")
         ,INDEXMAJOR(3, "索引主实体模式")
         ,MIXMINHERIT(4, "混合多继承模式")
-        ,MIXMINHERITMERGE(5, "混合多继承模式（合并）")
+        ,MIXMINHERITMERGE(5, "混合多继承模式（高级）")
 ;
            
         public final String text;
@@ -33281,7 +33390,7 @@ public class PSModelEnums {
      * <ul>
      * <li>DEFAULT
      * <P>
-     * 默认
+     * 默认，同步调用聊天请求
      * <li>CHATCATEGORY
      * <P>
      * 交谈问题分类
@@ -35016,7 +35125,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 多数据部件内置导航视图位置
+     * 导航视图位置
      * <P>
      * <ul>
      * <li>NONE
@@ -37357,10 +37466,10 @@ public class PSModelEnums {
      * 不准备
      * <li>ENABLED&nbsp;(1)
      * <P>
-     * 准备
+     * 准备，将上一次的数据提取至会话变量中供后续操作使用
      * <li>FILLED&nbsp;(2)
      * <P>
-     * 准备并填充，准备上一次的数据并将写回数据对象未提供的属性
+     * 准备并填充，准备上一次的数据，并填充当前数据对象未提供的属性
      * </ul>     
      */
     public static enum DEActionPrepareLastMode{
@@ -38991,7 +39100,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体搜索栏过滤分组模式
+     * 搜索栏过滤分组模式
      * <P>
      * <ul>
      * <li>SINGLE

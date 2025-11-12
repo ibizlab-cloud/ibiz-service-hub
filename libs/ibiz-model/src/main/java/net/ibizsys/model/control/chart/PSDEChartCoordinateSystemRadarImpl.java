@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemRadarImpl extends net.ibizsys.model.contro
 		return value;
 	}
 
+	public void setPSChartRadar(net.ibizsys.model.control.chart.IPSChartRadar pschartradar){
+		this.pschartradar = pschartradar;
+	}
+
 }

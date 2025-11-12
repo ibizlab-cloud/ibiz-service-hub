@@ -44,6 +44,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -60,6 +64,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据源实体对象");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
@@ -80,6 +88,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -96,6 +108,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -157,6 +173,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		return value;
 	}
 
+	public void setWFUserIdPSDEF(net.ibizsys.model.dataentity.defield.IPSDEField wfuseridpsdef){
+		this.wfuseridpsdef = wfuseridpsdef;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField wfusernamepsdef;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getWFUserNamePSDEF(){
@@ -174,6 +194,10 @@ public class PSWFRoleImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getWFUserNamePSDEF();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程用户名称存储属性");}
 		return value;
+	}
+
+	public void setWFUserNamePSDEF(net.ibizsys.model.dataentity.defield.IPSDEField wfusernamepsdef){
+		this.wfusernamepsdef = wfusernamepsdef;
 	}
 
 }

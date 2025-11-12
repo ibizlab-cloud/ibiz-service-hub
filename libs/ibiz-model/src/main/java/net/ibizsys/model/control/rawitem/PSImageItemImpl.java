@@ -42,6 +42,10 @@ public class PSImageItemImpl extends net.ibizsys.model.control.rawitem.PSRawItem
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 
 	public boolean isPlaceCenter(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISPLACECENTER);

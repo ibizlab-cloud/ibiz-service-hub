@@ -33,6 +33,10 @@ public class PSDEFormIFrameImpl extends net.ibizsys.model.control.form.PSDEFormD
 		return value;
 	}
 
+	public void setLinkPSAppView(net.ibizsys.model.app.view.IPSAppView linkpsappview){
+		this.linkpsappview = linkpsappview;
+	}
+
 
 	public java.lang.String getRefreshItems(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREFRESHITEMS);

@@ -3516,7 +3516,7 @@ public class PSDEActionLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDENOTIFYID</B>&nbsp;实体通知，附加逻辑类型为实体通知时指定调用的实体通知对象
+     * <B>PSDENOTIFYID</B>&nbsp;实体通知，附加逻辑类型为【实体通知】`3`时指定调用的实体通知对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDENotify} 
      */
@@ -3598,7 +3598,7 @@ public class PSDEActionLogic extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDENOTIFYNAME</B>&nbsp;实体通知，附加逻辑类型为实体通知时指定调用的实体通知对象
+     * <B>PSDENOTIFYNAME</B>&nbsp;实体通知，附加逻辑类型为【实体通知】`3`时指定调用的实体通知对象
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDENOTIFYID}
      */

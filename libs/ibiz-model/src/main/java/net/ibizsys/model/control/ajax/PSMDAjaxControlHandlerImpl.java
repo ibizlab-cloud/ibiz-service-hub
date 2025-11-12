@@ -87,6 +87,10 @@ public class PSMDAjaxControlHandlerImpl extends net.ibizsys.model.control.ajax.P
 		return value;
 	}
 
+	public void setPSSysUserDR(net.ibizsys.model.security.IPSSysUserDR pssysuserdr){
+		this.pssysuserdr = pssysuserdr;
+	}
+
 	private net.ibizsys.model.security.IPSSysUserDR pssysuserdr2;
 
 	public net.ibizsys.model.security.IPSSysUserDR getPSSysUserDR2(){
@@ -103,6 +107,10 @@ public class PSMDAjaxControlHandlerImpl extends net.ibizsys.model.control.ajax.P
 		net.ibizsys.model.security.IPSSysUserDR value = this.getPSSysUserDR2();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定用户数据范围对象2");}
 		return value;
+	}
+
+	public void setPSSysUserDR2(net.ibizsys.model.security.IPSSysUserDR pssysuserdr2){
+		this.pssysuserdr2 = pssysuserdr2;
 	}
 
 

@@ -40,6 +40,10 @@ public class PSDEWizardPanelImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setFinishPSControlAction(net.ibizsys.model.control.IPSControlAction finishpscontrolaction){
+		this.finishpscontrolaction = finishpscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction initpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getInitPSControlAction(){
@@ -56,6 +60,10 @@ public class PSDEWizardPanelImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.control.IPSControlAction value = this.getInitPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定初始化行为");}
 		return value;
+	}
+
+	public void setInitPSControlAction(net.ibizsys.model.control.IPSControlAction initpscontrolaction){
+		this.initpscontrolaction = initpscontrolaction;
 	}
 
 
@@ -124,6 +132,10 @@ public class PSDEWizardPanelImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setPSDEWizard(net.ibizsys.model.dataentity.wizard.IPSDEWizard psdewizard){
+		this.psdewizard = psdewizard;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField statepsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getStatePSAppDEField(){
@@ -140,6 +152,10 @@ public class PSDEWizardPanelImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getStatePSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态应用实体属性");}
 		return value;
+	}
+
+	public void setStatePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField statepsappdefield){
+		this.statepsappdefield = statepsappdefield;
 	}
 
 

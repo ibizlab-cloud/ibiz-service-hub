@@ -21,6 +21,10 @@ public class PSDEDataQueryTranspiler extends net.ibizsys.model.util.transpiler.d
 			
 		}
 		net.ibizsys.model.dataentity.ds.PSDEDataQueryImpl realPSModelObject = (net.ibizsys.model.dataentity.ds.PSDEDataQueryImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "dqtag", realPSModelObject.getDataQueryTag(), realPSModelObject, "getDataQueryTag");
+		this.setDomainValue(iPSModelTranspileContext, domain, "dqtag2", realPSModelObject.getDataQueryTag2(), realPSModelObject, "getDataQueryTag2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "dqtag3", realPSModelObject.getDataQueryTag3(), realPSModelObject, "getDataQueryTag3");
+		this.setDomainValue(iPSModelTranspileContext, domain, "dqtag4", realPSModelObject.getDataQueryTag4(), realPSModelObject, "getDataQueryTag4");
 		this.setDomainValue(iPSModelTranspileContext, domain, "logicname", realPSModelObject.getLogicName(), realPSModelObject, "getLogicName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdefgroupid", realPSModelObject.getPSDEFGroup(), realPSModelObject, "getPSDEFGroup");
 		this.setDomainValue(iPSModelTranspileContext, domain, "viewcollevel", realPSModelObject.getViewLevel(), realPSModelObject, "getViewLevel");
@@ -32,6 +36,10 @@ public class PSDEDataQueryTranspiler extends net.ibizsys.model.util.transpiler.d
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATAQUERYTAG, domain, "dqtag", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATAQUERYTAG2, domain, "dqtag2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATAQUERYTAG3, domain, "dqtag3", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATAQUERYTAG4, domain, "dqtag4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICNAME, domain, "logicname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEFGROUP, domain, "psdefgroupid", net.ibizsys.model.dataentity.defield.IPSDEFGroup.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETVIEWLEVEL, domain, "viewcollevel", int.class, new String[]{"-1"});

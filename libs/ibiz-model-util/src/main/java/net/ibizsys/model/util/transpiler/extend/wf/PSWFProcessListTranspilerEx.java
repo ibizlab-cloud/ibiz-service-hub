@@ -359,5 +359,11 @@ public class PSWFProcessListTranspilerEx extends net.ibizsys.model.util.transpil
 			ArrayNode arrayNode = objectNode.putArray(PSWFEmbedWFProcessBaseImpl.ATTR_GETPSWFPROCESSSUBWFS);
 			iPSModelTranspileContext.getPSModelListTranspiler(IPSWFProcessSubWF.class, false).compile(iPSModelTranspileContext, psWFProcess.getPSWFProcSubWFs(), arrayNode);
 		}
+
+		if(!ObjectUtils.isEmpty(psWFProcess.getPSDEActionId())){
+			objectNode.put("normalProcType", "DEACTION");
+		}else {
+			objectNode.put("normalProcType", "NONE" );
+		}
 	}
 }

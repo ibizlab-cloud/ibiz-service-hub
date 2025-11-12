@@ -48,6 +48,10 @@ public class PSSubSysServiceAPIDERSImpl extends net.ibizsys.model.PSObjectImpl i
 		return value;
 	}
 
+	public void setMajorPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE majorpssubsysserviceapide){
+		this.majorpssubsysserviceapide = majorpssubsysserviceapide;
+	}
+
 
 	public int getMasterOrder(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMASTERORDER);
@@ -73,6 +77,10 @@ public class PSSubSysServiceAPIDERSImpl extends net.ibizsys.model.PSObjectImpl i
 		net.ibizsys.model.service.IPSSubSysServiceAPIDE value = this.getMinorPSSubSysServiceAPIDE();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定从接口实体");}
 		return value;
+	}
+
+	public void setMinorPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE minorpssubsysserviceapide){
+		this.minorpssubsysserviceapide = minorpssubsysserviceapide;
 	}
 
 

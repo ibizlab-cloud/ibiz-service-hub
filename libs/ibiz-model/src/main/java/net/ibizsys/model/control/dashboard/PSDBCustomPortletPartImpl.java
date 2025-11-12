@@ -24,4 +24,8 @@ public class PSDBCustomPortletPartImpl extends net.ibizsys.model.control.dashboa
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 }

@@ -49,10 +49,10 @@ public class PSDEFieldTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setDomainValue(iPSModelTranspileContext, domain, "pscodelistid", realPSModelObject.getPSCodeList(), realPSModelObject, "getPSCodeList");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssyssequenceid", realPSModelObject.getPSSysSequence(), realPSModelObject, "getPSSysSequence");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssystranslatorid", realPSModelObject.getPSSysTranslator(), realPSModelObject, "getPSSysTranslator");
-		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getPrecision(), realPSModelObject, "getPrecision");
 		this.setDomainValue(iPSModelTranspileContext, domain, "predefinedtype", realPSModelObject.getPredefinedType(), realPSModelObject, "getPredefinedType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "predefinedtypeparam", realPSModelObject.getPredefinedTypeParam(), realPSModelObject, "getPredefinedTypeParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "querycs", realPSModelObject.getQueryOption(), realPSModelObject, "getQueryOption");
+		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getScale(), realPSModelObject, "getScale");
 		this.setDomainValue(iPSModelTranspileContext, domain, "sequencemode", realPSModelObject.getSequenceMode(), realPSModelObject, "getSequenceMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "servicecodename", realPSModelObject.getServiceCodeName(), realPSModelObject, "getServiceCodeName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "stddatatype", realPSModelObject.getStdDataType(), realPSModelObject, "getStdDataType");
@@ -108,10 +108,10 @@ public class PSDEFieldTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSCODELIST, domain, "pscodelistid", net.ibizsys.model.codelist.IPSCodeList.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSSEQUENCE, domain, "pssyssequenceid", net.ibizsys.model.res.IPSSysSequence.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSTRANSLATOR, domain, "pssystranslatorid", net.ibizsys.model.res.IPSSysTranslator.class, false);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRECISION, domain, "precision", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPREDEFINEDTYPE, domain, "predefinedtype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPREDEFINEDTYPEPARAM, domain, "predefinedtypeparam", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETQUERYOPTION, domain, "querycs", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCALE, domain, "precision", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSEQUENCEMODE, domain, "sequencemode", java.lang.String.class, new String[]{"NONE"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSERVICECODENAME, domain, "servicecodename", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTDDATATYPE, domain, "stddatatype", int.class);

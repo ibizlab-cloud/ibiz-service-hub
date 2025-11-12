@@ -26,6 +26,7 @@ public class PSDEUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
 	public final static String ATTR_GETPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_GETPSUIACTION = "getPSUIAction";
+	public final static String ATTR_GETREFPSUIACTIONGROUP = "getRefPSUIActionGroup";
 	public final static String ATTR_GETTOOLTIP = "tooltip";
 	public final static String ATTR_GETTOOLTIPPSLANGUAGERES = "getTooltipPSLanguageRes";
 	public final static String ATTR_GETUIACTIONPARAMJO = "uIActionParamJO";
@@ -325,6 +326,28 @@ public class PSDEUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 
 	public void setPSUIAction(net.ibizsys.model.view.IPSUIAction psuiaction){
 		this.psuiaction = psuiaction;
+	}
+
+	private net.ibizsys.model.view.IPSUIActionGroup refpsuiactiongroup;
+
+	public net.ibizsys.model.view.IPSUIActionGroup getRefPSUIActionGroup(){
+		if(this.refpsuiactiongroup != null) return this.refpsuiactiongroup;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREFPSUIACTIONGROUP);
+		if(value == null){
+			return null;
+		}
+		this.refpsuiactiongroup = getPSModelObject(net.ibizsys.model.view.IPSUIActionGroup.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETREFPSUIACTIONGROUP);
+		return this.refpsuiactiongroup;
+	}
+
+	public net.ibizsys.model.view.IPSUIActionGroup getRefPSUIActionGroupMust(){
+		net.ibizsys.model.view.IPSUIActionGroup value = this.getRefPSUIActionGroup();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用界面行为组对象");}
+		return value;
+	}
+
+	public void setRefPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup refpsuiactiongroup){
+		this.refpsuiactiongroup = refpsuiactiongroup;
 	}
 
 

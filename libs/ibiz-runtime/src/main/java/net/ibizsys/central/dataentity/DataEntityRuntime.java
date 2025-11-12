@@ -3428,6 +3428,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	protected void onWFFinish(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
 		this.getDEWFRuntime(iPSDEWF).finish(arg0, iPSDEAction, actionData);
 	}
+	
+	@Override
+	protected void onWFNotify(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
+		this.getDEWFRuntime(iPSDEWF).notify(arg0, iPSDEAction, actionData);
+	}
 
 	@Override
 	protected void onWFInit(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {

@@ -28,6 +28,7 @@ import net.ibizsys.runtime.util.AppContext;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.IAppContext;
+import net.ibizsys.runtime.util.SystemRuntimeHolder;
 import net.ibizsys.runtime.util.domain.File;
 
 /**
@@ -128,14 +129,14 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	protected void onUnregisterMapping(ISysServiceAPIRequestMappingAdapter iSysServiceAPIRequestMappingAdapter) throws Exception {
 		iSysServiceAPIRequestMappingAdapter.unregisterMapping(this);
 	}
-	
+
 	protected ISysServiceAPIRequestMappingAdapter getSysServiceAPIRequestMappingAdapter(boolean bTryMode) throws Exception {
-		if(this.iSysServiceAPIRequestMappingAdapter != null || bTryMode) {
+		if (this.iSysServiceAPIRequestMappingAdapter != null || bTryMode) {
 			return this.iSysServiceAPIRequestMappingAdapter;
 		}
 		throw new Exception("服务接口请求映射适配器无效");
 	}
-	
+
 	protected void setSysServiceAPIRequestMappingAdapter(ISysServiceAPIRequestMappingAdapter iSysServiceAPIRequestMappingAdapter) {
 		this.iSysServiceAPIRequestMappingAdapter = iSysServiceAPIRequestMappingAdapter;
 	}
@@ -143,10 +144,13 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEMethod(String strScope, String strDataEntityName, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
+
 		try {
 			testAccessUser();
 			return super.invokeDEMethod(strScope, strDataEntityName, strMethodName, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -154,14 +158,16 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEMethod(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
-			
+
 			return super.invokeDEMethod(strScope, strParentDEName, strParentKey, strDataEntityName, strMethodName, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -169,13 +175,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEImportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEImportData(strScope, strParentDEName, strParentKey, strDataEntityName, strImportTag, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -183,13 +191,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEImportData2(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEImportData2(strScope, strParentDEName, strParentKey, strDataEntityName, strImportTag, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -197,13 +207,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAsyncImportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEAsyncImportData(strScope, strParentDEName, strParentKey, strDataEntityName, strImportTag, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 
@@ -212,13 +224,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAsyncImportData2(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEAsyncImportData2(strScope, strParentDEName, strParentKey, strDataEntityName, strImportTag, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -226,13 +240,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEGetImportTemplate(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEGetImportTemplate(strScope, strParentDEName, strParentKey, strDataEntityName, strImportTag, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 
@@ -241,13 +257,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEExportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strExportTag, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEExportData(strScope, strParentDEName, strParentKey, strDataEntityName, strExportTag, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -255,13 +273,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEExportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strExportTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEExportData(strScope, strParentDEName, strParentKey, strDataEntityName, strExportTag, strMethodName, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -269,13 +289,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAsyncExportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strExportTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEAsyncExportData(strScope, strParentDEName, strParentKey, strDataEntityName, strExportTag, strMethodName, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -283,39 +305,44 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEPrintData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strPrintTag, String strPrintType, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEPrintData(strScope, strParentDEName, strParentKey, strDataEntityName, strPrintTag, strPrintType, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
-	
+
 	@Override
 	public Object invokeDEReport(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strReportTag, String strReportType, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEReport(strScope, strParentDEName, strParentKey, strDataEntityName, strReportTag, strReportType, objBody, objTag);
-		}
-		finally {
+		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
-	
+
 	@Override
 	public Object invokeDEWFStart(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strWFTag, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
 			return super.invokeDEWFStart(strScope, strParentDEName, strParentKey, strDataEntityName, strWFTag, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -323,13 +350,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEWFCancel(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strWFTag, Object objBody, String strKey, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEWFCancel(strScope, strParentDEName, strParentKey, strDataEntityName, strWFTag, objBody, strKey, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -337,13 +366,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEDownloadFile(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strKey, String strStorageField, File file, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEDownloadFile(strScope, strParentDEName, strParentKey, strDataEntityName, strKey, strStorageField, file, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -351,13 +382,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEUploadFile(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strKey, String strStorageField, File file, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEUploadFile(strScope, strParentDEName, strParentKey, strDataEntityName, strKey, strStorageField, file, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -365,13 +398,15 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAutoComplete(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strACTag, String strMethodName, Object objBody, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
 			return super.invokeDEAutoComplete(strScope, strParentDEName, strParentKey, strDataEntityName, strACTag, strMethodName, objBody, objTag);
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -380,12 +415,13 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	public Object invokeDEChatCompletion(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strACTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
-			
+
 			IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime = null;
 			if (StringUtils.hasLength(strParentDEName)) {
 				iDEServiceAPIRSRuntime = this.getDEServiceAPIRSRuntime(String.format("%1$s|%2$s", strParentDEName, strDataEntityName).toUpperCase(), false);
@@ -418,6 +454,7 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 
 			throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]类型不正确", iDEServiceAPIRuntime.getName()));
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -425,12 +462,13 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAsyncImportData(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, String strOSSFileId, String strImportSchemaId, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
-			
+
 			IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime = null;
 			if (StringUtils.hasLength(strParentDEName)) {
 				iDEServiceAPIRSRuntime = this.getDEServiceAPIRSRuntime(String.format("%1$s|%2$s", strParentDEName, strDataEntityName).toUpperCase(), false);
@@ -457,6 +495,7 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 
 			throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]类型不正确", iDEServiceAPIRuntime.getName()));
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
@@ -464,12 +503,13 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	@Override
 	public Object invokeDEAsyncImportData2(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strImportTag, String strOSSFileId, String strImportSchemaId, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
-			
+
 			IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime = null;
 			if (StringUtils.hasLength(strParentDEName)) {
 				iDEServiceAPIRSRuntime = this.getDEServiceAPIRSRuntime(String.format("%1$s|%2$s", strParentDEName, strDataEntityName).toUpperCase(), false);
@@ -496,19 +536,21 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 
 			throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]类型不正确", iDEServiceAPIRuntime.getName()));
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
-	
+
 	@Override
 	public Object invokeDECreateDownloadTicket(String strScope, String strParentDEName, String strParentKey, String strDataEntityName, String strKey, String strStorageField, String strOSSFileId, Object objTag) throws Throwable {
 		IUserContext lastUserContext = this.prepareAccessUser();
+		SystemRuntimeHolder.push(this.getSystemRuntime());
 		try {
 			testAccessUser();
-			if(StringUtils.hasLength(strParentDEName)) {
+			if (StringUtils.hasLength(strParentDEName)) {
 				prepareAppContext(strParentDEName);
 			}
-			
+
 			IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime = null;
 			if (StringUtils.hasLength(strParentDEName)) {
 				iDEServiceAPIRSRuntime = this.getDEServiceAPIRSRuntime(String.format("%1$s|%2$s", strParentDEName, strDataEntityName).toUpperCase(), false);
@@ -535,32 +577,31 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 
 			throw new SysServiceAPIRuntimeException(this, String.format("实体服务接口[%1$s]类型不正确", iDEServiceAPIRuntime.getName()));
 		} finally {
+			SystemRuntimeHolder.poll();
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
 
 	protected IUserContext prepareAccessUser() throws Throwable {
 		IUserContext iUserContext = UserContext.getCurrent();
-		if(this.isEnableAnonymousUser()) {
+		if (this.isEnableAnonymousUser()) {
 			RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
 			if (requestAttributes != null) {
 				Object pattern = requestAttributes.getAttribute(ISysUAAUtilRuntime.ATTRIBUTE_IGNOREAUTHPATTERN, RequestAttributes.SCOPE_REQUEST);
 				if (pattern != null) {
-					//return null;
+					// return null;
 					UserContext.setCurrent(this.getSystemRuntime().createAnonymousUserContext());
 					return UserContext.getCurrent();
 				}
 			}
-		}
-		else 
-			if(this.getAPILevel() == SysServiceAPILevels.CURSYSTEMUSER && iUserContext instanceof IEmployeeContext) {
-				IEmployeeContext iEmployeeContext = (IEmployeeContext)iUserContext;
-				if(!this.getSystemRuntime().getDeploySystemId().equalsIgnoreCase(iEmployeeContext.getSystemid())) {
-					if(this.getSystemRuntime().getSystemAccessManager() instanceof ISystemAccessManager) {
-						return ((ISystemAccessManager)this.getSystemRuntime().getSystemAccessManager()).getCurrentSystemEmployeeContext(iEmployeeContext, true);
-					}
+		} else if (this.getAPILevel() == SysServiceAPILevels.CURSYSTEMUSER && iUserContext instanceof IEmployeeContext) {
+			IEmployeeContext iEmployeeContext = (IEmployeeContext) iUserContext;
+			if (!this.getSystemRuntime().getDeploySystemId().equalsIgnoreCase(iEmployeeContext.getSystemid())) {
+				if (this.getSystemRuntime().getSystemAccessManager() instanceof ISystemAccessManager) {
+					return ((ISystemAccessManager) this.getSystemRuntime().getSystemAccessManager()).getCurrentSystemEmployeeContext(iEmployeeContext, true);
 				}
 			}
+		}
 		return iUserContext;
 	}
 
@@ -584,7 +625,7 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 			}
 			return;
 		}
-		
+
 		if (this.getAPILevel() == SysServiceAPILevels.APIUSER) {
 			if (AuthenticationUser.getCurrentMust().getApiuser() != 1) {
 				throw new SysServiceAPIRuntimeException(this, String.format("仅允许接口用户访问"), Errors.ACCESSDENY);
@@ -599,7 +640,6 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 			return;
 		}
 
-		
 		if (this.getAPILevel() == SysServiceAPILevels.ANONYMOUSUSER) {
 			IEmployeeContext iEmployeeContext = EmployeeContext.getCurrent();
 			if (iEmployeeContext != null && !iEmployeeContext.isAnonymoususer()) {
@@ -607,11 +647,10 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 			}
 			return;
 		}
-		
 
 		if (this.getAPILevel() == SysServiceAPILevels.CURSYSTEMUSER) {
 			IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
-			if(!this.getSystemRuntime().getDeploySystemId().equalsIgnoreCase(iEmployeeContext.getSystemid())) {
+			if (!this.getSystemRuntime().getDeploySystemId().equalsIgnoreCase(iEmployeeContext.getSystemid())) {
 				throw new SysServiceAPIRuntimeException(this, String.format("仅允许当前系统用户访问"), Errors.ACCESSDENY);
 			}
 			return;
@@ -639,41 +678,41 @@ public class SysServiceAPIRuntime extends net.ibizsys.central.service.SysService
 	protected void setEnableAnonymousUser(boolean bEnableAnonymousUser) {
 		this.bEnableAnonymousUser = bEnableAnonymousUser;
 	}
-	
+
 	protected void prepareAppContext(String strLastParentDEName) throws Exception {
-		
-		if(!StringUtils.hasLength(strLastParentDEName)) {
+
+		if (!StringUtils.hasLength(strLastParentDEName)) {
 			return;
 		}
-		
+
 		ISysServiceAPIRequestMappingAdapter iSysServiceAPIRequestMappingAdapter = this.getSysServiceAPIRequestMappingAdapter(true);
-		if(iSysServiceAPIRequestMappingAdapter == null) {
+		if (iSysServiceAPIRequestMappingAdapter == null) {
 			return;
 		}
-		
+
 		String strUrl = null;
-		
+
 		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
 		if (requestAttributes instanceof ServletRequestAttributes) {
 			strUrl = ((ServletRequestAttributes) requestAttributes).getRequest().getRequestURI();
 		}
-		
-		if(!StringUtils.hasLength(strUrl)) {
+
+		if (!StringUtils.hasLength(strUrl)) {
 			return;
 		}
-		
+
 		Map<String, String> context = iSysServiceAPIRequestMappingAdapter.getAppContext(this, strUrl, strLastParentDEName);
-		if(ObjectUtils.isEmpty(context)) {
+		if (ObjectUtils.isEmpty(context)) {
 			return;
 		}
-		
+
 		IAppContext iAppContext = UserContext.getCurrentMust().getAppContext();
 		if (iAppContext == null) {
 			iAppContext = new AppContext();
 			UserContext.getCurrentMust().setAppContext(iAppContext);
 		}
-		
-		for(java.util.Map.Entry<String, String> entry : context.entrySet()) {
+
+		for (java.util.Map.Entry<String, String> entry : context.entrySet()) {
 			iAppContext.set(entry.getKey(), entry.getValue());
 		}
 	}

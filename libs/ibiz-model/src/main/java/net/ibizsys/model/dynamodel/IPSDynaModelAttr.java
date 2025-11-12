@@ -3,6 +3,7 @@ package net.ibizsys.model.dynamodel;
 
 
 /**
+ * 动态模型属性对象接口
  *
  */
 public interface IPSDynaModelAttr extends net.ibizsys.model.IPSModelObject{

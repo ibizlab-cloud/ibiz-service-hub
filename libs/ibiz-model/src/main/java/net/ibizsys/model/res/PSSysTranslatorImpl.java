@@ -44,6 +44,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setKeyPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField keypsdefield){
+		this.keypsdefield = keypsdefield;
+	}
+
 	private net.ibizsys.model.codelist.IPSCodeList pscodelist;
 
 	public net.ibizsys.model.codelist.IPSCodeList getPSCodeList(){
@@ -60,6 +64,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.codelist.IPSCodeList value = this.getPSCodeList();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定代码表对象");}
 		return value;
+	}
+
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
@@ -80,6 +88,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -98,6 +110,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -114,6 +130,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -167,6 +187,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setUser2PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField user2psdefield){
+		this.user2psdefield = user2psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField userpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getUserPSDEField(){
@@ -186,6 +210,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setUserPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField userpsdefield){
+		this.userpsdefield = userpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField(){
@@ -203,6 +231,10 @@ public class PSSysTranslatorImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定值存储属性");}
 		return value;
+	}
+
+	public void setValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield){
+		this.valuepsdefield = valuepsdefield;
 	}
 
 }

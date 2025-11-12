@@ -701,14 +701,14 @@ public class PSSysPortlet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FILTERPSDEDSID</B>&nbsp;过滤数据集合
+     * <B>FILTERPSDEDSID</B>&nbsp;过滤数据集合，部件类型为【过滤器】`FILTER`时指定过滤数据集对象，过滤器使用数据集定义的条件
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataSet} 
      */
     public final static String FIELD_FILTERPSDEDSID = "filterpsdedsid";
 
     /**
-     * 设置 过滤数据集合
+     * 设置 过滤数据集合，详细说明：{@link #FIELD_FILTERPSDEDSID}
      * 
      * @param filterPSDEDSId
      * 
@@ -752,7 +752,7 @@ public class PSSysPortlet extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 过滤数据集合
+     * 设置 过滤数据集合，详细说明：{@link #FIELD_FILTERPSDEDSID}
      * <P>
      * 等同 {@link #setFilterPSDEDSId}
      * @param filterPSDEDSId

@@ -8,6 +8,7 @@ public class PSNumberEditorImpl extends net.ibizsys.model.control.PSEditorImpl i
 	public final static String ATTR_GETMINVALUE = "minValue";
 	public final static String ATTR_GETPSSYSVALUERULE = "getPSSysValueRule";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 
 	public java.lang.Double getMaxValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMAXVALUE);
@@ -47,8 +48,17 @@ public class PSNumberEditorImpl extends net.ibizsys.model.control.PSEditorImpl i
 	}
 
 
+	@Deprecated
 	public java.lang.Integer getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
+	}
+
+	public java.lang.Integer getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
 		if(value == null){
 			return null;
 		}

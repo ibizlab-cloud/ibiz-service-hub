@@ -28,6 +28,13 @@ public class PSAppMenuMerger extends net.ibizsys.model.util.merger.control.PSAja
 				iPSModelListMerger.merge(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETPSAPPMENUITEMS);
 			}
 		}
+
+		if(isEnableMergeChild(iPSModelMergeContext, ATTR_GETPSLAYOUT)){
+			IPSModelListMerger iPSModelListMerger = iPSModelMergeContext.getPSModelListMerger(net.ibizsys.model.control.layout.IPSLayout.class, true);
+			if(iPSModelListMerger != null){
+				iPSModelListMerger.mergeSingle(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETPSLAYOUT);
+			}
+		}
 		super.onMerge(iPSModelMergeContext, objectNode, mergeObjectNode);
 	}
 }

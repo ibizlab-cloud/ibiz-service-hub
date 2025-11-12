@@ -92,6 +92,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		return value;
 	}
 
+	public void setPSAppDEUIAction(net.ibizsys.model.app.dataentity.IPSAppDEUIAction psappdeuiaction){
+		this.psappdeuiaction = psappdeuiaction;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic;
 
 	@Deprecated
@@ -109,6 +113,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		net.ibizsys.model.app.dataentity.IPSAppDEUILogic value = this.getPSAppDEUILogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppDEUILogic]返回空值");}
 		return value;
+	}
+
+	public void setPSAppDEUILogic(net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic){
+		this.psappdeuilogic = psappdeuilogic;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
@@ -130,6 +138,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		return value;
 	}
 
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
+	}
+
 	private net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic;
 
 	@Deprecated
@@ -147,6 +159,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		net.ibizsys.model.app.logic.IPSAppUILogic value = this.getPSAppUILogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppUILogic]返回空值");}
 		return value;
+	}
+
+	public void setPSAppUILogic(net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic){
+		this.psappuilogic = psappuilogic;
 	}
 
 	private net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine;
@@ -168,6 +184,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		return value;
 	}
 
+	public void setPSAppViewEngine(net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine){
+		this.psappviewengine = psappviewengine;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic;
 
 	@Deprecated
@@ -185,6 +205,10 @@ public abstract class PSControlLogicImpl extends net.ibizsys.model.PSObjectImpl 
 		net.ibizsys.model.app.view.IPSAppViewLogic value = this.getPSAppViewLogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppViewLogic]返回空值");}
 		return value;
+	}
+
+	public void setPSAppViewLogic(net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic){
+		this.psappviewlogic = psappviewlogic;
 	}
 
 

@@ -3,11 +3,14 @@ package net.ibizsys.central.cloud.core.util.domain;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
+import net.ibizsys.runtime.util.JsonUtils;
 
 /**
  * AI应用
@@ -62,6 +65,12 @@ public class AIAccess extends EntityBase {
 	 * EmbeddingUrl
 	 */
 	public final static String FIELD_EMBEDDINGURL = "embeddingurl";
+	
+	/**
+	 * 嵌入访问token
+	 */
+	public final static String FIELD_EMBEDDINGTOKEN = "embeddingtoken";
+	
 
 	/**
 	 * ProxyUrl
@@ -164,6 +173,27 @@ public class AIAccess extends EntityBase {
 	 * 最大输入词数
 	 */
 	public final static String FIELD_MAXINPUTTOKENS = "maxinputtokens";
+	
+	
+	/**
+	 * 凭证标识
+	 */
+	public final static String FIELD_CREDENTIALID = "credentialid";
+	
+	/**
+	 * 扩展参数
+	 */
+	public final static String FIELD_EXTRAPARAMS = "extraparams";
+	
+	/**
+	 * 文本排序 Model
+	 */
+	public final static String FIELD_TEXTRERANKMODEL = "textrerankmodel";
+	
+	/**
+	 * 文本排序Url
+	 */
+	public final static String FIELD_TEXTRERANKURL = "textrerankurl";
 	
 	
 	/**
@@ -544,6 +574,47 @@ public class AIAccess extends EntityBase {
 	
 	
 	/**
+	 * 设置「EmbeddingToken」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setEmbeddingToken(String val) {
+		this.set(FIELD_EMBEDDINGTOKEN, val);
+		return this;
+	}
+
+	/**
+	 * 获取「EmbeddingToken」值
+	 *
+	 */
+	@JsonIgnore
+	public String getEmbeddingToken() {
+		return (String) this.get(FIELD_EMBEDDINGTOKEN);
+	}
+
+	/**
+	 * 判断 「EmbeddingToken」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsEmbeddingToken() {
+		return this.contains(FIELD_EMBEDDINGTOKEN);
+	}
+
+	/**
+	 * 重置 「EmbeddingToken」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetEmbeddingToken() {
+		this.reset(FIELD_EMBEDDINGTOKEN);
+		return this;
+	}
+	
+	
+	
+	/**
 	 * 设置「ProxyUrl」
 	 *
 	 * @param val
@@ -623,10 +694,6 @@ public class AIAccess extends EntityBase {
 	}
 	
 	
-
-	
-	
-
 	/**
 	 * 设置「Model」
 	 *
@@ -702,6 +769,46 @@ public class AIAccess extends EntityBase {
 	@JsonIgnore
 	public AIAccess resetEmbeddingModel() {
 		this.reset(FIELD_EMBEDDINGMODEL);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「TextReRankModel」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setTextReRankModel(String val) {
+		this.set(FIELD_TEXTRERANKMODEL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「TextReRankModel」值
+	 *
+	 */
+	@JsonIgnore
+	public String getTextReRankModel() {
+		return (String) this.get(FIELD_TEXTRERANKMODEL);
+	}
+
+	/**
+	 * 判断 「TextReRankModel」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsTextReRankModel() {
+		return this.contains(FIELD_TEXTRERANKMODEL);
+	}
+
+	/**
+	 * 重置 「TextReRankModel」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetTextReRankModel() {
+		this.reset(FIELD_TEXTRERANKMODEL);
 		return this;
 	}
 	
@@ -1283,4 +1390,135 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_MAXINPUTTOKENS);
 		return this;
 	}
+	
+	
+	/**
+	 * 设置「CredentialId」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setCredentialId(String val) {
+		this.set(FIELD_CREDENTIALID, val);
+		return this;
+	}
+
+	/**
+	 * 获取「CredentialId」值
+	 *
+	 */
+	@JsonIgnore
+	public String getCredentialId() {
+		return (String) this.get(FIELD_CREDENTIALID);
+	}
+
+	/**
+	 * 判断 「CredentialId」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsCredentialId() {
+		return this.contains(FIELD_CREDENTIALID);
+	}
+
+	/**
+	 * 重置 「CredentialId」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetCredentialId() {
+		this.reset(FIELD_CREDENTIALID);
+		return this;
+	}
+	
+
+	/**
+	 * 设置「扩展参数」
+	 *
+	 * @param val
+	 */
+	@JsonProperty(FIELD_EXTRAPARAMS)
+	public AIAccess setExtraParams(Map<String, Object> val) {
+		this.set(FIELD_EXTRAPARAMS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「扩展参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Map<String, Object> getExtraParams() {
+		Object value = this.get(FIELD_EXTRAPARAMS);
+		if(value == null) {
+			return null;
+		}
+		if(value instanceof Map) {
+			return (Map)value;
+		}
+		
+		Map map = JsonUtils.as(value, Map.class);
+		this.setExtraParams(map);
+		
+		return map;
+	}
+
+	/**
+	 * 判断 「扩展参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsExtraParams() {
+		return this.contains(FIELD_EXTRAPARAMS);
+	}
+
+	/**
+	 * 重置 「扩展参数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetExtraParams() {
+		this.reset(FIELD_EXTRAPARAMS);
+		return this;
+	}
+	
+	/**
+	 * 设置「TextReRankUrl」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setTextReRankUrl(String val) {
+		this.set(FIELD_TEXTRERANKURL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「TextReRankUrl」值
+	 *
+	 */
+	@JsonIgnore
+	public String getTextReRankUrl() {
+		return (String) this.get(FIELD_TEXTRERANKURL);
+	}
+
+	/**
+	 * 判断 「TextReRankUrl」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsTextReRankUrl() {
+		return this.contains(FIELD_TEXTRERANKURL);
+	}
+
+	/**
+	 * 重置 「TextReRankUrl」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetTextReRankUrl() {
+		this.reset(FIELD_TEXTRERANKURL);
+		return this;
+	}
+	
 }

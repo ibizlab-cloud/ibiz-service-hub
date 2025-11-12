@@ -59,6 +59,10 @@ public class PSChartImpl extends net.ibizsys.model.control.PSMDAjaxControlContai
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction getpscontrolaction;
 
 	@Deprecated
@@ -76,6 +80,10 @@ public class PSChartImpl extends net.ibizsys.model.control.PSMDAjaxControlContai
 		net.ibizsys.model.control.IPSControlAction value = this.getGetPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getGetPSControlAction]返回空值");}
 		return value;
+	}
+
+	public void setGetPSControlAction(net.ibizsys.model.control.IPSControlAction getpscontrolaction){
+		this.getpscontrolaction = getpscontrolaction;
 	}
 
 

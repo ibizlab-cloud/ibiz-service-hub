@@ -342,6 +342,9 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 		if(extParams != null) {
 			params.putAll(extParams);
 		}
+		
+		this.onFillTemplParams(strType, data, params);
+		
 		if (data != null) {
 			params.put("data", data);
 			params.put("entity", data);
@@ -364,6 +367,10 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 			log.error(String.format("获取模板内容发生异常，%1$s",ex.getMessage()),ex);
 			return ex.getMessage();
 		}
+	}
+	
+	protected void onFillTemplParams(String strType, Object data, Map<String, Object> params) {
+		
 	}
 
 

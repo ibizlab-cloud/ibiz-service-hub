@@ -45,6 +45,10 @@ public class PSDETabViewPanelImpl extends net.ibizsys.model.control.viewpanel.PS
 		return value;
 	}
 
+	public void setNavPSDER(net.ibizsys.model.dataentity.der.IPSDERBase navpsder){
+		this.navpsder = navpsder;
+	}
+
 	private net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref;
 
 	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef(){
@@ -61,6 +65,10 @@ public class PSDETabViewPanelImpl extends net.ibizsys.model.control.viewpanel.PS
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv psdeoppriv;
@@ -81,6 +89,10 @@ public class PSDETabViewPanelImpl extends net.ibizsys.model.control.viewpanel.PS
 		return value;
 	}
 
+	public void setPSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv psdeoppriv){
+		this.psdeoppriv = psdeoppriv;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -97,6 +109,10 @@ public class PSDETabViewPanelImpl extends net.ibizsys.model.control.viewpanel.PS
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标题图标");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

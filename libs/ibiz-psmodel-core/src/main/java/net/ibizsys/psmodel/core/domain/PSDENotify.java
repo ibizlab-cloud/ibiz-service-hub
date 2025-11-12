@@ -1360,7 +1360,7 @@ public class PSDENotify extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NOTIFYSTART</B>&nbsp;提前通知间隔，指定实体通知的起始通知时间间隔，以分钟为单位。相对于开始时间
+     * <B>NOTIFYSTART</B>&nbsp;提前通知间隔，指定实体通知的起始通知时间间隔，以分钟为单位（正值时早于开始时间、负值是晚于开始时间），未定义为`0`
      */
     public final static String FIELD_NOTIFYSTART = "notifystart";
 

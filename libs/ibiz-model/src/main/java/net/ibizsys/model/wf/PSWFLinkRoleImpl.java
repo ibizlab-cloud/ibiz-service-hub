@@ -24,6 +24,10 @@ public class PSWFLinkRoleImpl extends net.ibizsys.model.PSObjectImpl implements 
 		return value;
 	}
 
+	public void setPSSysMsgTempl(net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl){
+		this.pssysmsgtempl = pssysmsgtempl;
+	}
+
 	private net.ibizsys.model.wf.IPSWFProcessRole pswfprocessrole;
 
 	public net.ibizsys.model.wf.IPSWFProcessRole getPSWFProcessRole(){
@@ -41,6 +45,10 @@ public class PSWFLinkRoleImpl extends net.ibizsys.model.PSObjectImpl implements 
 		net.ibizsys.model.wf.IPSWFProcessRole value = this.getPSWFProcessRole();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程处理角色");}
 		return value;
+	}
+
+	public void setPSWFProcessRole(net.ibizsys.model.wf.IPSWFProcessRole pswfprocessrole){
+		this.pswfprocessrole = pswfprocessrole;
 	}
 
 }

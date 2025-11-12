@@ -21,6 +21,7 @@ import net.ibizsys.model.dataentity.der.IPSDERMultiInherit;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.dts.IPSDEDTSQueue;
+import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.mainstate.IPSDEMainState;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.runtime.IDynaInstRuntime;
@@ -1293,8 +1294,21 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	IPSDEAction getPSDEActionByTag(String strTag, boolean bTryMode);
 	
 	
+	/**
+	 * 获取指定标记逻辑
+	 * @param strTag
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSDELogic getPSDELogicByTag(String strTag, boolean bTryMode);
 	
-	
+	/**
+	 * 获取指定标记数据查询
+	 * @param strTag
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSDEDataQuery getPSDEDataQueryByTag(String strTag, boolean bTryMode);
 	
 	/**
 	 * 获取指定标记数据集
@@ -1303,6 +1317,8 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	 * @return
 	 */
 	IPSDEDataSet getPSDEDataSetByTag(String strTag, boolean bTryMode);
+	
+	
 	
 	
 	

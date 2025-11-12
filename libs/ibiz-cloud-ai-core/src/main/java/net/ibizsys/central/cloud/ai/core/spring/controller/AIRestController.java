@@ -23,6 +23,8 @@ import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 
 @RestController()
 @RequestMapping("")
@@ -127,7 +129,7 @@ public class AIRestController {
 	
 	
 	/**
-	 * 补全
+	 * 获取嵌入值
 	 * @param type
 	 * @param completionRequest
 	 * @return
@@ -137,4 +139,14 @@ public class AIRestController {
 		return this.getCloudAIUtilRuntime().embedding(type, embeddingRequest);
 	}
 
+	/**
+	 * 获取嵌入值
+	 * @param type
+	 * @param completionRequest
+	 * @return
+	 */
+	@RequestMapping(method = {RequestMethod.POST}, value = {"/ai/{type}/textrerank","/ai/{type}/textreranks"})
+	public TextReRankResult textReRank(@PathVariable("type") String type, @RequestBody TextReRankRequest textReRankRequest) {
+		return this.getCloudAIUtilRuntime().textReRank(type, textReRankRequest);
+	}
 }

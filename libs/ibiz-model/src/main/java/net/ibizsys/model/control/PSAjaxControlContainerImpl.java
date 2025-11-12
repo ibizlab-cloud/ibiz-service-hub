@@ -28,6 +28,10 @@ public class PSAjaxControlContainerImpl extends net.ibizsys.model.control.PSCont
 		return value;
 	}
 
+	public void setUser2PSControlAction(net.ibizsys.model.control.IPSControlAction user2pscontrolaction){
+		this.user2pscontrolaction = user2pscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction userpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getUserPSControlAction(){
@@ -44,6 +48,10 @@ public class PSAjaxControlContainerImpl extends net.ibizsys.model.control.PSCont
 		net.ibizsys.model.control.IPSControlAction value = this.getUserPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定用户自定义行为");}
 		return value;
+	}
+
+	public void setUserPSControlAction(net.ibizsys.model.control.IPSControlAction userpscontrolaction){
+		this.userpscontrolaction = userpscontrolaction;
 	}
 
 

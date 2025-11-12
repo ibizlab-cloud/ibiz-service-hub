@@ -66,6 +66,10 @@ public class PSSubSysServiceAPIDTOFieldImpl extends net.ibizsys.model.PSObjectIm
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
+
 	private net.ibizsys.model.service.IPSSubSysServiceAPIDTO refpssubsysserviceapidto;
 
 	public net.ibizsys.model.service.IPSSubSysServiceAPIDTO getRefPSSubSysServiceAPIDTO(){
@@ -83,6 +87,10 @@ public class PSSubSysServiceAPIDTOFieldImpl extends net.ibizsys.model.PSObjectIm
 		net.ibizsys.model.service.IPSSubSysServiceAPIDTO value = this.getRefPSSubSysServiceAPIDTO();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用服务接口DTO对象");}
 		return value;
+	}
+
+	public void setRefPSSubSysServiceAPIDTO(net.ibizsys.model.service.IPSSubSysServiceAPIDTO refpssubsysserviceapidto){
+		this.refpssubsysserviceapidto = refpssubsysserviceapidto;
 	}
 
 

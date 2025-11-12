@@ -28,6 +28,10 @@ public class PSDEDRBarGroupImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -63,6 +67,10 @@ public class PSDEDRBarGroupImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setHeaderPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin headerpssyspfplugin){
+		this.headerpssyspfplugin = headerpssyspfplugin;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -79,6 +87,10 @@ public class PSDEDRBarGroupImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定分组图片资源对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

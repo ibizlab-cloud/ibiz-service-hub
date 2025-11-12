@@ -36,6 +36,10 @@ public class PSSysPortletCatImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setNamePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes namepslanguageres){
+		this.namepslanguageres = namepslanguageres;
+	}
+
 	private net.ibizsys.model.res.IPSSysCss pssyscss;
 
 	public net.ibizsys.model.res.IPSSysCss getPSSysCss(){
@@ -52,6 +56,10 @@ public class PSSysPortletCatImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.res.IPSSysCss value = this.getPSSysCss();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统界面样式");}
 		return value;
+	}
+
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
 	}
 
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
@@ -72,6 +80,10 @@ public class PSSysPortletCatImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -88,6 +100,10 @@ public class PSSysPortletCatImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

@@ -34,6 +34,10 @@ public class PSSysTestCaseInputImpl extends net.ibizsys.model.PSObjectImpl imple
 		return value;
 	}
 
+	public void setInputPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction inputpsdeaction){
+		this.inputpsdeaction = inputpsdeaction;
+	}
+
 
 	public java.lang.String getInputTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETINPUTTAG);
@@ -130,6 +134,10 @@ public class PSSysTestCaseInputImpl extends net.ibizsys.model.PSObjectImpl imple
 		net.ibizsys.model.testing.IPSSysTestData value = this.getPSSysTestData();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试数据");}
 		return value;
+	}
+
+	public void setPSSysTestData(net.ibizsys.model.testing.IPSSysTestData pssystestdata){
+		this.pssystestdata = pssystestdata;
 	}
 
 

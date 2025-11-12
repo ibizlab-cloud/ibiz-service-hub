@@ -36,6 +36,10 @@ public class PSDBAppMenuPortletPartImpl extends net.ibizsys.model.control.dashbo
 		return value;
 	}
 
+	public void setAMPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin ampssyspfplugin){
+		this.ampssyspfplugin = ampssyspfplugin;
+	}
+
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -60,6 +64,10 @@ public class PSDBAppMenuPortletPartImpl extends net.ibizsys.model.control.dashbo
 		net.ibizsys.model.control.IPSControl value = this.getContentPSControl();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定内容部件");}
 		return value;
+	}
+
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
 	}
 
 

@@ -743,14 +743,14 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLECUSTOMIZED</B>&nbsp;支持定制
+     * <B>ENABLECUSTOMIZED</B>&nbsp;支持定制，指定是否支持自定义立方体维度、指标及以及智能报表
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLECUSTOMIZED = "enablecustomized";
 
     /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * 
      * @param enableCustomized
      * 
@@ -794,7 +794,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * <P>
      * 等同 {@link #setEnableCustomized}
      * @param enableCustomized
@@ -806,7 +806,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * <P>
      * 等同 {@link #setEnableCustomized}
      * @param enableCustomized
@@ -1048,7 +1048,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
     /**
      * <B>OBJNAMECASE</B>&nbsp;对象名称转换
      * <P>
-     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.StringCaseMode} 
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.DBObjNameCaseMode} 
      */
     public final static String FIELD_OBJNAMECASE = "objnamecase";
 
@@ -1115,7 +1115,7 @@ public class PSSysBIScheme extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @param objNameCase
      */
     @JsonIgnore
-    public PSSysBIScheme objnamecase(net.ibizsys.psmodel.core.util.PSModelEnums.StringCaseMode objNameCase){
+    public PSSysBIScheme objnamecase(net.ibizsys.psmodel.core.util.PSModelEnums.DBObjNameCaseMode objNameCase){
         if(objNameCase == null){
             this.setObjNameCase(null);
         }

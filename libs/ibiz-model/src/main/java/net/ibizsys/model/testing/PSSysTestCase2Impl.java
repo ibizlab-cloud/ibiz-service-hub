@@ -28,6 +28,10 @@ public class PSSysTestCase2Impl extends net.ibizsys.model.testing.PSSysTestCaseI
 		return value;
 	}
 
+	public void setPSAppView(net.ibizsys.model.app.view.IPSAppView psappview){
+		this.psappview = psappview;
+	}
+
 	private net.ibizsys.model.dataentity.service.IPSDEServiceAPI psdeserviceapi;
 
 	public net.ibizsys.model.dataentity.service.IPSDEServiceAPI getPSDEServiceAPI(){
@@ -44,6 +48,10 @@ public class PSSysTestCase2Impl extends net.ibizsys.model.testing.PSSysTestCaseI
 		net.ibizsys.model.dataentity.service.IPSDEServiceAPI value = this.getPSDEServiceAPI();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体服务接口");}
 		return value;
+	}
+
+	public void setPSDEServiceAPI(net.ibizsys.model.dataentity.service.IPSDEServiceAPI psdeserviceapi){
+		this.psdeserviceapi = psdeserviceapi;
 	}
 
 	private net.ibizsys.model.dataentity.service.IPSDEServiceAPIMethod psdeserviceapimethod;
@@ -64,6 +72,10 @@ public class PSSysTestCase2Impl extends net.ibizsys.model.testing.PSSysTestCaseI
 		return value;
 	}
 
+	public void setPSDEServiceAPIMethod(net.ibizsys.model.dataentity.service.IPSDEServiceAPIMethod psdeserviceapimethod){
+		this.psdeserviceapimethod = psdeserviceapimethod;
+	}
+
 	private net.ibizsys.model.testing.IPSSysTestModule pssystestmodule;
 
 	public net.ibizsys.model.testing.IPSSysTestModule getPSSysTestModule(){
@@ -82,6 +94,10 @@ public class PSSysTestCase2Impl extends net.ibizsys.model.testing.PSSysTestCaseI
 		return value;
 	}
 
+	public void setPSSysTestModule(net.ibizsys.model.testing.IPSSysTestModule pssystestmodule){
+		this.pssystestmodule = pssystestmodule;
+	}
+
 	private net.ibizsys.model.testing.IPSSysTestPrj pssystestprj;
 
 	public net.ibizsys.model.testing.IPSSysTestPrj getPSSysTestPrj(){
@@ -98,6 +114,10 @@ public class PSSysTestCase2Impl extends net.ibizsys.model.testing.PSSysTestCaseI
 		net.ibizsys.model.testing.IPSSysTestPrj value = this.getPSSysTestPrj();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试项目");}
 		return value;
+	}
+
+	public void setPSSysTestPrj(net.ibizsys.model.testing.IPSSysTestPrj pssystestprj){
+		this.pssystestprj = pssystestprj;
 	}
 
 }

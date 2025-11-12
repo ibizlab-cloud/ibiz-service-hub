@@ -61,6 +61,10 @@ public class PSDashboardImpl extends net.ibizsys.model.control.PSAjaxControlCont
 		return value;
 	}
 
+	public void setNavBarPSSysCss(net.ibizsys.model.res.IPSSysCss navbarpssyscss){
+		this.navbarpssyscss = navbarpssyscss;
+	}
+
 
 	public java.lang.String getNavBarPos(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETNAVBARPOS);
@@ -112,6 +116,10 @@ public class PSDashboardImpl extends net.ibizsys.model.control.PSAjaxControlCont
 		return value;
 	}
 
+	public void setPSAppDynaDashboardUtil(net.ibizsys.model.app.util.IPSAppDynaDashboardUtil psappdynadashboardutil){
+		this.psappdynadashboardutil = psappdynadashboardutil;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.IPSControl> pscontrols = null;
 	public java.util.List<net.ibizsys.model.control.IPSControl> getPSControls(){
@@ -152,6 +160,10 @@ public class PSDashboardImpl extends net.ibizsys.model.control.PSAjaxControlCont
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定看板布局");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

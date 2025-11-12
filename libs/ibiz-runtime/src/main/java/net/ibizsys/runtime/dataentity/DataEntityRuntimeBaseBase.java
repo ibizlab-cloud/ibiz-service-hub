@@ -388,6 +388,21 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		prepare();
 		return this.psDEActionMap.get(strName.toLowerCase());
 	}
+	
+	
+	@Override
+	public IPSDELogic getPSDELogic(String strName) {
+		prepare();
+		if(!ObjectUtils.isEmpty(this.psDELogicMap)) {
+			//ID，直接获取
+			IPSDELogic iPSDELogic = this.psDELogicMap.get(strName);
+			if(iPSDELogic != null) {
+				return iPSDELogic;
+			}
+			return this.psDELogicMap.get(strName.toUpperCase());
+		}
+		return null;
+	}
 
 
 	@Override

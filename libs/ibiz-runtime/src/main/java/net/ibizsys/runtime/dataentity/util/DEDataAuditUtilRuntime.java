@@ -307,7 +307,9 @@ public class DEDataAuditUtilRuntime extends DEUtilRuntimeBase implements IDEData
 					try {
 						dataAuditDetail.setNewText(iCodeListRuntime.getText(objNewValue));
 					} catch (Throwable ex) {
-						throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("实体[%1$s]属性[%2$s]计算代码值文本发生异常，%3$s",iDataEntityRuntime.getName(), iPSDEField.getName(), ex.getMessage()),Errors.MODELERROR,ex);
+						dataAuditDetail.setNewText(String.valueOf(objNewValue));
+						//throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("实体[%1$s]属性[%2$s]计算代码值文本发生异常，%3$s",iDataEntityRuntime.getName(), iPSDEField.getName(), ex.getMessage()),Errors.MODELERROR,ex);
+						log.error(String.format("实体[%1$s]属性[%2$s]计算代码值文本发生异常，%3$s",iDataEntityRuntime.getName(), iPSDEField.getName(), ex.getMessage()));
 					}
 				}
 				if(objOldValue != null) {
@@ -315,7 +317,7 @@ public class DEDataAuditUtilRuntime extends DEUtilRuntimeBase implements IDEData
 						dataAuditDetail.setOldText(iCodeListRuntime.getText(objOldValue));
 					} catch (Throwable ex) {
 						dataAuditDetail.setOldText(String.valueOf(objOldValue));
-						log.error(ex);
+						log.error(String.format("实体[%1$s]属性[%2$s]计算代码值文本发生异常，%3$s",iDataEntityRuntime.getName(), iPSDEField.getName(), ex.getMessage()));
 						//throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("实体[%1$s]属性[%2$s]计算代码值文本发生异常，%3$s",iDataEntityRuntime.getName(), iPSDEField.getName(), ex.getMessage()),Errors.MODELERROR, ex);
 					}
 				}

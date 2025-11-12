@@ -242,7 +242,101 @@ public interface ISysCacheUtilRuntime extends ISysUtilRuntime, ISysUniStateUtilR
 	Map<String, String> getAll(String strCat);
 	
 	
+	/**
+	 * 自增指定键
+	 * @param strName
+	 * @return
+	 */
+	Long inc(String strName);
 	
+	
+	/**
+	 * 自增指定键，指定自增值
+	 * @param strName
+	 * @param nValue 
+	 * @return
+	 */
+	Long inc(String strName, Long nValue);
+	
+	
+	/**
+	 * 自增指定键，指定自增值及超时时长
+	 * @param strName
+	 * @param nValue
+	 * @param nSeconds
+	 * @return
+	 */
+	Long inc(String strName, Long nValue, int nSeconds);
+	
+	
+	/**
+	 * 自增指定键，指定自增值
+	 * @param strName
+	 * @param fValue 
+	 * @return
+	 */
+	Double inc(String strName, Double fValue);
+	
+	
+	/**
+	 * 自增指定键，指定自增值及超时时长
+	 * @param strName
+	 * @param fValue
+	 * @param nSeconds
+	 * @return
+	 */
+	Double inc(String strName, Double fValue, int nSeconds);
+	
+	
+	/**
+	 * 自增指定分类下的键
+	 * @param strCat
+	 * @param strName
+	 * @return
+	 */
+	Long inc(String strCat, String strName);
+	
+	
+	/**
+	 * 自增指定分类下的键，指定自增值
+	 * @param strCat
+	 * @param strName
+	 * @param nValue
+	 * @return
+	 */
+	Long inc(String strCat, String strName, Long nValue);
+	
+	
+	/**
+	 * 自增指定分类下的键，指定自增值及超时时长
+	 * @param strCat
+	 * @param strName
+	 * @param nValue
+	 * @param nSeconds
+	 * @return
+	 */
+	Long inc(String strCat, String strName, Long nValue, int nSeconds);
+	
+	
+	/**
+	 * 自增指定分类下的键，指定自增值
+	 * @param strCat
+	 * @param strName
+	 * @param fValue
+	 * @return
+	 */
+	Double inc(String strCat, String strName, Double fValue);
+	
+	
+	/**
+	 * 自增指定分类下的键，指定自增值及超时时长
+	 * @param strCat
+	 * @param strName
+	 * @param fValue
+	 * @param nSeconds
+	 * @return
+	 */
+	Double inc(String strCat, String strName, Double fValue, int nSeconds);
 	
 	
 }

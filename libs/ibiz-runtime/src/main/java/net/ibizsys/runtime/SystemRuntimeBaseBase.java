@@ -11,6 +11,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import net.ibizsys.model.PSModelEngine;
+import net.ibizsys.model.PSModelEnums.MsgQueueType;
 import net.ibizsys.model.codelist.IPSCodeList;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.der.IPSDERBase;
@@ -84,6 +85,12 @@ public abstract class SystemRuntimeBaseBase extends ModelRuntimeBase implements 
 	
 	private int nEngineVer = PSModelEngine.VERSION_UNKNOWN;
 	
+	private ISysMsgQueueRuntime defaultSysMsgQueueRuntime = null;
+
+	private IPSSysMsgQueue defaultPSSysMsgQueue = null;
+	
+	
+	
 	@Override
 	protected void onInit() throws Exception {
 
@@ -121,11 +128,27 @@ public abstract class SystemRuntimeBaseBase extends ModelRuntimeBase implements 
 			}
 		}
 		
-		
 		List<IPSSysDTSQueue> psSysDTSQueues = this.getPSSystem().getAllPSSysDTSQueues();
 		if (psSysDTSQueues != null) {
 			for (IPSSysDTSQueue iPSSysDTSQueue : psSysDTSQueues) {
 				this.getSysDTSQueueRuntime(iPSSysDTSQueue);
+			}
+		}
+		
+		
+		List<IPSSysMsgQueue> psSysMsgQueues = this.getPSSystem().getAllPSSysMsgQueues();
+		if (psSysMsgQueues != null) {
+			for (IPSSysMsgQueue iPSSysMsgQueue : psSysMsgQueues) {
+				if(MsgQueueType.RUNTIME.value.equals(iPSSysMsgQueue.getMsgQueueType())) {
+					this.defaultPSSysMsgQueue = iPSSysMsgQueue;
+					break;
+				}
+			}
+			if(this.defaultPSSysMsgQueue == null) {
+				for (IPSSysMsgQueue iPSSysMsgQueue : psSysMsgQueues) {
+					this.defaultPSSysMsgQueue = iPSSysMsgQueue;
+					break;
+				}
 			}
 		}
 	}
@@ -289,6 +312,19 @@ public abstract class SystemRuntimeBaseBase extends ModelRuntimeBase implements 
 		}
 		return iSysMsgQueueRuntime;
 	}
+	
+	@Override
+	public ISysMsgQueueRuntime getDefaultSysMsgQueueRuntime() {
+		if(this.defaultSysMsgQueueRuntime == null && this.defaultPSSysMsgQueue != null) {
+			this.defaultSysMsgQueueRuntime = this.getSysMsgQueueRuntime(this.defaultPSSysMsgQueue);
+		}
+		return this.defaultSysMsgQueueRuntime;
+	}
+
+	protected void setDefaultSysMsgQueueRuntime(ISysMsgQueueRuntime defaultSysMsgQueueRuntime) {
+		this.defaultSysMsgQueueRuntime = defaultSysMsgQueueRuntime;
+	}
+	
 
 	@Override
 	public ISysMsgTemplRuntime getSysMsgTemplRuntime(IPSSysMsgTempl iPSSysMsgTempl) {

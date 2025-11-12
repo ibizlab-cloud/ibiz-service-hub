@@ -101,6 +101,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setContentPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField contentpsdefield){
+		this.contentpsdefield = contentpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEField(){
@@ -118,6 +122,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getNamePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定名称值实体属性");}
 		return value;
+	}
+
+	public void setNamePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield){
+		this.namepsdefield = namepsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
@@ -139,6 +147,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -155,6 +167,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 	private net.ibizsys.model.res.IPSSysContentCat pssyscontentcat;
@@ -175,6 +191,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSSysContentCat(net.ibizsys.model.res.IPSSysContentCat pssyscontentcat){
+		this.pssyscontentcat = pssyscontentcat;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -191,6 +211,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后台扩展插件");}
 		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
 	}
 
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
@@ -211,6 +235,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField pathpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getPathPSDEField(){
@@ -228,6 +256,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getPathPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定路径值实体属性");}
 		return value;
+	}
+
+	public void setPathPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField pathpsdefield){
+		this.pathpsdefield = pathpsdefield;
 	}
 
 
@@ -281,6 +313,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setTagPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField tagpsdefield){
+		this.tagpsdefield = tagpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField user2psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getUser2PSDEField(){
@@ -300,6 +336,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setUser2PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField user2psdefield){
+		this.user2psdefield = user2psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField userpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getUserPSDEField(){
@@ -317,6 +357,10 @@ public class PSSysResourceImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getUserPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定自定义值实体属性");}
 		return value;
+	}
+
+	public void setUserPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField userpsdefield){
+		this.userpsdefield = userpsdefield;
 	}
 
 }

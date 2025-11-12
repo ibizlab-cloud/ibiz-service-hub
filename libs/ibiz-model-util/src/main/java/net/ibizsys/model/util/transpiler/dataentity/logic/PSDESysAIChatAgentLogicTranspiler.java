@@ -22,6 +22,7 @@ public class PSDESysAIChatAgentLogicTranspiler extends net.ibizsys.model.util.tr
 		}
 		net.ibizsys.model.dataentity.logic.PSDESysAIChatAgentLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDESysAIChatAgentLogicImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDELogicParam(), realPSModelObject, "getDstPSDELogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "param8", realPSModelObject.getHistoryCount(), realPSModelObject, "getHistoryCount");
 		this.setDomainValue(iPSModelTranspileContext, domain, "param4", realPSModelObject.getMessage(), realPSModelObject, "getMessage");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysaichatagentid", realPSModelObject.getPSSysAIChatAgent(), realPSModelObject, "getPSSysAIChatAgent");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysaifactoryid", realPSModelObject.getPSSysAIFactory(), realPSModelObject, "getPSSysAIFactory");
@@ -33,6 +34,7 @@ public class PSDESysAIChatAgentLogicTranspiler extends net.ibizsys.model.util.tr
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDELOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETHISTORYCOUNT, domain, "param8", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMESSAGE, domain, "param4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSAICHATAGENT, domain, "pssysaichatagentid", net.ibizsys.model.ai.IPSSysAIChatAgent.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSAIFACTORY, domain, "pssysaifactoryid", net.ibizsys.model.ai.IPSSysAIFactory.class, false);

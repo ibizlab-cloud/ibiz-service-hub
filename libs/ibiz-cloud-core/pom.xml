@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.572.22</version>
+        <version>8.1.0.573.34</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -137,6 +137,11 @@
             <groupId>org.eclipse.jgit</groupId>
             <artifactId>org.eclipse.jgit</artifactId>
             <version>5.12.0.202106070339-r</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
         </dependency>
 
     </dependencies>

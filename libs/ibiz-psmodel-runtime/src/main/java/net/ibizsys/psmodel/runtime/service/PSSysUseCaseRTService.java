@@ -69,6 +69,6 @@ public class PSSysUseCaseRTService extends PSModelRTServiceBase<PSSysUseCase, PS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysUseCase.class, this.getPSSystemService().getPSSystem().getAllPSSysUseCases(), (String)key, false);
+    	return getPSModelObject(IPSSysUseCase.class, this.getPSSystemService().getPSSystem().getAllPSSysUseCases(), (String)key, tryMode);
     }
 }

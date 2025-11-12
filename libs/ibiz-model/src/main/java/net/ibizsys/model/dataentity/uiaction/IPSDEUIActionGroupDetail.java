@@ -94,6 +94,20 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	
 	
 	/**
+	 * 获取引用界面行为组对象
+	 * @return
+	 */
+	net.ibizsys.model.view.IPSUIActionGroup getRefPSUIActionGroup();
+
+
+	/**
+	 * 获取引用界面行为组对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.view.IPSUIActionGroup getRefPSUIActionGroupMust();
+	
+	
+	/**
 	 * 获取提示语言资源对象
 	 * @return
 	 */

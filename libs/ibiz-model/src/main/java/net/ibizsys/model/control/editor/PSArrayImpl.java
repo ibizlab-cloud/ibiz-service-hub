@@ -12,6 +12,7 @@ public class PSArrayImpl extends net.ibizsys.model.control.PSEditorImpl implemen
 	public final static String ATTR_GETPSAPPCODELIST = "getPSAppCodeList";
 	public final static String ATTR_GETPSSYSVALUERULE = "getPSSysValueRule";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_ISSHOWMAXLENGTH = "showMaxLength";
 
 	public java.lang.String getDataType(){
@@ -98,8 +99,17 @@ public class PSArrayImpl extends net.ibizsys.model.control.PSEditorImpl implemen
 	}
 
 
+	@Deprecated
 	public java.lang.Integer getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
+	}
+
+	public java.lang.Integer getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
 		if(value == null){
 			return null;
 		}

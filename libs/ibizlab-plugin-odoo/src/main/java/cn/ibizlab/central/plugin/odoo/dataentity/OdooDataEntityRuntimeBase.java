@@ -82,7 +82,7 @@ public abstract class OdooDataEntityRuntimeBase extends InheritLogicDataEntityRu
 	protected void onInit() throws Exception {
 		super.onInit();
 
-		if(this.getDEType() != DEType.ABSTRACT.value && this.getStorageMode() != DEStorageModes.NONE) {
+		if(this.getDEType() != DEType.ABSTRACT.value && this.getStorageMode() != DEStorageModes.NONE && this.getStorageMode() != DEStorageModes.SERVICEAPI) {
 			if(this.getDEDynaStorageUtilRuntime() == null) {
 				this.prepareDEDynaStorageUtilRuntime();
 			}

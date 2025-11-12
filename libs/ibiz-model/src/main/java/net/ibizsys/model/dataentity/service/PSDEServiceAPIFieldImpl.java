@@ -13,6 +13,7 @@ public class PSDEServiceAPIFieldImpl extends net.ibizsys.model.PSObjectImpl impl
 	public final static String ATTR_GETMINVALUESTRING = "minValueString";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 	public final static String ATTR_GETUSERCAT = "userCat";
@@ -104,10 +105,19 @@ public class PSDEServiceAPIFieldImpl extends net.ibizsys.model.PSObjectImpl impl
 		return value.asInt();
 	}
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
 			return 0;
+		}
+		return value.asInt();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
 		}
 		return value.asInt();
 	}

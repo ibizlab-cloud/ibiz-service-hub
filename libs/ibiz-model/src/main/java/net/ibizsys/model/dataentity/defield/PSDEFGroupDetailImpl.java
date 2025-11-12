@@ -18,6 +18,7 @@ public class PSDEFGroupDetailImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETPSCODELIST = "getPSCodeList";
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 	public final static String ATTR_ISALLOWEMPTY = "allowEmpty";
 	public final static String ATTR_ISENABLEUSERINSERT = "enableUserInsert";
@@ -171,10 +172,19 @@ public class PSDEFGroupDetailImpl extends net.ibizsys.model.PSObjectImpl impleme
 	}
 
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
 			return 0;
+		}
+		return value.asInt();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
 		}
 		return value.asInt();
 	}

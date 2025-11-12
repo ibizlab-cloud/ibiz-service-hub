@@ -925,6 +925,13 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取开发系统标识
+	 * @return
+	 */
+	java.lang.String getPSDevSlnSysId();
+	
+	
+	/**
 	 * 获取应用默认图标
 	 * @return
 	 */

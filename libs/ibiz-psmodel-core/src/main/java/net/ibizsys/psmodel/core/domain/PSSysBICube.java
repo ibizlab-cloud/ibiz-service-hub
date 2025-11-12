@@ -767,14 +767,14 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLECUSTOMIZED</B>&nbsp;支持定制
+     * <B>ENABLECUSTOMIZED</B>&nbsp;支持定制，指定是否支持自定义立方体维度和指标
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLECUSTOMIZED = "enablecustomized";
 
     /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * 
      * @param enableCustomized
      * 
@@ -818,7 +818,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * <P>
      * 等同 {@link #setEnableCustomized}
      * @param enableCustomized
@@ -830,7 +830,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 支持定制
+     * 设置 支持定制，详细说明：{@link #FIELD_ENABLECUSTOMIZED}
      * <P>
      * 等同 {@link #setEnableCustomized}
      * @param enableCustomized
@@ -1055,14 +1055,14 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PORTLETPSDEUAGROUPID</B>&nbsp;门户部件界面行为组
+     * <B>PORTLETPSDEUAGROUPID</B>&nbsp;门户部件界面行为组，指定立方体门户部件默认使用的界面行为组
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEUAGroup} 
      */
     public final static String FIELD_PORTLETPSDEUAGROUPID = "portletpsdeuagroupid";
 
     /**
-     * 设置 门户部件界面行为组
+     * 设置 门户部件界面行为组，详细说明：{@link #FIELD_PORTLETPSDEUAGROUPID}
      * 
      * @param portletPSDEUAGroupId
      * 
@@ -1106,7 +1106,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 门户部件界面行为组
+     * 设置 门户部件界面行为组，详细说明：{@link #FIELD_PORTLETPSDEUAGROUPID}
      * <P>
      * 等同 {@link #setPortletPSDEUAGroupId}
      * @param portletPSDEUAGroupId
@@ -2067,14 +2067,14 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源
+     * <B>PSSYSUNIRESID</B>&nbsp;系统统一资源，指定访问立方体需要的系统统一资源对象
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUniRes} 
      */
     public final static String FIELD_PSSYSUNIRESID = "pssysuniresid";
 
     /**
-     * 设置 系统统一资源
+     * 设置 系统统一资源，详细说明：{@link #FIELD_PSSYSUNIRESID}
      * 
      * @param pSSysUniResId
      * 
@@ -2118,7 +2118,7 @@ public class PSSysBICube extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 系统统一资源
+     * 设置 系统统一资源，详细说明：{@link #FIELD_PSSYSUNIRESID}
      * <P>
      * 等同 {@link #setPSSysUniResId}
      * @param pSSysUniResId

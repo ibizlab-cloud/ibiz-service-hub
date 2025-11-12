@@ -50,6 +50,34 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	
 	
 	/**
+	 * 获取数据查询标记
+	 * @return
+	 */
+	java.lang.String getDataQueryTag();
+	
+	
+	/**
+	 * 获取数据查询标记2
+	 * @return
+	 */
+	java.lang.String getDataQueryTag2();
+	
+	
+	/**
+	 * 获取数据查询标记3
+	 * @return
+	 */
+	java.lang.String getDataQueryTag3();
+	
+	
+	/**
+	 * 获取数据查询标记4
+	 * @return
+	 */
+	java.lang.String getDataQueryTag4();
+	
+	
+	/**
 	 * 获取子系统扩展
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEExtendMode}

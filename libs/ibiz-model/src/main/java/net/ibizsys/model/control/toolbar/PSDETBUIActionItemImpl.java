@@ -67,6 +67,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getGroupExtractMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGROUPEXTRACTMODE);
@@ -102,6 +106,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		return value;
 	}
 
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction;
 
 	public net.ibizsys.model.app.view.IPSAppViewUIAction getPSAppViewUIAction(){
@@ -118,6 +126,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		net.ibizsys.model.app.view.IPSAppViewUIAction value = this.getPSAppViewUIAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用视图界面行为");}
 		return value;
+	}
+
+	public void setPSAppViewUIAction(net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction){
+		this.psappviewuiaction = psappviewuiaction;
 	}
 
 
@@ -162,6 +174,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.view.IPSUIAction psuiaction;
 
 	public net.ibizsys.model.view.IPSUIAction getPSUIAction(){
@@ -178,6 +194,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		net.ibizsys.model.view.IPSUIAction value = this.getPSUIAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定界面行为对象");}
 		return value;
+	}
+
+	public void setPSUIAction(net.ibizsys.model.view.IPSUIAction psuiaction){
+		this.psuiaction = psuiaction;
 	}
 
 
@@ -204,6 +224,10 @@ public class PSDETBUIActionItemImpl extends net.ibizsys.model.control.toolbar.PS
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定提示语言资源");}
 		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
 	}
 
 

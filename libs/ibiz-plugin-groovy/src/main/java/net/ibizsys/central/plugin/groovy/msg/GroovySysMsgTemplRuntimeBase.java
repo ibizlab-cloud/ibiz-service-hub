@@ -67,6 +67,9 @@ public abstract class GroovySysMsgTemplRuntimeBase extends SysMsgTemplRuntimeBas
 		if (extParams != null) {
 			params.putAll(extParams);
 		}
+		
+		this.onFillTemplParams(strType, data, params);
+		
 		if (data != null) {
 			params.put("data", data);
 			params.put("entity", data);

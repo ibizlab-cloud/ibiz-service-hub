@@ -55,6 +55,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -87,6 +91,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		net.ibizsys.model.codelist.IPSCodeList value = this.getCatalogPSCodeList();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定分类代码表对象");}
 		return value;
+	}
+
+	public void setCatalogPSCodeList(net.ibizsys.model.codelist.IPSCodeList catalogpscodelist){
+		this.catalogpscodelist = catalogpscodelist;
 	}
 
 
@@ -172,6 +180,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		return value;
 	}
 
+	public void setPSChartCoordinateSystem(net.ibizsys.model.control.chart.IPSChartCoordinateSystem pschartcoordinatesystem){
+		this.pschartcoordinatesystem = pschartcoordinatesystem;
+	}
+
 	private net.ibizsys.model.control.chart.IPSChartDataSet pschartdataset;
 
 	public net.ibizsys.model.control.chart.IPSChartDataSet getPSChartDataSet(){
@@ -189,6 +201,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		net.ibizsys.model.control.chart.IPSChartDataSet value = this.getPSChartDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图表数据集对象");}
 		return value;
+	}
+
+	public void setPSChartDataSet(net.ibizsys.model.control.chart.IPSChartDataSet pschartdataset){
+		this.pschartdataset = pschartdataset;
 	}
 
 	private net.ibizsys.model.control.chart.IPSChartSeriesEncode pschartseriesencode;
@@ -209,6 +225,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		return value;
 	}
 
+	public void setPSChartSeriesEncode(net.ibizsys.model.control.chart.IPSChartSeriesEncode pschartseriesencode){
+		this.pschartseriesencode = pschartseriesencode;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -225,6 +245,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 
@@ -267,6 +291,10 @@ public class PSDEChartSeriesImpl extends net.ibizsys.model.control.chart.PSChart
 		net.ibizsys.model.codelist.IPSCodeList value = this.getSeriesPSCodeList();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定序列代码表对象");}
 		return value;
+	}
+
+	public void setSeriesPSCodeList(net.ibizsys.model.codelist.IPSCodeList seriespscodelist){
+		this.seriespscodelist = seriespscodelist;
 	}
 
 

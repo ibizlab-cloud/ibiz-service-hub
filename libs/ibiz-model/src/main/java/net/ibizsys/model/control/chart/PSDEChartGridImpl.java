@@ -27,6 +27,10 @@ public class PSDEChartGridImpl extends net.ibizsys.model.control.chart.PSDEChart
 		return value;
 	}
 
+	public void setPSChartGridXAxis0(net.ibizsys.model.control.chart.IPSChartGridXAxis pschartgridxaxis0){
+		this.pschartgridxaxis0 = pschartgridxaxis0;
+	}
+
 	private net.ibizsys.model.control.chart.IPSChartGridXAxis pschartgridxaxis1;
 
 	public net.ibizsys.model.control.chart.IPSChartGridXAxis getPSChartGridXAxis1(){
@@ -44,6 +48,10 @@ public class PSDEChartGridImpl extends net.ibizsys.model.control.chart.PSDEChart
 		net.ibizsys.model.control.chart.IPSChartGridXAxis value = this.getPSChartGridXAxis1();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定绘图表格X轴[1]");}
 		return value;
+	}
+
+	public void setPSChartGridXAxis1(net.ibizsys.model.control.chart.IPSChartGridXAxis pschartgridxaxis1){
+		this.pschartgridxaxis1 = pschartgridxaxis1;
 	}
 
 	private net.ibizsys.model.control.chart.IPSChartGridYAxis pschartgridyaxis0;
@@ -65,6 +73,10 @@ public class PSDEChartGridImpl extends net.ibizsys.model.control.chart.PSDEChart
 		return value;
 	}
 
+	public void setPSChartGridYAxis0(net.ibizsys.model.control.chart.IPSChartGridYAxis pschartgridyaxis0){
+		this.pschartgridyaxis0 = pschartgridyaxis0;
+	}
+
 	private net.ibizsys.model.control.chart.IPSChartGridYAxis pschartgridyaxis1;
 
 	public net.ibizsys.model.control.chart.IPSChartGridYAxis getPSChartGridYAxis1(){
@@ -82,6 +94,10 @@ public class PSDEChartGridImpl extends net.ibizsys.model.control.chart.PSDEChart
 		net.ibizsys.model.control.chart.IPSChartGridYAxis value = this.getPSChartGridYAxis1();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定绘图表格Y轴[1]");}
 		return value;
+	}
+
+	public void setPSChartGridYAxis1(net.ibizsys.model.control.chart.IPSChartGridYAxis pschartgridyaxis1){
+		this.pschartgridyaxis1 = pschartgridyaxis1;
 	}
 
 }

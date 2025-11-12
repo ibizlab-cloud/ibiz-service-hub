@@ -41,6 +41,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField(){
@@ -58,6 +62,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定相关实体属性");}
 		return value;
+	}
+
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
 	}
 
 	private net.ibizsys.model.res.IPSSysSampleValue pssyssamplevalue;
@@ -78,6 +86,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 		return value;
 	}
 
+	public void setPSSysSampleValue(net.ibizsys.model.res.IPSSysSampleValue pssyssamplevalue){
+		this.pssyssamplevalue = pssyssamplevalue;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet refpsdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet(){
@@ -96,6 +108,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 		return value;
 	}
 
+	public void setRefPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet refpsdedataset){
+		this.refpsdedataset = refpsdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getRefPSDataEntity(){
@@ -112,6 +128,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getRefPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用实体");}
 		return value;
+	}
+
+	public void setRefPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity){
+		this.refpsdataentity = refpsdataentity;
 	}
 
 

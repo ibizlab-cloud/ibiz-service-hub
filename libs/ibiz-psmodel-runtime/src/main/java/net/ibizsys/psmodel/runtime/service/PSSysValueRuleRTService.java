@@ -64,7 +64,7 @@ public class PSSysValueRuleRTService extends PSModelRTServiceBase<PSSysValueRule
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysValueRule.class, this.getPSSystemService().getPSSystem().getAllPSSysValueRules(), (String)key, false);
+    	return getPSModelObject(IPSSysValueRule.class, this.getPSSystemService().getPSSystem().getAllPSSysValueRules(), (String)key, tryMode);
     }
     
 }

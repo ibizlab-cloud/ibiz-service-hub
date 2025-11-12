@@ -64,6 +64,6 @@ public class PSSysERMapRTService extends PSModelRTServiceBase<PSSysERMap, PSSysE
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysERMap.class, this.getPSSystemService().getPSSystem().getAllPSSysERMaps(), (String)key, false);
+    	return getPSModelObject(IPSSysERMap.class, this.getPSSystemService().getPSSystem().getAllPSSysERMaps(), (String)key, tryMode);
     }
 }

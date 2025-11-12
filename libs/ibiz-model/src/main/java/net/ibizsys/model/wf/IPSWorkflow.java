@@ -76,6 +76,20 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取系统消息队列
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgQueue getPSSysMsgQueue();
+
+
+	/**
+	 * 获取系统消息队列，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgQueue getPSSysMsgQueueMust();
+	
+	
+	/**
 	 * 获取系统模块
 	 * @return
 	 */

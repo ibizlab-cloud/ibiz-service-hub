@@ -1,6 +1,7 @@
 package net.ibizsys.central.plugin.ai.util;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,56 @@ public class AIChatUtils {
 		}
 		return markdownContent;
 	}
+	
+	public static String extractCodeWithCursor(String code, int line, int pos, int x, int y) {
+		return extractCodeWithCursor(code, line, pos, x, y, null);
+	}
+	
+	public static String extractCodeWithCursor(String code, int line, int pos, int x, int y, String cursorTag) {
+		if(!StringUtils.hasLength(cursorTag)) {
+			cursorTag = "<__CURSOR__>";
+		}
+        // 将代码按行分割[6,7](@ref)
+        String[] lines = code.replace("\r\n", "\n").split("\n", -1); // 使用-1保留空行
+        int totalLines = lines.length;
+        
+        // 计算提取的起始行和结束行（行号从1开始，使用max/min处理边界）
+        int startLine = Math.max(1, line - x);          // 起始行号（最小为1）
+        int endLine = Math.min(totalLines, line + y);  // 结束行号（最大为总行数）
+        
+        // 将行号转换为0基索引（用于数组索引）
+        int startIdx = startLine - 1;  // 起始索引（包含）
+        int endIdx = endLine;           // 结束索引（不包含，因此直接使用endLine）
+        
+        // 提取指定范围内的行
+        List<String> extractedLines = new ArrayList<>();
+        for (int i = startIdx; i < endIdx; i++) {
+            extractedLines.add(lines[i]);
+        }
+        
+        // 计算光标行在提取片段中的相对索引（0基）
+        int relLineIndex = line - startLine;
+        
+        // 检查光标行和列号是否有效
+        if (relLineIndex < 0 || relLineIndex >= extractedLines.size()) {
+            throw new IllegalArgumentException("光标行不在提取范围内");
+        }
+        
+        String cursorLine = extractedLines.get(relLineIndex);
+        if (pos < 0 || pos > cursorLine.length()) {
+            // 若列号无效，调整到行首或行尾
+            pos = Math.max(0, Math.min(pos, cursorLine.length()));
+        }
+        
+        // 在光标位置插入<CURSOR>标记[9,10](@ref)
+        StringBuilder modifiedLine = new StringBuilder(cursorLine);
+        modifiedLine.insert(pos, cursorTag);
+        extractedLines.set(relLineIndex, modifiedLine.toString());
+        
+        // 重新组合为字符串并返回
+        return String.join("\n", extractedLines);
+    }
+	
 
 	public static Object getRealResult(ChatCompletionResult chatCompletionResult) throws Exception {
 		if (chatCompletionResult instanceof ChatCompletionResultEx) {

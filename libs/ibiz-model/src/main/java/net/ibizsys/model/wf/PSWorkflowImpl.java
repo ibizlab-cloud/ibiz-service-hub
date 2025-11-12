@@ -12,6 +12,7 @@ public class PSWorkflowImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 	public final static String ATTR_GETENTITYWFSTATE = "entityWFState";
 	public final static String ATTR_GETLOGICNAME = "logicName";
 	public final static String ATTR_GETNAMEPSLANGUAGERES = "getNamePSLanguageRes";
+	public final static String ATTR_GETPSSYSMSGQUEUE = "getPSSysMsgQueue";
 	public final static String ATTR_GETPSSYSTEMMODULE = "getPSSystemModule";
 	public final static String ATTR_GETPSWFDES = "getPSWFDEs";
 	public final static String ATTR_GETPSWFVERSIONS = "getPSWFVersions";
@@ -99,6 +100,32 @@ public class PSWorkflowImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		return value;
 	}
 
+	public void setNamePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes namepslanguageres){
+		this.namepslanguageres = namepslanguageres;
+	}
+
+	private net.ibizsys.model.msg.IPSSysMsgQueue pssysmsgqueue;
+
+	public net.ibizsys.model.msg.IPSSysMsgQueue getPSSysMsgQueue(){
+		if(this.pssysmsgqueue != null) return this.pssysmsgqueue;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSMSGQUEUE);
+		if(value == null){
+			return null;
+		}
+		this.pssysmsgqueue = getPSModelObject(net.ibizsys.model.msg.IPSSysMsgQueue.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSMSGQUEUE);
+		return this.pssysmsgqueue;
+	}
+
+	public net.ibizsys.model.msg.IPSSysMsgQueue getPSSysMsgQueueMust(){
+		net.ibizsys.model.msg.IPSSysMsgQueue value = this.getPSSysMsgQueue();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统消息队列");}
+		return value;
+	}
+
+	public void setPSSysMsgQueue(net.ibizsys.model.msg.IPSSysMsgQueue pssysmsgqueue){
+		this.pssysmsgqueue = pssysmsgqueue;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -115,6 +142,10 @@ public class PSWorkflowImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

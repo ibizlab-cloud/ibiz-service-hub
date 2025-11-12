@@ -41,6 +41,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setCancelPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction cancelpsdeaction){
+		this.cancelpsdeaction = cancelpsdeaction;
+	}
+
 
 	public int getCancelTimeout(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCANCELTIMEOUT);
@@ -84,6 +88,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setConfirmPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction confirmpsdeaction){
+		this.confirmpsdeaction = confirmpsdeaction;
+	}
+
 
 	public java.lang.String getCreatedState(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCREATEDSTATE);
@@ -109,6 +117,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getErrorPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定错误属性对象");}
 		return value;
+	}
+
+	public void setErrorPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField errorpsdefield){
+		this.errorpsdefield = errorpsdefield;
 	}
 
 
@@ -145,6 +157,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setHistoryPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity historypsdataentity){
+		this.historypsdataentity = historypsdataentity;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -163,6 +179,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -179,6 +199,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -208,6 +232,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPushPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction pushpsdeaction){
+		this.pushpsdeaction = pushpsdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.action.IPSDEAction refreshpsdeaction;
 
 	public net.ibizsys.model.dataentity.action.IPSDEAction getRefreshPSDEAction(){
@@ -225,6 +253,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.action.IPSDEAction value = this.getRefreshPSDEAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定刷新实体行为");}
 		return value;
+	}
+
+	public void setRefreshPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction refreshpsdeaction){
+		this.refreshpsdeaction = refreshpsdeaction;
 	}
 
 
@@ -254,6 +286,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield){
+		this.statepsdefield = statepsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField timepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getTimePSDEField(){
@@ -271,6 +307,10 @@ public class PSSysDTSQueueImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getTimePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定时间属性对象");}
 		return value;
+	}
+
+	public void setTimePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField timepsdefield){
+		this.timepsdefield = timepsdefield;
 	}
 
 }

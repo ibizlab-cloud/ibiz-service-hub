@@ -22,6 +22,7 @@ public class PSSysAIFactoryTranspiler extends net.ibizsys.model.util.transpiler.
 		}
 		net.ibizsys.model.ai.PSSysAIFactoryImpl realPSModelObject = (net.ibizsys.model.ai.PSSysAIFactoryImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "aifactoryparams", realPSModelObject.getAIFactoryParams(), realPSModelObject, "getAIFactoryParams");
+		this.setDomainValue(iPSModelTranspileContext, domain, "aiplatformtype", realPSModelObject.getAIPlatformType(), realPSModelObject, "getAIPlatformType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "authclientid", realPSModelObject.getAuthClientId(), realPSModelObject, "getAuthClientId");
 		this.setDomainValue(iPSModelTranspileContext, domain, "authclientsecret", realPSModelObject.getAuthClientSecret(), realPSModelObject, "getAuthClientSecret");
 		this.setDomainValue(iPSModelTranspileContext, domain, "authmode", realPSModelObject.getAuthMode(), realPSModelObject, "getAuthMode");
@@ -36,6 +37,7 @@ public class PSSysAIFactoryTranspiler extends net.ibizsys.model.util.transpiler.
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAIFACTORYPARAMS, domain, "aifactoryparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAIPLATFORMTYPE, domain, "aiplatformtype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAUTHCLIENTID, domain, "authclientid", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAUTHCLIENTSECRET, domain, "authclientsecret", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAUTHMODE, domain, "authmode", java.lang.String.class);

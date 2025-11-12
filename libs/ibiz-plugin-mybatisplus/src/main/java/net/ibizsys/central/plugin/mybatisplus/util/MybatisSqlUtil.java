@@ -62,6 +62,7 @@ import net.ibizsys.model.PSModelEnums.PredefinedFieldType;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.defield.IPSDEFSearchMode;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
+import net.ibizsys.model.dataentity.defield.IPSLinkDEField;
 import net.ibizsys.model.dataentity.defield.IPSOne2ManyDataDEField;
 import net.ibizsys.model.dataentity.defield.IPSPickupDEField;
 import net.ibizsys.model.dataentity.defield.IPSPickupObjectDEField;
@@ -1278,6 +1279,11 @@ public class MybatisSqlUtil {
 				IPSDERBase iPSDERBase = null;
 				IPSDERCustom iPSDERCustom = null;
 				boolean bMinorMode = false;
+				//转换继承属性
+				if (iPSDEField.isInheritDEField()) {
+					IPSLinkDEField iPSLinkDEField = (IPSLinkDEField) iPSDEField;
+					iPSDEField = iPSLinkDEField.getRealPSDEField();
+				}
 				// 更加属性类型进行操作
 				if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
 					IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;
@@ -2031,6 +2037,11 @@ public class MybatisSqlUtil {
 		IPSDERBase iPSDERBase = null;
 		IPSDERCustom iPSDERCustom = null;
 		boolean bMinorMode = false;
+		//转换继承属性
+		if (iPSDEField.isInheritDEField()) {
+			IPSLinkDEField iPSLinkDEField = (IPSLinkDEField) iPSDEField;
+			iPSDEField = iPSLinkDEField.getRealPSDEField();
+		}
 		// 更加属性类型进行操作
 		if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
 			IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;
@@ -2438,6 +2449,11 @@ public class MybatisSqlUtil {
 			IPSDERBase iPSDERBase = null;
 			IPSDERCustom iPSDERCustom = null;
 			boolean bMinorMode = false;
+			//转换继承属性
+			if (iPSDEField.isInheritDEField()) {
+				IPSLinkDEField iPSLinkDEField = (IPSLinkDEField) iPSDEField;
+				iPSDEField = iPSLinkDEField.getRealPSDEField();
+			}
 			// 更加属性类型进行操作
 			if (DEFDataType.ONE2MANYDATA.value.equals(iPSDEField.getDataType()) || DEFDataType.ONE2MANYDATA_MAP.value.equals(iPSDEField.getDataType())) {
 				IPSOne2ManyDataDEField iPSOne2ManyDataDEField = (IPSOne2ManyDataDEField) iPSDEField;

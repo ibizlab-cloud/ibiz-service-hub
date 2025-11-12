@@ -30,6 +30,10 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudTaskUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUAAUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudWFUtilRuntime;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.util.ConfigListenerRepo;
+import net.ibizsys.central.cloud.core.util.CredentialRepo;
+import net.ibizsys.central.cloud.core.util.IConfigListenerRepo;
+import net.ibizsys.central.cloud.core.util.ICredentialRepo;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.IPSSystemService;
 import net.ibizsys.model.PSModelServiceImpl;
@@ -49,7 +53,7 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 
 	private static final Log log = LogFactory.getLog(HubSystemRuntime.class);
 
-	private static Map<String, String> SYSUTILTYPEMAP = new HashMap<String, String>();
+	private static final Map<String, String> SYSUTILTYPEMAP = new HashMap<String, String>();
 	
 	public static void registerSysUtilType(Class<?> cls, String strType, String strRTClassName) {
 		if(registerRuntimeObject(ISysUtilRuntime.class, strType, strRTClassName)) {
@@ -100,6 +104,16 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:HUBDEVOPS", "net.ibizsys.central.plugin.cloud.sysutil.HubSysDevOpsUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:HUBREPORT", "net.ibizsys.central.plugin.cloud.sysutil.HubSysReportUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:HUBEXTENSION", "net.ibizsys.central.plugin.extension.sysutil.HubSysExtensionUtilRuntime");
+	}
+	
+	private ConfigListenerRepo configListenerRepo = new ConfigListenerRepo();
+	private CredentialRepo credentialRepo = new CredentialRepo();
+	
+	@Override
+	protected void onInit() throws Exception {
+		this.configListenerRepo.init(this, false);//shutdown时手动关闭
+		this.credentialRepo.init(this, this.configListenerRepo);
+		super.onInit();
 	}
 	
 	@Override
@@ -221,6 +235,27 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 	@Override
 	protected int getWorkThreadBlockingQueueSize() {
 		return ServiceHub.getInstance().getWorkThreadBlockingQueueSize();
+	}
+	
+	@Override
+	public IConfigListenerRepo getConfigListenerRepo() {
+		return this.configListenerRepo;
+	}
+	
+	@Override
+	public ICredentialRepo getCredentialRepo() {
+		return this.credentialRepo;
+	}
+	
+	@Override
+	protected void onShutdown() throws Exception {
+		try {
+			this.configListenerRepo.shutdown();
+		}
+		catch (Throwable ex) {
+			log.error(String.format("关闭配置侦听器仓库发生异常，%1$s", ex.getMessage()), ex);
+		}
+		super.onShutdown();
 	}
 
 }

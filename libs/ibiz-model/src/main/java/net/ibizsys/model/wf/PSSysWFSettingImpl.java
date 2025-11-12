@@ -58,4 +58,8 @@ public class PSSysWFSettingImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setRemindPSSysMsgTempl(net.ibizsys.model.msg.IPSSysMsgTempl remindpssysmsgtempl){
+		this.remindpssysmsgtempl = remindpssysmsgtempl;
+	}
+
 }

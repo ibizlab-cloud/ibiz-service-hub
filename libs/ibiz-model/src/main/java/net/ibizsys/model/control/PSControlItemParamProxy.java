@@ -44,6 +44,10 @@ public class PSControlItemParamProxy extends net.ibizsys.model.PSObjectImpl impl
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.view.IPSUIAction psuiaction;
 
 	public net.ibizsys.model.view.IPSUIAction getPSUIAction(){
@@ -60,6 +64,10 @@ public class PSControlItemParamProxy extends net.ibizsys.model.PSObjectImpl impl
 		net.ibizsys.model.view.IPSUIAction value = this.getPSUIAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定调用界面行为");}
 		return value;
+	}
+
+	public void setPSUIAction(net.ibizsys.model.view.IPSUIAction psuiaction){
+		this.psuiaction = psuiaction;
 	}
 
 

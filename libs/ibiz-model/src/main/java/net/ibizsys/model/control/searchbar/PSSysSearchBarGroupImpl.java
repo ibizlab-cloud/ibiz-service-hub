@@ -61,6 +61,10 @@ public class PSSysSearchBarGroupImpl extends net.ibizsys.model.control.searchbar
 		return value;
 	}
 
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
+	}
+
 
 	public double getWidth(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETWIDTH);

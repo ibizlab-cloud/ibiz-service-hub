@@ -40,6 +40,7 @@ import net.ibizsys.central.cloud.core.util.domain.ChatMessageRole;
 import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
+import net.ibizsys.central.cloud.core.util.domain.Credential;
 import net.ibizsys.central.cloud.core.util.domain.Embedding;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
@@ -76,13 +77,32 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 
 
 	private Deque<String> tokenDeque = new ArrayDeque<String>();
+	private Deque<String> embeddingTokenDeque = new ArrayDeque<String>();
+	private String strEmbeddingServiceUrl = null;
+	private String strCredentialId = null;
+	
 	
 	@Override
 	protected void onInit() throws Exception {
+		this.strCredentialId = this.getAgentData().getCredentialId();
+		this.getCredential();
 		
 		if(!ObjectUtils.isEmpty(this.getAgentData().getAccessToken())) {
 			List list = Arrays.asList(this.getAgentData().getAccessToken().toString().split("[,]"));
 			tokenDeque.addAll(list);
+		}
+		
+		if(!ObjectUtils.isEmpty(this.getAgentData().getEmbeddingToken())) {
+			List list = Arrays.asList(this.getAgentData().getEmbeddingToken().toString().split("[,]"));
+			embeddingTokenDeque.addAll(list);
+		}
+		else {
+			embeddingTokenDeque.addAll(tokenDeque);
+		}
+		
+		this.strEmbeddingServiceUrl = this.getAgentData().getEmbeddingUrl();
+		if(!StringUtils.hasLength(this.strEmbeddingServiceUrl)) {
+			this.strEmbeddingServiceUrl = String.format("%1$s/v1/embeddings", this.getAgentData().getServiceUrl());
 		}
 		
 		super.onInit();
@@ -98,15 +118,53 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	public String getName() {
 		return ICloudAIUtilRuntime.AIPLATFORM_OPENAI;
 	}
-	
 
+	protected Credential getCredential() {
+		if(ObjectUtils.isEmpty(this.strCredentialId)) {
+			return null;
+		}
+		return this.getSystemRuntime().getCredentialRepo().getCredential(this.strCredentialId, false);
+	}
 	
 	protected String getAccessToken() {
 		String strAccessToken = null;
+		final Credential credential = this.getCredential();
+		if(credential != null) {
+			strAccessToken = credential.getAccessToken();
+			if(StringUtils.hasLength(strAccessToken)) {
+				if(strAccessToken.indexOf("Bearer ") == 0) {
+					strAccessToken = strAccessToken.substring(7);
+				}
+				return strAccessToken;
+			}
+		}
+		
 		synchronized (this.tokenDeque) {
 			strAccessToken = this.tokenDeque.pollFirst();
 			if(StringUtils.hasLength(strAccessToken)) {
 				this.tokenDeque.addLast(strAccessToken);
+			}	
+		}
+		return strAccessToken;
+	}
+	
+	protected String getEmbeddingToken() {
+		String strAccessToken = null;
+		final Credential credential = this.getCredential();
+		if(credential != null) {
+			strAccessToken = credential.getAccessToken();
+			if(StringUtils.hasLength(strAccessToken)) {
+				if(strAccessToken.indexOf("Bearer ") == 0) {
+					strAccessToken = strAccessToken.substring(7);
+				}
+				return strAccessToken;
+			}
+		}
+		
+		synchronized (this.embeddingTokenDeque) {
+			strAccessToken = this.embeddingTokenDeque.pollFirst();
+			if(StringUtils.hasLength(strAccessToken)) {
+				this.embeddingTokenDeque.addLast(strAccessToken);
 			}	
 		}
 		return strAccessToken;
@@ -119,7 +177,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
 			HttpPost request = new HttpPost(strServiceUrl);
-			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getAccessToken())));
+			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getEmbeddingToken())));
 
 			Map<String, Object> body = new LinkedHashMap<String, Object>();
 			body.put("model", StringUtils.hasLength(this.getAgentData().getEmbeddingModel()) ? this.getAgentData().getEmbeddingModel() : EMBEDDINGMODEL_DEFAULT);
@@ -155,7 +213,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	}
 	
 	protected String getEmbeddingServiceUrl() {
-		return String.format("%1$s/v1/embeddings", this.getAgentData().getServiceUrl());
+		return this.strEmbeddingServiceUrl;
 	}
 	
 	protected String getCompletionsServiceUrl() {

@@ -42,6 +42,10 @@ public class PSCustomControlImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 
 	public java.lang.String getPredefinedType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPREDEFINEDTYPE);

@@ -155,6 +155,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setInPSSysDataSyncAgent(net.ibizsys.model.res.IPSSysDataSyncAgent inpssysdatasyncagent){
+		this.inpssysdatasyncagent = inpssysdatasyncagent;
+	}
+
 
 	public int getOrderValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
@@ -181,6 +185,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setOutPSSysDataSyncAgent(net.ibizsys.model.res.IPSSysDataSyncAgent outpssysdatasyncagent){
+		this.outpssysdatasyncagent = outpssysdatasyncagent;
+	}
+
 	private net.ibizsys.model.res.IPSSysResource outpssysresource;
 
 	public net.ibizsys.model.res.IPSSysResource getOutPSSysResource(){
@@ -197,6 +205,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.res.IPSSysResource value = this.getOutPSSysResource();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定输出系统资源对象");}
 		return value;
+	}
+
+	public void setOutPSSysResource(net.ibizsys.model.res.IPSSysResource outpssysresource){
+		this.outpssysresource = outpssysresource;
 	}
 
 	private net.ibizsys.model.service.IPSSubSysServiceAPI pssubsysserviceapi;
@@ -217,6 +229,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setPSSubSysServiceAPI(net.ibizsys.model.service.IPSSubSysServiceAPI pssubsysserviceapi){
+		this.pssubsysserviceapi = pssubsysserviceapi;
+	}
+
 	private net.ibizsys.model.dataentity.IPSSysDEGroup pssysdegroup;
 
 	public net.ibizsys.model.dataentity.IPSSysDEGroup getPSSysDEGroup(){
@@ -233,6 +249,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSSysDEGroup value = this.getPSSysDEGroup();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统实体组");}
 		return value;
+	}
+
+	public void setPSSysDEGroup(net.ibizsys.model.dataentity.IPSSysDEGroup pssysdegroup){
+		this.pssysdegroup = pssysdegroup;
 	}
 
 	private net.ibizsys.model.system.IPSSysModelGroup pssysmodelgroup;
@@ -253,6 +273,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setPSSysModelGroup(net.ibizsys.model.system.IPSSysModelGroup pssysmodelgroup){
+		this.pssysmodelgroup = pssysmodelgroup;
+	}
+
 	private net.ibizsys.model.res.IPSSysResource pssysresource;
 
 	public net.ibizsys.model.res.IPSSysResource getPSSysResource(){
@@ -269,6 +293,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.res.IPSSysResource value = this.getPSSysResource();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统资源对象");}
 		return value;
+	}
+
+	public void setPSSysResource(net.ibizsys.model.res.IPSSysResource pssysresource){
+		this.pssysresource = pssysresource;
 	}
 
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
@@ -289,6 +317,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -305,6 +337,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -357,6 +393,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE(net.ibizsys.model.dataentity.IPSDataEntity utilpsde){
+		this.utilpsde = utilpsde;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde10;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE10(){
@@ -373,6 +413,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE10();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体10");}
 		return value;
+	}
+
+	public void setUtilPSDE10(net.ibizsys.model.dataentity.IPSDataEntity utilpsde10){
+		this.utilpsde10 = utilpsde10;
 	}
 
 
@@ -401,6 +445,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE11(net.ibizsys.model.dataentity.IPSDataEntity utilpsde11){
+		this.utilpsde11 = utilpsde11;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde12;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE12(){
@@ -417,6 +465,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE12();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体12");}
 		return value;
+	}
+
+	public void setUtilPSDE12(net.ibizsys.model.dataentity.IPSDataEntity utilpsde12){
+		this.utilpsde12 = utilpsde12;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde13;
@@ -437,6 +489,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE13(net.ibizsys.model.dataentity.IPSDataEntity utilpsde13){
+		this.utilpsde13 = utilpsde13;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde14;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE14(){
@@ -453,6 +509,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE14();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体14");}
 		return value;
+	}
+
+	public void setUtilPSDE14(net.ibizsys.model.dataentity.IPSDataEntity utilpsde14){
+		this.utilpsde14 = utilpsde14;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde15;
@@ -473,6 +533,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE15(net.ibizsys.model.dataentity.IPSDataEntity utilpsde15){
+		this.utilpsde15 = utilpsde15;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde16;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE16(){
@@ -489,6 +553,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE16();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体16");}
 		return value;
+	}
+
+	public void setUtilPSDE16(net.ibizsys.model.dataentity.IPSDataEntity utilpsde16){
+		this.utilpsde16 = utilpsde16;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde17;
@@ -509,6 +577,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE17(net.ibizsys.model.dataentity.IPSDataEntity utilpsde17){
+		this.utilpsde17 = utilpsde17;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde18;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE18(){
@@ -525,6 +597,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE18();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体18");}
 		return value;
+	}
+
+	public void setUtilPSDE18(net.ibizsys.model.dataentity.IPSDataEntity utilpsde18){
+		this.utilpsde18 = utilpsde18;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde19;
@@ -545,6 +621,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE19(net.ibizsys.model.dataentity.IPSDataEntity utilpsde19){
+		this.utilpsde19 = utilpsde19;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde2;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE2(){
@@ -563,6 +643,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE2(net.ibizsys.model.dataentity.IPSDataEntity utilpsde2){
+		this.utilpsde2 = utilpsde2;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity utilpsde20;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getUtilPSDE20(){
@@ -579,6 +663,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE20();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体20");}
 		return value;
+	}
+
+	public void setUtilPSDE20(net.ibizsys.model.dataentity.IPSDataEntity utilpsde20){
+		this.utilpsde20 = utilpsde20;
 	}
 
 
@@ -607,6 +695,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE3(net.ibizsys.model.dataentity.IPSDataEntity utilpsde3){
+		this.utilpsde3 = utilpsde3;
+	}
+
 
 	public java.lang.String getUtilPSDE3Name(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUTILPSDE3NAME);
@@ -631,6 +723,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE4();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体4");}
 		return value;
+	}
+
+	public void setUtilPSDE4(net.ibizsys.model.dataentity.IPSDataEntity utilpsde4){
+		this.utilpsde4 = utilpsde4;
 	}
 
 
@@ -659,6 +755,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE5(net.ibizsys.model.dataentity.IPSDataEntity utilpsde5){
+		this.utilpsde5 = utilpsde5;
+	}
+
 
 	public java.lang.String getUtilPSDE5Name(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUTILPSDE5NAME);
@@ -683,6 +783,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE6();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体6");}
 		return value;
+	}
+
+	public void setUtilPSDE6(net.ibizsys.model.dataentity.IPSDataEntity utilpsde6){
+		this.utilpsde6 = utilpsde6;
 	}
 
 
@@ -711,6 +815,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE7(net.ibizsys.model.dataentity.IPSDataEntity utilpsde7){
+		this.utilpsde7 = utilpsde7;
+	}
+
 
 	public java.lang.String getUtilPSDE7Name(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUTILPSDE7NAME);
@@ -737,6 +845,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setUtilPSDE8(net.ibizsys.model.dataentity.IPSDataEntity utilpsde8){
+		this.utilpsde8 = utilpsde8;
+	}
+
 
 	public java.lang.String getUtilPSDE8Name(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUTILPSDE8NAME);
@@ -761,6 +873,10 @@ public class PSSysUtilImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getUtilPSDE9();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定功能实体9");}
 		return value;
+	}
+
+	public void setUtilPSDE9(net.ibizsys.model.dataentity.IPSDataEntity utilpsde9){
+		this.utilpsde9 = utilpsde9;
 	}
 
 

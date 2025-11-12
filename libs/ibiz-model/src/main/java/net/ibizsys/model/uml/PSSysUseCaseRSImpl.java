@@ -46,6 +46,10 @@ public class PSSysUseCaseRSImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setFromPSSysActor(net.ibizsys.model.uml.IPSSysActor frompssysactor){
+		this.frompssysactor = frompssysactor;
+	}
+
 	private net.ibizsys.model.uml.IPSSysUseCase frompssysusecase;
 
 	public net.ibizsys.model.uml.IPSSysUseCase getFromPSSysUseCase(){
@@ -62,6 +66,10 @@ public class PSSysUseCaseRSImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.uml.IPSSysUseCase value = this.getFromPSSysUseCase();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定源用例");}
 		return value;
+	}
+
+	public void setFromPSSysUseCase(net.ibizsys.model.uml.IPSSysUseCase frompssysusecase){
+		this.frompssysusecase = frompssysusecase;
 	}
 
 
@@ -98,6 +106,10 @@ public class PSSysUseCaseRSImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setToPSSysActor(net.ibizsys.model.uml.IPSSysActor topssysactor){
+		this.topssysactor = topssysactor;
+	}
+
 	private net.ibizsys.model.uml.IPSSysUseCase topssysusecase;
 
 	public net.ibizsys.model.uml.IPSSysUseCase getToPSSysUseCase(){
@@ -114,6 +126,10 @@ public class PSSysUseCaseRSImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.uml.IPSSysUseCase value = this.getToPSSysUseCase();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目标用例");}
 		return value;
+	}
+
+	public void setToPSSysUseCase(net.ibizsys.model.uml.IPSSysUseCase topssysusecase){
+		this.topssysusecase = topssysusecase;
 	}
 
 }

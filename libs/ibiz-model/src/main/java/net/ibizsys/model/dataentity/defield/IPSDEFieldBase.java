@@ -34,10 +34,18 @@ public interface IPSDEFieldBase{
 	
 	
 	/**
-	 * 获取数据精度
+	 * 获取精度（废弃，使用getScale）
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

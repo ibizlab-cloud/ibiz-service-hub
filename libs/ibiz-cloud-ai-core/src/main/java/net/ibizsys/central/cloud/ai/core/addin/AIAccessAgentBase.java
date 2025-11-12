@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -18,8 +19,11 @@ import net.ibizsys.central.cloud.core.util.domain.ChatFunction;
 import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
+import net.ibizsys.central.cloud.core.util.domain.Document;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 import net.ibizsys.central.service.RequestMethods;
 import net.ibizsys.central.service.client.IWebClient;
 import net.ibizsys.runtime.SystemRuntimeException;
@@ -410,6 +414,20 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 		throw new Exception("没有实现");
 	}
 	
+	@Override
+	public TextReRankResult textReRank(TextReRankRequest textReRankRequest) throws Throwable {
+		Assert.hasLength(textReRankRequest.getQuery(), "未传入查询内容");
+		Assert.notEmpty(textReRankRequest.getDocuments(), "未传入文档集合");
+		for(int i=0;i<textReRankRequest.getDocuments().size();i++) {
+			Document document = textReRankRequest.getDocuments().get(i);
+			Assert.hasLength(document.getContent(), String.format("文档[%1$s]未传入内容", i));		
+		}
+		return this.onTextReRank(textReRankRequest);
+	}
+	
+	protected TextReRankResult onTextReRank(TextReRankRequest textReRankRequest) throws Throwable {
+		throw new Exception("没有实现");
+	}
 	
 	protected String doToolCall(ChatFunction chatFunction, Object arg) throws Throwable {
 		if(chatFunction.getService() == null) {

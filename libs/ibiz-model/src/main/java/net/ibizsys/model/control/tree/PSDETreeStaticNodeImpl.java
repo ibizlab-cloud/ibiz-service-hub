@@ -50,4 +50,8 @@ public class PSDETreeStaticNodeImpl extends net.ibizsys.model.control.tree.PSDET
 		return value;
 	}
 
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
+	}
+
 }

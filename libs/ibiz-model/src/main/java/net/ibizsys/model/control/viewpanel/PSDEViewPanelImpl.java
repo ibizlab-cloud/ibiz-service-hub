@@ -27,6 +27,10 @@ public class PSDEViewPanelImpl extends net.ibizsys.model.control.PSControlImpl i
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -51,6 +55,10 @@ public class PSDEViewPanelImpl extends net.ibizsys.model.control.PSControlImpl i
 		net.ibizsys.model.app.view.IPSAppDEView value = this.getEmbeddedPSAppDEView();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定嵌入视图对象");}
 		return value;
+	}
+
+	public void setEmbeddedPSAppDEView(net.ibizsys.model.app.view.IPSAppDEView embeddedpsappdeview){
+		this.embeddedpsappdeview = embeddedpsappdeview;
 	}
 
 

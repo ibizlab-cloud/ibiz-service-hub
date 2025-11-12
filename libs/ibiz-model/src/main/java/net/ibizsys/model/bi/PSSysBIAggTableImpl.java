@@ -62,6 +62,10 @@ public class PSSysBIAggTableImpl extends net.ibizsys.model.bi.PSSysBISchemeObjec
 		return value;
 	}
 
+	public void setPSDEDataQuery(net.ibizsys.model.dataentity.ds.IPSDEDataQuery psdedataquery){
+		this.psdedataquery = psdedataquery;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -78,6 +82,10 @@ public class PSSysBIAggTableImpl extends net.ibizsys.model.bi.PSSysBISchemeObjec
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 	private net.ibizsys.model.bi.IPSSysBICube pssysbicube;
@@ -97,6 +105,10 @@ public class PSSysBIAggTableImpl extends net.ibizsys.model.bi.PSSysBISchemeObjec
 		net.ibizsys.model.bi.IPSSysBICube value = this.getPSSysBICube();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定智能报表立方体");}
 		return value;
+	}
+
+	public void setPSSysBICube(net.ibizsys.model.bi.IPSSysBICube pssysbicube){
+		this.pssysbicube = pssysbicube;
 	}
 
 

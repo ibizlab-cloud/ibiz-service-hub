@@ -35,6 +35,10 @@ public class PSDEDBIndexFieldImpl extends net.ibizsys.model.PSObjectImpl impleme
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 
 	public java.lang.String getSortDir(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSORTDIR);

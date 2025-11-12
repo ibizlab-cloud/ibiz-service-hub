@@ -64,6 +64,6 @@ public class PSSysUserDRRTService extends PSModelRTServiceBase<PSSysUserDR, PSSy
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysUserDR.class, this.getPSSystemService().getPSSystem().getAllPSSysUserDRs(), (String)key, false);
+    	return getPSModelObject(IPSSysUserDR.class, this.getPSSystemService().getPSSystem().getAllPSSysUserDRs(), (String)key, tryMode);
     }
 }

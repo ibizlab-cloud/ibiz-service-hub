@@ -29,7 +29,7 @@ public class PSDEFGroupDetailTranspiler extends net.ibizsys.model.util.transpile
 		this.setDomainValue(iPSModelTranspileContext, domain, "ordervalue", realPSModelObject.getOrderValue(), realPSModelObject, "getOrderValue");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pscodelistid", realPSModelObject.getPSCodeList(), realPSModelObject, "getPSCodeList");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdefid", realPSModelObject.getPSDEField(), realPSModelObject, "getPSDEField");
-		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getPrecision(), realPSModelObject, "getPrecision");
+		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getScale(), realPSModelObject, "getScale");
 		this.setDomainValue(iPSModelTranspileContext, domain, "strlength", realPSModelObject.getStringLength(), realPSModelObject, "getStringLength");
 		this.setDomainValue(iPSModelTranspileContext, domain, "allowempty", realPSModelObject.isAllowEmpty(), realPSModelObject, "isAllowEmpty");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
@@ -44,7 +44,7 @@ public class PSDEFGroupDetailTranspiler extends net.ibizsys.model.util.transpile
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETORDERVALUE, domain, "ordervalue", int.class, new String[]{"99999"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSCODELIST, domain, "pscodelistid", net.ibizsys.model.codelist.IPSCodeList.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEFIELD, domain, "psdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRECISION, domain, "precision", int.class, new String[]{"0"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCALE, domain, "precision", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTRINGLENGTH, domain, "strlength", int.class, new String[]{"0","-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISALLOWEMPTY, domain, "allowempty", boolean.class, new String[]{"true"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);

@@ -53,6 +53,10 @@ public class PSAppMenuImpl extends net.ibizsys.model.control.PSAjaxControlImpl i
 		return value;
 	}
 
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.menu.IPSAppMenuItem> psappmenuitems = null;
 	public java.util.List<net.ibizsys.model.control.menu.IPSAppMenuItem> getPSAppMenuItems(){
@@ -79,7 +83,6 @@ public class PSAppMenuImpl extends net.ibizsys.model.control.PSAjaxControlImpl i
 	}
 	private net.ibizsys.model.control.layout.IPSLayout pslayout;
 
-	@Deprecated
 	public net.ibizsys.model.control.layout.IPSLayout getPSLayout(){
 		if(this.pslayout != null) return this.pslayout;
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSLAYOUT);
@@ -92,8 +95,12 @@ public class PSAppMenuImpl extends net.ibizsys.model.control.PSAjaxControlImpl i
 
 	public net.ibizsys.model.control.layout.IPSLayout getPSLayoutMust(){
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
-		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSLayout]返回空值");}
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定菜单布局对象");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

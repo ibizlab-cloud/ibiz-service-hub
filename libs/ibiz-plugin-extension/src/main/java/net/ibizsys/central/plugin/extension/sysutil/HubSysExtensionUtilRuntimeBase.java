@@ -64,7 +64,6 @@ import net.ibizsys.central.service.client.WebClientBase;
 import net.ibizsys.central.sysutil.ISysUniStateListener;
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.model.IPSSystem;
-import net.ibizsys.model.PSModelEnums.DeploySysType;
 import net.ibizsys.model.PSModelEnums.DevSysType;
 import net.ibizsys.model.PSModelServiceImpl;
 import net.ibizsys.model.PSModelUtils;
@@ -1606,49 +1605,32 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 		
 		for(DeploySystem deploySystem : deploySystems) {
 			
-			PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
-			psModelServiceImpl.setPSModelFolderPath(deploySystem.getModelPath(), false);
-			IPSSystem iPSSystem = psModelServiceImpl.getPSSystem();
-			
 			File folder = new File(tempFile.getCanonicalPath() + "." + deploySystem.getDeploySystemId());
 			folder.mkdirs();
 			
-			String strSysType = iPSSystem.getSysType();
-			if(!StringUtils.hasLength(strSysType)) {
-				strSysType = DevSysType.DEVSYS.value;
+			ExtensionPSModelMergeContext psModelMergeContext = new ExtensionPSModelMergeContext();
+			psModelMergeContext.setPSModelFolderPath(strPSModelFolderPath);
+			psModelMergeContext.setMergePSModelFolderPath(deploySystem.getModelPath());
+			psModelMergeContext.setDstPSModelFolderPath(folder.getCanonicalPath());
+			try {
+				PSModelMergeUtils.merge(psModelMergeContext);
+			}
+			catch (Throwable ex) {
+				throw new Exception(String.format("合入系统模型[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
 			}
 			
-			String strDeploySysType = iPSSystem.getDeploySysType();
+			strPSModelFolderPath = folder.getCanonicalPath();
 			
-			//仅合并类型DEVSYS
-			if(DevSysType.DEVSYS.value.equals(strSysType)) {
-				
-				if(DeploySysType.MS_EMBEDED.value.equals(strDeploySysType)) {
-					ExtensionPSModelMergeContext psModelMergeContext = new ExtensionPSModelMergeContext();
-					psModelMergeContext.setPSModelFolderPath(strPSModelFolderPath);
-					psModelMergeContext.setMergePSModelFolderPath(deploySystem.getModelPath());
-					psModelMergeContext.setDstPSModelFolderPath(folder.getCanonicalPath());
-					try {
-						PSModelMergeUtils.merge(psModelMergeContext);
-					}
-					catch (Throwable ex) {
-						throw new Exception(String.format("合入系统模型[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
-					}
-					
-					strPSModelFolderPath = folder.getCanonicalPath();
-				}
-			}
-			
+			String strSystemTag2 = deploySystem.getDeploySystemId();
 			
 			//写入子系统信息
 			ObjectNode objectNode = JsonUtils.createObjectNode();
-			objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTYPE, String.format("EXTENSION_%1$s", strSysType));
-			objectNode.put(PSSysRefImpl.ATTR_GETNAME, iPSSystem.getLogicName());
-			objectNode.put(PSSysRefImpl.ATTR_GETID, deploySystem.getDeploySystemId());
-			objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTAG, deploySystem.getDeploySystemId());
+			objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTYPE, String.format("MERGENCE_%1$s", DevSysType.DEVSYS.value));
+			objectNode.put(PSSysRefImpl.ATTR_GETNAME, strSystemTag2);
+			objectNode.put(PSSysRefImpl.ATTR_GETID, strSystemTag2);
+			//objectNode.put(PSSysRefImpl.ATTR_GETSYSREFTAG, deploySystem.getDeploySystemId());
 			objectNode.put(PSSysRefImpl.ATTR_GETREFPARAM, deploySystem.getModelPath());
-//			objectNode.put(PSSysRefImpl.ATTR_GETREFPARAM2, strMD5Code);
-			
+
 			objectNodeList.add(objectNode);
 			
 		}
@@ -1685,12 +1667,13 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 				catch (Throwable ex) {
 					throw new Exception(String.format("检查模型发生异常，%1$s", ex.getMessage()), ex);
 				}
-			}			
+			}		
+			return new File(strPSModelFolderPath);
 		}
 		return new File(strPSModelFolderPath);
 	}
 	
-	
+
 	@Override
 	public File mergeV2DeploySystem(File majorModelFile, V2DeploySystem v2DeploySystem, boolean bVerifyModel) {
 		Assert.notNull(v2DeploySystem, "传入V2部署系统模型无效");

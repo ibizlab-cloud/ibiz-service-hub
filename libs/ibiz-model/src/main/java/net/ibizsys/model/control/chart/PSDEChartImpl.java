@@ -67,6 +67,10 @@ public class PSDEChartImpl extends net.ibizsys.model.control.chart.PSChartImpl i
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 
 	public java.lang.String getMinorSortDir(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMINORSORTDIR);
@@ -91,6 +95,10 @@ public class PSDEChartImpl extends net.ibizsys.model.control.chart.PSChartImpl i
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getMinorSortPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定默认排序应用实体属性");}
 		return value;
+	}
+
+	public void setMinorSortPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField minorsortpsappdefield){
+		this.minorsortpsappdefield = minorsortpsappdefield;
 	}
 
 
@@ -135,6 +143,10 @@ public class PSDEChartImpl extends net.ibizsys.model.control.chart.PSChartImpl i
 		return value;
 	}
 
+	public void setPSDEChartDataGrid(net.ibizsys.model.control.chart.IPSDEChartDataGrid psdechartdatagrid){
+		this.psdechartdatagrid = psdechartdatagrid;
+	}
+
 	private net.ibizsys.model.control.chart.IPSDEChartLegend psdechartlegend;
 
 	public net.ibizsys.model.control.chart.IPSDEChartLegend getPSDEChartLegend(){
@@ -151,6 +163,10 @@ public class PSDEChartImpl extends net.ibizsys.model.control.chart.PSChartImpl i
 		net.ibizsys.model.control.chart.IPSDEChartLegend value = this.getPSDEChartLegend();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体图表图例对象");}
 		return value;
+	}
+
+	public void setPSDEChartLegend(net.ibizsys.model.control.chart.IPSDEChartLegend psdechartlegend){
+		this.psdechartlegend = psdechartlegend;
 	}
 
 
@@ -193,6 +209,10 @@ public class PSDEChartImpl extends net.ibizsys.model.control.chart.PSChartImpl i
 		net.ibizsys.model.control.chart.IPSDEChartTitle value = this.getPSDEChartTitle();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体图表标题对象");}
 		return value;
+	}
+
+	public void setPSDEChartTitle(net.ibizsys.model.control.chart.IPSDEChartTitle psdecharttitle){
+		this.psdecharttitle = psdecharttitle;
 	}
 
 

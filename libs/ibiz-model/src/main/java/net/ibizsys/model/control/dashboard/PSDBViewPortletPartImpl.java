@@ -25,6 +25,10 @@ public class PSDBViewPortletPartImpl extends net.ibizsys.model.control.dashboard
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppView portletpsappview;
 
 	public net.ibizsys.model.app.view.IPSAppView getPortletPSAppView(){
@@ -41,6 +45,10 @@ public class PSDBViewPortletPartImpl extends net.ibizsys.model.control.dashboard
 		net.ibizsys.model.app.view.IPSAppView value = this.getPortletPSAppView();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定嵌入视图对象");}
 		return value;
+	}
+
+	public void setPortletPSAppView(net.ibizsys.model.app.view.IPSAppView portletpsappview){
+		this.portletpsappview = portletpsappview;
 	}
 
 }

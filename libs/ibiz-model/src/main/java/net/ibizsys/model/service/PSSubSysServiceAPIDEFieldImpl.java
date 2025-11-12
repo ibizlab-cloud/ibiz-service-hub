@@ -18,6 +18,7 @@ public class PSSubSysServiceAPIDEFieldImpl extends net.ibizsys.model.PSObjectImp
 	public final static String ATTR_GETPRECISION = "precision";
 	public final static String ATTR_GETPREDEFINEDTYPE = "predefinedType";
 	public final static String ATTR_GETREFPSSUBSYSSERVICEAPIDE = "getRefPSSubSysServiceAPIDE";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_ISALLOWEMPTY = "allowEmpty";
 	public final static String ATTR_ISARRAY = "array";
@@ -113,7 +114,12 @@ public class PSSubSysServiceAPIDEFieldImpl extends net.ibizsys.model.PSObjectImp
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
 
+
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -148,6 +154,18 @@ public class PSSubSysServiceAPIDEFieldImpl extends net.ibizsys.model.PSObjectImp
 		return value;
 	}
 
+	public void setRefPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE refpssubsysserviceapide){
+		this.refpssubsysserviceapide = refpssubsysserviceapide;
+	}
+
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
+	}
 
 	public int getStdDataType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSTDDATATYPE);

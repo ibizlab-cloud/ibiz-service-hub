@@ -20,7 +20,11 @@ public enum CredentialType {
     CLIENT_CERTIFICATE("CLIENT_CERTIFICATE", "客户端证书"),
 
     // 第三方平台
-    ACCESS_KEY("ACCESS_KEY", "第三方认证");
+    ACCESS_KEY("ACCESS_KEY", "第三方认证"),
+	
+    //承载令牌
+	BEARER_TOKEN("BEARER_TOKEN", "承载令牌");
+	
 
     
     private String value;

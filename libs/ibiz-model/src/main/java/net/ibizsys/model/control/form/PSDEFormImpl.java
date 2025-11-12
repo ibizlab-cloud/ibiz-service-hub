@@ -77,6 +77,10 @@ public class PSDEFormImpl extends net.ibizsys.model.control.PSAjaxControlContain
 		return value;
 	}
 
+	public void setPSAppDEFInputTipSet(net.ibizsys.model.app.res.IPSAppDEFInputTipSet psappdefinputtipset){
+		this.psappdefinputtipset = psappdefinputtipset;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.form.IPSDEFormItemUpdate> psdeformitemupdates = null;
 	public java.util.List<net.ibizsys.model.control.form.IPSDEFormItemUpdate> getPSDEFormItemUpdates(){
@@ -189,6 +193,10 @@ public class PSDEFormImpl extends net.ibizsys.model.control.PSAjaxControlContain
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定表单布局对象");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

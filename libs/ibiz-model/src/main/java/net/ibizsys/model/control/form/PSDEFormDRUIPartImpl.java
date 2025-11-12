@@ -59,6 +59,10 @@ public class PSDEFormDRUIPartImpl extends net.ibizsys.model.control.form.PSDEFor
 		return value;
 	}
 
+	public void setMaskPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes maskpslanguageres){
+		this.maskpslanguageres = maskpslanguageres;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppView psappview;
 
 	public net.ibizsys.model.app.view.IPSAppView getPSAppView(){
@@ -75,6 +79,10 @@ public class PSDEFormDRUIPartImpl extends net.ibizsys.model.control.form.PSDEFor
 		net.ibizsys.model.app.view.IPSAppView value = this.getPSAppView();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定嵌入视图");}
 		return value;
+	}
+
+	public void setPSAppView(net.ibizsys.model.app.view.IPSAppView psappview){
+		this.psappview = psappview;
 	}
 
 	private net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate;
@@ -94,6 +102,10 @@ public class PSDEFormDRUIPartImpl extends net.ibizsys.model.control.form.PSDEFor
 		net.ibizsys.model.control.form.IPSDEFormItemUpdate value = this.getPSDEFormItemUpdate();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定调用表单项更新");}
 		return value;
+	}
+
+	public void setPSDEFormItemUpdate(net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate){
+		this.psdeformitemupdate = psdeformitemupdate;
 	}
 
 

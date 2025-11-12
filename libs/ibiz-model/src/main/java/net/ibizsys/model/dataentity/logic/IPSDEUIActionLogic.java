@@ -38,4 +38,32 @@ public interface IPSDEUIActionLogic extends net.ibizsys.model.dataentity.logic.I
 	 * @return
 	 */
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getDstPSAppDataEntityMust();
+	
+	
+	/**
+	 * 获取目标逻辑参数对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParam();
+
+
+	/**
+	 * 获取目标逻辑参数对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParamMust();
+	
+	
+	/**
+	 * 获取返回值绑定逻辑参数对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getRetPSDEUILogicParam();
+
+
+	/**
+	 * 获取返回值绑定逻辑参数对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getRetPSDEUILogicParamMust();
 }

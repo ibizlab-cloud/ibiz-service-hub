@@ -10,7 +10,7 @@
 
     <artifactId>ibiz-service-runner</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>8.1.0.572.22</version>
+    <version>8.1.0.573.34</version>
     <name>iBiz Service Runner</name>
     <description>iBiz Service Runner</description>
     <packaging>pom</packaging>

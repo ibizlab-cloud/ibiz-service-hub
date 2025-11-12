@@ -31,6 +31,10 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -73,6 +77,10 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setMobViewPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity mobviewpsdataentity){
+		this.mobviewpsdataentity = mobviewpsdataentity;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -89,6 +97,10 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -115,6 +127,10 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getViewPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定视图相关实体");}
 		return value;
+	}
+
+	public void setViewPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity viewpsdataentity){
+		this.viewpsdataentity = viewpsdataentity;
 	}
 
 

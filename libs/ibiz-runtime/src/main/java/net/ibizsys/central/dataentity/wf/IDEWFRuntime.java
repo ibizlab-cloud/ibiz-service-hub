@@ -179,5 +179,14 @@ public interface IDEWFRuntime extends IDataEntityModelRuntime{
 	 */
 	void finish(Object arg0, IPSDEAction iPSDEAction, Object actionData) throws Throwable;
 
-
+	/**
+	 * 流程通知时触发
+	 * @param arg0
+	 * @param iPSDEAction
+	 * @param actionData
+	 * @throws Throwable
+	 */
+	default void notify(Object arg0, IPSDEAction iPSDEAction, Object actionData) throws Throwable{
+		
+	}
 }

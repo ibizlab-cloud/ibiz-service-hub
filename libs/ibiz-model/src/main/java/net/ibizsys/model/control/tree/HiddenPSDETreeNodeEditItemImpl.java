@@ -90,6 +90,10 @@ public class HiddenPSDETreeNodeEditItemImpl extends net.ibizsys.model.PSObjectIm
 		return value;
 	}
 
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
+	}
+
 	private net.ibizsys.model.control.tree.IPSDETreeNodeEditItemUpdate psdetreenodeedititemupdate;
 
 	public net.ibizsys.model.control.tree.IPSDETreeNodeEditItemUpdate getPSDETreeNodeEditItemUpdate(){
@@ -109,6 +113,10 @@ public class HiddenPSDETreeNodeEditItemImpl extends net.ibizsys.model.PSObjectIm
 		return value;
 	}
 
+	public void setPSDETreeNodeEditItemUpdate(net.ibizsys.model.control.tree.IPSDETreeNodeEditItemUpdate psdetreenodeedititemupdate){
+		this.psdetreenodeedititemupdate = psdetreenodeedititemupdate;
+	}
+
 	private net.ibizsys.model.control.IPSEditor pseditor;
 
 	public net.ibizsys.model.control.IPSEditor getPSEditor(){
@@ -125,6 +133,10 @@ public class HiddenPSDETreeNodeEditItemImpl extends net.ibizsys.model.PSObjectIm
 		net.ibizsys.model.control.IPSEditor value = this.getPSEditor();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定编辑器对象");}
 		return value;
+	}
+
+	public void setPSEditor(net.ibizsys.model.control.IPSEditor pseditor){
+		this.pseditor = pseditor;
 	}
 
 

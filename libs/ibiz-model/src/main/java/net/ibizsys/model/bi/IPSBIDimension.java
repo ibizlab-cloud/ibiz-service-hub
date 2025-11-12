@@ -5,7 +5,7 @@ package net.ibizsys.model.bi;
 /**
  *
  */
-public interface IPSBIDimension extends net.ibizsys.model.bi.IPSSysBISchemeObject{
+public interface IPSBIDimension extends net.ibizsys.model.bi.IPSBISchemeObject{
 
 	
 	

@@ -33,6 +33,10 @@ public class PSSysERMapNodeImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 
 	public int getTopPos(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOPPOS);

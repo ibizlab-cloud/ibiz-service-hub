@@ -2085,21 +2085,23 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NO2PSDEDATAEXPID</B>&nbsp;实体数据导出
+     * <B>PSDEDATAEXPID</B>&nbsp;实体数据导出，前台处理类型为【打开数据导出视图】时指定数据导出模式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataExp} 
      */
-    public final static String FIELD_NO2PSDEDATAEXPID = "no2psdedataexpid";
+    public final static String FIELD_PSDEDATAEXPID = "psdedataexpid";
 
     /**
-     * 设置 实体数据导出
+     * 设置 实体数据导出，详细说明：{@link #FIELD_PSDEDATAEXPID}
      * 
-     * @param no2PSDEDataExpId
+     * @param pSDEDataExpId
      * 
      */
-    @JsonProperty(FIELD_NO2PSDEDATAEXPID)
-    public void setNo2PSDEDataExpId(String no2PSDEDataExpId){
-        this.set(FIELD_NO2PSDEDATAEXPID, no2PSDEDataExpId);
+    @JsonProperty(FIELD_PSDEDATAEXPID)
+    public void setPSDEDataExpId(String pSDEDataExpId){
+        this.set(FIELD_PSDEDATAEXPID, pSDEDataExpId);
+        //属性名称与代码标识不一致，设置属性名称
+        this.set("no2psdedataexpid", pSDEDataExpId);
     }
     
     /**
@@ -2107,10 +2109,14 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public String getNo2PSDEDataExpId(){
-        Object objValue = this.get(FIELD_NO2PSDEDATAEXPID);
+    public String getPSDEDataExpId(){
+        Object objValue = this.get(FIELD_PSDEDATAEXPID);
         if(objValue==null){
-            return null;
+            //属性名称与代码标识不一致，使用属性名称
+            objValue = this.get("no2psdedataexpid");
+            if(objValue == null){
+                return null;
+            }
         }
         return (String)objValue;
     }
@@ -2120,8 +2126,12 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public boolean isNo2PSDEDataExpIdDirty(){
-        if(this.contains(FIELD_NO2PSDEDATAEXPID)){
+    public boolean isPSDEDataExpIdDirty(){
+        if(this.contains(FIELD_PSDEDATAEXPID)){
+            return true;
+        }
+        //属性名称与代码标识不一致，判断属性名称
+        if(this.contains("no2psdedataexpid")){
             return true;
         }
         return false;
@@ -2131,45 +2141,71 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
      * 重置 实体数据导出
      */
     @JsonIgnore
-    public void resetNo2PSDEDataExpId(){
-        this.reset(FIELD_NO2PSDEDATAEXPID);
+    public void resetPSDEDataExpId(){
+        this.reset(FIELD_PSDEDATAEXPID);
+        //属性名称与代码标识不一致，重置属性名称
+        this.reset("no2psdedataexpid");
     }
 
     /**
-     * 设置 实体数据导出
+     * 设置 实体数据导出，详细说明：{@link #FIELD_PSDEDATAEXPID}
      * <P>
-     * 等同 {@link #setNo2PSDEDataExpId}
-     * @param no2PSDEDataExpId
+     * 等同 {@link #setPSDEDataExpId}
+     * @param pSDEDataExpId
      */
     @JsonIgnore
-    public PSDEUIAction no2psdedataexpid(String no2PSDEDataExpId){
-        this.setNo2PSDEDataExpId(no2PSDEDataExpId);
+    public PSDEUIAction psdedataexpid(String pSDEDataExpId){
+        this.setPSDEDataExpId(pSDEDataExpId);
         return this;
     }
 
     /**
      * 设置 实体数据导出，包括引用对象的其它关系属性
      * <P>
-     * 等同 {@link #setNo2PSDEDataExpId}
+     * 等同 {@link #setPSDEDataExpId}
      * @param pSDEDataExp 引用对象
      */
     @JsonIgnore
-    public PSDEUIAction no2psdedataexpid(PSDEDataExp pSDEDataExp){
+    public PSDEUIAction psdedataexpid(PSDEDataExp pSDEDataExp){
         if(pSDEDataExp == null){
-            this.setNo2PSDEDataExpId(null);
+            this.setPSDEDataExpId(null);
             this.setNo2PSDEDataExpName(null);
         }
         else{
-            this.setNo2PSDEDataExpId(pSDEDataExp.getPSDEDataExpId());
+            this.setPSDEDataExpId(pSDEDataExp.getPSDEDataExpId());
             this.setNo2PSDEDataExpName(pSDEDataExp.getPSDEDataExpName());
         }
         return this;
     }
 
+    @JsonIgnore
+    @Deprecated
+    public String getNo2PSDEDataExpId(){
+        return this.getPSDEDataExpId();
+    }
+
+    @JsonIgnore
+    @Deprecated        
+    public void setNo2PSDEDataExpId(String no2PSDEDataExpId){
+        this.setPSDEDataExpId(no2PSDEDataExpId);
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public boolean isNo2PSDEDataExpIdDirty(){
+        return this.isPSDEDataExpIdDirty();
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public void resetNo2PSDEDataExpId(){
+        this.resetPSDEDataExpId();
+    }
+
     /**
      * <B>NO2PSDEDATAEXPNAME</B>&nbsp;实体数据导出
      * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_NO2PSDEDATAEXPID}
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEDATAEXPID}
      */
     public final static String FIELD_NO2PSDEDATAEXPNAME = "no2psdedataexpname";
 
@@ -2742,78 +2778,17 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
         return this;
     }
 
-    /**
-     * <B>PSDEDATAEXPID</B>&nbsp;PSDEDATAEXPID
-     * <P>
-     * 字符串：最大长度 60
-     */
-    public final static String FIELD_PSDEDATAEXPID = "psdedataexpid";
-
-    /**
-     * 设置 PSDEDATAEXPID
-     * 
-     * @param pSDEDataExpId
-     * 
-     */
-    @JsonProperty(FIELD_PSDEDATAEXPID)
-    public void setPSDEDataExpId(String pSDEDataExpId){
-        this.set(FIELD_PSDEDATAEXPID, pSDEDataExpId);
-    }
     
-    /**
-     * 获取 PSDEDATAEXPID  
-     * @return
-     */
-    @JsonIgnore
-    public String getPSDEDataExpId(){
-        Object objValue = this.get(FIELD_PSDEDATAEXPID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
 
     /**
-     * 判断 PSDEDATAEXPID 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPSDEDataExpIdDirty(){
-        if(this.contains(FIELD_PSDEDATAEXPID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 PSDEDATAEXPID
-     */
-    @JsonIgnore
-    public void resetPSDEDataExpId(){
-        this.reset(FIELD_PSDEDATAEXPID);
-    }
-
-    /**
-     * 设置 PSDEDATAEXPID
-     * <P>
-     * 等同 {@link #setPSDEDataExpId}
-     * @param pSDEDataExpId
-     */
-    @JsonIgnore
-    public PSDEUIAction psdedataexpid(String pSDEDataExpId){
-        this.setPSDEDataExpId(pSDEDataExpId);
-        return this;
-    }
-
-    /**
-     * <B>PSDEDATAIMPID</B>&nbsp;实体数据导入
+     * <B>PSDEDATAIMPID</B>&nbsp;实体数据导入，前台处理类型为【打开数据导入视图】时指定数据导入模式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEDataImp} 
      */
     public final static String FIELD_PSDEDATAIMPID = "psdedataimpid";
 
     /**
-     * 设置 实体数据导入
+     * 设置 实体数据导入，详细说明：{@link #FIELD_PSDEDATAIMPID}
      * 
      * @param pSDEDataImpId
      * 
@@ -2857,7 +2832,7 @@ public class PSDEUIAction extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体数据导入
+     * 设置 实体数据导入，详细说明：{@link #FIELD_PSDEDATAIMPID}
      * <P>
      * 等同 {@link #setPSDEDataImpId}
      * @param pSDEDataImpId

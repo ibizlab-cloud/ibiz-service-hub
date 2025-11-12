@@ -274,6 +274,10 @@ public class PSEditorImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysDictCat pssysdictcat;
 
 	public net.ibizsys.model.res.IPSSysDictCat getPSSysDictCat(){
@@ -292,6 +296,10 @@ public class PSEditorImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		return value;
 	}
 
+	public void setPSSysDictCat(net.ibizsys.model.res.IPSSysDictCat pssysdictcat){
+		this.pssysdictcat = pssysdictcat;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -308,6 +316,10 @@ public class PSEditorImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 

@@ -55,6 +55,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -185,6 +189,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setLabelPSSysCss(net.ibizsys.model.res.IPSSysCss labelpssyscss){
+		this.labelpssyscss = labelpssyscss;
+	}
+
 
 	public int getModelState(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMODELSTATE);
@@ -210,6 +218,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 
@@ -327,6 +339,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
+	}
+
 	private net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos;
 
 	public net.ibizsys.model.control.layout.IPSLayoutPos getPSLayoutPos(){
@@ -343,6 +359,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.control.layout.IPSLayoutPos value = this.getPSLayoutPos();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定布局位置");}
 		return value;
+	}
+
+	public void setPSLayoutPos(net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos){
+		this.pslayoutpos = pslayoutpos;
 	}
 
 	private net.ibizsys.model.res.IPSSysCss pssyscss;
@@ -363,6 +383,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -379,6 +403,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定成员图标");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
@@ -399,6 +427,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.control.form.IPSDEFormDetail showmoremgrpsdeformdetail;
 
 	public net.ibizsys.model.control.form.IPSDEFormDetail getShowMoreMgrPSDEFormDetail(){
@@ -415,6 +447,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.control.form.IPSDEFormDetail value = this.getShowMoreMgrPSDEFormDetail();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定显示更多管理者");}
 		return value;
+	}
+
+	public void setShowMoreMgrPSDEFormDetail(net.ibizsys.model.control.form.IPSDEFormDetail showmoremgrpsdeformdetail){
+		this.showmoremgrpsdeformdetail = showmoremgrpsdeformdetail;
 	}
 
 

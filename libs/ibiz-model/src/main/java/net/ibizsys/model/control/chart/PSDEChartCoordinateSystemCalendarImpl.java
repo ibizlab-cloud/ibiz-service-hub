@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemCalendarImpl extends net.ibizsys.model.con
 		return value;
 	}
 
+	public void setPSChartCalendar(net.ibizsys.model.control.chart.IPSChartCalendar pschartcalendar){
+		this.pschartcalendar = pschartcalendar;
+	}
+
 }

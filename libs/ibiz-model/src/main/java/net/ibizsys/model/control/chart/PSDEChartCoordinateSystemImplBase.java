@@ -42,6 +42,10 @@ public class PSDEChartCoordinateSystemImplBase extends net.ibizsys.model.control
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 
 	public java.lang.String getType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTYPE);

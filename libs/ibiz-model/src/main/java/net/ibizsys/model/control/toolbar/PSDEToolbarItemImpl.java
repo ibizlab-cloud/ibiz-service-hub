@@ -46,6 +46,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -200,6 +204,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -218,6 +226,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -234,6 +246,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端应用插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 
@@ -260,6 +276,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTooltipPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定提示语言资源");}
 		return value;
+	}
+
+	public void setTooltipPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes tooltippslanguageres){
+		this.tooltippslanguageres = tooltippslanguageres;
 	}
 
 

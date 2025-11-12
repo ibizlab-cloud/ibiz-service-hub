@@ -99,7 +99,7 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	/**
 	 * 获取子类型
 	 * <P>
-	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType} !未定义代码表
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType}
 	 * @return
 	 */
 	java.lang.String getSubType();

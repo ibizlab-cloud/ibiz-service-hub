@@ -61,6 +61,10 @@ public class PSSysSearchBarImpl extends net.ibizsys.model.control.PSControlConta
 		return value;
 	}
 
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.searchbar.IPSSearchBarFilter> pssearchbarfilters = null;
 	public java.util.List<net.ibizsys.model.control.searchbar.IPSSearchBarFilter> getPSSearchBarFilters(){

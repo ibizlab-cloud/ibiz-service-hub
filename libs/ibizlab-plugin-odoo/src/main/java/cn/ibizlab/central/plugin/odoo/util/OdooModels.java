@@ -2,13 +2,24 @@ package cn.ibizlab.central.plugin.odoo.util;
 
 public class OdooModels {
 
+   public final static String SYS_AUTHLOG= "ebsx.ebsx.AuthLog"; //认证日志
    public final static String PSCOREPRD= "extension.PSCorePrd"; //核心产品
    public final static String PSCOREPRDCAT= "extension.PSCorePrdCat"; //核心产品分类
    public final static String PSCOREPRDFUNC= "extension.PSCorePrdFunc"; //核心产品功能
+   public final static String PSDELOGIC= "extension.PSDELogic"; //实体处理逻辑
    public final static String SYS_ROLE= "ebsx.ebsx.Role"; //系统角色
    public final static String SYS_DEPT= "ebsx.ebsx.SysDepartment"; //部门
    public final static String SYS_EMP= "ebsx.ebsx.SysEmployee"; //人员
    public final static String SYS_ORG= "ebsx.ebsx.SysOrganization"; //组织
+   public final static String AI_AGENT= "ai.ai_agent"; //智能体
+   public final static String AI_AGENT_CONTEXT= "ai.ai_agent_context"; //智能体业务上下文
+   public final static String AI_AGENT_CONVERSATION= "ai.ai_agent_conversation"; //智能体会话
+   public final static String AI_AGENT_KNOWLEDGE_REL= "ai.ai_agent_knowledge_rel"; //智能体知识库引用
+   public final static String AI_AGENT_TOOL_REL= "ai.ai_agent_tool_rel"; //智能体工具引用
+   public final static String AI_CREDENTIAL= "ai.ai_credential"; //AI凭证
+   public final static String AI_KNOWLEDGE_BASE= "ai.ai_knowledge_base"; //知识库
+   public final static String AI_MODEL= "ai.ai_model"; //AI大模型
+   public final static String AI_TOOL= "ai.ai_tool"; //AI调用工具
    public final static String AUDIT_RECORD= "audit.audit_record"; //审计记录
    public final static String AVATAR_MIXIN= "base.avatar_mixin"; //头像混合
    public final static String BUS_EVENT_BUS= "bus.bus_event_bus"; //事件总线
@@ -49,6 +60,7 @@ public class OdooModels {
    public final static String DISCUSS_VOICE_METADATA= "discuss.discuss_voice_metadata"; //语音附件的元数据
    public final static String FAV_FAVORITE= "fav.fav_favorite"; //收藏
    public final static String FAV_FAVORITE_MIXIN= "fav.fav_favorite_mixin"; //收藏混合
+   public final static String FETCHMAIL_SERVER= "mail.fetchmail_server"; //收件服务器
    public final static String HR_APPLICANT= "hr.hr_applicant"; //申请人
    public final static String HR_APPLICANT_CATEGORY= "hr.hr_applicant_category"; //申请人类别
    public final static String HR_APPLICANT_REFUSE_REASON= "hr.hr_applicant_refuse_reason"; //拒绝原因 申请人
@@ -126,6 +138,7 @@ public class OdooModels {
    public final static String IR_MODULE_MODULE_EXCLUSION= "base.ir_module_module_exclusion"; //模块排除
    public final static String IR_RULE= "base.ir_rule"; //规则
    public final static String IR_SEQUENCE= "base.ir_sequence"; //序列
+   public final static String IR_UNIRES= "base_extend.ir_unires"; //统一资源
    public final static String MAIL_ACTIVITY= "mail.mail_activity"; //活动
    public final static String MAIL_ACTIVITY_MIXIN= "mail.mail_activity_mixin"; //活动Mixin
    public final static String MAIL_ACTIVITY_PLAN= "mail.mail_activity_plan"; //活动计划
@@ -210,6 +223,6 @@ public class OdooModels {
    public final static String RESOURCE_MIXIN= "resource.resource_mixin"; //资源装饰
    public final static String RESOURCE_RESOURCE= "resource.resource_resource"; //资源
    public final static String RULE_GROUP_REL= "base.rule_group_rel"; //权限组关联规则
-   public final static String IR_UNIRES= "base_extend.ir_unires"; //统一资源
    public final static String UNIRES_GROUP_REL= "base_extend.unires_group_rel"; //权限组关联统一资源
+
 }

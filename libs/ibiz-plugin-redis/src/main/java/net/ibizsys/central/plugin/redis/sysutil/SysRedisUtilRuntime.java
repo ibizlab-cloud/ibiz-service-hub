@@ -117,6 +117,8 @@ public class SysRedisUtilRuntime extends SysCacheUtilRuntimeBase implements ISys
 			if (!"OK".equalsIgnoreCase(strRet)) {
 				log.warn(String.format("设置[%1$s]返回结果[%2$s]", strName, strRet));
 			}
+			
+			
 		}
 	}
 
@@ -224,7 +226,78 @@ public class SysRedisUtilRuntime extends SysCacheUtilRuntimeBase implements ISys
 			}
 		}
 	}
+	
+	
 
+	@Override
+	protected Long onInc(String strName, Long nValue, int nSeconds) throws Throwable {
+		try (Jedis jedis = getJedis()) {
+			Long ret = null;
+			if(nValue == null) {
+				ret = jedis.incr(strName);
+			}
+			else {
+				ret = jedis.incrBy(strName, nValue);
+			}
+			if (nSeconds > 0) {
+				jedis.expire(strName, nSeconds);
+			}
+			return ret;
+		}
+	}
+
+	@Override
+	protected Long onInc(String strCat, String strName, Long nValue, int nSeconds) throws Throwable {
+		try (Jedis jedis = getJedis()) {
+			Long ret = null;
+			if(nValue == null) {
+				ret = jedis.hincrBy(strCat, strName, 1l);
+			}
+			else {
+				ret = jedis.hincrBy(strCat, strName, nValue);
+			}
+			if (nSeconds > 0) {
+				jedis.expire(strCat, nSeconds);
+			}
+			return ret;
+		}
+	}
+
+	@Override
+	protected Double onInc(String strName, Double fValue, int nSeconds) throws Throwable {
+		try (Jedis jedis = getJedis()) {
+			Double ret = null;
+			if(fValue == null) {
+				ret = jedis.incrByFloat(strName, 1.0);
+			}
+			else {
+				ret = jedis.incrByFloat(strName, fValue);
+			}
+			if (nSeconds > 0) {
+				jedis.expire(strName, nSeconds);
+			}
+			return ret;
+		}
+	}
+
+	@Override
+	protected Double onInc(String strCat, String strName, Double fValue, int nSeconds) throws Throwable {
+		try (Jedis jedis = getJedis()) {
+			Double ret = null;
+			if(fValue == null) {
+				ret = jedis.hincrByFloat(strCat, strName, 1.0);
+			}
+			else {
+				ret = jedis.hincrByFloat(strCat, strName, fValue);
+			}
+			if (nSeconds > 0) {
+				jedis.expire(strCat, nSeconds);
+			}
+			return ret;
+		}
+	}
+	
+	
 	@Override
 	protected String onGetPathFormat(Set<String> folderList) throws Throwable {
 		return StringUtils.collectionToDelimitedString(folderList, "--");

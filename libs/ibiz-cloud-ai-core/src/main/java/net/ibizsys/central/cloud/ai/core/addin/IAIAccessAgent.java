@@ -8,6 +8,8 @@ import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 
 /**
  * AI访问代理
@@ -72,5 +74,15 @@ public interface IAIAccessAgent extends ICloudAIUtilRTAddin{
 	 * @return
 	 */
 	EmbeddingResult embedding(EmbeddingRequest embeddingRequest) throws Throwable;
+	
+	
+	
+	/**
+	 * 文档排序
+	 * @param textReRankRequest
+	 * @return
+	 * @throws Throwable
+	 */
+	TextReRankResult textReRank(TextReRankRequest textReRankRequest) throws Throwable;
 	
 }

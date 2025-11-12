@@ -705,6 +705,11 @@ public class ResPartnerDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntit
     public final static String FIELD_ZIP = "zip";
 
     /**
+     * 属性: 相关员工
+     */
+    public final static String FIELD_EMPLOYEE_ID = "employee_id";
+
+    /**
      * 属性: 头像128
      */
     public final static String FIELD_AVATAR128 = "avatar128";
@@ -6159,6 +6164,44 @@ public class ResPartnerDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntit
     @JsonIgnore
     public ResPartnerDTO resetZip() {
         this._reset(FIELD_ZIP);
+        return this;
+    }
+
+    /**
+     * 设置「相关员工」
+     * @param val
+     */
+    @JsonProperty(FIELD_EMPLOYEE_ID)
+    public ResPartnerDTO setEmployeeId(String val) {
+        this._set(FIELD_EMPLOYEE_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「相关员工」值
+     *
+     */
+    @JsonIgnore
+    public String getEmployeeId() {
+        return DataTypeUtils.asString(this._get(FIELD_EMPLOYEE_ID), null);
+    }
+
+    /**
+     * 判断 「相关员工」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsEmployeeId() {
+        return this._contains(FIELD_EMPLOYEE_ID);
+    }
+
+    /**
+     * 重置 「相关员工」
+     *
+     */
+    @JsonIgnore
+    public ResPartnerDTO resetEmployeeId() {
+        this._reset(FIELD_EMPLOYEE_ID);
         return this;
     }
 

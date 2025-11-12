@@ -38,6 +38,23 @@ public interface ISystemGateway {
 	boolean isEnableAppGateway();
 	
 	/**
+	 * 从系统全局获取指定键的值
+	 * @param strKey
+	 * @return
+	 */
+	Object getGlobalParam(String strKey);
+	
+	
+	
+	/**
+	 * 设置运行时参数
+	 * @param strKey
+	 * @param objValue
+	 */
+	void setGlobalParam(String strKey, Object objValue);
+	
+	
+	/**
 	 * 获取系统运行时
 	 * @param strDeploySystemId
 	 * @return

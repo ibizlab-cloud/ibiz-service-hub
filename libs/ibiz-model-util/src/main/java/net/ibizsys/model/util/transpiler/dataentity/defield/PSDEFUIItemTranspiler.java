@@ -32,10 +32,10 @@ public abstract class PSDEFUIItemTranspiler extends net.ibizsys.model.util.trans
 		this.setDomainValue(iPSModelTranspileContext, domain, "phpslanresid", realPSModelObject.getPHPSLanguageRes(), realPSModelObject, "getPHPSLanguageRes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysimageid", realPSModelObject.getPSSysImage(), realPSModelObject, "getPSSysImage");
 		this.setDomainValue(iPSModelTranspileContext, domain, "placeholder", realPSModelObject.getPlaceHolder(), realPSModelObject, "getPlaceHolder");
-		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getPrecision(), realPSModelObject, "getPrecision");
 		this.setDomainValue(iPSModelTranspileContext, domain, "refpsdeacmodeid", realPSModelObject.getRefPSDEACMode(), realPSModelObject, "getRefPSDEACMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "refpsdedatasetid", realPSModelObject.getRefPSDEDataSet(), realPSModelObject, "getRefPSDEDataSet");
 		this.setDomainValue(iPSModelTranspileContext, domain, "refpsdeid", realPSModelObject.getRefPSDataEntity(), realPSModelObject, "getRefPSDataEntity");
+		this.setDomainValue(iPSModelTranspileContext, domain, "precision", realPSModelObject.getScale(), realPSModelObject, "getScale");
 		this.setDomainValue(iPSModelTranspileContext, domain, "strlength", realPSModelObject.getStringLength(), realPSModelObject, "getStringLength");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ftmode", realPSModelObject.getUIMode(), realPSModelObject, "getUIMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "valueformat", realPSModelObject.getValueFormat(), realPSModelObject, "getValueFormat");
@@ -57,10 +57,10 @@ public abstract class PSDEFUIItemTranspiler extends net.ibizsys.model.util.trans
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPHPSLANGUAGERES, domain, "phpslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSIMAGE, domain, "pssysimageid", net.ibizsys.model.res.IPSSysImage.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPLACEHOLDER, domain, "placeholder", java.lang.String.class);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRECISION, domain, "precision", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSDEACMODE, domain, "refpsdeacmodeid", net.ibizsys.model.dataentity.ac.IPSDEACMode.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSDEDATASET, domain, "refpsdedatasetid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSDATAENTITY, domain, "refpsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCALE, domain, "precision", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTRINGLENGTH, domain, "strlength", int.class, new String[]{"0","-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETUIMODE, domain, "ftmode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETVALUEFORMAT, domain, "valueformat", java.lang.String.class, new String[]{"%1$s"});

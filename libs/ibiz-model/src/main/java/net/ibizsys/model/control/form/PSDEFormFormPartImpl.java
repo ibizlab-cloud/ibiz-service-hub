@@ -79,6 +79,10 @@ public class PSDEFormFormPartImpl extends net.ibizsys.model.control.form.PSDEFor
 		return value;
 	}
 
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
+	}
+
 
 	@Deprecated
 	public boolean isEnableAnchor(){

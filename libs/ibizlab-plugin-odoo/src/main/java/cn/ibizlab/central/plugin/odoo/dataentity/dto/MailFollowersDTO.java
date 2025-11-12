@@ -15,9 +15,14 @@ import net.ibizsys.central.util.IEntityDTO;
 public class MailFollowersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityDTOBase {
 
     /**
-     * 属性: 名称
+     * 属性: 相关的业务伙伴
      */
     public final static String FIELD_NAME = "name";
+
+    /**
+     * 属性: 系统用户标识
+     */
+    public final static String FIELD_USER_ID = "user_id";
 
     /**
      * 属性: 关注类型
@@ -50,7 +55,7 @@ public class MailFollowersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEn
     public final static String FIELD_RES_MODEL = "res_model";
 
     /**
-     * 设置「名称」
+     * 设置「相关的业务伙伴」
      * @param val
      */
     @JsonProperty(FIELD_NAME)
@@ -60,7 +65,7 @@ public class MailFollowersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEn
     }
 
     /**
-     * 获取「名称」值
+     * 获取「相关的业务伙伴」值
      *
      */
     @JsonIgnore
@@ -69,7 +74,7 @@ public class MailFollowersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEn
     }
 
     /**
-     * 判断 「名称」是否有值
+     * 判断 「相关的业务伙伴」是否有值
      *
      */
     @JsonIgnore
@@ -78,12 +83,50 @@ public class MailFollowersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEn
     }
 
     /**
-     * 重置 「名称」
+     * 重置 「相关的业务伙伴」
      *
      */
     @JsonIgnore
     public MailFollowersDTO resetName() {
         this._reset(FIELD_NAME);
+        return this;
+    }
+
+    /**
+     * 设置「系统用户标识」
+     * @param val
+     */
+    @JsonProperty(FIELD_USER_ID)
+    public MailFollowersDTO setUserId(String val) {
+        this._set(FIELD_USER_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「系统用户标识」值
+     *
+     */
+    @JsonIgnore
+    public String getUserId() {
+        return DataTypeUtils.asString(this._get(FIELD_USER_ID), null);
+    }
+
+    /**
+     * 判断 「系统用户标识」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsUserId() {
+        return this._contains(FIELD_USER_ID);
+    }
+
+    /**
+     * 重置 「系统用户标识」
+     *
+     */
+    @JsonIgnore
+    public MailFollowersDTO resetUserId() {
+        this._reset(FIELD_USER_ID);
         return this;
     }
 

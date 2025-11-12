@@ -25,6 +25,11 @@ public class IrModuleModuleDTO extends cn.ibizlab.central.plugin.odoo.util.OdooE
     public final static String FIELD_ORDER = "order";
 
     /**
+     * 属性: 资源标识
+     */
+    public final static String FIELD_RES_CODE = "res_code";
+
+    /**
      * 属性: 应用
      */
     public final static String FIELD_APPLICATION = "application";
@@ -252,6 +257,44 @@ public class IrModuleModuleDTO extends cn.ibizlab.central.plugin.odoo.util.OdooE
     @JsonIgnore
     public IrModuleModuleDTO resetOrder() {
         this._reset(FIELD_ORDER);
+        return this;
+    }
+
+    /**
+     * 设置「资源标识」
+     * @param val
+     */
+    @JsonProperty(FIELD_RES_CODE)
+    public IrModuleModuleDTO setResCode(String val) {
+        this._set(FIELD_RES_CODE, val);
+        return this;
+    }
+
+    /**
+     * 获取「资源标识」值
+     *
+     */
+    @JsonIgnore
+    public String getResCode() {
+        return DataTypeUtils.asString(this._get(FIELD_RES_CODE), null);
+    }
+
+    /**
+     * 判断 「资源标识」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsResCode() {
+        return this._contains(FIELD_RES_CODE);
+    }
+
+    /**
+     * 重置 「资源标识」
+     *
+     */
+    @JsonIgnore
+    public IrModuleModuleDTO resetResCode() {
+        this._reset(FIELD_RES_CODE);
         return this;
     }
 

@@ -1,6 +1,7 @@
 package net.ibizsys.central.plugin.extension.psmodel.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +9,10 @@ import java.util.Map;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSetting;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionScopeType;
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.IPSSystem;
@@ -372,6 +375,10 @@ public class ExtensionUtils {
 	}
 	
 	public static IPSApplication getPSApplication(IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession, IPSSystem iPSSystem, String strAppTag, boolean bTryMode) throws Exception{
+		return getPSApplication(iExtensionPSModelRTServiceSession, iPSSystem, strAppTag, false, bTryMode);
+	}
+	
+	public static IPSApplication getPSApplication(IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession, IPSSystem iPSSystem, String strAppTag, boolean bExtension, boolean bTryMode) throws Exception{
 		List<IPSApplication> psApplications = iPSSystem.getAllPSApps();
 		if(!ObjectUtils.isEmpty(psApplications)) {
 			for(IPSApplication item : psApplications) {
@@ -380,6 +387,20 @@ public class ExtensionUtils {
 				}
 			}
 		}
+		
+		if(bExtension && iExtensionPSModelRTServiceSession.getSystemRuntime() instanceof IServiceSystemRuntime){
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)iExtensionPSModelRTServiceSession.getSystemRuntime();
+			Collection<IExtensionSysRefRuntime> extensionSysRefRuntimeList = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
+			if(!ObjectUtils.isEmpty(extensionSysRefRuntimeList)) {
+				for(IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimeList) {
+					IPSApplication iPSApplication = iExtensionSysRefRuntime.getPSApplication(strAppTag, true);
+					if(iPSApplication != null) {
+						return iPSApplication;
+					}
+				}
+			}
+		}
+		
 		
 		if (bTryMode) {
 			return null;

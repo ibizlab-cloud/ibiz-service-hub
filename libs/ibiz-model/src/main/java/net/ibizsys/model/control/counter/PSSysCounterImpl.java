@@ -87,6 +87,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction psdeaction){
+		this.psdeaction = psdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet(){
@@ -106,6 +110,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -122,6 +130,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体对象");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 
@@ -190,6 +202,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -208,6 +224,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -224,6 +244,10 @@ public class PSSysCounterImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

@@ -55,7 +55,7 @@
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <spring-boot.version>2.4.0</spring-boot.version>
-        <ibiz.cloud.version>8.1.0.572.22</ibiz.cloud.version>
+        <ibiz.cloud.version>8.1.0.573.34</ibiz.cloud.version>
     </properties>
 
     <dependencyManagement>

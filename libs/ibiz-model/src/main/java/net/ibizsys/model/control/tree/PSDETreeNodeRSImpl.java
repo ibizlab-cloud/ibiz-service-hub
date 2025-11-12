@@ -33,6 +33,10 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setChildPSDETreeNode(net.ibizsys.model.control.tree.IPSDETreeNode childpsdetreenode){
+		this.childpsdetreenode = childpsdetreenode;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.tree.IPSDETreeNodeRSParam> psdetreenodersparams = null;
 	public java.util.List<net.ibizsys.model.control.tree.IPSDETreeNodeRSParam> getPSDETreeNodeRSParams(){
@@ -131,6 +135,10 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setParentPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField parentpsappdefield){
+		this.parentpsappdefield = parentpsappdefield;
+	}
+
 	private net.ibizsys.model.dataentity.der.IPSDER1N parentpsder1n;
 
 	public net.ibizsys.model.dataentity.der.IPSDER1N getParentPSDER1N(){
@@ -147,6 +155,10 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.dataentity.der.IPSDER1N value = this.getParentPSDER1N();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定父值关系");}
 		return value;
+	}
+
+	public void setParentPSDER1N(net.ibizsys.model.dataentity.der.IPSDER1N parentpsder1n){
+		this.parentpsder1n = parentpsder1n;
 	}
 
 	private net.ibizsys.model.control.tree.IPSDETreeNode parentpsdetreenode;
@@ -166,6 +178,10 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.control.tree.IPSDETreeNode value = this.getParentPSDETreeNode();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定上级节点对象");}
 		return value;
+	}
+
+	public void setParentPSDETreeNode(net.ibizsys.model.control.tree.IPSDETreeNode parentpsdetreenode){
+		this.parentpsdetreenode = parentpsdetreenode;
 	}
 
 

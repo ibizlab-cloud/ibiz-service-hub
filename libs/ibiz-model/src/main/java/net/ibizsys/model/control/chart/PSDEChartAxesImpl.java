@@ -47,6 +47,10 @@ public class PSDEChartAxesImpl extends net.ibizsys.model.control.chart.PSChartAx
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -103,6 +107,10 @@ public class PSDEChartAxesImpl extends net.ibizsys.model.control.chart.PSChartAx
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 }

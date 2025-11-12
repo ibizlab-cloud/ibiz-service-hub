@@ -29,6 +29,10 @@ public class PSEditorItemImpl extends net.ibizsys.model.PSObjectImpl implements 
 		return value;
 	}
 
+	public void setPSAppDEACMode(net.ibizsys.model.app.dataentity.IPSAppDEACMode psappdeacmode){
+		this.psappdeacmode = psappdeacmode;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet(){
@@ -48,6 +52,10 @@ public class PSEditorItemImpl extends net.ibizsys.model.PSObjectImpl implements 
 		return value;
 	}
 
+	public void setPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset){
+		this.psappdedataset = psappdedataset;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -64,6 +72,10 @@ public class PSEditorItemImpl extends net.ibizsys.model.PSObjectImpl implements 
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 

@@ -26,6 +26,7 @@ public class PSSysModelGroupTranspiler extends net.ibizsys.model.util.transpiler
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouptag3", realPSModelObject.getGroupTag3(), realPSModelObject, "getGroupTag3");
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouptag4", realPSModelObject.getGroupTag4(), realPSModelObject, "getGroupTag4");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pkgcodename", realPSModelObject.getPKGCodeName(), realPSModelObject, "getPKGCodeName");
+		this.setDomainValue(iPSModelTranspileContext, domain, "runtimetype", realPSModelObject.getRuntimeType(), realPSModelObject, "getRuntimeType");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
@@ -35,6 +36,7 @@ public class PSSysModelGroupTranspiler extends net.ibizsys.model.util.transpiler
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPTAG3, domain, "grouptag3", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPTAG4, domain, "grouptag4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPKGCODENAME, domain, "pkgcodename", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRUNTIMETYPE, domain, "runtimetype", java.lang.String.class);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

@@ -11,6 +11,13 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	
 	
 	/**
+	 * 获取代码标识
+	 * @return
+	 */
+	java.lang.String getCodeName();
+	
+	
+	/**
 	 * 获取默认内容
 	 * @return
 	 */

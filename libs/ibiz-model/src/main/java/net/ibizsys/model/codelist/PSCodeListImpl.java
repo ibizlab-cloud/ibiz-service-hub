@@ -94,6 +94,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setAllTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes alltextpslanguageres){
+		this.alltextpslanguageres = alltextpslanguageres;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField bkcolorpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getBKColorPSDEField(){
@@ -113,6 +117,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setBKColorPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField bkcolorpsdefield){
+		this.bkcolorpsdefield = bkcolorpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField beginvaluepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getBeginValuePSDEField(){
@@ -130,6 +138,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getBeginValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定开始值属性");}
 		return value;
+	}
+
+	public void setBeginValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField beginvaluepsdefield){
+		this.beginvaluepsdefield = beginvaluepsdefield;
 	}
 
 
@@ -157,6 +169,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getClsPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项样式属性");}
 		return value;
+	}
+
+	public void setClsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField clspsdefield){
+		this.clspsdefield = clspsdefield;
 	}
 
 
@@ -211,6 +227,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setColorPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField colorpsdefield){
+		this.colorpsdefield = colorpsdefield;
+	}
+
 
 	public java.lang.String getCustomCond(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCUSTOMCOND);
@@ -238,6 +258,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setDataPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField datapsdefield){
+		this.datapsdefield = datapsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField disablepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getDisablePSDEField(){
@@ -255,6 +279,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getDisablePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定禁用值属性");}
 		return value;
+	}
+
+	public void setDisablePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField disablepsdefield){
+		this.disablepsdefield = disablepsdefield;
 	}
 
 
@@ -323,6 +351,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField endvaluepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getEndValuePSDEField(){
@@ -340,6 +372,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getEndValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定结束值属性");}
 		return value;
+	}
+
+	public void setEndValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField endvaluepsdefield){
+		this.endvaluepsdefield = endvaluepsdefield;
 	}
 
 
@@ -370,6 +406,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setIconClsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField iconclspsdefield){
+		this.iconclspsdefield = iconclspsdefield;
+	}
+
 
 	@Deprecated
 	public java.lang.String getIconClsX(){
@@ -396,6 +436,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getIconClsXPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图标样式(x)属性");}
 		return value;
+	}
+
+	public void setIconClsXPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField iconclsxpsdefield){
+		this.iconclsxpsdefield = iconclsxpsdefield;
 	}
 
 
@@ -433,6 +477,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getIconPathXPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图标路径(x)属性");}
 		return value;
+	}
+
+	public void setIconPathXPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField iconpathxpsdefield){
+		this.iconpathxpsdefield = iconpathxpsdefield;
 	}
 
 
@@ -487,6 +535,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setMinorSortPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField minorsortpsdefield){
+		this.minorsortpsdefield = minorsortpsdefield;
+	}
+
 
 	public java.lang.String getName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETNAME);
@@ -530,6 +582,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.logic.IPSDEMSLogic psdemslogic;
 
 	public net.ibizsys.model.dataentity.logic.IPSDEMSLogic getPSDEMSLogic(){
@@ -547,6 +603,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.logic.IPSDEMSLogic value = this.getPSDEMSLogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体主状态逻辑对象");}
 		return value;
+	}
+
+	public void setPSDEMSLogic(net.ibizsys.model.dataentity.logic.IPSDEMSLogic psdemslogic){
+		this.psdemslogic = psdemslogic;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
@@ -567,6 +627,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -583,6 +647,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
@@ -603,6 +671,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -619,6 +691,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField pvaluepsdefield;
@@ -638,6 +714,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getPValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定父值属性");}
 		return value;
+	}
+
+	public void setPValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField pvaluepsdefield){
+		this.pvaluepsdefield = pvaluepsdefield;
 	}
 
 
@@ -701,6 +781,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		return value;
 	}
 
+	public void setTextPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField textpsdefield){
+		this.textpsdefield = textpsdefield;
+	}
+
 
 	public java.lang.String getTextSeparator(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTEXTSEPARATOR);
@@ -751,6 +835,10 @@ public class PSCodeListImpl extends net.ibizsys.model.codelist.PSCodeItemImpl im
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定值属性");}
 		return value;
+	}
+
+	public void setValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield){
+		this.valuepsdefield = valuepsdefield;
 	}
 
 

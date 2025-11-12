@@ -13,8 +13,8 @@ import net.ibizsys.psmodel.core.util.IPSModel;
 public class PSAppBICubeListTranspiler extends net.ibizsys.model.util.transpiler.PSModelListTranspilerBase{
 
 	@Override
-	protected net.ibizsys.psmodel.core.util.IPSModel createDomain(IPSModelObject iPSModelObject) throws Exception{
-		throw new Exception("没有提供域对象");
+	protected net.ibizsys.psmodel.core.domain.PSSysBICube createDomain(IPSModelObject iPSModelObject) throws Exception{
+		return new net.ibizsys.psmodel.core.domain.PSSysBICube();
 	}
 
 	protected IPSModelTranspiler getPSModelTranspiler(IPSModelTranspileContext iPSModelTranspileContext, Object type) throws Exception {

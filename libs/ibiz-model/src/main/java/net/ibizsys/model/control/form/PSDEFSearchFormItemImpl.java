@@ -26,6 +26,7 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 	public final static String ATTR_GETREFPSDEDATASET = "getRefPSDEDataSet";
 	public final static String ATTR_GETREFPSDATAENTITY = "getRefPSDataEntity";
 	public final static String ATTR_GETREFPICKUPPSDEVIEWCODENAME = "refPickupPSDEViewCodeName";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 	public final static String ATTR_GETUIMODE = "uIMode";
 	public final static String ATTR_GETVALUEFORMAT = "valueFormat";
@@ -49,6 +50,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		net.ibizsys.model.res.IPSLanguageRes value = this.getCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getCapPSLanguageRes]返回空值");}
 		return value;
+	}
+
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
 	}
 
 
@@ -163,6 +168,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		return value;
 	}
 
+	public void setPHPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes phpslanguageres){
+		this.phpslanguageres = phpslanguageres;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -179,6 +188,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图标图片资源对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 
@@ -232,6 +245,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		return value;
 	}
 
+	public void setRefPSDEACMode(net.ibizsys.model.dataentity.ac.IPSDEACMode refpsdeacmode){
+		this.refpsdeacmode = refpsdeacmode;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet refpsdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSet(){
@@ -248,6 +265,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		net.ibizsys.model.dataentity.ds.IPSDEDataSet value = this.getRefPSDEDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用实体数据集");}
 		return value;
+	}
+
+	public void setRefPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet refpsdedataset){
+		this.refpsdedataset = refpsdedataset;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity;
@@ -268,6 +289,10 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 		return value;
 	}
 
+	public void setRefPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity){
+		this.refpsdataentity = refpsdataentity;
+	}
+
 
 	public java.lang.String getRefPickupPSDEViewCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREFPICKUPPSDEVIEWCODENAME);
@@ -275,6 +300,15 @@ public class PSDEFSearchFormItemImpl extends net.ibizsys.model.dataentity.defiel
 			return null;
 		}
 		return value.asText();
+	}
+
+	@Deprecated
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
 	}
 
 	@Deprecated

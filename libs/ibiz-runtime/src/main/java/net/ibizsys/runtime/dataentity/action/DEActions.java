@@ -89,6 +89,12 @@ public class DEActions {
 	public final static String WFROLLBACK = "wfRollback";
 	
 	
+	/**
+	 * 工作流通知回调
+	 */
+	public final static String WFNOTIFY = "wfNotify";
+	
+	
 	
 	/**
 	 * 系统更新

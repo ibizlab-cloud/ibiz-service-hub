@@ -1012,12 +1012,12 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>LENGTH</B>&nbsp;长度，指定数据列的长度，未定义时为【-1】
+     * <B>LENGTH</B>&nbsp;长度或精度，指定数据列的长度，未定义时为【-1】
      */
     public final static String FIELD_LENGTH = "length";
 
     /**
-     * 设置 长度，详细说明：{@link #FIELD_LENGTH}
+     * 设置 长度或精度，详细说明：{@link #FIELD_LENGTH}
      * 
      * @param length
      * 
@@ -1028,7 +1028,7 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 长度  
+     * 获取 长度或精度  
      * @return
      */
     @JsonIgnore
@@ -1041,7 +1041,7 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 长度 是否指定值，包括空值
+     * 判断 长度或精度 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1053,7 +1053,7 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 长度
+     * 重置 长度或精度
      */
     @JsonIgnore
     public void resetLength(){
@@ -1061,7 +1061,7 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 长度，详细说明：{@link #FIELD_LENGTH}
+     * 设置 长度或精度，详细说明：{@link #FIELD_LENGTH}
      * <P>
      * 等同 {@link #setLength}
      * @param length
@@ -1340,30 +1340,30 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PRECISION</B>&nbsp;浮点精度，指定数据列的浮点精度，未定义时为【0】
+     * <B>SCALE</B>&nbsp;小数位数，指定数据列的小数位数，未定义时为【-1】
      */
-    public final static String FIELD_PRECISION = "precision";
+    public final static String FIELD_SCALE = "scale";
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 小数位数，详细说明：{@link #FIELD_SCALE}
      * 
-     * @param precision
+     * @param scale
      * 
      */
-    @JsonProperty(FIELD_PRECISION)
-    public void setPrecision(Integer precision){
-        this.set(FIELD_PRECISION, precision);
+    @JsonProperty(FIELD_SCALE)
+    public void setScale(Integer scale){
+        this.set(FIELD_SCALE, scale);
         //属性名称与代码标识不一致，设置属性名称
-        this.set("precision2", precision);
+        this.set("precision2", scale);
     }
     
     /**
-     * 获取 浮点精度  
+     * 获取 小数位数  
      * @return
      */
     @JsonIgnore
-    public Integer getPrecision(){
-        Object objValue = this.get(FIELD_PRECISION);
+    public Integer getScale(){
+        Object objValue = this.get(FIELD_SCALE);
         if(objValue==null){
             //属性名称与代码标识不一致，使用属性名称
             objValue = this.get("precision2");
@@ -1375,12 +1375,12 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 浮点精度 是否指定值，包括空值
+     * 判断 小数位数 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
-    public boolean isPrecisionDirty(){
-        if(this.contains(FIELD_PRECISION)){
+    public boolean isScaleDirty(){
+        if(this.contains(FIELD_SCALE)){
             return true;
         }
         //属性名称与代码标识不一致，判断属性名称
@@ -1391,49 +1391,49 @@ public class PSSysDBColumn extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 浮点精度
+     * 重置 小数位数
      */
     @JsonIgnore
-    public void resetPrecision(){
-        this.reset(FIELD_PRECISION);
+    public void resetScale(){
+        this.reset(FIELD_SCALE);
         //属性名称与代码标识不一致，重置属性名称
         this.reset("precision2");
     }
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 小数位数，详细说明：{@link #FIELD_SCALE}
      * <P>
-     * 等同 {@link #setPrecision}
-     * @param precision
+     * 等同 {@link #setScale}
+     * @param scale
      */
     @JsonIgnore
-    public PSSysDBColumn precision(Integer precision){
-        this.setPrecision(precision);
+    public PSSysDBColumn scale(Integer scale){
+        this.setScale(scale);
         return this;
     }
 
     @JsonIgnore
     @Deprecated
     public Integer getPrecision2(){
-        return this.getPrecision();
+        return this.getScale();
     }
 
     @JsonIgnore
     @Deprecated        
     public void setPrecision2(Integer precision2){
-        this.setPrecision(precision2);
+        this.setScale(precision2);
     }
 
     @JsonIgnore
     @Deprecated
     public boolean isPrecision2Dirty(){
-        return this.isPrecisionDirty();
+        return this.isScaleDirty();
     }
 
     @JsonIgnore
     @Deprecated
     public void resetPrecision2(){
-        this.resetPrecision();
+        this.resetScale();
     }
 
     /**

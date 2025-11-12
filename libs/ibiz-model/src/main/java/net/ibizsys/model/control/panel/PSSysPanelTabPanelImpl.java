@@ -60,6 +60,10 @@ public class PSSysPanelTabPanelImpl extends net.ibizsys.model.control.panel.PSSy
 		return value;
 	}
 
+	public void setPSAppDELogic(net.ibizsys.model.app.dataentity.IPSAppDELogic psappdelogic){
+		this.psappdelogic = psappdelogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEMethod getPSAppDEMethod(){
@@ -79,6 +83,10 @@ public class PSSysPanelTabPanelImpl extends net.ibizsys.model.control.panel.PSSy
 		return value;
 	}
 
+	public void setPSAppDEMethod(net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod){
+		this.psappdemethod = psappdemethod;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -95,6 +103,10 @@ public class PSSysPanelTabPanelImpl extends net.ibizsys.model.control.panel.PSSy
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 

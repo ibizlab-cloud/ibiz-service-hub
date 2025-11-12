@@ -24,6 +24,7 @@ public class PSDEUIActionLogicTranspiler extends net.ibizsys.model.util.transpil
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdeuiactionid", realPSModelObject.getDstPSAppDEUIAction(), realPSModelObject, "getDstPSAppDEUIAction");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdeid", realPSModelObject.getDstPSAppDataEntity(), realPSModelObject, "getDstPSAppDataEntity");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDEUILogicParam(), realPSModelObject, "getDstPSDEUILogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "retpsdlparamid", realPSModelObject.getRetPSDEUILogicParam(), realPSModelObject, "getRetPSDEUILogicParam");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
@@ -31,6 +32,7 @@ public class PSDEUIActionLogicTranspiler extends net.ibizsys.model.util.transpil
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSAPPDEUIACTION, domain, "psdeuiactionid", net.ibizsys.model.app.dataentity.IPSAppDEUIAction.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSAPPDATAENTITY, domain, "dstpsdeid", net.ibizsys.model.app.dataentity.IPSAppDataEntity.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDEUILOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDEUILogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRETPSDEUILOGICPARAM, domain, "retpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDEUILogicParam.class, false);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

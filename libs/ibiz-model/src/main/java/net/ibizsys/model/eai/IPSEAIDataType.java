@@ -66,10 +66,18 @@ public interface IPSEAIDataType extends net.ibizsys.model.eai.IPSSysEAISchemeObj
 	
 	
 	/**
-	 * 获取数据精度
+	 * 获取数据精度（已废弃）
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

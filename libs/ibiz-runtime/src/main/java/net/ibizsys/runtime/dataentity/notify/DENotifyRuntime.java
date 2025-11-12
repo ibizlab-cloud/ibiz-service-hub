@@ -398,7 +398,7 @@ public class DENotifyRuntime extends DataEntityModelRuntimeBase implements IDENo
 		}
 
 		// 微信
-		if ((nMsgType & (MsgTypes.WX)) != 0) {
+		if ((nMsgType & (MsgTypes.WX | MsgTypes.WXWORK)) != 0) {
 			msgSendQueue.setWXContent(getSysMsgTemplRuntime().getWXContent(iScriptEntity));
 		}
 

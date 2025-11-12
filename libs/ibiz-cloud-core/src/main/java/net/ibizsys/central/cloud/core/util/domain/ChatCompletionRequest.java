@@ -45,6 +45,12 @@ public class ChatCompletionRequest extends EntityBase {
 	public final static String FIELD_MCPSERVERS = "mcpservers";
 	
 	/**
+	 * 模式
+	 */
+	public final static String FIELD_MODE = "mode";
+	
+	
+	/**
 	 * 设置「消息集合」
 	 *
 	 * @param val
@@ -416,4 +422,45 @@ public class ChatCompletionRequest extends EntityBase {
 		this.reset(FIELD_MAXINPUTTOKENS);
 		return this;
 	}
+	
+	
+	/**
+	 * 设置「模式」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest setMode(String val) {
+		this.set(FIELD_MODE, val);
+		return this;
+	}
+
+	/**
+	 * 获取「模式」值
+	 *
+	 */
+	@JsonIgnore
+	public String getMode() {
+		return (String) this.get(FIELD_MODE);
+	}
+
+	/**
+	 * 判断 「模式」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMode() {
+		return this.contains(FIELD_MODE);
+	}
+
+	/**
+	 * 重置 「模式」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest resetMode() {
+		this.reset(FIELD_MODE);
+		return this;
+	}
+	
 }

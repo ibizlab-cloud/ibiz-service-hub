@@ -2,8 +2,8 @@ package net.ibizsys.central.cloud.ai.core.addin;
 
 import org.apache.commons.logging.LogFactory;
 
-import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.cloud.ai.core.cloudutil.ICloudAIUtilRuntimeContext;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntimeBase;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.runtime.plugin.ModelRTAddinBase;
 
@@ -25,7 +25,7 @@ public abstract class CloudAIUtilRTAddinBase extends ModelRTAddinBase implements
 		return this.getContext().getCloudAIUtilRuntime();
 	}
 	
-	protected ISystemRuntime getSystemRuntime() {
-		return this.getCloudAIUtilRuntime().getSystemRuntime();
+	protected IServiceSystemRuntimeBase getSystemRuntime() {
+		return (IServiceSystemRuntimeBase)this.getCloudAIUtilRuntime().getSystemRuntime();
 	}
 }

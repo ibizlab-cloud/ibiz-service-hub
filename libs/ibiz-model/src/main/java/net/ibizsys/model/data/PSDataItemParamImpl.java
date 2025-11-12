@@ -9,6 +9,7 @@ public class PSDataItemParamImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETFORMAT = "format";
 	public final static String ATTR_GETMEMO = "memo";
 	public final static String ATTR_GETNAME = "name";
+	public final static String ATTR_GETPSDYNAMODEL = "getPSDynaModel";
 	public final static String ATTR_GETUSERCAT = "userCat";
 	public final static String ATTR_GETUSERTAG = "userTag";
 	public final static String ATTR_GETUSERTAG2 = "userTag2";
@@ -57,6 +58,29 @@ public class PSDataItemParamImpl extends net.ibizsys.model.PSObjectImpl implemen
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel;
+
+	@Deprecated
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModel(){
+		if(this.psdynamodel != null) return this.psdynamodel;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDYNAMODEL);
+		if(value == null){
+			return null;
+		}
+		this.psdynamodel = getPSModelObject(net.ibizsys.model.dynamodel.IPSDynaModel.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSDYNAMODEL);
+		return this.psdynamodel;
+	}
+
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModelMust(){
+		net.ibizsys.model.dynamodel.IPSDynaModel value = this.getPSDynaModel();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSDynaModel]返回空值");}
+		return value;
+	}
+
+	public void setPSDynaModel(net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel){
+		this.psdynamodel = psdynamodel;
+	}
+
 
 	@Deprecated
 	public java.lang.String getUserCat(){

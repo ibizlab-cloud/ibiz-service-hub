@@ -67,6 +67,20 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取系统模块
+	 * @return
+	 */
+	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
+
+
+	/**
+	 * 获取系统模块，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.system.IPSSystemModule getPSSystemModuleMust();
+	
+	
+	/**
 	 * 获取脚本代码
 	 * @return
 	 */

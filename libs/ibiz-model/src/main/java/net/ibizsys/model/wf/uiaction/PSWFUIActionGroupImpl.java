@@ -85,4 +85,8 @@ public class PSWFUIActionGroupImpl extends net.ibizsys.model.PSObjectImpl implem
 		return value;
 	}
 
+	public void setPSWorkflow(net.ibizsys.model.wf.IPSWorkflow psworkflow){
+		this.psworkflow = psworkflow;
+	}
+
 }

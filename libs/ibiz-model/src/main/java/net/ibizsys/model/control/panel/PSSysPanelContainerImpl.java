@@ -68,6 +68,10 @@ public class PSSysPanelContainerImpl extends net.ibizsys.model.control.panel.PSS
 		return value;
 	}
 
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
+	}
+
 
 	public java.lang.String getPredefinedType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPREDEFINEDTYPE);

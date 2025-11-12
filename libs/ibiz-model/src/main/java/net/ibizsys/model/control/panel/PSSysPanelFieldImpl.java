@@ -63,6 +63,10 @@ public class PSSysPanelFieldImpl extends net.ibizsys.model.control.panel.PSSysPa
 		return value;
 	}
 
+	public void setLabelPSSysCss(net.ibizsys.model.res.IPSSysCss labelpssyscss){
+		this.labelpssyscss = labelpssyscss;
+	}
+
 
 	public int getOutputCodeListConfigMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETOUTPUTCODELISTCONFIGMODE);
@@ -89,6 +93,10 @@ public class PSSysPanelFieldImpl extends net.ibizsys.model.control.panel.PSSysPa
 		return value;
 	}
 
+	public void setPSEditor(net.ibizsys.model.control.IPSEditor pseditor){
+		this.pseditor = pseditor;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -105,6 +113,10 @@ public class PSSysPanelFieldImpl extends net.ibizsys.model.control.panel.PSSysPa
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定属性项图片对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

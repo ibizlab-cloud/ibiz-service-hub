@@ -103,6 +103,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppDEUIAction(net.ibizsys.model.app.dataentity.IPSAppDEUIAction psappdeuiaction){
+		this.psappdeuiaction = psappdeuiaction;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEUILogic getPSAppDEUILogic(){
@@ -122,6 +126,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppDEUILogic(net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic){
+		this.psappdeuilogic = psappdeuilogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -138,6 +146,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定触发逻辑所在应用实体");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 	private net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic;
@@ -159,6 +171,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppUILogic(net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic){
+		this.psappuilogic = psappuilogic;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine;
 
 	public net.ibizsys.model.app.view.IPSAppViewEngine getPSAppViewEngine(){
@@ -177,6 +193,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppViewEngine(net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine){
+		this.psappviewengine = psappviewengine;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic;
 
 	public net.ibizsys.model.app.view.IPSAppViewLogic getPSAppViewLogic(){
@@ -193,6 +213,10 @@ public class PSControlLogicProxy extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.app.view.IPSAppViewLogic value = this.getPSAppViewLogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定触发视图逻辑");}
 		return value;
+	}
+
+	public void setPSAppViewLogic(net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic){
+		this.psappviewlogic = psappviewlogic;
 	}
 
 

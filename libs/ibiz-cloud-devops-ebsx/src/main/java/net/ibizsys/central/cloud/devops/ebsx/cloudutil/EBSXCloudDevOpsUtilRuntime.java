@@ -73,7 +73,6 @@ import net.ibizsys.central.cloud.saas.ebsx.spring.core.uaa.service.IRoleService;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.workflow.dto.WFGroupDTO;
 import net.ibizsys.central.cloud.saas.ebsx.util.StaticDict;
 import net.ibizsys.central.util.SearchContextDTO;
-import net.ibizsys.centralstudio.util.DataTypeUtils;
 import net.ibizsys.model.IPSSystem;
 import net.ibizsys.model.IPSSystemService;
 import net.ibizsys.model.PSModelEnums.DynaSysMode;
@@ -102,6 +101,7 @@ import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.codelist.CodeListTypes;
 import net.ibizsys.runtime.security.SysUserRoleDefaultModes;
 import net.ibizsys.runtime.util.ActionSessionManager;
+import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.DataTypes;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.ITransactionalUtil;
@@ -1051,6 +1051,12 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 		ObjectNode objectNode = JsonUtils.createObjectNode();
 		ArrayNode deployapps = objectNode.putArray("deployapps");
 		
+		ObjectNode objectNodeWeb = JsonUtils.createObjectNode();
+		ArrayNode deployappsWeb = objectNodeWeb.putArray("deployapps");
+		
+		ObjectNode objectNodeMob = JsonUtils.createObjectNode();
+		ArrayNode deployappsMob = objectNodeMob.putArray("deployapps");
+		
 		Map<String, String> keyMap = new HashMap<String, String>();
 		// 查出当前系统应用
 		List<ApplicationDTO> applicationDTOList = EBSXSystemRuntime.getInstance().getApplicationService().selectDefault(new SearchContextDTO().all().nn(IApplicationService.FIELD_SERVICEID).sort("codename"));
@@ -1058,6 +1064,13 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 			for (ApplicationDTO applicationDTO : applicationDTOList) {
 				deployapps.add(String.format("%1$s-%2$s", applicationDTO.getSystemId(), applicationDTO.getCodeName()).toLowerCase());
 				keyMap.put(String.format("%1$s-%2$s", applicationDTO.getSystemId(), applicationDTO.getCodeName()).toLowerCase(), "");
+				
+				if(DataTypeUtils.asInteger(applicationDTO.getMobileApp(), 0) == 1) {
+					deployappsMob.add(String.format("%1$s-%2$s", applicationDTO.getSystemId(), applicationDTO.getCodeName()).toLowerCase());
+				}
+				else {
+					deployappsWeb.add(String.format("%1$s-%2$s", applicationDTO.getSystemId(), applicationDTO.getCodeName()).toLowerCase());
+				}
 			}
 		}
 
@@ -1079,6 +1092,15 @@ public class EBSXCloudDevOpsUtilRuntime extends CloudDevOpsUtilRuntimeBase {
 		Map map = JsonUtils.MAPPER.convertValue(objectNode, Map.class);
 		String strConfigId = String.format("appgateway-%1$s", strAppGateway).toLowerCase();
 		ServiceHub.getInstance().publishConfig(strConfigId, map);
+		
+		map = JsonUtils.MAPPER.convertValue(objectNodeWeb, Map.class);
+		strConfigId = String.format("appgateway-%1$s-web", strAppGateway).toLowerCase();
+		ServiceHub.getInstance().publishConfig(strConfigId, map);
+		
+		map = JsonUtils.MAPPER.convertValue(objectNodeMob, Map.class);
+		strConfigId = String.format("appgateway-%1$s-mob", strAppGateway).toLowerCase();
+		ServiceHub.getInstance().publishConfig(strConfigId, map);
+		
 	}
 
 	protected void syncDCSystemModel(DCSystemDTO dcSystemDTO, DynaInstDTO dynaInstDTO, IPSSystemService iPSSystemService, String strSysType, boolean bMust, Map<String, Object> params) throws Throwable {

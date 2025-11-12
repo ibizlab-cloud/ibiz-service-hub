@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemSingleImpl extends net.ibizsys.model.contr
 		return value;
 	}
 
+	public void setPSChartSingle(net.ibizsys.model.control.chart.IPSChartSingle pschartsingle){
+		this.pschartsingle = pschartsingle;
+	}
+
 }

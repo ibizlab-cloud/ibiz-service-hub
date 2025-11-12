@@ -168,7 +168,7 @@ public class PSDEDQJoinImpl extends net.ibizsys.model.PSObjectImpl implements ne
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataQuery getPSDEDataQueryMust(){
 		net.ibizsys.model.dataentity.ds.IPSDEDataQuery value = this.getPSDEDataQuery();
-		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定所属实体数据查询对象");}
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体数据查询对象");}
 		return value;
 	}
 

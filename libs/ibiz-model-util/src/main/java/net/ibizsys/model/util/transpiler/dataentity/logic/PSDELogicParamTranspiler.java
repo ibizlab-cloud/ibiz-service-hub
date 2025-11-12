@@ -33,6 +33,7 @@ public class PSDELogicParamTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setDomainValue(iPSModelTranspileContext, domain, "stddatatype", realPSModelObject.getStdDataType(), realPSModelObject, "getStdDataType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "cloneparamflag", realPSModelObject.isCloneParam(), realPSModelObject, "isCloneParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultparam", realPSModelObject.isDefault(), realPSModelObject, "isDefault");
+		this.setDomainValue(iPSModelTranspileContext, domain, "originentityflag", realPSModelObject.isOriginEntity(), realPSModelObject, "isOriginEntity");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
@@ -49,6 +50,7 @@ public class PSDELogicParamTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTDDATATYPE, domain, "stddatatype", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCLONEPARAM, domain, "cloneparamflag", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULT, domain, "defaultparam", boolean.class, new String[]{"false"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISORIGINENTITY, domain, "originentityflag", boolean.class, new String[]{"false"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

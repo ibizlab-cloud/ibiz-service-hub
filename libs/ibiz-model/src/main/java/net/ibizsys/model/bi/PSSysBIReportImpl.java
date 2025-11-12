@@ -92,6 +92,10 @@ public class PSSysBIReportImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectI
 		return value;
 	}
 
+	public void setPSSysBICube(net.ibizsys.model.bi.IPSSysBICube pssysbicube){
+		this.pssysbicube = pssysbicube;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -108,6 +112,10 @@ public class PSSysBIReportImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectI
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
@@ -128,6 +136,10 @@ public class PSSysBIReportImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectI
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
 
 	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes(){
@@ -144,6 +156,10 @@ public class PSSysBIReportImpl extends net.ibizsys.model.bi.PSSysBISchemeObjectI
 		net.ibizsys.model.security.IPSSysUniRes value = this.getPSSysUniRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定权限统一资源对象");}
 		return value;
+	}
+
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
 	}
 
 

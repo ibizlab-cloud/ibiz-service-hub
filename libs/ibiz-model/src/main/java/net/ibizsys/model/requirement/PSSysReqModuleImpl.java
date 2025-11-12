@@ -110,6 +110,10 @@ public class PSSysReqModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 	private net.ibizsys.model.requirement.IPSSysReqModule parentpssysreqmodule;
 
 	public net.ibizsys.model.requirement.IPSSysReqModule getParentPSSysReqModule(){
@@ -126,6 +130,10 @@ public class PSSysReqModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.requirement.IPSSysReqModule value = this.getParentPSSysReqModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定父模块");}
 		return value;
+	}
+
+	public void setParentPSSysReqModule(net.ibizsys.model.requirement.IPSSysReqModule parentpssysreqmodule){
+		this.parentpssysreqmodule = parentpssysreqmodule;
 	}
 
 }

@@ -34,6 +34,10 @@ public class PSDETreeNodeColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 		return value;
 	}
 
+	public void setCellPSSysCss(net.ibizsys.model.res.IPSSysCss cellpssyscss){
+		this.cellpssyscss = cellpssyscss;
+	}
+
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -166,6 +170,10 @@ public class PSDETreeNodeColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 		return value;
 	}
 
+	public void setPSDETreeColumn(net.ibizsys.model.control.tree.IPSDETreeColumn psdetreecolumn){
+		this.psdetreecolumn = psdetreecolumn;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin renderpssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getRenderPSSysPFPlugin(){
@@ -182,6 +190,10 @@ public class PSDETreeNodeColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getRenderPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定列前端扩展插件");}
 		return value;
+	}
+
+	public void setRenderPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin renderpssyspfplugin){
+		this.renderpssyspfplugin = renderpssyspfplugin;
 	}
 
 

@@ -27,6 +27,10 @@ public class PSDEChartSeriesCSCartesian2DEncodeImpl extends net.ibizsys.model.co
 		return value;
 	}
 
+	public void setPSChartXAxis(net.ibizsys.model.control.chart.IPSChartXAxis pschartxaxis){
+		this.pschartxaxis = pschartxaxis;
+	}
+
 	private net.ibizsys.model.control.chart.IPSChartYAxis pschartyaxis;
 
 	public net.ibizsys.model.control.chart.IPSChartYAxis getPSChartYAxis(){
@@ -44,6 +48,10 @@ public class PSDEChartSeriesCSCartesian2DEncodeImpl extends net.ibizsys.model.co
 		net.ibizsys.model.control.chart.IPSChartYAxis value = this.getPSChartYAxis();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图表Y坐标轴");}
 		return value;
+	}
+
+	public void setPSChartYAxis(net.ibizsys.model.control.chart.IPSChartYAxis pschartyaxis){
+		this.pschartyaxis = pschartyaxis;
 	}
 
 	private java.lang.String[] x = null;

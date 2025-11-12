@@ -25,6 +25,7 @@ public abstract class PSDEFUIItemImpl extends net.ibizsys.model.dataentity.defie
 	public final static String ATTR_GETREFPSDEDATASET = "getRefPSDEDataSet";
 	public final static String ATTR_GETREFPSDATAENTITY = "getRefPSDataEntity";
 	public final static String ATTR_GETREFPICKUPPSDEVIEWCODENAME = "refPickupPSDEViewCodeName";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 	public final static String ATTR_GETUIMODE = "uIMode";
 	public final static String ATTR_GETVALUEFORMAT = "valueFormat";
@@ -178,6 +179,7 @@ public abstract class PSDEFUIItemImpl extends net.ibizsys.model.dataentity.defie
 		return value.asText();
 	}
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -274,6 +276,14 @@ public abstract class PSDEFUIItemImpl extends net.ibizsys.model.dataentity.defie
 			return null;
 		}
 		return value.asText();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
 	}
 
 	public int getStringLength(){

@@ -26,6 +26,10 @@ public class PSSysBIReportDimensionImpl extends net.ibizsys.model.bi.PSSysBIRepo
 		return value;
 	}
 
+	public void setPSSysBICubeDimension(net.ibizsys.model.bi.IPSSysBICubeDimension pssysbicubedimension){
+		this.pssysbicubedimension = pssysbicubedimension;
+	}
+
 
 	public java.lang.String getPlaceType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPLACETYPE);

@@ -590,14 +590,14 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>CUSTOMCOND</B>&nbsp;自定义条件
+     * <B>CUSTOMCOND</B>&nbsp;自定义条件，指定数据集时进一步指定过滤条件
      * <P>
      * 字符串：最大长度 2000
      */
     public final static String FIELD_CUSTOMCOND = "customcond";
 
     /**
-     * 设置 自定义条件
+     * 设置 自定义条件，详细说明：{@link #FIELD_CUSTOMCOND}
      * 
      * @param customCond
      * 
@@ -641,7 +641,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 自定义条件
+     * 设置 自定义条件，详细说明：{@link #FIELD_CUSTOMCOND}
      * <P>
      * 等同 {@link #setCustomCond}
      * @param customCond
@@ -1885,14 +1885,14 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NAVVIEWPOS</B>&nbsp;导航视图位置
+     * <B>NAVVIEWPOS</B>&nbsp;内置导航视图位置，指定内置导航视图位置，未定义为无`NONE`
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.NavViewPos} 
      */
     public final static String FIELD_NAVVIEWPOS = "navviewpos";
 
     /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * 
      * @param navViewPos
      * 
@@ -1903,7 +1903,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 导航视图位置  
+     * 获取 内置导航视图位置  
      * @return
      */
     @JsonIgnore
@@ -1916,7 +1916,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 导航视图位置 是否指定值，包括空值
+     * 判断 内置导航视图位置 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1928,7 +1928,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 导航视图位置
+     * 重置 内置导航视图位置
      */
     @JsonIgnore
     public void resetNavViewPos(){
@@ -1936,7 +1936,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * <P>
      * 等同 {@link #setNavViewPos}
      * @param navViewPos
@@ -1948,7 +1948,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * <P>
      * 等同 {@link #setNavViewPos}
      * @param navViewPos
@@ -1965,14 +1965,14 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NAVVIEWSHOWMODE</B>&nbsp;导航视图显示模式
+     * <B>NAVVIEWSHOWMODE</B>&nbsp;内置导航视图显示模式，指定内置导航视图显示模式，未定义为默认显示`0`
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.NavViewShowMode} 
      */
     public final static String FIELD_NAVVIEWSHOWMODE = "navviewshowmode";
 
     /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * 
      * @param navViewShowMode
      * 
@@ -1983,7 +1983,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 导航视图显示模式  
+     * 获取 内置导航视图显示模式  
      * @return
      */
     @JsonIgnore
@@ -1996,7 +1996,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 导航视图显示模式 是否指定值，包括空值
+     * 判断 内置导航视图显示模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2008,7 +2008,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 导航视图显示模式
+     * 重置 内置导航视图显示模式
      */
     @JsonIgnore
     public void resetNavViewShowMode(){
@@ -2016,7 +2016,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * <P>
      * 等同 {@link #setNavViewShowMode}
      * @param navViewShowMode
@@ -2028,7 +2028,7 @@ public class PSDEChart extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * <P>
      * 等同 {@link #setNavViewShowMode}
      * @param navViewShowMode

@@ -189,6 +189,8 @@ public interface IHubSysExtensionUtilRuntime extends ISysUtilRuntime{
 	File getAppSimpleModelFile(ISystemRuntime iSystemRuntime, String strAppTag, String strModelUri, Object param, boolean bTryMode);
 	
 	
+
+	
 	/**
 	 * 合并系统模型
 	 * @param majorFile

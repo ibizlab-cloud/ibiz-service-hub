@@ -40,6 +40,10 @@ public class PSDEDRCtrlItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -98,6 +102,10 @@ public class PSDEDRCtrlItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setHeaderPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin headerpssyspfplugin){
+		this.headerpssyspfplugin = headerpssyspfplugin;
+	}
+
 
 	public java.lang.String getItemTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETITEMTAG);
@@ -130,6 +138,10 @@ public class PSDEDRCtrlItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.app.view.IPSAppView value = this.getPSAppView();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定关联视图");}
 		return value;
+	}
+
+	public void setPSAppView(net.ibizsys.model.app.view.IPSAppView psappview){
+		this.psappview = psappview;
 	}
 
 
@@ -270,6 +282,10 @@ public class PSDEDRCtrlItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDELogic testpsappdelogic;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDELogic getTestPSAppDELogic(){
@@ -287,6 +303,10 @@ public class PSDEDRCtrlItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.app.dataentity.IPSAppDELogic value = this.getTestPSAppDELogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定启用判断实体逻辑");}
 		return value;
+	}
+
+	public void setTestPSAppDELogic(net.ibizsys.model.app.dataentity.IPSAppDELogic testpsappdelogic){
+		this.testpsappdelogic = testpsappdelogic;
 	}
 
 

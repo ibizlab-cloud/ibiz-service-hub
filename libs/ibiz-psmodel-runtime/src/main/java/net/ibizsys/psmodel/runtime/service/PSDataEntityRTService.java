@@ -64,6 +64,6 @@ public class PSDataEntityRTService extends PSModelRTServiceBase<PSDataEntity, PS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSDataEntity.class, this.getPSSystemService().getPSSystem().getAllPSDataEntities(), (String)key, false);
+    	return getPSModelObject(IPSDataEntity.class, this.getPSSystemService().getPSSystem().getAllPSDataEntities(), (String)key, tryMode);
     }
 }

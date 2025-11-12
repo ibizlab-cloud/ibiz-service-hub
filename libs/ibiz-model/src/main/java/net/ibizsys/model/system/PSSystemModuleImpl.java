@@ -17,6 +17,7 @@ public class PSSystemModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 	public final static String ATTR_GETMODULETAG4 = "moduleTag4";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPKGCODENAME = "pKGCodeName";
+	public final static String ATTR_GETPSDYNAMODEL = "getPSDynaModel";
 	public final static String ATTR_GETPSSYSMODELGROUP = "getPSSysModelGroup";
 	public final static String ATTR_GETPSSYSREF = "getPSSysRef";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
@@ -173,6 +174,28 @@ public class PSSystemModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel;
+
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModel(){
+		if(this.psdynamodel != null) return this.psdynamodel;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDYNAMODEL);
+		if(value == null){
+			return null;
+		}
+		this.psdynamodel = getPSModelObject(net.ibizsys.model.dynamodel.IPSDynaModel.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSDYNAMODEL);
+		return this.psdynamodel;
+	}
+
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModelMust(){
+		net.ibizsys.model.dynamodel.IPSDynaModel value = this.getPSDynaModel();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定动态模型");}
+		return value;
+	}
+
+	public void setPSDynaModel(net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel){
+		this.psdynamodel = psdynamodel;
+	}
+
 	private net.ibizsys.model.system.IPSSysModelGroup pssysmodelgroup;
 
 	public net.ibizsys.model.system.IPSSysModelGroup getPSSysModelGroup(){
@@ -189,6 +212,10 @@ public class PSSystemModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.system.IPSSysModelGroup value = this.getPSSysModelGroup();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模型组");}
 		return value;
+	}
+
+	public void setPSSysModelGroup(net.ibizsys.model.system.IPSSysModelGroup pssysmodelgroup){
+		this.pssysmodelgroup = pssysmodelgroup;
 	}
 
 	private net.ibizsys.model.system.IPSSysRef pssysref;
@@ -209,6 +236,10 @@ public class PSSystemModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		return value;
 	}
 
+	public void setPSSysRef(net.ibizsys.model.system.IPSSysRef pssysref){
+		this.pssysref = pssysref;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -225,6 +256,10 @@ public class PSSystemModuleImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后台扩展插件");}
 		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
 	}
 
 

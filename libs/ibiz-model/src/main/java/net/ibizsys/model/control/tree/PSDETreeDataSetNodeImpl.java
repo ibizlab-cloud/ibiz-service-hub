@@ -60,6 +60,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setChildCntPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField childcntpsappdefield){
+		this.childcntpsappdefield = childcntpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField clspsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEField(){
@@ -77,6 +81,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getClsPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定节点样式表值应用实体属性");}
 		return value;
+	}
+
+	public void setClsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField clspsappdefield){
+		this.clspsappdefield = clspsappdefield;
 	}
 
 
@@ -106,6 +114,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setData2PSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField data2psappdefield){
+		this.data2psappdefield = data2psappdefield;
+	}
+
 
 	public java.lang.String getDataName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATANAME);
@@ -131,6 +143,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getDataPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据值应用实体属性");}
 		return value;
+	}
+
+	public void setDataPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField datapsappdefield){
+		this.datapsappdefield = datapsappdefield;
 	}
 
 
@@ -160,6 +176,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setFilterPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet filterpsappdedataset){
+		this.filterpsappdedataset = filterpsappdedataset;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField iconpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getIconPSAppDEField(){
@@ -177,6 +197,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getIconPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定节点图标值应用实体属性");}
 		return value;
+	}
+
+	public void setIconPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField iconpsappdefield){
+		this.iconpsappdefield = iconpsappdefield;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEField idpsappdefield;
@@ -198,6 +222,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setIdPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField idpsappdefield){
+		this.idpsappdefield = idpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField leafflagpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getLeafFlagPSAppDEField(){
@@ -217,6 +245,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setLeafFlagPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField leafflagpsappdefield){
+		this.leafflagpsappdefield = leafflagpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField linkpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getLinkPSAppDEField(){
@@ -234,6 +266,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getLinkPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定链接值应用实体属性");}
 		return value;
+	}
+
+	public void setLinkPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField linkpsappdefield){
+		this.linkpsappdefield = linkpsappdefield;
 	}
 
 
@@ -271,6 +307,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setMovePSAppDEAction(net.ibizsys.model.app.dataentity.IPSAppDEAction movepsappdeaction){
+		this.movepsappdeaction = movepsappdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv movepsdeoppriv;
 
 	public net.ibizsys.model.dataentity.priv.IPSDEOPPriv getMovePSDEOPPriv(){
@@ -287,6 +327,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.dataentity.priv.IPSDEOPPriv value = this.getMovePSDEOPPriv();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定移动要求操作标识");}
 		return value;
+	}
+
+	public void setMovePSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv movepsdeoppriv){
+		this.movepsdeoppriv = movepsdeoppriv;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEAction psappdeaction;
@@ -308,6 +352,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setPSAppDEAction(net.ibizsys.model.app.dataentity.IPSAppDEAction psappdeaction){
+		this.psappdeaction = psappdeaction;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet(){
@@ -325,6 +373,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEDataSet value = this.getPSAppDEDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体结果集对象");}
 		return value;
+	}
+
+	public void setPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset){
+		this.psappdedataset = psappdedataset;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDELogic psappdelogic;
@@ -346,6 +398,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setPSAppDELogic(net.ibizsys.model.app.dataentity.IPSAppDELogic psappdelogic){
+		this.psappdelogic = psappdelogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -362,6 +418,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 
@@ -399,6 +459,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setRemovePSAppDEAction(net.ibizsys.model.app.dataentity.IPSAppDEAction removepsappdeaction){
+		this.removepsappdeaction = removepsappdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv removepsdeoppriv;
 
 	public net.ibizsys.model.dataentity.priv.IPSDEOPPriv getRemovePSDEOPPriv(){
@@ -415,6 +479,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.dataentity.priv.IPSDEOPPriv value = this.getRemovePSDEOPPriv();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定删除要求操作标识");}
 		return value;
+	}
+
+	public void setRemovePSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv removepsdeoppriv){
+		this.removepsdeoppriv = removepsdeoppriv;
 	}
 
 
@@ -444,6 +512,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setShapeClsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField shapeclspsappdefield){
+		this.shapeclspsappdefield = shapeclspsappdefield;
+	}
+
 
 	public java.lang.String getSortDir(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSORTDIR);
@@ -469,6 +541,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getSortPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定节点排序值应用实体属性");}
 		return value;
+	}
+
+	public void setSortPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField sortpsappdefield){
+		this.sortpsappdefield = sortpsappdefield;
 	}
 
 
@@ -498,6 +574,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setTextPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField textpsappdefield){
+		this.textpsappdefield = textpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField tipspsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEField(){
@@ -515,6 +595,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getTipsPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定节点提示值应用实体属性");}
 		return value;
+	}
+
+	public void setTipsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField tipspsappdefield){
+		this.tipspsappdefield = tipspsappdefield;
 	}
 
 
@@ -544,6 +628,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		return value;
 	}
 
+	public void setUpdatePSAppDEAction(net.ibizsys.model.app.dataentity.IPSAppDEAction updatepsappdeaction){
+		this.updatepsappdeaction = updatepsappdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv updatepsdeoppriv;
 
 	public net.ibizsys.model.dataentity.priv.IPSDEOPPriv getUpdatePSDEOPPriv(){
@@ -560,6 +648,10 @@ public class PSDETreeDataSetNodeImpl extends net.ibizsys.model.control.tree.PSDE
 		net.ibizsys.model.dataentity.priv.IPSDEOPPriv value = this.getUpdatePSDEOPPriv();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定更新要求操作标识");}
 		return value;
+	}
+
+	public void setUpdatePSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv updatepsdeoppriv){
+		this.updatepsdeoppriv = updatepsdeoppriv;
 	}
 
 

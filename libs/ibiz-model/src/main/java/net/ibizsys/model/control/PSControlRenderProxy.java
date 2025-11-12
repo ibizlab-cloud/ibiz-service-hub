@@ -44,6 +44,10 @@ public class PSControlRenderProxy extends net.ibizsys.model.PSObjectImpl impleme
 		return value;
 	}
 
+	public void setPSLayoutPanel(net.ibizsys.model.control.panel.IPSLayoutPanel pslayoutpanel){
+		this.pslayoutpanel = pslayoutpanel;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -60,6 +64,10 @@ public class PSControlRenderProxy extends net.ibizsys.model.PSObjectImpl impleme
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 

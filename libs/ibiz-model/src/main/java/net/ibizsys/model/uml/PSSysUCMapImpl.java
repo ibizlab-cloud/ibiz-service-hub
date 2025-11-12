@@ -83,6 +83,10 @@ public class PSSysUCMapImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 
 	public java.lang.String getUCMapSN(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUCMAPSN);

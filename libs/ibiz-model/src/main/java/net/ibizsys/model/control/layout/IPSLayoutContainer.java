@@ -11,14 +11,14 @@ public interface IPSLayoutContainer{
 	
 	
 	/**
-	 * 获取看板布局
+	 * 获取菜单布局对象
 	 * @return
 	 */
 	net.ibizsys.model.control.layout.IPSLayout getPSLayout();
 
 
 	/**
-	 * 获取看板布局，不存在时抛出异常
+	 * 获取菜单布局对象，不存在时抛出异常
 	 * @return
 	 */
 	net.ibizsys.model.control.layout.IPSLayout getPSLayoutMust();

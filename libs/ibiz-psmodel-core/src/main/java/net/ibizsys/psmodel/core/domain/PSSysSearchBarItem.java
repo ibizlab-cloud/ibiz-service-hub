@@ -3519,14 +3519,14 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>PSSYSEDITORSTYLEID</B>&nbsp;系统编辑器样式，指定搜索栏过滤项的编辑器的扩展样式
+     * <B>PSSYSEDITORSTYLEID</B>&nbsp;编辑器样式，指定搜索栏过滤项的编辑器的扩展样式
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysEditorStyle} 
      */
     public final static String FIELD_PSSYSEDITORSTYLEID = "pssyseditorstyleid";
 
     /**
-     * 设置 系统编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
+     * 设置 编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
      * 
      * @param pSSysEditorStyleId
      * 
@@ -3537,7 +3537,7 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
     
     /**
-     * 获取 系统编辑器样式  
+     * 获取 编辑器样式  
      * @return
      */
     @JsonIgnore
@@ -3550,7 +3550,7 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 判断 系统编辑器样式 是否指定值，包括空值
+     * 判断 编辑器样式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -3562,7 +3562,7 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 重置 系统编辑器样式
+     * 重置 编辑器样式
      */
     @JsonIgnore
     public void resetPSSysEditorStyleId(){
@@ -3570,7 +3570,7 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 系统编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
+     * 设置 编辑器样式，详细说明：{@link #FIELD_PSSYSEDITORSTYLEID}
      * <P>
      * 等同 {@link #setPSSysEditorStyleId}
      * @param pSSysEditorStyleId
@@ -3582,7 +3582,7 @@ public class PSSysSearchBarItem extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 系统编辑器样式，包括引用对象的其它关系属性
+     * 设置 编辑器样式，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setPSSysEditorStyleId}
      * @param pSSysEditorStyle 引用对象

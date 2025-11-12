@@ -21,18 +21,28 @@ public class PSSysAIChatAgentTranspiler extends net.ibizsys.model.util.transpile
 			
 		}
 		net.ibizsys.model.ai.PSSysAIChatAgentImpl realPSModelObject = (net.ibizsys.model.ai.PSSysAIChatAgentImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "aiplatformtype", realPSModelObject.getAIPlatformType(), realPSModelObject, "getAIPlatformType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "agentinfo", realPSModelObject.getAgentInfo(), realPSModelObject, "getAgentInfo");
 		this.setDomainValue(iPSModelTranspileContext, domain, "aichatagentparams", realPSModelObject.getAgentParams(), realPSModelObject, "getAgentParams");
 		this.setDomainValue(iPSModelTranspileContext, domain, "aichatagenttag", realPSModelObject.getAgentTag(), realPSModelObject, "getAgentTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "aichatagenttag2", realPSModelObject.getAgentTag2(), realPSModelObject, "getAgentTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "aichatagenttype", realPSModelObject.getAgentType(), realPSModelObject, "getAgentType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdelogicid", realPSModelObject.getPSDELogic(), realPSModelObject, "getPSDELogic");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdeid", realPSModelObject.getPSDataEntity(), realPSModelObject, "getPSDataEntity");
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssysuniresid", realPSModelObject.getPSSysUniRes(), realPSModelObject, "getPSSysUniRes");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAIPLATFORMTYPE, domain, "aiplatformtype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAGENTINFO, domain, "agentinfo", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAGENTPARAMS, domain, "aichatagentparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAGENTTAG, domain, "aichatagenttag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAGENTTAG2, domain, "aichatagenttag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAGENTTYPE, domain, "aichatagenttype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDELOGIC, domain, "psdelogicid", net.ibizsys.model.dataentity.logic.IPSDELogic.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDATAENTITY, domain, "psdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSUNIRES, domain, "pssysuniresid", net.ibizsys.model.security.IPSSysUniRes.class, false);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

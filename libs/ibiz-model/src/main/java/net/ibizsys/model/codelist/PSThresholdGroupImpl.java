@@ -36,6 +36,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setBeginValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField beginvaluepsdefield){
+		this.beginvaluepsdefield = beginvaluepsdefield;
+	}
+
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -71,6 +75,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setDataPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField datapsdefield){
+		this.datapsdefield = datapsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField endvaluepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getEndValuePSDEField(){
@@ -88,6 +96,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getEndValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定结束值存储属性");}
 		return value;
+	}
+
+	public void setEndValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField endvaluepsdefield){
+		this.endvaluepsdefield = endvaluepsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField iconclspsdefield;
@@ -109,6 +121,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setIconClsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField iconclspsdefield){
+		this.iconclspsdefield = iconclspsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet(){
@@ -128,6 +144,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -144,6 +164,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体对象");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 
@@ -187,6 +211,10 @@ public class PSThresholdGroupImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getTextPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定文本值存储属性");}
 		return value;
+	}
+
+	public void setTextPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField textpsdefield){
+		this.textpsdefield = textpsdefield;
 	}
 
 

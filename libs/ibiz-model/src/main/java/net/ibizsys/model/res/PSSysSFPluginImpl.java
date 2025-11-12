@@ -61,6 +61,10 @@ public class PSSysSFPluginImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 
 	public java.lang.String getPluginCode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPLUGINCODE);

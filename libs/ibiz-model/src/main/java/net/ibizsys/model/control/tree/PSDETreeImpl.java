@@ -54,6 +54,10 @@ public class PSDETreeImpl extends net.ibizsys.model.control.PSMDAjaxControlConta
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 
 	public int getFrozenFirstColumn(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFROZENFIRSTCOLUMN);
@@ -86,6 +90,10 @@ public class PSDETreeImpl extends net.ibizsys.model.control.PSMDAjaxControlConta
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 

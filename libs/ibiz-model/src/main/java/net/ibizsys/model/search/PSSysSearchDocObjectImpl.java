@@ -34,4 +34,8 @@ public abstract class PSSysSearchDocObjectImpl extends net.ibizsys.model.search.
 		return value;
 	}
 
+	public void setPSSysSearchDoc(net.ibizsys.model.search.IPSSysSearchDoc pssyssearchdoc){
+		this.pssyssearchdoc = pssyssearchdoc;
+	}
+
 }

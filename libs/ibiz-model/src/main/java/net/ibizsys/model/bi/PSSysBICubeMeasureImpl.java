@@ -111,6 +111,10 @@ public class PSSysBICubeMeasureImpl extends net.ibizsys.model.bi.PSSysBICubeObje
 		return value;
 	}
 
+	public void setPSCodeList(net.ibizsys.model.codelist.IPSCodeList pscodelist){
+		this.pscodelist = pscodelist;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField(){
@@ -128,6 +132,10 @@ public class PSSysBICubeMeasureImpl extends net.ibizsys.model.bi.PSSysBICubeObje
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体属性");}
 		return value;
+	}
+
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
 	}
 
 

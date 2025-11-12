@@ -82,6 +82,10 @@ public class PSSysEAIElementREImpl extends net.ibizsys.model.eai.PSSysEAIElement
 		return value;
 	}
 
+	public void setPSSysEAIDataType(net.ibizsys.model.eai.IPSSysEAIDataType pssyseaidatatype){
+		this.pssyseaidatatype = pssyseaidatatype;
+	}
+
 
 	public java.lang.String getRETag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRETAG);
@@ -115,6 +119,10 @@ public class PSSysEAIElementREImpl extends net.ibizsys.model.eai.PSSysEAIElement
 		net.ibizsys.model.eai.IPSSysEAIElement value = this.getRefPSSysEAIElement();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用属性组");}
 		return value;
+	}
+
+	public void setRefPSSysEAIElement(net.ibizsys.model.eai.IPSSysEAIElement refpssyseaielement){
+		this.refpssyseaielement = refpssyseaielement;
 	}
 
 

@@ -25,6 +25,10 @@ public class PSAppTitleBarImpl extends net.ibizsys.model.control.titlebar.PSTitl
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 
 	public java.lang.String getTitleBarStyle(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTITLEBARSTYLE);

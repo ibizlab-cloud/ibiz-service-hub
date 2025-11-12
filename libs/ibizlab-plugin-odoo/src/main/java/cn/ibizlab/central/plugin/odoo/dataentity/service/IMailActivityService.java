@@ -51,6 +51,10 @@ public interface IMailActivityService extends cn.ibizlab.central.plugin.odoo.dat
      */
     String ACTION_ACTION_SNOOZE = "ACTION_SNOOZE";
     /**
+     * 行为: 计算模型
+     */
+    String ACTION_CALC_MODEL = "CALC_MODEL";
+    /**
      * 查询: DEFAULT
      */
     String DATAQUERY_DEFAULT = "DEFAULT";
@@ -59,7 +63,11 @@ public interface IMailActivityService extends cn.ibizlab.central.plugin.odoo.dat
      */
     String DATAQUERY_VIEW = "VIEW";
     /**
-     * 查询: 未完成
+     * 查询: 我的活动
+     */
+    String DATAQUERY_MY_ACTIVITIES = "MY_ACTIVITIES";
+    /**
+     * 查询: 未完成的活动
      */
     String DATAQUERY_UN_FINISHED = "UN_FINISHED";
     /**
@@ -67,7 +75,11 @@ public interface IMailActivityService extends cn.ibizlab.central.plugin.odoo.dat
      */
     String DATASET_DEFAULT = "DEFAULT";
     /**
-     * 集合: 未完成
+     * 集合: 我的活动
+     */
+    String DATASET_MY_ACTIVITIES = "MY_ACTIVITIES";
+    /**
+     * 集合: 未完成的活动
      */
     String DATASET_UN_FINISHED = "UN_FINISHED";
 
@@ -79,13 +91,21 @@ public interface IMailActivityService extends cn.ibizlab.central.plugin.odoo.dat
      * 行为: 延迟活动
      */
     void actionSnooze(MailActivityDTO dto) throws Throwable;
+    /**
+     * 行为: 计算模型
+     */
+    void calcModel(MailActivityDTO dto) throws Throwable;
 
     /**
      * 集合: DEFAULT
      */
     Page<MailActivityDTO> fetchDefault(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
     /**
-     * 集合: 未完成
+     * 集合: 我的活动
+     */
+    Page<MailActivityDTO> fetchMyActivities(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
+    /**
+     * 集合: 未完成的活动
      */
     Page<MailActivityDTO> fetchUnFinished(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
 }

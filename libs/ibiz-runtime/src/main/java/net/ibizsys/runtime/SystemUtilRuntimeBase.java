@@ -9,11 +9,13 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -113,9 +115,11 @@ import net.ibizsys.runtime.system.ISystemModuleUtilRuntime;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.Entity;
 import net.ibizsys.runtime.util.Errors;
+import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.IEntityBase;
+import net.ibizsys.runtime.util.INamedAction;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
@@ -1276,6 +1280,84 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 				}
 			}
 		}
+	}
+	
+	public Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException) throws Throwable {
+		return this.threadRunAllOf(actions, bIgnoreException, null);
+	}
+	
+	@Override
+	public Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException, Object env) throws Throwable {
+		Assert.notNull(this.workThreadPoolExecutor, "后台作业线程池对象无效");
+		Assert.notEmpty(actions, "传入行为数组无效");
+		
+		Map<String, Object> taskRetMap = new LinkedHashMap<String, Object>();
+		List<CompletableFuture<?>> taskList = new ArrayList<CompletableFuture<?>>();
+		final IUserContext iUserContext = UserContext.getCurrent();
+		
+		for(int i = 0; i<actions.size() ;i++) {
+			IAction iAction = actions.get(i);
+			Assert.notNull(iAction, String.format("#%1$s行为无效", i));
+			
+			String strActionName = String.format("#%1$s", i);
+			if(iAction instanceof INamedAction) {
+				String name = ((INamedAction)iAction).getName();
+				Assert.hasLength(name, String.format("#%1$s行为名称无效", i));
+				strActionName = name;
+			}
+			
+			if(taskRetMap.containsKey(strActionName)) {
+				throw new SystemRuntimeException(this, String.format("出现重复的行为名称[%1$s]", strActionName));
+			}
+			taskRetMap.put(strActionName, null);
+			
+			final String strActionName2 = strActionName;
+			
+			CompletableFuture<Void> task = CompletableFuture.runAsync(new Runnable() {
+
+				@Override
+				public void run() {
+					IUserContext last = UserContext.getCurrent();
+					try {
+						UserContext.setCurrent(getThreadTaskUserContext(iUserContext));
+						doThreadRun(new Runnable() {
+							public void run() {
+								try {
+									Object ret = iAction.execute(null);
+									taskRetMap.put(strActionName2, ret);
+								}catch (Throwable ex) {
+									ExceptionUtils.rethrowRuntimeException(ex);
+								}
+							}
+						}, strActionName2, env);
+					}
+					catch (Throwable ex) {
+						ex= ExceptionUtils.unwrapThrowable(ex);
+						log.error(String.format("行为[%1$s]执行发生异常，%2$s", strActionName2, ex.getMessage()), ex);
+						taskRetMap.put(strActionName2, ex);
+					}
+					finally {
+						UserContext.setCurrent(last);
+					}
+				}
+				
+			}, this.workThreadPoolExecutor);
+			
+			taskList.add(task);
+		}
+		
+		CompletableFuture.allOf(taskList.toArray(new CompletableFuture<?>[taskList.size()])).get();
+		//判断是否存在异常
+		if(!bIgnoreException) {
+			for(java.util.Map.Entry<String, Object> entry : taskRetMap.entrySet()) {
+				if(entry.getValue() instanceof Throwable) {
+					Throwable ex = (Throwable)entry.getValue();
+					throw new SystemRuntimeException(this, String.format("行为[%1$s]执行发生异常，%2$s", entry.getKey(), ex.getMessage()), ex);
+				}
+			}
+		}
+		
+		return taskRetMap;
 	}
 
 	@Override

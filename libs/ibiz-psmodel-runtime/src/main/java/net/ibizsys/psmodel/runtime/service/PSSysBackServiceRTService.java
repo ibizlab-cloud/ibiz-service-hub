@@ -64,6 +64,6 @@ public class PSSysBackServiceRTService extends PSModelRTServiceBase<PSSysBackSer
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysBackService.class, this.getPSSystemService().getPSSystem().getAllPSSysBackServices(), (String)key, false);
+    	return getPSModelObject(IPSSysBackService.class, this.getPSSystemService().getPSSystem().getAllPSSysBackServices(), (String)key, tryMode);
     }
 }

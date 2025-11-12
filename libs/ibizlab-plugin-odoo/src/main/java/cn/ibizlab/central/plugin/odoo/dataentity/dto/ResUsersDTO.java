@@ -835,6 +835,11 @@ public class ResUsersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityD
     public final static String FIELD_ZIP = "zip";
 
     /**
+     * 属性: 最近的登录日期
+     */
+    public final static String FIELD_LOGIN_DATE = "login_date";
+
+    /**
      * 属性: 头像128
      */
     public final static String FIELD_AVATAR128 = "avatar128";
@@ -7330,6 +7335,44 @@ public class ResUsersDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityD
     @JsonIgnore
     public ResUsersDTO resetZip() {
         this._reset(FIELD_ZIP);
+        return this;
+    }
+
+    /**
+     * 设置「最近的登录日期」
+     * @param val
+     */
+    @JsonProperty(FIELD_LOGIN_DATE)
+    public ResUsersDTO setLoginDate(Timestamp val) {
+        this._set(FIELD_LOGIN_DATE, val);
+        return this;
+    }
+
+    /**
+     * 获取「最近的登录日期」值
+     *
+     */
+    @JsonIgnore
+    public Timestamp getLoginDate() {
+        return DataTypeUtils.asDateTimeValue(this._get(FIELD_LOGIN_DATE), null);
+    }
+
+    /**
+     * 判断 「最近的登录日期」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsLoginDate() {
+        return this._contains(FIELD_LOGIN_DATE);
+    }
+
+    /**
+     * 重置 「最近的登录日期」
+     *
+     */
+    @JsonIgnore
+    public ResUsersDTO resetLoginDate() {
+        this._reset(FIELD_LOGIN_DATE);
         return this;
     }
 

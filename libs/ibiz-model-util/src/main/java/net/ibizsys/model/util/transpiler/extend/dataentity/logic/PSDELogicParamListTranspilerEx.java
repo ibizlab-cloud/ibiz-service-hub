@@ -165,10 +165,20 @@ public class PSDELogicParamListTranspilerEx extends net.ibizsys.model.util.trans
 
 	@Override
 	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
-		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
-		
 		IPSDELogicParam iPSDELogicParam = (IPSDELogicParam) iPSModelObject;
 		PSDELogicParam psDELogicParam = (PSDELogicParam) domain;
+		
+		//备份
+		String strLogicName = iPSDELogicParam.getName();
+		String strName = iPSDELogicParam.getCodeName();
+		
+		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
+		
+		//重新设置
+		psDELogicParam.setName(strName);
+		psDELogicParam.setLogicName(strLogicName);
+		psDELogicParam.reset("codename");
+		
 		
 		psDELogicParam.setGlobalParam(this.getParamType(iPSDELogicParam));
 
@@ -307,6 +317,7 @@ public class PSDELogicParamListTranspilerEx extends net.ibizsys.model.util.trans
 		
 		PSDELogicParam psDELogicParam = (PSDELogicParam) domain;
 		objectNode.put(PSDELogicParamImpl.ATTR_GETCODENAME, psDELogicParam.getName());
+		objectNode.put(PSDELogicParamImpl.ATTR_GETNAME, psDELogicParam.getLogicName());
 		
 		switch(DataTypeUtils.getIntegerValue(psDELogicParam.getGlobalParam(), PARAMTYPE_COMMON)) {
 		case PARAMTYPE_GLOBAL:

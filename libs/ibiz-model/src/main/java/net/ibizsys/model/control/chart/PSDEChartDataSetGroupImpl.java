@@ -25,6 +25,10 @@ public class PSDEChartDataSetGroupImpl extends net.ibizsys.model.control.chart.P
 		return value;
 	}
 
+	public void setPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset){
+		this.psappdedataset = psappdedataset;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -41,6 +45,10 @@ public class PSDEChartDataSetGroupImpl extends net.ibizsys.model.control.chart.P
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 }

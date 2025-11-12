@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.kb.ragflow.addin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,10 +116,28 @@ public class RagFlowKBAccessAgent extends KBAccessAgentBase {
 					list = (List)chunks;
 				}
 				
+				Object doc_aggs = dataMap.get("doc_aggs");
+				Map<String, String> docMap = new HashMap<String, String>();
+				if(doc_aggs instanceof List) {
+					List docList = (List)doc_aggs;
+					for(Object item : docList) {
+						Map doc = (Map)item;
+						docMap.put(DataTypeUtils.asString(doc.get("doc_id")), DataTypeUtils.asString(doc.get("doc_name")));
+					}
+				}
+				
 				List<Chunk> chunkList = new ArrayList<Chunk>();
 				if(!ObjectUtils.isEmpty(list)) {
 					for(Object item : list) {
 						Chunk chunk = JsonUtils.as(item, Chunk.class);
+						//放入文档信息
+						chunk.setDocId(DataTypeUtils.asString(chunk.get("document_id")));
+						chunk.setDocKeyword(DataTypeUtils.asString(chunk.get("document_keyword")));
+						chunk.setDocName(docMap.get(chunk.getDocId()));
+
+						chunk.reset("document_id");
+						chunk.reset("document_keyword");
+						
 						chunkList.add(chunk);
 					}
 				}

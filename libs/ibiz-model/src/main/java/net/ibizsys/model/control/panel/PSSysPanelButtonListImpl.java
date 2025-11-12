@@ -67,6 +67,10 @@ public class PSSysPanelButtonListImpl extends net.ibizsys.model.control.panel.PS
 		return value;
 	}
 
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
+	}
+
 
 	@Deprecated
 	public boolean isShowCaption(){

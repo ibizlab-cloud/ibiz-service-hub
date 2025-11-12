@@ -21,11 +21,15 @@ public class PSSysUniResTranspiler extends net.ibizsys.model.util.transpiler.PSM
 			
 		}
 		net.ibizsys.model.security.PSSysUniResImpl realPSModelObject = (net.ibizsys.model.security.PSSysUniResImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssyssfpluginid", realPSModelObject.getPSSysSFPlugin(), realPSModelObject, "getPSSysSFPlugin");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psmoduleid", realPSModelObject.getPSSystemModule(), realPSModelObject, "getPSSystemModule");
 		this.setDomainValue(iPSModelTranspileContext, domain, "rescode", realPSModelObject.getResCode(), realPSModelObject, "getResCode");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSSFPLUGIN, domain, "pssyssfpluginid", net.ibizsys.model.res.IPSSysSFPlugin.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSTEMMODULE, domain, "psmoduleid", net.ibizsys.model.system.IPSSystemModule.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRESCODE, domain, "rescode", java.lang.String.class);
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}

@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import net.ibizsys.central.cloud.core.IServiceSystemRuntimeBase;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysNotifyUtilRuntime;
@@ -388,5 +389,10 @@ public abstract class CloudUtilRuntimeBase extends SysUtilRuntimeBase implements
 	 */
 	protected String getGlobalConfigId() {
 		return null;
+	}
+	
+	@Override
+	public IServiceSystemRuntimeBase getSystemRuntime() {
+		return (IServiceSystemRuntimeBase)super.getSystemRuntime();
 	}
 }

@@ -67,6 +67,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setCreatePSControlAction(net.ibizsys.model.control.IPSControlAction createpscontrolaction){
+		this.createpscontrolaction = createpscontrolaction;
+	}
+
 
 	public java.lang.String getDataType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATATYPE);
@@ -93,6 +97,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setGetDraftFromPSControlAction(net.ibizsys.model.control.IPSControlAction getdraftfrompscontrolaction){
+		this.getdraftfrompscontrolaction = getdraftfrompscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction getdraftpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getGetDraftPSControlAction(){
@@ -109,6 +117,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		net.ibizsys.model.control.IPSControlAction value = this.getGetDraftPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定获取草稿数据行为");}
 		return value;
+	}
+
+	public void setGetDraftPSControlAction(net.ibizsys.model.control.IPSControlAction getdraftpscontrolaction){
+		this.getdraftpscontrolaction = getdraftpscontrolaction;
 	}
 
 	private net.ibizsys.model.control.IPSControlAction getpscontrolaction;
@@ -129,6 +141,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setGetPSControlAction(net.ibizsys.model.control.IPSControlAction getpscontrolaction){
+		this.getpscontrolaction = getpscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction gobackpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getGoBackPSControlAction(){
@@ -147,6 +163,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setGoBackPSControlAction(net.ibizsys.model.control.IPSControlAction gobackpscontrolaction){
+		this.gobackpscontrolaction = gobackpscontrolaction;
+	}
+
 	private net.ibizsys.model.res.IPSSysCss navbarpssyscss;
 
 	public net.ibizsys.model.res.IPSSysCss getNavBarPSSysCss(){
@@ -163,6 +183,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		net.ibizsys.model.res.IPSSysCss value = this.getNavBarPSSysCss();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定导航栏样式表");}
 		return value;
+	}
+
+	public void setNavBarPSSysCss(net.ibizsys.model.res.IPSSysCss navbarpssyscss){
+		this.navbarpssyscss = navbarpssyscss;
 	}
 
 
@@ -213,6 +237,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 
@@ -281,6 +309,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setPSDEWizardForm(net.ibizsys.model.dataentity.wizard.IPSDEWizardForm psdewizardform){
+		this.psdewizardform = psdewizardform;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction removepscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getRemovePSControlAction(){
@@ -297,6 +329,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		net.ibizsys.model.control.IPSControlAction value = this.getRemovePSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定删除数据行为");}
 		return value;
+	}
+
+	public void setRemovePSControlAction(net.ibizsys.model.control.IPSControlAction removepscontrolaction){
+		this.removepscontrolaction = removepscontrolaction;
 	}
 
 	private net.ibizsys.model.control.IPSControlAction updatepscontrolaction;
@@ -317,6 +353,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setUpdatePSControlAction(net.ibizsys.model.control.IPSControlAction updatepscontrolaction){
+		this.updatepscontrolaction = updatepscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction wfstartpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getWFStartPSControlAction(){
@@ -335,6 +375,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		return value;
 	}
 
+	public void setWFStartPSControlAction(net.ibizsys.model.control.IPSControlAction wfstartpscontrolaction){
+		this.wfstartpscontrolaction = wfstartpscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction wfsubmitpscontrolaction;
 
 	public net.ibizsys.model.control.IPSControlAction getWFSubmitPSControlAction(){
@@ -351,6 +395,10 @@ public class PSDEEditFormImpl extends net.ibizsys.model.control.form.PSDEFormImp
 		net.ibizsys.model.control.IPSControlAction value = this.getWFSubmitPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程提交行为");}
 		return value;
+	}
+
+	public void setWFSubmitPSControlAction(net.ibizsys.model.control.IPSControlAction wfsubmitpscontrolaction){
+		this.wfsubmitpscontrolaction = wfsubmitpscontrolaction;
 	}
 
 

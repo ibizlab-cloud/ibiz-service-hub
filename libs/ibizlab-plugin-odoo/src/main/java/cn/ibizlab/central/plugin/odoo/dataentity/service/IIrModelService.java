@@ -43,6 +43,10 @@ public interface IIrModelService extends cn.ibizlab.central.plugin.odoo.dataenti
      */
     String ACTION_SAVE = "SAVE";
     /**
+     * 行为: 计算模型主页
+     */
+    String ACTION_CALC_MODEL_MAIN_VIEW = "CALC_MODEL_MAIN_VIEW";
+    /**
      * 查询: DEFAULT
      */
     String DATAQUERY_DEFAULT = "DEFAULT";
@@ -55,6 +59,10 @@ public interface IIrModelService extends cn.ibizlab.central.plugin.odoo.dataenti
      */
     String DATASET_DEFAULT = "DEFAULT";
 
+    /**
+     * 行为: 计算模型主页
+     */
+    void calcModelMainView(IrModelDTO dto) throws Throwable;
 
     /**
      * 集合: DEFAULT

@@ -51,6 +51,10 @@ public class PSDEFormMDCtrlImpl extends net.ibizsys.model.control.form.PSDEFormB
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 
 	public java.lang.String getContentType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENTTYPE);
@@ -93,6 +97,10 @@ public class PSDEFormMDCtrlImpl extends net.ibizsys.model.control.form.PSDEFormB
 		return value;
 	}
 
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
+	}
+
 	private net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate;
 
 	public net.ibizsys.model.control.form.IPSDEFormItemUpdate getPSDEFormItemUpdate(){
@@ -112,6 +120,10 @@ public class PSDEFormMDCtrlImpl extends net.ibizsys.model.control.form.PSDEFormB
 		return value;
 	}
 
+	public void setPSDEFormItemUpdate(net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate){
+		this.psdeformitemupdate = psdeformitemupdate;
+	}
+
 	private net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup;
 
 	public net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup(){
@@ -128,6 +140,10 @@ public class PSDEFormMDCtrlImpl extends net.ibizsys.model.control.form.PSDEFormB
 		net.ibizsys.model.view.IPSUIActionGroup value = this.getPSUIActionGroup();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定界面行为组对象");}
 		return value;
+	}
+
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
 	}
 
 

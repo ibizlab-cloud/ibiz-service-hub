@@ -132,6 +132,13 @@ public interface IDataEntityRuntimeBase extends IModelRuntime{
 	IPSDEAction getPSDEAction(String strName);
 	
 	
+	/**
+	 * 获取指定标识实体处理逻辑
+	 * @param strName
+	 * @return
+	 */
+	IPSDELogic getPSDELogic(String strName);
+	
 	
 	/**
 	 * 获取脚本逻辑运行时对象

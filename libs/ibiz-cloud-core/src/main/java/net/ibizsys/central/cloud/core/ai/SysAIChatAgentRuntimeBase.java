@@ -335,7 +335,6 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		}
 		
 		if(bAppendSystemMessage) {
-
 			List<ChatMessage> systemMessageList = this.getSystemMessages(dataOrKeys, params);
 			if(!ObjectUtils.isEmpty(systemMessageList)) {
 				if(!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {

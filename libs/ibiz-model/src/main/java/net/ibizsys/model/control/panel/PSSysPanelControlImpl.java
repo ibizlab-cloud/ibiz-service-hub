@@ -24,6 +24,10 @@ public class PSSysPanelControlImpl extends net.ibizsys.model.control.panel.PSSys
 		return value;
 	}
 
+	public void setPSControl(net.ibizsys.model.control.IPSControl pscontrol){
+		this.pscontrol = pscontrol;
+	}
+
 
 	public java.lang.String getViewFieldName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETVIEWFIELDNAME);

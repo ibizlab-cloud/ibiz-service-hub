@@ -87,6 +87,10 @@ public class PSSysSearchDEFieldImpl extends net.ibizsys.model.search.PSSysSearch
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.search.IPSSysSearchField pssyssearchfield;
 
 	public net.ibizsys.model.search.IPSSysSearchField getPSSysSearchField(){
@@ -106,6 +110,10 @@ public class PSSysSearchDEFieldImpl extends net.ibizsys.model.search.PSSysSearch
 		return value;
 	}
 
+	public void setPSSysSearchField(net.ibizsys.model.search.IPSSysSearchField pssyssearchfield){
+		this.pssyssearchfield = pssyssearchfield;
+	}
+
 	private net.ibizsys.model.res.IPSSysTranslator pssystranslator;
 
 	public net.ibizsys.model.res.IPSSysTranslator getPSSysTranslator(){
@@ -122,6 +130,10 @@ public class PSSysSearchDEFieldImpl extends net.ibizsys.model.search.PSSysSearch
 		net.ibizsys.model.res.IPSSysTranslator value = this.getPSSysTranslator();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统值转换器");}
 		return value;
+	}
+
+	public void setPSSysTranslator(net.ibizsys.model.res.IPSSysTranslator pssystranslator){
+		this.pssystranslator = pssystranslator;
 	}
 
 }

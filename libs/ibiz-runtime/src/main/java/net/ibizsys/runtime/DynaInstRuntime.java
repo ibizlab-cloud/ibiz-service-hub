@@ -169,6 +169,11 @@ public class DynaInstRuntime extends SystemRuntimeBaseBase implements IDynaInstR
 	public IPSSystem getPSSystem() {
 		return this.iPSSystem;
 	}
+	
+	@Override
+	public String getPSDevSlnSysId() {
+		return this.getPSSystem().getPSDevSlnSysId(); 
+	}
 
 	@Override
 	public void active() {

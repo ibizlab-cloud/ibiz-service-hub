@@ -20,6 +20,26 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     public final static String FIELD_MODEL_ID = "model_id";
 
     /**
+     * 属性: 要更新的字段
+     */
+    public final static String FIELD_UPDATE_FIELD_ID = "update_field_id";
+
+    /**
+     * 属性: 更新相关模型
+     */
+    public final static String FIELD_UPDATE_RELATED_MODEL_ID = "update_related_model_id";
+
+    /**
+     * 属性: 创建记录
+     */
+    public final static String FIELD_CRUD_MODEL_ID = "crud_model_id";
+
+    /**
+     * 属性: 链接字段
+     */
+    public final static String FIELD_LINK_FIELD_ID = "link_field_id";
+
+    /**
      * 属性: 截止日期至
      */
     public final static String FIELD_ACTIVITY_DATE_DEADLINE_RANGE = "activity_date_deadline_range";
@@ -40,9 +60,29 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     public final static String FIELD_ACTIVITY_SUMMARY = "activity_summary";
 
     /**
+     * 属性: 活动类型
+     */
+    public final static String FIELD_ACTIVITY_TYPE_ID = "activity_type_id";
+
+    /**
+     * 属性: 活动类型名称
+     */
+    public final static String FIELD_ACTIVITY_TYPE_NAME = "activity_type_name";
+
+    /**
      * 属性: 用户字段
      */
     public final static String FIELD_ACTIVITY_USER_FIELD_NAME = "activity_user_field_name";
+
+    /**
+     * 属性: 负责人
+     */
+    public final static String FIELD_ACTIVITY_USER_ID = "activity_user_id";
+
+    /**
+     * 属性: 负责人
+     */
+    public final static String FIELD_ACTIVITY_USER_NAME = "activity_user_name";
 
     /**
      * 属性: 用户类型
@@ -125,6 +165,16 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     public final static String FIELD_STATE = "state";
 
     /**
+     * 属性: EMail模板
+     */
+    public final static String FIELD_TEMPLATE_ID = "template_id";
+
+    /**
+     * 属性: EMail模板
+     */
+    public final static String FIELD_TEMPLATE_NAME = "template_name";
+
+    /**
      * 属性: 动作类型
      */
     public final static String FIELD_TYPE = "type";
@@ -204,6 +254,160 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     @JsonIgnore
     public IrActionsServerDTO resetModelId() {
         this._reset(FIELD_MODEL_ID);
+        return this;
+    }
+
+    /**
+     * 设置「要更新的字段」
+     * @param val
+     */
+    @JsonProperty(FIELD_UPDATE_FIELD_ID)
+    public IrActionsServerDTO setUpdateFieldId(String val) {
+        this._set(FIELD_UPDATE_FIELD_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「要更新的字段」值
+     *
+     */
+    @JsonIgnore
+    public String getUpdateFieldId() {
+        return DataTypeUtils.asString(this._get(FIELD_UPDATE_FIELD_ID), null);
+    }
+
+    /**
+     * 判断 「要更新的字段」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsUpdateFieldId() {
+        return this._contains(FIELD_UPDATE_FIELD_ID);
+    }
+
+    /**
+     * 重置 「要更新的字段」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetUpdateFieldId() {
+        this._reset(FIELD_UPDATE_FIELD_ID);
+        return this;
+    }
+
+    /**
+     * 设置「更新相关模型」
+     * @param val
+     */
+    @JsonProperty(FIELD_UPDATE_RELATED_MODEL_ID)
+    public IrActionsServerDTO setUpdateRelatedModelId(String val) {
+        this._set(FIELD_UPDATE_RELATED_MODEL_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「更新相关模型」值
+     *
+     */
+    @JsonIgnore
+    public String getUpdateRelatedModelId() {
+        return DataTypeUtils.asString(this._get(FIELD_UPDATE_RELATED_MODEL_ID), null);
+    }
+
+    /**
+     * 判断 「更新相关模型」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsUpdateRelatedModelId() {
+        return this._contains(FIELD_UPDATE_RELATED_MODEL_ID);
+    }
+
+    /**
+     * 重置 「更新相关模型」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetUpdateRelatedModelId() {
+        this._reset(FIELD_UPDATE_RELATED_MODEL_ID);
+        return this;
+    }
+
+    /**
+     * 设置「创建记录」
+     * 代码表[模型]
+     * @param val
+     */
+    @JsonProperty(FIELD_CRUD_MODEL_ID)
+    public IrActionsServerDTO setCrudModelId(String val) {
+        this._set(FIELD_CRUD_MODEL_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「创建记录」值
+     * 代码表[模型]
+     *
+     */
+    @JsonIgnore
+    public String getCrudModelId() {
+        return DataTypeUtils.asString(this._get(FIELD_CRUD_MODEL_ID), null);
+    }
+
+    /**
+     * 判断 「创建记录」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsCrudModelId() {
+        return this._contains(FIELD_CRUD_MODEL_ID);
+    }
+
+    /**
+     * 重置 「创建记录」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetCrudModelId() {
+        this._reset(FIELD_CRUD_MODEL_ID);
+        return this;
+    }
+
+    /**
+     * 设置「链接字段」
+     * @param val
+     */
+    @JsonProperty(FIELD_LINK_FIELD_ID)
+    public IrActionsServerDTO setLinkFieldId(String val) {
+        this._set(FIELD_LINK_FIELD_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「链接字段」值
+     *
+     */
+    @JsonIgnore
+    public String getLinkFieldId() {
+        return DataTypeUtils.asString(this._get(FIELD_LINK_FIELD_ID), null);
+    }
+
+    /**
+     * 判断 「链接字段」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsLinkFieldId() {
+        return this._contains(FIELD_LINK_FIELD_ID);
+    }
+
+    /**
+     * 重置 「链接字段」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetLinkFieldId() {
+        this._reset(FIELD_LINK_FIELD_ID);
         return this;
     }
 
@@ -364,6 +568,82 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     }
 
     /**
+     * 设置「活动类型」
+     * @param val
+     */
+    @JsonProperty(FIELD_ACTIVITY_TYPE_ID)
+    public IrActionsServerDTO setActivityTypeId(String val) {
+        this._set(FIELD_ACTIVITY_TYPE_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「活动类型」值
+     *
+     */
+    @JsonIgnore
+    public String getActivityTypeId() {
+        return DataTypeUtils.asString(this._get(FIELD_ACTIVITY_TYPE_ID), null);
+    }
+
+    /**
+     * 判断 「活动类型」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsActivityTypeId() {
+        return this._contains(FIELD_ACTIVITY_TYPE_ID);
+    }
+
+    /**
+     * 重置 「活动类型」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetActivityTypeId() {
+        this._reset(FIELD_ACTIVITY_TYPE_ID);
+        return this;
+    }
+
+    /**
+     * 设置「活动类型名称」
+     * @param val
+     */
+    @JsonProperty(FIELD_ACTIVITY_TYPE_NAME)
+    public IrActionsServerDTO setActivityTypeName(String val) {
+        this._set(FIELD_ACTIVITY_TYPE_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「活动类型名称」值
+     *
+     */
+    @JsonIgnore
+    public String getActivityTypeName() {
+        return DataTypeUtils.asString(this._get(FIELD_ACTIVITY_TYPE_NAME), null);
+    }
+
+    /**
+     * 判断 「活动类型名称」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsActivityTypeName() {
+        return this._contains(FIELD_ACTIVITY_TYPE_NAME);
+    }
+
+    /**
+     * 重置 「活动类型名称」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetActivityTypeName() {
+        this._reset(FIELD_ACTIVITY_TYPE_NAME);
+        return this;
+    }
+
+    /**
      * 设置「用户字段」
      * @param val
      */
@@ -398,6 +678,82 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     @JsonIgnore
     public IrActionsServerDTO resetActivityUserFieldName() {
         this._reset(FIELD_ACTIVITY_USER_FIELD_NAME);
+        return this;
+    }
+
+    /**
+     * 设置「负责人」
+     * @param val
+     */
+    @JsonProperty(FIELD_ACTIVITY_USER_ID)
+    public IrActionsServerDTO setActivityUserId(String val) {
+        this._set(FIELD_ACTIVITY_USER_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「负责人」值
+     *
+     */
+    @JsonIgnore
+    public String getActivityUserId() {
+        return DataTypeUtils.asString(this._get(FIELD_ACTIVITY_USER_ID), null);
+    }
+
+    /**
+     * 判断 「负责人」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsActivityUserId() {
+        return this._contains(FIELD_ACTIVITY_USER_ID);
+    }
+
+    /**
+     * 重置 「负责人」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetActivityUserId() {
+        this._reset(FIELD_ACTIVITY_USER_ID);
+        return this;
+    }
+
+    /**
+     * 设置「负责人」
+     * @param val
+     */
+    @JsonProperty(FIELD_ACTIVITY_USER_NAME)
+    public IrActionsServerDTO setActivityUserName(String val) {
+        this._set(FIELD_ACTIVITY_USER_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「负责人」值
+     *
+     */
+    @JsonIgnore
+    public String getActivityUserName() {
+        return DataTypeUtils.asString(this._get(FIELD_ACTIVITY_USER_NAME), null);
+    }
+
+    /**
+     * 判断 「负责人」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsActivityUserName() {
+        return this._contains(FIELD_ACTIVITY_USER_NAME);
+    }
+
+    /**
+     * 重置 「负责人」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetActivityUserName() {
+        this._reset(FIELD_ACTIVITY_USER_NAME);
         return this;
     }
 
@@ -1036,6 +1392,82 @@ public class IrActionsServerDTO extends cn.ibizlab.central.plugin.odoo.util.Odoo
     @JsonIgnore
     public IrActionsServerDTO resetState() {
         this._reset(FIELD_STATE);
+        return this;
+    }
+
+    /**
+     * 设置「EMail模板」
+     * @param val
+     */
+    @JsonProperty(FIELD_TEMPLATE_ID)
+    public IrActionsServerDTO setTemplateId(String val) {
+        this._set(FIELD_TEMPLATE_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「EMail模板」值
+     *
+     */
+    @JsonIgnore
+    public String getTemplateId() {
+        return DataTypeUtils.asString(this._get(FIELD_TEMPLATE_ID), null);
+    }
+
+    /**
+     * 判断 「EMail模板」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsTemplateId() {
+        return this._contains(FIELD_TEMPLATE_ID);
+    }
+
+    /**
+     * 重置 「EMail模板」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetTemplateId() {
+        this._reset(FIELD_TEMPLATE_ID);
+        return this;
+    }
+
+    /**
+     * 设置「EMail模板」
+     * @param val
+     */
+    @JsonProperty(FIELD_TEMPLATE_NAME)
+    public IrActionsServerDTO setTemplateName(String val) {
+        this._set(FIELD_TEMPLATE_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「EMail模板」值
+     *
+     */
+    @JsonIgnore
+    public String getTemplateName() {
+        return DataTypeUtils.asString(this._get(FIELD_TEMPLATE_NAME), null);
+    }
+
+    /**
+     * 判断 「EMail模板」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsTemplateName() {
+        return this._contains(FIELD_TEMPLATE_NAME);
+    }
+
+    /**
+     * 重置 「EMail模板」
+     *
+     */
+    @JsonIgnore
+    public IrActionsServerDTO resetTemplateName() {
+        this._reset(FIELD_TEMPLATE_NAME);
         return this;
     }
 

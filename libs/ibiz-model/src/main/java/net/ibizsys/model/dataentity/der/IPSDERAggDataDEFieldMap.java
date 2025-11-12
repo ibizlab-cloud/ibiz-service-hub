@@ -18,7 +18,7 @@ public interface IPSDERAggDataDEFieldMap extends net.ibizsys.model.dataentity.de
 	
 	
 	/**
-	 * 获取公式列格式
+	 * 获取聚合公式格式
 	 * @return
 	 */
 	java.lang.String getFormulaFormat();

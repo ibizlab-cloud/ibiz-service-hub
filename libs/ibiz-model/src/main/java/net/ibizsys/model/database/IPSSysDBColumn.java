@@ -81,9 +81,10 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
-	 * 获取字段精度
+	 * 获取字段精度（已废弃）
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
 	
 	
@@ -113,6 +114,13 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	 * @return
 	 */
 	net.ibizsys.model.database.IPSSysDBTable getRefPSSysDBTableMust();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

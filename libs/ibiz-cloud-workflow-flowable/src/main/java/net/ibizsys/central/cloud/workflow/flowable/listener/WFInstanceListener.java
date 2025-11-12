@@ -19,16 +19,19 @@ import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.Entity;
 import net.ibizsys.runtime.util.JsonUtils;
 import org.apache.commons.logging.LogFactory;
+import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.bpmn.model.EndEvent;
 import org.flowable.bpmn.model.FlowElement;
 import org.flowable.bpmn.model.UserTask;
 import org.flowable.common.engine.api.delegate.event.*;
 import org.flowable.common.engine.impl.identity.Authentication;
+import org.flowable.engine.RepositoryService;
 import org.flowable.engine.TaskService;
 import org.flowable.engine.delegate.DelegateExecution;
 import org.flowable.engine.delegate.event.*;
 import org.flowable.engine.impl.persistence.entity.ExecutionEntity;
 import org.flowable.engine.impl.persistence.entity.ExecutionEntityImpl;
+import org.flowable.identitylink.service.impl.persistence.entity.IdentityLinkEntity;
 import org.flowable.job.service.impl.persistence.entity.JobEntity;
 import org.flowable.task.service.impl.persistence.entity.TaskEntity;
 import org.springframework.util.DigestUtils;
@@ -85,7 +88,11 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 	protected TaskService getTaskService() {
 		return this.getCloudFlowableUtilRuntime().getProcessEngine().getTaskService();
 	}
-	
+
+	protected RepositoryService getRepositoryService() {
+		return this.getCloudFlowableUtilRuntime().getProcessEngine().getRepositoryService();
+	}
+
 	// @Autowired
 	// @Lazy
 	// private WFModelService wfModelService;
@@ -142,7 +149,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 		}
 		throw new SystemRuntimeException(this.getSystemRuntime(), this.getCloudFlowableUtilRuntime(), String.format("上下文数据对象无效"));
 	}
-	
+
 	protected DelegateExecution getDelegateExecution(FlowableEvent evt, boolean bTryMode) {
 		DelegateExecution delegateExecution = null;
 		if (evt instanceof FlowableProcessEngineEvent) {
@@ -163,7 +170,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 		if (EmployeeContext.getCurrent() != null && UserContext.getCurrent() == null) {
 			UserContext.setCurrent(EmployeeContext.getCurrent());
 		}
-		
+
 		this.getWFCoreService();
 
 		// 流程启动
@@ -173,7 +180,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 
 			// executionEntity.setVariable("wfCoreService", this);
 			//String entity = executionEntity.getVariable("entity").toString();
-			
+
 			String entity = this.getEntityName(executionEntity);
 
 			Map<String, Object> setting = this.getCloudFlowableUtilRuntime().getProcessGlobalSetting(executionEntity.getProcessDefinitionId());
@@ -344,6 +351,10 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 				throw new SystemRuntimeException(this.getSystemRuntime(), this.getCloudFlowableUtilRuntime(), String.format("工作流交互发生异常，%1$s", ex.getMessage()), ex);
 
 			}
+
+			//判断节点是否发送消息通知
+			this.executeWFNotifyCallback(evt);
+
 			// 创建todo待办
 			saveTodo(evt);
 		}
@@ -370,7 +381,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 					}
 				}
 			}
-			
+
 			DelegateExecution delegateExecution = getDelegateExecution(event, true);
 
 			// 多实例(all|role:any)实现逻辑
@@ -429,7 +440,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 			FlowableActivityEvent event = ((FlowableActivityEvent) evt);
 			//DelegateExecution execution =  event.getExecution();
 			DelegateExecution delegateExecution = getDelegateExecution(event, false);
-		
+
 			if (delegateExecution.getCurrentFlowElement() != null) {
 				EndEvent endEvent = (EndEvent) delegateExecution.getCurrentFlowElement();
 				String userdata = FlowableUtils.getElementParam(endEvent, "form", "userdata");
@@ -476,7 +487,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 			}
 
 			Object dcSystemId = delegateExecution.getVariable("dcsystem");
-			
+
 			//构造超时用户身份
 			Employee employee = new Employee();
 			employee.setUserId("SYSTEM");
@@ -496,7 +507,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 
 	/**
 	 * 准备工作流步骤数据，用于查询指定步骤下待办
-	 * 
+	 *
 	 * @param evt
 	 */
 	protected void prepareWFStep(FlowableEvent evt) {
@@ -517,10 +528,52 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 			executionEntity.setVariable("usertags", userTags);
 		}
 	}
+	/**
+	 * 工作流回调业务系统消息通知
+	 *
+	 * @param evt
+	 */
+	protected Object executeWFNotifyCallback(FlowableEvent evt) {
+
+		Map<String, Object> callbackArg = new HashMap<String, Object>();
+		// 任务建立
+		if (evt != null && evt.getType().equals(FlowableEngineEventType.TASK_CREATED)) {
+			FlowableEntityEvent event = ((FlowableEntityEvent) evt);
+			TaskEntity taskEntity = (TaskEntity) event.getEntity();
+			String strSystemTag = DataTypeUtils.getStringValue(taskEntity.getVariable("system"), null);
+			String strAppTag = DataTypeUtils.getStringValue(taskEntity.getVariable("appname"), null);
+			String entityName = DataTypeUtils.getStringValue(taskEntity.getVariable("entity"), null);
+			String businessKey = DataTypeUtils.getStringValue(taskEntity.getVariable("businessKey"), null);
+			callbackArg.put(WFConsts.BUSINESSKEY, businessKey);
+			callbackArg.put(Entity.KEY, businessKey);
+			String strUserIds = null;
+			List<IdentityLinkEntity> links = taskEntity.getIdentityLinks();
+			if(!ObjectUtils.isEmpty(links)){
+				strUserIds = this.getWFCoreService().getUserIds2(taskEntity.getIdentityLinks());
+			}
+			if(!StringUtils.hasLength(strUserIds)){
+				log.warn("未找到消息通知用户，忽略工作流消息通知回调");
+				return null;
+			}
+			callbackArg.put("notifyusers", strUserIds);
+			BpmnModel bpmnModel = getRepositoryService().getBpmnModel(taskEntity.getProcessDefinitionId());
+			FlowElement flowElement = bpmnModel.getFlowElement(taskEntity.getTaskDefinitionKey());
+			String msgtemplate = FlowableUtils.getElementParam(flowElement, "form", "msg-template");
+			String msgtype = FlowableUtils.getElementParam(flowElement, "form", "msg-type");
+			if(ObjectUtils.isEmpty(msgtemplate)||ObjectUtils.isEmpty(msgtype)){
+				log.warn("未定义消息模板或消息类型，忽略工作流消息通知回调");
+				return null;
+			}
+			callbackArg.put("msgtemplate", msgtemplate);
+			callbackArg.put("msgtype", msgtype);
+			return this.getCloudWFUtilRuntimeContext().executeWFCallback(strSystemTag, entityName, ICloudWFUtilRuntime.CALLBACKTYPE_WFACTION, "wfnotify", callbackArg, String.class, strAppTag);
+		}
+		return null;
+	}
 
 	/**
 	 * 工作流回调业务系统
-	 * 
+	 *
 	 * @param evt
 	 */
 	protected Object executeWFCallback(FlowableEvent evt, WFInstance wfInstance) {
@@ -705,7 +758,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 
 	/**
 	 * 更新流程实例信息
-	 * 
+	 *
 	 * @param evt
 	 */
 	protected WFInstance updateWFInstance(FlowableEvent evt) {
@@ -852,13 +905,13 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 	}
 
 	/**
-     * 创建统一待办
-     * @param evt
-     * @return
-     */
-    protected void saveTodo(FlowableEvent evt){
-       
-    }
+	 * 创建统一待办
+	 * @param evt
+	 * @return
+	 */
+	protected void saveTodo(FlowableEvent evt){
+
+	}
 
 	protected void saveWFInstance(WFInstance wfInstance) {
 
@@ -867,7 +920,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 	protected void updateWFInstance(WFInstance wfInstance) {
 
 	}
-	
+
 	protected String getEntityName(ExecutionEntity executionEntity) {
 		Object objEntity = executionEntity.getVariable("entity");
 		if(objEntity == null) {
@@ -881,7 +934,7 @@ public class WFInstanceListener extends AbstractFlowableEventListener implements
 
 	/**
 	 * 字符串处理
-	 * 
+	 *
 	 * @param value
 	 * @return
 	 */

@@ -64,6 +64,6 @@ public class PSSysDBSchemeRTService extends PSModelRTServiceBase<PSSysDBScheme, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysDBScheme.class, this.getPSSystemService().getPSSystem().getAllPSSysDBSchemes(), (String)key, false);
+    	return getPSModelObject(IPSSysDBScheme.class, this.getPSSystemService().getPSSystem().getAllPSSysDBSchemes(), (String)key, tryMode);
     }
 }

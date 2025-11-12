@@ -44,6 +44,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 
 	public java.lang.String getDynaClass(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDYNACLASS);
@@ -78,6 +82,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setPSLayoutPos(net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos){
+		this.pslayoutpos = pslayoutpos;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -94,6 +102,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统图片");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
@@ -114,6 +126,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		return value;
 	}
 
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
+	}
+
 	private net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup;
 
 	public net.ibizsys.model.view.IPSUIActionGroup getPSUIActionGroup(){
@@ -130,6 +146,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.view.IPSUIActionGroup value = this.getPSUIActionGroup();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定界面行为组对象");}
 		return value;
+	}
+
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
 	}
 
 
@@ -172,6 +192,10 @@ public class PSDBPortletPartImpl extends net.ibizsys.model.control.PSAjaxControl
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTitlePSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定抬头语言资源");}
 		return value;
+	}
+
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
 	}
 
 

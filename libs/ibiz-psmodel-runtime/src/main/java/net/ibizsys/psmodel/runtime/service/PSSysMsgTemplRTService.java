@@ -64,7 +64,7 @@ public class PSSysMsgTemplRTService extends PSModelRTServiceBase<PSSysMsgTempl, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysMsgTempl.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgTempls(), (String)key, false);
+    	return getPSModelObject(IPSSysMsgTempl.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgTempls(), (String)key, tryMode);
     }
     
 }

@@ -2,7 +2,6 @@ package net.ibizsys.central.cloud.core;
 
 import java.util.Collection;
 
-import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.IProxyDEService;
 import net.ibizsys.central.cloud.core.security.IAuthenticationUser;
@@ -20,7 +19,7 @@ import net.ibizsys.model.ai.IPSSysAIFactory;
 import net.ibizsys.model.res.IPSSysContent;
 import net.ibizsys.model.system.IPSSysRef;
 
-public interface IServiceSystemRuntime extends ISystemRuntime,ISystemUtilRuntime {
+public interface IServiceSystemRuntime extends IServiceSystemRuntimeBase,ISystemUtilRuntime {
 
 	/**
 	 * 全局插件标识：插件系统运行时
@@ -393,12 +392,7 @@ public interface IServiceSystemRuntime extends ISystemRuntime,ISystemUtilRuntime
 	 */
 	ISysAIFactoryRuntime getSysAIFactoryRuntime(IPSSysAIFactory iPSSysAIFactory);
 	
-	/**
-	 * 获取配置侦听器仓库对象
-	 * @return
-	 */
-	IConfigListenerRepo getConfigListenerRepo();
-
+	
 	
 	
 	/**

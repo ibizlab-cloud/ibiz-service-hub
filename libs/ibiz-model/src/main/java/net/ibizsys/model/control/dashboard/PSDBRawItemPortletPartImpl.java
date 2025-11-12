@@ -33,6 +33,10 @@ public class PSDBRawItemPortletPartImpl extends net.ibizsys.model.control.dashbo
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 
 	public java.lang.String getContentType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENTTYPE);
@@ -67,6 +71,10 @@ public class PSDBRawItemPortletPartImpl extends net.ibizsys.model.control.dashbo
 		return value;
 	}
 
+	public void setPSRawItem(net.ibizsys.model.control.IPSRawItemBase psrawitem){
+		this.psrawitem = psrawitem;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -83,6 +91,10 @@ public class PSDBRawItemPortletPartImpl extends net.ibizsys.model.control.dashbo
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图片内容");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

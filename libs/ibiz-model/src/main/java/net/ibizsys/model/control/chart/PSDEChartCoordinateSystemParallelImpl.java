@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemParallelImpl extends net.ibizsys.model.con
 		return value;
 	}
 
+	public void setPSChartParallel(net.ibizsys.model.control.chart.IPSChartParallel pschartparallel){
+		this.pschartparallel = pschartparallel;
+	}
+
 }

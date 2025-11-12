@@ -79,6 +79,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setAltitudePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField altitudepsappdefield){
+		this.altitudepsappdefield = altitudepsappdefield;
+	}
+
 
 	public java.lang.String getBKColor(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETBKCOLOR);
@@ -104,6 +108,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getBKColorPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定背景颜色应用实体属性");}
 		return value;
+	}
+
+	public void setBKColorPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField bkcolorpsappdefield){
+		this.bkcolorpsappdefield = bkcolorpsappdefield;
 	}
 
 
@@ -141,6 +149,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setClsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField clspsappdefield){
+		this.clspsappdefield = clspsappdefield;
+	}
+
 
 	public java.lang.String getColor(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOLOR);
@@ -168,6 +180,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setColorPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField colorpsappdefield){
+		this.colorpsappdefield = colorpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField contentpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getContentPSAppDEField(){
@@ -185,6 +201,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getContentPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定内容应用实体属性");}
 		return value;
+	}
+
+	public void setContentPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField contentpsappdefield){
+		this.contentpsappdefield = contentpsappdefield;
 	}
 
 
@@ -214,6 +234,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setData2PSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField data2psappdefield){
+		this.data2psappdefield = data2psappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField datapsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getDataPSAppDEField(){
@@ -231,6 +255,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getDataPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据值应用实体属性");}
 		return value;
+	}
+
+	public void setDataPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField datapsappdefield){
+		this.datapsappdefield = datapsappdefield;
 	}
 
 
@@ -260,6 +288,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setGroupPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField grouppsappdefield){
+		this.grouppsappdefield = grouppsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField iconpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getIconPSAppDEField(){
@@ -279,6 +311,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setIconPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField iconpsappdefield){
+		this.iconpsappdefield = iconpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField idpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getIdPSAppDEField(){
@@ -296,6 +332,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getIdPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项标识值应用实体属性");}
 		return value;
+	}
+
+	public void setIdPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField idpsappdefield){
+		this.idpsappdefield = idpsappdefield;
 	}
 
 
@@ -333,6 +373,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setLatitudePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField latitudepsappdefield){
+		this.latitudepsappdefield = latitudepsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField linkpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getLinkPSAppDEField(){
@@ -352,6 +396,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setLinkPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField linkpsappdefield){
+		this.linkpsappdefield = linkpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField longitudepsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getLongitudePSAppDEField(){
@@ -369,6 +417,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getLongitudePSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定经度值应用实体属性");}
 		return value;
+	}
+
+	public void setLongitudePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField longitudepsappdefield){
+		this.longitudepsappdefield = longitudepsappdefield;
 	}
 
 
@@ -405,6 +457,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setNamePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes namepslanguageres){
+		this.namepslanguageres = namepslanguageres;
+	}
+
 
 	@Deprecated
 	public int getOrderValue(){
@@ -433,6 +489,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setOrderValuePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField ordervaluepsappdefield){
+		this.ordervaluepsappdefield = ordervaluepsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEDataSet getPSAppDEDataSet(){
@@ -450,6 +510,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEDataSet value = this.getPSAppDEDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体数据集");}
 		return value;
+	}
+
+	public void setPSAppDEDataSet(net.ibizsys.model.app.dataentity.IPSAppDEDataSet psappdedataset){
+		this.psappdedataset = psappdedataset;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
@@ -470,6 +534,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
+	}
+
 	private net.ibizsys.model.control.toolbar.IPSDEContextMenu psdecontextmenu;
 
 	public net.ibizsys.model.control.toolbar.IPSDEContextMenu getPSDEContextMenu(){
@@ -486,6 +554,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.control.toolbar.IPSDEContextMenu value = this.getPSDEContextMenu();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定上下文菜单对象");}
 		return value;
+	}
+
+	public void setPSDEContextMenu(net.ibizsys.model.control.toolbar.IPSDEContextMenu psdecontextmenu){
+		this.psdecontextmenu = psdecontextmenu;
 	}
 
 	private net.ibizsys.model.res.IPSSysCss pssyscss;
@@ -506,6 +578,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -522,6 +598,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项图标对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 
@@ -551,6 +631,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setRemovePSAppDEAction(net.ibizsys.model.app.dataentity.IPSAppDEAction removepsappdeaction){
+		this.removepsappdeaction = removepsappdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv removepsdeoppriv;
 
 	public net.ibizsys.model.dataentity.priv.IPSDEOPPriv getRemovePSDEOPPriv(){
@@ -567,6 +651,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.dataentity.priv.IPSDEOPPriv value = this.getRemovePSDEOPPriv();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定删除要求操作标识");}
 		return value;
+	}
+
+	public void setRemovePSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv removepsdeoppriv){
+		this.removepsdeoppriv = removepsdeoppriv;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEField shapeclspsappdefield;
@@ -586,6 +674,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getShapeClsPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定图形样式应用实体属性");}
 		return value;
+	}
+
+	public void setShapeClsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField shapeclspsappdefield){
+		this.shapeclspsappdefield = shapeclspsappdefield;
 	}
 
 
@@ -614,6 +706,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setShapePSSysCss(net.ibizsys.model.res.IPSSysCss shapepssyscss){
+		this.shapepssyscss = shapepssyscss;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField tag2psappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getTag2PSAppDEField(){
@@ -631,6 +727,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getTag2PSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标记值2应用实体属性");}
 		return value;
+	}
+
+	public void setTag2PSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField tag2psappdefield){
+		this.tag2psappdefield = tag2psappdefield;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEField tagpsappdefield;
@@ -652,6 +752,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setTagPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField tagpsappdefield){
+		this.tagpsappdefield = tagpsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField textpsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField(){
@@ -669,6 +773,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getTextPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项文本值应用实体属性");}
 		return value;
+	}
+
+	public void setTextPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField textpsappdefield){
+		this.textpsappdefield = textpsappdefield;
 	}
 
 	private net.ibizsys.model.app.dataentity.IPSAppDEField timepsappdefield;
@@ -690,6 +798,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		return value;
 	}
 
+	public void setTimePSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField timepsappdefield){
+		this.timepsappdefield = timepsappdefield;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField tipspsappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEField(){
@@ -707,6 +819,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getTipsPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定提示应用实体属性");}
 		return value;
+	}
+
+	public void setTipsPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField tipspsappdefield){
+		this.tipspsappdefield = tipspsappdefield;
 	}
 
 

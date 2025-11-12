@@ -26,7 +26,7 @@ public interface IPSJsonNodeSchema extends net.ibizsys.model.dynamodel.IPSJsonNo
 	/**
 	 * 获取类型
 	 * <P>
-	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.JsonPropertyType}
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.JsonNodeType}
 	 * @return
 	 */
 	java.lang.String getType();

@@ -75,4 +75,8 @@ public class PSSysContentCatImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 }

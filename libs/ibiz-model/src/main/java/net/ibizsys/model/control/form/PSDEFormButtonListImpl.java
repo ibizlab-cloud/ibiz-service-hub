@@ -66,4 +66,8 @@ public class PSDEFormButtonListImpl extends net.ibizsys.model.control.form.PSDEF
 		return value;
 	}
 
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
+	}
+
 }

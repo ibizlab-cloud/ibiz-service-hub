@@ -66,4 +66,8 @@ public class PSSysERMapImpl extends net.ibizsys.model.PSSystemObjectImpl impleme
 		return value;
 	}
 
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
+	}
+
 }

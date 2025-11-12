@@ -64,6 +64,6 @@ public class PSWFRoleRTService extends PSModelRTServiceBase<PSWFRole, PSWFRoleFi
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSWFRole.class, this.getPSSystemService().getPSSystem().getAllPSWFRoles(), (String)key, false);
+    	return getPSModelObject(IPSWFRole.class, this.getPSSystemService().getPSSystem().getAllPSWFRoles(), (String)key, tryMode);
     }
 }

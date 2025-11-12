@@ -107,6 +107,10 @@ public class PSSysTestCaseImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction psdeaction){
+		this.psdeaction = psdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getPSDEField(){
@@ -125,6 +129,10 @@ public class PSSysTestCaseImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -141,6 +149,10 @@ public class PSSysTestCaseImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试实体对象");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 
@@ -207,6 +219,10 @@ public class PSSysTestCaseImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.testing.IPSSysTestData value = this.getPSSysTestData();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定测试数据");}
 		return value;
+	}
+
+	public void setPSSysTestData(net.ibizsys.model.testing.IPSSysTestData pssystestdata){
+		this.pssystestdata = pssystestdata;
 	}
 
 

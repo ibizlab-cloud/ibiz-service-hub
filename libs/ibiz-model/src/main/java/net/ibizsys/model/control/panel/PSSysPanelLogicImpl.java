@@ -145,6 +145,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppDEUIAction(net.ibizsys.model.app.dataentity.IPSAppDEUIAction psappdeuiaction){
+		this.psappdeuiaction = psappdeuiaction;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEUILogic getPSAppDEUILogic(){
@@ -164,6 +168,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppDEUILogic(net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic){
+		this.psappdeuilogic = psappdeuilogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -180,6 +188,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 	private net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic;
@@ -201,6 +213,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppUILogic(net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic){
+		this.psappuilogic = psappuilogic;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine;
 
 	@Deprecated
@@ -218,6 +234,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.app.view.IPSAppViewEngine value = this.getPSAppViewEngine();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSAppViewEngine]返回空值");}
 		return value;
+	}
+
+	public void setPSAppViewEngine(net.ibizsys.model.app.view.IPSAppViewEngine psappviewengine){
+		this.psappviewengine = psappviewengine;
 	}
 
 	private net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic;
@@ -239,6 +259,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppViewLogic(net.ibizsys.model.app.view.IPSAppViewLogic psappviewlogic){
+		this.psappviewlogic = psappviewlogic;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction;
 
 	public net.ibizsys.model.app.view.IPSAppViewUIAction getPSAppViewUIAction(){
@@ -257,6 +281,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		return value;
 	}
 
+	public void setPSAppViewUIAction(net.ibizsys.model.app.view.IPSAppViewUIAction psappviewuiaction){
+		this.psappviewuiaction = psappviewuiaction;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -273,6 +301,10 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用前端插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 

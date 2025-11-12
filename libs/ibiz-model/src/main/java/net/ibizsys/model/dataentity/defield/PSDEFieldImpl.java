@@ -54,6 +54,7 @@ public class PSDEFieldImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 	public final static String ATTR_GETPREDEFINEDTYPE = "predefinedType";
 	public final static String ATTR_GETPREDEFINEDTYPEPARAM = "predefinedTypeParam";
 	public final static String ATTR_GETQUERYOPTION = "queryOption";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSEQUENCEMODE = "sequenceMode";
 	public final static String ATTR_GETSERVICECODENAME = "serviceCodeName";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
@@ -726,6 +727,7 @@ public class PSDEFieldImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 	}
 
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -756,6 +758,14 @@ public class PSDEFieldImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 			return null;
 		}
 		return value.asText();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
 	}
 
 	public java.lang.String getSequenceMode(){

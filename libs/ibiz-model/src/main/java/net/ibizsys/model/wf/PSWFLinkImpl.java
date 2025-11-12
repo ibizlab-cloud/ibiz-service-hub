@@ -5,11 +5,13 @@ package net.ibizsys.model.wf;
 public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.ibizsys.model.wf.IPSWFLink{
 
 	public final static String ATTR_GETCUSTOMCOND = "customCond";
+	public final static String ATTR_GETDSTENDPOINT = "dstEndPoint";
 	public final static String ATTR_GETFROMPSWFPROCESS = "getFromPSWFProcess";
 	public final static String ATTR_GETLNPSLANGUAGERES = "getLNPSLanguageRes";
 	public final static String ATTR_GETLOGICNAME = "logicName";
 	public final static String ATTR_GETNEXTCONDITION = "nextCondition";
 	public final static String ATTR_GETPSWFLINKGROUPCOND = "getPSWFLinkGroupCond";
+	public final static String ATTR_GETSRCENDPOINT = "srcEndPoint";
 	public final static String ATTR_GETTOPSWFPROCESS = "getToPSWFProcess";
 	public final static String ATTR_GETUSERDATA = "userData";
 	public final static String ATTR_GETUSERDATA2 = "userData2";
@@ -18,6 +20,14 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 
 	public java.lang.String getCustomCond(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCUSTOMCOND);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getDstEndPoint(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDSTENDPOINT);
 		if(value == null){
 			return null;
 		}
@@ -42,6 +52,10 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		return value;
 	}
 
+	public void setFromPSWFProcess(net.ibizsys.model.wf.IPSWFProcess frompswfprocess){
+		this.frompswfprocess = frompswfprocess;
+	}
+
 	private net.ibizsys.model.res.IPSLanguageRes lnpslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getLNPSLanguageRes(){
@@ -58,6 +72,10 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		net.ibizsys.model.res.IPSLanguageRes value = this.getLNPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定逻辑名称语言资源");}
 		return value;
+	}
+
+	public void setLNPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes lnpslanguageres){
+		this.lnpslanguageres = lnpslanguageres;
 	}
 
 
@@ -94,6 +112,18 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		return value;
 	}
 
+	public void setPSWFLinkGroupCond(net.ibizsys.model.wf.IPSWFLinkGroupCond pswflinkgroupcond){
+		this.pswflinkgroupcond = pswflinkgroupcond;
+	}
+
+
+	public java.lang.String getSrcEndPoint(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSRCENDPOINT);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.wf.IPSWFProcess topswfprocess;
 
 	public net.ibizsys.model.wf.IPSWFProcess getToPSWFProcess(){
@@ -111,6 +141,10 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 		net.ibizsys.model.wf.IPSWFProcess value = this.getToPSWFProcess();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目标流程处理");}
 		return value;
+	}
+
+	public void setToPSWFProcess(net.ibizsys.model.wf.IPSWFProcess topswfprocess){
+		this.topswfprocess = topswfprocess;
 	}
 
 

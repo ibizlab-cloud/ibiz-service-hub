@@ -64,6 +64,6 @@ public class PSSysRefRTService extends PSModelRTServiceBase<PSSysRef, PSSysRefFi
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysRef.class, this.getPSSystemService().getPSSystem().getAllPSSysRefs(), (String)key, false);
+    	return getPSModelObject(IPSSysRef.class, this.getPSSystemService().getPSSystem().getAllPSSysRefs(), (String)key, tryMode);
     }
 }

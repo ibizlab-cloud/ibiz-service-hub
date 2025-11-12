@@ -2766,6 +2766,69 @@ public class PSSysEditorStyle extends net.ibizsys.psmodel.core.util.PSModelBase 
     }
 
     /**
+     * <B>STYLECODE</B>&nbsp;样式代码
+     * <P>
+     * 字符串：最大长度 60
+     */
+    public final static String FIELD_STYLECODE = "stylecode";
+
+    /**
+     * 设置 样式代码
+     * 
+     * @param styleCode
+     * 
+     */
+    @JsonProperty(FIELD_STYLECODE)
+    public void setStyleCode(String styleCode){
+        this.set(FIELD_STYLECODE, styleCode);
+    }
+    
+    /**
+     * 获取 样式代码  
+     * @return
+     */
+    @JsonIgnore
+    public String getStyleCode(){
+        Object objValue = this.get(FIELD_STYLECODE);
+        if(objValue==null){
+            return null;
+        }
+        return (String)objValue;
+    }
+
+    /**
+     * 判断 样式代码 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isStyleCodeDirty(){
+        if(this.contains(FIELD_STYLECODE)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 样式代码
+     */
+    @JsonIgnore
+    public void resetStyleCode(){
+        this.reset(FIELD_STYLECODE);
+    }
+
+    /**
+     * 设置 样式代码
+     * <P>
+     * 等同 {@link #setStyleCode}
+     * @param styleCode
+     */
+    @JsonIgnore
+    public PSSysEditorStyle stylecode(String styleCode){
+        this.setStyleCode(styleCode);
+        return this;
+    }
+
+    /**
      * <B>UPDATEDATE</B>&nbsp;更新时间
      */
     public final static String FIELD_UPDATEDATE = "updatedate";

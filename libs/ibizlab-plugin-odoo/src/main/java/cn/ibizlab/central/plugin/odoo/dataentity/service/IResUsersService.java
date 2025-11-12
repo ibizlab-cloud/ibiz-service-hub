@@ -51,6 +51,18 @@ public interface IResUsersService extends cn.ibizlab.central.plugin.odoo.dataent
      */
     String ACTION_CURRENT_USER = "CURRENT_USER";
     /**
+     * 行为: 邀请新用户
+     */
+    String ACTION_INVITE_USERS = "INVITE_USERS";
+    /**
+     * 行为: 未登录用户
+     */
+    String ACTION_NON_LOGGED_IN_USERS = "NON_LOGGED_IN_USERS";
+    /**
+     * 行为: 用户计数器
+     */
+    String ACTION_USER_COUNTER = "USER_COUNTER";
+    /**
      * 查询: DEFAULT
      */
     String DATAQUERY_DEFAULT = "DEFAULT";
@@ -59,6 +71,14 @@ public interface IResUsersService extends cn.ibizlab.central.plugin.odoo.dataent
      */
     String DATAQUERY_VIEW = "VIEW";
     /**
+     * 查询: 未登录过的用户
+     */
+    String DATAQUERY_NON_LOGGED_IN_USERS = "NON_LOGGED_IN_USERS";
+    /**
+     * 查询: 简单查询
+     */
+    String DATAQUERY_SIMPLE = "SIMPLE";
+    /**
      * 查询: 未被使用的用户
      */
     String DATAQUERY_UNUSE = "UNUSE";
@@ -66,6 +86,14 @@ public interface IResUsersService extends cn.ibizlab.central.plugin.odoo.dataent
      * 集合: DEFAULT
      */
     String DATASET_DEFAULT = "DEFAULT";
+    /**
+     * 集合: 未登录用户
+     */
+    String DATASET_NON_LOGGED_IN_USERS = "NON_LOGGED_IN_USERS";
+    /**
+     * 集合: 简单查询
+     */
+    String DATASET_SIMPLE = "SIMPLE";
     /**
      * 集合: 未被使用的用户
      */
@@ -79,11 +107,27 @@ public interface IResUsersService extends cn.ibizlab.central.plugin.odoo.dataent
      * 行为: 当前登录人的user
      */
     void currentUser(ResUsersDTO dto) throws Throwable;
-
+    /**
+     * 行为: 邀请新用户
+     */
+    void inviteUsers(ResUsersDTO dto) throws Throwable;
+    /**
+     * 行为: 未登录用户
+     */
+    void nonLoggedInUsers(ResUsersDTO dto) throws Throwable;
+    
     /**
      * 集合: DEFAULT
      */
     Page<ResUsersDTO> fetchDefault(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
+    /**
+     * 集合: 未登录用户
+     */
+    Page<ResUsersDTO> fetchNonLoggedInUsers(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
+    /**
+     * 集合: 简单查询
+     */
+    Page<ResUsersDTO> fetchSimple(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
     /**
      * 集合: 未被使用的用户
      */

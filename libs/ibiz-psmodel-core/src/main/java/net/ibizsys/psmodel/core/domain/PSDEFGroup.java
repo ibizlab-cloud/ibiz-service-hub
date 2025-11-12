@@ -473,6 +473,86 @@ public class PSDEFGroup extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
+     * <B>DTOENABLEANY</B>&nbsp;DTO支持ANY
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_DTOENABLEANY = "dtoenableany";
+
+    /**
+     * 设置 DTO支持ANY
+     * 
+     * @param dTOEnableAny
+     * 
+     */
+    @JsonProperty(FIELD_DTOENABLEANY)
+    public void setDTOEnableAny(Integer dTOEnableAny){
+        this.set(FIELD_DTOENABLEANY, dTOEnableAny);
+    }
+    
+    /**
+     * 获取 DTO支持ANY  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDTOEnableAny(){
+        Object objValue = this.get(FIELD_DTOENABLEANY);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 DTO支持ANY 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDTOEnableAnyDirty(){
+        if(this.contains(FIELD_DTOENABLEANY)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 DTO支持ANY
+     */
+    @JsonIgnore
+    public void resetDTOEnableAny(){
+        this.reset(FIELD_DTOENABLEANY);
+    }
+
+    /**
+     * 设置 DTO支持ANY
+     * <P>
+     * 等同 {@link #setDTOEnableAny}
+     * @param dTOEnableAny
+     */
+    @JsonIgnore
+    public PSDEFGroup dtoenableany(Integer dTOEnableAny){
+        this.setDTOEnableAny(dTOEnableAny);
+        return this;
+    }
+
+     /**
+     * 设置 DTO支持ANY
+     * <P>
+     * 等同 {@link #setDTOEnableAny}
+     * @param dTOEnableAny
+     */
+    @JsonIgnore
+    public PSDEFGroup dtoenableany(Boolean dTOEnableAny){
+        if(dTOEnableAny == null){
+            this.setDTOEnableAny(null);
+        }
+        else{
+            this.setDTOEnableAny(dTOEnableAny?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
+        return this;
+    }
+
+    /**
      * <B>GROUPTAG</B>&nbsp;分组标记
      * <P>
      * 字符串：最大长度 100

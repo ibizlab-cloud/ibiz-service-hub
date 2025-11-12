@@ -29,6 +29,8 @@ public interface ISysNotifyAgentRuntime extends ISystemModelRuntime {
 
 	
 	
+	boolean unregisterDENotifyRuntime(IDENotifyRuntime iDENotifyRuntime);
+	
 	
 	/**
 	 * 执行通知发送处理

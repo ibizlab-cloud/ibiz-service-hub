@@ -3,6 +3,8 @@ package net.ibizsys.runtime.res;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.util.Assert;
+
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.runtime.ISystemRuntimeBaseContext;
 import net.ibizsys.runtime.SystemModelRuntimeBase;
@@ -42,18 +44,44 @@ public class SysNotifyAgentRuntime extends SystemModelRuntimeBase implements ISy
 	}
 
 	@Override
-	public void registerDENotifyRuntime(IDENotifyRuntime iDENotifyRuntime) {
-
-		this.deNotifyRuntimeList.add(iDENotifyRuntime);
+	public synchronized void registerDENotifyRuntime(IDENotifyRuntime iDENotifyRuntime) {
+		Assert.notNull(iDENotifyRuntime, "传入实体通知运行时无效");
+		if(this.deNotifyRuntimeList.contains(iDENotifyRuntime)) {
+			return ;
+		}
+		
+		List<IDENotifyRuntime> deNotifyRuntimeList2 = new ArrayList<IDENotifyRuntime>();
+		deNotifyRuntimeList2.addAll(this.deNotifyRuntimeList);
+		deNotifyRuntimeList2.add(iDENotifyRuntime);
+		
+		this.deNotifyRuntimeList = deNotifyRuntimeList2;
+	}
+	
+	@Override
+	public synchronized boolean unregisterDENotifyRuntime(IDENotifyRuntime iDENotifyRuntime) {
+		Assert.notNull(iDENotifyRuntime, "传入实体通知运行时无效");
+		
+		if(!this.deNotifyRuntimeList.contains(iDENotifyRuntime)) {
+			return false ;
+		}
+		
+		List<IDENotifyRuntime> deNotifyRuntimeList2 = new ArrayList<IDENotifyRuntime>();
+		deNotifyRuntimeList2.addAll(this.deNotifyRuntimeList);
+		deNotifyRuntimeList2.remove(iDENotifyRuntime);
+		
+		this.deNotifyRuntimeList = deNotifyRuntimeList2;
+		
+		return true;
 	}
 
 	@Override
 	public void send() {
-		if (this.deNotifyRuntimeList == null) {
+		final List<IDENotifyRuntime> deNotifyRuntimeList = this.deNotifyRuntimeList;
+		if (deNotifyRuntimeList == null) {
 			return;
 		}
 
-		for (IDENotifyRuntime iDENotifyRuntime : this.deNotifyRuntimeList) {
+		for (IDENotifyRuntime iDENotifyRuntime : deNotifyRuntimeList) {
 			try {
 				iDENotifyRuntime.send();
 			} catch (RuntimeException ex) {
@@ -61,5 +89,7 @@ public class SysNotifyAgentRuntime extends SystemModelRuntimeBase implements ISy
 			}
 		}
 	}
+
+	
 
 }

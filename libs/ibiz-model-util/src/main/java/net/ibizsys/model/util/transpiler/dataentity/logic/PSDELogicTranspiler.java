@@ -29,6 +29,10 @@ public class PSDELogicTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setDomainValue(iPSModelTranspileContext, domain, "events", realPSModelObject.getEvents(), realPSModelObject, "getEvents");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdelogicname", realPSModelObject.getLogicName(), realPSModelObject, "getLogicName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "logicsubtype", realPSModelObject.getLogicSubType(), realPSModelObject, "getLogicSubType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "logictag", realPSModelObject.getLogicTag(), realPSModelObject, "getLogicTag");
+		this.setDomainValue(iPSModelTranspileContext, domain, "logictag2", realPSModelObject.getLogicTag2(), realPSModelObject, "getLogicTag2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "logictag3", realPSModelObject.getLogicTag3(), realPSModelObject, "getLogicTag3");
+		this.setDomainValue(iPSModelTranspileContext, domain, "logictag4", realPSModelObject.getLogicTag4(), realPSModelObject, "getLogicTag4");
 		this.setDomainValue(iPSModelTranspileContext, domain, "customcode", realPSModelObject.getScriptCode(), realPSModelObject, "getScriptCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "threadrunmode", realPSModelObject.getThreadMode(), realPSModelObject, "getThreadMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "timerpolicy", realPSModelObject.getTimerPolicy(), realPSModelObject, "getTimerPolicy");
@@ -48,6 +52,10 @@ public class PSDELogicTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEVENTS, domain, "events", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICNAME, domain, "psdelogicname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICSUBTYPE, domain, "logicsubtype", java.lang.String.class, new String[]{"NONE"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG, domain, "logictag", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG2, domain, "logictag2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG3, domain, "logictag3", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG4, domain, "logictag4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCRIPTCODE, domain, "customcode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTHREADMODE, domain, "threadrunmode", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTIMERPOLICY, domain, "timerpolicy", java.lang.String.class);

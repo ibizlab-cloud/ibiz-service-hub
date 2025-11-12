@@ -64,6 +64,6 @@ public class PSSysTestDataRTService extends PSModelRTServiceBase<PSSysTestData, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysTestData.class, this.getPSSystemService().getPSSystem().getAllPSSysTestDatas(), (String)key, false);
+    	return getPSModelObject(IPSSysTestData.class, this.getPSSystemService().getPSSystem().getAllPSSysTestDatas(), (String)key, tryMode);
     }
 }

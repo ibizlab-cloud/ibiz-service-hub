@@ -240,14 +240,36 @@ public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity
 		IDENotifySettingUtilRuntime iDENotifySettingUtilRuntime = this.getDataEntityRuntime().isEnableNotifySetting()?
 				this.getDataEntityRuntime().getDENotifySettingUtilRuntime():null;
 		if(iDENotifySettingUtilRuntime == null) {
+//			ArrayNode array = JsonUtils.createArrayNode();
+//			for(java.util.Map.Entry<String,String> entry: targetMap.entrySet()) {
+//				array.add(entry.getKey());
+//			}
+//			
+//			msgSendQueue.setDstUsers(array.toString());
+//			
+//			return new MsgSendQueue[] { msgSendQueue};
+			List<MsgSendQueue> list = new ArrayList<MsgSendQueue>();
 			ArrayNode array = JsonUtils.createArrayNode();
 			for(java.util.Map.Entry<String,String> entry: targetMap.entrySet()) {
 				array.add(entry.getKey());
 			}
 			
-			msgSendQueue.setDstUsers(array.toString());
+			for(int nType : MSGTYPES) {
+				if((nMsgType & nType) == 0) {
+					continue;
+				}
+				
+				MsgSendQueue msgSendQueue2 = new MsgSendQueue();
+				msgSendQueue.copyTo(msgSendQueue2);
+				msgSendQueue2.setMsgType(nType);
+				msgSendQueue2.setDstUsers(array.toString());
+				list.add(msgSendQueue2);
+			}
 			
-			return new MsgSendQueue[] { msgSendQueue};
+			if(list.size() == 0) {
+				return null;
+			}
+			return list.toArray(new MsgSendQueue[list.size()]);
 		}
 		else {
 			List<MsgSendQueue> list = new ArrayList<MsgSendQueue>();
@@ -290,18 +312,6 @@ public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity
 		int nMsgType = this.getPSDENotify().getMsgType();
 		
 		IEntityBase data = iEntity;
-//		String strTemplEngine = getSysMsgTemplRuntime().getPSSysMsgTempl().getTemplEngine();
-//		if(!StringUtils.hasLength(strTemplEngine)
-//				|| strTemplEngine.equalsIgnoreCase(MsgTemplEngine.FREEMARKER.value)) {
-//			data = this.getDataEntityRuntime().createScriptEntity(iEntity);
-//			if(params != null) {
-//				Object last = params.get(ISysMsgTemplRuntime.TEMPLPARAM_LAST);
-//				if(last instanceof IEntity) {
-//					last = this.getDataEntityRuntime().createScriptEntity((IEntity)last);
-//					params.put(ISysMsgTemplRuntime.TEMPLPARAM_LAST, last);
-//				}
-//			}
-//		}
 		
 		data = this.getDataEntityRuntime().createScriptEntity(iEntity);
 		if(params != null) {
@@ -367,7 +377,7 @@ public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity
 		}
 
 		// 微信
-		if ((nMsgType & (MsgTypes.WX)) != 0) {
+		if ((nMsgType & (MsgTypes.WX | MsgTypes.WXWORK)) != 0) {
 			if(iSysMsgTemplRuntime != null) {
 				msgSendQueue.setWXContent(iSysMsgTemplRuntime.getWXContent(data, params));
 			}

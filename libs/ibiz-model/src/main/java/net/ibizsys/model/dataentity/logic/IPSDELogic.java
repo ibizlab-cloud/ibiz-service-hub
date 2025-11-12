@@ -89,6 +89,34 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取逻辑标记
+	 * @return
+	 */
+	java.lang.String getLogicTag();
+	
+	
+	/**
+	 * 获取逻辑标记2
+	 * @return
+	 */
+	java.lang.String getLogicTag2();
+	
+	
+	/**
+	 * 获取逻辑标记3
+	 * @return
+	 */
+	java.lang.String getLogicTag3();
+	
+	
+	/**
+	 * 获取逻辑标记4
+	 * @return
+	 */
+	java.lang.String getLogicTag4();
+	
+	
+	/**
 	 * 获取逻辑处理集合
 	 * @return
 	 */

@@ -475,7 +475,7 @@ public class PSSysTDItem extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性，指定数据项的相关实体属性
+     * <B>PSDEFID</B>&nbsp;实体属性，指定数据项的相关实体属性，来自系统测试数据的相关实体
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */

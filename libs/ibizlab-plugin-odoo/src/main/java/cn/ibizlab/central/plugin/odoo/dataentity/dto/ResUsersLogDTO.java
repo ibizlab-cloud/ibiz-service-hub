@@ -15,6 +15,11 @@ import net.ibizsys.central.util.IEntityDTO;
 public class ResUsersLogDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityDTOBase {
 
     /**
+     * 属性: 登录时间
+     */
+    public final static String FIELD_LOGIN_DATE = "login_date";
+
+    /**
      * 属性: 建立时间
      */
     public final static String FIELD_CREATE_DATE = "create_date";
@@ -35,6 +40,11 @@ public class ResUsersLogDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     public final static String FIELD_ID = "id";
 
     /**
+     * 属性: 标识
+     */
+    public final static String FIELD_USER_ID = "user_id";
+
+    /**
      * 属性: 更新时间
      */
     public final static String FIELD_WRITE_DATE = "write_date";
@@ -43,6 +53,44 @@ public class ResUsersLogDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
      * 属性: 更新人
      */
     public final static String FIELD_WRITE_UID = "write_uid";
+
+    /**
+     * 设置「登录时间」
+     * @param val
+     */
+    @JsonProperty(FIELD_LOGIN_DATE)
+    public ResUsersLogDTO setLoginDate(Timestamp val) {
+        this._set(FIELD_LOGIN_DATE, val);
+        return this;
+    }
+
+    /**
+     * 获取「登录时间」值
+     *
+     */
+    @JsonIgnore
+    public Timestamp getLoginDate() {
+        return DataTypeUtils.asDateTimeValue(this._get(FIELD_LOGIN_DATE), null);
+    }
+
+    /**
+     * 判断 「登录时间」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsLoginDate() {
+        return this._contains(FIELD_LOGIN_DATE);
+    }
+
+    /**
+     * 重置 「登录时间」
+     *
+     */
+    @JsonIgnore
+    public ResUsersLogDTO resetLoginDate() {
+        this._reset(FIELD_LOGIN_DATE);
+        return this;
+    }
 
     /**
      * 设置「建立时间」
@@ -195,6 +243,44 @@ public class ResUsersLogDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     @JsonIgnore
     public ResUsersLogDTO resetId() {
         this._reset(FIELD_ID);
+        return this;
+    }
+
+    /**
+     * 设置「标识」
+     * @param val
+     */
+    @JsonProperty(FIELD_USER_ID)
+    public ResUsersLogDTO setUserId(String val) {
+        this._set(FIELD_USER_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「标识」值
+     *
+     */
+    @JsonIgnore
+    public String getUserId() {
+        return DataTypeUtils.asString(this._get(FIELD_USER_ID), null);
+    }
+
+    /**
+     * 判断 「标识」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsUserId() {
+        return this._contains(FIELD_USER_ID);
+    }
+
+    /**
+     * 重置 「标识」
+     *
+     */
+    @JsonIgnore
+    public ResUsersLogDTO resetUserId() {
+        this._reset(FIELD_USER_ID);
         return this;
     }
 

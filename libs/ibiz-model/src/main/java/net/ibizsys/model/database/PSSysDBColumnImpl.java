@@ -17,6 +17,7 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETPRECISION = "precision";
 	public final static String ATTR_GETREFPSSYSDBCOLUMN = "getRefPSSysDBColumn";
 	public final static String ATTR_GETREFPSSYSDBTABLE = "getRefPSSysDBTable";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_ISAUTOINCREMENT = "autoIncrement";
 	public final static String ATTR_ISFKEY = "fKey";
@@ -104,6 +105,7 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 		return value.asText();
 	}
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -156,6 +158,14 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 		this.refpssysdbtable = refpssysdbtable;
 	}
 
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
+		}
+		return value.asInt();
+	}
 
 	public int getStdDataType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSTDDATATYPE);

@@ -9,7 +9,11 @@ import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
+import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
+import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 
 public interface ICloudAIClient {
 
@@ -27,5 +31,13 @@ public interface ICloudAIClient {
 
 	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/asynccompletion"})
 	PortalAsyncAction asyncCompletion(@PathVariable("type") String type, @RequestBody CompletionRequest completionRequest);
+	
+	
+	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/embedding"})
+	EmbeddingResult embedding(@PathVariable("type") String type, @RequestBody EmbeddingRequest embeddingRequest);
+	
+	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/textrerank"})
+	TextReRankResult textReRank(@PathVariable("type") String type, @RequestBody TextReRankRequest textReRankRequest);
+	
 	
 }

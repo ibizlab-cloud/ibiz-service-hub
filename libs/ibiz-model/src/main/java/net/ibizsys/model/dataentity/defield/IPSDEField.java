@@ -463,9 +463,10 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	
 	
 	/**
-	 * 获取数据精度
+	 * 获取数据精度（已废弃）
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
 	
 	
@@ -492,6 +493,13 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * @return
 	 */
 	java.lang.String getQueryOption();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

@@ -64,6 +64,6 @@ public class PSSysActorRTService extends PSModelRTServiceBase<PSSysActor, PSSysA
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysActor.class, this.getPSSystemService().getPSSystem().getAllPSSysActors(), (String)key, false);
+    	return getPSModelObject(IPSSysActor.class, this.getPSSystemService().getPSSystem().getAllPSSysActors(), (String)key, tryMode);
     }
 }

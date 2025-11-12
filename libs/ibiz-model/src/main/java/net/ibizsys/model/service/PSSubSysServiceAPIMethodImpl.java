@@ -94,6 +94,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		return value;
 	}
 
+	public void setInPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE inpssubsysserviceapide){
+		this.inpssubsysserviceapide = inpssubsysserviceapide;
+	}
+
 
 	public java.lang.String getKeyField(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETKEYFIELD);
@@ -169,6 +173,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		return value;
 	}
 
+	public void setOutPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE outpssubsysserviceapide){
+		this.outpssubsysserviceapide = outpssubsysserviceapide;
+	}
+
 
 	public java.lang.String getPSDECodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDECODENAME);
@@ -212,6 +220,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		return value;
 	}
 
+	public void setPSSubSysServiceAPIDE(net.ibizsys.model.service.IPSSubSysServiceAPIDE pssubsysserviceapide){
+		this.pssubsysserviceapide = pssubsysserviceapide;
+	}
+
 	private net.ibizsys.model.service.IPSSubSysServiceAPIMethodInput pssubsysserviceapimethodinput;
 
 	public net.ibizsys.model.service.IPSSubSysServiceAPIMethodInput getPSSubSysServiceAPIMethodInput(){
@@ -228,6 +240,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		net.ibizsys.model.service.IPSSubSysServiceAPIMethodInput value = this.getPSSubSysServiceAPIMethodInput();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定方法输入对象");}
 		return value;
+	}
+
+	public void setPSSubSysServiceAPIMethodInput(net.ibizsys.model.service.IPSSubSysServiceAPIMethodInput pssubsysserviceapimethodinput){
+		this.pssubsysserviceapimethodinput = pssubsysserviceapimethodinput;
 	}
 
 	private net.ibizsys.model.service.IPSSubSysServiceAPIMethodReturn pssubsysserviceapimethodreturn;
@@ -248,6 +264,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		return value;
 	}
 
+	public void setPSSubSysServiceAPIMethodReturn(net.ibizsys.model.service.IPSSubSysServiceAPIMethodReturn pssubsysserviceapimethodreturn){
+		this.pssubsysserviceapimethodreturn = pssubsysserviceapimethodreturn;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -264,6 +284,10 @@ public class PSSubSysServiceAPIMethodImpl extends net.ibizsys.model.PSObjectImpl
 		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
 	}
 
 

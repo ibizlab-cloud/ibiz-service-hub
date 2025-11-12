@@ -64,6 +64,6 @@ public class PSSysTranslatorRTService extends PSModelRTServiceBase<PSSysTranslat
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysTranslator.class, this.getPSSystemService().getPSSystem().getAllPSSysTranslators(), (String)key, false);
+    	return getPSModelObject(IPSSysTranslator.class, this.getPSSystemService().getPSSystem().getAllPSSysTranslators(), (String)key, tryMode);
     }
 }

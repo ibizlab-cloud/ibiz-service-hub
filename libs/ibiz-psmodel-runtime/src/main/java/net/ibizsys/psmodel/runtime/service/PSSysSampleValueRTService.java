@@ -64,6 +64,6 @@ public class PSSysSampleValueRTService extends PSModelRTServiceBase<PSSysSampleV
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysSampleValue.class, this.getPSSystemService().getPSSystem().getAllPSSysSampleValues(), (String)key, false);
+    	return getPSModelObject(IPSSysSampleValue.class, this.getPSSystemService().getPSSystem().getAllPSSysSampleValues(), (String)key, tryMode);
     }
 }

@@ -34,6 +34,7 @@ public class PSDEGridTranspiler extends net.ibizsys.model.util.transpiler.contro
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouppsdefid", realPSModelObject.getGroupPSAppDEField(), realPSModelObject, "getGroupPSAppDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouppscodelistid", realPSModelObject.getGroupPSCodeList(), realPSModelObject, "getGroupPSCodeList");
 		this.setDomainValue(iPSModelTranspileContext, domain, "groupstyle", realPSModelObject.getGroupStyle(), realPSModelObject, "getGroupStyle");
+		this.setDomainValue(iPSModelTranspileContext, domain, "grouptextpsdefid", realPSModelObject.getGroupTextPSAppDEField(), realPSModelObject, "getGroupTextPSAppDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorsortdir", realPSModelObject.getMinorSortDir(), realPSModelObject, "getMinorSortDir");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorsortpsdefid", realPSModelObject.getMinorSortPSAppDEField(), realPSModelObject, "getMinorSortPSAppDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ordervaluepsdefid", realPSModelObject.getOrderValuePSAppDEField(), realPSModelObject, "getOrderValuePSAppDEField");
@@ -65,6 +66,7 @@ public class PSDEGridTranspiler extends net.ibizsys.model.util.transpiler.contro
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPPSAPPDEFIELD, domain, "grouppsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPPSCODELIST, domain, "grouppscodelistid", net.ibizsys.model.codelist.IPSCodeList.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPSTYLE, domain, "groupstyle", java.lang.String.class, new String[]{"DEFAULT"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPTEXTPSAPPDEFIELD, domain, "grouptextpsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTDIR, domain, "minorsortdir", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTPSAPPDEFIELD, domain, "minorsortpsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETORDERVALUEPSAPPDEFIELD, domain, "ordervaluepsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);

@@ -51,6 +51,10 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -75,6 +79,10 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysCss value = this.getCellPSSysCss();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定单元格样式对象");}
 		return value;
+	}
+
+	public void setCellPSSysCss(net.ibizsys.model.res.IPSSysCss cellpssyscss){
+		this.cellpssyscss = cellpssyscss;
 	}
 
 
@@ -135,6 +143,10 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysCss value = this.getHeaderPSSysCss();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定头部样式对象");}
 		return value;
+	}
+
+	public void setHeaderPSSysCss(net.ibizsys.model.res.IPSSysCss headerpssyscss){
+		this.headerpssyscss = headerpssyscss;
 	}
 
 
@@ -235,6 +247,10 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin renderpssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getRenderPSSysPFPlugin(){
@@ -251,6 +267,10 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getRenderPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定列绘制应用插件");}
 		return value;
+	}
+
+	public void setRenderPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin renderpssyspfplugin){
+		this.renderpssyspfplugin = renderpssyspfplugin;
 	}
 
 

@@ -107,6 +107,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		return value;
 	}
 
+	public void setLinkPSAppView(net.ibizsys.model.app.view.IPSAppView linkpsappview){
+		this.linkpsappview = linkpsappview;
+	}
+
 
 	public java.lang.String getLinkValueItem(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLINKVALUEITEM);
@@ -165,6 +169,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		return value;
 	}
 
+	public void setPSAppCodeList(net.ibizsys.model.app.codelist.IPSAppCodeList psappcodelist){
+		this.psappcodelist = psappcodelist;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField(){
@@ -181,6 +189,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定列应用实体属性");}
 		return value;
+	}
+
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
 	}
 
 	private net.ibizsys.model.control.tree.IPSDETreeNodeEditItemUpdate psdetreenodeedititemupdate;
@@ -202,6 +214,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		return value;
 	}
 
+	public void setPSDETreeNodeEditItemUpdate(net.ibizsys.model.control.tree.IPSDETreeNodeEditItemUpdate psdetreenodeedititemupdate){
+		this.psdetreenodeedititemupdate = psdetreenodeedititemupdate;
+	}
+
 	private net.ibizsys.model.dataentity.uiaction.IPSDEUIAction psdeuiaction;
 
 	public net.ibizsys.model.dataentity.uiaction.IPSDEUIAction getPSDEUIAction(){
@@ -218,6 +234,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		net.ibizsys.model.dataentity.uiaction.IPSDEUIAction value = this.getPSDEUIAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定内置界面行为");}
 		return value;
+	}
+
+	public void setPSDEUIAction(net.ibizsys.model.dataentity.uiaction.IPSDEUIAction psdeuiaction){
+		this.psdeuiaction = psdeuiaction;
 	}
 
 	private net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup psdeuiactiongroup;
@@ -238,6 +258,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		return value;
 	}
 
+	public void setPSDEUIActionGroup(net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup psdeuiactiongroup){
+		this.psdeuiactiongroup = psdeuiactiongroup;
+	}
+
 	private net.ibizsys.model.control.IPSEditor pseditor;
 
 	public net.ibizsys.model.control.IPSEditor getPSEditor(){
@@ -254,6 +278,10 @@ public class PSDETreeNodeFieldColumnImpl extends net.ibizsys.model.control.tree.
 		net.ibizsys.model.control.IPSEditor value = this.getPSEditor();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定编辑器对象");}
 		return value;
+	}
+
+	public void setPSEditor(net.ibizsys.model.control.IPSEditor pseditor){
+		this.pseditor = pseditor;
 	}
 
 

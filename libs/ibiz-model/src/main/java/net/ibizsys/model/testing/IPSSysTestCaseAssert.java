@@ -90,6 +90,20 @@ public interface IPSSysTestCaseAssert extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取测试数据
+	 * @return
+	 */
+	net.ibizsys.model.testing.IPSSysTestData getPSSysTestData();
+
+
+	/**
+	 * 获取测试数据，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.testing.IPSSysTestData getPSSysTestDataMust();
+	
+	
+	/**
 	 * 获取脚本代码
 	 * @return
 	 */

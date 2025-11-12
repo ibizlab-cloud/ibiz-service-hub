@@ -94,6 +94,10 @@ public class PSSysBIHierarchyImpl extends net.ibizsys.model.bi.PSSysBIDimensionO
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 
 	public boolean hasAll(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_HASALL);

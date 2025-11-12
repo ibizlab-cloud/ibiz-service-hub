@@ -184,7 +184,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	private Map<String, IDEDataSetRuntime> deDataSetRuntimeMap = null;
 	private Map<String, IPSDEDataQuery> psDEDataQueryMap = new HashMap<String, IPSDEDataQuery>();
 	private Map<String, IDEActionRuntime> deActionRuntimeMap = null;
-
+	private Map<String, IPSDELogic> psDELogicMap = new HashMap<String, IPSDELogic>();
 
 	private IPSDEMap defaultPSDEMap = null;
 	private Map<String, List<IPSDEMainState>> psDEActionDenyMainStateMap = null;
@@ -2112,6 +2112,8 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			this.onWFError(arg0, iPSDEAction, iPSDEWF, actionData);
 		} else if (DEActions.WFROLLBACK.equalsIgnoreCase(strActionName)) {
 			this.onWFRollback(arg0, iPSDEAction, iPSDEWF, actionData);
+		} else if (DEActions.WFNOTIFY.equalsIgnoreCase(strActionName)) {
+			this.onWFNotify(arg0, iPSDEAction, iPSDEWF, actionData);
 		}
 	}
 
@@ -2155,6 +2157,19 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	protected void onWFRollback(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
 
 	}
+	
+	/**
+	 * 工作流通知触发
+	 *
+	 * @param arg0
+	 * @param iPSDEAction
+	 * @param joinPoint
+	 * @throws Throwable
+	 */
+	protected void onWFNotify(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
+
+	}
+	
 
 	/**
 	 * 工作流完成触发
@@ -6267,7 +6282,6 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	@Override
 	public IPSDEAction getPSDEActionByTag(String strTag, boolean bTryMode) {
 		Assert.hasLength(strTag, "未传入行为标记");
-		this.prepare();
 		try {
 			List<IPSDEAction> list = this.getPSDataEntity().getAllPSDEActions();
 			if(!ObjectUtils.isEmpty(list)) {
@@ -6292,9 +6306,35 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	}
 	
 	@Override
+	public IPSDELogic getPSDELogicByTag(String strTag, boolean bTryMode) {
+		Assert.hasLength(strTag, "未传入行为标记");
+		try {
+			List<IPSDELogic> list = this.getPSDataEntity().getAllPSDELogics();
+			if(!ObjectUtils.isEmpty(list)) {
+				for(IPSDELogic iPSDELogic : list) {
+					String strLogicTag = iPSDELogic.getLogicTag();
+					if(StringUtils.hasLength(strLogicTag)) {
+						if(strLogicTag.equalsIgnoreCase(strTag)) {
+							return iPSDELogic;
+						}
+					}
+				}
+			}
+		} catch (Exception ex) {
+			log.error(ex);
+		}
+		
+		IPSDELogic iPSDELogic = this.getPSDELogic(strTag);
+		if (iPSDELogic != null || bTryMode) {
+			return iPSDELogic;
+		}
+		throw new DataEntityRuntimeException(this, String.format("无法获取指定标记[%1$s]处理逻辑", strTag));
+	}
+	
+	
+	@Override
 	public IPSDEDataSet getPSDEDataSetByTag(String strTag, boolean bTryMode) {
 		Assert.hasLength(strTag, "未传入数据集标记");
-		this.prepare();
 		try {
 			List<IPSDEDataSet> list = this.getPSDataEntity().getAllPSDEDataSets();
 			if(!ObjectUtils.isEmpty(list)) {
@@ -6317,6 +6357,33 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		}
 		throw new DataEntityRuntimeException(this, String.format("无法获取指定标记[%1$s]数据集", strTag));
 	}
+	
+	@Override
+	public IPSDEDataQuery getPSDEDataQueryByTag(String strTag, boolean bTryMode) {
+		Assert.hasLength(strTag, "未传入数据查询标记");
+		try {
+			List<IPSDEDataQuery> list = this.getPSDataEntity().getAllPSDEDataQueries();
+			if(!ObjectUtils.isEmpty(list)) {
+				for(IPSDEDataQuery iPSDEDataQuery : list) {
+					String strDataQueryTag = iPSDEDataQuery.getDataQueryTag();
+					if(StringUtils.hasLength(strDataQueryTag)) {
+						if(strDataQueryTag.equalsIgnoreCase(strTag)) {
+							return iPSDEDataQuery;
+						}
+					}
+				}
+			}
+		} catch (Exception ex) {
+			log.error(ex);
+		}
+		
+		IPSDEDataQuery iPSDEDataQuery = this.getPSDEDataQuery(strTag);
+		if (iPSDEDataQuery != null || bTryMode) {
+			return iPSDEDataQuery;
+		}
+		throw new DataEntityRuntimeException(this, String.format("无法获取指定标记[%1$s]数据查询", strTag));
+	}
+	
 
 	@Override
 	public boolean isEnableLogicValid() {

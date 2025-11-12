@@ -21,6 +21,7 @@ public class PSCodeListTranspiler extends net.ibizsys.model.util.transpiler.code
 			
 		}
 		net.ibizsys.model.codelist.PSCodeListImpl realPSModelObject = (net.ibizsys.model.codelist.PSCodeListImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "alltext", realPSModelObject.getAllText(), realPSModelObject, "getAllText");
 		this.setDomainValue(iPSModelTranspileContext, domain, "bkcolorpsdefid", realPSModelObject.getBKColorPSDEField(), realPSModelObject, "getBKColorPSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "clspsdefid", realPSModelObject.getClsPSDEField(), realPSModelObject, "getClsPSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "cltype", realPSModelObject.getCodeListType(), realPSModelObject, "getCodeListType");
@@ -54,6 +55,7 @@ public class PSCodeListTranspiler extends net.ibizsys.model.util.transpiler.code
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETALLTEXT, domain, "alltext", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBKCOLORPSDEFIELD, domain, "bkcolorpsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCLSPSDEFIELD, domain, "clspsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCODELISTTYPE, domain, "cltype", java.lang.String.class);

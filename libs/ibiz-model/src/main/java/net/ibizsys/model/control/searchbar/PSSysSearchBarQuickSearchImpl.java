@@ -23,4 +23,8 @@ public class PSSysSearchBarQuickSearchImpl extends net.ibizsys.model.control.sea
 		return value;
 	}
 
+	public void setPSDEFSearchMode(net.ibizsys.model.dataentity.defield.IPSDEFSearchMode psdefsearchmode){
+		this.psdefsearchmode = psdefsearchmode;
+	}
+
 }

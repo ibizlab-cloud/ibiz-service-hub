@@ -27,6 +27,10 @@ public class PSCaptionBarImpl extends net.ibizsys.model.control.PSControlImpl im
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -53,6 +57,10 @@ public class PSCaptionBarImpl extends net.ibizsys.model.control.PSControlImpl im
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSLanguageRes subcappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getSubCapPSLanguageRes(){
@@ -69,6 +77,10 @@ public class PSCaptionBarImpl extends net.ibizsys.model.control.PSControlImpl im
 		net.ibizsys.model.res.IPSLanguageRes value = this.getSubCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定子标题语言资源");}
 		return value;
+	}
+
+	public void setSubCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes subcappslanguageres){
+		this.subcappslanguageres = subcappslanguageres;
 	}
 
 

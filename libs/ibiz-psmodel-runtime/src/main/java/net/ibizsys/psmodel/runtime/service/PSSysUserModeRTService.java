@@ -65,6 +65,6 @@ public class PSSysUserModeRTService extends PSModelRTServiceBase<PSSysUserMode, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysUserMode.class, this.getPSSystemService().getPSSystem().getAllPSSysUserModes(), (String)key, false);
+    	return getPSModelObject(IPSSysUserMode.class, this.getPSSystemService().getPSSystem().getAllPSSysUserModes(), (String)key, tryMode);
     }
 }

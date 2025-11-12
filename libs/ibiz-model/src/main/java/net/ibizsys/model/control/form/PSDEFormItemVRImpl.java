@@ -44,6 +44,10 @@ public class PSDEFormItemVRImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSDEFValueRule(net.ibizsys.model.dataentity.defield.valuerule.IPSDEFValueRule psdefvaluerule){
+		this.psdefvaluerule = psdefvaluerule;
+	}
+
 
 	public java.lang.String getPSDEFormItemName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEFORMITEMNAME);
@@ -68,6 +72,10 @@ public class PSDEFormItemVRImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.valuerule.IPSSysValueRule value = this.getPSSysValueRule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统值规则");}
 		return value;
+	}
+
+	public void setPSSysValueRule(net.ibizsys.model.valuerule.IPSSysValueRule pssysvaluerule){
+		this.pssysvaluerule = pssysvaluerule;
 	}
 
 

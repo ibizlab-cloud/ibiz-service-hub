@@ -58,6 +58,10 @@ public class PSDEDRBarImpl extends net.ibizsys.model.control.drctrl.PSDEDRCtrlIm
 		return value;
 	}
 
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
+	}
+
 
 	public boolean isShowTitle(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISSHOWTITLE);

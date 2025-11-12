@@ -26,6 +26,10 @@ public class PSSubSysServiceAPIMethodInputImpl extends net.ibizsys.model.PSObjec
 		return value;
 	}
 
+	public void setKeyPSSubSysServiceAPIField(net.ibizsys.model.service.IPSSubSysServiceAPIDEField keypssubsysserviceapifield){
+		this.keypssubsysserviceapifield = keypssubsysserviceapifield;
+	}
+
 	private net.ibizsys.model.service.IPSSubSysServiceAPIDTO pssubsysserviceapidto;
 
 	public net.ibizsys.model.service.IPSSubSysServiceAPIDTO getPSSubSysServiceAPIDTO(){
@@ -43,6 +47,10 @@ public class PSSubSysServiceAPIMethodInputImpl extends net.ibizsys.model.PSObjec
 		net.ibizsys.model.service.IPSSubSysServiceAPIDTO value = this.getPSSubSysServiceAPIDTO();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定外部服务接口DTO对象");}
 		return value;
+	}
+
+	public void setPSSubSysServiceAPIDTO(net.ibizsys.model.service.IPSSubSysServiceAPIDTO pssubsysserviceapidto){
+		this.pssubsysserviceapidto = pssubsysserviceapidto;
 	}
 
 

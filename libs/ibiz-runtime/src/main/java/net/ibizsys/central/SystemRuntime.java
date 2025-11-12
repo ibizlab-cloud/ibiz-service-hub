@@ -219,6 +219,7 @@ import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.ModelRuntimeUtils;
+import net.ibizsys.runtime.util.SystemRuntimeHolder;
 import net.ibizsys.runtime.util.script.IScriptEntity;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 
@@ -407,16 +408,23 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 				prepareSystemSetting(null);
 			}
 		}
+		
+		try {
+			SystemRuntimeHolder.push(this);
+			this.prepareSysSFPluginRuntimes();
+			this.prepareThreadPoolExecutors();
 
-		this.prepareSysSFPluginRuntimes();
-		this.prepareThreadPoolExecutors();
-
-		this.onInit();
-		this.onBeforeStart();
-		// 启动计时器相关
-		this.onStart();
-		this.onAfterStart();
-		this.markLoaded();
+			this.onInit();
+			this.onBeforeStart();
+			// 启动计时器相关
+			this.onStart();
+			this.onAfterStart();
+			this.markLoaded();
+		}
+		finally {
+			SystemRuntimeHolder.poll();
+		}
+		
 	}
 
 	@Override

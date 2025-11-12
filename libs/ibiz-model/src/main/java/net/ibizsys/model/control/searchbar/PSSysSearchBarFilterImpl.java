@@ -53,6 +53,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	public java.lang.String getCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCAPTION);
@@ -151,6 +155,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		return value;
 	}
 
+	public void setPHPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes phpslanguageres){
+		this.phpslanguageres = phpslanguageres;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEFSearchMode psdefsearchmode;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEFSearchMode getPSDEFSearchMode(){
@@ -167,6 +175,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		net.ibizsys.model.dataentity.defield.IPSDEFSearchMode value = this.getPSDEFSearchMode();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定属性搜索模式");}
 		return value;
+	}
+
+	public void setPSDEFSearchMode(net.ibizsys.model.dataentity.defield.IPSDEFSearchMode psdefsearchmode){
+		this.psdefsearchmode = psdefsearchmode;
 	}
 
 	private net.ibizsys.model.control.IPSEditor pseditor;
@@ -187,6 +199,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		return value;
 	}
 
+	public void setPSEditor(net.ibizsys.model.control.IPSEditor pseditor){
+		this.pseditor = pseditor;
+	}
+
 	private net.ibizsys.model.res.IPSSysCss pssyscss;
 
 	public net.ibizsys.model.res.IPSSysCss getPSSysCss(){
@@ -205,6 +221,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -221,6 +241,10 @@ public class PSSysSearchBarFilterImpl extends net.ibizsys.model.control.searchba
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定项图片对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

@@ -78,6 +78,7 @@ public class PSApplicationImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	public final static String ATTR_GETPFTYPE = "pFType";
 	public final static String ATTR_GETPKGCODENAME = "pKGCodeName";
 	public final static String ATTR_GETPSAPPLICATIONLOGICS = "getPSApplicationLogics";
+	public final static String ATTR_GETPSDEVSLNSYSID = "getPSDevSlnSysId";
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
 	public final static String ATTR_GETPSSYSRESOURCE = "getPSSysResource";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
@@ -1314,6 +1315,14 @@ public class PSApplicationImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	}
 	public void setPSApplicationLogics(java.util.List<net.ibizsys.model.app.IPSApplicationLogic> list){
 		this.psapplicationlogics = list;
+	}
+
+	public java.lang.String getPSDevSlnSysId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEVSLNSYSID);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
 	}
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 

@@ -23,4 +23,8 @@ public class PSDBListPortletPartImpl extends net.ibizsys.model.control.dashboard
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 }

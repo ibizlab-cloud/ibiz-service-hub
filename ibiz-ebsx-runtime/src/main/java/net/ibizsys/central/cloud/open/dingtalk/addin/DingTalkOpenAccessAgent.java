@@ -19,6 +19,7 @@ import net.ibizsys.central.cloud.open.core.addin.OpenAccessAgentBase;
 import net.ibizsys.central.service.client.IWebClientRep;
 import net.ibizsys.central.util.ISearchContext;
 import net.ibizsys.central.util.SearchContextDTO;
+import net.ibizsys.runtime.msg.MsgTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.domain.MsgSendQueue;
@@ -31,6 +32,12 @@ import java.util.*;
 public class DingTalkOpenAccessAgent extends OpenAccessAgentBase {
 
     private static final org.apache.commons.logging.Log log = LogFactory.getLog(DingTalkOpenAccessAgent.class);
+
+
+
+    public int getSupportMsgType() {
+        return MsgTypes.DD;
+    }
 
     @Override
     protected void onInit() throws Exception {
@@ -233,7 +240,7 @@ public class DingTalkOpenAccessAgent extends OpenAccessAgentBase {
         if (!StringUtils.hasLength(strDDContent)) {
             strDDContent = this.getRealContent(msgSendQueue, MsgTemplateType.MSG.getValue());
         }
-        if(StringUtils.hasLength(strDDContent)){
+        if(!StringUtils.hasLength(strDDContent)){
             log.warn(String.format("消息内容为空,忽略发送"));
             return;
         }

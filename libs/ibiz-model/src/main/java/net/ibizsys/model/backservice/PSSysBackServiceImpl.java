@@ -61,6 +61,10 @@ public class PSSysBackServiceImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction psdeaction){
+		this.psdeaction = psdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
 
 	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getPSDEDataSet(){
@@ -78,6 +82,10 @@ public class PSSysBackServiceImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		net.ibizsys.model.dataentity.ds.IPSDEDataSet value = this.getPSDEDataSet();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目标数据集");}
 		return value;
+	}
+
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
 	}
 
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
@@ -98,6 +106,10 @@ public class PSSysBackServiceImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -116,6 +128,10 @@ public class PSSysBackServiceImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -132,6 +148,10 @@ public class PSSysBackServiceImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

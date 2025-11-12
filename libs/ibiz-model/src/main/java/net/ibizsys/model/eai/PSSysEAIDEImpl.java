@@ -101,6 +101,10 @@ public class PSSysEAIDEImpl extends net.ibizsys.model.eai.PSSysEAISchemeObjectIm
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.eai.IPSSysEAIElement pssyseaielement;
 
 	public net.ibizsys.model.eai.IPSSysEAIElement getPSSysEAIElement(){
@@ -118,6 +122,10 @@ public class PSSysEAIDEImpl extends net.ibizsys.model.eai.PSSysEAISchemeObjectIm
 		net.ibizsys.model.eai.IPSSysEAIElement value = this.getPSSysEAIElement();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定映射集成元素");}
 		return value;
+	}
+
+	public void setPSSysEAIElement(net.ibizsys.model.eai.IPSSysEAIElement pssyseaielement){
+		this.pssyseaielement = pssyseaielement;
 	}
 
 }

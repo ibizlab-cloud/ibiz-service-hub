@@ -4,21 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.ibizsys.model.app.IPSApplication;
-import net.ibizsys.model.app.bi.IPSAppBIScheme;
-import net.ibizsys.model.PSModelUtils;
-import net.ibizsys.model.app.bi.IPSAppBICube;
-import net.ibizsys.model.app.bi.IPSAppBICubeDimension;
-import net.ibizsys.model.app.bi.IPSAppBICubeMeasure;
-import net.ibizsys.model.app.bi.IPSAppBIReport;
-import net.ibizsys.model.app.bi.IPSAppBIReportDimension;
-import net.ibizsys.model.app.bi.IPSAppBIReportMeasure;
-import net.ibizsys.model.app.bi.PSAppBICubeDimensionImpl;
-import net.ibizsys.model.app.bi.PSAppBICubeImpl;
-import net.ibizsys.model.app.bi.PSAppBICubeMeasureImpl;
-import net.ibizsys.model.app.bi.PSAppBIReportDimensionImpl;
-import net.ibizsys.model.app.bi.PSAppBIReportMeasureImpl;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
@@ -34,6 +19,20 @@ import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionUtils;
 import net.ibizsys.central.plugin.extension.psmodel.util.IExtensionPSModelRTServiceSession;
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.model.IPSModelObjectRuntime;
+import net.ibizsys.model.PSModelUtils;
+import net.ibizsys.model.app.IPSApplication;
+import net.ibizsys.model.app.bi.IPSAppBICube;
+import net.ibizsys.model.app.bi.IPSAppBICubeDimension;
+import net.ibizsys.model.app.bi.IPSAppBICubeMeasure;
+import net.ibizsys.model.app.bi.IPSAppBIReport;
+import net.ibizsys.model.app.bi.IPSAppBIReportDimension;
+import net.ibizsys.model.app.bi.IPSAppBIReportMeasure;
+import net.ibizsys.model.app.bi.IPSAppBIScheme;
+import net.ibizsys.model.app.bi.PSAppBICubeDimensionImpl;
+import net.ibizsys.model.app.bi.PSAppBICubeImpl;
+import net.ibizsys.model.app.bi.PSAppBICubeMeasureImpl;
+import net.ibizsys.model.app.bi.PSAppBIReportDimensionImpl;
+import net.ibizsys.model.app.bi.PSAppBIReportMeasureImpl;
 import net.ibizsys.model.bi.IPSSysBIReport;
 import net.ibizsys.model.bi.IPSSysBIScheme;
 import net.ibizsys.model.util.PSModelMergeUtils;
@@ -405,7 +404,7 @@ public class PSSysBIReportRTService extends net.ibizsys.psmodel.runtime.service.
 			throw new Exception("未指定应用标识");
 		}
 
-		IPSApplication iPSApplication = ExtensionUtils.getPSApplication(iExtensionPSModelRTServiceSession, iExtensionPSModelRTServiceSession.getPSSystem(), strPSSysAppId, true);
+		IPSApplication iPSApplication = ExtensionUtils.getPSApplication(iExtensionPSModelRTServiceSession, iExtensionPSModelRTServiceSession.getPSSystem(), strPSSysAppId, true, true);
 		if (iPSApplication == null) {
 			throw new Exception(String.format("指定应用标识[%1$s]无效", strPSSysAppId));
 		}
@@ -463,7 +462,7 @@ public class PSSysBIReportRTService extends net.ibizsys.psmodel.runtime.service.
 
 		ObjectNode objectNode = iExtensionPSModelRTServiceSession.getPSModelTranspiler(IPSAppBIReport.class, false).compile(iExtensionPSModelRTServiceSession, m, null);
 
-		IPSAppBIReport iPSAppBIReport = iExtensionPSModelRTServiceSession.getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) iPSAppBIScheme, IPSAppBIReport.class, objectNode);
+		IPSAppBIReport iPSAppBIReport = iExtensionPSModelRTServiceSession.getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime)iPSAppBIScheme, IPSAppBIReport.class, objectNode);
 		// 进一步填充
 		List<IPSAppBIReportDimension> psAppBIReportDimensionList = iPSAppBIReport.getPSAppBIReportDimensions();
 		if (!ObjectUtils.isEmpty(psAppBIReportDimensionList)) {

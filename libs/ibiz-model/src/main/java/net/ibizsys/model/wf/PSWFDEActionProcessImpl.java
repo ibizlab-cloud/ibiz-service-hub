@@ -34,6 +34,10 @@ public class PSWFDEActionProcessImpl extends net.ibizsys.model.wf.PSWFProcessImp
 		return value;
 	}
 
+	public void setPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction psdeaction){
+		this.psdeaction = psdeaction;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -50,6 +54,10 @@ public class PSWFDEActionProcessImpl extends net.ibizsys.model.wf.PSWFProcessImp
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体对象");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 }

@@ -73,4 +73,8 @@ public class PSDETreeNodeRVImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setRefPSAppView(net.ibizsys.model.app.view.IPSAppView refpsappview){
+		this.refpsappview = refpsappview;
+	}
+
 }

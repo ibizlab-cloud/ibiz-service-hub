@@ -32,4 +32,8 @@ public abstract class PSWFCallActivityProcessImplBase extends net.ibizsys.model.
 		return value;
 	}
 
+	public void setTargetPSWF(net.ibizsys.model.wf.IPSWorkflow tarpswf){
+		this.tarpswf = tarpswf;
+	}
+
 }

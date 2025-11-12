@@ -922,7 +922,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEINPUTTIP</B>&nbsp;启用输入提示，指定应用属性界面模式的编辑项是否指定输入提示，未定义时为【是】
+     * <B>ENABLEINPUTTIP</B>&nbsp;启用输入提示，指定属性界面模式的编辑项是否指定输入提示，未定义时为【是】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -1002,7 +1002,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLERESETITEMNAME</B>&nbsp;启用重置项名称，指定应用属性界面模式的编辑项是否启用重置项名称配置，未定义时为【否】
+     * <B>ENABLERESETITEMNAME</B>&nbsp;启用重置项名称，指定属性界面模式的编辑项是否启用重置项名称配置，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
@@ -1162,14 +1162,14 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>ENABLEVALUERULE</B>&nbsp;启用值规则
+     * <B>ENABLEVALUERULE</B>&nbsp;启用值规则，指定属性界面模式是否定义值规则配置，未定义时为【否】
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_ENABLEVALUERULE = "enablevaluerule";
 
     /**
-     * 设置 启用值规则
+     * 设置 启用值规则，详细说明：{@link #FIELD_ENABLEVALUERULE}
      * 
      * @param enableValueRule
      * 
@@ -1213,7 +1213,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 启用值规则
+     * 设置 启用值规则，详细说明：{@link #FIELD_ENABLEVALUERULE}
      * <P>
      * 等同 {@link #setEnableValueRule}
      * @param enableValueRule
@@ -1225,7 +1225,7 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 启用值规则
+     * 设置 启用值规则，详细说明：{@link #FIELD_ENABLEVALUERULE}
      * <P>
      * 等同 {@link #setEnableValueRule}
      * @param enableValueRule
@@ -2674,30 +2674,30 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PRECISION</B>&nbsp;浮点精度
+     * <B>SCALE</B>&nbsp;小数位数
      */
-    public final static String FIELD_PRECISION = "precision";
+    public final static String FIELD_SCALE = "scale";
 
     /**
-     * 设置 浮点精度
+     * 设置 小数位数
      * 
-     * @param precision
+     * @param scale
      * 
      */
-    @JsonProperty(FIELD_PRECISION)
-    public void setPrecision(Integer precision){
-        this.set(FIELD_PRECISION, precision);
+    @JsonProperty(FIELD_SCALE)
+    public void setScale(Integer scale){
+        this.set(FIELD_SCALE, scale);
         //属性名称与代码标识不一致，设置属性名称
-        this.set("precision2", precision);
+        this.set("precision2", scale);
     }
     
     /**
-     * 获取 浮点精度  
+     * 获取 小数位数  
      * @return
      */
     @JsonIgnore
-    public Integer getPrecision(){
-        Object objValue = this.get(FIELD_PRECISION);
+    public Integer getScale(){
+        Object objValue = this.get(FIELD_SCALE);
         if(objValue==null){
             //属性名称与代码标识不一致，使用属性名称
             objValue = this.get("precision2");
@@ -2709,12 +2709,12 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 浮点精度 是否指定值，包括空值
+     * 判断 小数位数 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
-    public boolean isPrecisionDirty(){
-        if(this.contains(FIELD_PRECISION)){
+    public boolean isScaleDirty(){
+        if(this.contains(FIELD_SCALE)){
             return true;
         }
         //属性名称与代码标识不一致，判断属性名称
@@ -2725,49 +2725,49 @@ public class PSDEFUIMode extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 浮点精度
+     * 重置 小数位数
      */
     @JsonIgnore
-    public void resetPrecision(){
-        this.reset(FIELD_PRECISION);
+    public void resetScale(){
+        this.reset(FIELD_SCALE);
         //属性名称与代码标识不一致，重置属性名称
         this.reset("precision2");
     }
 
     /**
-     * 设置 浮点精度
+     * 设置 小数位数
      * <P>
-     * 等同 {@link #setPrecision}
-     * @param precision
+     * 等同 {@link #setScale}
+     * @param scale
      */
     @JsonIgnore
-    public PSDEFUIMode precision(Integer precision){
-        this.setPrecision(precision);
+    public PSDEFUIMode scale(Integer scale){
+        this.setScale(scale);
         return this;
     }
 
     @JsonIgnore
     @Deprecated
     public Integer getPrecision2(){
-        return this.getPrecision();
+        return this.getScale();
     }
 
     @JsonIgnore
     @Deprecated        
     public void setPrecision2(Integer precision2){
-        this.setPrecision(precision2);
+        this.setScale(precision2);
     }
 
     @JsonIgnore
     @Deprecated
     public boolean isPrecision2Dirty(){
-        return this.isPrecisionDirty();
+        return this.isScaleDirty();
     }
 
     @JsonIgnore
     @Deprecated
     public void resetPrecision2(){
-        this.resetPrecision();
+        this.resetScale();
     }
 
     /**

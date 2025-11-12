@@ -1093,14 +1093,14 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>HIDDENDATAITEM</B>&nbsp;隐藏数据项
+     * <B>HIDDENDATAITEM</B>&nbsp;隐藏数据项，指定是否仅为隐藏数据项，隐藏数据项维度不提供界面，仅被公式使用
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
      */
     public final static String FIELD_HIDDENDATAITEM = "hiddendataitem";
 
     /**
-     * 设置 隐藏数据项
+     * 设置 隐藏数据项，详细说明：{@link #FIELD_HIDDENDATAITEM}
      * 
      * @param hiddenDataItem
      * 
@@ -1144,7 +1144,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 隐藏数据项
+     * 设置 隐藏数据项，详细说明：{@link #FIELD_HIDDENDATAITEM}
      * <P>
      * 等同 {@link #setHiddenDataItem}
      * @param hiddenDataItem
@@ -1156,7 +1156,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
      /**
-     * 设置 隐藏数据项
+     * 设置 隐藏数据项，详细说明：{@link #FIELD_HIDDENDATAITEM}
      * <P>
      * 等同 {@link #setHiddenDataItem}
      * @param hiddenDataItem
@@ -1713,7 +1713,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>PSDEFID</B>&nbsp;实体属性，指定常规指标相关的属性，
+     * <B>PSDEFID</B>&nbsp;实体属性，指定常规指标相关的属性
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEField} 
      */
@@ -2420,14 +2420,14 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * <B>STDDATATYPE</B>&nbsp;标准数据类型
+     * <B>STDDATATYPE</B>&nbsp;标准数据类型，指定指标的标准数据类型，未指定时如指标绑定属性则使用属性的标准数据类型
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.StdDataType} 
      */
     public final static String FIELD_STDDATATYPE = "stddatatype";
 
     /**
-     * 设置 标准数据类型
+     * 设置 标准数据类型，详细说明：{@link #FIELD_STDDATATYPE}
      * 
      * @param stdDataType
      * 
@@ -2471,7 +2471,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 标准数据类型
+     * 设置 标准数据类型，详细说明：{@link #FIELD_STDDATATYPE}
      * <P>
      * 等同 {@link #setStdDataType}
      * @param stdDataType
@@ -2483,7 +2483,7 @@ public class PSSysBICubeMeasure extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
      /**
-     * 设置 标准数据类型
+     * 设置 标准数据类型，详细说明：{@link #FIELD_STDDATATYPE}
      * <P>
      * 等同 {@link #setStdDataType}
      * @param stdDataType

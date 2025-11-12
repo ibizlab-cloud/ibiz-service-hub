@@ -28,6 +28,10 @@ public class PSDBContainerPortletPartImpl extends net.ibizsys.model.control.dash
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.IPSControl> pscontrols = null;
 	public java.util.List<net.ibizsys.model.control.IPSControl> getPSControls(){
@@ -68,6 +72,10 @@ public class PSDBContainerPortletPartImpl extends net.ibizsys.model.control.dash
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定容器布局");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

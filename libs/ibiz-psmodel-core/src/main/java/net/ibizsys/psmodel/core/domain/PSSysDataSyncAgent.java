@@ -18,12 +18,12 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }      
 
     /**
-     * <B>AGENTPARAMS</B>&nbsp;代理参数
+     * <B>AGENTPARAMS</B>&nbsp;代理参数集合
      */
     public final static String FIELD_AGENTPARAMS = "agentparams";
 
     /**
-     * 设置 代理参数
+     * 设置 代理参数集合
      * 
      * @param agentParams
      * 
@@ -34,7 +34,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
     
     /**
-     * 获取 代理参数  
+     * 获取 代理参数集合  
      * @return
      */
     @JsonIgnore
@@ -47,7 +47,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 判断 代理参数 是否指定值，包括空值
+     * 判断 代理参数集合 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -59,7 +59,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 重置 代理参数
+     * 重置 代理参数集合
      */
     @JsonIgnore
     public void resetAgentParams(){
@@ -67,7 +67,7 @@ public class PSSysDataSyncAgent extends net.ibizsys.psmodel.core.util.PSModelBas
     }
 
     /**
-     * 设置 代理参数
+     * 设置 代理参数集合
      * <P>
      * 等同 {@link #setAgentParams}
      * @param agentParams

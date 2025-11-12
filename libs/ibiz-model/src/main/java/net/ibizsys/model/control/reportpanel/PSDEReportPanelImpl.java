@@ -32,4 +32,8 @@ public class PSDEReportPanelImpl extends net.ibizsys.model.control.PSControlImpl
 		return value;
 	}
 
+	public void setPSAppDEReport(net.ibizsys.model.app.dataentity.IPSAppDEReport psappdereport){
+		this.psappdereport = psappdereport;
+	}
+
 }

@@ -28,6 +28,8 @@ public class PSAppFuncTranspiler extends net.ibizsys.model.util.transpiler.app.P
 		this.setDomainValue(iPSModelTranspileContext, domain, "namepslanresid", realPSModelObject.getNamePSLanguageRes(), realPSModelObject, "getNamePSLanguageRes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "openmode", realPSModelObject.getOpenMode(), realPSModelObject, "getOpenMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "openviewparam", realPSModelObject.getOpenViewParam(), realPSModelObject, "getOpenViewParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdeacmodeid", realPSModelObject.getPSAppDEACMode(), realPSModelObject, "getPSAppDEACMode");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psapplocaldeid", realPSModelObject.getPSAppDataEntity(), realPSModelObject, "getPSAppDataEntity");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psappviewid", realPSModelObject.getPSAppView(), realPSModelObject, "getPSAppView");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pspdtappfuncid", realPSModelObject.getPSPDTAppFuncId(), realPSModelObject, "getPSPDTAppFuncId");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdeuiactionid", realPSModelObject.getPSUIAction(), realPSModelObject, "getPSUIAction");
@@ -49,6 +51,8 @@ public class PSAppFuncTranspiler extends net.ibizsys.model.util.transpiler.app.P
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETNAMEPSLANGUAGERES, domain, "namepslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETOPENMODE, domain, "openmode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETOPENVIEWPARAM, domain, "openviewparam", com.fasterxml.jackson.databind.node.ObjectNode.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSAPPDEACMODE, domain, "psdeacmodeid", net.ibizsys.model.app.dataentity.IPSAppDEACMode.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSAPPDATAENTITY, domain, "psapplocaldeid", net.ibizsys.model.app.dataentity.IPSAppDataEntity.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSAPPVIEW, domain, "psappviewid", net.ibizsys.model.app.view.IPSAppView.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSPDTAPPFUNCID, domain, "pspdtappfuncid", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSUIACTION, domain, "psdeuiactionid", net.ibizsys.model.view.IPSUIAction.class, false);

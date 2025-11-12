@@ -21,11 +21,14 @@ public class PSDEDataExportTranspiler extends net.ibizsys.model.util.transpiler.
 			
 		}
 		net.ibizsys.model.dataentity.dataexport.PSDEDataExportImpl realPSModelObject = (net.ibizsys.model.dataentity.dataexport.PSDEDataExportImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "contenttype", realPSModelObject.getContentType(), realPSModelObject, "getContentType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "expparams", realPSModelObject.getExpParams(), realPSModelObject, "getExpParams");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exptag", realPSModelObject.getExpTag(), realPSModelObject, "getExpTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exptag2", realPSModelObject.getExpTag2(), realPSModelObject, "getExpTag2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "filenameformat", realPSModelObject.getFileNameFormat(), realPSModelObject, "getFileNameFormat");
 		this.setDomainValue(iPSModelTranspileContext, domain, "maxrowcnt", realPSModelObject.getMaxRowCount(), realPSModelObject, "getMaxRowCount");
 		this.setDomainValue(iPSModelTranspileContext, domain, "potime", realPSModelObject.getPOTime(), realPSModelObject, "getPOTime");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdedatasetid", realPSModelObject.getPSDEDataSet(), realPSModelObject, "getPSDEDataSet");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultflag", realPSModelObject.isDefaultMode(), realPSModelObject, "isDefaultMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "actionholder", realPSModelObject.isEnableBackend(), realPSModelObject, "isEnableBackend");
 		this.setDomainValue(iPSModelTranspileContext, domain, "enablecustomized", realPSModelObject.isEnableCustomized(), realPSModelObject, "isEnableCustomized");
@@ -34,11 +37,14 @@ public class PSDEDataExportTranspiler extends net.ibizsys.model.util.transpiler.
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCONTENTTYPE, domain, "contenttype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPPARAMS, domain, "expparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPTAG, domain, "exptag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPTAG2, domain, "exptag2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETFILENAMEFORMAT, domain, "filenameformat", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAXROWCOUNT, domain, "maxrowcnt", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPOTIME, domain, "potime", int.class, new String[]{"-1"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEDATASET, domain, "psdedatasetid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULTMODE, domain, "defaultflag", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLEBACKEND, domain, "actionholder", boolean.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLECUSTOMIZED, domain, "enablecustomized", boolean.class, new String[]{"false"});

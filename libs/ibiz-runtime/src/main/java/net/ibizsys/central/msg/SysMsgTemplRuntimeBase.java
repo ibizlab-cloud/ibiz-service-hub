@@ -314,6 +314,19 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 		return getTemplContent(TEMPL_MOBILEURL, data, params);
 	}
 
+	
+	@Override
+	protected void onFillTemplParams(String strType, Object data, Map<String, Object> params) {
+		if(data instanceof IEntityDTO) {
+			IEntityDTO iEntityDTO = (IEntityDTO)data;
+			if(iEntityDTO.getDEMethodDTORuntime() != null) {
+				params.put("de", iEntityDTO.getDEMethodDTORuntime().getDataEntityRuntime());
+			}
+		}
+		super.onFillTemplParams(strType, data, params);
+	}
+	
+	
 	@Override
 	protected void onReset() throws Throwable {
 		if(this.getMsgTemplType() == MsgTemplType.DE) {

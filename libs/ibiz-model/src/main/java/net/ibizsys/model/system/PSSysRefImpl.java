@@ -46,6 +46,10 @@ public class PSSysRefImpl extends net.ibizsys.model.PSSystemObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 
 	public java.lang.String getRefParam(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREFPARAM);

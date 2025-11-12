@@ -6,6 +6,7 @@ import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.model.IPSSystemService;
+import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.runtime.util.Entity;
 
 /**
@@ -21,6 +22,15 @@ public interface IExtensionSysRefRuntime extends ISysRefRuntime {
 	 */
 	IPSSystemService getPSSystemService();
 	
+	
+	
+	/**
+	 * 获取应用程序模型对象
+	 * @param strAppTag
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSApplication getPSApplication(String strAppTag, boolean bTryMode);
 	
 	
 	/**

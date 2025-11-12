@@ -29,7 +29,7 @@ public class RTCloudSaaSUtilRuntime extends EBSXCloudSaaSUtilRuntime {
             openUser = new OpenUser();
             openUser.setSysUserId(strUserId);
             openUser.setUserId(employee.getWXWorkUserId());
-            if(StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(strOpenType)&&!ObjectUtils.isEmpty(employee.getCertCode()))
+            if(StaticDict.OpenAccessType.WXWORK.getValue().equalsIgnoreCase(strOpenType)&&!ObjectUtils.isEmpty(employee.getCertCode())&&employee.getCertCode().length()<18)
                 openUser.setUserId(employee.getCertCode());
             openUser.setOpenUserName(employee.getPersonName());
             return openUser;

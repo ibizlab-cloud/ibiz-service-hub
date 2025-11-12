@@ -30,4 +30,30 @@ public interface IExtensionSysRefRuntime extends net.ibizsys.central.cloud.core.
 	 * @return
 	 */
 	ObjectNode getAppDataEntityJsonSchema(IPSApplication iPSApplication, String strAppDataEntityTag, Object param, boolean bTryMode);
+	
+	
+	/**
+	 * 注册主应用引用子引用
+	 * @param strMainAppTag
+	 * @param strSubAppTag
+	 */
+	void registerMainAppRefApp(String strMainAppTag, String strSubAppTag);
+	
+	
+	/**
+	 * 获取主应用引用的子应用模型
+	 * @param strMainAppTag
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSApplication getMainAppRefPSApplication(String strMainAppTag, boolean bTryMode);
+	
+	/**
+	 * 注销主应用引用子引用
+	 * @param strMainAppTag
+	 * @param strSubAppTag
+	 * @return
+	 */
+	boolean unregisterMainAppRefApp(String strMainAppTag, String strSubAppTag);
+	
 }

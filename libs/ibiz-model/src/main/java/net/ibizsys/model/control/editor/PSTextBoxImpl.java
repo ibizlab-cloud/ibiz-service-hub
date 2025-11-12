@@ -7,6 +7,7 @@ public class PSTextBoxImpl extends net.ibizsys.model.control.editor.PSTextEditor
 	public final static String ATTR_GETMAXVALUE = "maxValue";
 	public final static String ATTR_GETMINVALUE = "minValue";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 
 	public java.lang.Double getMaxValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMAXVALUE);
@@ -24,8 +25,17 @@ public class PSTextBoxImpl extends net.ibizsys.model.control.editor.PSTextEditor
 		return value.asDouble();
 	}
 
+	@Deprecated
 	public java.lang.Integer getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
+	}
+
+	public java.lang.Integer getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
 		if(value == null){
 			return null;
 		}

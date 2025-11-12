@@ -9,6 +9,7 @@ public class PSSpanImpl extends net.ibizsys.model.control.editor.PSCodeListEdito
 	public final static String ATTR_GETLINKPSAPPVIEW = "getLinkPSAppView";
 	public final static String ATTR_GETPRECISION = "precision";
 	public final static String ATTR_GETRENDERMODE = "renderMode";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETVALIGN = "vAlign";
 	public final static String ATTR_GETWRAPMODE = "wrapMode";
 	public final static String ATTR_ISEDITABLE = "editable";
@@ -53,6 +54,7 @@ public class PSSpanImpl extends net.ibizsys.model.control.editor.PSCodeListEdito
 	}
 
 
+	@Deprecated
 	public java.lang.Integer getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
@@ -67,6 +69,14 @@ public class PSSpanImpl extends net.ibizsys.model.control.editor.PSCodeListEdito
 			return null;
 		}
 		return value.asText();
+	}
+
+	public java.lang.Integer getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
 	}
 
 	public java.lang.String getVAlign(){

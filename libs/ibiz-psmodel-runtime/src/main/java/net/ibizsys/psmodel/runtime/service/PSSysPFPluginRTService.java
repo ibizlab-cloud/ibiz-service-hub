@@ -77,6 +77,6 @@ public class PSSysPFPluginRTService extends PSModelRTServiceBase<PSSysPFPlugin, 
 //    
 //    @Override
 //    protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-//    	return getPSModelObject(IPSSysPFPlugin.class, this.getPSSystemService().getPSSystem().getAllPSSysPFPlugins(), (String)key, false);
+//    	return getPSModelObject(IPSSysPFPlugin.class, this.getPSSystemService().getPSSystem().getAllPSSysPFPlugins(), (String)key, tryMode);
 //    }
 }

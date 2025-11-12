@@ -1499,7 +1499,7 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSAPPVIEWID</B>&nbsp;应用视图，应用功能类型为【打开应用视图】时指定打开的应用视图
+     * <B>PSAPPVIEWID</B>&nbsp;应用视图，类型为【打开应用视图】时指定打开的应用视图
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSAppView} 
      */
@@ -1644,14 +1644,14 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEACMODEID</B>&nbsp;实体自填模式
+     * <B>PSDEACMODEID</B>&nbsp;实体自填模式，类型为【搜索】`SEARCH`时，指定应用实体自动填充模型作为搜索配置
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEACMode} 
      */
     public final static String FIELD_PSDEACMODEID = "psdeacmodeid";
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体自填模式，详细说明：{@link #FIELD_PSDEACMODEID}
      * 
      * @param pSDEACModeId
      * 
@@ -1695,7 +1695,7 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体自填模式，详细说明：{@link #FIELD_PSDEACMODEID}
      * <P>
      * 等同 {@link #setPSDEACModeId}
      * @param pSDEACModeId
@@ -1726,14 +1726,14 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEACMODENAME</B>&nbsp;实体自填模式
+     * <B>PSDEACMODENAME</B>&nbsp;实体自填模式，类型为【搜索】`SEARCH`时，指定应用实体自动填充模型作为搜索配置
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEACMODEID}
      */
     public final static String FIELD_PSDEACMODENAME = "psdeacmodename";
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体自填模式，详细说明：{@link #FIELD_PSDEACMODENAME}
      * 
      * @param pSDEACModeName
      * 
@@ -1777,7 +1777,7 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体自填模式
+     * 设置 实体自填模式，详细说明：{@link #FIELD_PSDEACMODENAME}
      * <P>
      * 等同 {@link #setPSDEACModeName}
      * @param pSDEACModeName
@@ -1852,14 +1852,14 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEUIACTIONID</B>&nbsp;界面行为
+     * <B>PSDEUIACTIONID</B>&nbsp;界面行为，类型为【界面行为】`UIACTION`时，指定执行的应用实体界面行
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEUIAction} 
      */
     public final static String FIELD_PSDEUIACTIONID = "psdeuiactionid";
 
     /**
-     * 设置 界面行为
+     * 设置 界面行为，详细说明：{@link #FIELD_PSDEUIACTIONID}
      * 
      * @param pSDEUIActionId
      * 
@@ -1903,7 +1903,7 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 界面行为
+     * 设置 界面行为，详细说明：{@link #FIELD_PSDEUIACTIONID}
      * <P>
      * 等同 {@link #setPSDEUIActionId}
      * @param pSDEUIActionId
@@ -1934,14 +1934,14 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDEUIACTIONNAME</B>&nbsp;界面行为
+     * <B>PSDEUIACTIONNAME</B>&nbsp;界面行为，类型为【界面行为】`UIACTION`时，指定执行的应用实体界面行
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDEUIACTIONID}
      */
     public final static String FIELD_PSDEUIACTIONNAME = "psdeuiactionname";
 
     /**
-     * 设置 界面行为
+     * 设置 界面行为，详细说明：{@link #FIELD_PSDEUIACTIONNAME}
      * 
      * @param pSDEUIActionName
      * 
@@ -1985,7 +1985,7 @@ public class PSAppFunc extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 界面行为
+     * 设置 界面行为，详细说明：{@link #FIELD_PSDEUIACTIONNAME}
      * <P>
      * 等同 {@link #setPSDEUIActionName}
      * @param pSDEUIActionName

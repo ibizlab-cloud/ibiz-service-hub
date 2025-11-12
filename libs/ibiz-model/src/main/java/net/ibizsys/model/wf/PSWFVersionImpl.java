@@ -101,6 +101,10 @@ public class PSWFVersionImpl extends net.ibizsys.model.PSObjectImpl3 implements 
 		return value;
 	}
 
+	public void setStartPSWFProcess(net.ibizsys.model.wf.IPSWFProcess startpswfprocess){
+		this.startpswfprocess = startpswfprocess;
+	}
+
 
 	public java.lang.String getWFCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETWFCODENAME);

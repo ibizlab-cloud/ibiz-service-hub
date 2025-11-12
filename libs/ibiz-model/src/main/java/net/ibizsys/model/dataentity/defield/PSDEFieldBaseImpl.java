@@ -8,6 +8,7 @@ public abstract class PSDEFieldBaseImpl extends net.ibizsys.model.PSObjectImpl i
 	public final static String ATTR_GETMINSTRINGLENGTH = "minStringLength";
 	public final static String ATTR_GETMINVALUESTRING = "minValueString";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTRINGLENGTH = "stringLength";
 
 	public java.lang.String getMaxValueString(){
@@ -34,10 +35,19 @@ public abstract class PSDEFieldBaseImpl extends net.ibizsys.model.PSObjectImpl i
 		return value.asText();
 	}
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
 			return 0;
+		}
+		return value.asInt();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
 		}
 		return value.asInt();
 	}

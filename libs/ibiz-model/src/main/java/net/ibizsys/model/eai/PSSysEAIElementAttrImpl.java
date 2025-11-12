@@ -80,6 +80,10 @@ public class PSSysEAIElementAttrImpl extends net.ibizsys.model.eai.PSSysEAIEleme
 		return value;
 	}
 
+	public void setPSSysEAIDataType(net.ibizsys.model.eai.IPSSysEAIDataType pssyseaidatatype){
+		this.pssyseaidatatype = pssyseaidatatype;
+	}
+
 	private net.ibizsys.model.eai.IPSSysEAIElement refpssyseaielement;
 
 	public net.ibizsys.model.eai.IPSSysEAIElement getRefPSSysEAIElement(){
@@ -97,6 +101,10 @@ public class PSSysEAIElementAttrImpl extends net.ibizsys.model.eai.PSSysEAIEleme
 		net.ibizsys.model.eai.IPSSysEAIElement value = this.getRefPSSysEAIElement();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用属性组");}
 		return value;
+	}
+
+	public void setRefPSSysEAIElement(net.ibizsys.model.eai.IPSSysEAIElement refpssyseaielement){
+		this.refpssyseaielement = refpssyseaielement;
 	}
 
 

@@ -86,6 +86,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setFolder2PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder2psdefield){
+		this.folder2psdefield = folder2psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder3psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getFolder3PSDEField(){
@@ -103,6 +107,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getFolder3PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目录3属性");}
 		return value;
+	}
+
+	public void setFolder3PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder3psdefield){
+		this.folder3psdefield = folder3psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder4psdefield;
@@ -124,6 +132,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setFolder4PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder4psdefield){
+		this.folder4psdefield = folder4psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder5psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getFolder5PSDEField(){
@@ -141,6 +153,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getFolder5PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目录5属性");}
 		return value;
+	}
+
+	public void setFolder5PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder5psdefield){
+		this.folder5psdefield = folder5psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder6psdefield;
@@ -162,6 +178,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setFolder6PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder6psdefield){
+		this.folder6psdefield = folder6psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder7psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getFolder7PSDEField(){
@@ -179,6 +199,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getFolder7PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目录7属性");}
 		return value;
+	}
+
+	public void setFolder7PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder7psdefield){
+		this.folder7psdefield = folder7psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField folder8psdefield;
@@ -200,6 +224,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setFolder8PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folder8psdefield){
+		this.folder8psdefield = folder8psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField folderpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getFolderPSDEField(){
@@ -217,6 +245,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getFolderPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定目录属性");}
 		return value;
+	}
+
+	public void setFolderPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField folderpsdefield){
+		this.folderpsdefield = folderpsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.logic.IPSDELogic initpsdelogic;
@@ -238,6 +270,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setInitPSDELogic(net.ibizsys.model.dataentity.logic.IPSDELogic initpsdelogic){
+		this.initpsdelogic = initpsdelogic;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField keypsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getKeyPSDEField(){
@@ -255,6 +291,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getKeyPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标识属性");}
 		return value;
+	}
+
+	public void setKeyPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField keypsdefield){
+		this.keypsdefield = keypsdefield;
 	}
 
 
@@ -284,6 +324,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setOnChangePSDELogic(net.ibizsys.model.dataentity.logic.IPSDELogic onchangepsdelogic){
+		this.onchangepsdelogic = onchangepsdelogic;
+	}
+
 	private net.ibizsys.model.dataentity.logic.IPSDELogic ondeletepsdelogic;
 
 	public net.ibizsys.model.dataentity.logic.IPSDELogic getOnDeletePSDELogic(){
@@ -301,6 +345,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.logic.IPSDELogic value = this.getOnDeletePSDELogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定删除逻辑");}
 		return value;
+	}
+
+	public void setOnDeletePSDELogic(net.ibizsys.model.dataentity.logic.IPSDELogic ondeletepsdelogic){
+		this.ondeletepsdelogic = ondeletepsdelogic;
 	}
 
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
@@ -322,6 +370,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -338,6 +390,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
@@ -358,6 +414,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -374,6 +434,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 
@@ -411,6 +475,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setState2PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state2psdefield){
+		this.state2psdefield = state2psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField state3psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getState3PSDEField(){
@@ -428,6 +496,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getState3PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态3属性");}
 		return value;
+	}
+
+	public void setState3PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state3psdefield){
+		this.state3psdefield = state3psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField state4psdefield;
@@ -449,6 +521,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setState4PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state4psdefield){
+		this.state4psdefield = state4psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField state5psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getState5PSDEField(){
@@ -466,6 +542,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getState5PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态5属性");}
 		return value;
+	}
+
+	public void setState5PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state5psdefield){
+		this.state5psdefield = state5psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField state6psdefield;
@@ -487,6 +567,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setState6PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state6psdefield){
+		this.state6psdefield = state6psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField state7psdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getState7PSDEField(){
@@ -504,6 +588,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getState7PSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态7属性");}
 		return value;
+	}
+
+	public void setState7PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state7psdefield){
+		this.state7psdefield = state7psdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField state8psdefield;
@@ -525,6 +613,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		return value;
 	}
 
+	public void setState8PSDEField(net.ibizsys.model.dataentity.defield.IPSDEField state8psdefield){
+		this.state8psdefield = state8psdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField(){
@@ -542,6 +634,10 @@ public class PSSysUniStateImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getStatePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态属性");}
 		return value;
+	}
+
+	public void setStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield){
+		this.statepsdefield = statepsdefield;
 	}
 
 

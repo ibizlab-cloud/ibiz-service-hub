@@ -230,5 +230,10 @@ public interface IServiceHubSetting {
 	Map<String, Object> getDefaultSystemSettings();
 	
 	
+	/**
+	 * 是否忽略加载系统异常
+	 * @return
+	 */
+	boolean isIgnoreLoadSystemError();
 	
 }

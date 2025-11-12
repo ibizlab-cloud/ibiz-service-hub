@@ -33,6 +33,10 @@ public class PSControlHandlerActionImpl extends net.ibizsys.model.PSObjectImpl i
 		return value;
 	}
 
+	public void setADPSAppDELogic(net.ibizsys.model.app.dataentity.IPSAppDELogic adpsappdelogic){
+		this.adpsappdelogic = adpsappdelogic;
+	}
+
 
 	public java.lang.String getActionDesc(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETACTIONDESC);
@@ -92,6 +96,10 @@ public class PSControlHandlerActionImpl extends net.ibizsys.model.PSObjectImpl i
 		return value;
 	}
 
+	public void setPSAppDEMethod(net.ibizsys.model.app.dataentity.IPSAppDEMethod psappdemethod){
+		this.psappdemethod = psappdemethod;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -110,6 +118,10 @@ public class PSControlHandlerActionImpl extends net.ibizsys.model.PSObjectImpl i
 		return value;
 	}
 
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
+	}
+
 	private net.ibizsys.model.dataentity.priv.IPSDEOPPriv psdeoppriv;
 
 	public net.ibizsys.model.dataentity.priv.IPSDEOPPriv getPSDEOPPriv(){
@@ -126,6 +138,10 @@ public class PSControlHandlerActionImpl extends net.ibizsys.model.PSObjectImpl i
 		net.ibizsys.model.dataentity.priv.IPSDEOPPriv value = this.getPSDEOPPriv();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体操作标识对象");}
 		return value;
+	}
+
+	public void setPSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv psdeoppriv){
+		this.psdeoppriv = psdeoppriv;
 	}
 
 

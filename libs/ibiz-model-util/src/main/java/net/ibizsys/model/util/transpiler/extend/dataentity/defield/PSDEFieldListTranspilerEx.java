@@ -12,6 +12,7 @@ import net.ibizsys.model.PSModelEnums.DEFType;
 import net.ibizsys.model.PSModelEnums.StdDataType;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.codelist.IPSCodeList;
+import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.defield.IPSFormulaDEField;
 import net.ibizsys.model.dataentity.defield.IPSInheritDEField;
 import net.ibizsys.model.dataentity.defield.IPSLinkDEField;
@@ -31,7 +32,6 @@ import net.ibizsys.model.util.transpiler.IPSModelTranspiler;
 import net.ibizsys.psmodel.core.domain.PSCodeList;
 import net.ibizsys.psmodel.core.domain.PSDEField;
 import net.ibizsys.psmodel.core.util.IPSModel;
-import net.ibizsys.psmodel.core.util.PSModelEnums.CodeListType;
 
 
 public class PSDEFieldListTranspilerEx extends net.ibizsys.model.util.transpiler.dataentity.defield.PSDEFieldListTranspiler{
@@ -110,9 +110,16 @@ public class PSDEFieldListTranspilerEx extends net.ibizsys.model.util.transpiler
 	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 		
+		IPSDEField iPSDEField = (IPSDEField)iPSModelObject;
 		PSDEField psDEField = (PSDEField)domain;
 		if(StringUtils.hasLength(psDEField.getPSDataTypeId())) {
 			psDEField.setPSDataTypeName(DEFDataType.from(psDEField.getPSDataTypeId()).text);
+		}
+		
+		if(psDEField.getScale() == null) {
+			if(iPSDEField.getPrecision() > 0) {
+				psDEField.setScale(iPSDEField.getPrecision());
+			}
 		}
 		
 		if(iPSModelObject.getParentPSModelObject()!=null) {
@@ -132,6 +139,10 @@ public class PSDEFieldListTranspilerEx extends net.ibizsys.model.util.transpiler
 		int nDEFType = DataTypeUtils.asInteger(psDEField.getDEFType(), DEFType.DYNASTORAGE.value);
 		if(nDEFType == DEFType.DYNASTORAGE.value) {
 			objectNode.put(PSDEFieldImpl.ATTR_ISDYNASTORAGEDEFIELD, true);
+		}
+		
+		if(psDEField.getScale() != null && psDEField.getScale()>0) {
+			objectNode.put(PSDEFieldImpl.ATTR_GETPRECISION, psDEField.getScale());
 		}
 		
 		//编译内联代码表模型

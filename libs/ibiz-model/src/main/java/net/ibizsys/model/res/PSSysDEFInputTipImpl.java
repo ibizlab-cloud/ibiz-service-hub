@@ -57,6 +57,10 @@ public class PSSysDEFInputTipImpl extends net.ibizsys.model.PSSystemObjectImpl i
 		return value;
 	}
 
+	public void setContentPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes contentpslanguageres){
+		this.contentpslanguageres = contentpslanguageres;
+	}
+
 
 	public java.lang.String getHtmlContent(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETHTMLCONTENT);

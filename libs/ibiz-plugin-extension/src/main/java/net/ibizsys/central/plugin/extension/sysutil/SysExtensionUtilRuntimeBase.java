@@ -668,6 +668,20 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		psModelServiceSession.setProductMarketProjectId(this.getProductMarketProjectId());
 		psModelServiceSession.setSystemRuntime(iSystemRuntime);
 		psModelServiceSession.setSysCloudExtensionUtilRuntime(this.getSysCloudExtensionUtilRuntime());
+		
+		String strProductMarketServiceUrl = iSystemRuntime.getSystemRuntimeSetting().getParam("param.productmarket.serviceurl", null);
+		if(StringUtils.hasLength(strProductMarketServiceUrl)) {
+			String strProductMarketMode = iSystemRuntime.getSystemRuntimeSetting().getParam("param.productmarket.mode", IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_DEFAULT);
+			String strProductMarketGroupId = iSystemRuntime.getSystemRuntimeSetting().getParam("param.productmarket.groupid", "product");
+			String strProductMarketBaseGroupId = iSystemRuntime.getSystemRuntimeSetting().getParam("param.productmarket.basegroupid", "product/z000_base");
+			String strProductMarketProjectId = iSystemRuntime.getSystemRuntimeSetting().getParam("param.productmarket.projectid", "product_catalog/public");
+			
+			psModelServiceSession.setProductMarketMode(strProductMarketMode);
+			psModelServiceSession.setProductMarketServiceUrl(strProductMarketServiceUrl);
+			psModelServiceSession.setProductMarketGroupId(strProductMarketGroupId);
+			psModelServiceSession.setProductMarketBaseGroupId(strProductMarketBaseGroupId);
+			psModelServiceSession.setProductMarketProjectId(strProductMarketProjectId);
+		}
 
 		V2SystemExtensionSuite v2SystemExtensionSuite = getV2SystemExtensionSuite(iSystemRuntime, true);
 		if (v2SystemExtensionSuite != null) {
@@ -1270,7 +1284,11 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 					if (!file.exists()) {
 						throw new Exception(String.format("子系统引用[%1$s]应用[%2$s]模型文件不存在", iExtensionSysRefRuntime.getName(), subPSApplication.getCodeName()));
 					}
-
+					
+					if(iExtensionSysRefRuntime instanceof net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime) {
+						((net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime)iExtensionSysRefRuntime).registerMainAppRefApp(mainPSApplication.getCodeName(), subPSApplication.getCodeName());
+					}
+					
 					ObjectNode subAppRefNode = subAppRefsNode.addObject();
 					String strDeployAppId = String.format("%1$s__%2$s__%3$s", iExtensionSysRefRuntime.getExtensionTag(), strAppTag, subPSApplication.getCodeName()).toLowerCase();
 					subAppRefNode.put(PSSubAppRefImpl.ATTR_GETID, strDeployAppId);

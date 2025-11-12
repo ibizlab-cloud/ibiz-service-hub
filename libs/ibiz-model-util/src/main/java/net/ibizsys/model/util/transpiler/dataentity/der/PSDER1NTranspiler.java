@@ -36,6 +36,7 @@ public class PSDER1NTranspiler extends net.ibizsys.model.util.transpiler.dataent
 		this.setDomainValue(iPSModelTranspileContext, domain, "derfieldname", realPSModelObject.getPickupDEFName(), realPSModelObject, "getPickupDEFName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "removerejectpslanresid", realPSModelObject.getRRMPSLanguageRes(), realPSModelObject, "getRRMPSLanguageRes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdedatasetid", realPSModelObject.getRefPSDEDataSet(), realPSModelObject, "getRefPSDEDataSet");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdefgroupid", realPSModelObject.getRefPSDEFGroup(), realPSModelObject, "getRefPSDEFGroup");
 		this.setDomainValue(iPSModelTranspileContext, domain, "removeactiontype", realPSModelObject.getRemoveActionType(), realPSModelObject, "getRemoveActionType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "removeorder", realPSModelObject.getRemoveOrder(), realPSModelObject, "getRemoveOrder");
 		this.setDomainValue(iPSModelTranspileContext, domain, "removerejectmsg", realPSModelObject.getRemoveRejectMsg(), realPSModelObject, "getRemoveRejectMsg");
@@ -65,6 +66,7 @@ public class PSDER1NTranspiler extends net.ibizsys.model.util.transpiler.dataent
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPICKUPDEFNAME, domain, "derfieldname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRRMPSLANGUAGERES, domain, "removerejectpslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSDEDATASET, domain, "psdedatasetid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSDEFGROUP, domain, "psdefgroupid", net.ibizsys.model.dataentity.defield.IPSDEFGroup.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREMOVEACTIONTYPE, domain, "removeactiontype", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREMOVEORDER, domain, "removeorder", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREMOVEREJECTMSG, domain, "removerejectmsg", java.lang.String.class);

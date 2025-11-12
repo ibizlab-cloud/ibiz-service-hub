@@ -73,6 +73,10 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -89,6 +93,10 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统图片");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
@@ -109,6 +117,10 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
 
 	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes(){
@@ -125,6 +137,10 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		net.ibizsys.model.security.IPSSysUniRes value = this.getPSSysUniRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统统一资源");}
 		return value;
+	}
+
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
 	}
 
 
@@ -167,6 +183,10 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTitlePSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定抬头语言资源对象");}
 		return value;
+	}
+
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
 	}
 
 }

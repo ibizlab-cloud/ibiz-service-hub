@@ -35,6 +35,10 @@ public class PSSysDBIndexColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysDBColumn(net.ibizsys.model.database.IPSSysDBColumn pssysdbcolumn){
+		this.pssysdbcolumn = pssysdbcolumn;
+	}
+
 
 	public java.lang.String getSortDir(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSORTDIR);

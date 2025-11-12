@@ -151,6 +151,10 @@ public class PSSubSysServiceAPIDEImpl extends net.ibizsys.model.PSObjectImpl imp
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 
 	public java.lang.String getServiceParam(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSERVICEPARAM);

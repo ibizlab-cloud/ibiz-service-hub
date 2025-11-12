@@ -128,7 +128,10 @@ public class PSWFDERTService extends net.ibizsys.psmodel.runtime.service.PSWFDER
 				if(nPos!=-1) {
 					psWFDE.setPSDEId(psWorkflow.getPSWorkflowId().substring(0, nPos));
 					IPSModelRTService iPSModelRTService = (IPSModelRTService)iExtensionPSModelRTServiceSession.getPSModelService(PSModels.PSDATAENTITY, false);
-					IPSDataEntity iPSDataEntity = (IPSDataEntity)iPSModelRTService.getPSModelObject(psWFDE.getPSDEId(), IPSDataEntity.class, false);
+					IPSDataEntity iPSDataEntity = (IPSDataEntity)iPSModelRTService.getPSModelObject(psWFDE.getPSDEId(), IPSDataEntity.class, true);
+					if (iPSDataEntity==null){
+						continue;
+					}
 					List<IPSDEWF> psDEWFList = iPSDataEntity.getAllPSDEWFs();
 					if(!ObjectUtils.isEmpty(psDEWFList)) {
 						PSWFDE defaultPSWFDE = (PSWFDE)iExtensionPSModelRTServiceSession.getPSModelTranspiler(IPSDEWF.class, false).decompile(iExtensionPSModelRTServiceSession, psDEWFList.get(0), null, false);

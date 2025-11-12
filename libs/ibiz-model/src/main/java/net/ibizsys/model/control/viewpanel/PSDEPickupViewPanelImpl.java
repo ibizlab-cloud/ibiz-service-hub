@@ -23,4 +23,8 @@ public class PSDEPickupViewPanelImpl extends net.ibizsys.model.control.viewpanel
 		return value;
 	}
 
+	public void setEmbeddedPSAppDEView(net.ibizsys.model.app.view.IPSAppDEView embeddedpsappdeview){
+		this.embeddedpsappdeview = embeddedpsappdeview;
+	}
+
 }

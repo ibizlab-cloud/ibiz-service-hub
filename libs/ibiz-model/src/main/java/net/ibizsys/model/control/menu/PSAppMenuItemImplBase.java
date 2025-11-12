@@ -132,6 +132,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		return value;
 	}
 
+	public void setPSAppFunc(net.ibizsys.model.app.func.IPSAppFunc psappfunc){
+		this.psappfunc = psappfunc;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.menu.IPSAppMenuItem> psappmenuitems = null;
 	public java.util.List<net.ibizsys.model.control.menu.IPSAppMenuItem> getPSAppMenuItems(){
@@ -174,6 +178,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		return value;
 	}
 
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
+	}
+
 	private net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos;
 
 	public net.ibizsys.model.control.layout.IPSLayoutPos getPSLayoutPos(){
@@ -190,6 +198,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		net.ibizsys.model.control.layout.IPSLayoutPos value = this.getPSLayoutPos();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定位置");}
 		return value;
+	}
+
+	public void setPSLayoutPos(net.ibizsys.model.control.layout.IPSLayoutPos pslayoutpos){
+		this.pslayoutpos = pslayoutpos;
 	}
 
 
@@ -258,6 +270,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -276,6 +292,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -292,6 +312,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端应用插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 

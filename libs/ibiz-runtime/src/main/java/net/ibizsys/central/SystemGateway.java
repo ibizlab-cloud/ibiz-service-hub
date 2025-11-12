@@ -48,6 +48,7 @@ public class SystemGateway implements ISystemGateway {
 	private java.util.Map<String, ISystemRuntime> systemRuntimeMap = new ConcurrentHashMap<String, ISystemRuntime>();
 	private java.util.Map<Class<?>, Boolean> multiInstanceModeMap = new HashMap<Class<?>, Boolean>(); 
 	private java.util.Map<String, DataSource> dataSourceMap = new HashMap<String, DataSource>();
+	private Map<String, Object> globalParamMap = new HashMap<String, Object>();
 
 	private ISystemGatewayContext iSystemGatewayContext = new ISystemGatewayContext() {
 
@@ -776,6 +777,14 @@ public class SystemGateway implements ISystemGateway {
 		return this.multiInstanceModeMap.get(runtimeClass);
 	}
 	
+	@Override
+	public Object getGlobalParam(String strKey) {
+		return globalParamMap.get(strKey);
+	}
 	
+	@Override
+	public void setGlobalParam(String strKey, Object objValue) {
+		this.globalParamMap.put(strKey, objValue);
+	}
 	
 }

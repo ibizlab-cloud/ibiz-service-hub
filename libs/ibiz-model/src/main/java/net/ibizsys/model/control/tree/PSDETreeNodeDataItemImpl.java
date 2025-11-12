@@ -49,6 +49,10 @@ public class PSDETreeNodeDataItemImpl extends net.ibizsys.model.data.PSDataItemI
 		return value;
 	}
 
+	public void setFrontPSCodeList(net.ibizsys.model.codelist.IPSCodeList frontpscodelist){
+		this.frontpscodelist = frontpscodelist;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField(){
@@ -68,6 +72,10 @@ public class PSDETreeNodeDataItemImpl extends net.ibizsys.model.data.PSDataItemI
 		return value;
 	}
 
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
+	}
+
 	private net.ibizsys.model.control.tree.IPSDETreeColumn psdetreecolumn;
 
 	public net.ibizsys.model.control.tree.IPSDETreeColumn getPSDETreeColumn(){
@@ -85,6 +93,10 @@ public class PSDETreeNodeDataItemImpl extends net.ibizsys.model.data.PSDataItemI
 		net.ibizsys.model.control.tree.IPSDETreeColumn value = this.getPSDETreeColumn();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定树视图列");}
 		return value;
+	}
+
+	public void setPSDETreeColumn(net.ibizsys.model.control.tree.IPSDETreeColumn psdetreecolumn){
+		this.psdetreecolumn = psdetreecolumn;
 	}
 
 

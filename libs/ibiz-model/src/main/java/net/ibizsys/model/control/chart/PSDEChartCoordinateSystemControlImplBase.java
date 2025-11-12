@@ -34,6 +34,10 @@ public class PSDEChartCoordinateSystemControlImplBase extends net.ibizsys.model.
 		return value;
 	}
 
+	public void setPSChartCoordinateSystem(net.ibizsys.model.control.chart.IPSChartCoordinateSystem pschartcoordinatesystem){
+		this.pschartcoordinatesystem = pschartcoordinatesystem;
+	}
+
 
 	public java.lang.String getType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTYPE);

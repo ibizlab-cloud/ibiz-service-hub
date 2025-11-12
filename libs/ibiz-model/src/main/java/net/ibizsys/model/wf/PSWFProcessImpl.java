@@ -76,6 +76,10 @@ public class PSWFProcessImpl extends net.ibizsys.model.PSObjectImpl implements n
 		return value;
 	}
 
+	public void setNamePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes namepslanguageres){
+		this.namepslanguageres = namepslanguageres;
+	}
+
 	private net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl;
 
 	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl(){
@@ -92,6 +96,10 @@ public class PSWFProcessImpl extends net.ibizsys.model.PSObjectImpl implements n
 		net.ibizsys.model.msg.IPSSysMsgTempl value = this.getPSSysMsgTempl();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定通知消息模板");}
 		return value;
+	}
+
+	public void setPSSysMsgTempl(net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl){
+		this.pssysmsgtempl = pssysmsgtempl;
 	}
 
 
@@ -158,6 +166,10 @@ public class PSWFProcessImpl extends net.ibizsys.model.PSObjectImpl implements n
 		net.ibizsys.model.wf.IPSWFWorkTime value = this.getPSWFWorkTime();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程工作时间");}
 		return value;
+	}
+
+	public void setPSWFWorkTime(net.ibizsys.model.wf.IPSWFWorkTime pswfworktime){
+		this.pswfworktime = pswfworktime;
 	}
 
 

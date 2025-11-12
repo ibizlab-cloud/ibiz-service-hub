@@ -398,6 +398,101 @@ public abstract class SysCacheUtilRuntimeBase extends SysUtilRuntimeBase impleme
 	}
 	
 	
+	@Override
+	public Long inc(String strName) {
+		return inc(strName, 1l);
+	}
+
+	@Override
+	public Long inc(String strName, Long nValue) {
+		return this.inc(strName, nValue, 0);
+	}
+
+	@Override
+	public Long inc(String strName, Long nValue, int nSeconds) {
+		try {
+			return this.onInc(strName, nValue, nSeconds);
+		}
+		catch(Throwable ex) {
+			throw dealException(String.format("自增指定建发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Long onInc(String strName, Long nValue, int nSeconds) throws Throwable {
+		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("没有实现"), Errors.NOTIMPL);
+	}
+	
+
+	@Override
+	public Double inc(String strName, Double fValue) {
+		return this.inc(strName, fValue, 0);
+	}
+
+	@Override
+	public Double inc(String strName, Double fValue, int nSeconds) {
+		try {
+			return this.onInc(strName, fValue, nSeconds);
+		}
+		catch(Throwable ex) {
+			throw dealException(String.format("自增指定建发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Double onInc(String strName, Double fValue, int nSeconds) throws Throwable {
+		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("没有实现"), Errors.NOTIMPL);
+	}
+
+	
+
+	@Override
+	public Long inc(String strCat, String strName) {
+		return this.inc(strCat, strName, 1l);
+	}
+
+	@Override
+	public Long inc(String strCat, String strName, Long nValue) {
+		return this.inc(strCat, strName, nValue, 0);
+	}
+
+	@Override
+	public Long inc(String strCat, String strName, Long nValue, int nSeconds) {
+		if(!StringUtils.hasLength(strCat)) {
+			return this.inc(strName, nValue, nSeconds);
+		}
+		try {
+			return this.onInc(strCat, strName, nValue, nSeconds);
+		}
+		catch(Throwable ex) {
+			throw dealException(String.format("自增指定分类建发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Long onInc(String strCat, String strName, Long nValue, int nSeconds) throws Throwable {
+		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("没有实现"), Errors.NOTIMPL);
+	}
+	
+	@Override
+	public Double inc(String strCat, String strName, Double fValue) {
+		return this.inc(strCat, strName, fValue, 0);
+	}
+
+	@Override
+	public Double inc(String strCat, String strName, Double fValue, int nSeconds) {
+		if(!StringUtils.hasLength(strCat)) {
+			return this.inc(strName, fValue, nSeconds);
+		}
+		try {
+			return this.onInc(strCat, strName, fValue, nSeconds);
+		}
+		catch(Throwable ex) {
+			throw dealException(String.format("自增指定分类建发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Double onInc(String strCat, String strName, Double fValue, int nSeconds) throws Throwable {
+		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("没有实现"), Errors.NOTIMPL);
+	}
+	
 	
 	@Override
 	protected void prepareSysCacheUtilRuntime() throws Exception{

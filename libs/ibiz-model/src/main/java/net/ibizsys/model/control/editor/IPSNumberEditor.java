@@ -44,5 +44,13 @@ public interface IPSNumberEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取浮点精度[PRECISION]
 	 * @return
 	 */
+	@Deprecated
 	java.lang.Integer getPrecision();
+	
+	
+	/**
+	 * 获取小数点位数[SCALE]
+	 * @return
+	 */
+	java.lang.Integer getScale();
 }

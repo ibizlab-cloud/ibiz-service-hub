@@ -346,7 +346,7 @@ public class PSDESampleData extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>DATA</B>&nbsp;数据，指定实体示例数据的JSON形式的数据
+     * <B>DATA</B>&nbsp;数据，指定示例数据
      */
     public final static String FIELD_DATA = "data";
 

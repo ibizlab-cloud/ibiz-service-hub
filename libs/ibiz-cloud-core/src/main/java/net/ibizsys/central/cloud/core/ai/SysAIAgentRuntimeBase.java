@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.codehaus.groovy.control.CompilerConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.util.Assert;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,11 +39,16 @@ import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
+import net.ibizsys.central.util.PageImpl;
 import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.plugin.ModelRTScriptBase;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.DataTypes;
+import net.ibizsys.runtime.util.Entity;
 import net.ibizsys.runtime.util.ExceptionUtils;
+import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
+import net.ibizsys.runtime.util.INamedAction;
 
 public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements ISysAIAgentRuntime{
 
@@ -279,6 +287,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		}
 		engineParams.put(TEMPLATE_PARAM_DATA, data);
 		engineParams.put(TEMPLATE_PARAM_CTX, this.getModelRuntimeContext());
+		engineParams.put(TEMPLATE_PARAM_FACTORY, this.getAIFactoryRuntime());
 		engineParams.put(TEMPLATE_PARAM_SYS, this.getSystemRuntime());
 		if(this.getDataEntityRuntime() != null) {
 			engineParams.put(TEMPLATE_PARAM_DE, this.getDataEntityRuntime());
@@ -469,6 +478,10 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	protected List getActiveData(Object dataOrKeys) throws Throwable {
 		List<IEntity> entityList = new ArrayList<IEntity>();
+		if(dataOrKeys == null) {
+			entityList.add(new Entity());
+			return entityList;
+		}
 		if(dataOrKeys instanceof List) {
 			List list = (List)dataOrKeys;
 			for(Object item : list) {
@@ -524,6 +537,66 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	}
 	
 	protected Page<Chunk> doFetchChunks(String type, IChunkSearchContext iChunkSearchContext) {
+		//判断是否存在分号，存在则并行请求
+		if(StringUtils.hasLength(type) && type.indexOf(";") != -1) {
+			String[] subTypes = type.split("[;]");
+			List<IAction> actionList = new ArrayList<IAction>();
+			for(String subType : subTypes) {
+				actionList.add(new INamedAction() {
+					@Override
+					public Object execute(Object[] args) throws Throwable {
+						return getSysKBUtilRuntime().fetchChunks(subType, iChunkSearchContext);
+					}
+					
+					@Override
+					public String getName() {
+						return String.format("fetchChunks#%1$s", subType);
+					}
+				});
+			}
+			try {
+				List<Chunk> list1 = new ArrayList<Chunk>();
+				List<Chunk> list2 = new ArrayList<Chunk>();
+				Map<String, Object> ret = this.getSystemRuntime().threadRunAllOf(actionList, true);
+				for(java.util.Map.Entry<String, Object> entry : ret.entrySet()) {
+					if(entry.getValue() instanceof Page) {
+						Page page = (Page)entry.getValue();
+						if(ObjectUtils.isEmpty(page.getContent())) {
+							continue;
+						}
+						
+						for(int i = 0;i<page.getContent().size();i++) {
+							if(i == 0) {
+								list1.add((Chunk)page.getContent().get(i));
+							}
+							else {
+								list2.add((Chunk)page.getContent().get(i));
+							}
+						}
+					}
+					else {
+						log.error(String.format("[%1$s]返回对象[%2$s]无效", entry.getKey(), entry.getValue()));
+					}
+				}
+				
+				//对列表2进行排序
+				Collections.sort(list2, new Comparator<Chunk>() {
+
+					@Override
+					public int compare(Chunk arg0, Chunk arg1) {
+						return (int)DataTypeUtils.compare(DataTypes.DECIMAL, arg0.getSimilarity(), arg0.getSimilarity());
+					}
+				});
+				
+				list1.addAll(list2);
+				return new PageImpl<Chunk>(list1);
+				
+			} catch (Throwable ex) {
+				ex = ExceptionUtils.unwrapThrowable(ex);
+				ExceptionUtils.rethrowRuntimeException(ex);
+			}
+		}
+
 		return this.getSysKBUtilRuntime().fetchChunks(type, iChunkSearchContext);
 	}
 	

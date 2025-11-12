@@ -2,7 +2,8 @@ package net.ibizsys.model.service;
 
 
 
-public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl implements net.ibizsys.model.service.IPSSysServiceAPI{
+public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl implements net.ibizsys.model.service.IPSSysServiceAPI
+		,net.ibizsys.model.IPSModelSortable{
 
 	public final static String ATTR_GETAPICODENAMEMODE = "aPICodeNameMode";
 	public final static String ATTR_GETAPILEVEL = "aPILevel";
@@ -24,6 +25,7 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 	public final static String ATTR_GETHTTPPORT = "httpPort";
 	public final static String ATTR_GETIGNOREAUTHPATTERNS = "ignoreAuthPatterns";
 	public final static String ATTR_GETNAMINGSERVICE = "namingService";
+	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETOUTPSSYSTRANSLATOR = "getOutPSSysTranslator";
 	public final static String ATTR_GETPSDESERVICEAPIRSS = "getPSDEServiceAPIRSs";
 	public final static String ATTR_GETPSDESERVICEAPIS = "getPSDEServiceAPIs";
@@ -212,6 +214,15 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		}
 		return value.asText();
 	}
+
+	@Deprecated
+	public int getOrderValue(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
 	private net.ibizsys.model.res.IPSSysTranslator outpssystranslator;
 
 	public net.ibizsys.model.res.IPSSysTranslator getOutPSSysTranslator(){
@@ -228,6 +239,10 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.res.IPSSysTranslator value = this.getOutPSSysTranslator();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定输出值转换器");}
 		return value;
+	}
+
+	public void setOutPSSysTranslator(net.ibizsys.model.res.IPSSysTranslator outpssystranslator){
+		this.outpssystranslator = outpssystranslator;
 	}
 
 
@@ -296,6 +311,10 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		return value;
 	}
 
+	public void setPSSysResource(net.ibizsys.model.res.IPSSysResource pssysresource){
+		this.pssysresource = pssysresource;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -312,6 +331,10 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.res.IPSSysSFPlugin value = this.getPSSysSFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定后端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
 	}
 
 
@@ -354,6 +377,10 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

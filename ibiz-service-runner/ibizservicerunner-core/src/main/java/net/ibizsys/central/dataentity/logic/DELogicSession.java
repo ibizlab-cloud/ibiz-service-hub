@@ -292,7 +292,7 @@ public class DELogicSession implements IDELogicSession , Cloneable {
 		iDELogicParamRuntime.debug(this, objectNode);
 		
 		if(log.isDebugEnabled()) {
-			log.debug(String.format("输出参数[%1$s]\r\n%2$s", iDELogicParamRuntime.getName(), objectNode));
+			log.debug(String.format("输出参数[%1$s: %2$s] - %3$s", iDELogicParamRuntime.getName(),iDELogicParamRuntime.getCodeName(), objectNode.get("data") != null ? objectNode.get("data") : objectNode));
 		}
 		
 	}

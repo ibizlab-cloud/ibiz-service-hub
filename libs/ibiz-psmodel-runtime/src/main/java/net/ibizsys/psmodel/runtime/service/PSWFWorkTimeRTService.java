@@ -79,7 +79,7 @@ public class PSWFWorkTimeRTService extends PSModelRTServiceBase<PSWFWorkTime, PS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSWFWorkTime.class, this.getPSSystemService().getPSSystem().getAllPSWFWorkTimes(), (String)key, false);
+    	return getPSModelObject(IPSWFWorkTime.class, this.getPSSystemService().getPSSystem().getAllPSWFWorkTimes(), (String)key, tryMode);
     }
     
 }

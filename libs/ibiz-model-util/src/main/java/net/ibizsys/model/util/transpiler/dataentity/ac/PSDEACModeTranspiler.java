@@ -21,6 +21,7 @@ public class PSDEACModeTranspiler extends net.ibizsys.model.util.transpiler.data
 			
 		}
 		net.ibizsys.model.dataentity.ac.PSDEACModeImpl realPSModelObject = (net.ibizsys.model.dataentity.ac.PSDEACModeImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "acparams", realPSModelObject.getACParams(), realPSModelObject, "getACParams");
 		this.setDomainValue(iPSModelTranspileContext, domain, "actag", realPSModelObject.getACTag(), realPSModelObject, "getACTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "actag2", realPSModelObject.getACTag2(), realPSModelObject, "getACTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "actag3", realPSModelObject.getACTag3(), realPSModelObject, "getACTag3");
@@ -33,6 +34,7 @@ public class PSDEACModeTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setDomainValue(iPSModelTranspileContext, domain, "logicname", realPSModelObject.getLogicName(), realPSModelObject, "getLogicName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorsortdir", realPSModelObject.getMinorSortDir(), realPSModelObject, "getMinorSortDir");
 		this.setDomainValue(iPSModelTranspileContext, domain, "minorsortpsdefid", realPSModelObject.getMinorSortPSAppDEField(), realPSModelObject, "getMinorSortPSAppDEField");
+		this.setDomainValue(iPSModelTranspileContext, domain, "psdedatasetid", realPSModelObject.getPSAppDEDataSet(), realPSModelObject, "getPSAppDEDataSet");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdedatasetid", realPSModelObject.getPSDEDataSet(), realPSModelObject, "getPSDEDataSet");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdeuagroupid", realPSModelObject.getPSDEUIActionGroup(), realPSModelObject, "getPSDEUIActionGroup");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysaichatagentid", realPSModelObject.getPSSysAIChatAgent(), realPSModelObject, "getPSSysAIChatAgent");
@@ -50,6 +52,7 @@ public class PSDEACModeTranspiler extends net.ibizsys.model.util.transpiler.data
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACPARAMS, domain, "acparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACTAG, domain, "actag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACTAG2, domain, "actag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACTAG3, domain, "actag3", java.lang.String.class);
@@ -62,6 +65,7 @@ public class PSDEACModeTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICNAME, domain, "logicname", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTDIR, domain, "minorsortdir", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMINORSORTPSAPPDEFIELD, domain, "minorsortpsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSAPPDEDATASET, domain, "psdedatasetid", net.ibizsys.model.app.dataentity.IPSAppDEDataSet.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEDATASET, domain, "psdedatasetid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEUIACTIONGROUP, domain, "psdeuagroupid", net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup.class, true);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSAICHATAGENT, domain, "pssysaichatagentid", net.ibizsys.model.ai.IPSSysAIChatAgent.class, false);

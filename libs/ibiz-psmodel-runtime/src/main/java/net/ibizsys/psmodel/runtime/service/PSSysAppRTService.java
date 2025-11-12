@@ -65,6 +65,6 @@ public class PSSysAppRTService extends PSModelRTServiceBase<PSSysApp, PSSysAppFi
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSApplication.class, this.getPSSystemService().getPSSystem().getAllPSApps(), (String)key, false);
+    	return getPSModelObject(IPSApplication.class, this.getPSSystemService().getPSSystem().getAllPSApps(), (String)key, tryMode);
     }
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-    <property name="LOG_PATH" value="logs" />
+    <springProperty name="LOG_PATH" scope="context" source="logging.path" defaultValue="logs"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg%n" />
-    <springProperty name="LOG_MQTT_BROKERURL" scope="context" source="logmqtt.brokerUrl" defaultValue="tcp://172.16.103.141:30183"/>
-    <springProperty name="LOG_MQTT_TOPIC" scope="context" source="logmqtt.topic" defaultValue="logmqtt"/>
-    <springProperty name="LOG_MQTT_CLIENTID" scope="context" source="logmqtt.clientId" defaultValue="ibizservicerunner"/>
+    <property name="LOG_PATTERN_MQTT" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg" />
+
+    <springProperty name="LOG_MQTT_BROKERURL" scope="context" source="logging.mqtt.brokerUrl" defaultValue="ws://emqx:8083/mqtt"/>
+    <springProperty name="LOG_MQTT_TOPIC" scope="context" source="logging.mqtt.topic" defaultValue="ibiz-service-runner-log"/>
+    <springProperty name="LOG_MQTT_CLIENTID" scope="context" source="logging.mqtt.clientId" defaultValue="ibiz-service-runner"/>
+
+    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log]" />
+
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
@@ -18,23 +23,29 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
+        <!-- 过滤日志输出配置 -->
+        <filter class="cn.ibizlab.runner.servicerunner.appender.LogStopWordsFilter" >
+            <stopWords>${LOG_STOP_WORDS}</stopWords>
+        </filter>
     </appender>
     <!-- 按照每天生成日志文件 -->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>${LOG_PATH}/ibizsample-sampleapi.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_PATH}/api.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
+            <!--大小-->
+            <MaxFileSize>100MB</MaxFileSize>
         </rollingPolicy>
+
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
-
-        <!--日志文件最大的大小-->
-        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <MaxFileSize>100MB</MaxFileSize>
-        </triggeringPolicy>
+        <!-- 过滤日志输出配置 -->
+        <filter class="cn.ibizlab.runner.servicerunner.appender.LogStopWordsFilter" >
+            <stopWords>${LOG_STOP_WORDS}</stopWords>
+        </filter>
     </appender>
     <!-- MQTT增强 -->
     <appender name="MQTT" class="cn.ibizlab.runner.servicerunner.appender.LogbackMqttAppender">
@@ -42,12 +53,17 @@
         <topic>${LOG_MQTT_TOPIC}</topic>
         <clientId>${LOG_MQTT_CLIENTID}</clientId>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg%n</pattern>
+            <pattern>${LOG_PATTERN_MQTT}</pattern>
         </encoder>
+        <!-- 过滤日志输出配置 -->
+        <filter class="cn.ibizlab.runner.servicerunner.appender.LogStopWordsFilter" >
+            <stopWords>${LOG_STOP_WORDS}</stopWords>
+        </filter>
     </appender>
     <!-- 日志输出级别 -->
     <root level="INFO">
         <appender-ref ref="Console" />
         <appender-ref ref="MQTT" />
+        <appender-ref ref="file" />
     </root>
 </configuration>

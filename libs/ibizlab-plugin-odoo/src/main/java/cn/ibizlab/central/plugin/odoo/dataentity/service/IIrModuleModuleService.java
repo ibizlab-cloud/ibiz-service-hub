@@ -63,6 +63,10 @@ public interface IIrModuleModuleService extends cn.ibizlab.central.plugin.odoo.d
      */
     String DATASET_DEFAULT = "DEFAULT";
     /**
+     * 集合: 当前用户授权应用
+     */
+    String DATASET_CUR_USER_APP = "CUR_USER_APP";
+    /**
      * 集合: 已安装应用
      */
     String DATASET_INSTALLED = "INSTALLED";
@@ -76,6 +80,10 @@ public interface IIrModuleModuleService extends cn.ibizlab.central.plugin.odoo.d
      * 集合: DEFAULT
      */
     Page<IrModuleModuleDTO> fetchDefault(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
+    /**
+     * 集合: 当前用户授权应用
+     */
+    Page<IrModuleModuleDTO> fetchCurUserApp(net.ibizsys.central.util.ISearchContextDTO dto) throws Throwable;
     /**
      * 集合: 已安装应用
      */

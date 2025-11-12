@@ -95,4 +95,13 @@ public interface IPSModelMergeContext {
 	 * @return
 	 */
 	boolean logMerge(Object object, String strFieldName);
+	
+	
+	void registerIgnoreMergeModel(String strPSModelPath);
+	
+	
+	boolean unregisterIgnoreMergeModel(String strPSModelPath);
+	
+	
+	boolean isIgnoreMergeModel(String strPSModelPath);
 }

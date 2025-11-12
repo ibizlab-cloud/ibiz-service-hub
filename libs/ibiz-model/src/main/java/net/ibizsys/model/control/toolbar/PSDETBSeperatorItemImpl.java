@@ -32,6 +32,10 @@ public class PSDETBSeperatorItemImpl extends net.ibizsys.model.control.toolbar.P
 		return value;
 	}
 
+	public void setCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes cappslanguageres){
+		this.cappslanguageres = cappslanguageres;
+	}
+
 
 	@Deprecated
 	public java.lang.String getCaption(){
@@ -60,6 +64,10 @@ public class PSDETBSeperatorItemImpl extends net.ibizsys.model.control.toolbar.P
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	@Deprecated
@@ -77,6 +85,10 @@ public class PSDETBSeperatorItemImpl extends net.ibizsys.model.control.toolbar.P
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSSysImage]返回空值");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

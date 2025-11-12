@@ -9,6 +9,10 @@ public class PSDEUILogicImpl extends net.ibizsys.model.dataentity.PSDataEntityOb
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETDEFAULTPARAMNAME = "defaultParamName";
 	public final static String ATTR_GETLOGICNAME = "logicName";
+	public final static String ATTR_GETLOGICTAG = "logicTag";
+	public final static String ATTR_GETLOGICTAG2 = "logicTag2";
+	public final static String ATTR_GETLOGICTAG3 = "logicTag3";
+	public final static String ATTR_GETLOGICTAG4 = "logicTag4";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDEUILOGICNODES = "getPSDEUILogicNodes";
 	public final static String ATTR_GETPSDEUILOGICPARAMS = "getPSDEUILogicParams";
@@ -32,6 +36,38 @@ public class PSDEUILogicImpl extends net.ibizsys.model.dataentity.PSDataEntityOb
 
 	public java.lang.String getLogicName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICNAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicTag2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTAG2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicTag3(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTAG3);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getLogicTag4(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTAG4);
 		if(value == null){
 			return null;
 		}

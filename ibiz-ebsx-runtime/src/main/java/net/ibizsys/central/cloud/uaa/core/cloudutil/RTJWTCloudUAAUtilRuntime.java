@@ -782,7 +782,12 @@ public class RTJWTCloudUAAUtilRuntime extends CloudUAAUtilRuntimeBase {
                 if (rtAuthenticationUser != null) {
                     rtAuthenticationUser.setToken(strNewToken);
                     rtAuthenticationUser.setExpirein(expiresIn);
-                    this.getSysCacheUtilRuntime().set(CloudCacheTagUtils.getAuthenticationUserTag(username), rtAuthenticationUser, expiresIn);
+                    if(getRememberMe()>0) {
+                        iSysCacheUtilRuntime.set(CloudCacheTagUtils.getAuthenticationUserTag(username), rtAuthenticationUser,(int)(getRememberMe()/1000));
+                    }
+                    else {
+                        iSysCacheUtilRuntime.set(CloudCacheTagUtils.getAuthenticationUserTag(username), rtAuthenticationUser, expiresIn);
+                    }
                 }
             }
             return new AuthenticationInfo(strNewToken, expiresIn, null, strRefreshToken);

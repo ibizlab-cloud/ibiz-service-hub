@@ -34,6 +34,10 @@ public class PSSysUnitImpl extends net.ibizsys.model.PSSystemObjectImpl implemen
 		return value;
 	}
 
+	public void setNamePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes namepslanguageres){
+		this.namepslanguageres = namepslanguageres;
+	}
+
 
 	public java.lang.String getUnitTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUNITTAG);

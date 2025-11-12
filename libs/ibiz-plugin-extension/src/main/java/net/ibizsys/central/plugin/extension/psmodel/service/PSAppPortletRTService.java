@@ -64,9 +64,7 @@ public class PSAppPortletRTService extends net.ibizsys.psmodel.runtime.service.P
 			String strPSSysAppId = getParentId(key);
 			String strSimpleId = PSModelUtils.getSimpleId(key);
 			if(strSimpleId.indexOf("uxbireport") == 0){
-				IPSApplication iPSApplication = ExtensionUtils.getPSApplication(iExtensionPSModelRTServiceSession, iExtensionPSModelRTServiceSession.getPSSystem(), strPSSysAppId, true);
-				
-			
+				IPSApplication iPSApplication = ExtensionUtils.getPSApplication(iExtensionPSModelRTServiceSession, iExtensionPSModelRTServiceSession.getPSSystem(), strPSSysAppId, true, true);
 				if(iPSApplication != null) {
 					List<PSAppPortlet> list= getBIReportPortlets(iPSApplication);
 					if(!ObjectUtils.isEmpty(list)) {
@@ -101,7 +99,6 @@ public class PSAppPortletRTService extends net.ibizsys.psmodel.runtime.service.P
 			for(IPSAppBIScheme iPSAppBIScheme : psAppBISchemes) {
 				String strBISchemeId = iPSAppBIScheme.getUniqueTag().replace("__", ".");
 			
-				
 				psAppBISchemeMap.put(strBISchemeId, iPSAppBIScheme);
 				
 				if(!ObjectUtils.isEmpty(iPSAppBIScheme.getPSAppBICubes())){

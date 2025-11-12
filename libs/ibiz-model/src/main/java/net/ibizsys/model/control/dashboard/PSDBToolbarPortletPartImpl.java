@@ -23,4 +23,8 @@ public class PSDBToolbarPortletPartImpl extends net.ibizsys.model.control.dashbo
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 }

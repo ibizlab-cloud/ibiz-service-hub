@@ -70,6 +70,10 @@ public class PSSysReqItemImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysReqModule(net.ibizsys.model.requirement.IPSSysReqModule pssysreqmodule){
+		this.pssysreqmodule = pssysreqmodule;
+	}
+
 	private net.ibizsys.model.uml.IPSSysUseCase pssysusecase;
 
 	public net.ibizsys.model.uml.IPSSysUseCase getPSSysUseCase(){
@@ -88,6 +92,10 @@ public class PSSysReqItemImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysUseCase(net.ibizsys.model.uml.IPSSysUseCase pssysusecase){
+		this.pssysusecase = pssysusecase;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -104,6 +112,10 @@ public class PSSysReqItemImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 }

@@ -40,6 +40,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     public final static String FIELD_PARENT_AUTHOR_ID = "parent_author_id";
 
     /**
+     * 属性: 资源名称
+     */
+    public final static String FIELD_RES_NAME = "res_name";
+
+    /**
      * 属性: 审计日志已启动
      */
     public final static String FIELD_ACCOUNT_AUDIT_LOG_ACTIVATED = "account_audit_log_activated";
@@ -58,6 +63,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
      * 属性: 作者
      */
     public final static String FIELD_AUTHOR_ID = "author_id";
+
+    /**
+     * 属性: 作者
+     */
+    public final static String FIELD_AUTHOR_NAME = "author_name";
 
     /**
      * 属性: 内容
@@ -155,6 +165,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     public final static String FIELD_PARENT_ID = "parent_id";
 
     /**
+     * 属性: 上级消息
+     */
+    public final static String FIELD_PARENT_NAME = "parent_name";
+
+    /**
      * 属性: 已置顶
      */
     public final static String FIELD_PINNED_AT = "pinned_at";
@@ -213,6 +228,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
      * 属性: 子类型
      */
     public final static String FIELD_SUBTYPE_ID = "subtype_id";
+
+    /**
+     * 属性: 子类型
+     */
+    public final static String FIELD_SUBTYPE_NAME = "subtype_name";
 
     /**
      * 属性: 更新时间
@@ -424,6 +444,44 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     }
 
     /**
+     * 设置「资源名称」
+     * @param val
+     */
+    @JsonProperty(FIELD_RES_NAME)
+    public MailMessageDTO setResName(String val) {
+        this._set(FIELD_RES_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「资源名称」值
+     *
+     */
+    @JsonIgnore
+    public String getResName() {
+        return DataTypeUtils.asString(this._get(FIELD_RES_NAME), null);
+    }
+
+    /**
+     * 判断 「资源名称」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsResName() {
+        return this._contains(FIELD_RES_NAME);
+    }
+
+    /**
+     * 重置 「资源名称」
+     *
+     */
+    @JsonIgnore
+    public MailMessageDTO resetResName() {
+        this._reset(FIELD_RES_NAME);
+        return this;
+    }
+
+    /**
      * 设置「审计日志已启动」
      * 代码表[是否]
      * //@see cn.ibizlab.ibizodoo.core.runtime.dict.StaticDict.YesNo
@@ -576,6 +634,44 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     @JsonIgnore
     public MailMessageDTO resetAuthorId() {
         this._reset(FIELD_AUTHOR_ID);
+        return this;
+    }
+
+    /**
+     * 设置「作者」
+     * @param val
+     */
+    @JsonProperty(FIELD_AUTHOR_NAME)
+    public MailMessageDTO setAuthorName(String val) {
+        this._set(FIELD_AUTHOR_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「作者」值
+     *
+     */
+    @JsonIgnore
+    public String getAuthorName() {
+        return DataTypeUtils.asString(this._get(FIELD_AUTHOR_NAME), null);
+    }
+
+    /**
+     * 判断 「作者」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsAuthorName() {
+        return this._contains(FIELD_AUTHOR_NAME);
+    }
+
+    /**
+     * 重置 「作者」
+     *
+     */
+    @JsonIgnore
+    public MailMessageDTO resetAuthorName() {
+        this._reset(FIELD_AUTHOR_NAME);
         return this;
     }
 
@@ -1332,6 +1428,44 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     }
 
     /**
+     * 设置「上级消息」
+     * @param val
+     */
+    @JsonProperty(FIELD_PARENT_NAME)
+    public MailMessageDTO setParentName(String val) {
+        this._set(FIELD_PARENT_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「上级消息」值
+     *
+     */
+    @JsonIgnore
+    public String getParentName() {
+        return DataTypeUtils.asString(this._get(FIELD_PARENT_NAME), null);
+    }
+
+    /**
+     * 判断 「上级消息」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsParentName() {
+        return this._contains(FIELD_PARENT_NAME);
+    }
+
+    /**
+     * 重置 「上级消息」
+     *
+     */
+    @JsonIgnore
+    public MailMessageDTO resetParentName() {
+        this._reset(FIELD_PARENT_NAME);
+        return this;
+    }
+
+    /**
      * 设置「已置顶」
      * @param val
      */
@@ -1531,6 +1665,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
         return this;
     }
 
+    public MailMessageDTO setName(String val) {
+        this.setRecordName(val);
+        return this;
+    }
+
     /**
      * 获取「消息记录名称」值
      *
@@ -1538,6 +1677,11 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     @JsonIgnore
     public String getRecordName() {
         return DataTypeUtils.asString(this._get(FIELD_RECORD_NAME), null);
+    }
+
+    @JsonIgnore
+    public String getName() {
+        return getRecordName();
     }
 
     /**
@@ -1796,6 +1940,44 @@ public class MailMessageDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEnti
     @JsonIgnore
     public MailMessageDTO resetSubtypeId() {
         this._reset(FIELD_SUBTYPE_ID);
+        return this;
+    }
+
+    /**
+     * 设置「子类型」
+     * @param val
+     */
+    @JsonProperty(FIELD_SUBTYPE_NAME)
+    public MailMessageDTO setSubtypeName(String val) {
+        this._set(FIELD_SUBTYPE_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「子类型」值
+     *
+     */
+    @JsonIgnore
+    public String getSubtypeName() {
+        return DataTypeUtils.asString(this._get(FIELD_SUBTYPE_NAME), null);
+    }
+
+    /**
+     * 判断 「子类型」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsSubtypeName() {
+        return this._contains(FIELD_SUBTYPE_NAME);
+    }
+
+    /**
+     * 重置 「子类型」
+     *
+     */
+    @JsonIgnore
+    public MailMessageDTO resetSubtypeName() {
+        this._reset(FIELD_SUBTYPE_NAME);
         return this;
     }
 

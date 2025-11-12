@@ -65,6 +65,10 @@ public class PSSysPanelRawItemImpl extends net.ibizsys.model.control.panel.PSSys
 		return value;
 	}
 
+	public void setPSRawItem(net.ibizsys.model.control.IPSRawItemBase psrawitem){
+		this.psrawitem = psrawitem;
+	}
+
 
 	public java.lang.String getRawContent(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRAWCONTENT);

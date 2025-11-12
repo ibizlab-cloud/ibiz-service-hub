@@ -30,6 +30,8 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	
 	/**
 	 * 获取默认值类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
 	java.lang.String getDefaultValueType();

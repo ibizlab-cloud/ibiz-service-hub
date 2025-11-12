@@ -227,6 +227,10 @@ public class PSDEFormItemImpl extends net.ibizsys.model.control.form.PSDEFormDet
 		return value;
 	}
 
+	public void setPHPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes phpslanguageres){
+		this.phpslanguageres = phpslanguageres;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEField getPSAppDEField(){
@@ -244,6 +248,10 @@ public class PSDEFormItemImpl extends net.ibizsys.model.control.form.PSDEFormDet
 		net.ibizsys.model.app.dataentity.IPSAppDEField value = this.getPSAppDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体属性");}
 		return value;
+	}
+
+	public void setPSAppDEField(net.ibizsys.model.app.dataentity.IPSAppDEField psappdefield){
+		this.psappdefield = psappdefield;
 	}
 
 	private net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate;
@@ -265,6 +273,10 @@ public class PSDEFormItemImpl extends net.ibizsys.model.control.form.PSDEFormDet
 		return value;
 	}
 
+	public void setPSDEFormItemUpdate(net.ibizsys.model.control.form.IPSDEFormItemUpdate psdeformitemupdate){
+		this.psdeformitemupdate = psdeformitemupdate;
+	}
+
 	private net.ibizsys.model.control.IPSEditor pseditor;
 
 	public net.ibizsys.model.control.IPSEditor getPSEditor(){
@@ -283,6 +295,10 @@ public class PSDEFormItemImpl extends net.ibizsys.model.control.form.PSDEFormDet
 		return value;
 	}
 
+	public void setPSEditor(net.ibizsys.model.control.IPSEditor pseditor){
+		this.pseditor = pseditor;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -299,6 +315,10 @@ public class PSDEFormItemImpl extends net.ibizsys.model.control.form.PSDEFormDet
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定表单项图片对象");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 

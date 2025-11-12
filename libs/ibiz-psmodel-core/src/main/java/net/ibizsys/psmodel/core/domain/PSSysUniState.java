@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * <B>PSSYSUNISTATE</B>系统状态协同 模型传输对象
  * <P>
- * 系统全局状态协同的模型，协同模型以zk作为功能载体，定义节点的目录及数据项：/目录1/目录2/目录3/数据标识：{状态1、状态2、...状态8}
+ * 系统全局状态协同的模型，协同模型默认以zk作为功能载体，定义节点的目录及数据项：/目录1/目录2/目录3/数据标识：{状态1、状态2、...状态8}。
  */
 public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
 
@@ -3362,21 +3362,23 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSUTILDEID</B>&nbsp;系统功能组件
+     * <B>PSSYSUTILID</B>&nbsp;系统功能组件
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysUtil} 
      */
-    public final static String FIELD_PSSYSUTILDEID = "pssysutildeid";
+    public final static String FIELD_PSSYSUTILID = "pssysutilid";
 
     /**
      * 设置 系统功能组件
      * 
-     * @param pSSysUtilDEId
+     * @param pSSysUtilId
      * 
      */
-    @JsonProperty(FIELD_PSSYSUTILDEID)
-    public void setPSSysUtilDEId(String pSSysUtilDEId){
-        this.set(FIELD_PSSYSUTILDEID, pSSysUtilDEId);
+    @JsonProperty(FIELD_PSSYSUTILID)
+    public void setPSSysUtilId(String pSSysUtilId){
+        this.set(FIELD_PSSYSUTILID, pSSysUtilId);
+        //属性名称与代码标识不一致，设置属性名称
+        this.set("pssysutildeid", pSSysUtilId);
     }
     
     /**
@@ -3384,10 +3386,14 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public String getPSSysUtilDEId(){
-        Object objValue = this.get(FIELD_PSSYSUTILDEID);
+    public String getPSSysUtilId(){
+        Object objValue = this.get(FIELD_PSSYSUTILID);
         if(objValue==null){
-            return null;
+            //属性名称与代码标识不一致，使用属性名称
+            objValue = this.get("pssysutildeid");
+            if(objValue == null){
+                return null;
+            }
         }
         return (String)objValue;
     }
@@ -3397,8 +3403,12 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public boolean isPSSysUtilDEIdDirty(){
-        if(this.contains(FIELD_PSSYSUTILDEID)){
+    public boolean isPSSysUtilIdDirty(){
+        if(this.contains(FIELD_PSSYSUTILID)){
+            return true;
+        }
+        //属性名称与代码标识不一致，判断属性名称
+        if(this.contains("pssysutildeid")){
             return true;
         }
         return false;
@@ -3408,57 +3418,85 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * 重置 系统功能组件
      */
     @JsonIgnore
-    public void resetPSSysUtilDEId(){
-        this.reset(FIELD_PSSYSUTILDEID);
+    public void resetPSSysUtilId(){
+        this.reset(FIELD_PSSYSUTILID);
+        //属性名称与代码标识不一致，重置属性名称
+        this.reset("pssysutildeid");
     }
 
     /**
      * 设置 系统功能组件
      * <P>
-     * 等同 {@link #setPSSysUtilDEId}
-     * @param pSSysUtilDEId
+     * 等同 {@link #setPSSysUtilId}
+     * @param pSSysUtilId
      */
     @JsonIgnore
-    public PSSysUniState pssysutildeid(String pSSysUtilDEId){
-        this.setPSSysUtilDEId(pSSysUtilDEId);
+    public PSSysUniState pssysutilid(String pSSysUtilId){
+        this.setPSSysUtilId(pSSysUtilId);
         return this;
     }
 
     /**
      * 设置 系统功能组件，包括引用对象的其它关系属性
      * <P>
-     * 等同 {@link #setPSSysUtilDEId}
+     * 等同 {@link #setPSSysUtilId}
      * @param pSSysUtil 引用对象
      */
     @JsonIgnore
-    public PSSysUniState pssysutildeid(PSSysUtil pSSysUtil){
+    public PSSysUniState pssysutilid(PSSysUtil pSSysUtil){
         if(pSSysUtil == null){
-            this.setPSSysUtilDEId(null);
-            this.setPSSysUtilDEName(null);
+            this.setPSSysUtilId(null);
+            this.setPSSysUtilName(null);
         }
         else{
-            this.setPSSysUtilDEId(pSSysUtil.getPSSysUtilId());
-            this.setPSSysUtilDEName(pSSysUtil.getPSSysUtilName());
+            this.setPSSysUtilId(pSSysUtil.getPSSysUtilId());
+            this.setPSSysUtilName(pSSysUtil.getPSSysUtilName());
         }
         return this;
     }
 
+    @JsonIgnore
+    @Deprecated
+    public String getPSSysUtilDEId(){
+        return this.getPSSysUtilId();
+    }
+
+    @JsonIgnore
+    @Deprecated        
+    public void setPSSysUtilDEId(String pSSysUtilDEId){
+        this.setPSSysUtilId(pSSysUtilDEId);
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public boolean isPSSysUtilDEIdDirty(){
+        return this.isPSSysUtilIdDirty();
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public void resetPSSysUtilDEId(){
+        this.resetPSSysUtilId();
+    }
+
     /**
-     * <B>PSSYSUTILDENAME</B>&nbsp;系统功能组件
+     * <B>PSSYSUTILNAME</B>&nbsp;系统功能组件
      * <P>
-     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUTILDEID}
+     * 引用附加属性：连接&nbsp;{@link #FIELD_PSSYSUTILID}
      */
-    public final static String FIELD_PSSYSUTILDENAME = "pssysutildename";
+    public final static String FIELD_PSSYSUTILNAME = "pssysutilname";
 
     /**
      * 设置 系统功能组件
      * 
-     * @param pSSysUtilDEName
+     * @param pSSysUtilName
      * 
      */
-    @JsonProperty(FIELD_PSSYSUTILDENAME)
-    public void setPSSysUtilDEName(String pSSysUtilDEName){
-        this.set(FIELD_PSSYSUTILDENAME, pSSysUtilDEName);
+    @JsonProperty(FIELD_PSSYSUTILNAME)
+    public void setPSSysUtilName(String pSSysUtilName){
+        this.set(FIELD_PSSYSUTILNAME, pSSysUtilName);
+        //属性名称与代码标识不一致，设置属性名称
+        this.set("pssysutildename", pSSysUtilName);
     }
     
     /**
@@ -3466,10 +3504,14 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public String getPSSysUtilDEName(){
-        Object objValue = this.get(FIELD_PSSYSUTILDENAME);
+    public String getPSSysUtilName(){
+        Object objValue = this.get(FIELD_PSSYSUTILNAME);
         if(objValue==null){
-            return null;
+            //属性名称与代码标识不一致，使用属性名称
+            objValue = this.get("pssysutildename");
+            if(objValue == null){
+                return null;
+            }
         }
         return (String)objValue;
     }
@@ -3479,8 +3521,12 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * @return
      */
     @JsonIgnore
-    public boolean isPSSysUtilDENameDirty(){
-        if(this.contains(FIELD_PSSYSUTILDENAME)){
+    public boolean isPSSysUtilNameDirty(){
+        if(this.contains(FIELD_PSSYSUTILNAME)){
+            return true;
+        }
+        //属性名称与代码标识不一致，判断属性名称
+        if(this.contains("pssysutildename")){
             return true;
         }
         return false;
@@ -3490,20 +3536,46 @@ public class PSSysUniState extends net.ibizsys.psmodel.core.util.PSModelBase {
      * 重置 系统功能组件
      */
     @JsonIgnore
-    public void resetPSSysUtilDEName(){
-        this.reset(FIELD_PSSYSUTILDENAME);
+    public void resetPSSysUtilName(){
+        this.reset(FIELD_PSSYSUTILNAME);
+        //属性名称与代码标识不一致，重置属性名称
+        this.reset("pssysutildename");
     }
 
     /**
      * 设置 系统功能组件
      * <P>
-     * 等同 {@link #setPSSysUtilDEName}
-     * @param pSSysUtilDEName
+     * 等同 {@link #setPSSysUtilName}
+     * @param pSSysUtilName
      */
     @JsonIgnore
-    public PSSysUniState pssysutildename(String pSSysUtilDEName){
-        this.setPSSysUtilDEName(pSSysUtilDEName);
+    public PSSysUniState pssysutilname(String pSSysUtilName){
+        this.setPSSysUtilName(pSSysUtilName);
         return this;
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public String getPSSysUtilDEName(){
+        return this.getPSSysUtilName();
+    }
+
+    @JsonIgnore
+    @Deprecated        
+    public void setPSSysUtilDEName(String pSSysUtilDEName){
+        this.setPSSysUtilName(pSSysUtilDEName);
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public boolean isPSSysUtilDENameDirty(){
+        return this.isPSSysUtilNameDirty();
+    }
+
+    @JsonIgnore
+    @Deprecated
+    public void resetPSSysUtilDEName(){
+        this.resetPSSysUtilName();
     }
 
     /**

@@ -112,6 +112,10 @@ public class PSSysMapLogicImpl extends net.ibizsys.model.PSObjectImpl implements
 		return value;
 	}
 
+	public void setPSAppDEUILogic(net.ibizsys.model.app.dataentity.IPSAppDEUILogic psappdeuilogic){
+		this.psappdeuilogic = psappdeuilogic;
+	}
+
 	private net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity(){
@@ -128,6 +132,10 @@ public class PSSysMapLogicImpl extends net.ibizsys.model.PSObjectImpl implements
 		net.ibizsys.model.app.dataentity.IPSAppDataEntity value = this.getPSAppDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用实体对象");}
 		return value;
+	}
+
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
 	}
 
 	private net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic;
@@ -147,6 +155,10 @@ public class PSSysMapLogicImpl extends net.ibizsys.model.PSObjectImpl implements
 		net.ibizsys.model.app.logic.IPSAppUILogic value = this.getPSAppUILogic();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用预置界面逻辑对象");}
 		return value;
+	}
+
+	public void setPSAppUILogic(net.ibizsys.model.app.logic.IPSAppUILogic psappuilogic){
+		this.psappuilogic = psappuilogic;
 	}
 
 

@@ -64,6 +64,6 @@ public class PSSysBISchemeRTService extends PSModelRTServiceBase<PSSysBIScheme, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysBIScheme.class, this.getPSSystemService().getPSSystem().getAllPSSysBISchemes(), (String)key, false);
+    	return getPSModelObject(IPSSysBIScheme.class, this.getPSSystemService().getPSSystem().getAllPSSysBISchemes(), (String)key, tryMode);
     }
 }

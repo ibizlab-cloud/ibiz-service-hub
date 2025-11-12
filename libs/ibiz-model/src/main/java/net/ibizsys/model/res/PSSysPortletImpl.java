@@ -66,6 +66,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 
 	public int getHeight(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETHEIGHT);
@@ -92,6 +96,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -108,6 +116,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.res.IPSSysImage value = this.getPSSysImage();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统图片");}
 		return value;
+	}
+
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
 	}
 
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
@@ -128,6 +140,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
+	}
+
 	private net.ibizsys.model.security.IPSSysUniRes pssysunires;
 
 	public net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes(){
@@ -144,6 +160,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.security.IPSSysUniRes value = this.getPSSysUniRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统统一资源");}
 		return value;
+	}
+
+	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
+		this.pssysunires = pssysunires;
 	}
 
 
@@ -212,6 +232,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin titlepssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getTitlePSSysPFPlugin(){
@@ -228,6 +252,10 @@ public class PSSysPortletImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getTitlePSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定抬头绘制应用插件");}
 		return value;
+	}
+
+	public void setTitlePSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin titlepssyspfplugin){
+		this.titlepssyspfplugin = titlepssyspfplugin;
 	}
 
 

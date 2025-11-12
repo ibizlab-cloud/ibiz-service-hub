@@ -45,6 +45,10 @@ public class PSSysMapImpl extends net.ibizsys.model.control.map.PSMapImpl implem
 		return value;
 	}
 
+	public void setEmptyTextPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes emptytextpslanguageres){
+		this.emptytextpslanguageres = emptytextpslanguageres;
+	}
+
 
 	public java.lang.String getLegendPos(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLEGENDPOS);

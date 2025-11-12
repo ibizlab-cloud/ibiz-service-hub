@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.Assert;
 
 import net.ibizsys.runtime.ISystemRuntime;
 
@@ -81,6 +82,14 @@ public class EntityUtils {
 		return new Entity(objData, bLowerCaseFieldName);
 	}
 
+	public static IEntity asEntity(Object objData) {
+		Assert.notNull(objData, "传入对象无效");
+		if(objData instanceof IEntity) {
+			return (IEntity)objData;
+		}
+		return JsonUtils.asEntity(objData);
+	}
+	
 	public static void copyTo(IEntity srcEntity, Object dstObject) {
 		Map<String, Method> methodMap = CacheMethodMap.get(dstObject.getClass());
 		for (java.util.Map.Entry<String, Method> entry : methodMap.entrySet()) {

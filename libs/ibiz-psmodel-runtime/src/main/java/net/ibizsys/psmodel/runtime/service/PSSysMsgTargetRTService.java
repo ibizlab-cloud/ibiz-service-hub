@@ -64,6 +64,6 @@ public class PSSysMsgTargetRTService extends PSModelRTServiceBase<PSSysMsgTarget
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysMsgTarget.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgTargets(), (String)key, false);
+    	return getPSModelObject(IPSSysMsgTarget.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgTargets(), (String)key, tryMode);
     }
 }

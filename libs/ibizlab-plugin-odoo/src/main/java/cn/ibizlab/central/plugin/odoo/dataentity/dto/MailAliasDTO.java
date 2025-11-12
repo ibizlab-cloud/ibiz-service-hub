@@ -15,6 +15,16 @@ import net.ibizsys.central.util.IEntityDTO;
 public class MailAliasDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityDTOBase {
 
     /**
+     * 属性: 模型别名
+     */
+    public final static String FIELD_ALIAS_MODEL_ID = "alias_model_id";
+
+    /**
+     * 属性: 上级模型
+     */
+    public final static String FIELD_ALIAS_PARENT_MODEL_ID = "alias_parent_model_id";
+
+    /**
      * 属性: 自定义退回消息
      */
     public final static String FIELD_ALIAS_BOUNCED_CONTENT = "alias_bounced_content";
@@ -33,6 +43,11 @@ public class MailAliasDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntity
      * 属性: 别名域
      */
     public final static String FIELD_ALIAS_DOMAIN_ID = "alias_domain_id";
+
+    /**
+     * 属性: 别名域名称
+     */
+    public final static String FIELD_ALIAS_DOMAIN_NAME = "alias_domain_name";
 
     /**
      * 属性: 记录线索ID
@@ -93,6 +108,86 @@ public class MailAliasDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntity
      * 属性: 更新人
      */
     public final static String FIELD_WRITE_UID = "write_uid";
+
+    /**
+     * 设置「模型别名」
+     * 代码表[模型]
+     * @param val
+     */
+    @JsonProperty(FIELD_ALIAS_MODEL_ID)
+    public MailAliasDTO setAliasModelId(String val) {
+        this._set(FIELD_ALIAS_MODEL_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「模型别名」值
+     * 代码表[模型]
+     *
+     */
+    @JsonIgnore
+    public String getAliasModelId() {
+        return DataTypeUtils.asString(this._get(FIELD_ALIAS_MODEL_ID), null);
+    }
+
+    /**
+     * 判断 「模型别名」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsAliasModelId() {
+        return this._contains(FIELD_ALIAS_MODEL_ID);
+    }
+
+    /**
+     * 重置 「模型别名」
+     *
+     */
+    @JsonIgnore
+    public MailAliasDTO resetAliasModelId() {
+        this._reset(FIELD_ALIAS_MODEL_ID);
+        return this;
+    }
+
+    /**
+     * 设置「上级模型」
+     * 代码表[模型]
+     * @param val
+     */
+    @JsonProperty(FIELD_ALIAS_PARENT_MODEL_ID)
+    public MailAliasDTO setAliasParentModelId(String val) {
+        this._set(FIELD_ALIAS_PARENT_MODEL_ID, val);
+        return this;
+    }
+
+    /**
+     * 获取「上级模型」值
+     * 代码表[模型]
+     *
+     */
+    @JsonIgnore
+    public String getAliasParentModelId() {
+        return DataTypeUtils.asString(this._get(FIELD_ALIAS_PARENT_MODEL_ID), null);
+    }
+
+    /**
+     * 判断 「上级模型」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsAliasParentModelId() {
+        return this._contains(FIELD_ALIAS_PARENT_MODEL_ID);
+    }
+
+    /**
+     * 重置 「上级模型」
+     *
+     */
+    @JsonIgnore
+    public MailAliasDTO resetAliasParentModelId() {
+        this._reset(FIELD_ALIAS_PARENT_MODEL_ID);
+        return this;
+    }
 
     /**
      * 设置「自定义退回消息」
@@ -247,6 +342,44 @@ public class MailAliasDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntity
     @JsonIgnore
     public MailAliasDTO resetAliasDomainId() {
         this._reset(FIELD_ALIAS_DOMAIN_ID);
+        return this;
+    }
+
+    /**
+     * 设置「别名域名称」
+     * @param val
+     */
+    @JsonProperty(FIELD_ALIAS_DOMAIN_NAME)
+    public MailAliasDTO setAliasDomainName(String val) {
+        this._set(FIELD_ALIAS_DOMAIN_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「别名域名称」值
+     *
+     */
+    @JsonIgnore
+    public String getAliasDomainName() {
+        return DataTypeUtils.asString(this._get(FIELD_ALIAS_DOMAIN_NAME), null);
+    }
+
+    /**
+     * 判断 「别名域名称」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsAliasDomainName() {
+        return this._contains(FIELD_ALIAS_DOMAIN_NAME);
+    }
+
+    /**
+     * 重置 「别名域名称」
+     *
+     */
+    @JsonIgnore
+    public MailAliasDTO resetAliasDomainName() {
+        this._reset(FIELD_ALIAS_DOMAIN_NAME);
         return this;
     }
 

@@ -24,6 +24,10 @@ public class PSDEChartPolarImpl extends net.ibizsys.model.control.chart.PSDEChar
 		return value;
 	}
 
+	public void setPSChartPolarAngleAxis(net.ibizsys.model.control.chart.IPSChartPolarAngleAxis pschartpolarangleaxis){
+		this.pschartpolarangleaxis = pschartpolarangleaxis;
+	}
+
 	private net.ibizsys.model.control.chart.IPSChartPolarRadiusAxis pschartpolarradiusaxis;
 
 	public net.ibizsys.model.control.chart.IPSChartPolarRadiusAxis getPSChartPolarRadiusAxis(){
@@ -40,6 +44,10 @@ public class PSDEChartPolarImpl extends net.ibizsys.model.control.chart.PSDEChar
 		net.ibizsys.model.control.chart.IPSChartPolarRadiusAxis value = this.getPSChartPolarRadiusAxis();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定径向轴");}
 		return value;
+	}
+
+	public void setPSChartPolarRadiusAxis(net.ibizsys.model.control.chart.IPSChartPolarRadiusAxis pschartpolarradiusaxis){
+		this.pschartpolarradiusaxis = pschartpolarradiusaxis;
 	}
 
 }

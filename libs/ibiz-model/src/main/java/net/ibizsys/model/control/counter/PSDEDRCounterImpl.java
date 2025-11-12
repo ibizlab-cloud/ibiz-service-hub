@@ -33,4 +33,8 @@ public class PSDEDRCounterImpl extends net.ibizsys.model.control.counter.PSSysCo
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 }

@@ -7,6 +7,7 @@ public class PSDEUIActionLogicImpl extends net.ibizsys.model.dataentity.logic.PS
 	public final static String ATTR_GETDSTPSAPPDEUIACTION = "getDstPSAppDEUIAction";
 	public final static String ATTR_GETDSTPSAPPDATAENTITY = "getDstPSAppDataEntity";
 	public final static String ATTR_GETDSTPSDEUILOGICPARAM = "getDstPSDEUILogicParam";
+	public final static String ATTR_GETRETPSDEUILOGICPARAM = "getRetPSDEUILogicParam";
 	private net.ibizsys.model.app.dataentity.IPSAppDEUIAction dstpsappdeuiaction;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEUIAction getDstPSAppDEUIAction(){
@@ -72,6 +73,29 @@ public class PSDEUIActionLogicImpl extends net.ibizsys.model.dataentity.logic.PS
 
 	public void setDstPSDEUILogicParam(net.ibizsys.model.dataentity.logic.IPSDEUILogicParam dstpsdeuilogicparam){
 		this.dstpsdeuilogicparam = dstpsdeuilogicparam;
+	}
+
+	private net.ibizsys.model.dataentity.logic.IPSDEUILogicParam retpsdeuilogicparam;
+
+	public net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getRetPSDEUILogicParam(){
+		if(this.retpsdeuilogicparam != null) return this.retpsdeuilogicparam;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRETPSDEUILOGICPARAM);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.logic.IPSDEUILogic ipsdeuilogic = getParentPSModelObject(net.ibizsys.model.dataentity.logic.IPSDEUILogic.class);
+		this.retpsdeuilogicparam = ipsdeuilogic.getPSDEUILogicParam(value, false);
+		return this.retpsdeuilogicparam;
+	}
+
+	public net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getRetPSDEUILogicParamMust(){
+		net.ibizsys.model.dataentity.logic.IPSDEUILogicParam value = this.getRetPSDEUILogicParam();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定返回值绑定逻辑参数对象");}
+		return value;
+	}
+
+	public void setRetPSDEUILogicParam(net.ibizsys.model.dataentity.logic.IPSDEUILogicParam retpsdeuilogicparam){
+		this.retpsdeuilogicparam = retpsdeuilogicparam;
 	}
 
 }

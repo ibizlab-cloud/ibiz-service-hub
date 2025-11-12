@@ -11,7 +11,7 @@ import static net.ibizsys.model.control.editor.PSCodeImpl.*;
 
 
 
-public class PSCodeTranspiler extends net.ibizsys.model.util.transpiler.control.editor.PSTextEditorTranspiler{
+public class PSCodeTranspiler extends net.ibizsys.model.util.transpiler.control.editor.PSTextAreaTranspiler{
 
 	@Override
 	protected void onDecompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModelObject iPSModelObject, IPSModel domain, boolean bFullMode) throws Exception {

@@ -23,4 +23,8 @@ public class PSDEChartCoordinateSystemCartesian2DImpl extends net.ibizsys.model.
 		return value;
 	}
 
+	public void setPSChartGrid(net.ibizsys.model.control.chart.IPSChartGrid pschartgrid){
+		this.pschartgrid = pschartgrid;
+	}
+
 }

@@ -64,7 +64,7 @@ public class PSWorkflowRTService extends PSModelRTServiceBase<PSWorkflow, PSWork
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSWorkflow.class, this.getPSSystemService().getPSSystem().getAllPSWorkflows(), (String)key, false);
+    	return getPSModelObject(IPSWorkflow.class, this.getPSSystemService().getPSSystem().getAllPSWorkflows(), (String)key, tryMode);
     }
     
     @Override

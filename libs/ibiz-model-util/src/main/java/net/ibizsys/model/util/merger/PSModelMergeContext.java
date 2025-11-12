@@ -20,6 +20,7 @@ import net.ibizsys.model.dataentity.datamap.IPSDEMapAction;
 import net.ibizsys.model.dataentity.datamap.IPSDEMapDataQuery;
 import net.ibizsys.model.dataentity.datamap.IPSDEMapDataSet;
 import net.ibizsys.model.dataentity.datamap.IPSDEMapField;
+import net.ibizsys.model.dataentity.dr.IPSDEDataRelation;
 import net.ibizsys.model.dataentity.ds.IPSDEDQCondition;
 import net.ibizsys.model.dataentity.ds.IPSDEDQGroupCondition;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQueryCode;
@@ -43,11 +44,11 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(PSModelMergeContext.class);
 	
-	private static Map<String, String> psModelMergeTagMap = new HashMap<String, String>();
-	private static Map<String, Boolean> psModelMergeAppendOnlyMap = new HashMap<String, Boolean>();
-	private static Map<String, Boolean> psModelMergeChildMap = new HashMap<String, Boolean>();
-	private static Map<String, Boolean> psModelMergeSingleMap = new HashMap<String, Boolean>();
-	private static Map<String, String> mergeObjectMap = new HashMap<String, String>();
+	private final static Map<String, String> psModelMergeTagMap = new HashMap<String, String>();
+	private final static Map<String, Boolean> psModelMergeAppendOnlyMap = new HashMap<String, Boolean>();
+	private final static Map<String, Boolean> psModelMergeChildMap = new HashMap<String, Boolean>();
+	private final static Map<String, Boolean> psModelMergeSingleMap = new HashMap<String, Boolean>();
+	private final static Map<String, String> mergeObjectMap = new HashMap<String, String>();
 	
 	static {
 		psModelMergeTagMap.put(IPSLanguageItem.class.getSimpleName(), "lanResTag");
@@ -56,9 +57,11 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 		psModelMergeTagMap.put(IPSSubSysServiceAPIDERS.class.getSimpleName(), "name");
 		psModelMergeTagMap.put(IPSControl.class.getSimpleName(), "name");
 		psModelMergeTagMap.put(IPSAppDEMethod.class.getSimpleName(), "methodType;codeName");
+		psModelMergeTagMap.put(IPSDEActionLogic.class.getSimpleName(), "codeName|AUTO");
+		
 		
 		psModelMergeAppendOnlyMap.put(IPSAppDEUIAction.class.getSimpleName(), true);
-		psModelMergeAppendOnlyMap.put(IPSDEActionLogic.class.getSimpleName(), true);
+		//psModelMergeAppendOnlyMap.put(IPSDEActionLogic.class.getSimpleName(), true);
 		
 		//实体映射支持附加
 		psModelMergeAppendOnlyMap.put(IPSDEMapField.class.getSimpleName(), true);
@@ -77,6 +80,9 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 		
 		
 		psModelMergeChildMap.put(IPSModelData.class.getSimpleName(), false);
+		
+		psModelMergeChildMap.put(IPSDEDataRelation.class.getSimpleName(), false);
+		
 		
 		//psModelMergeChildMap.put(IPSApplication.class.getSimpleName(), false);
 		
@@ -110,6 +116,7 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 	private Map<String, Object> paramMap = new HashMap<String, Object>();
 	private Map<Class<?>, IPSModelMerger> psModelMergerMap = new HashMap<>();
 	private Map<Class<?>, IPSModelListMerger> psModelListMergerMap = new HashMap<>();
+	private Map<String, Object> ignoreMergeModelMap = new HashMap<String, Object>();
 	
 	private final static PSApplicationMergerEx psApplicationMergerEx = new PSApplicationMergerEx();
 	private final static PSDEUIActionGroupMergerEx psDEUIActionGroupMergerEx = new PSDEUIActionGroupMergerEx();
@@ -226,6 +233,21 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 //		}
 //		mergeObjectMap.put(strLogTag, "");
 		return true;
+	}
+
+	@Override
+	public void registerIgnoreMergeModel(String strPSModelPath) {
+		this.ignoreMergeModelMap.put(strPSModelPath, "");
+	}
+
+	@Override
+	public boolean unregisterIgnoreMergeModel(String strPSModelPath) {
+		return this.ignoreMergeModelMap.remove(strPSModelPath, "");
+	}
+
+	@Override
+	public boolean isIgnoreMergeModel(String strPSModelPath) {
+		return this.ignoreMergeModelMap.containsKey(strPSModelPath);
 	}
 	
 	

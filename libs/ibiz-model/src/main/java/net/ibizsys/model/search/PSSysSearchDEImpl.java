@@ -77,6 +77,10 @@ public class PSSysSearchDEImpl extends net.ibizsys.model.search.PSSysSearchSchem
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.search.IPSSysSearchDoc pssyssearchdoc;
 
 	public net.ibizsys.model.search.IPSSysSearchDoc getPSSysSearchDoc(){
@@ -94,6 +98,10 @@ public class PSSysSearchDEImpl extends net.ibizsys.model.search.PSSysSearchSchem
 		net.ibizsys.model.search.IPSSysSearchDoc value = this.getPSSysSearchDoc();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定全文检索文档");}
 		return value;
+	}
+
+	public void setPSSysSearchDoc(net.ibizsys.model.search.IPSSysSearchDoc pssyssearchdoc){
+		this.pssyssearchdoc = pssyssearchdoc;
 	}
 
 

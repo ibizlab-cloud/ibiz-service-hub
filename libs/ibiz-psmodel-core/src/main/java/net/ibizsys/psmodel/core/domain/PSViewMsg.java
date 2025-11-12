@@ -4283,14 +4283,14 @@ public class PSViewMsg extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSSYSVIEWPANELID</B>&nbsp;视图消息布局面板
+     * <B>PSSYSVIEWPANELID</B>&nbsp;视图消息布局面板，指定视图消息的自定义布局面板
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysViewPanel} 
      */
     public final static String FIELD_PSSYSVIEWPANELID = "pssysviewpanelid";
 
     /**
-     * 设置 视图消息布局面板
+     * 设置 视图消息布局面板，详细说明：{@link #FIELD_PSSYSVIEWPANELID}
      * 
      * @param pSSysViewPanelId
      * 
@@ -4334,7 +4334,7 @@ public class PSViewMsg extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 视图消息布局面板
+     * 设置 视图消息布局面板，详细说明：{@link #FIELD_PSSYSVIEWPANELID}
      * <P>
      * 等同 {@link #setPSSysViewPanelId}
      * @param pSSysViewPanelId

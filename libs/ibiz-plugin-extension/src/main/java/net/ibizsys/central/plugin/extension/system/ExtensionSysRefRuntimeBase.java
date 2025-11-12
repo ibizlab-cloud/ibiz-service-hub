@@ -43,6 +43,7 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 	private DeploySystem deploySystem = null;
 	private List<INamedAction> unregisterActionList = new ArrayList<INamedAction>();
 	private Map<String, IPSApplication> psApplicationMap = new HashMap<String, IPSApplication>();
+	private Map<String, String> mainAppRefAppMap = new HashMap<String, String>();
 	
 	@Override
 	protected void onInstall() throws Exception {
@@ -214,12 +215,13 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 		}
 	}
 	
-	protected IPSApplication getPSApplication(String strAppTag, boolean bTryMode) throws Exception {
+	@Override
+	public IPSApplication getPSApplication(String strAppTag, boolean bTryMode){
 		IPSApplication iPSApplication = this.psApplicationMap.get(strAppTag.toUpperCase());
 		if(iPSApplication != null || bTryMode) {
 			return iPSApplication;
 		}
-		throw new Exception(String.format("指定应用[%1$s]模型对象不存在", strAppTag));
+		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("指定应用[%1$s]模型对象不存在", strAppTag));
 	}
 	
 
@@ -320,4 +322,37 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 			}
 		}
 	}
+
+	@Override
+	public void registerMainAppRefApp(String strMainAppTag, String strSubAppTag) {
+		this.mainAppRefAppMap.put(strMainAppTag.toUpperCase(), strSubAppTag);
+	}
+
+	@Override
+	public IPSApplication getMainAppRefPSApplication(String strMainAppTag, boolean bTryMode) {
+		String strSubAppTag = this.mainAppRefAppMap.get(strMainAppTag.toUpperCase());
+		try {
+			IPSApplication iPSApplication = null;
+			if(StringUtils.hasLength(strSubAppTag)) {
+				iPSApplication = this.getPSApplication(strSubAppTag, bTryMode);
+			}
+			if(iPSApplication != null || bTryMode) {
+				return iPSApplication;
+			}
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("指定主应用[%1$s]引用子应用不存在", strMainAppTag));
+		}
+		catch (Throwable ex) {
+			SystemRuntimeException.rethrow(this, ex);
+			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("指定主应用[%1$s]引用子应用发生异常，%2$s", strMainAppTag, ex.getMessage()), ex);
+		}
+		
+	}
+
+	@Override
+	public boolean unregisterMainAppRefApp(String strMainAppTag, String strSubAppTag) {
+		return this.mainAppRefAppMap.remove(strMainAppTag, strSubAppTag);
+	}
+	
+	
+	
 }

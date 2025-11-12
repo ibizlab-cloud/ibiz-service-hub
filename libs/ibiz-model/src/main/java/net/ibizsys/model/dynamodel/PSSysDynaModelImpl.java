@@ -10,6 +10,7 @@ public class PSSysDynaModelImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 	public final static String ATTR_GETMODELTAG2 = "modelTag2";
 	public final static String ATTR_GETMODELTAG3 = "modelTag3";
 	public final static String ATTR_GETMODELTAG4 = "modelTag4";
+	public final static String ATTR_GETPSDYNAMODEL = "getPSDynaModel";
 	public final static String ATTR_GETPSDYNAMODELATTRS = "getPSDynaModelAttrs";
 	public final static String ATTR_GETUSAGE = "usage";
 
@@ -60,6 +61,29 @@ public class PSSysDynaModelImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel;
+
+	@Deprecated
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModel(){
+		if(this.psdynamodel != null) return this.psdynamodel;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDYNAMODEL);
+		if(value == null){
+			return null;
+		}
+		this.psdynamodel = getPSModelObject(net.ibizsys.model.dynamodel.IPSDynaModel.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSDYNAMODEL);
+		return this.psdynamodel;
+	}
+
+	public net.ibizsys.model.dynamodel.IPSDynaModel getPSDynaModelMust(){
+		net.ibizsys.model.dynamodel.IPSDynaModel value = this.getPSDynaModel();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPSDynaModel]返回空值");}
+		return value;
+	}
+
+	public void setPSDynaModel(net.ibizsys.model.dynamodel.IPSDynaModel psdynamodel){
+		this.psdynamodel = psdynamodel;
+	}
+
 
 	private java.util.List<net.ibizsys.model.dynamodel.IPSDynaModelAttr> psdynamodelattrs = null;
 	public java.util.List<net.ibizsys.model.dynamodel.IPSDynaModelAttr> getPSDynaModelAttrs(){

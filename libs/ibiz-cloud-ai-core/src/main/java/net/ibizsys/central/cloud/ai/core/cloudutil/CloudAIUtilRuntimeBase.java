@@ -32,6 +32,8 @@ import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.McpServer;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.INamedAction;
@@ -202,7 +204,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	}
 
 	protected ChatCompletionResult onChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable {
-		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type);
+		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type, chatCompletionRequest);
 		return iAIAccessAgent.chatCompletion(chatCompletionRequest);
 	}
 
@@ -279,7 +281,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	}
 
 	protected CompletionResult onCompletion(String type, CompletionRequest CompletionRequest) throws Throwable {
-		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type);
+		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type, CompletionRequest);
 		return iAIAccessAgent.completion(CompletionRequest);
 	}
 
@@ -345,14 +347,30 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	}
 
 	protected EmbeddingResult onEmbedding(String type, EmbeddingRequest embeddingRequest) throws Throwable {
-		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type);
+		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type, embeddingRequest);
 		return iAIAccessAgent.embedding(embeddingRequest);
 	}
 	
+	@Override
+	public TextReRankResult textReRank(String type, TextReRankRequest textReRankRequest) {
+		return (TextReRankResult) this.executeAction("TextReRank操作", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onTextReRank(type, textReRankRequest);
+			}
+		}, null);
+	}
 
-	protected IAIAccessAgent getAIAccessAgent(String strAIAccessId) throws Throwable {
+	protected TextReRankResult onTextReRank(String type, TextReRankRequest textReRankRequest) throws Throwable {
+		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type, textReRankRequest);
+		return iAIAccessAgent.textReRank(textReRankRequest);
+	}
+	
+
+	protected IAIAccessAgent getAIAccessAgent(String strAIAccessId, Object requestData) throws Throwable {
 
 		if (AIPLATFORM_DEFAULT.equalsIgnoreCase(strAIAccessId)) {
+			
 			strAIAccessId = this.getDefaultAgent();
 		} else if (AIPLATFORM_SIMPLE.equalsIgnoreCase(strAIAccessId)) {
 			strAIAccessId = this.getSimpleAgent();

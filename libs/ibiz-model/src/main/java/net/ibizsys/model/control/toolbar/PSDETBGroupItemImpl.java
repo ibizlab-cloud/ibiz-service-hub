@@ -111,6 +111,10 @@ public class PSDETBGroupItemImpl extends net.ibizsys.model.control.toolbar.PSDET
 		return value;
 	}
 
+	public void setPSUIActionGroup(net.ibizsys.model.view.IPSUIActionGroup psuiactiongroup){
+		this.psuiactiongroup = psuiactiongroup;
+	}
+
 
 	public boolean isValid(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISVALID);

@@ -25,6 +25,10 @@ public class PSDBHtmlPortletPartImpl extends net.ibizsys.model.control.dashboard
 		return value;
 	}
 
+	public void setContentPSControl(net.ibizsys.model.control.IPSControl contentpscontrol){
+		this.contentpscontrol = contentpscontrol;
+	}
+
 
 	public java.lang.String getHtmlShowMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETHTMLSHOWMODE);

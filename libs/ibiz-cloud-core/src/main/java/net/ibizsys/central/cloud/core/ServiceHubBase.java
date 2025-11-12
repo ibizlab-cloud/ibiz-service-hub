@@ -215,7 +215,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 	}
 
 	private Map<String, Long> debugModelPathTimestampMap = new ConcurrentHashMap<String, Long>();
-	
+
 	private String strInstanceId = KeyValueUtils.genUniqueId();
 
 	@Value("${server.port}")
@@ -353,7 +353,12 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 				try {
 					registerDeploySystem(deploySystem);
 				} catch (Exception ex) {
-					throw new Exception(String.format("注册系统[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+					if (this.getServiceHubSetting().isIgnoreLoadSystemError()) {
+						log.error(String.format("注册系统[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+						logEvent(LogLevels.ERROR, String.format("服务系统[%2$s@%1$s]注册发生异常，%3$s", getId(), deploySystem.getDeploySystemId(), ex.getMessage()), deploySystem);
+					} else {
+						throw new Exception(String.format("注册系统[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+					}
 				}
 			}
 
@@ -384,38 +389,40 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 						strConfig = "";
 					}
 					this.deploySystemVerMap.put(strConfigId, strConfig);
-					IConfigListener iConfigListener = new IConfigListener() {
+					if (!this.deploySystemVerListenerMap.containsKey(strConfigId)) {
+						IConfigListener iConfigListener = new IConfigListener() {
 
-						@Override
-						public Executor getExecutor() {
-							return null;
-						}
-
-						@Override
-						public void receiveConfigInfo(String configInfo) {
-
-							String strConfig = deploySystemVerMap.get(strConfigId);
-							if (configInfo == null) {
-								configInfo = "";
+							@Override
+							public Executor getExecutor() {
+								return null;
 							}
-							if (configInfo.equals(strConfig)) {
-								log.debug(String.format("部署系统[%1$s]接收到版本变化，但配置内容一致，忽略", deploySystem.getDeploySystemId()));
-								logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，但配置内容一致，忽略重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
-								return;
-							}
-							deploySystemVerMap.put(strConfigId, configInfo);
-							log.debug(String.format("部署系统[%1$s]版本发生变化", deploySystem.getDeploySystemId()));
-							logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
-							if (isInstalled()) {
-								reloadDeploySystem(deploySystem, configInfo);
 
-							} else {
-								log.warn(String.format("服务总线未安装完成，忽略部署系统版本变化"));
+							@Override
+							public void receiveConfigInfo(String configInfo) {
+
+								String strConfig = deploySystemVerMap.get(strConfigId);
+								if (configInfo == null) {
+									configInfo = "";
+								}
+								if (configInfo.equals(strConfig)) {
+									log.debug(String.format("部署系统[%1$s]接收到版本变化，但配置内容一致，忽略", deploySystem.getDeploySystemId()));
+									logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，但配置内容一致，忽略重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
+									return;
+								}
+								deploySystemVerMap.put(strConfigId, configInfo);
+								log.debug(String.format("部署系统[%1$s]版本发生变化", deploySystem.getDeploySystemId()));
+								logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
+								if (isInstalled()) {
+									reloadDeploySystem(deploySystem, configInfo);
+
+								} else {
+									log.warn(String.format("服务总线未安装完成，忽略部署系统版本变化"));
+								}
 							}
-						}
-					};
-					this.addConfigListener(strConfigId, iConfigListener);
-					this.deploySystemVerListenerMap.put(strConfigId, iConfigListener);
+						};
+						this.addConfigListener(strConfigId, iConfigListener);
+						this.deploySystemVerListenerMap.put(strConfigId, iConfigListener);
+					}
 				}
 			}
 		}
@@ -568,7 +575,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 	public int getWorkThreadBlockingQueueSize() {
 		return this.getServiceHubSetting().getWorkThreadBlockingQueueSize();
 	}
-	
+
 	@Override
 	public boolean isConcurrentLoadSystemMergences() {
 		return this.getServiceHubSetting().isConcurrentLoadSystemMergences();
@@ -644,14 +651,13 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 						PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 						psModelServiceImpl.setPSModelFolderPath(folder.getCanonicalPath());
 						long nLastModifiedTime = this.getLastModifiedTime(folder.getCanonicalPath());
-						if(nLastModifiedTime > 0) {
+						if (nLastModifiedTime > 0) {
 							psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
-						}
-						else {
+						} else {
 							psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId());
 						}
 						if (v2DeploySystem != null)
-							installCloudSystemModel(v2DeploySystem,folder.getCanonicalPath());
+							installCloudSystemModel(v2DeploySystem, folder.getCanonicalPath());
 						iPSSystemService = psModelServiceImpl;
 						log.debug(String.format("部署系统[%1$s]使用调试模型[%2$s][%3$s]", deploySystem.getDeploySystemId(), deploySystem.getDebugModelPath(), folder.getCanonicalPath()));
 					}
@@ -790,14 +796,15 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			}
 		}
 
-		if (!ObjectUtils.isEmpty(deploySystem.getMergeSystems())) {
-			deploySystem.getSettingsIf().put(IServiceSystemRuntime.PARAM_MERGESYSTEMS, deploySystem.getMergeSystems());
-		}
+		// if (!ObjectUtils.isEmpty(deploySystem.getMergeSystems())) {
+		// deploySystem.getSettingsIf().put(IServiceSystemRuntime.PARAM_MERGESYSTEMS,
+		// deploySystem.getMergeSystems());
+		// }
 
 		// 设置系统是否支持更新数据库体系
 		boolean bUpdateDBScheme = DataTypeUtils.getBooleanValue(deploySystem.getUpdateDBSchema(), false);
 		deploySystem.getSettings().put(IServiceSystemRuntime.PARAM_UPDATEDBSCHEMA, bUpdateDBScheme);
-		
+
 		String strOSSFolder = deploySystem.getOSSFolder();
 		deploySystem.getSettings().put(IServiceSystemRuntime.PARAM_OSSFOLDER, strOSSFolder);
 
@@ -927,60 +934,51 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		}
 
 		log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", deploySystem.getDeploySystemId(), strModelDigest, strDynaModelPath));
-		
+
 		String strOrginDynaModelPath = strDynaModelPath;
+		if (this.getServiceHubSetting().isEnableMergeSystem()) {
+			// 判断是否进行系统合并
+			if (!ObjectUtils.isEmpty(deploySystem.getMergeSystems())) {
+				List<DeploySystem> list = new ArrayList<DeploySystem>();
+				for (String strMergeSystemId : deploySystem.getMergeSystems()) {
+					DeploySystem mergeDeploySystem = new DeploySystem();
+					mergeDeploySystem.setDeploySystemId(strMergeSystemId);
+					mergeDeploySystem.setModelPath(DEPLOYSYSYTEMMODELPATH_REMOTE);
+					File file = this.getDeploySystemModelFolder(mergeDeploySystem, false);
+					mergeDeploySystem.setModelPath(file.getCanonicalPath());
+					list.add(mergeDeploySystem);
+					log.debug(String.format("合入系统[%1$s]模型[%2$s]", mergeDeploySystem.getDeploySystemId(), mergeDeploySystem.getModelPath()));
+				}
+
+				try {
+					IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
+					File mergeFile = iHubSysExtensionUtilRuntime.mergeDeploySystems(new File(strDynaModelPath), list, true);
+					strDynaModelPath = mergeFile.getCanonicalPath();
+				} catch (Exception ex) {
+					throw new Exception(String.format("合并部署系统发生异常，%1$s", ex.getMessage()), ex);
+				}
+			}
+		}
+
 		V2DeploySystem v2DeploySystem = this.getV2DeploySystem(deploySystem);
-		if(v2DeploySystem != null) {
+		if (v2DeploySystem != null) {
 			try {
 				IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
 				File mergeFile = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(new File(strDynaModelPath), v2DeploySystem, true);
 				strDynaModelPath = mergeFile.getCanonicalPath();
-			}
-			catch (Exception ex) {
+			} catch (Exception ex) {
 				throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
 			}
 		}
-		
-
-		// if(this.getServiceHubSetting().isEnableMergeSystem()) {
-		// //判断是否进行系统合并
-		// if(!ObjectUtils.isEmpty(deploySystem.getMergeSystems())) {
-		// List<DeploySystem> list = new ArrayList<DeploySystem>();
-		// for(String strMergeSystemId : deploySystem.getMergeSystems()) {
-		// DeploySystem mergeDeploySystem = new DeploySystem();
-		// mergeDeploySystem.setDeploySystemId(strMergeSystemId);
-		// mergeDeploySystem.setModelPath(DEPLOYSYSYTEMMODELPATH_REMOTE);
-		// File file = this.getDeploySystemRemoteModel(mergeDeploySystem,
-		// false);
-		// mergeDeploySystem.setModelPath(file.getCanonicalPath());
-		// list.add(mergeDeploySystem);
-		//
-		// log.debug(String.format("合入系统[%1$s]模型[%2$s]",
-		// mergeDeploySystem.getDeploySystemId(),
-		// mergeDeploySystem.getModelPath()));
-		// }
-		//
-		// IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime =
-		// this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class,
-		// false);
-		// File mergeFile = iHubSysExtensionUtilRuntime.mergeDeploySystems(new
-		// File(strDynaModelPath), list, true);
-		// strDynaModelPath = mergeFile.getCanonicalPath();
-		//
-		// log.debug(String.format("系统[%1$s]使用合并模型[%2$s]",
-		// deploySystem.getDeploySystemId(), strDynaModelPath));
-		// }
-		// }
 
 		PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 		psModelServiceImpl.setPSModelFolderPath(strDynaModelPath);
 		psModelServiceImpl.setModelDigest(items[0]);
-		if(!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
+		if (!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
 			long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
-			if(nLastModifiedTime > 0) {
+			if (nLastModifiedTime > 0) {
 				psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
-			}
-			else {
+			} else {
 				psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId());
 			}
 		}
@@ -1117,32 +1115,30 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			}
 
 			log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", v2DeploySystem.getId(), v2DeploySystem.getOssFile(), strDynaModelPath));
-			
-			//备份原来的模型路径
+
+			// 备份原来的模型路径
 			String strOrginDynaModelPath = strDynaModelPath;
-			
+
 			try {
 				IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
 				File mergeFile = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(new File(strDynaModelPath), v2DeploySystem, true);
 				strDynaModelPath = mergeFile.getCanonicalPath();
-			}
-			catch (Exception ex) {
+			} catch (Exception ex) {
 				throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
 			}
 
 			PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 			psModelServiceImpl.setPSModelFolderPath(strDynaModelPath);
 			psModelServiceImpl.setModelDigest(v2DeploySystem.getOssFileDigest());
-			if(!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
+			if (!StringUtils.hasLength(psModelServiceImpl.getModelDigest())) {
 				long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
-				if(nLastModifiedTime > 0) {
+				if (nLastModifiedTime > 0) {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
-				}
-				else {
+				} else {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId());
 				}
 			}
-			installCloudSystemModel(v2DeploySystem,strDynaModelPath);
+			installCloudSystemModel(v2DeploySystem, strDynaModelPath);
 			return psModelServiceImpl;
 		}
 
@@ -1158,94 +1154,91 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			File folder = this.getDeploySystemModelFolder(v2DeploySystem.getId(), strHttpUrlToRepo, false);
 			if (folder != null) {
 				log.debug(String.format("系统[%1$s]使用远程模型[%2$s][%3$s]", v2DeploySystem.getId(), strHttpUrlToRepo, folder.getCanonicalPath()));
-				
+
 				String strOrginDynaModelPath = folder.getCanonicalPath();
-				
+
 				try {
 					IHubSysExtensionUtilRuntime iHubSysExtensionUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(IHubSysExtensionUtilRuntime.class, false);
 					folder = iHubSysExtensionUtilRuntime.mergeV2DeploySystem(folder, v2DeploySystem, true);
-				}
-				catch (Exception ex) {
+				} catch (Exception ex) {
 					throw new Exception(String.format("合并V2部署系统发生异常，%1$s", ex.getMessage()), ex);
 				}
 
 				PSModelServiceImpl psModelServiceImpl = new PSModelServiceImpl();
 				psModelServiceImpl.setPSModelFolderPath(folder.getCanonicalPath());
 				long nLastModifiedTime = this.getLastModifiedTime(strOrginDynaModelPath);
-				if(nLastModifiedTime > 0) {
+				if (nLastModifiedTime > 0) {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId(Long.valueOf(nLastModifiedTime).toString()));
-				}
-				else {
+				} else {
 					psModelServiceImpl.setModelDigest(KeyValueUtils.genUniqueId());
 				}
-				installCloudSystemModel(v2DeploySystem,folder.getCanonicalPath());
+				installCloudSystemModel(v2DeploySystem, folder.getCanonicalPath());
 				return psModelServiceImpl;
 			}
 		}
 		return null;
 	}
-	
+
 	protected void installCloudSystemModel(V2DeploySystem v2DeploySystem, String strPSModelFolderPath) throws Exception {
-		
+
 		String strConfigId = String.format("systemsource-%1$s", v2DeploySystem.getId()).toLowerCase();
 		String strConfig = ServiceHub.getInstance().getConfig(strConfigId);
 		ConfigEntity configEntity = new ConfigEntity(strConfig);
-		
+
 		String strOSSFileId = configEntity.getString("modelossid", null);
 		String strHttpUrlToRepo = configEntity.getString("httpurltorepo", null);
-		String strFileHashCode = configEntity.getString("modeldigest", null); 
+		String strFileHashCode = configEntity.getString("modeldigest", null);
 		if (StringUtils.hasLength(v2DeploySystem.getOssFile())) {
-			if(v2DeploySystem.getOssFile().equals(strOSSFileId)) {
+			if (v2DeploySystem.getOssFile().equals(strOSSFileId)) {
 				return;
 			}
-			
+
 			strOSSFileId = v2DeploySystem.getOssFile();
-		}
-		else {
-			if(!StringUtils.hasLength(v2DeploySystem.getHttpUrlToRepo())) {
+		} else {
+			if (!StringUtils.hasLength(v2DeploySystem.getHttpUrlToRepo())) {
 				log.warn("未定义部署系统远程模型路径");
-				return;				
-			}
-			
-			if(v2DeploySystem.getHttpUrlToRepo().indexOf(".zip") != -1
-					&& v2DeploySystem.getHttpUrlToRepo().equals(strHttpUrlToRepo)) {
 				return;
 			}
-			
+
+			if (v2DeploySystem.getHttpUrlToRepo().indexOf(".zip") != -1 && v2DeploySystem.getHttpUrlToRepo().equals(strHttpUrlToRepo)) {
+				return;
+			}
+
 			strHttpUrlToRepo = v2DeploySystem.getHttpUrlToRepo();
-			
+
 			File tempFile = File.createTempFile("model_" + v2DeploySystem.getId(), ".zip");
 			ZipUtils.zip(new File(strPSModelFolderPath), tempFile);
 			try (FileInputStream fis = new FileInputStream(tempFile)) {
 				String strFileHashCode2 = DigestUtils.md5DigestAsHex(fis);
-				if(strFileHashCode2.equals(strFileHashCode)) {
+				if (strFileHashCode2.equals(strFileHashCode)) {
 					return;
 				}
 				strFileHashCode = strFileHashCode2;
-			};
-			
-			//上传文件
+			}
+			;
+
+			// 上传文件
 			ISysFileUtilRuntime iSysFileUtilRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(ISysFileUtilRuntime.class, false);
 			net.ibizsys.runtime.util.domain.File ossFile = iSysFileUtilRuntime.createOSSFile(tempFile, ICloudDevOpsUtilRuntime.OSSCAT_DYNAMODEL);
 			strOSSFileId = ossFile.getOSSId();
 		}
-		
-		//写入远程配置
+
+		// 写入远程配置
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("modelossid", strOSSFileId);
-		if(StringUtils.hasLength(strHttpUrlToRepo)) {
+		if (StringUtils.hasLength(strHttpUrlToRepo)) {
 			map.put("httpurltorepo", strHttpUrlToRepo);
 		}
-		if(StringUtils.hasLength(strFileHashCode)) {
+		if (StringUtils.hasLength(strFileHashCode)) {
 			map.put("modeldigest", strFileHashCode);
 		}
-		
+
 		ServiceHub.getInstance().publishConfig(strConfigId, map);
 		invokeCloudDevOpsPubCode(v2DeploySystem);
 
 	}
 
-	protected void invokeCloudDevOpsPubCode(V2DeploySystem v2DeploySystem) throws Exception{
+	protected void invokeCloudDevOpsPubCode(V2DeploySystem v2DeploySystem) throws Exception {
 		ISysCloudClientUtilRuntime iSysCloudClientRuntime = this.getHubSystemRuntime(false).getSysUtilRuntime(ISysCloudClientUtilRuntime.class, false);
 		ICloudDevOpsClient iCloudDevOpsClient = iSysCloudClientRuntime.getServiceClient(ICloudUtilRuntime.CLOUDSERVICE_DEVOPS).getProxyClient(ICloudDevOpsClient.class);
 		iCloudDevOpsClient.invokeDevCallback(v2DeploySystem.getId(), "PUBCODE", "token");
@@ -1362,8 +1355,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 					log.error(String.format("Git仓库状态异常，%1$s。执行清除目录操作[%2$s]", ex.getMessage(), file.getCanonicalPath()));
 					FileUtils.deleteDirectory(file);
 				}
-						
-					
+
 				throw new Exception(String.format("签出Git项目发生异常，%1$s", ex.getMessage()), ex);
 			}
 		} else {
@@ -1461,7 +1453,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		// 注册应用网关路由
 		registerAppGatewayRoutes(deploySystem, iSystemRuntime);
 
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug(String.format("系统[%1$s]已经注册", strDeploySystemId));
 			this.outputMemoryUsage();
 		}
@@ -1651,7 +1643,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		// unregisterAppGatewayRoutes(deploySystem, iSystemRuntime);
 
 		System.gc();
-		if(log.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			log.debug(String.format("系统[%1$s]已经注销", strDeploySystemId));
 			this.outputMemoryUsage();
 		}
@@ -2037,8 +2029,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 
 								if (StringUtils.hasLength(strMainCodeName) && StringUtils.hasLength(strMainAppTag)) {
 									for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimes) {
-										if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || 
-												SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+										if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 											List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 											if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -2075,8 +2066,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 							for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimes) {
 
 								// 判断系统引用类型
-								if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
-										|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+								if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 									List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 									if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -2474,7 +2464,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			throw new SystemGatewayException(this, String.format("发布配置[%1$s]发生异常，%2$s", strConfigId, ex.getMessage()), ex);
 		}
 	}
-	
+
 	@Override
 	public void removeConfig(String strConfigId) {
 		Assert.hasLength(strConfigId, "传入键名无效");
@@ -2790,40 +2780,49 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 
 					this.logEvent(LogLevels.INFO, String.format("服务总线[%1$s]安装服务系统[%2$s]", this.getId(), deploySystem.getDeploySystemId()));
 					// 重新部署
-					this.reloadDeploySystem(deploySystem, strConfigInfo);
+					try {
+						this.reloadDeploySystem(deploySystem, strConfigInfo);
+					} catch (Throwable ex) {
+						if (this.getServiceHubSetting().isIgnoreLoadSystemError()) {
+							log.error(String.format("重新加载部署系统[%1$s]发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+						} else
+							throw ex;
+					}
 
-					IConfigListener iConfigListener = new IConfigListener() {
+					if (!this.deploySystemVerListenerMap.containsKey(strConfigId)) {
+						IConfigListener iConfigListener = new IConfigListener() {
 
-						@Override
-						public Executor getExecutor() {
-							return null;
-						}
-
-						@Override
-						public void receiveConfigInfo(String configInfo) {
-
-							String strConfig = deploySystemVerMap.get(strConfigId);
-							if (configInfo == null) {
-								configInfo = "";
+							@Override
+							public Executor getExecutor() {
+								return null;
 							}
-							if (configInfo.equals(strConfig)) {
-								log.debug(String.format("部署系统[%1$s]接收到版本变化，但配置内容一致，忽略", deploySystem.getDeploySystemId()));
-								logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，但配置内容一致，忽略重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
-								return;
-							}
-							deploySystemVerMap.put(strConfigId, configInfo);
-							log.debug(String.format("部署系统[%1$s]版本发生变化", deploySystem.getDeploySystemId()));
-							logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
-							if (isInstalled()) {
-								reloadDeploySystem(deploySystem, configInfo);
 
-							} else {
-								log.warn(String.format("服务总线未安装完成，忽略部署系统版本变化"));
+							@Override
+							public void receiveConfigInfo(String configInfo) {
+
+								String strConfig = deploySystemVerMap.get(strConfigId);
+								if (configInfo == null) {
+									configInfo = "";
+								}
+								if (configInfo.equals(strConfig)) {
+									log.debug(String.format("部署系统[%1$s]接收到版本变化，但配置内容一致，忽略", deploySystem.getDeploySystemId()));
+									logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，但配置内容一致，忽略重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
+									return;
+								}
+								deploySystemVerMap.put(strConfigId, configInfo);
+								log.debug(String.format("部署系统[%1$s]版本发生变化", deploySystem.getDeploySystemId()));
+								logEvent(LogLevels.INFO, String.format("服务系统[%2$s@%1$s]接收到版本变化，重新部署", getId(), deploySystem.getDeploySystemId()), deploySystem);
+								if (isInstalled()) {
+									reloadDeploySystem(deploySystem, configInfo);
+
+								} else {
+									log.warn(String.format("服务总线未安装完成，忽略部署系统版本变化"));
+								}
 							}
-						}
-					};
-					this.addConfigListener(strConfigId, iConfigListener);
-					this.deploySystemVerListenerMap.put(strConfigId, iConfigListener);
+						};
+						this.addConfigListener(strConfigId, iConfigListener);
+						this.deploySystemVerListenerMap.put(strConfigId, iConfigListener);
+					}
 				}
 
 			}
@@ -2845,7 +2844,11 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 
 				} catch (Throwable ex) {
 					this.logEvent(LogLevels.ERROR, String.format("服务系统[%2$s@%1$s]卸载发生异常， %3$s", this.getId(), deploySystem.getDeploySystemId(), ex.getMessage()), deploySystem);
-					throw new SystemGatewayException(this, String.format("注销系统[%1$s]运行时对象发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+					if (this.getServiceHubSetting().isIgnoreLoadSystemError()) {
+						log.error(String.format("注销系统[%1$s]运行时对象发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+					} else {
+						throw new SystemGatewayException(this, String.format("注销系统[%1$s]运行时对象发生异常，%2$s", deploySystem.getDeploySystemId(), ex.getMessage()), ex);
+					}
 				}
 				iSystemRuntime = null;
 			}
@@ -3079,7 +3082,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		Set<String> ignoreSet = ignoreFileNames == null ? java.util.Collections.emptySet() : Arrays.stream(ignoreFileNames).map(String::toLowerCase).collect(java.util.stream.Collectors.toSet());
 		try (Stream<Path> stream = Files.walk(dir)) {
 			stream.filter(Files::isRegularFile).forEach(file -> {
-				if(ignoreSet.contains(file.getFileName().toString().toLowerCase()))
+				if (ignoreSet.contains(file.getFileName().toString().toLowerCase()))
 					return;
 				try {
 					// 获取文件的基本属性
@@ -3118,12 +3121,12 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 	public String getId() {
 		return this.getServiceHubSetting().getId();
 	}
-	
+
 	@Override
 	public String getInstanceId() {
 		return this.strInstanceId;
 	}
-	
+
 	protected String getLogCat() {
 		return LOGCAT;
 	}
@@ -3183,35 +3186,34 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			EmployeeContext.setCurrentDisabled(bDisabled);
 		}
 	}
-	
+
 	protected void outputMemoryUsage() {
 		// 获取平台的MBean服务器
-        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        
-        // 获取MemoryMXBean
-        MemoryMXBean memoryMXBean;
+		MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+
+		// 获取MemoryMXBean
+		MemoryMXBean memoryMXBean;
 		try {
-			memoryMXBean = ManagementFactory.newPlatformMXBeanProxy(
-			    mbs, ManagementFactory.MEMORY_MXBEAN_NAME, MemoryMXBean.class);
+			memoryMXBean = ManagementFactory.newPlatformMXBeanProxy(mbs, ManagementFactory.MEMORY_MXBEAN_NAME, MemoryMXBean.class);
 		} catch (IOException ex) {
 			log.error(ex);
 			return;
 		}
 
-        // 获取堆内存使用情况
-        MemoryUsage heapMemoryUsage = memoryMXBean.getHeapMemoryUsage();
-        log.debug("Heap Memory Usage:");
-        log.debug("\tInit: " + heapMemoryUsage.getInit());
-        log.debug("\tUsed: " + heapMemoryUsage.getUsed());
-        log.debug("\tCommitted: " + heapMemoryUsage.getCommitted());
-        log.debug("\tMax: " + heapMemoryUsage.getMax());
+		// 获取堆内存使用情况
+		MemoryUsage heapMemoryUsage = memoryMXBean.getHeapMemoryUsage();
+		log.debug("Heap Memory Usage:");
+		log.debug("\tInit: " + heapMemoryUsage.getInit());
+		log.debug("\tUsed: " + heapMemoryUsage.getUsed());
+		log.debug("\tCommitted: " + heapMemoryUsage.getCommitted());
+		log.debug("\tMax: " + heapMemoryUsage.getMax());
 
-        // 获取非堆内存使用情况
-        MemoryUsage nonHeapMemoryUsage = memoryMXBean.getNonHeapMemoryUsage();
-        log.debug("Non-Heap Memory Usage:");
-        log.debug("\tInit: " + nonHeapMemoryUsage.getInit());
-        log.debug("\tUsed: " + nonHeapMemoryUsage.getUsed());
-        log.debug("\tCommitted: " + nonHeapMemoryUsage.getCommitted());
-        log.debug("\tMax: " + nonHeapMemoryUsage.getMax());
+		// 获取非堆内存使用情况
+		MemoryUsage nonHeapMemoryUsage = memoryMXBean.getNonHeapMemoryUsage();
+		log.debug("Non-Heap Memory Usage:");
+		log.debug("\tInit: " + nonHeapMemoryUsage.getInit());
+		log.debug("\tUsed: " + nonHeapMemoryUsage.getUsed());
+		log.debug("\tCommitted: " + nonHeapMemoryUsage.getCommitted());
+		log.debug("\tMax: " + nonHeapMemoryUsage.getMax());
 	}
 }

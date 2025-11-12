@@ -64,6 +64,6 @@ public class PSSysModelGroupRTService extends PSModelRTServiceBase<PSSysModelGro
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysModelGroup.class, this.getPSSystemService().getPSSystem().getAllPSSysModelGroups(), (String)key, false);
+    	return getPSModelObject(IPSSysModelGroup.class, this.getPSSystemService().getPSSystem().getAllPSSysModelGroups(), (String)key, tryMode);
     }
 }

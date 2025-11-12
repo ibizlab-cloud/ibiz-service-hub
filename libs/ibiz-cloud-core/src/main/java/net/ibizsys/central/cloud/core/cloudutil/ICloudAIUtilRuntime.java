@@ -9,6 +9,8 @@ import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 
 /**
  * 云体系AI功能组件接口
@@ -158,6 +160,16 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 * @return
 	 */
 	EmbeddingResult embedding(String type, EmbeddingRequest embeddingRequest);
+	
+	
+	
+	/**
+	 *文本排序 处理
+	 * @param type
+	 * @param textReRankRequest
+	 * @return
+	 */
+	TextReRankResult textReRank(String type, TextReRankRequest textReRankRequest);
 }
 
 

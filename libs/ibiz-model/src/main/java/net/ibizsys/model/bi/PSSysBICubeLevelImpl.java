@@ -54,6 +54,10 @@ public class PSSysBICubeLevelImpl extends net.ibizsys.model.bi.PSSysBICubeDimens
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.bi.IPSSysBIHierarchy pssysbihierarchy;
 
 	public net.ibizsys.model.bi.IPSSysBIHierarchy getPSSysBIHierarchy(){
@@ -73,6 +77,10 @@ public class PSSysBICubeLevelImpl extends net.ibizsys.model.bi.PSSysBICubeDimens
 		return value;
 	}
 
+	public void setPSSysBIHierarchy(net.ibizsys.model.bi.IPSSysBIHierarchy pssysbihierarchy){
+		this.pssysbihierarchy = pssysbihierarchy;
+	}
+
 	private net.ibizsys.model.bi.IPSSysBILevel pssysbilevel;
 
 	public net.ibizsys.model.bi.IPSSysBILevel getPSSysBILevel(){
@@ -90,6 +98,10 @@ public class PSSysBICubeLevelImpl extends net.ibizsys.model.bi.PSSysBICubeDimens
 		net.ibizsys.model.bi.IPSSysBILevel value = this.getPSSysBILevel();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定智能报表维度层级");}
 		return value;
+	}
+
+	public void setPSSysBILevel(net.ibizsys.model.bi.IPSSysBILevel pssysbilevel){
+		this.pssysbilevel = pssysbilevel;
 	}
 
 

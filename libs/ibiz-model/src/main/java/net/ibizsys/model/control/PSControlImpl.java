@@ -126,6 +126,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		return value;
 	}
 
+	public void setPSAppDataEntity(net.ibizsys.model.app.dataentity.IPSAppDataEntity psappdataentity){
+		this.psappdataentity = psappdataentity;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.IPSControlAttribute> pscontrolattributes = null;
 	public java.util.List<net.ibizsys.model.control.IPSControlAttribute> getPSControlAttributes(){
@@ -166,6 +170,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		net.ibizsys.model.control.IPSControlHandler value = this.getPSControlHandler();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定部件处理");}
 		return value;
+	}
+
+	public void setPSControlHandler(net.ibizsys.model.control.IPSControlHandler pscontrolhandler){
+		this.pscontrolhandler = pscontrolhandler;
 	}
 
 
@@ -210,6 +218,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		return value;
 	}
 
+	public void setPSControlParam(net.ibizsys.model.control.IPSControlParam pscontrolparam){
+		this.pscontrolparam = pscontrolparam;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.IPSControlRender> pscontrolrenders = null;
 	public java.util.List<net.ibizsys.model.control.IPSControlRender> getPSControlRenders(){
@@ -252,6 +264,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		return value;
 	}
 
+	public void setPSCtrlMsg(net.ibizsys.model.res.IPSCtrlMsg psctrlmsg){
+		this.psctrlmsg = psctrlmsg;
+	}
+
 	private net.ibizsys.model.res.IPSSysCss pssyscss;
 
 	public net.ibizsys.model.res.IPSSysCss getPSSysCss(){
@@ -270,6 +286,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		return value;
 	}
 
+	public void setPSSysCss(net.ibizsys.model.res.IPSSysCss pssyscss){
+		this.pssyscss = pssyscss;
+	}
+
 	private net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin;
 
 	public net.ibizsys.model.res.IPSSysPFPlugin getPSSysPFPlugin(){
@@ -286,6 +306,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		net.ibizsys.model.res.IPSSysPFPlugin value = this.getPSSysPFPlugin();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定前端扩展插件");}
 		return value;
+	}
+
+	public void setPSSysPFPlugin(net.ibizsys.model.res.IPSSysPFPlugin pssyspfplugin){
+		this.pssyspfplugin = pssyspfplugin;
 	}
 
 
@@ -315,6 +339,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		return value;
 	}
 
+	public void setUser2PSControlAction(net.ibizsys.model.control.IPSControlAction user2pscontrolaction){
+		this.user2pscontrolaction = user2pscontrolaction;
+	}
+
 	private net.ibizsys.model.control.IPSControlAction userpscontrolaction;
 
 	@Deprecated
@@ -332,6 +360,10 @@ public class PSControlImpl extends net.ibizsys.model.PSObjectImpl3 implements ne
 		net.ibizsys.model.control.IPSControlAction value = this.getUserPSControlAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getUserPSControlAction]返回空值");}
 		return value;
+	}
+
+	public void setUserPSControlAction(net.ibizsys.model.control.IPSControlAction userpscontrolaction){
+		this.userpscontrolaction = userpscontrolaction;
 	}
 
 

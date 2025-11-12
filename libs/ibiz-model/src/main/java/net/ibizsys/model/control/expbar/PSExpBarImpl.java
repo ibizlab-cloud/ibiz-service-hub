@@ -31,6 +31,10 @@ public class PSExpBarImpl extends net.ibizsys.model.control.PSAjaxControlContain
 		return value;
 	}
 
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
+	}
+
 
 	private java.util.List<net.ibizsys.model.control.IPSControl> pscontrols = null;
 	public java.util.List<net.ibizsys.model.control.IPSControl> getPSControls(){
@@ -73,6 +77,10 @@ public class PSExpBarImpl extends net.ibizsys.model.control.PSAjaxControlContain
 		return value;
 	}
 
+	public void setPSSysImage(net.ibizsys.model.res.IPSSysImage pssysimage){
+		this.pssysimage = pssysimage;
+	}
+
 
 	public java.lang.String getTitle(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTITLE);
@@ -97,6 +105,10 @@ public class PSExpBarImpl extends net.ibizsys.model.control.PSAjaxControlContain
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTitlePSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定抬头语言资源对象");}
 		return value;
+	}
+
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
 	}
 
 

@@ -18,6 +18,13 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取目标端点
+	 * @return
+	 */
+	java.lang.String getDstEndPoint();
+	
+	
+	/**
 	 * 获取源流程处理
 	 * @return
 	 */
@@ -64,6 +71,13 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	 * @return
 	 */
 	net.ibizsys.model.wf.IPSWFLinkGroupCond getPSWFLinkGroupCondMust();
+	
+	
+	/**
+	 * 获取源端点
+	 * @return
+	 */
+	java.lang.String getSrcEndPoint();
 	
 	
 	/**

@@ -62,6 +62,10 @@ public class PSSysEAIDEFieldImpl extends net.ibizsys.model.eai.PSSysEAIDEObjectI
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.eai.IPSSysEAIElementAttr pssyseaielementattr;
 
 	public net.ibizsys.model.eai.IPSSysEAIElementAttr getPSSysEAIElementAttr(){
@@ -81,6 +85,10 @@ public class PSSysEAIDEFieldImpl extends net.ibizsys.model.eai.PSSysEAIDEObjectI
 		return value;
 	}
 
+	public void setPSSysEAIElementAttr(net.ibizsys.model.eai.IPSSysEAIElementAttr pssyseaielementattr){
+		this.pssyseaielementattr = pssyseaielementattr;
+	}
+
 	private net.ibizsys.model.eai.IPSSysEAIElementRE pssyseaielementre;
 
 	public net.ibizsys.model.eai.IPSSysEAIElementRE getPSSysEAIElementRE(){
@@ -98,6 +106,10 @@ public class PSSysEAIDEFieldImpl extends net.ibizsys.model.eai.PSSysEAIDEObjectI
 		net.ibizsys.model.eai.IPSSysEAIElementRE value = this.getPSSysEAIElementRE();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定集成元素引用属性");}
 		return value;
+	}
+
+	public void setPSSysEAIElementRE(net.ibizsys.model.eai.IPSSysEAIElementRE pssyseaielementre){
+		this.pssyseaielementre = pssyseaielementre;
 	}
 
 }

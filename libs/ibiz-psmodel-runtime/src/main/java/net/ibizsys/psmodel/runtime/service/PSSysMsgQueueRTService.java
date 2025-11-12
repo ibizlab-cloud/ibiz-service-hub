@@ -64,6 +64,6 @@ public class PSSysMsgQueueRTService extends PSModelRTServiceBase<PSSysMsgQueue, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysMsgQueue.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgQueues(), (String)key, false);
+    	return getPSModelObject(IPSSysMsgQueue.class, this.getPSSystemService().getPSSystem().getAllPSSysMsgQueues(), (String)key, tryMode);
     }
 }

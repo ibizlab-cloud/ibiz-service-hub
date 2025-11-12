@@ -64,6 +64,6 @@ public class PSSysSequenceRTService extends PSModelRTServiceBase<PSSysSequence, 
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysSequence.class, this.getPSSystemService().getPSSystem().getAllPSSysSequences(), (String)key, false);
+    	return getPSModelObject(IPSSysSequence.class, this.getPSSystemService().getPSSystem().getAllPSSysSequences(), (String)key, tryMode);
     }
 }

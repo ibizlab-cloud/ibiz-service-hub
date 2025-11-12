@@ -3,6 +3,7 @@ package net.ibizsys.model.util.merger;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
+import java.util.Random;
 
 import org.springframework.util.StringUtils;
 
@@ -20,6 +21,10 @@ public abstract class PSModelListMergerBase implements IPSModelListMerger{
 	public static ObjectMapper MAPPER = new ObjectMapper();
 	
 	public final static ObjectNode EMPTYNODE = new ObjectMapper().createObjectNode();
+	
+	protected final static Random RANDOM = new Random(); 
+	
+	public final static String AUTOTAG = "AUTO"; 
 	
 	@Override
 	public void mergeSingle(IPSModelMergeContext iPSModelMergeContext, ObjectNode objectNode, ObjectNode mergeObjectNode, String strFieldName) throws Exception {
@@ -151,6 +156,11 @@ public abstract class PSModelListMergerBase implements IPSModelListMerger{
 			for(int i = 0;i<mergeArrayNode.size();i++) {
 				ObjectNode mergeNode = (ObjectNode)mergeArrayNode.get(i);
 				String strId2 = this.getTag(iPSModelMergeContext, mergeNode);
+				//判断是否忽略合并
+				if(iPSModelMergeContext.isIgnoreMergeModel(strId2)) {
+					continue;
+				}	
+				
 				String strId = strId2.toUpperCase();
 				ObjectNode node = map.remove(strId);
 				if(node != null) {
@@ -256,13 +266,18 @@ public abstract class PSModelListMergerBase implements IPSModelListMerger{
 			}
 			return strTag;
 		} else {
-			String strTagField = getTagField(iPSModelMergeContext);
-			if(StringUtils.hasLength(strTagField)) {
+			String strTagField2 = getTagField(iPSModelMergeContext);
+			if(StringUtils.hasLength(strTagField2)) {
+				String[] items = strTagField2.split("[|]");
+				String strTagField = items[0];
 				String[] fields = strTagField.split("[;]");
 				if(fields.length == 1) {
 					String strTag = PSObjectImplBase.getString(objectNode, strTagField, null);
 					if (StringUtils.hasLength(strTag)) {
 						return strTag;
+					}
+					if(items.length == 2 && AUTOTAG.equals(items[1])) {
+						return String.format("auto%08d", RANDOM.nextInt(99999999));
 					}
 				}
 				else {

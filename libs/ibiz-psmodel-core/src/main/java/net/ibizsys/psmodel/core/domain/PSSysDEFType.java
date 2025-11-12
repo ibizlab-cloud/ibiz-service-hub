@@ -328,7 +328,7 @@ public class PSSysDEFType extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>FIELDS</B>&nbsp;属性选择表达式，指定系统属性类型逻辑的属性选择表格式，定义属性类型逻辑针对的目标属性，未定义时使用平台预置逻辑配置
+     * <B>FIELDS</B>&nbsp;属性选择表达式，指定系统属性类型逻辑的属性选择表格式，定义属性类型逻辑针对的目标属性，未定义时使用平台预置逻辑配置。多个使用`;`分隔。
      * <P>
      * 字符串：最大长度 2000
      */
@@ -1171,30 +1171,30 @@ public class PSSysDEFType extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PRECISION</B>&nbsp;浮点精度，指定系统属性类型逻辑的默认浮点精度，未定义时使用平台预置逻辑配置
+     * <B>SCALE</B>&nbsp;小数位数，指定系统属性类型逻辑的默认小数位数，未定义时使用平台预置逻辑配置
      */
-    public final static String FIELD_PRECISION = "precision";
+    public final static String FIELD_SCALE = "scale";
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 小数位数，详细说明：{@link #FIELD_SCALE}
      * 
-     * @param precision
+     * @param scale
      * 
      */
-    @JsonProperty(FIELD_PRECISION)
-    public void setPrecision(Integer precision){
-        this.set(FIELD_PRECISION, precision);
+    @JsonProperty(FIELD_SCALE)
+    public void setScale(Integer scale){
+        this.set(FIELD_SCALE, scale);
         //属性名称与代码标识不一致，设置属性名称
-        this.set("precision2", precision);
+        this.set("precision2", scale);
     }
     
     /**
-     * 获取 浮点精度  
+     * 获取 小数位数  
      * @return
      */
     @JsonIgnore
-    public Integer getPrecision(){
-        Object objValue = this.get(FIELD_PRECISION);
+    public Integer getScale(){
+        Object objValue = this.get(FIELD_SCALE);
         if(objValue==null){
             //属性名称与代码标识不一致，使用属性名称
             objValue = this.get("precision2");
@@ -1206,12 +1206,12 @@ public class PSSysDEFType extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 浮点精度 是否指定值，包括空值
+     * 判断 小数位数 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
-    public boolean isPrecisionDirty(){
-        if(this.contains(FIELD_PRECISION)){
+    public boolean isScaleDirty(){
+        if(this.contains(FIELD_SCALE)){
             return true;
         }
         //属性名称与代码标识不一致，判断属性名称
@@ -1222,49 +1222,49 @@ public class PSSysDEFType extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 浮点精度
+     * 重置 小数位数
      */
     @JsonIgnore
-    public void resetPrecision(){
-        this.reset(FIELD_PRECISION);
+    public void resetScale(){
+        this.reset(FIELD_SCALE);
         //属性名称与代码标识不一致，重置属性名称
         this.reset("precision2");
     }
 
     /**
-     * 设置 浮点精度，详细说明：{@link #FIELD_PRECISION}
+     * 设置 小数位数，详细说明：{@link #FIELD_SCALE}
      * <P>
-     * 等同 {@link #setPrecision}
-     * @param precision
+     * 等同 {@link #setScale}
+     * @param scale
      */
     @JsonIgnore
-    public PSSysDEFType precision(Integer precision){
-        this.setPrecision(precision);
+    public PSSysDEFType scale(Integer scale){
+        this.setScale(scale);
         return this;
     }
 
     @JsonIgnore
     @Deprecated
     public Integer getPrecision2(){
-        return this.getPrecision();
+        return this.getScale();
     }
 
     @JsonIgnore
     @Deprecated        
     public void setPrecision2(Integer precision2){
-        this.setPrecision(precision2);
+        this.setScale(precision2);
     }
 
     @JsonIgnore
     @Deprecated
     public boolean isPrecision2Dirty(){
-        return this.isPrecisionDirty();
+        return this.isScaleDirty();
     }
 
     @JsonIgnore
     @Deprecated
     public void resetPrecision2(){
-        this.resetPrecision();
+        this.resetScale();
     }
 
     /**
@@ -1472,6 +1472,25 @@ public class PSSysDEFType extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysDEFType psdeftypeid(String pSDEFTypeId){
         this.setPSDEFTypeId(pSDEFTypeId);
+        return this;
+    }
+
+    /**
+     * 设置 平台预置逻辑，包括引用对象的其它关系属性
+     * <P>
+     * 等同 {@link #setPSDEFTypeId}
+     * @param pSDEFType 引用对象
+     */
+    @JsonIgnore
+    public PSSysDEFType psdeftypeid(PSDEFType pSDEFType){
+        if(pSDEFType == null){
+            this.setPSDEFTypeId(null);
+            this.setPSDEFTypeName(null);
+        }
+        else{
+            this.setPSDEFTypeId(pSDEFType.getPSDEFTypeId());
+            this.setPSDEFTypeName(pSDEFType.getPSDEFTypeName());
+        }
         return this;
     }
 

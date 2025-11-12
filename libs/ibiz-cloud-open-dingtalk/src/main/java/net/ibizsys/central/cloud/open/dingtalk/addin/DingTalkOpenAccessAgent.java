@@ -242,7 +242,7 @@ public class DingTalkOpenAccessAgent extends OpenAccessAgentBase {
 		if (!StringUtils.hasLength(strDDContent)) {
 			strDDContent = this.getRealContent(msgSendQueue, MsgTemplateType.MSG.getValue());
 		}
-		if(StringUtils.hasLength(strDDContent)){
+		if(!StringUtils.hasLength(strDDContent)){
 			log.warn(String.format("消息内容为空,忽略发送"));
 			return;
 		}

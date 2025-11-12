@@ -28,6 +28,13 @@ public class PSDEUIActionGroupDetailMerger extends net.ibizsys.model.util.merger
 				iPSModelListMerger.mergeSingle(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETPSUIACTION);
 			}
 		}
+
+		if(isEnableMergeChild(iPSModelMergeContext, ATTR_GETREFPSUIACTIONGROUP)){
+			IPSModelListMerger iPSModelListMerger = iPSModelMergeContext.getPSModelListMerger(net.ibizsys.model.view.IPSUIActionGroup.class, true);
+			if(iPSModelListMerger != null){
+				iPSModelListMerger.mergeSingle(iPSModelMergeContext, objectNode, mergeObjectNode, ATTR_GETREFPSUIACTIONGROUP);
+			}
+		}
 		super.onMerge(iPSModelMergeContext, objectNode, mergeObjectNode);
 	}
 }

@@ -71,6 +71,10 @@ public class PSSysBILevelImpl extends net.ibizsys.model.bi.PSSysBIHierarchyObjec
 		return value;
 	}
 
+	public void setTextPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField textpsdefield){
+		this.textpsdefield = textpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getValuePSDEField(){
@@ -88,6 +92,10 @@ public class PSSysBILevelImpl extends net.ibizsys.model.bi.PSSysBIHierarchyObjec
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getValuePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定值属性");}
 		return value;
+	}
+
+	public void setValuePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField valuepsdefield){
+		this.valuepsdefield = valuepsdefield;
 	}
 
 

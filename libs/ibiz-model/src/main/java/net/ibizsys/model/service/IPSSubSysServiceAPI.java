@@ -3,7 +3,9 @@ package net.ibizsys.model.service;
 
 
 /**
- * 外部系统服务接口模型对象接口
+ * 外部服务接口模型对象接口
+ * <P>
+ * 定义系统访问的外部接口
  *
  */
 public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSysServiceAPIBase{

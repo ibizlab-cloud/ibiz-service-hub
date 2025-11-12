@@ -64,6 +64,6 @@ public class PSSysSFPubRTService extends PSModelRTServiceBase<PSSysSFPub, PSSysS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysSFPub.class, this.getPSSystemService().getPSSystem().getAllPSSysSFPubs(), (String)key, false);
+    	return getPSModelObject(IPSSysSFPub.class, this.getPSSystemService().getPSSystem().getAllPSSysSFPubs(), (String)key, tryMode);
     }
 }

@@ -6,6 +6,7 @@ public class PSDEActionLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 
 	public final static String ATTR_GETACTIONLOGICTYPE = "actionLogicType";
 	public final static String ATTR_GETATTACHMODE = "attachMode";
+	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETDATASYNCEVENT = "dataSyncEvent";
 	public final static String ATTR_GETDSTPSDE = "getDstPSDE";
 	public final static String ATTR_GETDSTPSDEACTION = "getDstPSDEAction";
@@ -46,6 +47,14 @@ public class PSDEActionLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 
 	public java.lang.String getAttachMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETATTACHMODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getCodeName(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
 		if(value == null){
 			return null;
 		}

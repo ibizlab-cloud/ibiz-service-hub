@@ -36,6 +36,7 @@ public class PSDEUIActionGroupDetailTranspiler extends net.ibizsys.model.util.tr
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssyscssid", realPSModelObject.getPSSysCss(), realPSModelObject, "getPSSysCss");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysimageid", realPSModelObject.getPSSysImage(), realPSModelObject, "getPSSysImage");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdeuiactionid", realPSModelObject.getPSUIAction(), realPSModelObject, "getPSUIAction");
+		this.setDomainValue(iPSModelTranspileContext, domain, "refpsdeuagroupid", realPSModelObject.getRefPSUIActionGroup(), realPSModelObject, "getRefPSUIActionGroup");
 		this.setDomainValue(iPSModelTranspileContext, domain, "uiactionparams", realPSModelObject.getUIActionParamJO(), realPSModelObject, "getUIActionParamJO");
 		this.setDomainValue(iPSModelTranspileContext, domain, "visiblelogic", realPSModelObject.getVisibleScriptCode(), realPSModelObject, "getVisibleScriptCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "addseparator", realPSModelObject.isAddSeparator(), realPSModelObject, "isAddSeparator");
@@ -52,7 +53,7 @@ public class PSDEUIActionGroupDetailTranspiler extends net.ibizsys.model.util.tr
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBEFORECONTENT, domain, "beforecontent", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBEFOREITEMTYPE, domain, "beforeitemtype", java.lang.String.class, new String[]{"NONE"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBEFOREPSSYSCSS, domain, "beforepssyscssid", net.ibizsys.model.res.IPSSysCss.class, false);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBUTTONSTYLE, domain, "buttonstyle", java.lang.String.class, new String[]{"100"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBUTTONSTYLE, domain, "buttonstyle", java.lang.String.class, new String[]{"DEFAULT"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDETAILTAG, domain, "detailtag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDETAILTAG2, domain, "detailtag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDETAILTYPE, domain, "detailtype", java.lang.String.class);
@@ -60,6 +61,7 @@ public class PSDEUIActionGroupDetailTranspiler extends net.ibizsys.model.util.tr
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSCSS, domain, "pssyscssid", net.ibizsys.model.res.IPSSysCss.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSIMAGE, domain, "pssysimageid", net.ibizsys.model.res.IPSSysImage.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSUIACTION, domain, "psdeuiactionid", net.ibizsys.model.view.IPSUIAction.class, true);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREFPSUIACTIONGROUP, domain, "refpsdeuagroupid", net.ibizsys.model.view.IPSUIActionGroup.class, true);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETUIACTIONPARAMJO, domain, "uiactionparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETVISIBLESCRIPTCODE, domain, "visiblelogic", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISADDSEPARATOR, domain, "addseparator", boolean.class);

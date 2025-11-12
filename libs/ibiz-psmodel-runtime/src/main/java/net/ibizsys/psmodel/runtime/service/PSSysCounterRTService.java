@@ -64,6 +64,6 @@ public class PSSysCounterRTService extends PSModelRTServiceBase<PSSysCounter, PS
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSSysCounter.class, this.getPSSystemService().getPSSystem().getAllPSSysCounters(), (String)key, false);
+    	return getPSModelObject(IPSSysCounter.class, this.getPSSystemService().getPSSystem().getAllPSSysCounters(), (String)key, tryMode);
     }
 }

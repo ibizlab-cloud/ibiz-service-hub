@@ -26,7 +26,6 @@ public class PSDEFValueRuleTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setDomainValue(iPSModelTranspileContext, domain, "ruletag2", realPSModelObject.getRuleTag2(), realPSModelObject, "getRuleTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "customcode", realPSModelObject.getScriptCode(), realPSModelObject, "getScriptCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "checkdefault", realPSModelObject.isCheckDefault(), realPSModelObject, "isCheckDefault");
-		this.setDomainValue(iPSModelTranspileContext, domain, "custommode", realPSModelObject.isCustomCode(), realPSModelObject, "isCustomCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultmode", realPSModelObject.isDefaultMode(), realPSModelObject, "isDefaultMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ruleholder", realPSModelObject.isEnableBackend(), realPSModelObject, "isEnableBackend");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ruleholder", realPSModelObject.isEnableFront(), realPSModelObject, "isEnableFront");
@@ -39,7 +38,6 @@ public class PSDEFValueRuleTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRULETAG2, domain, "ruletag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCRIPTCODE, domain, "customcode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCHECKDEFAULT, domain, "checkdefault", boolean.class);
-		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCUSTOMCODE, domain, "custommode", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULTMODE, domain, "defaultmode", boolean.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLEBACKEND, domain, "ruleholder", boolean.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLEFRONT, domain, "ruleholder", boolean.class);

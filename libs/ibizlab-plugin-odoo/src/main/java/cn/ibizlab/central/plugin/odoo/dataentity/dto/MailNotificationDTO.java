@@ -15,6 +15,11 @@ import net.ibizsys.central.util.IEntityDTO;
 public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.OdooEntityDTOBase {
 
     /**
+     * 属性: 消息内容
+     */
+    public final static String FIELD_MESSAGE_CONTENT = "message_content";
+
+    /**
      * 属性: 作者
      */
     public final static String FIELD_AUTHOR_ID = "author_id";
@@ -55,6 +60,11 @@ public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.Odo
     public final static String FIELD_MAIL_MESSAGE_ID = "mail_message_id";
 
     /**
+     * 属性: 消息记录名称
+     */
+    public final static String FIELD_MAIL_MESSAGE_RECORD_NAME = "mail_message_record_name";
+
+    /**
      * 属性: 状态
      */
     public final static String FIELD_NOTIFICATION_STATUS = "notification_status";
@@ -75,6 +85,11 @@ public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.Odo
     public final static String FIELD_RES_PARTNER_ID = "res_partner_id";
 
     /**
+     * 属性: 收件人名称
+     */
+    public final static String FIELD_RES_PARTNER_NAME = "res_partner_name";
+
+    /**
      * 属性: 短信 ID
      */
     public final static String FIELD_SMS_ID_INT = "sms_id_int";
@@ -83,6 +98,44 @@ public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.Odo
      * 属性: 短信息号码
      */
     public final static String FIELD_SMS_NUMBER = "sms_number";
+
+    /**
+     * 设置「消息内容」
+     * @param val
+     */
+    @JsonProperty(FIELD_MESSAGE_CONTENT)
+    public MailNotificationDTO setMessageContent(String val) {
+        this._set(FIELD_MESSAGE_CONTENT, val);
+        return this;
+    }
+
+    /**
+     * 获取「消息内容」值
+     *
+     */
+    @JsonIgnore
+    public String getMessageContent() {
+        return DataTypeUtils.asString(this._get(FIELD_MESSAGE_CONTENT), null);
+    }
+
+    /**
+     * 判断 「消息内容」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsMessageContent() {
+        return this._contains(FIELD_MESSAGE_CONTENT);
+    }
+
+    /**
+     * 重置 「消息内容」
+     *
+     */
+    @JsonIgnore
+    public MailNotificationDTO resetMessageContent() {
+        this._reset(FIELD_MESSAGE_CONTENT);
+        return this;
+    }
 
     /**
      * 设置「作者」
@@ -397,6 +450,44 @@ public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.Odo
     }
 
     /**
+     * 设置「消息记录名称」
+     * @param val
+     */
+    @JsonProperty(FIELD_MAIL_MESSAGE_RECORD_NAME)
+    public MailNotificationDTO setMailMessageRecordName(String val) {
+        this._set(FIELD_MAIL_MESSAGE_RECORD_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「消息记录名称」值
+     *
+     */
+    @JsonIgnore
+    public String getMailMessageRecordName() {
+        return DataTypeUtils.asString(this._get(FIELD_MAIL_MESSAGE_RECORD_NAME), null);
+    }
+
+    /**
+     * 判断 「消息记录名称」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsMailMessageRecordName() {
+        return this._contains(FIELD_MAIL_MESSAGE_RECORD_NAME);
+    }
+
+    /**
+     * 重置 「消息记录名称」
+     *
+     */
+    @JsonIgnore
+    public MailNotificationDTO resetMailMessageRecordName() {
+        this._reset(FIELD_MAIL_MESSAGE_RECORD_NAME);
+        return this;
+    }
+
+    /**
      * 设置「状态」
      * 代码表[状态]
      * //@see cn.ibizlab.ibizodoo.core.runtime.dict.StaticDict.mail_notification_notification_status
@@ -553,6 +644,44 @@ public class MailNotificationDTO extends cn.ibizlab.central.plugin.odoo.util.Odo
     @JsonIgnore
     public MailNotificationDTO resetResPartnerId() {
         this._reset(FIELD_RES_PARTNER_ID);
+        return this;
+    }
+
+    /**
+     * 设置「收件人名称」
+     * @param val
+     */
+    @JsonProperty(FIELD_RES_PARTNER_NAME)
+    public MailNotificationDTO setResPartnerName(String val) {
+        this._set(FIELD_RES_PARTNER_NAME, val);
+        return this;
+    }
+
+    /**
+     * 获取「收件人名称」值
+     *
+     */
+    @JsonIgnore
+    public String getResPartnerName() {
+        return DataTypeUtils.asString(this._get(FIELD_RES_PARTNER_NAME), null);
+    }
+
+    /**
+     * 判断 「收件人名称」是否有值
+     *
+     */
+    @JsonIgnore
+    public boolean containsResPartnerName() {
+        return this._contains(FIELD_RES_PARTNER_NAME);
+    }
+
+    /**
+     * 重置 「收件人名称」
+     *
+     */
+    @JsonIgnore
+    public MailNotificationDTO resetResPartnerName() {
+        this._reset(FIELD_RES_PARTNER_NAME);
         return this;
     }
 

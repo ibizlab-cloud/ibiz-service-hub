@@ -82,7 +82,7 @@ public class PSAppDEViewListTranspiler extends net.ibizsys.model.util.transpiler
 			case "DEMAPVIEW9":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.app.view.PSAppDEMapViewImpl.class, false);
 			case "DEMDCUSTOMVIEW":
-				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.app.view.PSAppDEMultiDataViewImpl.class, false);
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.app.view.PSAppDEMultiDataView2Impl.class, false);
 			case "DEMEDITVIEW9":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.app.view.PSAppDEMEditViewImpl.class, false);
 			case "DEMOBCALENDAREXPVIEW":

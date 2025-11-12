@@ -69,6 +69,10 @@ public class PSDEDBTableImpl extends net.ibizsys.model.dataentity.PSDataEntityOb
 		return value;
 	}
 
+	public void setPSSysDBTable(net.ibizsys.model.database.IPSSysDBTable pssysdbtable){
+		this.pssysdbtable = pssysdbtable;
+	}
+
 
 	public java.lang.String getTableType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTABLETYPE);

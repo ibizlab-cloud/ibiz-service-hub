@@ -43,6 +43,10 @@ public class PSSysUCMapNodeImpl extends net.ibizsys.model.PSObjectImpl implement
 		return value;
 	}
 
+	public void setPSSysActor(net.ibizsys.model.uml.IPSSysActor pssysactor){
+		this.pssysactor = pssysactor;
+	}
+
 	private net.ibizsys.model.uml.IPSSysUseCase pssysusecase;
 
 	public net.ibizsys.model.uml.IPSSysUseCase getPSSysUseCase(){
@@ -59,6 +63,10 @@ public class PSSysUCMapNodeImpl extends net.ibizsys.model.PSObjectImpl implement
 		net.ibizsys.model.uml.IPSSysUseCase value = this.getPSSysUseCase();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统用例");}
 		return value;
+	}
+
+	public void setPSSysUseCase(net.ibizsys.model.uml.IPSSysUseCase pssysusecase){
+		this.pssysusecase = pssysusecase;
 	}
 
 

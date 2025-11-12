@@ -24,4 +24,8 @@ public class PSDEDRBarItemImpl extends net.ibizsys.model.control.drctrl.PSDEDRCt
 		return value;
 	}
 
+	public void setPSDEDRBarGroup(net.ibizsys.model.control.drctrl.IPSDEDRBarGroup psdedrbargroup){
+		this.psdedrbargroup = psdedrbargroup;
+	}
+
 }

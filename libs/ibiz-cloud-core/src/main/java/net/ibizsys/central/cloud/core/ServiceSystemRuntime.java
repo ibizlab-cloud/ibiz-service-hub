@@ -40,9 +40,11 @@ import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUtilContainerOnly;
 import net.ibizsys.central.cloud.core.util.ChatResourceUtils;
 import net.ibizsys.central.cloud.core.util.ConfigListenerRepo;
+import net.ibizsys.central.cloud.core.util.CredentialRepo;
 import net.ibizsys.central.cloud.core.util.IChatResourceUtils;
 import net.ibizsys.central.cloud.core.util.IConfigListener;
 import net.ibizsys.central.cloud.core.util.IConfigListenerRepo;
+import net.ibizsys.central.cloud.core.util.ICredentialRepo;
 import net.ibizsys.central.cloud.core.util.IRTCodeUtils;
 import net.ibizsys.central.cloud.core.util.RTCodeUtils;
 import net.ibizsys.central.cloud.core.util.domain.AppData;
@@ -133,6 +135,8 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	private Map<String, ISysAIFactoryRuntime> sysAIFactoryRuntimeMap = null;
 	
 	private ConfigListenerRepo configListenerRepo = new ConfigListenerRepo();
+	
+	private CredentialRepo credentialRepo = new CredentialRepo();
 	
 	private Map<Class<? extends IProxyDEService>, IProxyDEService> proxyDEServiceMap = new ConcurrentHashMap<Class<? extends IProxyDEService>, IProxyDEService>();
 	
@@ -309,7 +313,8 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 			this.bHasExtensionPSSysContent = !ObjectUtils.isEmpty(this.extensionPSSysContentMap);
 		}
 		
-		this.configListenerRepo.init(this, false);
+		this.configListenerRepo.init(this, false);//shutdown时手动关闭
+		this.credentialRepo.init(this, this.configListenerRepo);
 		
 		super.onInit();
 		
@@ -609,6 +614,7 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 		}
 	}
 	
+	@Override
 	protected void onShutdown() throws Exception{
 		
 		// 卸载AI工厂
@@ -1189,6 +1195,11 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	@Override
 	public IConfigListenerRepo getConfigListenerRepo() {
 		return this.configListenerRepo;
+	}
+	
+	@Override
+	public ICredentialRepo getCredentialRepo() {
+		return this.credentialRepo;
 	}
 	
 	@Override

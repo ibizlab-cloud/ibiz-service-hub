@@ -2,7 +2,8 @@ package net.ibizsys.model.service;
 
 
 
-public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl implements net.ibizsys.model.service.IPSSubSysServiceAPI{
+public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl implements net.ibizsys.model.service.IPSSubSysServiceAPI
+		,net.ibizsys.model.IPSModelSortable{
 
 	public final static String ATTR_GETAPICODENAMEMODE = "aPICodeNameMode";
 	public final static String ATTR_GETAPISOURCE = "aPISource";
@@ -26,6 +27,7 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 	public final static String ATTR_GETHANDLER = "handler";
 	public final static String ATTR_GETHEADERPARAMS = "headerParams";
 	public final static String ATTR_GETMETHODSCRIPTCODE = "methodScriptCode";
+	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSOPENAPI3SCHEMA = "getPSOpenAPI3Schema";
 	public final static String ATTR_GETPSSYSRESOURCE = "getPSSysResource";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
@@ -263,6 +265,15 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 		}
 		return value.asText();
 	}
+
+	@Deprecated
+	public int getOrderValue(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
 	private net.ibizsys.model.service.openapi.IPSOpenAPI3Schema psopenapi3schema;
 
 	public net.ibizsys.model.service.openapi.IPSOpenAPI3Schema getPSOpenAPI3Schema(){
@@ -279,6 +290,10 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 		net.ibizsys.model.service.openapi.IPSOpenAPI3Schema value = this.getPSOpenAPI3Schema();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定OpenAPI3 Schema");}
 		return value;
+	}
+
+	public void setPSOpenAPI3Schema(net.ibizsys.model.service.openapi.IPSOpenAPI3Schema psopenapi3schema){
+		this.psopenapi3schema = psopenapi3schema;
 	}
 
 	private net.ibizsys.model.res.IPSSysResource pssysresource;
@@ -299,6 +314,10 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 		return value;
 	}
 
+	public void setPSSysResource(net.ibizsys.model.res.IPSSysResource pssysresource){
+		this.pssysresource = pssysresource;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -317,6 +336,10 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 		return value;
 	}
 
+	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
+		this.pssyssfplugin = pssyssfplugin;
+	}
+
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){
@@ -333,6 +356,10 @@ public class PSSubSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl
 		net.ibizsys.model.system.IPSSystemModule value = this.getPSSystemModule();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统模块");}
 		return value;
+	}
+
+	public void setPSSystemModule(net.ibizsys.model.system.IPSSystemModule pssystemmodule){
+		this.pssystemmodule = pssystemmodule;
 	}
 
 

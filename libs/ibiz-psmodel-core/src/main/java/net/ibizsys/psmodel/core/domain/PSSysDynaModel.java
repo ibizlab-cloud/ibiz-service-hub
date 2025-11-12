@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSSYSDYNAMODEL</B>系统动态模型对象 模型传输对象
@@ -340,6 +344,86 @@ public class PSSysDynaModel extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysDynaModel dtocodename(String dTOCodeName){
         this.setDTOCodeName(dTOCodeName);
+        return this;
+    }
+
+    /**
+     * <B>DTOENABLEANY</B>&nbsp;DTO支持ANY
+     * <P>
+     * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.YesNo} 
+     */
+    public final static String FIELD_DTOENABLEANY = "dtoenableany";
+
+    /**
+     * 设置 DTO支持ANY
+     * 
+     * @param dTOEnableAny
+     * 
+     */
+    @JsonProperty(FIELD_DTOENABLEANY)
+    public void setDTOEnableAny(Integer dTOEnableAny){
+        this.set(FIELD_DTOENABLEANY, dTOEnableAny);
+    }
+    
+    /**
+     * 获取 DTO支持ANY  
+     * @return
+     */
+    @JsonIgnore
+    public Integer getDTOEnableAny(){
+        Object objValue = this.get(FIELD_DTOENABLEANY);
+        if(objValue==null){
+            return null;
+        }
+        return (Integer)objValue;
+    }
+
+    /**
+     * 判断 DTO支持ANY 是否指定值，包括空值
+     * @return
+     */
+    @JsonIgnore
+    public boolean isDTOEnableAnyDirty(){
+        if(this.contains(FIELD_DTOENABLEANY)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 重置 DTO支持ANY
+     */
+    @JsonIgnore
+    public void resetDTOEnableAny(){
+        this.reset(FIELD_DTOENABLEANY);
+    }
+
+    /**
+     * 设置 DTO支持ANY
+     * <P>
+     * 等同 {@link #setDTOEnableAny}
+     * @param dTOEnableAny
+     */
+    @JsonIgnore
+    public PSSysDynaModel dtoenableany(Integer dTOEnableAny){
+        this.setDTOEnableAny(dTOEnableAny);
+        return this;
+    }
+
+     /**
+     * 设置 DTO支持ANY
+     * <P>
+     * 等同 {@link #setDTOEnableAny}
+     * @param dTOEnableAny
+     */
+    @JsonIgnore
+    public PSSysDynaModel dtoenableany(Boolean dTOEnableAny){
+        if(dTOEnableAny == null){
+            this.setDTOEnableAny(null);
+        }
+        else{
+            this.setDTOEnableAny(dTOEnableAny?BOOLEAN_TRUE:BOOLEAN_FALSE);
+        }
         return this;
     }
 
@@ -941,88 +1025,6 @@ public class PSSysDynaModel extends net.ibizsys.psmodel.core.util.PSModelBase {
     @JsonIgnore
     public PSSysDynaModel modeltag4(String modelTag4){
         this.setModelTag4(modelTag4);
-        return this;
-    }
-
-    /**
-     * <B>PPSSYSDYNAMODELID</B>&nbsp;父模型对象
-     * <P>
-     * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysDynaModel} 
-     */
-    public final static String FIELD_PPSSYSDYNAMODELID = "ppssysdynamodelid";
-
-    /**
-     * 设置 父模型对象
-     * 
-     * @param pPSSysDynaModelId
-     * 
-     */
-    @JsonProperty(FIELD_PPSSYSDYNAMODELID)
-    public void setPPSSysDynaModelId(String pPSSysDynaModelId){
-        this.set(FIELD_PPSSYSDYNAMODELID, pPSSysDynaModelId);
-    }
-    
-    /**
-     * 获取 父模型对象  
-     * @return
-     */
-    @JsonIgnore
-    public String getPPSSysDynaModelId(){
-        Object objValue = this.get(FIELD_PPSSYSDYNAMODELID);
-        if(objValue==null){
-            return null;
-        }
-        return (String)objValue;
-    }
-
-    /**
-     * 判断 父模型对象 是否指定值，包括空值
-     * @return
-     */
-    @JsonIgnore
-    public boolean isPPSSysDynaModelIdDirty(){
-        if(this.contains(FIELD_PPSSYSDYNAMODELID)){
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 重置 父模型对象
-     */
-    @JsonIgnore
-    public void resetPPSSysDynaModelId(){
-        this.reset(FIELD_PPSSYSDYNAMODELID);
-    }
-
-    /**
-     * 设置 父模型对象
-     * <P>
-     * 等同 {@link #setPPSSysDynaModelId}
-     * @param pPSSysDynaModelId
-     */
-    @JsonIgnore
-    public PSSysDynaModel ppssysdynamodelid(String pPSSysDynaModelId){
-        this.setPPSSysDynaModelId(pPSSysDynaModelId);
-        return this;
-    }
-
-    /**
-     * 设置 父模型对象，包括引用对象的其它关系属性
-     * <P>
-     * 等同 {@link #setPPSSysDynaModelId}
-     * @param pSSysDynaModel 引用对象
-     */
-    @JsonIgnore
-    public PSSysDynaModel ppssysdynamodelid(PSSysDynaModel pSSysDynaModel){
-        if(pSSysDynaModel == null){
-            this.setPPSSysDynaModelId(null);
-            this.setPPSSysDynaModelName(null);
-        }
-        else{
-            this.setPPSSysDynaModelId(pSSysDynaModel.getPSSysDynaModelId());
-            this.setPPSSysDynaModelName(pSSysDynaModel.getPSSysDynaModelName());
-        }
         return this;
     }
 

@@ -33,6 +33,10 @@ public class PSCtrlMsgItemImpl extends net.ibizsys.model.PSObjectImpl implements
 		return value;
 	}
 
+	public void setContentPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes contentpslanguageres){
+		this.contentpslanguageres = contentpslanguageres;
+	}
+
 
 	public int getTimeout(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTIMEOUT);

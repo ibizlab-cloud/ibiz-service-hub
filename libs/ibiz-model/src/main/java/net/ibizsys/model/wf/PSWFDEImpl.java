@@ -66,6 +66,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setEntityStatePSCodeList(net.ibizsys.model.codelist.IPSCodeList entitystatepscodelist){
+		this.entitystatepscodelist = entitystatepscodelist;
+	}
+
 
 	public java.lang.String getEntityWFCancelState(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETENTITYWFCANCELSTATE);
@@ -116,6 +120,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setErrorPSDEMainState(net.ibizsys.model.dataentity.mainstate.IPSDEMainState errorpsdemainstate){
+		this.errorpsdemainstate = errorpsdemainstate;
+	}
+
 	private net.ibizsys.model.dataentity.action.IPSDEAction finishpsdeaction;
 
 	public net.ibizsys.model.dataentity.action.IPSDEAction getFinishPSDEAction(){
@@ -132,6 +140,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.action.IPSDEAction value = this.getFinishPSDEAction();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程完成实体行为");}
 		return value;
+	}
+
+	public void setFinishPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction finishpsdeaction){
+		this.finishpsdeaction = finishpsdeaction;
 	}
 
 	private net.ibizsys.model.dataentity.mainstate.IPSDEMainState finishpsdemainstate;
@@ -152,6 +164,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setFinishPSDEMainState(net.ibizsys.model.dataentity.mainstate.IPSDEMainState finishpsdemainstate){
+		this.finishpsdemainstate = finishpsdemainstate;
+	}
+
 	private net.ibizsys.model.dataentity.action.IPSDEAction initpsdeaction;
 
 	public net.ibizsys.model.dataentity.action.IPSDEAction getInitPSDEAction(){
@@ -170,6 +186,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setInitPSDEAction(net.ibizsys.model.dataentity.action.IPSDEAction initpsdeaction){
+		this.initpsdeaction = initpsdeaction;
+	}
+
 	private net.ibizsys.model.res.IPSLanguageRes mywfdatacappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getMyWFDataCapPSLanguageRes(){
@@ -186,6 +206,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.res.IPSLanguageRes value = this.getMyWFDataCapPSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定我的数据标题语言资源");}
 		return value;
+	}
+
+	public void setMyWFDataCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes mywfdatacappslanguageres){
+		this.mywfdatacappslanguageres = mywfdatacappslanguageres;
 	}
 
 
@@ -214,6 +238,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setMyWFWorkCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes mywfworkcappslanguageres){
+		this.mywfworkcappslanguageres = mywfworkcappslanguageres;
+	}
+
 
 	public java.lang.String getMyWFWorkCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMYWFWORKCAPTION);
@@ -240,6 +268,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
+	}
+
 	private net.ibizsys.model.wf.IPSWorkflow psworkflow;
 
 	public net.ibizsys.model.wf.IPSWorkflow getPSWorkflow(){
@@ -256,6 +288,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.wf.IPSWorkflow value = this.getPSWorkflow();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定工作流对象");}
 		return value;
+	}
+
+	public void setPSWorkflow(net.ibizsys.model.wf.IPSWorkflow psworkflow){
+		this.psworkflow = psworkflow;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField pwfinstpsdefield;
@@ -276,6 +312,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setPWFInstPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField pwfinstpsdefield){
+		this.pwfinstpsdefield = pwfinstpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.mainstate.IPSDEMainState processpsdemainstate;
 
 	public net.ibizsys.model.dataentity.mainstate.IPSDEMainState getProcessPSDEMainState(){
@@ -292,6 +332,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.mainstate.IPSDEMainState value = this.getProcessPSDEMainState();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定处理中主状态");}
 		return value;
+	}
+
+	public void setProcessPSDEMainState(net.ibizsys.model.dataentity.mainstate.IPSDEMainState processpsdemainstate){
+		this.processpsdemainstate = processpsdemainstate;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField proxydatapsdefield;
@@ -312,6 +356,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setProxyDataPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField proxydatapsdefield){
+		this.proxydatapsdefield = proxydatapsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField proxymodulepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getProxyModulePSDEField(){
@@ -328,6 +376,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getProxyModulePSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定代理模块存储属性");}
 		return value;
+	}
+
+	public void setProxyModulePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField proxymodulepsdefield){
+		this.proxymodulepsdefield = proxymodulepsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField udstatepsdefield;
@@ -348,6 +400,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setUDStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField udstatepsdefield){
+		this.udstatepsdefield = udstatepsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField wfactorspsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getWFActorsPSDEField(){
@@ -364,6 +420,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getWFActorsPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程操作者属性");}
 		return value;
+	}
+
+	public void setWFActorsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfactorspsdefield){
+		this.wfactorspsdefield = wfactorspsdefield;
 	}
 
 
@@ -390,6 +450,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getWFInstPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程实例属性");}
 		return value;
+	}
+
+	public void setWFInstPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfinstpsdefield){
+		this.wfinstpsdefield = wfinstpsdefield;
 	}
 
 
@@ -426,6 +490,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setWFRetPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfretpsdefield){
+		this.wfretpsdefield = wfretpsdefield;
+	}
+
 
 	public java.lang.String getWFStartName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETWFSTARTNAME);
@@ -452,6 +520,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setWFStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfstatepsdefield){
+		this.wfstatepsdefield = wfstatepsdefield;
+	}
+
 	private net.ibizsys.model.codelist.IPSCodeList wfsteppscodelist;
 
 	public net.ibizsys.model.codelist.IPSCodeList getWFStepPSCodeList(){
@@ -468,6 +540,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.codelist.IPSCodeList value = this.getWFStepPSCodeList();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定流程步骤代码表");}
 		return value;
+	}
+
+	public void setWFStepPSCodeList(net.ibizsys.model.codelist.IPSCodeList wfsteppscodelist){
+		this.wfsteppscodelist = wfsteppscodelist;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField wfsteppsdefield;
@@ -488,6 +564,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setWFStepPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfsteppsdefield){
+		this.wfsteppsdefield = wfsteppsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField wfverpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getWFVerPSDEField(){
@@ -506,6 +586,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		return value;
 	}
 
+	public void setWFVerPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField wfverpsdefield){
+		this.wfverpsdefield = wfverpsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField workflowpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getWorkflowPSDEField(){
@@ -522,6 +606,10 @@ public class PSWFDEImpl extends net.ibizsys.model.dataentity.PSDataEntityObjectI
 		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getWorkflowPSDEField();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定工作流存放属性");}
 		return value;
+	}
+
+	public void setWorkflowPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField workflowpsdefield){
+		this.workflowpsdefield = workflowpsdefield;
 	}
 
 

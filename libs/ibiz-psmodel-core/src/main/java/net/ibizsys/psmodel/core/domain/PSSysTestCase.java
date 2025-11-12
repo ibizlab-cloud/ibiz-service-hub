@@ -1,7 +1,11 @@
 package net.ibizsys.psmodel.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * <B>PSSYSTESTCASE</B>系统测试用例 模型传输对象
@@ -1570,14 +1574,14 @@ public class PSSysTestCase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDELOGICID</B>&nbsp;实体逻辑
+     * <B>PSDELOGICID</B>&nbsp;实体逻辑，测试用例目标为【实体逻辑】时指定相关的实体逻辑
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDELogic} 
      */
     public final static String FIELD_PSDELOGICID = "psdelogicid";
 
     /**
-     * 设置 实体逻辑
+     * 设置 实体逻辑，详细说明：{@link #FIELD_PSDELOGICID}
      * 
      * @param pSDELogicId
      * 
@@ -1621,7 +1625,7 @@ public class PSSysTestCase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体逻辑
+     * 设置 实体逻辑，详细说明：{@link #FIELD_PSDELOGICID}
      * <P>
      * 等同 {@link #setPSDELogicId}
      * @param pSDELogicId
@@ -1652,14 +1656,14 @@ public class PSSysTestCase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>PSDELOGICNAME</B>&nbsp;实体逻辑
+     * <B>PSDELOGICNAME</B>&nbsp;实体逻辑，测试用例目标为【实体逻辑】时指定相关的实体逻辑
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_PSDELOGICID}
      */
     public final static String FIELD_PSDELOGICNAME = "psdelogicname";
 
     /**
-     * 设置 实体逻辑
+     * 设置 实体逻辑，详细说明：{@link #FIELD_PSDELOGICNAME}
      * 
      * @param pSDELogicName
      * 
@@ -1703,7 +1707,7 @@ public class PSSysTestCase extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 实体逻辑
+     * 设置 实体逻辑，详细说明：{@link #FIELD_PSDELOGICNAME}
      * <P>
      * 等同 {@link #setPSDELogicName}
      * @param pSDELogicName

@@ -92,6 +92,10 @@ public class PSSysPanelImpl extends net.ibizsys.model.control.PSControlContainer
 		return value;
 	}
 
+	public void setGetPSControlAction(net.ibizsys.model.control.IPSControlAction getpscontrolaction){
+		this.getpscontrolaction = getpscontrolaction;
+	}
+
 
 	public java.lang.String getLayoutMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLAYOUTMODE);
@@ -116,6 +120,10 @@ public class PSSysPanelImpl extends net.ibizsys.model.control.PSControlContainer
 		net.ibizsys.model.control.layout.IPSLayout value = this.getPSLayout();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定面板布局对象");}
 		return value;
+	}
+
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
 	}
 
 

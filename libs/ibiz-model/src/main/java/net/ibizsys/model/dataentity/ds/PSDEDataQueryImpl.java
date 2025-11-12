@@ -8,6 +8,10 @@ public class PSDEDataQueryImpl extends net.ibizsys.model.dataentity.PSDataEntity
 	public final static String ATTR_GETALLPSDEDATAQUERYCODES = "getAllPSDEDataQueryCodes";
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETDEFGROUPTYPE = "dEFGroupType";
+	public final static String ATTR_GETDATAQUERYTAG = "dataQueryTag";
+	public final static String ATTR_GETDATAQUERYTAG2 = "dataQueryTag2";
+	public final static String ATTR_GETDATAQUERYTAG3 = "dataQueryTag3";
+	public final static String ATTR_GETDATAQUERYTAG4 = "dataQueryTag4";
 	public final static String ATTR_GETDYNAMODELFILEPATH = "dynaModelFilePath";
 	public final static String ATTR_GETEXTENDMODE = "extendMode";
 	public final static String ATTR_GETLOGICNAME = "logicName";
@@ -60,6 +64,38 @@ public class PSDEDataQueryImpl extends net.ibizsys.model.dataentity.PSDataEntity
 
 	public java.lang.String getDEFGroupType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDEFGROUPTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getDataQueryTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATAQUERYTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getDataQueryTag2(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATAQUERYTAG2);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getDataQueryTag3(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATAQUERYTAG3);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getDataQueryTag4(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATAQUERYTAG4);
 		if(value == null){
 			return null;
 		}

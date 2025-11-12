@@ -112,6 +112,10 @@ public class PSSysMethodDTOFieldImpl extends net.ibizsys.model.dataentity.defiel
 		return value;
 	}
 
+	public void setRefPSDEMethodDTO(net.ibizsys.model.dataentity.service.IPSDEMethodDTO refpsdemethoddto){
+		this.refpsdemethoddto = refpsdemethoddto;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getRefPSDataEntity(){
@@ -128,6 +132,10 @@ public class PSSysMethodDTOFieldImpl extends net.ibizsys.model.dataentity.defiel
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getRefPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用实体对象");}
 		return value;
+	}
+
+	public void setRefPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity refpsdataentity){
+		this.refpsdataentity = refpsdataentity;
 	}
 
 	private net.ibizsys.model.service.IPSSysMethodDTO refpssysmethoddto;
@@ -147,6 +155,10 @@ public class PSSysMethodDTOFieldImpl extends net.ibizsys.model.dataentity.defiel
 		net.ibizsys.model.service.IPSSysMethodDTO value = this.getRefPSSysMethodDTO();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用系统方法DTO对象");}
 		return value;
+	}
+
+	public void setRefPSSysMethodDTO(net.ibizsys.model.service.IPSSysMethodDTO refpssysmethoddto){
+		this.refpssysmethoddto = refpssysmethoddto;
 	}
 
 

@@ -85,9 +85,10 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	
 	
 	/**
-	 * 获取属性精度
+	 * 获取属性精度（废弃）
 	 * @return
 	 */
+	@Deprecated
 	int getPrecision();
 	
 	
@@ -112,6 +113,13 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * @return
 	 */
 	net.ibizsys.model.service.IPSSubSysServiceAPIDE getRefPSSubSysServiceAPIDEMust();
+	
+	
+	/**
+	 * 获取小数点位数
+	 * @return
+	 */
+	int getScale();
 	
 	
 	/**

@@ -62,6 +62,10 @@ public class PSSysBIAggColumnImpl extends net.ibizsys.model.bi.PSSysBIAggTableOb
 		return value;
 	}
 
+	public void setPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField psdefield){
+		this.psdefield = psdefield;
+	}
+
 	private net.ibizsys.model.bi.IPSSysBICubeDimension pssysbicubedimension;
 
 	public net.ibizsys.model.bi.IPSSysBICubeDimension getPSSysBICubeDimension(){
@@ -81,6 +85,10 @@ public class PSSysBIAggColumnImpl extends net.ibizsys.model.bi.PSSysBIAggTableOb
 		return value;
 	}
 
+	public void setPSSysBICubeDimension(net.ibizsys.model.bi.IPSSysBICubeDimension pssysbicubedimension){
+		this.pssysbicubedimension = pssysbicubedimension;
+	}
+
 	private net.ibizsys.model.bi.IPSSysBICubeMeasure pssysbicubemeasure;
 
 	public net.ibizsys.model.bi.IPSSysBICubeMeasure getPSSysBICubeMeasure(){
@@ -98,6 +106,10 @@ public class PSSysBIAggColumnImpl extends net.ibizsys.model.bi.PSSysBIAggTableOb
 		net.ibizsys.model.bi.IPSSysBICubeMeasure value = this.getPSSysBICubeMeasure();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定立方体指标");}
 		return value;
+	}
+
+	public void setPSSysBICubeMeasure(net.ibizsys.model.bi.IPSSysBICubeMeasure pssysbicubemeasure){
+		this.pssysbicubemeasure = pssysbicubemeasure;
 	}
 
 }

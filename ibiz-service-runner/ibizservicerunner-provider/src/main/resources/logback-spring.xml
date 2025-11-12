@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-    <property name="LOG_PATH" value="logs" />
+    <springProperty name="LOG_PATH" scope="context" source="logging.path" defaultValue="logs"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg%n" />
+
+    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log]" />
+
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
@@ -15,6 +18,10 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
+        <!-- 过滤日志输出配置 -->
+        <filter class="cn.ibizlab.runner.servicerunner.appender.LogStopWordsFilter" >
+            <stopWords>${LOG_STOP_WORDS}</stopWords>
+        </filter>
     </appender>
     <!-- 按照每天生成日志文件 -->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -30,7 +37,10 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
-
+        <!-- 过滤日志输出配置 -->
+        <filter class="cn.ibizlab.runner.servicerunner.appender.LogStopWordsFilter" >
+            <stopWords>${LOG_STOP_WORDS}</stopWords>
+        </filter>
     </appender>
 
     <!-- 日志输出级别 -->

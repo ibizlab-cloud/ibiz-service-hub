@@ -65,6 +65,6 @@ public class PSCodeListRTService extends PSModelRTServiceBase<PSCodeList, PSCode
     
     @Override
     protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-    	return getPSModelObject(IPSCodeList.class, this.getPSSystemService().getPSSystem().getAllPSCodeLists(), (String)key, false);
+    	return getPSModelObject(IPSCodeList.class, this.getPSSystemService().getPSSystem().getAllPSCodeLists(), (String)key, tryMode);
     }
 }

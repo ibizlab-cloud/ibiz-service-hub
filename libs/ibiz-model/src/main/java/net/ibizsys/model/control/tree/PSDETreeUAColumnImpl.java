@@ -33,4 +33,8 @@ public class PSDETreeUAColumnImpl extends net.ibizsys.model.control.tree.PSDETre
 		return value;
 	}
 
+	public void setPSDEUIActionGroup(net.ibizsys.model.dataentity.uiaction.IPSDEUIActionGroup psdeuiactiongroup){
+		this.psdeuiactiongroup = psdeuiactiongroup;
+	}
+
 }

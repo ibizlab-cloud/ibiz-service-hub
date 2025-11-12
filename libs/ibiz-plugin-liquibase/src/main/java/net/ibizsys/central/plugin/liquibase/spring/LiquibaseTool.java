@@ -39,9 +39,11 @@ import liquibase.structure.core.PrimaryKey;
 import liquibase.structure.core.Table;
 import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.cloud.core.database.ISysDBSchemeSyncAdapter;
+import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.util.domain.DataSource;
 import net.ibizsys.central.database.ISysDBSchemeRuntime;
 import net.ibizsys.central.plugin.liquibase.util.DiffToChangeLogEx;
+import net.ibizsys.model.PSModelEnums.DBIndexSource;
 import net.ibizsys.model.database.IPSSysDBColumn;
 import net.ibizsys.model.database.IPSSysDBIndex;
 import net.ibizsys.model.database.IPSSysDBIndexColumn;
@@ -101,12 +103,6 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 
 	@Override
 	public void sync(ISystemRuntime iSystemRuntime, ISysDBSchemeRuntime iSysDBSchemeRuntime, DataSource dataSource, Object objTag) throws Throwable {
-
-//		if (!iSysDBSchemeRuntime.isUpdateSchema()) {
-//			log.debug(String.format("系统[%1$s]数据库[%2$s]未启用模型更新", iSystemRuntime.getDeploySystemId(), iSysDBSchemeRuntime.getDSLink()));
-//			return;
-//		}
-
 		int nRetry = 0;
 		while(true) {
 			try {
@@ -126,13 +122,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 	protected void doSync(ISystemRuntime iSystemRuntime, ISysDBSchemeRuntime iSysDBSchemeRuntime, DataSource dataSource, Object objTag) throws Throwable {
 
 		IPSSysDBScheme iPSSysDBScheme = iSysDBSchemeRuntime.getPSSysDBScheme();
-
-
 		List<IPSSysDBTable> psSysDBTableList = iPSSysDBScheme.getAllPSSysDBTables();
-//		if (ObjectUtils.isEmpty(psSysDBTableList)) {
-//			log.debug(String.format("系统[%1$s]数据库[%2$s]未包含任何数据表", iSystemRuntime.getDeploySystemId(), iSysDBSchemeRuntime.getDSLink()));
-//			return;
-//		}
 
 		String strFolder = String.format("%1$s%2$schangelogs", iSystemRuntime.getFileFolder(), File.separator);
 		File folder = new File(strFolder);
@@ -191,7 +181,6 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 			if (!ObjectUtils.isEmpty(psSysContentList)) {
 
 				for (IPSSysContent iPSSysContent : psSysContentList) {
-
 
 					if (!StringUtils.hasLength(iPSSysContent.getCodeName())) {
 						log.warn(String.format("预置内容项[%1$s]未定义代码标识，忽略", iPSSysContent.getName()));
@@ -267,19 +256,32 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 				boolean bHasTag = tagExistsMap.get(strModelTag);
 				if (!bHasTag) {
 					if (!file.exists()) {
-						String strTypes = "Column,Table"; // Column,Table,Index,ForeignKey,Index,PrimaryKey
-						String strTypes2 = "Column,Table,Index,ForeignKey,Index,PrimaryKey"; //
+						
+						String strCacheTag = String.format("%1$s-%2$s-%3$s", "LiquibaseTool", iSystemRuntime.getDeploySystemId(), iPSSysDBScheme.getDSLink());
+						boolean firstTime = DataTypeUtils.asBoolean(ServiceHub.getInstance().getGlobalParam(strCacheTag), true);
+						if(firstTime) {
+							ServiceHub.getInstance().setGlobalParam(strCacheTag, false);
+						}
+						
+						String strTypes = firstTime?"Column,Table,Index":"Column,Table"; // Column,Table,Index,ForeignKey,Index,PrimaryKey
+						String strTypes2 = "Column,Table,Index,ForeignKey,PrimaryKey"; //
 						SnapshotControl snapshotControl = new SnapshotControl(targetDatabase, strTypes);
 
 						ObjectQuotingStrategy originalStrategy = targetDatabase.getObjectQuotingStrategy();
 						DatabaseSnapshot databaseSnapshot = null;
 						try {
 							targetDatabase.setObjectQuotingStrategy(ObjectQuotingStrategy.QUOTE_ALL_OBJECTS);
+							long nStart = System.currentTimeMillis();
 							databaseSnapshot = SnapshotGeneratorFactory.getInstance().createSnapshot(CatalogAndSchema.DEFAULT, targetDatabase, snapshotControl);
-
+							
+							long nLast = System.currentTimeMillis() - nStart;
+							log.debug(String.format("建立数据库[%1$s][%2$s]快照耗时[%3$s]", iSystemRuntime.getDeploySystemId(), iPSSysDBScheme.getDSLink(), nLast));
+							
+							
 							Set<Table> tables = databaseSnapshot.get(Table.class);
 							Set<Column> columns = databaseSnapshot.get(Column.class);
-
+							Set<Index> indices = firstTime? databaseSnapshot.get(Index.class):null;
+							
 							Map<String, Table> tableMap = new HashMap<String, Table>();
 							if (!ObjectUtils.isEmpty(tables)) {
 								for (Table table : tables) {
@@ -293,14 +295,24 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 									columnMap.put(String.format("%1$s.%2$s", column.getRelation().getName(), column.getName()).toUpperCase(), column);
 								}
 							}
+							//Map<String, Index> indexMap = new HashMap<String, Index>();
+							if (!ObjectUtils.isEmpty(indices)) {
+								for (Index index : indices) {
+									//indexMap.put(String.format("%1$s.%2$s", index.getRelation().getName(), index.getName()).toUpperCase(), index);
+									String strCacheTag2 = String.format("%1$s-%2$s-%3$s", "LiquibaseTool", iSystemRuntime.getDeploySystemId(), KeyValueUtils.genUniqueId(iPSSysDBScheme.getDSLink(), index.getRelation().getName().toUpperCase(), index.getName().toUpperCase()));
+									ServiceHub.getInstance().setGlobalParam(strCacheTag2, true);
+								}
+							}
 
 							// 增加索引类型
-							snapshotControl.addType(Index.class, targetDatabase);
+							if(!firstTime) {
+								snapshotControl.addType(Index.class, targetDatabase);
+							}
+							
 
 							DiffResult diffResult = new DiffResult(databaseSnapshot, databaseSnapshot, new CompareControl(null, strTypes2));
-
+							
 							for (IPSSysDBTable iPSSysDBTable : psSysDBTableList) {
-
 
 								List<IPSSysDBColumn> psSysDBColumnList = iPSSysDBTable.getAllPSSysDBColumns();
 								if (ObjectUtils.isEmpty(psSysDBColumnList)) {
@@ -386,7 +398,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 										if (iPSSysDBColumn.getPrecision() > 0) {
 											if (iPSSysDBColumn.getLength() <= 0) {
 												//使用默认值
-												column.getType().setColumnSize(10 + iPSSysDBColumn.getPrecision());
+												column.getType().setColumnSize(12 + iPSSysDBColumn.getPrecision());
 											}
 											column.getType().setDecimalDigits(iPSSysDBColumn.getPrecision());
 										}
@@ -495,6 +507,17 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 								if (!ObjectUtils.isEmpty(psSysDBIndexList)) {
 
 									for (IPSSysDBIndex iPSSysDBIndex : psSysDBIndexList) {
+										
+										//关系外键需要做存在判断
+										if(DBIndexSource.DER.value.equals(iPSSysDBIndex.getSourceType())) {
+											String strCacheTag2 = String.format("%1$s-%2$s-%3$s", "LiquibaseTool", iSystemRuntime.getDeploySystemId(), KeyValueUtils.genUniqueId(iPSSysDBScheme.getDSLink(), table.getName().toUpperCase(), iPSSysDBIndex.getCodeName().toUpperCase()));
+											if(DataTypeUtils.asBoolean(ServiceHub.getInstance().getGlobalParam(strCacheTag2), false)) {
+												continue;
+											}
+											//直接设置为true，后续不再进入
+											ServiceHub.getInstance().setGlobalParam(strCacheTag2, true);
+										}
+										
 
 										// 先进行索引移除
 										Index index = new Index(iPSSysDBIndex.getCodeName());
@@ -540,7 +563,7 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 
 					if (ObjectUtils.isEmpty(databaseChangeLog) || ObjectUtils.isEmpty(databaseChangeLog.getChangeSets())) {
 						log.debug(String.format("变更文件[%1$s]未包含任何操作，忽略", strChangelogFile));
-						return;
+						continue;
 					} else {
 
 						//插入空白操作

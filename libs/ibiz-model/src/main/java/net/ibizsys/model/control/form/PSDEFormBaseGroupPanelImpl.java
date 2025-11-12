@@ -72,6 +72,10 @@ public class PSDEFormBaseGroupPanelImpl extends net.ibizsys.model.control.form.P
 		return value;
 	}
 
+	public void setPSLayout(net.ibizsys.model.control.layout.IPSLayout pslayout){
+		this.pslayout = pslayout;
+	}
+
 
 	public java.lang.String getSubCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSUBCAPTION);

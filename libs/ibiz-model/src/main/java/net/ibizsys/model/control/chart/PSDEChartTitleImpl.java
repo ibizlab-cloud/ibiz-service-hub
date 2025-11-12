@@ -36,6 +36,10 @@ public class PSDEChartTitleImpl extends net.ibizsys.model.control.chart.PSDEChar
 		return value;
 	}
 
+	public void setSubTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes subtitlepslanguageres){
+		this.subtitlepslanguageres = subtitlepslanguageres;
+	}
+
 
 	public java.lang.String getTitle(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTITLE);
@@ -60,6 +64,10 @@ public class PSDEChartTitleImpl extends net.ibizsys.model.control.chart.PSDEChar
 		net.ibizsys.model.res.IPSLanguageRes value = this.getTitlePSLanguageRes();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定标题语言资源");}
 		return value;
+	}
+
+	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
+		this.titlepslanguageres = titlepslanguageres;
 	}
 
 

@@ -18,7 +18,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }      
 
     /**
-     * <B>BATPSDETOOLBARID</B>&nbsp;批操作工具栏，指定日历部件内建的批操作工具栏对象，批操作工具栏为选择数据提供操作能力
+     * <B>BATPSDETOOLBARID</B>&nbsp;批操作工具栏，指定日历部件内建的批操作工具栏对象，批操作工具栏为选中数据提供操作能力
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSDEToolbar} 
      */
@@ -100,7 +100,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>BATPSDETOOLBARNAME</B>&nbsp;批操作工具栏，指定日历部件内建的批操作工具栏对象，批操作工具栏为选择数据提供操作能力
+     * <B>BATPSDETOOLBARNAME</B>&nbsp;批操作工具栏，指定日历部件内建的批操作工具栏对象，批操作工具栏为选中数据提供操作能力
      * <P>
      * 引用附加属性：连接&nbsp;{@link #FIELD_BATPSDETOOLBARID}
      */
@@ -1370,14 +1370,14 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GROUPMODE</B>&nbsp;分组模式
+     * <B>GROUPMODE</B>&nbsp;分组模式，指定日历部件的分组显示模式，未定义为【无分组】`NONE`
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.MDCtrlGroupMode} 
      */
     public final static String FIELD_GROUPMODE = "groupmode";
 
     /**
-     * 设置 分组模式
+     * 设置 分组模式，详细说明：{@link #FIELD_GROUPMODE}
      * 
      * @param groupMode
      * 
@@ -1421,7 +1421,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 分组模式
+     * 设置 分组模式，详细说明：{@link #FIELD_GROUPMODE}
      * <P>
      * 等同 {@link #setGroupMode}
      * @param groupMode
@@ -1433,7 +1433,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 分组模式
+     * 设置 分组模式，详细说明：{@link #FIELD_GROUPMODE}
      * <P>
      * 等同 {@link #setGroupMode}
      * @param groupMode
@@ -1740,14 +1740,14 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>GROUPPSSYSCSSID</B>&nbsp;分组样式
+     * <B>GROUPPSSYSCSSID</B>&nbsp;分组样式表
      * <P>
      * 引用连接属性：对象&nbsp;{@link net.ibizsys.psmodel.core.domain.PSSysCss} 
      */
     public final static String FIELD_GROUPPSSYSCSSID = "grouppssyscssid";
 
     /**
-     * 设置 分组样式
+     * 设置 分组样式表
      * 
      * @param groupPSSysCssId
      * 
@@ -1758,7 +1758,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 分组样式  
+     * 获取 分组样式表  
      * @return
      */
     @JsonIgnore
@@ -1771,7 +1771,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 分组样式 是否指定值，包括空值
+     * 判断 分组样式表 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -1783,7 +1783,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 分组样式
+     * 重置 分组样式表
      */
     @JsonIgnore
     public void resetGroupPSSysCssId(){
@@ -1791,7 +1791,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 分组样式
+     * 设置 分组样式表
      * <P>
      * 等同 {@link #setGroupPSSysCssId}
      * @param groupPSSysCssId
@@ -1803,7 +1803,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 分组样式，包括引用对象的其它关系属性
+     * 设置 分组样式表，包括引用对象的其它关系属性
      * <P>
      * 等同 {@link #setGroupPSSysCssId}
      * @param pSSysCss 引用对象
@@ -2730,14 +2730,14 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NAVVIEWPOS</B>&nbsp;导航视图位置
+     * <B>NAVVIEWPOS</B>&nbsp;内置导航视图位置，指定内置导航视图位置，未定义为无`NONE`
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.NavViewPos} 
      */
     public final static String FIELD_NAVVIEWPOS = "navviewpos";
 
     /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * 
      * @param navViewPos
      * 
@@ -2748,7 +2748,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 导航视图位置  
+     * 获取 内置导航视图位置  
      * @return
      */
     @JsonIgnore
@@ -2761,7 +2761,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 导航视图位置 是否指定值，包括空值
+     * 判断 内置导航视图位置 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2773,7 +2773,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 导航视图位置
+     * 重置 内置导航视图位置
      */
     @JsonIgnore
     public void resetNavViewPos(){
@@ -2781,7 +2781,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * <P>
      * 等同 {@link #setNavViewPos}
      * @param navViewPos
@@ -2793,7 +2793,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 导航视图位置
+     * 设置 内置导航视图位置，详细说明：{@link #FIELD_NAVVIEWPOS}
      * <P>
      * 等同 {@link #setNavViewPos}
      * @param navViewPos
@@ -2810,14 +2810,14 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * <B>NAVVIEWSHOWMODE</B>&nbsp;导航视图显示模式
+     * <B>NAVVIEWSHOWMODE</B>&nbsp;内置导航视图显示模式，指定内置导航视图显示模式，未定义为默认显示`0`
      * <P>
      * 值参考&nbsp;{@link net.ibizsys.psmodel.core.util.PSModelEnums.NavViewShowMode} 
      */
     public final static String FIELD_NAVVIEWSHOWMODE = "navviewshowmode";
 
     /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * 
      * @param navViewShowMode
      * 
@@ -2828,7 +2828,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
     
     /**
-     * 获取 导航视图显示模式  
+     * 获取 内置导航视图显示模式  
      * @return
      */
     @JsonIgnore
@@ -2841,7 +2841,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 判断 导航视图显示模式 是否指定值，包括空值
+     * 判断 内置导航视图显示模式 是否指定值，包括空值
      * @return
      */
     @JsonIgnore
@@ -2853,7 +2853,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 重置 导航视图显示模式
+     * 重置 内置导航视图显示模式
      */
     @JsonIgnore
     public void resetNavViewShowMode(){
@@ -2861,7 +2861,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
     /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * <P>
      * 等同 {@link #setNavViewShowMode}
      * @param navViewShowMode
@@ -2873,7 +2873,7 @@ public class PSSysCalendar extends net.ibizsys.psmodel.core.util.PSModelBase {
     }
 
      /**
-     * 设置 导航视图显示模式
+     * 设置 内置导航视图显示模式，详细说明：{@link #FIELD_NAVVIEWSHOWMODE}
      * <P>
      * 等同 {@link #setNavViewShowMode}
      * @param navViewShowMode

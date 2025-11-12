@@ -36,6 +36,10 @@ public class PSControlObjectImpl2 extends net.ibizsys.model.control.PSControlObj
 		return value;
 	}
 
+	public void setNavPSAppView(net.ibizsys.model.app.view.IPSAppView navpsappview){
+		this.navpsappview = navpsappview;
+	}
+
 	private net.ibizsys.model.dataentity.der.IPSDERBase navpsder;
 
 	public net.ibizsys.model.dataentity.der.IPSDERBase getNavPSDER(){
@@ -52,6 +56,10 @@ public class PSControlObjectImpl2 extends net.ibizsys.model.control.PSControlObj
 		net.ibizsys.model.dataentity.der.IPSDERBase value = this.getNavPSDER();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定导航关系");}
 		return value;
+	}
+
+	public void setNavPSDER(net.ibizsys.model.dataentity.der.IPSDERBase navpsder){
+		this.navpsder = navpsder;
 	}
 
 

@@ -24,6 +24,10 @@ public class PSDETreeCodeListNodeImpl extends net.ibizsys.model.control.tree.PSD
 		return value;
 	}
 
+	public void setPSAppCodeList(net.ibizsys.model.app.codelist.IPSAppCodeList psappcodelist){
+		this.psappcodelist = psappcodelist;
+	}
+
 
 	public boolean isAppendCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISAPPENDCAPTION);

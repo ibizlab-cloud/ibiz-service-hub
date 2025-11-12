@@ -349,7 +349,7 @@ public class SysAtContentTranslatorRuntime extends SysTranslatorRuntimeBase {
 		}
 
 		// 微信
-		if ((nMsgType & (MsgTypes.WX)) != 0) {
+		if ((nMsgType & (MsgTypes.WX | MsgTypes.WXWORK)) != 0) {
 			if(iSysMsgTemplRuntime != null) {
 				msgSendQueue.setWXContent(iSysMsgTemplRuntime.getWXContent(data, params));
 			}

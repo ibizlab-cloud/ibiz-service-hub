@@ -72,6 +72,7 @@ import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.LogLevels;
 import net.ibizsys.runtime.util.ModelRuntimeUtils;
+import net.ibizsys.runtime.util.SystemRuntimeHolder;
 import net.ibizsys.runtime.util.script.IScriptEntity;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 import net.ibizsys.runtime.util.script.ScriptEntity;
@@ -273,14 +274,21 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 				IPSSystemService iPSSystemService = this.createPSSystemService();
 
 				this.iPSSystemService = iPSSystemService;
-				this.onBeforeInit();
-				this.prepareSysSFPluginRuntimes();
-				this.prepareThreadPoolExecutors();
-				this.onInit();
-				this.onBeforeStart();
-				this.onStart();
-				this.onAfterStart();
-				this.markLoaded();
+				try {
+					SystemRuntimeHolder.push(this);
+					this.onBeforeInit();
+					this.prepareSysSFPluginRuntimes();
+					this.prepareThreadPoolExecutors();
+					this.onInit();
+					this.onBeforeStart();
+					this.onStart();
+					this.onAfterStart();
+					this.markLoaded();
+				}
+				finally {
+					SystemRuntimeHolder.poll();
+				}
+				
 			}
 			return this.iPSSystemService;
 		} catch (Exception ex) {
@@ -793,6 +801,11 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 	@Override
 	public IPSSystem getPSSystem() {
 		return getPSSystemService().getPSSystem();
+	}
+	
+	@Override
+	public String getPSDevSlnSysId() {
+		return this.getPSSystem().getPSDevSlnSysId(); 
 	}
 
 	@Override

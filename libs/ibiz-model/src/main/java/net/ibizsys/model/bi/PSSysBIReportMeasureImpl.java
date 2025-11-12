@@ -34,6 +34,10 @@ public class PSSysBIReportMeasureImpl extends net.ibizsys.model.bi.PSSysBIReport
 		return value;
 	}
 
+	public void setPSSysBICubeMeasure(net.ibizsys.model.bi.IPSSysBICubeMeasure pssysbicubemeasure){
+		this.pssysbicubemeasure = pssysbicubemeasure;
+	}
+
 
 	public java.lang.String getPlaceType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPLACETYPE);

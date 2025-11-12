@@ -36,6 +36,10 @@ public class PSWFProcessSubWFImpl extends net.ibizsys.model.PSObjectImpl impleme
 		return value;
 	}
 
+	public void setPSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset){
+		this.psdedataset = psdedataset;
+	}
+
 	private net.ibizsys.model.dataentity.IPSDataEntity psdataentity;
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getPSDataEntity(){
@@ -52,6 +56,10 @@ public class PSWFProcessSubWFImpl extends net.ibizsys.model.PSObjectImpl impleme
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getPSDataEntity();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定嵌套流程实体");}
 		return value;
+	}
+
+	public void setPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity psdataentity){
+		this.psdataentity = psdataentity;
 	}
 
 	private net.ibizsys.model.wf.IPSWFVersion pswfversion;
@@ -73,6 +81,10 @@ public class PSWFProcessSubWFImpl extends net.ibizsys.model.PSObjectImpl impleme
 		return value;
 	}
 
+	public void setPSWFVersion(net.ibizsys.model.wf.IPSWFVersion pswfversion){
+		this.pswfversion = pswfversion;
+	}
+
 	private net.ibizsys.model.wf.IPSWorkflow psworkflow;
 
 	public net.ibizsys.model.wf.IPSWorkflow getPSWorkflow(){
@@ -89,6 +101,10 @@ public class PSWFProcessSubWFImpl extends net.ibizsys.model.PSObjectImpl impleme
 		net.ibizsys.model.wf.IPSWorkflow value = this.getPSWorkflow();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定嵌套流程");}
 		return value;
+	}
+
+	public void setPSWorkflow(net.ibizsys.model.wf.IPSWorkflow psworkflow){
+		this.psworkflow = psworkflow;
 	}
 
 }

@@ -14,6 +14,7 @@ public class PSSysEAIDataTypeImpl extends net.ibizsys.model.eai.PSSysEAISchemeOb
 	public final static String ATTR_GETMINVALUESTRING = "minValueString";
 	public final static String ATTR_GETPATTERN = "pattern";
 	public final static String ATTR_GETPRECISION = "precision";
+	public final static String ATTR_GETSCALE = "scale";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_ISENABLEENUM = "enableEnum";
 	public final static String ATTR_ISINCLUDEMAXVALUE = "includeMaxValue";
@@ -107,10 +108,19 @@ public class PSSysEAIDataTypeImpl extends net.ibizsys.model.eai.PSSysEAISchemeOb
 		return value.asText();
 	}
 
+	@Deprecated
 	public int getPrecision(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRECISION);
 		if(value == null){
 			return 0;
+		}
+		return value.asInt();
+	}
+
+	public int getScale(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCALE);
+		if(value == null){
+			return -1;
 		}
 		return value.asInt();
 	}

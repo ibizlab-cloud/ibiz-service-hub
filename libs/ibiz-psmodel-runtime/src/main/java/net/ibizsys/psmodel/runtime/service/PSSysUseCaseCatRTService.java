@@ -63,6 +63,6 @@ public class PSSysUseCaseCatRTService extends PSModelRTServiceBase<PSSysUseCaseC
 //    
 //    @Override
 //    protected IPSModelObject getPSModelObject(String key, boolean tryMode) throws Exception {
-//    	return getPSModelObject(IPSSysUseCaseCat.class, this.getPSSystemService().getPSSystem().getAllPSSysUseCaseCats(), (String)key, false);
+//    	return getPSModelObject(IPSSysUseCaseCat.class, this.getPSSystemService().getPSSystem().getAllPSSysUseCaseCats(), (String)key, tryMode);
 //    }
 }

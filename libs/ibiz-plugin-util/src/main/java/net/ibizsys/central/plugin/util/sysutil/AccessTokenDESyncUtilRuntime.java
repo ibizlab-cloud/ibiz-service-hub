@@ -23,12 +23,12 @@ public class AccessTokenDESyncUtilRuntime extends SysCloudConfigDESyncUtilRuntim
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(AccessTokenDESyncUtilRuntime.class);
 	
 	/**
-	 * 路径参数：系统标识
+	 * 路径参数：组件标识
 	 */
 	public final static String UTILPARAM_UTIL = "util";
 	
 	/**
-	 * 预定义属性：Tkoen
+	 * 预定义属性：Token
 	 */
 	public final static String PREDEFINEDFIELD_TOKEN = "TOKEN";
 	
@@ -68,7 +68,7 @@ public class AccessTokenDESyncUtilRuntime extends SysCloudConfigDESyncUtilRuntim
 			return strConfig;
 		}
 		
-		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Map<String, Object> map = this.getConfigMap(iDataEntityRuntimeContext, iEntityDTO);
 		if(!map.containsKey(AccessToken.FIELD_EXPIRESTIME)) {
 			IPSDEField expirationDatePSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_EXPIRATION_DATE, true);
 			if(expirationDatePSDEField != null) {

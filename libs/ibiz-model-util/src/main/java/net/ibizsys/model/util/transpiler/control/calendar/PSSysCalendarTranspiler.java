@@ -30,6 +30,7 @@ public class PSSysCalendarTranspiler extends net.ibizsys.model.util.transpiler.c
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouppsdefid", realPSModelObject.getGroupPSAppDEField(), realPSModelObject, "getGroupPSAppDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouppscodelistid", realPSModelObject.getGroupPSCodeList(), realPSModelObject, "getGroupPSCodeList");
 		this.setDomainValue(iPSModelTranspileContext, domain, "grouppssyscssid", realPSModelObject.getGroupPSSysCss(), realPSModelObject, "getGroupPSSysCss");
+		this.setDomainValue(iPSModelTranspileContext, domain, "grouptextpsdefid", realPSModelObject.getGroupTextPSAppDEField(), realPSModelObject, "getGroupTextPSAppDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "groupwidth", realPSModelObject.getGroupWidth(), realPSModelObject, "getGroupWidth");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
@@ -44,6 +45,7 @@ public class PSSysCalendarTranspiler extends net.ibizsys.model.util.transpiler.c
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPPSAPPDEFIELD, domain, "grouppsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPPSCODELIST, domain, "grouppscodelistid", net.ibizsys.model.codelist.IPSCodeList.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPPSSYSCSS, domain, "grouppssyscssid", net.ibizsys.model.res.IPSSysCss.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPTEXTPSAPPDEFIELD, domain, "grouptextpsdefid", net.ibizsys.model.app.dataentity.IPSAppDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGROUPWIDTH, domain, "groupwidth", int.class, new String[]{"0"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}

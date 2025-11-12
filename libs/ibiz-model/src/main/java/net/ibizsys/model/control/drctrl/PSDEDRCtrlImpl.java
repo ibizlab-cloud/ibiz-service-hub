@@ -50,6 +50,10 @@ public class PSDEDRCtrlImpl extends net.ibizsys.model.control.PSAjaxControlConta
 		return value;
 	}
 
+	public void setEditItemCapPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes edititemcappslanguageres){
+		this.edititemcappslanguageres = edititemcappslanguageres;
+	}
+
 
 	public java.lang.String getEditItemCaption(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEDITITEMCAPTION);
@@ -76,6 +80,10 @@ public class PSDEDRCtrlImpl extends net.ibizsys.model.control.PSAjaxControlConta
 		return value;
 	}
 
+	public void setEditItemPSSysImage(net.ibizsys.model.res.IPSSysImage edititempssysimage){
+		this.edititempssysimage = edititempssysimage;
+	}
+
 	private net.ibizsys.model.app.view.IPSAppView formpsappview;
 
 	public net.ibizsys.model.app.view.IPSAppView getFormPSAppView(){
@@ -94,6 +102,10 @@ public class PSDEDRCtrlImpl extends net.ibizsys.model.control.PSAjaxControlConta
 		return value;
 	}
 
+	public void setFormPSAppView(net.ibizsys.model.app.view.IPSAppView formpsappview){
+		this.formpsappview = formpsappview;
+	}
+
 	private net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref;
 
 	public net.ibizsys.model.app.control.IPSAppCounterRef getPSAppCounterRef(){
@@ -110,6 +122,10 @@ public class PSDEDRCtrlImpl extends net.ibizsys.model.control.PSAjaxControlConta
 		net.ibizsys.model.app.control.IPSAppCounterRef value = this.getPSAppCounterRef();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定应用计数器引用");}
 		return value;
+	}
+
+	public void setPSAppCounterRef(net.ibizsys.model.app.control.IPSAppCounterRef psappcounterref){
+		this.psappcounterref = psappcounterref;
 	}
 
 

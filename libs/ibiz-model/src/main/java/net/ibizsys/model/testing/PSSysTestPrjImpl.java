@@ -46,6 +46,10 @@ public class PSSysTestPrjImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		return value;
 	}
 
+	public void setPSApplication(net.ibizsys.model.app.IPSApplication psapplication){
+		this.psapplication = psapplication;
+	}
+
 	private net.ibizsys.model.service.IPSSysServiceAPI pssysserviceapi;
 
 	public net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPI(){
@@ -62,6 +66,10 @@ public class PSSysTestPrjImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		net.ibizsys.model.service.IPSSysServiceAPI value = this.getPSSysServiceAPI();
 		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定系统服务接口");}
 		return value;
+	}
+
+	public void setPSSysServiceAPI(net.ibizsys.model.service.IPSSysServiceAPI pssysserviceapi){
+		this.pssysserviceapi = pssysserviceapi;
 	}
 
 
