@@ -1,10 +1,9 @@
 package net.ibizsys.central.plugin.extension.psmodel.service;
 
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,6 +37,10 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 
 
 	public final static String FIELD_INFO = "info";
+
+	public static final String FIELD_FROM_PRODUCT_ID = "from_product_id";
+
+	public static final String FIELD_EXISTING_SYSTEM_ID = "existing_system_id";
 
 //	/**
 //	 * 行为：建立产品版本
@@ -133,8 +136,8 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 				}
 			}
 
-			if(!bIgnore)
-				throw new Exception(String.format("获取README.md文件发生异常，%1$s", ex.getMessage()), ex);
+//			if(!bIgnore)
+//				throw new Exception(String.format("获取README.md文件发生异常，%1$s", ex.getMessage()), ex);
 		}
 
 		if(rep != null) {
@@ -165,57 +168,10 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 
 		if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 			//读取 projects.yml
-			String strPath = "/projects/{projectid}/repository/files/{filepath}?ref={branch}";
-			uriParams.put("projectid", iExtensionPSModelRTServiceSession.getProductMarketProjectId());
-			uriParams.put("filepath", "projects.yml");
-			uriParams.put("branch", DataTypeUtils.getStringValue(null, "master"));
-
-			String strUrl = String.format("%1$s%2$s", iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), strPath);
-			IWebClientRep<String> rep;
-			try {
-				rep = iExtensionPSModelRTServiceSession.getSystemRuntime().getDefaultWebClient().get(strUrl, uriParams, null, queryParams, String.class, null);
-			}
-			catch (Throwable ex) {
-				boolean bIgnore = false;
-				rep = null;
-				if(ex.getCause() instanceof WebClientResponseException) {
-					WebClientResponseException webClientResponseException = (WebClientResponseException)ex.getCause();
-					if(webClientResponseException.getStatusCode().value() == HttpStatus.NOT_FOUND.value()) {
-						bIgnore = true;
-					}
-				}
-
-				if(!bIgnore)
-					throw new Exception(String.format("获取projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
-			}
-
-			if(rep != null) {
-				try {
-					Map body = WebClientBase.MAPPER.readValue(rep.getBody(), Map.class);
-					String content = (String)body.get("content");
-					if(StringUtils.hasLength(content)) {
-						content = new String(Base64.getDecoder().decode(content));
-					}
-
-					Yaml yaml = new Yaml();
-					Map map = yaml.loadAs(content, Map.class);
-
-					Object projects = map.get("projects");
-					if(projects instanceof List) {
-						List list = (List)projects;
-						for(Object item : list) {
-							if(!(item instanceof Map)) {
-								continue;
-							}
-
-							PSCorePrd psCorePrd = this.getPSCorePrdV2((Map)item);
-							dtoList.add(psCorePrd);
-						}
-					}
-				}
-				catch (Exception ex) {
-					throw new Exception(String.format("解析projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
-				}
+			List<Map> list = this.getV2ProjectListConfig(f);
+			for(Map item : list) {
+				PSCorePrd psCorePrd = this.getPSCorePrdV2(item);
+				dtoList.add(psCorePrd);
 			}
 		}
 		else {
@@ -449,6 +405,12 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 		psCorePrd.setAvatarUrl(DataTypeUtils.getStringValue(item.get("avatar_url"), null));
 		psCorePrd.setSettingUrl(DataTypeUtils.getStringValue(item.get("setting_url"), null));
 		psCorePrd.setHttpUrlToRepo(DataTypeUtils.getStringValue(item.get("http_url_to_repo"), null));
+
+		//现存系统模式
+		if(item.get(FIELD_FROM_PRODUCT_ID) != null)
+			psCorePrd.set(FIELD_FROM_PRODUCT_ID, item.get(FIELD_FROM_PRODUCT_ID));
+		if(item.get(FIELD_EXISTING_SYSTEM_ID) != null)
+			psCorePrd.set(FIELD_EXISTING_SYSTEM_ID, item.get(FIELD_EXISTING_SYSTEM_ID));
 		return psCorePrd;
 	}
 
@@ -480,6 +442,12 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 
 		// 检查系统是否已经安装
 		if(true) {
+
+			//现存系统模式
+			if (psCorePrd.get(FIELD_FROM_PRODUCT_ID) != null && psCorePrd.get(FIELD_EXISTING_SYSTEM_ID) != null ) {
+				return iExtensionPSModelRTServiceSession.getCloudExtensionClient().getSystem(psCorePrd.get(FIELD_EXISTING_SYSTEM_ID).toString());
+			}
+
 			SearchContextDTO searchContextDTO = new SearchContextDTO();
 			searchContextDTO.all();
 
@@ -567,5 +535,115 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 
 		throw new Exception(String.format("无法获取指定产品[%1$s]的本地系统数据", psCorePrd.getId()));
 	}
+
+
+	protected List<Map> getV2ProjectListConfig(PSCorePrdFilter f) throws Exception{
+		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
+		String strPath = "/projects/{projectid}/repository/files/{filepath}?ref={branch}";
+		Map<String, Object> queryParams = new LinkedHashMap<>();
+		Map<String, Object> uriParams = new LinkedHashMap<>();
+		uriParams.put("projectid", iExtensionPSModelRTServiceSession.getProductMarketProjectId());
+		uriParams.put("filepath", "projects.yml");
+		uriParams.put("branch", DataTypeUtils.getStringValue(null, "master"));
+
+		String strUrl = String.format("%1$s%2$s", iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), strPath);
+		IWebClientRep<String> rep;
+		String content = null;
+		try {
+			rep = iExtensionPSModelRTServiceSession.getSystemRuntime().getDefaultWebClient().get(strUrl, uriParams, null, queryParams, String.class, null);
+		}
+		catch (Throwable ex) {
+			boolean bIgnore = false;
+			rep = null;
+			if(ex.getCause() instanceof WebClientResponseException) {
+				WebClientResponseException webClientResponseException = (WebClientResponseException)ex.getCause();
+				if(webClientResponseException.getStatusCode().value() == HttpStatus.NOT_FOUND.value()) {
+					bIgnore = true;
+				}
+			}
+
+			java.nio.file.Path localConfig = Paths.get(iExtensionPSModelRTServiceSession.getSystemRuntime().getFileFolder(),"market", "projects.yml");
+			if (Files.exists(localConfig)) {
+				content = new String(Files.readAllBytes(localConfig), StandardCharsets.UTF_8);
+			}
+			else if(!bIgnore)
+				throw new Exception(String.format("%1$s - 获取projects.yml文件发生异常，%2$s",iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), ex.getMessage()), ex);
+		}
+
+		if(rep != null) {
+			try {
+				Map body = WebClientBase.MAPPER.readValue(rep.getBody(), Map.class);
+				content = (String)body.get("content");
+				if(StringUtils.hasLength(content)) {
+					content = new String(Base64.getDecoder().decode(content));
+				}
+
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("解析projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+
+		List<Map> projects  = new ArrayList<>();
+		if (StringUtils.hasLength(content)) {
+			Yaml yaml = new Yaml();
+			Map configs = yaml.loadAs(content, Map.class);
+			Object objs = configs.get("projects");
+			if(objs instanceof List) {
+				for (Object item: (List)objs) {
+					if (item instanceof Map)
+						projects.add((Map)item);
+				}
+			}
+
+			if (!ObjectUtils.isEmpty(projects) && f != null && f.getFieldCond(PSCorePrd.FIELD_PSCOREPRDID, Conditions.EQ) != null) {
+				String strPSCorePrdId = (String) f.getFieldCond(PSCorePrd.FIELD_PSCOREPRDID, Conditions.EQ);
+				//指定PSCOREPRDID前提下的补偿处理，现存系统模式（未找到仓库，使用V2System表的product克隆上游官方仓库）
+				if(projects.stream().noneMatch(prj -> prj.containsKey("key") && strPSCorePrdId.equalsIgnoreCase(prj.get("key").toString()))) {
+					Map copyMap = null;
+					SearchContextDTO searchContextDTO = new SearchContextDTO();
+					searchContextDTO.all();
+					searchContextDTO.eq(V2System.FIELD_ID, strPSCorePrdId);
+
+					Page<V2System> page = iExtensionPSModelRTServiceSession.getCloudExtensionClient().fetchSystems(searchContextDTO);
+					if (!ObjectUtils.isEmpty(page) && !ObjectUtils.isEmpty(page.getContent()) && StringUtils.hasLength(page.getContent().get(0).getProductId())) {
+						String productId =  page.getContent().get(0).getProductId();
+						for (Map map : projects) {
+							String strKey = DataTypeUtils.getStringValue(map.get("key"), null);
+							if (productId.equalsIgnoreCase(strKey)) {
+								//clone productId对应的配置，以strPSCorePrdId为key
+								copyMap = new HashMap(map);
+								copyMap.put("key", strPSCorePrdId);
+								copyMap.put(FIELD_FROM_PRODUCT_ID,strKey);
+								copyMap.put(FIELD_EXISTING_SYSTEM_ID,strPSCorePrdId);
+								break;
+							}
+						}
+					}
+					if(copyMap != null)
+						projects.add(copyMap);
+				}
+			}
+		}
+
+		return projects;
+	}
+
+	protected Map getV2ProjectConfig(String strPSCorePrdId) throws Exception {
+		PSCorePrdFilter psCorePrdFilter = new PSCorePrdFilter();
+		psCorePrdFilter.setFieldCond(PSCorePrd.FIELD_PSCOREPRDID, Conditions.EQ, strPSCorePrdId);
+		List<Map> projects = getV2ProjectListConfig(psCorePrdFilter);
+		Map itemMap = null;
+		for (Map map : projects) {
+			String strKey = DataTypeUtils.getStringValue(map.get("key"), null);
+			if (strPSCorePrdId.equalsIgnoreCase(strKey)) {
+				itemMap = map;
+				break;
+			}
+		}
+
+		return itemMap;
+	}
+
 
 }

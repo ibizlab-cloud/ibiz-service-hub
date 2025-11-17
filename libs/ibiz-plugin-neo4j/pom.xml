@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>cn.ibizlab.plugin</groupId>
 		<artifactId>ibiz-plugin</artifactId>
-		<version>8.1.0.573.34</version>
+		<version>8.1.0.574.3</version>
     </parent>
 	<artifactId>ibiz-plugin-neo4j</artifactId>
 	<name>ibiz-plugin-neo4j</name>

@@ -33,6 +33,7 @@ import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.res.ISysSCMResourceRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.PSModelEnums.AIAgentDynamicMode;
 import net.ibizsys.model.PSModelEnums.AIChatAgentType;
 import net.ibizsys.model.PSModelEnums.AIPipelineAgentType;
 import net.ibizsys.model.PSModelEnums.AIWorkerAgentType;
@@ -174,6 +175,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		public String getAIPlatformType() {
 			return SysAIFactoryRuntimeBase.this.getAIPlatformType();
 		}
+		
+		@Override
+		public ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) {
+			return SysAIFactoryRuntimeBase.this.createSysAIChatAgentRuntime(iPSSysAIChatAgent);
+		}
 
 	};
 	
@@ -282,6 +288,10 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 	protected ISysAIChatAgentRuntime createDefaultSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) {
 
+		if(iPSSysAIChatAgent.getDynamicMode() == AIAgentDynamicMode.DEDATASET.value) {
+			return new DynaDEDataSetSysAIChatAgentRuntime();
+		}
+		
 		AIChatAgentType aiChatAgentType = AIChatAgentType.from(iPSSysAIChatAgent.getAgentType());
 
 		switch (aiChatAgentType) {

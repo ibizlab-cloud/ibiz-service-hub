@@ -129,8 +129,8 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					}
 				}
 
-				if (!bIgnore)
-					throw new Exception(String.format("获取README.md文件发生异常，%1$s", ex.getMessage()), ex);
+//				if (!bIgnore)
+//					throw new Exception(String.format("获取README.md文件发生异常，%1$s", ex.getMessage()), ex);
 			}
 
 			if (rep != null) {
@@ -166,8 +166,8 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					}
 				}
 
-				if (!bIgnore)
-					throw new Exception(String.format("获取CHANGELOG文件发生异常，%1$s", ex.getMessage()), ex);
+//				if (!bIgnore)
+//					throw new Exception(String.format("获取CHANGELOG文件发生异常，%1$s", ex.getMessage()), ex);
 			}
 
 			if (rep != null) {
@@ -191,7 +191,7 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 	protected List<PSCorePrdFunc> getDomainList(String strDataSetName, PSCorePrdFuncFilter f) throws Exception {
 
 		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
-
+		PSCorePrdRTService psCorePrdRTService = (PSCorePrdRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSCOREPRD);
 		String strPSCorePrdId = DataTypeUtils.getStringValue(f.get("n_" + PSCorePrdFunc.FIELD_PSCOREPRDID + "_eq"), "");
 		if (!StringUtils.hasLength(strPSCorePrdId)) {
 			throw new Exception("未指定产品标识");
@@ -201,59 +201,15 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 
 		if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
 
-			Map<String, Object> queryParams = new LinkedHashMap<String, Object>();
-			Map<String, Object> uriParams = new LinkedHashMap<String, Object>();
-
-			//读取 projects.yml
-			String strPath = "/projects/{projectid}/repository/files/{filepath}?ref={branch}";
-			uriParams.put("projectid", iExtensionPSModelRTServiceSession.getProductMarketProjectId());
-			uriParams.put("filepath", "projects.yml");
-			uriParams.put("branch", DataTypeUtils.getStringValue(null, "master"));
-
-			String strUrl = String.format("%1$s%2$s", iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), strPath);
-			IWebClientRep<String> rep;
 			try {
-				rep = iExtensionPSModelRTServiceSession.getSystemRuntime().getDefaultWebClient().get(strUrl, uriParams, null, queryParams, String.class, null);
-			}
-			catch (Throwable ex) {
-				boolean bIgnore = false;
-				rep = null;
-				if(ex.getCause() instanceof WebClientResponseException) {
-					WebClientResponseException webClientResponseException = (WebClientResponseException)ex.getCause();
-					if(webClientResponseException.getStatusCode().value() == HttpStatus.NOT_FOUND.value()) {
-						bIgnore = true;
-					}
-				}
+				Map itemMap = psCorePrdRTService.getV2ProjectConfig(strPSCorePrdId);
 
-				if(!bIgnore)
-					throw new Exception(String.format("获取projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
-			}
+				if (itemMap != null) {
 
-			if(rep != null) {
-				try {
-					Map body = WebClientBase.MAPPER.readValue(rep.getBody(), Map.class);
-					String content = (String)body.get("content");
-					if(StringUtils.hasLength(content)) {
-						content = new String(Base64.getDecoder().decode(content));
-					}
+					String strKey = DataTypeUtils.getStringValue(itemMap.get("key"), null);
 
-					Yaml yaml = new Yaml();
-					Map map = yaml.loadAs(content, Map.class);
-
-					Object catalogs = map.get("projects");
-					if(catalogs instanceof List) {
-						List list = (List)catalogs;
-						for(Object item : list) {
-							if(!(item instanceof Map)) {
-								continue;
-							}
-
-							Map itemMap = (Map)item;
-							String strKey = DataTypeUtils.getStringValue(itemMap.get("key"), null);
-
-							if(!strPSCorePrdId.equalsIgnoreCase(strKey)) {
-								continue;
-							}
+					if(StringUtils.hasLength(strKey)) {
+						if(itemMap.containsKey("addons")) {
 
 							String strName = DataTypeUtils.getStringValue(itemMap.get("name"), null);
 
@@ -370,14 +326,12 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 									}
 								}
 							}
-
-							break;
 						}
 					}
 				}
-				catch (Exception ex) {
-					throw new Exception(String.format("解析projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
-				}
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("解析projects.yml文件发生异常，%1$s", ex.getMessage()), ex);
 			}
 
 			if (!ObjectUtils.isEmpty(dtoList)) {
@@ -393,7 +347,7 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 				}
 
 
-				PSCorePrdRTService psCorePrdRTService = (PSCorePrdRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSCOREPRD);
+
 				V2System v2System = psCorePrdRTService.getV2SystemIf(strPSCorePrdId);
 
 				SearchContextDTO searchContextDTO = new SearchContextDTO();
@@ -525,7 +479,6 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 					psCorePrdFuncMap.put(psCorePrdFunc.getId().split("[.]")[2], psCorePrdFunc);
 				}
 
-				PSCorePrdRTService psCorePrdRTService = (PSCorePrdRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSCOREPRD);
 				if (v2System == null) {
 					v2System = psCorePrdRTService.getV2SystemIf(strPSCorePrdId);
 				}

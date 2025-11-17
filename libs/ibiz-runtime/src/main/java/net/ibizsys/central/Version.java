@@ -970,8 +970,8 @@ public class Version {
 	public final static Integer MAJOR = 8;
 	public final static Integer MINOR = 1;
 	public final static Integer FUNC = 0;
-	public final static Integer FIX = 573;
-	public final static Integer DATE = 251016;
+	public final static Integer FIX = 574;
+	public final static Integer DATE = 251112;
 	
 	
 	/* (non-Javadoc)

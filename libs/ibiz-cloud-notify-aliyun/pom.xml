@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.573.34</version>
+        <version>8.1.0.574.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,13 +16,13 @@
 		<dependency>
             <groupId>cn.ibizlab.plugin</groupId>
             <artifactId>ibiz-cloud-core</artifactId>
-            <version>8.1.0.573.34</version>
+            <version>8.1.0.574.3</version>
         </dependency>
 
 		<dependency>
             <groupId>cn.ibizlab.plugin</groupId>
             <artifactId>ibiz-cloud-notify-core</artifactId>
-            <version>8.1.0.573.34</version>
+            <version>8.1.0.574.3</version>
         </dependency>
       </dependencies> 
 </project>

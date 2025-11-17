@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.573.34</version>
+    <version>8.1.0.574.3</version>
   </parent>
   <artifactId>ibizlab-cloud-odoo</artifactId>
     <name>ibizlab-cloud-odoo</name>
@@ -28,19 +28,19 @@
         <dependency>
             <groupId>cn.ibizlab.plugin</groupId>
             <artifactId>ibiz-cloud-devops-core</artifactId>
-            <version>8.1.0.573.34</version>
+            <version>8.1.0.574.3</version>
         </dependency>
         
         <dependency>
             <groupId>cn.ibizlab.plugin</groupId>
             <artifactId>ibiz-cloud-uaa-core</artifactId>
-            <version>8.1.0.573.34</version>
+            <version>8.1.0.574.3</version>
         </dependency>
         
 		<dependency>
             <groupId>cn.ibizlab.plugin</groupId>
             <artifactId>ibiz-cloud-open-core</artifactId>
-            <version>8.1.0.573.34</version>
+            <version>8.1.0.574.3</version>
         </dependency>
 
         

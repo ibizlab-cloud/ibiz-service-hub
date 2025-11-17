@@ -106,8 +106,12 @@ public class DEReportRuntime extends DataEntityModelRuntimeBase implements IDERe
 		if(this.getPSDEReport().getPSDEDataSet()!=null) {
 			data = searchDataSet(this.getPSDEReport().getPSDEDataSet(), iSearchContextBase);
 		}
-		data = this.onBeforeOutput(data, iSearchContextBase, strType);
-		onOutput(outputStream, data, iSearchContextBase, strType);
+		data = this.onBeforeOutput(data, iSearchContextBase, strType, bTestPriv);
+		onOutput(outputStream, data, iSearchContextBase, strType, bTestPriv);
+	}
+	
+	protected List<? extends IEntityBase> onBeforeOutput(List<? extends IEntityBase> data, ISearchContextBase iSearchContextBase, String strType, boolean bTestPriv) throws Throwable {
+		return this.onBeforeOutput(data, iSearchContextBase, strType);
 	}
 	
 	protected List<? extends IEntityBase> onBeforeOutput(List<? extends IEntityBase> data, ISearchContextBase iSearchContextBase, String strType) throws Throwable {
@@ -145,6 +149,9 @@ public class DEReportRuntime extends DataEntityModelRuntimeBase implements IDERe
 		//return Integer.MAX_VALUE;
 	}
 	
+	protected void onOutput(OutputStream outputStream, Object data, ISearchContextBase iSearchContextBase, String strType, boolean bTestPriv) throws Throwable {
+		this.onOutput(outputStream, data, iSearchContextBase, strType);
+	}
 	
 	protected void onOutput(OutputStream outputStream, Object data, ISearchContextBase iSearchContextBase, String strType) throws Throwable {
 		throw new Exception("没有实现");

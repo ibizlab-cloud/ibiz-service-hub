@@ -70,4 +70,11 @@ public interface ISysAIAgentRuntime extends IAIAgentRuntimeBase, IModelRuntime{
 	 */
 	String getAgentInfo();
 
+	
+	
+	/**
+	 * 获取访问标识
+	 * @return
+	 */
+	String getAccessKey();
 }

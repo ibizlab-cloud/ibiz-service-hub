@@ -4,6 +4,7 @@ package net.ibizsys.model.ai;
 
 public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObjectImpl implements net.ibizsys.model.ai.IPSSysAIChatAgent{
 
+	public final static String ATTR_GETAIPLATFORMPSDEFIELD = "getAIPlatformPSDEField";
 	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
 	public final static String ATTR_GETAGENTINFO = "agentInfo";
 	public final static String ATTR_GETAGENTPARAMS = "agentParams";
@@ -54,6 +55,29 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETUNIQUETAGPSDEFIELD = "getUniqueTagPSDEField";
 	public final static String ATTR_GETWELCOMEMESSAGE = "welcomeMessage";
 	public final static String ATTR_GETWELCOMEMESSAGEPSDEFIELD = "getWelcomeMessagePSDEField";
+	private net.ibizsys.model.dataentity.defield.IPSDEField aiplatformpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAIPlatformPSDEField(){
+		if(this.aiplatformpsdefield != null) return this.aiplatformpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.aiplatformpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.aiplatformpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAIPlatformPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getAIPlatformPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定AI平台值属性");}
+		return value;
+	}
+
+	public void setAIPlatformPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField aiplatformpsdefield){
+		this.aiplatformpsdefield = aiplatformpsdefield;
+	}
+
 
 	public java.lang.String getAIPlatformType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);

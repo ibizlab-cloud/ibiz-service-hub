@@ -5,6 +5,7 @@ package net.ibizsys.model.database;
 public class PSDEDBIndexFieldImpl extends net.ibizsys.model.PSObjectImpl implements net.ibizsys.model.database.IPSDEDBIndexField{
 
 	public final static String ATTR_GETLENGTH = "length";
+	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETSORTDIR = "sortDir";
 	public final static String ATTR_ISINCLUDEMODE = "includeMode";
@@ -13,6 +14,14 @@ public class PSDEDBIndexFieldImpl extends net.ibizsys.model.PSObjectImpl impleme
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLENGTH);
 		if(value == null){
 			return -1;
+		}
+		return value.asInt();
+	}
+
+	public int getOrderValue(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETORDERVALUE);
+		if(value == null){
+			return 99999;
 		}
 		return value.asInt();
 	}

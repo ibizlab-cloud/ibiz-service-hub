@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ibiz-service-hub</artifactId>
-        <groupId>cn.ibizlab.plugin</groupId>
-        <version>${ibiz.cloud.version}</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ibiz-plugin</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>8.1.0.573.34</version>
+    <version>8.1.0.574.3</version>
     <name>iBiz Plugin</name>
     <packaging>pom</packaging>
     <description>iBiz Plugin</description>
@@ -141,7 +141,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
         <maven.test.skip>true</maven.test.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
-        <ibiz.cloud.version>8.1.0.573.34</ibiz.cloud.version>
+        <ibiz.cloud.version>8.1.0.574.3</ibiz.cloud.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <spring-boot.version>2.4.0</spring-boot.version>

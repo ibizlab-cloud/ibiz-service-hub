@@ -1,6 +1,7 @@
 package net.ibizsys.central.cloud.core.dataentity.ac;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,9 +26,12 @@ import net.ibizsys.central.util.IEntity;
 import net.ibizsys.model.ai.IPSSysAIChatAgent;
 import net.ibizsys.model.msg.IPSSysMsgTempl;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
+import net.ibizsys.runtime.security.UserContext;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.ErrorException;
+import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.IAction;
 
 public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeBase implements IDEChatCompletionRuntime {
@@ -46,8 +50,17 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	
 	private boolean calcHistorySysMsgTemplRuntime = false;
 	
+	public final static String AIAGENTTAG = "srfaiagenttag";
+	
+	private String strAIAgentTag = null;
+	
 	@Override
 	protected void onInit() throws Exception {
+		
+		this.strAIAgentTag = this.getPSDEACMode().getACTag();
+		if(!StringUtils.hasLength(this.strAIAgentTag) && StringUtils.hasLength(this.getPSDEACMode().getCodeName())) {
+			this.strAIAgentTag = this.getPSDEACMode().getCodeName();
+		}
 		
 		super.onInit();
 	}
@@ -172,6 +185,21 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 		}
 		
 		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
+			
+			if(body instanceof Map) {
+				((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+			}
+			else 
+				if(body == null) {
+					body = new HashMap<String, Object>();
+					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+				}
 			return iSysAIChatAgentRuntime.getHistories(iEntity, body, templParams);
 		}
 		
@@ -199,6 +227,12 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	protected ChatCompletionResult onChatSuggestion(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
 		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
 		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
 			IEntity iEntity = null;
 			if(key instanceof IEntity) {
 				iEntity = (IEntity)key;
@@ -207,6 +241,7 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
+			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
 			return iSysAIChatAgentRuntime.chatSuggestion(iEntity, chatCompletionRequest, null);
 		}
 		
@@ -230,6 +265,12 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 		getChatResourceUtils().convert(chatCompletionRequest, true);
 		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
 		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
 			IEntity iEntity = null;
 			if(key instanceof IEntity) {
 				iEntity = (IEntity)key;
@@ -238,6 +279,7 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
+			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
 			return iSysAIChatAgentRuntime.chatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
 		
@@ -262,6 +304,12 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 		getChatResourceUtils().convert(chatCompletionRequest, true);
 		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
 		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
 			IEntity iEntity = null;
 			if(key instanceof IEntity) {
 				iEntity = (IEntity)key;
@@ -270,6 +318,7 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
+			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
 			return iSysAIChatAgentRuntime.asyncChatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
 		
@@ -337,6 +386,10 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				}
 			}
 		}, null, null, 0l);
+	}
+	
+	protected String getAIAgentTag() {
+		return this.strAIAgentTag;
 	}
 	
 }

@@ -73,8 +73,9 @@ public abstract class DEBIReportRuntimeBase extends DEReportRuntimeBase implemen
 		return null;
 	}
 	
+
 	@Override
-	protected void onOutput(OutputStream outputStream, Object data, ISearchContext iSearchContext, String strType) throws Throwable {
+	protected void onOutput(OutputStream outputStream, Object data, ISearchContext iSearchContext, String strType, boolean bTestPriv) throws Throwable {
 		
 		BISearchContext biSearchContext = new BISearchContext(iSearchContext);
 		if(!StringUtils.hasLength(biSearchContext.getBICubeTag())) {
@@ -86,7 +87,7 @@ public abstract class DEBIReportRuntimeBase extends DEReportRuntimeBase implemen
 			throw new Exception(String.format("无法获取指定智能立方体[%1$s]", biSearchContext.getBICubeTag()));
 		}
 		
-		if(StringUtils.hasLength(iSysBICubeRuntime.getAccessKey())) {
+		if(bTestPriv && StringUtils.hasLength(iSysBICubeRuntime.getAccessKey())) {
 			if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysBICubeRuntime.getAccessKey())) {
 				throw new ErrorException( String.format("智能报表立方体[%1$s]不具备访问控制资源[%2$s]", iSysBICubeRuntime.getName(), iSysBICubeRuntime.getAccessKey()), Errors.ACCESSDENY);
 			}
@@ -96,4 +97,7 @@ public abstract class DEBIReportRuntimeBase extends DEReportRuntimeBase implemen
 		
 		WebClientBase.MAPPER.writeValue(outputStream, list);
 	}
+	
+	
+	
 }

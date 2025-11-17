@@ -36,6 +36,8 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 
 	private IPSSysAIChatAgent iPSSysAIChatAgent = null;
 	private IDataEntityRuntime iDataEntityRuntime = null;
+	private String strAccessKey = null;
+	
 	
 	/**
 	 * AI代理脚本方法：获取实际结果
@@ -85,6 +87,10 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	@Override
 	protected void onInit() throws Exception {
 		
+		if(this.getPSModelObject().getPSSysUniRes() != null) {
+			this.strAccessKey = this.getPSModelObject().getPSSysUniRes().getResCode();
+		}
+		
 		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
 			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
 		}
@@ -130,6 +136,10 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 		return this.iPSSysAIChatAgent.getCodeName();
 	}
 
+	@Override
+	public String getAccessKey() {
+		return this.strAccessKey;
+	}
 	
 	@Override
 	public List<ChatMessage> getHistories(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
@@ -147,23 +157,40 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	protected List<ChatMessage> doGetHistories(List entityList, Object body, Map<String, Object> params, Map<String, Object> exTemplParams) throws Throwable {
 		// 格式化文本
 		String strConfigId = this.getHistoriesConfigId();
-		if(ObjectUtils.isEmpty(strConfigId)) {
-			return new ArrayList<ChatMessage>();
+		if(!ObjectUtils.isEmpty(strConfigId)) {
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if (exTemplParams != null) {
+				templParams.putAll(exTemplParams);
+			}
+			
+			templParams.put(TEMPLATE_PARAM_BODY, body);
+
+			String strContent = this.getContent(entityList, strConfigId, templParams, true);
+			if(StringUtils.hasLength(strContent)) {
+				return new ChatMessagesBuilder().xml(strContent).build();
+			}
 		}
 		
-		Map<String, Object> templParams = new HashMap<String, Object>();
-		if (exTemplParams != null) {
-			templParams.putAll(exTemplParams);
+		List<ChatMessage> list = new ArrayList<ChatMessage>();
+		if(StringUtils.hasLength(this.getPSModelObject().getWelcomeMessage())) {
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if (exTemplParams != null) {
+				templParams.putAll(exTemplParams);
+			}
+			templParams.put(TEMPLATE_PARAM_BODY, body);
+			
+			String strWelcomeMessage = this.getRawContent(entityList, this.getPSModelObject().getWelcomeMessage(), templParams);
+			if(StringUtils.hasLength(strWelcomeMessage)) {
+				ChatMessagesBuilder chatMessagesBuilder = ChatMessagesBuilder.create().xml(strWelcomeMessage);
+				list = chatMessagesBuilder.build(list);
+				if(ObjectUtils.isEmpty(list)) {
+					chatMessagesBuilder.assistant(strWelcomeMessage);
+					list = chatMessagesBuilder.build(list);
+				}
+			}
 		}
 		
-		templParams.put(TEMPLATE_PARAM_BODY, body);
-
-		String strContent = this.getContent(entityList, strConfigId, templParams, true);
-		if(!StringUtils.hasLength(strContent)) {
-			return new ArrayList<ChatMessage>();
-		}
-
-		return new ChatMessagesBuilder().xml(strContent).build();
+		return list;
 	}
 	
 
@@ -183,25 +210,41 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	protected List<ChatMessage> doGetSystemMessages(List entityList, Map<String, Object> params, Map<String, Object> exTemplParams) throws Throwable {
 		// 格式化文本
 		String strConfigId = this.getSystemMessagesConfigId();
-		if(ObjectUtils.isEmpty(strConfigId)) {
-			return new ArrayList<ChatMessage>();
+		if(!ObjectUtils.isEmpty(strConfigId)) {
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if (exTemplParams != null) {
+				templParams.putAll(exTemplParams);
+			}
+
+			String strContent = this.getContent(entityList, strConfigId, templParams, true);
+			if(StringUtils.hasLength(strContent)) {
+				int nPos = strConfigId.lastIndexOf(".xml.tpl");
+				if(nPos == strConfigId.length() - 8) {
+					return new ChatMessagesBuilder().xml(strContent).build();
+				}
+				return new ChatMessagesBuilder().system(strContent).build();
+			}
 		}
 
-		Map<String, Object> templParams = new HashMap<String, Object>();
-		if (exTemplParams != null) {
-			templParams.putAll(exTemplParams);
-		}
-
-		String strContent = this.getContent(entityList, strConfigId, templParams, true);
-		if(!StringUtils.hasLength(strContent)) {
-			return new ArrayList<ChatMessage>();
+		List<ChatMessage> list = new ArrayList<ChatMessage>();
+		if(StringUtils.hasLength(this.getPSModelObject().getSystemPrompt())) {
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if (exTemplParams != null) {
+				templParams.putAll(exTemplParams);
+			}
+			
+			String strSystemPrompt = this.getRawContent(entityList, this.getPSModelObject().getSystemPrompt(), templParams);
+			if(StringUtils.hasLength(strSystemPrompt)) {
+				ChatMessagesBuilder chatMessagesBuilder = ChatMessagesBuilder.create().xml(strSystemPrompt);
+				list = chatMessagesBuilder.build(list);
+				if(ObjectUtils.isEmpty(list)) {
+					chatMessagesBuilder.system(strSystemPrompt);
+					list = chatMessagesBuilder.build(list);
+				}
+			}
 		}
 		
-		int nPos = strConfigId.lastIndexOf(".xml.tpl");
-		if(nPos == strConfigId.length() - 8) {
-			return new ChatMessagesBuilder().xml(strContent).build();
-		}
-		return new ChatMessagesBuilder().system(strContent).build();
+		return list;
 	}
 	
 
@@ -221,28 +264,44 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 	protected List<ChatMessage> doGetSuggestionMessages(List entityList, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, Map<String, Object> exTemplParams) throws Throwable {
 		// 格式化文本
 		String strConfigId = this.getSuggestionMessagesConfigId();
-		if(ObjectUtils.isEmpty(strConfigId)) {
-			return new ArrayList<ChatMessage>();
+		if(!ObjectUtils.isEmpty(strConfigId)) {
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if (exTemplParams != null) {
+				templParams.putAll(exTemplParams);
+			}
+
+//			templParams.put(TEMPLPARAM_APPDEACMODE, this.getAddinData());
+//			templParams.put(TEMPLPARAM_APPDE, this.getPSAppDataEntity());
+
+			String strContent = this.getContent(entityList, strConfigId, templParams, true);
+			if(StringUtils.hasLength(strContent)) {
+				int nPos = strConfigId.lastIndexOf(".xml.tpl");
+				if(nPos == strConfigId.length() - 8) {
+					return new ChatMessagesBuilder().xml(strContent).build();
+				}
+				return new ChatMessagesBuilder().user(strContent).build();
+			}
 		}
 
-		Map<String, Object> templParams = new HashMap<String, Object>();
-		if (exTemplParams != null) {
-			templParams.putAll(exTemplParams);
-		}
-
-//		templParams.put(TEMPLPARAM_APPDEACMODE, this.getAddinData());
-//		templParams.put(TEMPLPARAM_APPDE, this.getPSAppDataEntity());
-
-		String strContent = this.getContent(entityList, strConfigId, templParams, true);
-		if(!StringUtils.hasLength(strContent)) {
-			return new ArrayList<ChatMessage>();
-		}
+		List<ChatMessage> list = new ArrayList<ChatMessage>();
+//		if(StringUtils.hasLength(this.getPSModelObject().getSuggestionPrompt())) {
+//			Map<String, Object> templParams = new HashMap<String, Object>();
+//			if (exTemplParams != null) {
+//				templParams.putAll(exTemplParams);
+//			}
+//			
+//			String strSystemPrompt = this.getRawContent(entityList, this.getPSModelObject().getSystemPrompt(), templParams);
+//			if(StringUtils.hasLength(strSystemPrompt)) {
+//				ChatMessagesBuilder chatMessagesBuilder = ChatMessagesBuilder.create().xml(strSystemPrompt);
+//				list = chatMessagesBuilder.build(list);
+//				if(ObjectUtils.isEmpty(list)) {
+//					chatMessagesBuilder.system(strSystemPrompt);
+//					list = chatMessagesBuilder.build(list);
+//				}
+//			}
+//		}
 		
-		int nPos = strConfigId.lastIndexOf(".xml.tpl");
-		if(nPos == strConfigId.length() - 8) {
-			return new ChatMessagesBuilder().xml(strContent).build();
-		}
-		return new ChatMessagesBuilder().user(strContent).build();
+		return list;
 	}
 	
 	@Override

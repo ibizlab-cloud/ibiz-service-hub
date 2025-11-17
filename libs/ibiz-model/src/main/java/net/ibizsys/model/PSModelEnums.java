@@ -1695,6 +1695,55 @@ public class PSModelEnums {
     }
 
     /**
+     * AI记忆模式
+     * <P>
+     * <ul>
+     * <li>NONE&nbsp;(none)
+     * <P>
+     * 无记忆
+     * <li>SHORT_TERM&nbsp;(short_term)
+     * <P>
+     * 短期记忆
+     * <li>LONG_TERM&nbsp;(long_term)
+     * <P>
+     * 长期记忆
+     * <li>HYBRID&nbsp;(hybrid)
+     * <P>
+     * 混合模式
+     * </ul>     
+     */
+    public static enum AIMemoryMode{
+        NONE("none", "无记忆")
+        ,SHORT_TERM("short_term", "短期记忆")
+        ,LONG_TERM("long_term", "长期记忆")
+        ,HYBRID("hybrid", "混合模式")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AIMemoryMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIMemoryMode from(String value){
+            switch(value){
+                case "none":
+                    return NONE;
+                case "short_term":
+                    return SHORT_TERM;
+                case "long_term":
+                    return LONG_TERM;
+                case "hybrid":
+                    return HYBRID;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 测试数据项值类型
      * <P>
      * <ul>
@@ -15010,6 +15059,49 @@ public class PSModelEnums {
     }
 
     /**
+     * AI截断策略
+     * <P>
+     * <ul>
+     * <li>OLDEST&nbsp;(oldest)
+     * <P>
+     * 丢弃最早消息
+     * <li>LEAST_IMPORTANT&nbsp;(least_important)
+     * <P>
+     * 基于内容重要性
+     * <li>SUMMARIZE_OLDEST&nbsp;(summarize_oldest)
+     * <P>
+     * 摘要保留早期
+     * </ul>     
+     */
+    public static enum AITrimmingStrategy{
+        OLDEST("oldest", "丢弃最早消息")
+        ,LEAST_IMPORTANT("least_important", "基于内容重要性")
+        ,SUMMARIZE_OLDEST("summarize_oldest", "摘要保留早期")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AITrimmingStrategy(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AITrimmingStrategy from(String value){
+            switch(value){
+                case "oldest":
+                    return OLDEST;
+                case "least_important":
+                    return LEAST_IMPORTANT;
+                case "summarize_oldest":
+                    return SUMMARIZE_OLDEST;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 实体1：N关系属性映射类型
      * <P>
      * <ul>
@@ -16037,6 +16129,55 @@ public class PSModelEnums {
                     return STRING;
                 case "integer":
                     return INTEGER;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * AI生成模式
+     * <P>
+     * <ul>
+     * <li>PRECISE&nbsp;(precise)
+     * <P>
+     * 精确模式
+     * <li>BALANCED&nbsp;(balanced)
+     * <P>
+     * 平衡模式
+     * <li>CREATIVE&nbsp;(creative)
+     * <P>
+     * 创意模式
+     * <li>CUSTOM&nbsp;(custom)
+     * <P>
+     * 自定义
+     * </ul>     
+     */
+    public static enum AIGenerationMode{
+        PRECISE("precise", "精确模式")
+        ,BALANCED("balanced", "平衡模式")
+        ,CREATIVE("creative", "创意模式")
+        ,CUSTOM("custom", "自定义")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AIGenerationMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIGenerationMode from(String value){
+            switch(value){
+                case "precise":
+                    return PRECISE;
+                case "balanced":
+                    return BALANCED;
+                case "creative":
+                    return CREATIVE;
+                case "custom":
+                    return CUSTOM;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -27794,6 +27935,43 @@ public class PSModelEnums {
                     return LEVEL_90;
                 case 100:
                     return LEVEL_100;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * AI代理动态模式，数值项
+     * <P>
+     * <ul>
+     * <li>STATIC&nbsp;(0)
+     * <P>
+     * 静态内容
+     * <li>DEDATASET&nbsp;(1)
+     * <P>
+     * 实体数据集，从实体数据集获取代理消息
+     * </ul>     
+     */
+    public static enum AIAgentDynamicMode{
+        STATIC(0, "静态内容")
+        ,DEDATASET(1, "实体数据集")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private AIAgentDynamicMode(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIAgentDynamicMode from(int value){
+            switch(value){
+                case 0:
+                    return STATIC;
+                case 1:
+                    return DEDATASET;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }

@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.core.ai;
 
 import java.util.Map;
 
+import net.ibizsys.model.ai.IPSSysAIChatAgent;
 import net.ibizsys.runtime.IModelRuntimeContext;
 
 /**
@@ -98,4 +99,12 @@ public interface ISysAIFactoryRuntimeContext extends IModelRuntimeContext, IAIFa
 	 */
 	String getAIPlatformType();
 	
+	
+	
+	/**
+	 * 建立AI聊天代理运行时对象
+	 * @param iPSSysAIChatAgent
+	 * @return
+	 */
+	ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent);
 }

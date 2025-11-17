@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.573.34</version>
+        <version>8.1.0.574.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>

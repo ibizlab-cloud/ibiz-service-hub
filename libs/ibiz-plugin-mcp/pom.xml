@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.573.34</version>
+    <version>8.1.0.574.3</version>
   </parent>
   <artifactId>ibiz-plugin-mcp</artifactId>
 	<name>ibiz-plugin-mcp</name>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>cn.ibizlab.plugin</groupId>
 			<artifactId>ibiz-cloud-core</artifactId>
-			<version>8.1.0.573.34</version>
+			<version>8.1.0.574.3</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5-fluent -->

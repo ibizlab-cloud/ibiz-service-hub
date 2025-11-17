@@ -505,6 +505,27 @@ public class WebFluxClient extends WebClientBase {
 			else
 				throw new Exception("无法识别的文件输出对象");
 
+            if(strUri.startsWith("file://")) {
+                // 将 file:///path 转换为本地路径
+                String localPath = strUri.substring(7); // 去掉 "file://"
+                java.nio.file.Path sourcePath = java.nio.file.Paths.get(localPath);
+
+                if (!java.nio.file.Files.exists(sourcePath)) {
+                    throw new Exception("文件不存在: " + localPath);
+                }
+
+                if (file != null) {
+                    // 下载到文件
+                    java.nio.file.Files.copy(sourcePath, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                } else if (outputStream != null) {
+                    // 下载到输出流
+                    java.nio.file.Files.copy(sourcePath, outputStream);
+                }
+
+                // 返回成功响应
+                return new WebClientRep<String>(sourcePath.getFileName().toString(), null);
+            }
+
 			removeInvalidUriParams(strUri, uriParams);
 			
 			RequestHeadersSpec<?> s = null;

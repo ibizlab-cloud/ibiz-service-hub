@@ -150,7 +150,7 @@ public abstract class QwenOpenAIAccessAgentBase extends OpenAIAccessAgentBase {
 			request.addHeader(new BasicHeader("Authorization", String.format("Bearer %1$s", this.getTextReRankToken())));
 
 			Map<String, Object> body = new LinkedHashMap<String, Object>();
-			body.put("model", StringUtils.hasLength(this.getAgentData().getEmbeddingModel()) ? this.getAgentData().getEmbeddingModel() : EMBEDDINGMODEL_DEFAULT);
+			body.put("model", this.getTextReRankModel());
 			Map<String, Object> input = new LinkedHashMap<String, Object>();
 			Map<String, Object> parameters = new LinkedHashMap<String, Object>();
 			body.put("input", input);

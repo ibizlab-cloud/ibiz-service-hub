@@ -12,6 +12,20 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	
 	
 	/**
+	 * 获取AI平台值属性
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getAIPlatformPSDEField();
+
+
+	/**
+	 * 获取AI平台值属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getAIPlatformPSDEFieldMust();
+	
+	
+	/**
 	 * 获取默认标志值属性
 	 * @return
 	 */

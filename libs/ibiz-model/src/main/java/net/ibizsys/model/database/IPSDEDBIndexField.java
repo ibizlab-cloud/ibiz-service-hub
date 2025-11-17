@@ -5,8 +5,16 @@ package net.ibizsys.model.database;
 /**
  *
  */
-public interface IPSDEDBIndexField extends net.ibizsys.model.database.IPSDBIndexColumnBase{
+public interface IPSDEDBIndexField extends net.ibizsys.model.database.IPSDBIndexColumnBase
+		,net.ibizsys.model.IPSModelSortable{
 
+	
+	
+	/**
+	 * 获取排序值
+	 * @return
+	 */
+	int getOrderValue();
 	
 	
 	/**

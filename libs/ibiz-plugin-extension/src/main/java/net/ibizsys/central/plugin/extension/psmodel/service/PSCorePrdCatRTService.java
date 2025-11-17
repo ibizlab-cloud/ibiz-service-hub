@@ -1,10 +1,9 @@
 package net.ibizsys.central.plugin.extension.psmodel.service;
 
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
@@ -72,58 +71,10 @@ public class PSCorePrdCatRTService extends net.ibizsys.psmodel.runtime.service.P
 		List<PSCorePrdCat> dtoList = new ArrayList<PSCorePrdCat>();
 		
 		if(IExtensionPSModelRTServiceSession.PRODUCTMARKETMODE_V2.equalsIgnoreCase(iExtensionPSModelRTServiceSession.getProductMarketMode())) {
-			//读取 README.md
-			String strPath = "/projects/{projectid}/repository/files/{filepath}?ref={branch}";
-			uriParams.put("projectid", iExtensionPSModelRTServiceSession.getProductMarketProjectId());
-			uriParams.put("filepath", "catalogs.yml");
-			uriParams.put("branch", DataTypeUtils.getStringValue(null, "master"));
-			
-			String strUrl = String.format("%1$s%2$s", iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), strPath);
-			IWebClientRep<String> rep;
-			try {
-				rep = iExtensionPSModelRTServiceSession.getSystemRuntime().getDefaultWebClient().get(strUrl, uriParams, null, queryParams, String.class, null);
-			}
-			catch (Throwable ex) {
-				boolean bIgnore = false;
-				rep = null;
-				if(ex.getCause() instanceof WebClientResponseException) {
-					WebClientResponseException webClientResponseException = (WebClientResponseException)ex.getCause();
-					if(webClientResponseException.getStatusCode().value() == HttpStatus.NOT_FOUND.value()) {
-						bIgnore = true;
-					}
-				}
-				
-				if(!bIgnore)		
-					throw new Exception(String.format("获取catalogs.yml文件发生异常，%1$s", ex.getMessage()), ex);
-			}
-			
-			if(rep != null) {
-				try {
-					Map body = WebClientBase.MAPPER.readValue(rep.getBody(), Map.class);
-				    String content = (String)body.get("content");
-				    if(StringUtils.hasLength(content)) {
-				    	content = new String(Base64.getDecoder().decode(content));
-				    }
-				    
-					Yaml yaml = new Yaml();
-					Map map = yaml.loadAs(content, Map.class);
-				 
-					Object catalogs = map.get("catalogs");
-					if(catalogs instanceof List) {
-						List list = (List)catalogs;
-						for(Object item : list) {
-							if(!(item instanceof Map)) {
-								continue;
-							}
-							
-							PSCorePrdCat psCorePrdCat = this.getPSCorePrdCatV2((Map)item);			
-							dtoList.add(psCorePrdCat);
-						}
-					}
-				}
-				catch (Exception ex) {
-					throw new Exception(String.format("解析catalogs.yml文件发生异常，%1$s", ex.getMessage()), ex);
-				}
+			List<Map> list = getV2CatalogListConfig();
+			for(Map item : list) {
+				PSCorePrdCat psCorePrdCat = this.getPSCorePrdCatV2(item);
+				dtoList.add(psCorePrdCat);
 			}
 		}
 		else {
@@ -272,5 +223,68 @@ public class PSCorePrdCatRTService extends net.ibizsys.psmodel.runtime.service.P
 //		psCorePrdCat.setFullPath(DataTypeUtils.getStringValue(item.get("full_path"), null));
 //		psCorePrdCat.setAvatarUrl(DataTypeUtils.getStringValue(item.get("avatar_url"), null));
 		return psCorePrdCat;
+	}
+
+	public List<Map> getV2CatalogListConfig() throws Exception{
+		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
+		String strPath = "/projects/{projectid}/repository/files/{filepath}?ref={branch}";
+		Map<String, Object> queryParams = new LinkedHashMap<String, Object>();
+		Map<String, Object> uriParams = new LinkedHashMap<String, Object>();
+		uriParams.put("projectid", iExtensionPSModelRTServiceSession.getProductMarketProjectId());
+		uriParams.put("filepath", "catalogs.yml");
+		uriParams.put("branch", DataTypeUtils.getStringValue(null, "master"));
+
+		String strUrl = String.format("%1$s%2$s", iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), strPath);
+		IWebClientRep<String> rep;
+		String content = null;
+		try {
+			rep = iExtensionPSModelRTServiceSession.getSystemRuntime().getDefaultWebClient().get(strUrl, uriParams, null, queryParams, String.class, null);
+		}
+		catch (Throwable ex) {
+			boolean bIgnore = false;
+			rep = null;
+			if(ex.getCause() instanceof WebClientResponseException) {
+				WebClientResponseException webClientResponseException = (WebClientResponseException)ex.getCause();
+				if(webClientResponseException.getStatusCode().value() == HttpStatus.NOT_FOUND.value()) {
+					bIgnore = true;
+				}
+			}
+
+			java.nio.file.Path localConfig = Paths.get(iExtensionPSModelRTServiceSession.getSystemRuntime().getFileFolder(),"market", "catalogs.yml");
+			if (Files.exists(localConfig)) {
+				content = new String(Files.readAllBytes(localConfig), StandardCharsets.UTF_8);
+			}
+			else if(!bIgnore)
+				throw new Exception(String.format("%1$s - 获取catalogs.yml文件发生异常，%2$s",iExtensionPSModelRTServiceSession.getProductMarketServiceUrl(), ex.getMessage()), ex);
+		}
+
+		if(rep != null) {
+			try {
+				Map body = WebClientBase.MAPPER.readValue(rep.getBody(), Map.class);
+				content = (String)body.get("content");
+				if(StringUtils.hasLength(content)) {
+					content = new String(Base64.getDecoder().decode(content));
+				}
+
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("解析catalogs.yml文件发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+
+		List<Map> catalogs = new ArrayList();
+		if (StringUtils.hasLength(content)) {
+			Yaml yaml = new Yaml();
+			Map configs = yaml.loadAs(content, Map.class);
+			Object objs = configs.get("catalogs");
+			if(objs instanceof List) {
+				for(Object item: (List)objs) {
+					if (item instanceof Map)
+						catalogs.add((Map)item);
+				}
+			}
+		}
+
+		return catalogs;
 	}
 }

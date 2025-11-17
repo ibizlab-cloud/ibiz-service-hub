@@ -233,11 +233,15 @@ public abstract class DEReportRuntimeBase extends net.ibizsys.runtime.dataentity
 		}
 	}
     
-    
     @Override
-    protected void onOutput(OutputStream outputStream, Object data, ISearchContextBase iSearchContextBase, String strType) throws Throwable {
-    	onOutput(outputStream, data, (ISearchContext)iSearchContextBase, strType);
+    protected void onOutput(OutputStream outputStream, Object data, ISearchContextBase iSearchContextBase, String strType, boolean bTestPriv) throws Throwable {
+    	onOutput(outputStream, data, (ISearchContext)iSearchContextBase, strType, bTestPriv);
     }
+    
+    protected void onOutput(OutputStream outputStream, Object data, ISearchContext iSearchContext, String strType, boolean bTestPriv) throws Throwable {
+    	this.onOutput(outputStream, data, iSearchContext, strType);
+    }
+    
     
     protected void onOutput(OutputStream outputStream, Object data, ISearchContext iSearchContext, String strType) throws Throwable {
     	throw new Exception("没有实现");

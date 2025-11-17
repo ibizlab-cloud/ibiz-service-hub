@@ -24,7 +24,7 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 
 	private IPSSysAIWorkerAgent iPSSysAIWorkerAgent = null;
 	private IDataEntityRuntime iDataEntityRuntime = null;
-	
+	private String strAccessKey = null;
 
 	@Override
 	protected ISysAIWorkerAgentRuntimeContext createModelRuntimeContext() {
@@ -41,6 +41,10 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 
 	@Override
 	protected void onInit() throws Exception {
+		
+//		if(this.getPSModelObject().getPSSysUniRes() != null) {
+//		this.strAccessKey = this.getPSModelObject().getPSSysUniRes().getResCode();
+//	}
 		
 		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
 			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
@@ -72,6 +76,11 @@ public abstract class SysAIWorkerAgentRuntimeBase extends SysAIAgentRuntimeBase 
 	@Override
 	public String getAgentSubType() {
 		return this.iPSSysAIWorkerAgent.getAgentType();
+	}
+	
+	@Override
+	public String getAccessKey() {
+		return this.strAccessKey;
 	}
 	
 	@Override

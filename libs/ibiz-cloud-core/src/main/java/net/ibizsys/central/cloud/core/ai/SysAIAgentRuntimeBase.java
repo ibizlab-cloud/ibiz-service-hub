@@ -49,6 +49,7 @@ import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.INamedAction;
+import net.ibizsys.runtime.util.KeyValueUtils;
 
 public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements ISysAIAgentRuntime{
 
@@ -215,6 +216,9 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	@Override
 	public abstract String getAgentSubType();
 
+	@Override
+	public abstract String getAccessKey();
+	
 	public String getConfigPath() {
 		return strConfigPath;
 	}
@@ -281,28 +285,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 			return null;
 		}
 
-		Map<String, Object> engineParams = new HashMap<String, Object>();
-		if (params != null) {
-			engineParams.putAll(params);
-		}
-		engineParams.put(TEMPLATE_PARAM_DATA, data);
-		engineParams.put(TEMPLATE_PARAM_CTX, this.getModelRuntimeContext());
-		engineParams.put(TEMPLATE_PARAM_FACTORY, this.getAIFactoryRuntime());
-		engineParams.put(TEMPLATE_PARAM_SYS, this.getSystemRuntime());
-		if(this.getDataEntityRuntime() != null) {
-			engineParams.put(TEMPLATE_PARAM_DE, this.getDataEntityRuntime());
-		}
-		else {
-			engineParams.put(TEMPLATE_PARAM_DE, null);
-		}
-		
-		engineParams.put(TEMPLATE_PARAM_REQUEST, ChatCompletionRequestHolder.peek());
-		
-
-		StringWriter sw = new StringWriter();
-		template.make(engineParams).writeTo(sw);
-
-		return sw.toString();
+		return this.getContent(data, template, params);
 	}
 	
 	protected Template getTemplate(String strTemplateId, boolean bTryMode) throws Throwable {
@@ -326,6 +309,62 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 			StringReader reader = new StringReader(strTemplateContent);
 			return getEngine().createTemplate(reader);
 		}
+	}
+	
+	protected Template getRawTemplate(String strTemplateContent) throws Throwable {
+		if(!StringUtils.hasLength(strTemplateContent)) {
+			return null;
+		}
+		
+		if (isEnableTemplateCache()) {
+			String strTemplateId = KeyValueUtils.genUniqueId(strTemplateContent);
+			Template template = getTemplateCacheMap().get(strTemplateId);
+			if (template == null) {
+				StringReader reader = new StringReader(strTemplateContent);
+				template = getEngine().createTemplate(reader);
+				this.getTemplateCacheMap().put(strTemplateId, template);
+			}
+			return template;
+		} else {
+			StringReader reader = new StringReader(strTemplateContent);
+			return getEngine().createTemplate(reader);
+		}
+	}
+	
+	protected String getRawContent(Object data, String strTemplateContent, Map<String, Object> params) throws Throwable{
+
+		Template template = this.getRawTemplate(strTemplateContent);
+		if(template == null) {
+			return null;
+		}
+
+		return this.getContent(data, template, params);
+	}
+	
+	protected String getContent(Object data, Template template, Map<String, Object> params) throws Throwable{
+
+		Map<String, Object> engineParams = new HashMap<String, Object>();
+		if (params != null) {
+			engineParams.putAll(params);
+		}
+		engineParams.put(TEMPLATE_PARAM_DATA, data);
+		engineParams.put(TEMPLATE_PARAM_CTX, this.getModelRuntimeContext());
+		engineParams.put(TEMPLATE_PARAM_FACTORY, this.getAIFactoryRuntime());
+		engineParams.put(TEMPLATE_PARAM_SYS, this.getSystemRuntime());
+		if(this.getDataEntityRuntime() != null) {
+			engineParams.put(TEMPLATE_PARAM_DE, this.getDataEntityRuntime());
+		}
+		else {
+			engineParams.put(TEMPLATE_PARAM_DE, null);
+		}
+		
+		engineParams.put(TEMPLATE_PARAM_REQUEST, ChatCompletionRequestHolder.peek());
+		
+
+		StringWriter sw = new StringWriter();
+		template.make(engineParams).writeTo(sw);
+
+		return sw.toString();
 	}
 	
 	/**

@@ -14,7 +14,7 @@ public abstract class SysAIPipelineAgentRuntimeBase extends SysAIAgentRuntimeBas
 
 	private IPSSysAIPipelineAgent iPSSysAIPipelineAgent = null;
 	private IDataEntityRuntime iDataEntityRuntime = null;
-	
+	private String strAccessKey = null;
 
 	@Override
 	protected ISysAIPipelineAgentRuntimeContext createModelRuntimeContext() {
@@ -31,6 +31,10 @@ public abstract class SysAIPipelineAgentRuntimeBase extends SysAIAgentRuntimeBas
 
 	@Override
 	protected void onInit() throws Exception {
+		
+//		if(this.getPSModelObject().getPSSysUniRes() != null) {
+//			this.strAccessKey = this.getPSModelObject().getPSSysUniRes().getResCode();
+//		}
 		
 		if(StringUtils.hasLength(this.getPSModelObject().getAIPlatformType())) {
 			this.setAIPlatformType(this.getPSModelObject().getAIPlatformType());
@@ -62,6 +66,11 @@ public abstract class SysAIPipelineAgentRuntimeBase extends SysAIAgentRuntimeBas
 	@Override
 	public String getAgentSubType() {
 		return this.iPSSysAIPipelineAgent.getAgentType();
+	}
+	
+	@Override
+	public String getAccessKey() {
+		return this.strAccessKey;
 	}
 	
 	@Override
