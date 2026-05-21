@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+import net.ibizsys.model.control.form.IPSDEForm;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -51,6 +52,7 @@ import net.ibizsys.codegen.groovy.util.GroovyUtils;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.PSModelEnums.DEFDataType;
 import net.ibizsys.model.PSModelEnums.DELogicThreadRunMode;
+import net.ibizsys.model.PSModelEnums.DEMethodDTOType;
 import net.ibizsys.model.PSModelEnums.DER1NMasterRS;
 import net.ibizsys.model.PSModelEnums.DERSubType;
 import net.ibizsys.model.PSModelEnums.StdDataType;
@@ -74,6 +76,7 @@ import net.ibizsys.model.dataentity.der.IPSDERCustom;
 import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.logic.IPSDEMSLogic;
 import net.ibizsys.model.dataentity.notify.IPSDENotify;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.model.wf.IPSWFVersion;
 import net.ibizsys.model.wf.IPSWorkflow;
@@ -111,40 +114,43 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	public final static String EXTENSION_LOGIC_ATTACHTODEDATASET = "LOGIC_ATTACHTODEDATASET";
 	public final static String EXTENSION_LOGIC_WEBHOOK = "LOGIC_WEBHOOK";
 	public final static String EXTENSION_LOGIC_TIMERTASK = "LOGIC_TIMERTASK";
+	public final static String EXTENSION_LOGIC_MANUALTASK = "LOGIC_MANUALTASK";
 	public final static String EXTENSION_LOGIC_EVENTHOOK = "LOGIC_EVENTHOOK";
+	public final static String EXTENSION_LOGIC_MCPTOOL = "LOGIC_MCPTOOL";
+	public final static String EXTENSION_LOGIC_AICHAT = "LOGIC_AICHAT";
 	public final static String EXTENSION_LOGIC_FIELDCHANGEHOOK = "LOGIC_FIELDCHANGEHOOK";
-
 
 	public final static String EXTENSION_NOTIFY_EVENTHOOK = "NOTIFY_EVENTHOOK";
 	public final static String EXTENSION_NOTIFY_FIELDCHANGEHOOK = "NOTIFY_FIELDCHANGEHOOK";
 
 	public final static String FIELD_EXTENSION_FORMAT = "FIELD__%1$s__%2$s";
 
-	final static String APPDEVIEWTYPE_DEMOBWFDYNAACTIONVIEW = "DEMOBWFDYNAACTIONVIEW";//实体移动端工作流动态操作视图
-	final static String APPDEVIEWTYPE_DEMOBWFDYNAEDITVIEW = "DEMOBWFDYNAEDITVIEW";//实体移动端工作流动态编辑视图
-	final static String APPDEVIEWTYPE_DEMOBWFDYNAEDITVIEW3 = "DEMOBWFDYNAEDITVIEW3";//实体移动端工作流动态编辑视图（分页关系）
-	//final static String APPDEVIEWTYPE_DEMOBWFDYNAEXPMDVIEW = "DEMOBWFDYNAEXPMDVIEW";//实体移动端工作流动态导航多数据视图
-	final static String APPDEVIEWTYPE_DEMOBWFDYNASTARTVIEW = "DEMOBWFDYNASTARTVIEW";//实体移动端工作流动态启动视图
+	final static String APPDEVIEWTYPE_DEMOBWFDYNAACTIONVIEW = "DEMOBWFDYNAACTIONVIEW";// 实体移动端工作流动态操作视图
+	final static String APPDEVIEWTYPE_DEMOBWFDYNAEDITVIEW = "DEMOBWFDYNAEDITVIEW";// 实体移动端工作流动态编辑视图
+	final static String APPDEVIEWTYPE_DEMOBWFDYNAEDITVIEW3 = "DEMOBWFDYNAEDITVIEW3";// 实体移动端工作流动态编辑视图（分页关系）
+	// final static String APPDEVIEWTYPE_DEMOBWFDYNAEXPMDVIEW =
+	// "DEMOBWFDYNAEXPMDVIEW";//实体移动端工作流动态导航多数据视图
+	final static String APPDEVIEWTYPE_DEMOBWFDYNASTARTVIEW = "DEMOBWFDYNASTARTVIEW";// 实体移动端工作流动态启动视图
 
-	final static String APPDEVIEWTYPE_DEWFDYNAACTIONVIEW = "DEWFDYNAACTIONVIEW";//实体工作流动态操作视图
-	final static String APPDEVIEWTYPE_DEWFDYNAEDITVIEW = "DEWFDYNAEDITVIEW";//实体工作流动态编辑视图
-	final static String APPDEVIEWTYPE_DEWFDYNAEDITVIEW3 = "DEWFDYNAEDITVIEW3";//实体工作流动态视图（分页关系）
-	//final static String APPDEVIEWTYPE_DEWFDYNAEXPGRIDVIEW = "DEWFDYNAEXPGRIDVIEW";//实体工作流动态导航表格视图
-	final static String APPDEVIEWTYPE_DEWFDYNASTARTVIEW = "DEWFDYNASTARTVIEW";//实体工作流动态启动视图
+	final static String APPDEVIEWTYPE_DEWFDYNAACTIONVIEW = "DEWFDYNAACTIONVIEW";// 实体工作流动态操作视图
+	final static String APPDEVIEWTYPE_DEWFDYNAEDITVIEW = "DEWFDYNAEDITVIEW";// 实体工作流动态编辑视图
+	final static String APPDEVIEWTYPE_DEWFDYNAEDITVIEW3 = "DEWFDYNAEDITVIEW3";// 实体工作流动态视图（分页关系）
+	// final static String APPDEVIEWTYPE_DEWFDYNAEXPGRIDVIEW =
+	// "DEWFDYNAEXPGRIDVIEW";//实体工作流动态导航表格视图
+	final static String APPDEVIEWTYPE_DEWFDYNASTARTVIEW = "DEWFDYNASTARTVIEW";// 实体工作流动态启动视图
 
-	final static String APPDEVIEWTYPE_DEEDITVIEW = "DEEDITVIEW";//实体编辑视图
-	final static String APPDEVIEWTYPE_DEEDITVIEW2 = "DEEDITVIEW2";//实体编辑视图（左右关系）
-	final static String APPDEVIEWTYPE_DEEDITVIEW3 = "DEEDITVIEW3";//实体编辑视图（分页关系）
-	final static String APPDEVIEWTYPE_DEEDITVIEW4 = "DEEDITVIEW4";//实体编辑视图（上下关系）
-	final static String APPDEVIEWTYPE_DEEDITVIEW9 = "DEEDITVIEW9";//实体编辑视图（部件视图）
+	final static String APPDEVIEWTYPE_DEEDITVIEW = "DEEDITVIEW";// 实体编辑视图
+	final static String APPDEVIEWTYPE_DEEDITVIEW2 = "DEEDITVIEW2";// 实体编辑视图（左右关系）
+	final static String APPDEVIEWTYPE_DEEDITVIEW3 = "DEEDITVIEW3";// 实体编辑视图（分页关系）
+	final static String APPDEVIEWTYPE_DEEDITVIEW4 = "DEEDITVIEW4";// 实体编辑视图（上下关系）
+	final static String APPDEVIEWTYPE_DEEDITVIEW9 = "DEEDITVIEW9";// 实体编辑视图（部件视图）
 
-	final static String APPDEVIEWTYPE_DEMOBEDITVIEW = "DEMOBEDITVIEW";//实体移动端编辑视图
-	final static String APPDEVIEWTYPE_DEMOBEDITVIEW3 = "DEMOBEDITVIEW3";//实体移动端编辑视图（分页关系）
-	final static String APPDEVIEWTYPE_DEMOBEDITVIEW9 = "DEMOBEDITVIEW9";//实体移动端编辑视图（部件视图）
+	final static String APPDEVIEWTYPE_DEMOBEDITVIEW = "DEMOBEDITVIEW";// 实体移动端编辑视图
+	final static String APPDEVIEWTYPE_DEMOBEDITVIEW3 = "DEMOBEDITVIEW3";// 实体移动端编辑视图（分页关系）
+	final static String APPDEVIEWTYPE_DEMOBEDITVIEW9 = "DEMOBEDITVIEW9";// 实体移动端编辑视图（部件视图）
 
-	final static String APPDEVIEWTYPE_DEMOBOPTVIEW = "DEMOBOPTVIEW";//实体移动端选项操作视图
-	final static String APPDEVIEWTYPE_DEOPTVIEW = "DEOPTVIEW";//实体选项操作视图
-
+	final static String APPDEVIEWTYPE_DEMOBOPTVIEW = "DEMOBOPTVIEW";// 实体移动端选项操作视图
+	final static String APPDEVIEWTYPE_DEOPTVIEW = "DEOPTVIEW";// 实体选项操作视图
 
 	/**
 	 * 动态视图模式：实体工作流视图
@@ -158,7 +164,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 	public final static String DYNAVIEWMODE_DEOPTVIEW = "DEOPTVIEW";
 
-
 	private final static Map<String, String> DynaViewModeMap = new HashMap<String, String>();
 	static {
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEMOBWFDYNAACTIONVIEW, DYNAVIEWMODE_DEWFVIEW);
@@ -171,7 +176,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEWFDYNAEDITVIEW3, DYNAVIEWMODE_DEWFVIEW);
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEWFDYNASTARTVIEW, DYNAVIEWMODE_DEWFVIEW);
 
-
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEEDITVIEW, DYNAVIEWMODE_DEEDITVIEW);
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEEDITVIEW2, DYNAVIEWMODE_DEEDITVIEW);
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEEDITVIEW3, DYNAVIEWMODE_DEEDITVIEW);
@@ -183,9 +187,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEMOBOPTVIEW, DYNAVIEWMODE_DEEDITVIEW);
 		DynaViewModeMap.put(APPDEVIEWTYPE_DEOPTVIEW, DYNAVIEWMODE_DEEDITVIEW);
 	}
-
-
-
 
 	private Map<String, Map<String, ? extends IEntity>> extensionBackupMap = new ConcurrentHashMap<String, Map<String, ? extends IEntity>>();
 
@@ -207,7 +208,10 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	// ConcurrentHashMap<String, String>();
 
 	private Map<V2SystemExtensionLogic, IDELogicRuntime> timerTaskDELogicRuntimeMap = new ConcurrentHashMap<V2SystemExtensionLogic, IDELogicRuntime>();
-	private Map<V2SystemExtensionLogic, IDELogicRuntime> webHookDELogicRuntimeMap = new ConcurrentHashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+	private Map<V2SystemExtensionLogic, IDELogicRuntime> webhookDELogicRuntimeMap = new ConcurrentHashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+	private Map<V2SystemExtensionLogic, IDELogicRuntime> mcpToolDELogicRuntimeMap = new ConcurrentHashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+	private Map<V2SystemExtensionLogic, IDELogicRuntime> manualTaskDELogicRuntimeMap = new ConcurrentHashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+	private Map<String, IDELogicRuntime> aiChatDELogicRuntimeMap = new ConcurrentHashMap<String, IDELogicRuntime>();
 
 	private Map<String, List<IDENotifyRuntime>> deNotifyEventHookRuntimeMap = new ConcurrentHashMap<String, List<IDENotifyRuntime>>();
 	private Map<String, List<IDENotifyRuntime>> deNotifyFieldChangeHookRuntimeMap = new ConcurrentHashMap<String, List<IDENotifyRuntime>>();
@@ -222,7 +226,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	private V2SystemExtensionSuite v2SystemExtensionSuite;
 
 	private ISysCloudExtensionUtilRuntime iSysCloudExtensionUtilRuntime = null;
-
 
 	private String strLastSystemExtensionFieldCacheData = null;
 	private String strLastSystemExtensionFormCacheData = null;
@@ -244,7 +247,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 	@Override
 	protected IDEExtensionUtilRuntimeContext getModelRuntimeContext() {
-		return (IDEExtensionUtilRuntimeContext)super.getModelRuntimeContext();
+		return (IDEExtensionUtilRuntimeContext) super.getModelRuntimeContext();
 	}
 
 	@Override
@@ -286,15 +289,15 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 	@Override
 	protected void prepareAddinRepo() throws Exception {
-		this.prepareAddinRepo(this.getModelRuntimeContext(), IDEExtensionUtilRTAddin.class, String.format("%1$s:",this.getDataEntityTag()));
+		this.prepareAddinRepo(this.getModelRuntimeContext(), IDEExtensionUtilRTAddin.class, String.format("%1$s:", this.getDataEntityTag()));
 	}
 
 	private DEExtensionUtilRuntimeBase getSelf() {
 		return this;
 	}
 
-	protected ISysCloudExtensionUtilRuntime getSysCloudExtensionUtilRuntime(){
-		if(this.iSysCloudExtensionUtilRuntime == null) {
+	protected ISysCloudExtensionUtilRuntime getSysCloudExtensionUtilRuntime() {
+		if (this.iSysCloudExtensionUtilRuntime == null) {
 			this.iSysCloudExtensionUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysCloudExtensionUtilRuntime.class, false);
 		}
 		return this.iSysCloudExtensionUtilRuntime;
@@ -444,7 +447,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			}
 		}
 
-		//this.reloadSystemExtensionFields(v2SystemExtensionFieldList);
+		// this.reloadSystemExtensionFields(v2SystemExtensionFieldList);
 		this.reloadSystemExtensionMainStates(v2SystemExtensionMainStateList);
 		this.reloadSystemExtensionLogics(v2SystemExtensionLogicList);
 		this.reloadSystemExtensionNotifies(v2SystemExtensionNotifyList);
@@ -583,7 +586,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	protected void reloadSystemExtensionLogics(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
 
 		// 按类别加载
-		String[] logicSubTypes = new String[] { LogicSubType.ATTACHTODEACTION.value, LogicSubType.ATTACHTODEDATASET.value, LogicSubType.WEBHOOK.value, LogicSubType.TIMERTASK.value, LogicSubType.EVENTHOOK.value, LogicSubType.FIELDCHANGEHOOK.value };
+		String[] logicSubTypes = new String[] { LogicSubType.ATTACHTODEACTION.value, LogicSubType.ATTACHTODEDATASET.value, LogicSubType.WEBHOOK.value, LogicSubType.TIMERTASK.value, LogicSubType.MANUALTASK.value, LogicSubType.EVENTHOOK.value, LogicSubType.FIELDCHANGEHOOK.value, LogicSubType.MCPTOOL.value, LogicSubType.AICHAT.value };
 
 		java.util.List<V2SystemExtensionLogic> leaveV2SystemExtensionLogicList = new ArrayList<V2SystemExtensionLogic>();
 		if (!ObjectUtils.isEmpty(v2SystemExtensionLogicList)) {
@@ -626,6 +629,11 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				reloadSystemExtensionLogics_TimerTask(subTypeV2SystemExtensionLogicList);
 				continue;
 			}
+			
+			if (LogicSubType.MANUALTASK.value.equals(strLogicSubType)) {
+				reloadSystemExtensionLogics_ManualTask(subTypeV2SystemExtensionLogicList);
+				continue;
+			}
 
 			if (LogicSubType.EVENTHOOK.value.equals(strLogicSubType)) {
 				reloadSystemExtensionLogics_EventHook(subTypeV2SystemExtensionLogicList);
@@ -638,7 +646,15 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			}
 
 			if (LogicSubType.WEBHOOK.value.equals(strLogicSubType)) {
-				reloadSystemExtensionLogics_WebHook(subTypeV2SystemExtensionLogicList);
+				reloadSystemExtensionLogics_Webhook(subTypeV2SystemExtensionLogicList);
+				continue;
+			}
+			if (LogicSubType.MCPTOOL.value.equals(strLogicSubType)) {
+				reloadSystemExtensionLogics_McpTool(subTypeV2SystemExtensionLogicList);
+				continue;
+			}
+			if (LogicSubType.AICHAT.value.equals(strLogicSubType)) {
+				reloadSystemExtensionLogics_AIChat(subTypeV2SystemExtensionLogicList);
 				continue;
 			}
 		}
@@ -870,6 +886,56 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		this.extensionBackupMap.put(EXTENSION_LOGIC_TIMERTASK, curData);
 	}
 
+	protected void reloadSystemExtensionLogics_ManualTask(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
+
+		Map<String, V2SystemExtensionLogic> lastData = (Map<String, V2SystemExtensionLogic>) this.extensionBackupMap.get(EXTENSION_LOGIC_MANUALTASK);
+		Map<String, V2SystemExtensionLogic> curData = new LinkedHashMap<String, V2SystemExtensionLogic>();
+		if (!ObjectUtils.isEmpty(v2SystemExtensionLogicList)) {
+			for (V2SystemExtensionLogic v2SystemExtensionLogic : v2SystemExtensionLogicList) {
+				curData.put(v2SystemExtensionLogic.getId(), v2SystemExtensionLogic);
+			}
+		}
+
+		// 判断是否一致
+		if (ExtensionUtils.compareExtensions(curData, lastData)) {
+			return;
+		}
+
+		Map<V2SystemExtensionLogic, IDELogicRuntime> manualTaskDELogicRuntimeMap = new HashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+
+		for (V2SystemExtensionLogic v2SystemExtensionLogic : curData.values()) {
+			ObjectNode deLogicNode = JsonUtils.toObjectNode(v2SystemExtensionLogic.getRuntimeModel());
+			IPSDELogic iPSDELogic = this.getDataEntityRuntime().getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) this.getDataEntityRuntime().getPSDataEntity(), IPSDELogic.class, deLogicNode);
+			if (!iPSDELogic.isValid()) {
+				logEvent(LogLevels.WARN, String.format("扩展手动逻辑[%1$s][%3$s@%2$s]未被启用，忽略加载", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+				continue;
+			}
+
+			try {
+				IDELogicRuntime iDELogicRuntime = this.createDELogicRuntime(iPSDELogic);
+				if (iDELogicRuntime == null) {
+					throw new Exception(String.format("无法建立实体逻辑运行时对象"));
+				}
+
+				iDELogicRuntime.init(this.getDataEntityRuntimeContext(), iPSDELogic);
+				v2SystemExtensionLogic.set("validflag", true);
+				manualTaskDELogicRuntimeMap.put(v2SystemExtensionLogic, iDELogicRuntime);
+
+				logEvent(LogLevels.INFO, String.format("扩展手动逻辑[%1$s][%3$s@%2$s]加载成功", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+			} catch (Throwable ex) {
+				log.error(String.format("应用手动处理逻辑[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), ex);
+				logEvent(LogLevels.ERROR, String.format("扩展手动逻辑[%1$s][%3$s@%2$s]加载失败，%4$s", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic), ex.getMessage()));
+			}
+		}
+
+		synchronized (this.manualTaskDELogicRuntimeMap) {
+			this.manualTaskDELogicRuntimeMap.clear();
+			this.manualTaskDELogicRuntimeMap.putAll(manualTaskDELogicRuntimeMap);
+		}
+		this.extensionBackupMap.put(EXTENSION_LOGIC_MANUALTASK, curData);
+	}
+	
+	
 	protected void reloadSystemExtensionLogics_EventHook(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
 
 		Map<String, V2SystemExtensionLogic> lastData = (Map<String, V2SystemExtensionLogic>) this.extensionBackupMap.get(EXTENSION_LOGIC_EVENTHOOK);
@@ -985,11 +1051,10 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 
 		synchronized (this.deLogicDEFieldHookRuntimeList) {
-			for(DataEntityOnChangeLogic dataEntityOnChangeLogic : this.deLogicDEFieldHookRuntimeList) {
+			for (DataEntityOnChangeLogic dataEntityOnChangeLogic : this.deLogicDEFieldHookRuntimeList) {
 				try {
 					dataEntityOnChangeLogic.uninstall();
-				}
-				catch (Throwable ex) {
+				} catch (Throwable ex) {
 					log.error(String.format("应用属性变更逻辑[%1$s]卸载发生异常，%2$s", dataEntityOnChangeLogic.getDELogicRuntime().getName(), ex.getMessage()), ex);
 				}
 			}
@@ -1000,7 +1065,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		this.extensionBackupMap.put(EXTENSION_LOGIC_FIELDCHANGEHOOK, curData);
 	}
 
-	protected IDELogicRuntime createDELogicRuntime(IPSDELogic iPSDELogic) throws Exception{
+	protected IDELogicRuntime createDELogicRuntime(IPSDELogic iPSDELogic) throws Exception {
 		return (IDELogicRuntime) this.getDataEntityRuntime().createDELogicRuntime(iPSDELogic);
 	}
 
@@ -1139,7 +1204,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		this.extensionBackupMap.put(EXTENSION_NOTIFY_FIELDCHANGEHOOK, curData);
 	}
 
-	protected void reloadSystemExtensionLogics_WebHook(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
+	protected void reloadSystemExtensionLogics_Webhook(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
 		Map<String, V2SystemExtensionLogic> lastData = (Map<String, V2SystemExtensionLogic>) this.extensionBackupMap.get(EXTENSION_LOGIC_WEBHOOK);
 		Map<String, V2SystemExtensionLogic> curData = new LinkedHashMap<String, V2SystemExtensionLogic>();
 		if (!ObjectUtils.isEmpty(v2SystemExtensionLogicList)) {
@@ -1153,14 +1218,14 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			return;
 		}
 
-		Map<V2SystemExtensionLogic, IDELogicRuntime> webHookDELogicRuntimeMap = new HashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+		Map<V2SystemExtensionLogic, IDELogicRuntime> webhookDELogicRuntimeMap = new HashMap<V2SystemExtensionLogic, IDELogicRuntime>();
 
 		for (V2SystemExtensionLogic v2SystemExtensionLogic : curData.values()) {
 			ObjectNode deLogicNode = JsonUtils.toObjectNode(v2SystemExtensionLogic.getRuntimeModel());
 
 			IPSDELogic iPSDELogic = this.getDataEntityRuntime().getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) this.getDataEntityRuntime().getPSDataEntity(), IPSDELogic.class, deLogicNode);
 			if (!iPSDELogic.isValid()) {
-				logEvent(LogLevels.WARN, String.format("扩展WebHook[%1$s][%3$s@%2$s]未被启用，忽略加载", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+				logEvent(LogLevels.WARN, String.format("扩展Webhook[%1$s][%3$s@%2$s]未被启用，忽略加载", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
 				continue;
 			}
 
@@ -1172,28 +1237,135 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 				iDELogicRuntime.init(this.getDataEntityRuntimeContext(), iPSDELogic);
 				v2SystemExtensionLogic.set("validflag", true);
-				webHookDELogicRuntimeMap.put(v2SystemExtensionLogic, iDELogicRuntime);
+				webhookDELogicRuntimeMap.put(v2SystemExtensionLogic, iDELogicRuntime);
 
-				logEvent(LogLevels.INFO, String.format("扩展WebHook[%1$s][%3$s@%2$s]加载成功", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+				logEvent(LogLevels.INFO, String.format("扩展Webhook[%1$s][%3$s@%2$s]加载成功", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
 			} catch (Throwable ex) {
-				log.error(String.format("应用WebHook[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), ex);
+				log.error(String.format("应用Webhook[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), ex);
 				// 更新状态
-				logEvent(LogLevels.ERROR, String.format("扩展WebHook[%1$s][%3$s@%2$s]加载失败，%4$s", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic), ex.getMessage()));
+				logEvent(LogLevels.ERROR, String.format("扩展Webhook[%1$s][%3$s@%2$s]加载失败，%4$s", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic), ex.getMessage()));
 			}
 		}
 
-		synchronized (this.webHookDELogicRuntimeMap) {
-			this.webHookDELogicRuntimeMap.clear();
-			this.webHookDELogicRuntimeMap.putAll(webHookDELogicRuntimeMap);
+		synchronized (this.webhookDELogicRuntimeMap) {
+			this.webhookDELogicRuntimeMap.clear();
+			this.webhookDELogicRuntimeMap.putAll(webhookDELogicRuntimeMap);
 		}
 
 		this.extensionBackupMap.put(EXTENSION_LOGIC_WEBHOOK, curData);
+	}
+
+	protected void reloadSystemExtensionLogics_McpTool(java.util.List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
+		Map<String, V2SystemExtensionLogic> lastData = (Map<String, V2SystemExtensionLogic>) this.extensionBackupMap.get(EXTENSION_LOGIC_MCPTOOL);
+		Map<String, V2SystemExtensionLogic> curData = new LinkedHashMap<String, V2SystemExtensionLogic>();
+		if (!ObjectUtils.isEmpty(v2SystemExtensionLogicList)) {
+			for (V2SystemExtensionLogic v2SystemExtensionLogic : v2SystemExtensionLogicList) {
+				curData.put(v2SystemExtensionLogic.getId(), v2SystemExtensionLogic);
+			}
+		}
+
+		// 判断是否一致
+		if (ExtensionUtils.compareExtensions(curData, lastData)) {
+			return;
+		}
+
+		Map<V2SystemExtensionLogic, IDELogicRuntime> mcpToolDELogicRuntimeMap = new HashMap<V2SystemExtensionLogic, IDELogicRuntime>();
+
+		for (V2SystemExtensionLogic v2SystemExtensionLogic : curData.values()) {
+			ObjectNode deLogicNode = JsonUtils.toObjectNode(v2SystemExtensionLogic.getRuntimeModel());
+
+			IPSDELogic iPSDELogic = this.getDataEntityRuntime().getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) this.getDataEntityRuntime().getPSDataEntity(), IPSDELogic.class, deLogicNode);
+			if (!iPSDELogic.isValid()) {
+				logEvent(LogLevels.WARN, String.format("扩展McpTool[%1$s][%3$s@%2$s]未被启用，忽略加载", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+				continue;
+			}
+
+			try {
+				IDELogicRuntime iDELogicRuntime = this.createDELogicRuntime(iPSDELogic);
+				if (iDELogicRuntime == null) {
+					throw new Exception(String.format("无法建立运行时对象"));
+				}
+
+				iDELogicRuntime.init(this.getDataEntityRuntimeContext(), iPSDELogic);
+				v2SystemExtensionLogic.set("validflag", true);
+				v2SystemExtensionLogic.set("mcpserverid", iPSDELogic.getMcpServerId());
+				v2SystemExtensionLogic.set("toolspecification", iPSDELogic.getToolSpecification());
+				v2SystemExtensionLogic.set("toolname", iPSDELogic.getCodeName());
+				v2SystemExtensionLogic.set("tooldesc", iPSDELogic.getMemo());
+
+				mcpToolDELogicRuntimeMap.put(v2SystemExtensionLogic, iDELogicRuntime);
+
+				logEvent(LogLevels.INFO, String.format("扩展McpTool[%1$s][%3$s@%2$s]加载成功", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+			} catch (Throwable ex) {
+				log.error(String.format("应用McpTool[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), ex);
+				// 更新状态
+				logEvent(LogLevels.ERROR, String.format("扩展McpTool[%1$s][%3$s@%2$s]加载失败，%4$s", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic), ex.getMessage()));
+			}
+		}
+
+		synchronized (this.mcpToolDELogicRuntimeMap) {
+			this.mcpToolDELogicRuntimeMap.clear();
+			this.mcpToolDELogicRuntimeMap.putAll(mcpToolDELogicRuntimeMap);
+		}
+
+		this.extensionBackupMap.put(EXTENSION_LOGIC_MCPTOOL, curData);
 	}
 
 	protected IDENotifyRuntime createDENotifyRuntime(IPSDENotify iPSDENotify) throws Exception {
 		return (IDENotifyRuntime) this.getDataEntityRuntime().createDENotifyRuntime(iPSDENotify);
 	}
 
+	protected void reloadSystemExtensionLogics_AIChat(List<V2SystemExtensionLogic> v2SystemExtensionLogicList) throws Throwable {
+		Map<String, V2SystemExtensionLogic> lastData = (Map<String, V2SystemExtensionLogic>) this.extensionBackupMap.get(EXTENSION_LOGIC_AICHAT);
+		Map<String, V2SystemExtensionLogic> curData = new LinkedHashMap<String, V2SystemExtensionLogic>();
+		if (!ObjectUtils.isEmpty(v2SystemExtensionLogicList)) {
+			for (V2SystemExtensionLogic v2SystemExtensionLogic : v2SystemExtensionLogicList) {
+				curData.put(v2SystemExtensionLogic.getId(), v2SystemExtensionLogic);
+			}
+		}
+
+		// 判断是否一致
+		if (ExtensionUtils.compareExtensions(curData, lastData)) {
+			return;
+		}
+
+		Map<String, IDELogicRuntime> aiChatDELogicRuntimeMap = new HashMap<String, IDELogicRuntime>();
+
+		for (V2SystemExtensionLogic v2SystemExtensionLogic : curData.values()) {
+			ObjectNode deLogicNode = JsonUtils.toObjectNode(v2SystemExtensionLogic.getRuntimeModel());
+
+			IPSDELogic iPSDELogic = this.getDataEntityRuntime().getSystemRuntime().getPSSystemService().createAndInitPSModelObject((IPSModelObjectRuntime) this.getDataEntityRuntime().getPSDataEntity(), IPSDELogic.class, deLogicNode);
+			if (!iPSDELogic.isValid()) {
+				logEvent(LogLevels.WARN, String.format("扩展AIChat[%1$s][%3$s@%2$s]未被启用，忽略加载", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+				continue;
+			}
+
+			try {
+				IDELogicRuntime iDELogicRuntime = this.createDELogicRuntime(iPSDELogic);
+				if (iDELogicRuntime == null) {
+					throw new Exception(String.format("无法建立运行时对象"));
+				}
+
+				iDELogicRuntime.init(this.getDataEntityRuntimeContext(), iPSDELogic);
+				v2SystemExtensionLogic.set("validflag", true);
+
+				aiChatDELogicRuntimeMap.put(v2SystemExtensionLogic.getLogicTag().toLowerCase(), iDELogicRuntime);
+
+				logEvent(LogLevels.INFO, String.format("扩展AIChat[%1$s][%3$s@%2$s]加载成功", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic)));
+			} catch (Throwable ex) {
+				log.error(String.format("应用AIChat[%1$s]发生异常，%2$s", v2SystemExtensionLogic.getName(), ex.getMessage()), ex);
+				// 更新状态
+				logEvent(LogLevels.ERROR, String.format("扩展AIChat[%1$s][%3$s@%2$s]加载失败，%4$s", iPSDELogic.getName(), ServiceHub.getInstance().getId(), PSModelUtils.calcFullUniqueTag2(iPSDELogic), ex.getMessage()));
+			}
+		}
+
+		synchronized (this.aiChatDELogicRuntimeMap) {
+			this.aiChatDELogicRuntimeMap.clear();
+			this.aiChatDELogicRuntimeMap.putAll(aiChatDELogicRuntimeMap);
+		}
+
+		this.extensionBackupMap.put(EXTENSION_LOGIC_AICHAT, curData);
+	}
 
 	@Override
 	public V2SystemExtensionLogic[] getExtensionLogics(String strLogicType) {
@@ -1201,7 +1373,10 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			return this.timerTaskDELogicRuntimeMap.keySet().toArray(new V2SystemExtensionLogic[this.timerTaskDELogicRuntimeMap.size()]);
 		}
 		if (EXTENSIONLOGIC_WEBHOOK.equalsIgnoreCase(strLogicType)) {
-			return this.webHookDELogicRuntimeMap.keySet().toArray(new V2SystemExtensionLogic[this.webHookDELogicRuntimeMap.size()]);
+			return this.webhookDELogicRuntimeMap.keySet().toArray(new V2SystemExtensionLogic[this.webhookDELogicRuntimeMap.size()]);
+		}
+		if (EXTENSIONLOGIC_MCPTOOL.equalsIgnoreCase(strLogicType)) {
+			return this.mcpToolDELogicRuntimeMap.keySet().toArray(new V2SystemExtensionLogic[this.mcpToolDELogicRuntimeMap.size()]);
 		}
 		return null;
 	}
@@ -1230,6 +1405,18 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			deLogicRuntimeProxyMap.put(iDELogicRuntime.getId(), deLogicRuntimeProxy);
 		}
 		return deLogicRuntimeProxy.getProxyObject();
+	}
+
+	@Override
+	public IDELogicRuntime getAIChatDELogicRuntime(String strLogicTag, boolean bProxyMode, boolean bTryMode) {
+		IDELogicRuntime iDELogicRuntime = this.aiChatDELogicRuntimeMap.get(strLogicTag.toLowerCase());
+		if (iDELogicRuntime == null) {
+			if (bTryMode) {
+				return null;
+			}
+			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("无法获取指定实体AI交谈逻辑[%1$s]", strLogicTag));
+		}
+		return bProxyMode ? this.getDELogicRuntime(iDELogicRuntime) : iDELogicRuntime;
 	}
 
 	@Override
@@ -1273,12 +1460,11 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("获取传入数据的主状态逻辑运行时代理对象发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
-	
+
 	@Override
 	public boolean isEnableDEMSLogic() {
 		return !ObjectUtils.isEmpty(deMSLogicRuntimeMap);
 	}
-	
 
 	protected IDEMSLogicRuntime onGetDEMSLogicRuntime(IEntity iEntity, boolean bTryMode) throws Throwable {
 		if (ObjectUtils.isEmpty(this.getPSDataEntity().getMainStatePSDEFields())) {
@@ -1418,7 +1604,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		List<IPSDEField> psDEFieldList = psDEFieldListMap.get(this.getDataEntityTag().toLowerCase());
 		if (!ObjectUtils.isEmpty(key)) {
 			List<IPSDEField> psDEFieldList2 = psDEFieldListMap.get(String.format("%1$s@%2$s", key, this.strDataEntityTag).toLowerCase());
-			if(ObjectUtils.isEmpty(extendParentKeys)) {
+			if (ObjectUtils.isEmpty(extendParentKeys)) {
 				if (ObjectUtils.isEmpty(psDEFieldList2)) {
 					return psDEFieldList;
 				}
@@ -1427,18 +1613,18 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				}
 			}
 			List<IPSDEField> allPSDEFieldList = new ArrayList<IPSDEField>();
-			if(!ObjectUtils.isEmpty(extendParentKeys)){
-				for (String extendParentKey : extendParentKeys){
+			if (!ObjectUtils.isEmpty(extendParentKeys)) {
+				for (String extendParentKey : extendParentKeys) {
 					List<IPSDEField> psDEFieldList3 = psDEFieldListMap.get(String.format("%1$s@%2$s", extendParentKey, this.strDataEntityTag).toLowerCase());
-					if(!ObjectUtils.isEmpty(psDEFieldList3)) {
+					if (!ObjectUtils.isEmpty(psDEFieldList3)) {
 						allPSDEFieldList.addAll(psDEFieldList3);
 					}
 				}
 			}
-			if(!ObjectUtils.isEmpty(psDEFieldList2)){
+			if (!ObjectUtils.isEmpty(psDEFieldList2)) {
 				allPSDEFieldList.addAll(psDEFieldList2);
 			}
-			if(!ObjectUtils.isEmpty(psDEFieldList)){
+			if (!ObjectUtils.isEmpty(psDEFieldList)) {
 				allPSDEFieldList.addAll(psDEFieldList);
 			}
 			Map<String, IPSDEField> psDEFieldMap = new LinkedHashMap<String, IPSDEField>();
@@ -1452,19 +1638,19 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			allPSDEFieldList.clear();
 			allPSDEFieldList.addAll(psDEFieldMap.values());
 			return allPSDEFieldList;
-		}else {
-			if(ObjectUtils.isEmpty(extendParentKeys)) {
+		} else {
+			if (ObjectUtils.isEmpty(extendParentKeys)) {
 				return psDEFieldList;
 			}
 
 			List<IPSDEField> allPSDEFieldList = new ArrayList<IPSDEField>();
-			for (String extendParentKey : extendParentKeys){
+			for (String extendParentKey : extendParentKeys) {
 				List<IPSDEField> psDEFieldList3 = psDEFieldListMap.get(String.format("%1$s@%2$s", extendParentKey, this.strDataEntityTag).toLowerCase());
-				if(!ObjectUtils.isEmpty(psDEFieldList3)) {
+				if (!ObjectUtils.isEmpty(psDEFieldList3)) {
 					allPSDEFieldList.addAll(psDEFieldList3);
 				}
 			}
-			if(!ObjectUtils.isEmpty(psDEFieldList)){
+			if (!ObjectUtils.isEmpty(psDEFieldList)) {
 				allPSDEFieldList.addAll(psDEFieldList);
 			}
 			Map<String, IPSDEField> psDEFieldMap = new LinkedHashMap<String, IPSDEField>();
@@ -1486,13 +1672,12 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	}
 
 	protected synchronized void onPrepareSystemExtensionFields(V2SystemExtensionSuite v2SystemExtensionSuite) throws Throwable {
-		if(v2SystemExtensionSuite == null) {
+		if (v2SystemExtensionSuite == null) {
 			this.reloadSystemExtensionFields(null);
-		}
-		else {
+		} else {
 			String strCurrentSystemExtensionFieldCacheData = getCurrentSystemExtensionFieldCacheData(v2SystemExtensionSuite.getId());
-			if(this.strLastSystemExtensionFieldCacheData == null || !this.strLastSystemExtensionFieldCacheData.equals(strCurrentSystemExtensionFieldCacheData)) {
-				//查询相关数据
+			if (this.strLastSystemExtensionFieldCacheData == null || !this.strLastSystemExtensionFieldCacheData.equals(strCurrentSystemExtensionFieldCacheData)) {
+				// 查询相关数据
 				List<V2SystemExtensionField> v2SystemExtensionFieldList = this.getSysCloudExtensionUtilRuntime().getSystemExtensionFields(v2SystemExtensionSuite.getId(), this.getDataEntityTag());
 				this.reloadSystemExtensionFields(v2SystemExtensionFieldList);
 				this.strLastSystemExtensionFieldCacheData = strCurrentSystemExtensionFieldCacheData;
@@ -1514,15 +1699,14 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	}
 
 	protected synchronized void onPrepareSystemExtensionForms(V2SystemExtensionSuite v2SystemExtensionSuite) throws Throwable {
-		if(v2SystemExtensionSuite == null) {
-			//this.reloadSystemExtensionForms(null);
-		}
-		else {
+		if (v2SystemExtensionSuite == null) {
+			// this.reloadSystemExtensionForms(null);
+		} else {
 			String strCurrentSystemExtensionFormCacheData = getCurrentSystemExtensionFormCacheData(v2SystemExtensionSuite.getId());
-			if(this.strLastSystemExtensionFormCacheData == null || !this.strLastSystemExtensionFormCacheData.equals(strCurrentSystemExtensionFormCacheData)) {
-				//查询相关数据
+			if (this.strLastSystemExtensionFormCacheData == null || !this.strLastSystemExtensionFormCacheData.equals(strCurrentSystemExtensionFormCacheData)) {
+				// 查询相关数据
 				List<V2SystemExtensionForm> v2SystemExtensionFormList = this.getSysCloudExtensionUtilRuntime().getSystemExtensionForms(v2SystemExtensionSuite.getId(), this.getDataEntityTag());
-				//this.reloadSystemExtensionForms(v2SystemExtensionFormList);
+				// this.reloadSystemExtensionForms(v2SystemExtensionFormList);
 
 				this.strLastSystemExtensionFormCacheData = strCurrentSystemExtensionFormCacheData;
 			}
@@ -1543,8 +1727,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	public String getExtensionSessionId() {
 		try {
 			return this.onExtensionSessionId();
-		}
-		catch (Throwable ex) {
+		} catch (Throwable ex) {
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("获取扩展会话标识发生异常，%1$s", ex.getMessage()), ex);
 		}
@@ -1554,8 +1737,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		final IServiceSystemRuntime iServiceSystemRuntime = this.getServiceSystemRuntime(false);
 		String strExtensionSessionId = iServiceSystemRuntime.getExtensionSessionId();
 		String strExtensionId = iServiceSystemRuntime.getExtensionId();
-		if(!StringUtils.hasLength(strExtensionSessionId)
-				|| !StringUtils.hasLength(strExtensionId)) {
+		if (!StringUtils.hasLength(strExtensionSessionId) || !StringUtils.hasLength(strExtensionId)) {
 			return strExtensionSessionId;
 		}
 
@@ -1644,7 +1826,9 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		if (EXTENSIONLOGIC_TIMERTASK.equalsIgnoreCase(v2SystemExtensionLogic.getExtensionTag4())) {
 			iDELogicRuntime = timerTaskDELogicRuntimeMap.get(v2SystemExtensionLogic);
 		} else if (EXTENSIONLOGIC_WEBHOOK.equalsIgnoreCase(v2SystemExtensionLogic.getExtensionTag4())) {
-			iDELogicRuntime = webHookDELogicRuntimeMap.get(v2SystemExtensionLogic);
+			iDELogicRuntime = webhookDELogicRuntimeMap.get(v2SystemExtensionLogic);
+		} else if (EXTENSIONLOGIC_MCPTOOL.equalsIgnoreCase(v2SystemExtensionLogic.getExtensionTag4())) {
+			iDELogicRuntime = mcpToolDELogicRuntimeMap.get(v2SystemExtensionLogic);
 		}
 
 		if (iDELogicRuntime == null) {
@@ -1652,11 +1836,11 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 
 		IEntity iEntity = this.getEntity(objData);
-		
+
 		IDELogicRuntime iDELogicRuntime2 = iDELogicRuntime;
-		if(iDELogicRuntime.getPSDELogic().getThreadMode() == DELogicThreadRunMode.THREAD.value) {
+		if (iDELogicRuntime.getPSDELogic().getThreadMode() == DELogicThreadRunMode.THREAD.value) {
 			this.getSystemRuntime().threadRun(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					try {
@@ -1667,8 +1851,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				}
 			});
 			return null;
-		}
-		else {
+		} else {
 			return this.executeLogic(iDELogicRuntime, new Object[] { iEntity }, v2SystemExtensionLogic);
 		}
 	}
@@ -1946,13 +2129,15 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	protected Object executeLogic(IDELogicRuntime iDELogicRuntime, Object[] args, Object tag) throws Throwable {
 		Date startAt = new Date();
 		Throwable error = null;
+		Object ret = null;
 		try {
-			return this.executeAction(String.format("执行扩展逻辑[%1$s]", iDELogicRuntime.getName()), new IAction() {
+			ret = this.executeAction(String.format("执行扩展逻辑[%1$s]", iDELogicRuntime.getName()), new IAction() {
 				@Override
 				public Object execute(Object[] args) throws Throwable {
 					return getDataEntityRuntime().executeLogic(iDELogicRuntime, args);
 				}
 			}, args);
+			return ret;
 		} catch (Throwable ex) {
 			error = ex;
 			throw ex;
@@ -1969,6 +2154,14 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			if (error == null) {
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_LEVEL, EXTENSIONLOG_LEVEL_INFO);
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_STATE, EXTENSIONLOG_STATE_SUCCESS);
+				if(ret != null) {
+					if(ret instanceof String) {
+						logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_INFO, ret);
+					}
+					else {
+						logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_INFO, JsonUtils.toString(ret));
+					}
+				}
 			} else {
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_LEVEL, EXTENSIONLOG_LEVEL_ERROR);
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_STATE, EXTENSIONLOG_STATE_FAILURE);
@@ -2071,7 +2264,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		}
 	}
 
-
 	@Override
 	public ObjectNode getJsonSchemaModel(Object param) {
 		try {
@@ -2082,7 +2274,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	}
 
 	protected ObjectNode onGetJsonSchemaModel(IPSAppDataEntity iPSAppDataEntity, Object param) throws Throwable {
-		ObjectNode objectNode = iPSAppDataEntity!=null? JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iPSAppDataEntity)) : JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(this.getPSDataEntity()));
+		ObjectNode objectNode = iPSAppDataEntity != null ? JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iPSAppDataEntity)) : JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(this.getPSDataEntity()));
 		List<IPSDEField> psDEFieldList = this.getPSDEFields(param);
 		if (!ObjectUtils.isEmpty(psDEFieldList)) {
 			JsonNode node = objectNode.get("properties");
@@ -2111,7 +2303,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 					}
 					StdDataType stdDataType = StdDataType.from(nStdDataType);
 					String strDataType = iPSDEField.getDataType();
-					
+
 					if (StdDataTypeUtils.isBigDecimalDataType(stdDataType) || StdDataTypeUtils.isBigIntDataType(stdDataType)) {
 						property.put("type", "number");
 					} else {
@@ -2123,54 +2315,135 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 					}
 
 					if (StdDataTypeUtils.isDateTimeDataType(stdDataType)) {
-						if(StringUtils.hasLength(strDataType)) {
-							if(DEFDataType.DATE.value.equals(strDataType)) {
+						if (StringUtils.hasLength(strDataType)) {
+							if (DEFDataType.DATE.value.equals(strDataType)) {
 								property.put("format", "date");
+							} else if (DEFDataType.TIME.value.equals(strDataType)) {
+								property.put("format", "time");
+							} else {
+								property.put("format", "date-time");
 							}
-							else
-								if(DEFDataType.TIME.value.equals(strDataType)) {
-									property.put("format", "time");
-								}
-								else {
-									property.put("format", "date-time");
-								}
-						}
-						else {
+						} else {
 							if (stdDataType == StdDataType.DATE) {
 								property.put("format", "date");
-							}
-							else
-							if (stdDataType == StdDataType.TIME) {
+							} else if (stdDataType == StdDataType.TIME) {
 								property.put("format", "time");
-							}
-							else {
+							} else {
 								property.put("format", "date-time");
 							}
 						}
 					}
-					
-					if(iPSDEField.getInlinePSCodeList() != null) {
+
+					if (iPSDEField.getInlinePSCodeList() != null) {
 						ObjectNode enumOptions = property.putObject("enumOptions");
-						if(!ObjectUtils.isEmpty(iPSDEField.getInlinePSCodeList().getPSCodeItems())) {
-							for(IPSCodeItem iPSCodeItem : iPSDEField.getInlinePSCodeList().getPSCodeItems()) {
+						if (!ObjectUtils.isEmpty(iPSDEField.getInlinePSCodeList().getPSCodeItems())) {
+							for (IPSCodeItem iPSCodeItem : iPSDEField.getInlinePSCodeList().getPSCodeItems()) {
 								enumOptions.put(iPSCodeItem.getValue(), iPSCodeItem.getText());
 							}
 						}
+					} else if (iPSDEField.getPSCodeList() != null) {
+						property.put("enumSource", iPSDEField.getPSCodeList().getCodeListTag());
 					}
-					else
-						if(iPSDEField.getPSCodeList()!=null) {
-							property.put("enumSource", iPSDEField.getPSCodeList().getCodeListTag());
-						}
-					
+
 					// 标识为扩展属性
 					property.put("extension", true);
 				}
 			}
-
 		}
 		return objectNode;
 	}
 
+	@Override
+	public ObjectNode getPSDEMethodDTOJsonSchemaModel(IPSDEMethodDTO iPSDEMethodDTO, Object param) {
+		try {
+			return this.onGetPSDEMethodDTOJsonSchemaModel(iPSDEMethodDTO, param);
+		} catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this.getDataEntityRuntime(), this, String.format("获取实体方法DTO对象JsonSchema发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	protected ObjectNode onGetPSDEMethodDTOJsonSchemaModel(IPSDEMethodDTO iPSDEMethodDTO, Object param) throws Throwable {
+		ObjectNode objectNode = JsonUtils.toObjectNode(PSDataEntityExtension.getPSDEMethodDTOJsonSchema(iPSDEMethodDTO));
+		// 判断类型
+		if (DEMethodDTOType.DEFAULT.value.equals(iPSDEMethodDTO.getType())) {
+			List<IPSDEField> psDEFieldList = this.getPSDEFields(param);
+			if (!ObjectUtils.isEmpty(psDEFieldList)) {
+				JsonNode node = objectNode.get("properties");
+				if (node instanceof ObjectNode) {
+					ObjectNode propertiesNode = (ObjectNode) node;
+					for (IPSDEField iPSDEField : psDEFieldList) {
+
+						String strCodeName = iPSDEField.getCodeName();
+						if (!StringUtils.hasLength(strCodeName)) {
+							strCodeName = iPSDEField.getName();
+						}
+
+						if (!StringUtils.hasLength(strCodeName)) {
+							continue;
+						}
+
+						strCodeName = strCodeName.toLowerCase();
+						if (propertiesNode.get(strCodeName) != null) {
+							continue;
+						}
+						ObjectNode property = propertiesNode.putObject(strCodeName.toLowerCase());
+
+						int nStdDataType = iPSDEField.getStdDataType();
+						if (nStdDataType <= 0) {
+							nStdDataType = DataTypes.VARCHAR;
+						}
+						StdDataType stdDataType = StdDataType.from(nStdDataType);
+						String strDataType = iPSDEField.getDataType();
+
+						if (StdDataTypeUtils.isBigDecimalDataType(stdDataType) || StdDataTypeUtils.isBigIntDataType(stdDataType)) {
+							property.put("type", "number");
+						} else {
+							property.put("type", GroovyUtils.getJavaScriptType(stdDataType));
+						}
+
+						if (StringUtils.hasLength(iPSDEField.getLogicName())) {
+							property.put("description", iPSDEField.getLogicName());
+						}
+
+						if (StdDataTypeUtils.isDateTimeDataType(stdDataType)) {
+							if (StringUtils.hasLength(strDataType)) {
+								if (DEFDataType.DATE.value.equals(strDataType)) {
+									property.put("format", "date");
+								} else if (DEFDataType.TIME.value.equals(strDataType)) {
+									property.put("format", "time");
+								} else {
+									property.put("format", "date-time");
+								}
+							} else {
+								if (stdDataType == StdDataType.DATE) {
+									property.put("format", "date");
+								} else if (stdDataType == StdDataType.TIME) {
+									property.put("format", "time");
+								} else {
+									property.put("format", "date-time");
+								}
+							}
+						}
+
+						if (iPSDEField.getInlinePSCodeList() != null) {
+							ObjectNode enumOptions = property.putObject("enumOptions");
+							if (!ObjectUtils.isEmpty(iPSDEField.getInlinePSCodeList().getPSCodeItems())) {
+								for (IPSCodeItem iPSCodeItem : iPSDEField.getInlinePSCodeList().getPSCodeItems()) {
+									enumOptions.put(iPSCodeItem.getValue(), iPSCodeItem.getText());
+								}
+							}
+						} else if (iPSDEField.getPSCodeList() != null) {
+							property.put("enumSource", iPSDEField.getPSCodeList().getCodeListTag());
+						}
+
+						// 标识为扩展属性
+						property.put("extension", true);
+					}
+				}
+			}
+		}
+		return objectNode;
+	}
 
 	@Override
 	public ObjectNode getPSAppViewModel(IPSAppView iPSAppView, Object param) {
@@ -2189,23 +2462,23 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	protected ObjectNode onGetPSAppViewModel(IPSAppView iPSAppView, Object param) throws Throwable {
 
 		String strMode = this.getDynaViewMode(iPSAppView.getViewType());
-		if(!StringUtils.hasLength(strMode)) {
+		if (!StringUtils.hasLength(strMode)) {
 			return null;
 		}
 
-		//获取工作流编辑
+		// 获取工作流编辑
 		String strWFTag = null;
-		if(param instanceof Map) {
-			Map map = (Map)param;
-			strWFTag = (String)map.get("srfwftag");
+		if (param instanceof Map) {
+			Map map = (Map) param;
+			strWFTag = (String) map.get("srfwftag");
 		}
 
-		if(strMode.equalsIgnoreCase(DYNAVIEWMODE_DEWFVIEW)) {
-			return getPSAppDEWFViewModel((IPSAppDEView)iPSAppView, strWFTag, param);
+		if (strMode.equalsIgnoreCase(DYNAVIEWMODE_DEWFVIEW)) {
+			return getPSAppDEWFViewModel((IPSAppDEView) iPSAppView, strWFTag, param);
 		}
 
-		if(strMode.equalsIgnoreCase(DYNAVIEWMODE_DEEDITVIEW)||strMode.equalsIgnoreCase(DYNAVIEWMODE_DEOPTVIEW)) {
-			return getPSAppDEEditViewModel((IPSAppDEView)iPSAppView, strWFTag, param);
+		if (strMode.equalsIgnoreCase(DYNAVIEWMODE_DEEDITVIEW) || strMode.equalsIgnoreCase(DYNAVIEWMODE_DEOPTVIEW)) {
+			return getPSAppDEEditViewModel((IPSAppDEView) iPSAppView, strWFTag, param);
 		}
 
 		log.warn(String.format("动态视图模式[%1$s]未支持", strMode));
@@ -2214,7 +2487,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 	}
 
 	protected ObjectNode getPSAppDEWFViewModel(IPSAppDEView iPSAppDEView, String strWFTag, Object param) throws Throwable {
-		//查出相关实体工作流
+		// 查出相关实体工作流
 		V2SystemExtensionSuite v2SystemExtensionSuite = this.getV2SystemExtensionSuite(false);
 
 		boolean bMobile = iPSAppDEView.getViewType().indexOf("DEMOB") != -1;
@@ -2222,13 +2495,13 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		boolean bDynaEditView = iPSAppDEView.getViewType().indexOf("DYNAEDITVIEW") != -1;
 
 		IPSApplication iPSApplication = iPSAppDEView.getParentPSModelObject(IPSApplication.class);
-		//根据流程标记，查出全部版本
+		// 根据流程标记，查出全部版本
 		IPSDEWF iPSDEWF = null;
 		IPSDataEntity iPSDataEntity = this.getPSDataEntity();
 		List<IPSDEWF> psDEWFs = iPSDataEntity.getAllPSDEWFs();
-		if(!ObjectUtils.isEmpty(psDEWFs)) {
-			for(IPSDEWF item : psDEWFs) {
-				if(StringUtils.hasLength(strWFTag) && strWFTag.equalsIgnoreCase(item.getPSWorkflowMust().getCodeName())) {
+		if (!ObjectUtils.isEmpty(psDEWFs)) {
+			for (IPSDEWF item : psDEWFs) {
+				if (StringUtils.hasLength(strWFTag) && strWFTag.equalsIgnoreCase(item.getPSWorkflowMust().getCodeName())) {
 					iPSDEWF = item;
 					break;
 				}
@@ -2241,40 +2514,39 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		String strWFName = null;
 		Map<String, IPSAppDEView> psAppViewRefMap = new LinkedHashMap<String, IPSAppDEView>();
 
-		if(iPSDEWF != null) {
+		if (iPSDEWF != null) {
 
 			IPSWorkflow iPSWorkflow = iPSDEWF.getPSWorkflowMust();
-			if(!ObjectUtils.isEmpty(iPSWorkflow.getPSWFDEs())) {
+			if (!ObjectUtils.isEmpty(iPSWorkflow.getPSWFDEs())) {
 				strDEWFTag = PSModelUtils.calcUniqueTag2(iPSWorkflow.getPSWFDEs().get(0));
 			}
-			if(!StringUtils.hasLength(strDEWFTag)){
+			if (!StringUtils.hasLength(strDEWFTag)) {
 				return null;
 			}
 			strFullWFTag = PSModelUtils.calcUniqueTag2(iPSWorkflow);
-			//现有流程
-			if(iPSWorkflow.getPSWFVersions()!=null) {
+			// 现有流程
+			if (iPSWorkflow.getPSWFVersions() != null) {
 				psWFVersionList.addAll(iPSWorkflow.getPSWFVersions());
 			}
 
-			//现有流程
+			// 现有流程
 			strWFName = iPSWorkflow.getName();
-		}
-		else {
+		} else {
 			String strDETag = PSModelUtils.calcUniqueTag2(iPSDataEntity);
-			strFullWFTag = String.format("%1$s.%2$s",PSModelUtils.getParentId(strDETag), strWFTag);
+			strFullWFTag = String.format("%1$s.%2$s", PSModelUtils.getParentId(strDETag), strWFTag);
 			strDEWFTag = String.format("%1$s.%2$s", strFullWFTag, "default");
 
 			List<V2SystemExtensionWorkflow> v2SystemExtensionWorkflowList = v2SystemExtensionSuite.getWorkflows();
-			if(!ObjectUtils.isEmpty(v2SystemExtensionWorkflowList)) {
-				for(V2SystemExtensionWorkflow v2SystemExtensionWorkflow : v2SystemExtensionWorkflowList) {
-					if(strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflow.getWorkflowTag())) {
+			if (!ObjectUtils.isEmpty(v2SystemExtensionWorkflowList)) {
+				for (V2SystemExtensionWorkflow v2SystemExtensionWorkflow : v2SystemExtensionWorkflowList) {
+					if (strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflow.getWorkflowTag())) {
 
 						String strModel = v2SystemExtensionWorkflow.getPendingExtensionModel();
-						if(!StringUtils.hasLength(strModel)) {
+						if (!StringUtils.hasLength(strModel)) {
 							strModel = v2SystemExtensionWorkflow.getExtensionModel();
 						}
 
-						if(StringUtils.hasLength(strModel)) {
+						if (StringUtils.hasLength(strModel)) {
 							PSWorkflow psWorkflow = JsonUtils.as(strModel, PSWorkflow.class);
 							strWFName = psWorkflow.getName();
 							break;
@@ -2285,130 +2557,125 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			}
 		}
 
-		if(!StringUtils.hasLength(strFullWFTag)
-				|| !StringUtils.hasLength(strDEWFTag)) {
+		if (!StringUtils.hasLength(strFullWFTag) || !StringUtils.hasLength(strDEWFTag)) {
 			return null;
 		}
 
 		Map<String, String> formCodeNameMap = new HashMap<String, String>();
 		//
 		List<V2SystemExtensionWorkflowDefinition> v2SystemExtensionWorkflowDefinitionList = v2SystemExtensionSuite.getWorkflowDefinitions();
-		if(!ObjectUtils.isEmpty(v2SystemExtensionWorkflowDefinitionList)) {
-			for(V2SystemExtensionWorkflowDefinition v2SystemExtensionWorkflowDefinition : v2SystemExtensionWorkflowDefinitionList) {
-				if(!strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflowDefinition.getWorkflowTag())) {
+		if (!ObjectUtils.isEmpty(v2SystemExtensionWorkflowDefinitionList)) {
+			for (V2SystemExtensionWorkflowDefinition v2SystemExtensionWorkflowDefinition : v2SystemExtensionWorkflowDefinitionList) {
+				if (!strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflowDefinition.getWorkflowTag())) {
 					continue;
 				}
 
-				if(!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getRuntimeModel())) {
+				if (!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getRuntimeModel())) {
 					continue;
 				}
 
-				if(!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getExtensionModel())) {
+				if (!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getExtensionModel())) {
 					continue;
 				}
 
 				PSWFVersion psWFVersion = JsonUtils.as(v2SystemExtensionWorkflowDefinition.getExtensionModel(), PSWFVersion.class);
-				//枚举处理节点及连接
-				if(!ObjectUtils.isEmpty(psWFVersion.getPSWFProcesses())) {
-					for(PSWFProcess psWFProcess : psWFVersion.getPSWFProcesses()) {
-						if(!bMobile) {
-							//合成表单标识
-							if(StringUtils.hasLength(psWFProcess.getPSDEFormId())) {
+				// 枚举处理节点及连接
+				if (!ObjectUtils.isEmpty(psWFVersion.getPSWFProcesses())) {
+					for (PSWFProcess psWFProcess : psWFVersion.getPSWFProcesses()) {
+						if (!bMobile) {
+							// 合成表单标识
+							if (StringUtils.hasLength(psWFProcess.getPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getPSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getUtilPSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getUtilPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getUtilPSDEFormId()).toLowerCase(), "");
 
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getUtil2PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getUtil2PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getUtil2PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getUtil3PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getUtil3PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getUtil3PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getUtil4PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getUtil4PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getUtil4PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getUtil5PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getUtil5PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getUtil5PSDEFormId()).toLowerCase(), "");
 							}
-						}
-						else {
-							if(StringUtils.hasLength(psWFProcess.getMobPSDEFormId())) {
+						} else {
+							if (StringUtils.hasLength(psWFProcess.getMobPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobPSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getMobUtilPSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getMobUtilPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobUtilPSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getMobUtil2PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getMobUtil2PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobUtil2PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getMobUtil3PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getMobUtil3PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobUtil3PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getMobUtil4PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getMobUtil4PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobUtil4PSDEFormId()).toLowerCase(), "");
 							}
 
-							if(StringUtils.hasLength(psWFProcess.getMobUtil5PSDEFormId())) {
+							if (StringUtils.hasLength(psWFProcess.getMobUtil5PSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFProcess.getMobUtil5PSDEFormId()).toLowerCase(), "");
 							}
 						}
 					}
 				}
 
-				if(!ObjectUtils.isEmpty(psWFVersion.getPSWFLinks())) {
-					for(PSWFLink psWFLink : psWFVersion.getPSWFLinks()) {
-						if(!bMobile) {
-							//合成表单标识
-							if(StringUtils.hasLength(psWFLink.getPSDEFormId())) {
+				if (!ObjectUtils.isEmpty(psWFVersion.getPSWFLinks())) {
+					for (PSWFLink psWFLink : psWFVersion.getPSWFLinks()) {
+						if (!bMobile) {
+							// 合成表单标识
+							if (StringUtils.hasLength(psWFLink.getPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFLink.getPSDEFormId()).toLowerCase(), "");
 							}
-						}
-						else {
-							if(StringUtils.hasLength(psWFLink.getMobPSDEFormId())) {
+						} else {
+							if (StringUtils.hasLength(psWFLink.getMobPSDEFormId())) {
 								formCodeNameMap.put(PSModelUtils.getSimpleId(psWFLink.getMobPSDEFormId()).toLowerCase(), "");
 							}
 						}
 
-						if(bDynaEditView) {
+						if (bDynaEditView) {
 							String strViewCodeName = null;
-							if(!bMobile) {
-								if(StringUtils.hasLength(psWFLink.getPSDEViewBaseId())) {
+							if (!bMobile) {
+								if (StringUtils.hasLength(psWFLink.getPSDEViewBaseId())) {
 									strViewCodeName = PSModelUtils.getSimpleId(psWFLink.getPSDEViewBaseId());
 								}
-							}
-							else {
-								if(StringUtils.hasLength(psWFLink.getMobPSDEViewId())) {
+							} else {
+								if (StringUtils.hasLength(psWFLink.getMobPSDEViewId())) {
 									strViewCodeName = PSModelUtils.getSimpleId(psWFLink.getMobPSDEViewId());
 								}
 							}
 
-							if(StringUtils.hasLength(strViewCodeName)) {
+							if (StringUtils.hasLength(strViewCodeName)) {
 								java.util.List<IPSAppView> psAppViewList = iPSApplication.getAllPSAppViews();
-								if(!ObjectUtils.isEmpty(psAppViewList)) {
-									for(IPSAppView iPSAppView : psAppViewList) {
-										if(iPSAppView instanceof IPSAppDEView) {
-											IPSAppDEView iPSAppDEView2 = (IPSAppDEView)iPSAppView;
-											if(!iPSAppDEView2.getPSAppDataEntityMust().getPSDataEntityMust().getId().equals(iPSDataEntity.getId())) {
+								if (!ObjectUtils.isEmpty(psAppViewList)) {
+									for (IPSAppView iPSAppView : psAppViewList) {
+										if (iPSAppView instanceof IPSAppDEView) {
+											IPSAppDEView iPSAppDEView2 = (IPSAppDEView) iPSAppView;
+											if (!iPSAppDEView2.getPSAppDataEntityMust().getPSDataEntityMust().getId().equals(iPSDataEntity.getId())) {
 												continue;
 											}
-											if(strViewCodeName.equalsIgnoreCase(iPSAppDEView2.getPSDEViewCodeName())) {
-												String strViewRefMode = String.format("%1$s@%2$s","WFACTION", strViewCodeName);
+											if (strViewCodeName.equalsIgnoreCase(iPSAppDEView2.getPSDEViewCodeName())) {
+												String strViewRefMode = String.format("%1$s@%2$s", "WFACTION", strViewCodeName);
 												psAppViewRefMap.put(strViewRefMode, iPSAppDEView2);
 												break;
 											}
-										}
-										else {
+										} else {
 											continue;
 										}
 									}
@@ -2423,105 +2690,129 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 		ObjectNode originViewNode = iPSAppDEView.getObjectNode().deepCopy();
 		JsonNode node = originViewNode.get(PSAppViewImpl.ATTR_GETPSCONTROLS);
-		if(node == null) {
-			//尝试从视图面板中获取
+		if (node == null) {
+			// 尝试从视图面板中获取
 			JsonNode viewLayoutPanelNode = originViewNode.get(PSAppViewImpl.ATTR_GETPSVIEWLAYOUTPANEL);
-			if(viewLayoutPanelNode instanceof ObjectNode) {
-				node = ((ObjectNode)viewLayoutPanelNode).get(PSAppViewImpl.ATTR_GETPSCONTROLS);
+			if (viewLayoutPanelNode instanceof ObjectNode) {
+				node = ((ObjectNode) viewLayoutPanelNode).get(PSAppViewImpl.ATTR_GETPSCONTROLS);
 			}
 		}
-		if(node instanceof ArrayNode) {
-			//循环表单
-			ArrayNode arrayNode = (ArrayNode)node;
-			for(int i = 0 ;i<arrayNode.size();i++) {
+		if (node instanceof ArrayNode) {
+			// 循环表单
+			ArrayNode arrayNode = (ArrayNode) node;
+			for (int i = 0; i < arrayNode.size(); i++) {
 				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
 				String strName = ctrlNode.get("name").asText();
-				if(strName.indexOf("wfform_") == 0){
+				if (strName.indexOf("wfform_") == 0) {
 					formCodeNameMap.put(strName.substring(7).toLowerCase(), "");
 				}
 			}
 		}
-
+		// 查出当前系统表单
+		List<IPSDEForm> psDEFormList = new ArrayList<IPSDEForm>();
+		for (IPSAppView iPSAppView : iPSApplication.getAllPSAppViews()) {
+			net.ibizsys.psmodel.runtime.util.PSModelRTServiceBase.fillPSControlList(IPSDEForm.class, iPSAppView, psDEFormList);
+		}
+		// 查出原始表单
+		Map<String, IPSDEForm> psDEFormMap = new HashMap<String, IPSDEForm>();
+		for (IPSDEForm iPSDEForm : psDEFormList) {
+			if (formCodeNameMap.containsKey(iPSDEForm.getCodeName())) {
+				psDEFormMap.put(iPSDEForm.getName(), iPSDEForm);
+			}
+		}
 		Map<String, V2SystemExtensionForm> v2SystemExtensionFormMap = new HashMap<String, V2SystemExtensionForm>();
 
-		//查出表单
+		// 查出扩展表单
 		List<V2SystemExtensionForm> v2SystemExtensionFormList = v2SystemExtensionSuite.getForms();
-		if(!ObjectUtils.isEmpty(v2SystemExtensionFormList)) {
-			for(V2SystemExtensionForm v2SystemExtensionForm : v2SystemExtensionFormList) {
-				if(!StringUtils.hasLength(v2SystemExtensionForm.getRuntimeModel())) {
+		if (!ObjectUtils.isEmpty(v2SystemExtensionFormList)) {
+			for (V2SystemExtensionForm v2SystemExtensionForm : v2SystemExtensionFormList) {
+				if (!StringUtils.hasLength(v2SystemExtensionForm.getRuntimeModel())) {
 					continue;
 				}
 
-				if(!StringUtils.hasLength(v2SystemExtensionForm.getExtensionModel())) {
+				if (!StringUtils.hasLength(v2SystemExtensionForm.getExtensionModel())) {
 					continue;
 				}
 
-				if(!this.getDataEntityTag().equals(v2SystemExtensionForm.getDataEntityTag())){
+				if (!this.getDataEntityTag().equals(v2SystemExtensionForm.getDataEntityTag())) {
 					continue;
 				}
 				PSDEForm psDEForm = JsonUtils.as(v2SystemExtensionForm.getExtensionModel(), PSDEForm.class);
-				if(strDEWFTag.equalsIgnoreCase(psDEForm.getPSWFDEId())) {
-					if(!formCodeNameMap.containsKey(psDEForm.getCodeName().toLowerCase())) {
+				if (strDEWFTag.equalsIgnoreCase(psDEForm.getPSWFDEId())) {
+					if (!formCodeNameMap.containsKey(psDEForm.getCodeName().toLowerCase())) {
 						continue;
 					}
 
-					v2SystemExtensionFormMap.put("wfform_"+psDEForm.getCodeName().toLowerCase(), v2SystemExtensionForm);
+					v2SystemExtensionFormMap.put("wfform_" + psDEForm.getCodeName().toLowerCase(), v2SystemExtensionForm);
 				}
 			}
 		}
 
-		//执行替换操作
-		if(node instanceof ArrayNode) {
+		// 执行替换操作
+		if (node instanceof ArrayNode) {
 
 			List<ObjectNode> list = new ArrayList<ObjectNode>();
-			//循环表单
-			ArrayNode arrayNode = (ArrayNode)node;
-			ObjectNode formNode  = null;
-			for(int i = 0 ;i<arrayNode.size();i++) {
+			// 循环表单
+			ArrayNode arrayNode = (ArrayNode) node;
+			ObjectNode formNode = null;
+			for (int i = 0; i < arrayNode.size(); i++) {
 				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
 				String strName = ctrlNode.get("name").asText();
-				if(strName.indexOf("wfform_") == 0){
+				if (strName.indexOf("wfform_") == 0) {
 					formNode = ctrlNode;
 					break;
 				}
 			}
-			for(int i = 0 ;i<arrayNode.size();i++) {
+			// 新增原始表单
+			for (int i = 0; i < arrayNode.size(); i++) {
+				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
+				String strName = ctrlNode.get("name").asText();
+				IPSDEForm iPSDEForm = psDEFormMap.remove(strName);
+			}
+			for (Map.Entry<String, IPSDEForm> entry : psDEFormMap.entrySet()) {
+				ObjectNode form = entry.getValue().getObjectNode();
+				if (v2SystemExtensionFormMap.containsKey(entry.getKey())) {
+					// 该表单存在扩展，忽略添加
+					continue;
+				}
+				form.put("name", entry.getKey());
+				list.add(form);
+			}
+
+			for (int i = 0; i < arrayNode.size(); i++) {
 				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
 				String strName = ctrlNode.get("name").asText();
 				V2SystemExtensionForm v2SystemExtensionForm = v2SystemExtensionFormMap.remove(strName);
-				if(v2SystemExtensionForm == null) {
+				if (v2SystemExtensionForm == null) {
 					list.add(ctrlNode);
 					continue;
 				}
 
 				String strRuntimeModel = ExtensionUtils.replaceRuntimeModel(v2SystemExtensionForm.getRuntimeModel(), iPSApplication, false);
 				ObjectNode form = JsonUtils.toObjectNode(strRuntimeModel);
-				//有新的，准备替换
+				// 有新的，准备替换
 				ObjectNode newForm = ctrlNode.deepCopy();// JsonUtils.toObjectNode(ctrlNode.toString());
 				newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES));
 				newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMPAGES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMPAGES));
 				newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS));
 				newForm.set(PSDEFormImpl.ATTR_GETCODENAME, form.get(PSDEFormImpl.ATTR_GETCODENAME));
 				newForm.set(PSDEFormImpl.ATTR_GETLOGICNAME, form.get(PSDEFormImpl.ATTR_GETLOGICNAME));
-				if(form.get(PSDEFormImpl.ATTR_ISNOTABHEADER)!=null) {
+				if (form.get(PSDEFormImpl.ATTR_ISNOTABHEADER) != null) {
 					newForm.set(PSDEFormImpl.ATTR_ISNOTABHEADER, form.get(PSDEFormImpl.ATTR_ISNOTABHEADER));
 				}
 
-				//合入计数器节点
+				// 合入计数器节点
 				ArrayNode newPSAppCounterRefNodes = null;
-				if(newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-					newPSAppCounterRefNodes = (ArrayNode)newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
-				}
-				else {
+				if (newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+					newPSAppCounterRefNodes = (ArrayNode) newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+				} else {
 					newPSAppCounterRefNodes = newForm.putArray(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 				}
 
-				if(form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-					ArrayNode psAppCounterRefNodes = (ArrayNode)form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+				if (form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+					ArrayNode psAppCounterRefNodes = (ArrayNode) form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 					newPSAppCounterRefNodes.addAll(psAppCounterRefNodes);
 				}
-
-
 
 				newForm.remove(PSDEFormImpl.ATTR_GETPSDEFORMITEMS);
 				newForm.remove(PSDEFormImpl.ATTR_GETDYNAMODELFILEPATH);
@@ -2530,39 +2821,36 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 			}
 
-			for(java.util.Map.Entry<String, V2SystemExtensionForm> entry : v2SystemExtensionFormMap.entrySet()) {
+			for (java.util.Map.Entry<String, V2SystemExtensionForm> entry : v2SystemExtensionFormMap.entrySet()) {
 				ObjectNode form = JsonUtils.toObjectNode(entry.getValue().getRuntimeModel());
 				ObjectNode newForm = null;
-				if(formNode != null) {
+				if (formNode != null) {
 					newForm = formNode.deepCopy();// JsonUtils.toObjectNode(formNode.toString());
 					newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES));
 					newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMPAGES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMPAGES));
 					newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS));
 					newForm.set(PSDEFormImpl.ATTR_GETCODENAME, form.get(PSDEFormImpl.ATTR_GETCODENAME));
 					newForm.set(PSDEFormImpl.ATTR_GETLOGICNAME, form.get(PSDEFormImpl.ATTR_GETLOGICNAME));
-					if(form.get(PSDEFormImpl.ATTR_ISNOTABHEADER)!=null) {
+					if (form.get(PSDEFormImpl.ATTR_ISNOTABHEADER) != null) {
 						newForm.set(PSDEFormImpl.ATTR_ISNOTABHEADER, form.get(PSDEFormImpl.ATTR_ISNOTABHEADER));
 					}
 
 					ArrayNode newPSAppCounterRefNodes = null;
-					if(newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-						newPSAppCounterRefNodes = (ArrayNode)newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
-					}
-					else {
+					if (newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+						newPSAppCounterRefNodes = (ArrayNode) newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+					} else {
 						newPSAppCounterRefNodes = newForm.putArray(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 					}
 
-					if(form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-						ArrayNode psAppCounterRefNodes = (ArrayNode)form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+					if (form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+						ArrayNode psAppCounterRefNodes = (ArrayNode) form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 						newPSAppCounterRefNodes.addAll(psAppCounterRefNodes);
 					}
-
 
 					newForm.remove(PSDEFormImpl.ATTR_GETPSDEFORMITEMS);
 					newForm.remove(PSDEFormImpl.ATTR_GETDYNAMODELFILEPATH);
 
-				}
-				else {
+				} else {
 					newForm = form;
 				}
 				newForm.put("name", entry.getKey());
@@ -2573,29 +2861,27 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 			arrayNode.removeAll();
 			arrayNode.addAll(list);
 
-			if(!ObjectUtils.isEmpty(psAppViewRefMap)) {
+			if (!ObjectUtils.isEmpty(psAppViewRefMap)) {
 				JsonNode node2 = originViewNode.get(PSAppViewImpl.ATTR_GETPSAPPVIEWREFS);
 				ArrayNode psAppViewRefsNode = null;
-				if(node2 instanceof ArrayNode) {
-					psAppViewRefsNode = (ArrayNode)node2;
-				}
-				else {
+				if (node2 instanceof ArrayNode) {
+					psAppViewRefsNode = (ArrayNode) node2;
+				} else {
 					psAppViewRefsNode = originViewNode.putArray(PSAppViewImpl.ATTR_GETPSAPPVIEWREFS);
 				}
 
 				Map<String, String> map = new LinkedHashMap<String, String>();
-				for(int i =0; i<psAppViewRefsNode.size(); i++) {
-					ObjectNode objectNode = (ObjectNode)psAppViewRefsNode.get(i);
+				for (int i = 0; i < psAppViewRefsNode.size(); i++) {
+					ObjectNode objectNode = (ObjectNode) psAppViewRefsNode.get(i);
 					JsonNode jsonNode = objectNode.get(PSAppViewRefImpl.ATTR_GETNAME);
-					if(jsonNode != null) {
+					if (jsonNode != null) {
 						map.put(jsonNode.asText(), null);
 					}
 				}
 
+				for (java.util.Map.Entry<String, IPSAppDEView> entry : psAppViewRefMap.entrySet()) {
 
-				for(java.util.Map.Entry<String, IPSAppDEView> entry : psAppViewRefMap.entrySet()) {
-
-					if(map.containsKey(entry.getKey())) {
+					if (map.containsKey(entry.getKey())) {
 						continue;
 					}
 
@@ -2603,10 +2889,10 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 					IPSAppDEView refPSAppDEView = entry.getValue();
 
 					psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETNAME, entry.getKey());
-					if(StringUtils.hasLength(refPSAppDEView.getOpenMode())) {
+					if (StringUtils.hasLength(refPSAppDEView.getOpenMode())) {
 						psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETREALOPENMODE, refPSAppDEView.getOpenMode());
 					}
-					if(StringUtils.hasLength(refPSAppDEView.getTitle())) {
+					if (StringUtils.hasLength(refPSAppDEView.getTitle())) {
 						psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETREALTITLE, refPSAppDEView.getTitle());
 					}
 
@@ -2617,8 +2903,8 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				}
 			}
 
-			//修复名称
-			if(StringUtils.hasLength(strWFName)) {
+			// 修复名称
+			if (StringUtils.hasLength(strWFName)) {
 				originViewNode.remove(PSAppDEViewImpl.ATTR_GETCAPPSLANGUAGERES);
 				originViewNode.remove(PSAppDEViewImpl.ATTR_GETTITLEPSLANGUAGERES);
 
@@ -2632,9 +2918,8 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		return null;
 	}
 
-
 	protected ObjectNode getPSAppDEEditViewModel(IPSAppDEView iPSAppDEView, String strWFTag, Object param) throws Throwable {
-		//查出相关实体工作流
+		// 查出相关实体工作流
 		V2SystemExtensionSuite v2SystemExtensionSuite = this.getV2SystemExtensionSuite(false);
 
 		boolean bMobile = iPSAppDEView.getViewType().indexOf("DEMOB") != -1;
@@ -2645,20 +2930,20 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		String srfParentKey = null;
 		String strFormTagPrefix = null;
 		String strDataType;
-		if(param instanceof Map){
-			Map map = (Map)param;
-			srfParentDEName = (String)map.get("srfparentdename");
-			srfParentKey = (String)map.get("srfparentkey");
-			strDataType = (String)map.get("srfdatatype");
+		if (param instanceof Map) {
+			Map map = (Map) param;
+			srfParentDEName = (String) map.get("srfparentdename");
+			srfParentKey = (String) map.get("srfparentkey");
+			strDataType = (String) map.get("srfdatatype");
 		} else {
 			strDataType = null;
 		}
-		//计算关系字段
-		if(StringUtils.hasLength(srfParentDEName) && StringUtils.hasLength(srfParentKey)) {
+		// 计算关系字段
+		if (StringUtils.hasLength(srfParentDEName) && StringUtils.hasLength(srfParentKey)) {
 			List<IPSDERBase> psDERBases = this.getPSDataEntity().getMinorPSDERs();
 			if (psDERBases != null) {
 				for (IPSDERBase iPSDERBase : psDERBases) {
-					if(!iPSDERBase.getMajorPSDataEntity().getName().equalsIgnoreCase(srfParentDEName)){
+					if (!iPSDERBase.getMajorPSDataEntity().getName().equalsIgnoreCase(srfParentDEName)) {
 						continue;
 					}
 					if (iPSDERBase instanceof IPSDER1N) {
@@ -2681,48 +2966,47 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 		Map<String, IPSAppDEView> psAppViewRefMap = new LinkedHashMap<String, IPSAppDEView>();
 
-		if(StringUtils.hasLength(strWFTag)) {
-			//根据流程标记，查出全部版本
+		if (StringUtils.hasLength(strWFTag)) {
+			// 根据流程标记，查出全部版本
 			IPSDEWF iPSDEWF = null;
 			List<IPSDEWF> psDEWFs = iPSDataEntity.getAllPSDEWFs();
-			if(!ObjectUtils.isEmpty(psDEWFs)) {
-				for(IPSDEWF item : psDEWFs) {
-					if(strWFTag.equalsIgnoreCase(item.getPSWorkflowMust().getCodeName())) {
+			if (!ObjectUtils.isEmpty(psDEWFs)) {
+				for (IPSDEWF item : psDEWFs) {
+					if (strWFTag.equalsIgnoreCase(item.getPSWorkflowMust().getCodeName())) {
 						iPSDEWF = item;
 						break;
 					}
 				}
 			}
 
-			if(iPSDEWF != null) {
+			if (iPSDEWF != null) {
 
 				IPSWorkflow iPSWorkflow = iPSDEWF.getPSWorkflowMust();
-				if(!ObjectUtils.isEmpty(iPSWorkflow.getPSWFDEs())) {
+				if (!ObjectUtils.isEmpty(iPSWorkflow.getPSWFDEs())) {
 					strDEWFTag = PSModelUtils.calcUniqueTag2(iPSWorkflow.getPSWFDEs().get(0));
 				}
-				if(!StringUtils.hasLength(strDEWFTag)){
+				if (!StringUtils.hasLength(strDEWFTag)) {
 					return null;
 				}
 				strFullWFTag = PSModelUtils.calcUniqueTag2(iPSWorkflow);
-				//现有流程
+				// 现有流程
 				strWFName = iPSWorkflow.getName();
-			}
-			else {
+			} else {
 				String strDETag = PSModelUtils.calcUniqueTag2(iPSDataEntity);
-				strFullWFTag = String.format("%1$s.%2$s",PSModelUtils.getParentId(strDETag), strWFTag);
+				strFullWFTag = String.format("%1$s.%2$s", PSModelUtils.getParentId(strDETag), strWFTag);
 				strDEWFTag = String.format("%1$s.%2$s", strFullWFTag, "default");
 
 				List<V2SystemExtensionWorkflow> v2SystemExtensionWorkflowList = v2SystemExtensionSuite.getWorkflows();
-				if(!ObjectUtils.isEmpty(v2SystemExtensionWorkflowList)) {
-					for(V2SystemExtensionWorkflow v2SystemExtensionWorkflow : v2SystemExtensionWorkflowList) {
-						if(strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflow.getWorkflowTag())) {
+				if (!ObjectUtils.isEmpty(v2SystemExtensionWorkflowList)) {
+					for (V2SystemExtensionWorkflow v2SystemExtensionWorkflow : v2SystemExtensionWorkflowList) {
+						if (strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflow.getWorkflowTag())) {
 
 							String strModel = v2SystemExtensionWorkflow.getPendingExtensionModel();
-							if(!StringUtils.hasLength(strModel)) {
+							if (!StringUtils.hasLength(strModel)) {
 								strModel = v2SystemExtensionWorkflow.getExtensionModel();
 							}
 
-							if(StringUtils.hasLength(strModel)) {
+							if (StringUtils.hasLength(strModel)) {
 								PSWorkflow psWorkflow = JsonUtils.as(strModel, PSWorkflow.class);
 								strWFName = psWorkflow.getName();
 								break;
@@ -2733,62 +3017,59 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				}
 			}
 
-			if(!StringUtils.hasLength(strFullWFTag)
-					|| !StringUtils.hasLength(strDEWFTag)) {
+			if (!StringUtils.hasLength(strFullWFTag) || !StringUtils.hasLength(strDEWFTag)) {
 				return null;
 			}
 
 			//
 			List<V2SystemExtensionWorkflowDefinition> v2SystemExtensionWorkflowDefinitionList = v2SystemExtensionSuite.getWorkflowDefinitions();
-			if(!ObjectUtils.isEmpty(v2SystemExtensionWorkflowDefinitionList)) {
-				for(V2SystemExtensionWorkflowDefinition v2SystemExtensionWorkflowDefinition : v2SystemExtensionWorkflowDefinitionList) {
-					if(!strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflowDefinition.getWorkflowTag())) {
+			if (!ObjectUtils.isEmpty(v2SystemExtensionWorkflowDefinitionList)) {
+				for (V2SystemExtensionWorkflowDefinition v2SystemExtensionWorkflowDefinition : v2SystemExtensionWorkflowDefinitionList) {
+					if (!strFullWFTag.equalsIgnoreCase(v2SystemExtensionWorkflowDefinition.getWorkflowTag())) {
 						continue;
 					}
 
-					if(!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getRuntimeModel())) {
+					if (!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getRuntimeModel())) {
 						continue;
 					}
 
-					if(!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getExtensionModel())) {
+					if (!StringUtils.hasLength(v2SystemExtensionWorkflowDefinition.getExtensionModel())) {
 						continue;
 					}
 
 					PSWFVersion psWFVersion = JsonUtils.as(v2SystemExtensionWorkflowDefinition.getExtensionModel(), PSWFVersion.class);
 					List<PSWFProcess> psWFProcessList = psWFVersion.getPSWFProcesses();
-					if(!ObjectUtils.isEmpty(psWFProcessList)) {
+					if (!ObjectUtils.isEmpty(psWFProcessList)) {
 
-						for(PSWFProcess psWFProcess : psWFProcessList) {
-							if(WFProcessType.START.value.equalsIgnoreCase(psWFProcess.getWFProcessType())) {
+						for (PSWFProcess psWFProcess : psWFProcessList) {
+							if (WFProcessType.START.value.equalsIgnoreCase(psWFProcess.getWFProcessType())) {
 								String strViewCodeName = null;
-								if(!bMobile) {
-									if(StringUtils.hasLength(psWFProcess.getPSDEViewBaseId())) {
+								if (!bMobile) {
+									if (StringUtils.hasLength(psWFProcess.getPSDEViewBaseId())) {
 										strViewCodeName = PSModelUtils.getSimpleId(psWFProcess.getPSDEViewBaseId());
 
 									}
-								}
-								else {
-									if(StringUtils.hasLength(psWFProcess.getMobPSDEViewId())) {
+								} else {
+									if (StringUtils.hasLength(psWFProcess.getMobPSDEViewId())) {
 										strViewCodeName = PSModelUtils.getSimpleId(psWFProcess.getMobPSDEViewId());
 									}
 								}
 
-								if(StringUtils.hasLength(strViewCodeName)) {
+								if (StringUtils.hasLength(strViewCodeName)) {
 									java.util.List<IPSAppView> psAppViewList = iPSApplication.getAllPSAppViews();
-									if(!ObjectUtils.isEmpty(psAppViewList)) {
-										for(IPSAppView iPSAppView : psAppViewList) {
-											if(iPSAppView instanceof IPSAppDEView) {
-												IPSAppDEView iPSAppDEView2 = (IPSAppDEView)iPSAppView;
-												if(!iPSAppDEView2.getPSAppDataEntityMust().getPSDataEntityMust().getId().equals(iPSDataEntity.getId())) {
+									if (!ObjectUtils.isEmpty(psAppViewList)) {
+										for (IPSAppView iPSAppView : psAppViewList) {
+											if (iPSAppView instanceof IPSAppDEView) {
+												IPSAppDEView iPSAppDEView2 = (IPSAppDEView) iPSAppView;
+												if (!iPSAppDEView2.getPSAppDataEntityMust().getPSDataEntityMust().getId().equals(iPSDataEntity.getId())) {
 													continue;
 												}
-												if(strViewCodeName.equalsIgnoreCase(iPSAppDEView2.getPSDEViewCodeName())) {
-													String strViewRefMode = String.format("%1$s@%2$s","WFSTART",psWFVersion.getWFVersion());
+												if (strViewCodeName.equalsIgnoreCase(iPSAppDEView2.getPSDEViewCodeName())) {
+													String strViewRefMode = String.format("%1$s@%2$s", "WFSTART", psWFVersion.getWFVersion());
 													psAppViewRefMap.put(strViewRefMode, iPSAppDEView2);
 													break;
 												}
-											}
-											else {
+											} else {
 												continue;
 											}
 										}
@@ -2806,24 +3087,24 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 		ObjectNode originViewNode = iPSAppDEView.getObjectNode().deepCopy();// JsonUtils.toObjectNode(iPSAppDEView.getObjectNode().toString());
 		JsonNode node = originViewNode.get(PSAppViewImpl.ATTR_GETPSCONTROLS);
-		if(node == null) {
-			//尝试从视图面板中获取
+		if (node == null) {
+			// 尝试从视图面板中获取
 			JsonNode viewLayoutPanelNode = originViewNode.get(PSAppViewImpl.ATTR_GETPSVIEWLAYOUTPANEL);
-			if(viewLayoutPanelNode instanceof ObjectNode) {
-				node = ((ObjectNode)viewLayoutPanelNode).get(PSAppViewImpl.ATTR_GETPSCONTROLS);
+			if (viewLayoutPanelNode instanceof ObjectNode) {
+				node = ((ObjectNode) viewLayoutPanelNode).get(PSAppViewImpl.ATTR_GETPSCONTROLS);
 			}
 		}
-		if(node instanceof ArrayNode) {
-			//循环表单
-			ArrayNode arrayNode = (ArrayNode)node;
-			for(int i = 0 ;i<arrayNode.size();i++) {
+		if (node instanceof ArrayNode) {
+			// 循环表单
+			ArrayNode arrayNode = (ArrayNode) node;
+			for (int i = 0; i < arrayNode.size(); i++) {
 				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
 				String strName = ctrlNode.get("name").asText();
-				if(strName.equals("form") || strName.startsWith("_form_")){
+				if (strName.equals("form") || strName.startsWith("_form_")) {
 					JsonNode codeNameNode = ctrlNode.get("codeName");
-					if(codeNameNode != null) {
+					if (codeNameNode != null) {
 						String strCodeName = codeNameNode.asText();
-						if(StringUtils.hasLength(strCodeName)) {
+						if (StringUtils.hasLength(strCodeName)) {
 							formCodeNameMap.put(strCodeName.toLowerCase(), "");
 						}
 					}
@@ -2833,97 +3114,93 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 		Map<String, V2SystemExtensionForm> v2SystemExtensionFormMap = new HashMap<String, V2SystemExtensionForm>();
 
-		//查出表单
+		// 查出表单
 		List<V2SystemExtensionForm> v2SystemExtensionFormList = v2SystemExtensionSuite.getForms();
-		if(!ObjectUtils.isEmpty(v2SystemExtensionFormList)) {
-			for(V2SystemExtensionForm v2SystemExtensionForm : v2SystemExtensionFormList) {
-				if(!StringUtils.hasLength(v2SystemExtensionForm.getRuntimeModel())) {
+		if (!ObjectUtils.isEmpty(v2SystemExtensionFormList)) {
+			for (V2SystemExtensionForm v2SystemExtensionForm : v2SystemExtensionFormList) {
+				if (!StringUtils.hasLength(v2SystemExtensionForm.getRuntimeModel())) {
 					continue;
 				}
 
-				if(!StringUtils.hasLength(v2SystemExtensionForm.getExtensionModel())) {
+				if (!StringUtils.hasLength(v2SystemExtensionForm.getExtensionModel())) {
 					continue;
 				}
 
-				if(!this.getDataEntityTag().equals(v2SystemExtensionForm.getDataEntityTag())){
+				if (!this.getDataEntityTag().equals(v2SystemExtensionForm.getDataEntityTag())) {
 					continue;
 				}
-				//过滤参数，非当前视图实体表单计算可能会出现异常
+				// 过滤参数，非当前视图实体表单计算可能会出现异常
 				String[] formTags = v2SystemExtensionForm.getFormTag().split("[@]");
-				if(formTags != null && formTags.length > 1){
-					if(!formTags[0].equalsIgnoreCase(strFormTagPrefix)){
+				if (formTags != null && formTags.length > 1) {
+					if (!formTags[0].equalsIgnoreCase(strFormTagPrefix)) {
 						continue;
 					}
 				}
 				PSDEForm psDEForm = JsonUtils.as(v2SystemExtensionForm.getExtensionModel(), PSDEForm.class);
-				if(( StringUtils.hasLength(strDEWFTag) && strDEWFTag.equalsIgnoreCase(psDEForm.getPSWFDEId()))
-						|| (!StringUtils.hasLength(strDEWFTag) && !StringUtils.hasLength(psDEForm.getPSWFDEId()))) {
-					if(!formCodeNameMap.containsKey(psDEForm.getCodeName().toLowerCase())) {
+				if ((StringUtils.hasLength(strDEWFTag) && strDEWFTag.equalsIgnoreCase(psDEForm.getPSWFDEId())) || (!StringUtils.hasLength(strDEWFTag) && !StringUtils.hasLength(psDEForm.getPSWFDEId()))) {
+					if (!formCodeNameMap.containsKey(psDEForm.getCodeName().toLowerCase())) {
 						continue;
 					}
-					//避免重复写入覆盖
-					if(!v2SystemExtensionFormMap.containsKey(psDEForm.getCodeName().toLowerCase()) || v2SystemExtensionForm.getFormTag().contains("@")){
+					// 避免重复写入覆盖
+					if (!v2SystemExtensionFormMap.containsKey(psDEForm.getCodeName().toLowerCase()) || v2SystemExtensionForm.getFormTag().contains("@")) {
 						v2SystemExtensionFormMap.put(psDEForm.getCodeName().toLowerCase(), v2SystemExtensionForm);
 					}
 				}
 			}
 		}
 
-		//执行替换操作
-		if(node instanceof ArrayNode) {
+		// 执行替换操作
+		if (node instanceof ArrayNode) {
 
 			List<ObjectNode> list = new ArrayList<ObjectNode>();
-			//循环表单
-			ArrayNode arrayNode = (ArrayNode)node;
+			// 循环表单
+			ArrayNode arrayNode = (ArrayNode) node;
 			int dynaSysMode = 1;
-			for(int i = 0 ;i<arrayNode.size();i++) {
+			for (int i = 0; i < arrayNode.size(); i++) {
 				ObjectNode ctrlNode = (ObjectNode) arrayNode.get(i);
 				String strName = ctrlNode.get("name").asText();
-				if(!(strName.equals("form")||strName.startsWith("_form_"))){
+				if (!(strName.equals("form") || strName.startsWith("_form_"))) {
 					list.add(ctrlNode);
-				}
-				else {
+				} else {
 					String strCodeName = null;
 					JsonNode codeNameNode = ctrlNode.get("codeName");
-					if(codeNameNode != null) {
+					if (codeNameNode != null) {
 						strCodeName = codeNameNode.asText();
 					}
 
 					JsonNode dynaSysModeNode = ctrlNode.get("dynaSysMode");
-					if(dynaSysModeNode != null && dynaSysModeNode.asInt() > 1){
+					if (dynaSysModeNode != null && dynaSysModeNode.asInt() > 1) {
 						dynaSysMode = dynaSysModeNode.asInt();
 					}
-					V2SystemExtensionForm v2SystemExtensionForm = StringUtils.hasLength(strCodeName)? v2SystemExtensionFormMap.remove(strCodeName.toLowerCase()): null;
-					if(v2SystemExtensionForm == null) {
+					V2SystemExtensionForm v2SystemExtensionForm = StringUtils.hasLength(strCodeName) ? v2SystemExtensionFormMap.remove(strCodeName.toLowerCase()) : null;
+					if (v2SystemExtensionForm == null) {
 						list.add(ctrlNode);
-					}
-					else {
+					} else {
 						String strRuntimeModel = ExtensionUtils.replaceRuntimeModel(v2SystemExtensionForm.getRuntimeModel(), iPSApplication, false);
 						ObjectNode form = JsonUtils.toObjectNode(strRuntimeModel);
-						//ObjectNode form = JsonUtils.toObjectNode(v2SystemExtensionForm.getRuntimeModel());
+						// ObjectNode form =
+						// JsonUtils.toObjectNode(v2SystemExtensionForm.getRuntimeModel());
 						ObjectNode newForm = ctrlNode.deepCopy();// JsonUtils.toObjectNode(ctrlNode.toString());
 						newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMUPDATES));
 						newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMPAGES, form.get(PSDEFormImpl.ATTR_GETPSDEFORMPAGES));
 						newForm.set(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS, form.get(PSDEFormImpl.ATTR_GETPSDEFORMITEMVRS));
 						newForm.set(PSDEFormImpl.ATTR_GETCODENAME, form.get(PSDEFormImpl.ATTR_GETCODENAME));
 						newForm.set(PSDEFormImpl.ATTR_GETLOGICNAME, form.get(PSDEFormImpl.ATTR_GETLOGICNAME));
-						if(form.get(PSDEFormImpl.ATTR_ISNOTABHEADER)!=null) {
+						if (form.get(PSDEFormImpl.ATTR_ISNOTABHEADER) != null) {
 							newForm.set(PSDEFormImpl.ATTR_ISNOTABHEADER, form.get(PSDEFormImpl.ATTR_ISNOTABHEADER));
 						}
 
 						ArrayNode newPSAppCounterRefNodes = null;
-						if(newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-							newPSAppCounterRefNodes = (ArrayNode)newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
-						}
-						else {
+						if (newForm.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+							newPSAppCounterRefNodes = (ArrayNode) newForm.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+						} else {
 							newPSAppCounterRefNodes = newForm.putArray(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 						}
 
-						if(form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
-							ArrayNode psAppCounterRefNodes = (ArrayNode)form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
+						if (form.has(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS)) {
+							ArrayNode psAppCounterRefNodes = (ArrayNode) form.get(PSDEFormImpl.ATTR_GETPSAPPCOUNTERREFS);
 							newPSAppCounterRefNodes.addAll(psAppCounterRefNodes);
 						}
-
 
 						newForm.remove(PSDEFormImpl.ATTR_GETPSDEFORMITEMS);
 						newForm.remove(PSDEFormImpl.ATTR_GETDYNAMODELFILEPATH);
@@ -2932,32 +3209,31 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 					}
 				}
 			}
-			//高级动态模式
-			if(dynaSysMode == 2){
-				list = list.stream().filter(item -> (item.get("dataType") !=null && item.get("dataType").asText().equals(strDataType)) || item.get("dataType") == null).collect(Collectors.toList());
+			// 高级动态模式
+			if (dynaSysMode == 2) {
+				list = list.stream().filter(item -> (item.get("dataType") != null && item.get("dataType").asText().equals(strDataType)) || item.get("dataType") == null).collect(Collectors.toList());
 			}
 			arrayNode.removeAll();
 			arrayNode.addAll(list);
 
-			if(!ObjectUtils.isEmpty(psAppViewRefMap)) {
+			if (!ObjectUtils.isEmpty(psAppViewRefMap)) {
 				JsonNode node2 = originViewNode.get(PSAppViewImpl.ATTR_GETPSAPPVIEWREFS);
 				ArrayNode psAppViewRefsNode = null;
-				if(node2 instanceof ArrayNode) {
-					psAppViewRefsNode = (ArrayNode)node2;
-				}
-				else {
+				if (node2 instanceof ArrayNode) {
+					psAppViewRefsNode = (ArrayNode) node2;
+				} else {
 					psAppViewRefsNode = originViewNode.putArray(PSAppViewImpl.ATTR_GETPSAPPVIEWREFS);
 				}
 
-				for(java.util.Map.Entry<String, IPSAppDEView> entry : psAppViewRefMap.entrySet()) {
+				for (java.util.Map.Entry<String, IPSAppDEView> entry : psAppViewRefMap.entrySet()) {
 					ObjectNode psAppViewRefNode = psAppViewRefsNode.addObject();
 					IPSAppDEView refPSAppDEView = entry.getValue();
 
 					psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETNAME, entry.getKey());
-					if(StringUtils.hasLength(refPSAppDEView.getOpenMode())) {
+					if (StringUtils.hasLength(refPSAppDEView.getOpenMode())) {
 						psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETREALOPENMODE, refPSAppDEView.getOpenMode());
 					}
-					if(StringUtils.hasLength(refPSAppDEView.getTitle())) {
+					if (StringUtils.hasLength(refPSAppDEView.getTitle())) {
 						psAppViewRefNode.put(PSAppViewRefImpl.ATTR_GETREALTITLE, refPSAppDEView.getTitle());
 					}
 
@@ -2968,8 +3244,8 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				}
 			}
 
-			//修复名称
-			if(StringUtils.hasLength(strWFName)) {
+			// 修复名称
+			if (StringUtils.hasLength(strWFName)) {
 				originViewNode.remove(PSAppDEViewImpl.ATTR_GETCAPPSLANGUAGERES);
 				originViewNode.remove(PSAppDEViewImpl.ATTR_GETTITLEPSLANGUAGERES);
 
@@ -2982,7 +3258,6 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 		return null;
 	}
-
 
 	protected String getDynaViewMode(String strViewType) {
 		return DynaViewModeMap.get(strViewType);

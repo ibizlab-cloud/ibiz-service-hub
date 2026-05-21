@@ -1,5 +1,7 @@
 package net.ibizsys.runtime.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,6 +9,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -143,6 +147,28 @@ public class ZipUtils {
 
 		}
 	}
+	
+	public static byte[] compressString(String text) throws IOException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        GZIPOutputStream gzipOS = new GZIPOutputStream(baos);
+        gzipOS.write(text.getBytes("UTF-8"));
+        gzipOS.close();
+        return baos.toByteArray();
+    }
+    
+    public static String decompressString(byte[] compressedData) throws IOException {
+    	ByteArrayInputStream bais = new ByteArrayInputStream(compressedData);
+        GZIPInputStream gzipIS = new GZIPInputStream(bais);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = gzipIS.read(buffer)) != -1) {
+            baos.write(buffer, 0, bytesRead);
+        }
+        gzipIS.close();
+        return baos.toString("UTF-8");
+    }
 //
 //	public static void main(String[] args) {
 //

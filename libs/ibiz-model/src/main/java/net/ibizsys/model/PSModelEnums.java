@@ -1914,61 +1914,61 @@ public class PSModelEnums {
      * <ul>
      * <li>INTERNAL&nbsp;(1)
      * <P>
-     * 内部逻辑，附加来自当前实体的处理逻辑
+     * 内部逻辑，附加来自当前实体的处理逻辑`psdelogicid`
      * <li>EXTERNAL&nbsp;(0)
      * <P>
-     * 外部行为，附加来自指定实体的行为
+     * 外部行为，附加来自指定实体的行为`dstpsdeactionid`
      * <li>SCRIPT&nbsp;(2)
      * <P>
-     * 脚本代码，附加自定义的脚本代码
+     * 脚本代码，附加自定义的脚本代码`customcode`
      * <li>NOTIFY&nbsp;(3)
      * <P>
-     * 实体通知，附加当前实体的通知逻辑
+     * 实体通知，附加当前实体的通知逻辑`psdenotifyid`
      * <li>FILLMAINSTATE&nbsp;(4)
      * <P>
-     * 填充实体主状态，填充当前实体的主状态，包括状态控制属性及相关属性设置
+     * 填充实体主状态，填充当前实体的主状态`psdemainstateid`，包括状态控制属性及相关属性设置
      * <li>DATASYNC&nbsp;(5)
      * <P>
-     * 实体数据同步，附加当前实体的数据同步逻辑
+     * 实体数据同步，附加当前实体的数据同步逻辑`psdedatasyncid`，须指定同步事件`datasyncevent`
      * <li>DSTDATAACTION&nbsp;(6)
      * <P>
-     * 目标数据操作（指定主关系），对指定主关系的目标数据进行操作
+     * 目标数据操作（指定主关系），对指定主关系`majorpsderid`的目标数据进行操作
      * <li>DSTDATAACTION2&nbsp;(7)
      * <P>
-     * 目标数据操作（指定数据集），对指定数据集的目标数据进行操作
+     * 目标数据操作（指定数据集），对指定数据集`dstpsdedatasetid`的目标数据进行操作
      * <li>SYSLOGIC&nbsp;(8)
      * <P>
-     * 系统预置逻辑，附加系统预置逻辑
+     * 系统预置逻辑，附加系统预置逻辑`pssysdelogicnodeid`
      * <li>SYSTRANSLATOR&nbsp;(9)
      * <P>
-     * 属性值转换，附加系统值转换逻辑
+     * 属性值转换，附加对指定属性`psdefid`进行系统值转换逻辑`pssystranslatorid`
      * <li>SYSSEQUENCE&nbsp;(10)
      * <P>
-     * 属性值序列填充，附加系统值序列逻辑
+     * 属性值序列填充，附加对指定属性`psdefid`进行系统值序列填充`pssyssequenceid`
      * <li>DSTDELOGIC&nbsp;(11)
      * <P>
-     * 目标实体逻辑，触发指定的目标实体逻辑
+     * 目标实体逻辑，触发指定的目标实体逻辑`dstpsdelogicid`
      * <li>CHECKDEFVALUERULE&nbsp;(50)
      * <P>
-     * 检查属性值规则，对指定值规则进行校验
+     * 检查属性值规则，对指定值规则`psdefvalueruleid`进行校验
      * <li>CHECKMAINSTATE&nbsp;(51)
      * <P>
-     * 检查数据主状态（处于），检查数据是否处在指定数据主状态
+     * 检查数据主状态（处于），检查数据是否处在指定数据主状态`psdemainstateid`
      * <li>CHECKNOTMAINSTATE&nbsp;(52)
      * <P>
-     * 检查数据主状态（不处于），检查数据是否不处于指定数据主状态
+     * 检查数据主状态（不处于），检查数据是否不处于指定数据主状态`psdemainstateid`
      * <li>CHECKDSTDATAEXISTS&nbsp;(53)
      * <P>
-     * 检查目标数据存在（指定主关系），检查指定主关系的目标数据存在
+     * 检查目标数据存在（指定主关系），检查指定主关系`majorpsderid`的目标数据存在
      * <li>CHECKDSTDATANOTEXISTS&nbsp;(54)
      * <P>
-     * 检查目标数据不存在（指定主关系），检查指定主关系的目标数据不存在
+     * 检查目标数据不存在（指定主关系），检查指定主关系`majorpsderid`的目标数据不存在
      * <li>CHECKDSTDATAEXISTS2&nbsp;(55)
      * <P>
-     * 检查目标数据存在（指定数据集），检查指定数据集的目标数据存在
+     * 检查目标数据存在（指定数据集），检查指定数据集`dstpsdedatasetid`的目标数据存在
      * <li>CHECKDSTDATANOTEXISTS2&nbsp;(56)
      * <P>
-     * 检查目标数据不存在（指定数据集），检查指定数据集的目标数据不存在
+     * 检查目标数据不存在（指定数据集），检查指定数据集`dstpsdedatasetid`的目标数据不存在
      * </ul>     
      */
     public static enum DEActionLogicType{
@@ -4519,16 +4519,22 @@ public class PSModelEnums {
      * 附加到数据集（运行时支持），附加到指定数据集
      * <li>WEBHOOK
      * <P>
-     * WebHook（运行时支持），WEB钩子
+     * Webhook（运行时支持），WEB钩子
      * <li>TIMERTASK
      * <P>
      * 定时作业（运行时支持），后台定时作业
+     * <li>MANUALTASK
+     * <P>
+     * 手动作业（运行时支持），手动执行作业
      * <li>EVENTHOOK
      * <P>
      * 事件处理（运行时支持）
      * <li>FIELDCHANGEHOOK
      * <P>
      * 属性变化处理（运行时支持）
+     * <li>MCPTOOL
+     * <P>
+     * MCP工具（运行时支持）
      * <li>USER
      * <P>
      * 用户自定义
@@ -4550,10 +4556,12 @@ public class PSModelEnums {
         ,AICHAT("AICHAT", "AI交谈逻辑")
         ,ATTACHTODEACTION("ATTACHTODEACTION", "附加到行为（运行时支持）")
         ,ATTACHTODEDATASET("ATTACHTODEDATASET", "附加到数据集（运行时支持）")
-        ,WEBHOOK("WEBHOOK", "WebHook（运行时支持）")
+        ,WEBHOOK("WEBHOOK", "Webhook（运行时支持）")
         ,TIMERTASK("TIMERTASK", "定时作业（运行时支持）")
+        ,MANUALTASK("MANUALTASK", "手动作业（运行时支持）")
         ,EVENTHOOK("EVENTHOOK", "事件处理（运行时支持）")
         ,FIELDCHANGEHOOK("FIELDCHANGEHOOK", "属性变化处理（运行时支持）")
+        ,MCPTOOL("MCPTOOL", "MCP工具（运行时支持）")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -4586,10 +4594,14 @@ public class PSModelEnums {
                     return WEBHOOK;
                 case "TIMERTASK":
                     return TIMERTASK;
+                case "MANUALTASK":
+                    return MANUALTASK;
                 case "EVENTHOOK":
                     return EVENTHOOK;
                 case "FIELDCHANGEHOOK":
                     return FIELDCHANGEHOOK;
+                case "MCPTOOL":
+                    return MCPTOOL;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -6396,7 +6408,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 表单样式
+     * 表单类型
      * <P>
      * <ul>
      * <li>EDITFORM
@@ -7859,6 +7871,9 @@ public class PSModelEnums {
      * 表单按钮行为类型
      * <P>
      * <ul>
+     * <li>NONE
+     * <P>
+     * 无默认处理，一般在表单逻辑中进行处理
      * <li>UIACTION
      * <P>
      * 界面行为，触发界面行为处理
@@ -7868,7 +7883,8 @@ public class PSModelEnums {
      * </ul>     
      */
     public static enum FormButtonActionType{
-        UIACTION("UIACTION", "界面行为")
+        NONE("NONE", "无默认处理")
+        ,UIACTION("UIACTION", "界面行为")
         ,FIUPDATE("FIUPDATE", "表单项更新")
 ;
            
@@ -7882,6 +7898,8 @@ public class PSModelEnums {
 
         public static FormButtonActionType from(String value){
             switch(value){
+                case "NONE":
+                    return NONE;
                 case "UIACTION":
                     return UIACTION;
                 case "FIUPDATE":
@@ -10667,47 +10685,43 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体属性值规则类型
+     * 实体属性值规则条件类型
      * <P>
      * <ul>
      * <li>GROUP
      * <P>
      * 条件组，组条件，使用与（AND）、或（OR）逻辑计算成员条件
-     * <li>NULLRULE
-     * <P>
-     * 空值判断，判断指定属性值是否为空值
      * <li>VALUERANGE
      * <P>
-     * 数据集范围，判断指定属性值是否在指定的数据集合中
+     * 数据集范围，判断指定属性值是否在指定的数据集合`majorpsdedsid`中，可额外指定引用数据属性`extmajorpsdefid`及当前数据属性`extminorpsdefid`进行约束
      * <li>VALUERANGE2
      * <P>
-     * 数值范围，判断指定属性值是否在指定数值范围中
+     * 数值范围，判断指定属性值是否在指定数值范围中，指定minvalue、maxvalue、includeminvalue、includemaxvalue
      * <li>REGEX
      * <P>
-     * 正则式，判断指定属性值是否符合指定正则式规则
+     * 正则式，判断指定属性值是否符合指定正则式规则`condvalue`
      * <li>STRINGLENGTH
      * <P>
-     * 字符长度，判断指定属性值的长度是否在指定范围中
+     * 字符长度，判断指定属性值的长度是否在指定范围中，指定minvalue、maxvalue、includeminvalue、includemaxvalue
      * <li>SIMPLE
      * <P>
-     * 常规条件，进行指定属性值与目标值的逻辑判断
+     * 常规条件，进行指定属性值与目标值`condvalue`的逻辑判断，如目标值类型`paramtype`，则`condvalue`作为类型参数
      * <li>VALUERANGE3
      * <P>
-     * 值清单，判断指定属性值是否在指定的值清单中
+     * 值清单，判断指定属性值是否在指定的值清单中，`condvalue`指定值清单，`separator`指定分隔符（默认为`;`）
      * <li>QUERYCOUNT
      * <P>
-     * 查询计数，判断指定属性值的查询计数是否在指定的范围中
+     * 查询计数，判断指定属性值的查询计数是否在指定的范围中，`psdesqid`指定查询模型，同时指定minvalue、maxvalue、includeminvalue、includemaxvalue
      * <li>VALUERECURSION
      * <P>
      * 值递归检查，判断指定属性值是否存在递归引用
      * <li>SYSVALUERULE
      * <P>
-     * 系统值规则，判断指定属性值是否满足指定的系统值规则
+     * 系统值规则，判断指定属性值是否满足指定的系统值规则`pssysvalueruleid`
      * </ul>     
      */
     public static enum DEFVRType{
         GROUP("GROUP", "条件组")
-        ,NULLRULE("NULLRULE", "空值判断")
         ,VALUERANGE("VALUERANGE", "数据集范围")
         ,VALUERANGE2("VALUERANGE2", "数值范围")
         ,REGEX("REGEX", "正则式")
@@ -10731,8 +10745,6 @@ public class PSModelEnums {
             switch(value){
                 case "GROUP":
                     return GROUP;
-                case "NULLRULE":
-                    return NULLRULE;
                 case "VALUERANGE":
                     return VALUERANGE;
                 case "VALUERANGE2":
@@ -15217,6 +15229,9 @@ public class PSModelEnums {
      * <li>DEFILE
      * <P>
      * 实体文件
+     * <li>LOCALFILE
+     * <P>
+     * 本地文件
      * <li>USER
      * <P>
      * 用户自定义
@@ -15254,6 +15269,7 @@ public class PSModelEnums {
         ,SYSCONTENTCAT("SYSCONTENTCAT", "系统内容分类")
         ,OSSFILE("OSSFILE", "OSS文件")
         ,DEFILE("DEFILE", "实体文件")
+        ,LOCALFILE("LOCALFILE", "本地文件")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -15289,6 +15305,8 @@ public class PSModelEnums {
                     return OSSFILE;
                 case "DEFILE":
                     return DEFILE;
+                case "LOCALFILE":
+                    return LOCALFILE;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -15766,6 +15784,55 @@ public class PSModelEnums {
             switch(value){
                 case "REGISTRY":
                     return REGISTRY;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体逻辑系统AI聊天请求附加模式
+     * <P>
+     * <ul>
+     * <li>CURRENT
+     * <P>
+     * 当前
+     * <li>USER
+     * <P>
+     * 用户
+     * <li>ASSISTANT
+     * <P>
+     * 助手
+     * <li>SYSTEM
+     * <P>
+     * 系统
+     * </ul>     
+     */
+    public static enum DELogicSysAIChatRequestAppendMode{
+        CURRENT("CURRENT", "当前")
+        ,USER("USER", "用户")
+        ,ASSISTANT("ASSISTANT", "助手")
+        ,SYSTEM("SYSTEM", "系统")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DELogicSysAIChatRequestAppendMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DELogicSysAIChatRequestAppendMode from(String value){
+            switch(value){
+                case "CURRENT":
+                    return CURRENT;
+                case "USER":
+                    return USER;
+                case "ASSISTANT":
+                    return ASSISTANT;
+                case "SYSTEM":
+                    return SYSTEM;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -16681,6 +16748,43 @@ public class PSModelEnums {
     }
 
     /**
+     * 实体打印逻辑聊天资源选项，数值项，多值模式（数字或处理）
+     * <P>
+     * <ul>
+     * <li>DESCOSSIMAGE&nbsp;(1)
+     * <P>
+     * 描述OSS图片
+     * <li>DESCOSSFILE&nbsp;(2)
+     * <P>
+     * 描述OSS附件
+     * </ul>     
+     */
+    public static enum PrintLogicChatResourceOption{
+        DESCOSSIMAGE(1, "描述OSS图片")
+        ,DESCOSSFILE(2, "描述OSS附件")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private PrintLogicChatResourceOption(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static PrintLogicChatResourceOption from(int value){
+            switch(value){
+                case 1:
+                    return DESCOSSIMAGE;
+                case 2:
+                    return DESCOSSFILE;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 数据库空值排序
      * <P>
      * <ul>
@@ -16727,6 +16831,12 @@ public class PSModelEnums {
      * <li>NOTSAME
      * <P>
      * 属性值差异
+     * <li>AIINFO
+     * <P>
+     * AI简约信息
+     * <li>AIFULLINFO
+     * <P>
+     * AI完整信息
      * <li>USER
      * <P>
      * 用户自定义
@@ -16744,6 +16854,8 @@ public class PSModelEnums {
     public static enum DEFGroupLogicMode{
         SORT("SORT", "属性值排序")
         ,NOTSAME("NOTSAME", "属性值差异")
+        ,AIINFO("AIINFO", "AI简约信息")
+        ,AIFULLINFO("AIFULLINFO", "AI完整信息")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -16764,6 +16876,10 @@ public class PSModelEnums {
                     return SORT;
                 case "NOTSAME":
                     return NOTSAME;
+                case "AIINFO":
+                    return AIINFO;
+                case "AIFULLINFO":
+                    return AIFULLINFO;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -20061,11 +20177,23 @@ public class PSModelEnums {
      * <li>DE
      * <P>
      * 实体逻辑
+     * <li>SKILL
+     * <P>
+     * 技能
+     * <li>HUB
+     * <P>
+     * 总线
+     * <li>SCRIPT
+     * <P>
+     * 脚本
      * </ul>     
      */
     public static enum AIChatAgentType{
         DEFAULT("DEFAULT", "默认")
         ,DE("DE", "实体逻辑")
+        ,SKILL("SKILL", "技能")
+        ,HUB("HUB", "总线")
+        ,SCRIPT("SCRIPT", "脚本")
 ;
            
         public final String text;
@@ -20082,6 +20210,12 @@ public class PSModelEnums {
                     return DEFAULT;
                 case "DE":
                     return DE;
+                case "SKILL":
+                    return SKILL;
+                case "HUB":
+                    return HUB;
+                case "SCRIPT":
+                    return SCRIPT;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -22506,6 +22640,12 @@ public class PSModelEnums {
      * <li>BIGDECIMAL&nbsp;(29)
      * <P>
      * BIGDECIMAL
+     * <li>VECTOR&nbsp;(30)
+     * <P>
+     * VECTOR
+     * <li>TSVECTOR&nbsp;(31)
+     * <P>
+     * TSVECTOR
      * </ul>     
      */
     public static enum StdDataType{
@@ -22539,6 +22679,8 @@ public class PSModelEnums {
         ,DATE(27, "DATE")
         ,TIME(28, "TIME")
         ,BIGDECIMAL(29, "BIGDECIMAL")
+        ,VECTOR(30, "VECTOR")
+        ,TSVECTOR(31, "TSVECTOR")
 ;
            
         public final String text;
@@ -22611,6 +22753,10 @@ public class PSModelEnums {
                     return TIME;
                 case 29:
                     return BIGDECIMAL;
+                case 30:
+                    return VECTOR;
+                case 31:
+                    return TSVECTOR;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -23056,6 +23202,49 @@ public class PSModelEnums {
                     return CERTIFICATE;
                 case "USER":
                     return USER;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体逻辑系统AI聊天分类模式
+     * <P>
+     * <ul>
+     * <li>RERANK
+     * <P>
+     * 重排序
+     * <li>LLM
+     * <P>
+     * 大模型
+     * <li>MIXED
+     * <P>
+     * 混合，在ReRank分数过低时启用LLM
+     * </ul>     
+     */
+    public static enum DELogicSysAIChatCategoryMode{
+        RERANK("RERANK", "重排序")
+        ,LLM("LLM", "大模型")
+        ,MIXED("MIXED", "混合")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DELogicSysAIChatCategoryMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DELogicSysAIChatCategoryMode from(String value){
+            switch(value){
+                case "RERANK":
+                    return RERANK;
+                case "LLM":
+                    return LLM;
+                case "MIXED":
+                    return MIXED;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -24241,9 +24430,9 @@ public class PSModelEnums {
      * <li>EXTENSION
      * <P>
      * 系统扩展
-     * <li>ACFACTORY
+     * <li>KNOWLEDGEBASE
      * <P>
-     * AI工厂
+     * 知识库
      * <li>SAASADMIN
      * <P>
      * SaaS应用管理
@@ -24281,7 +24470,7 @@ public class PSModelEnums {
         ,FILE("FILE", "附件存储")
         ,APPCUSTOMIZE("APPCUSTOMIZE", "应用自定义")
         ,EXTENSION("EXTENSION", "系统扩展")
-        ,ACFACTORY("ACFACTORY", "AI工厂")
+        ,KNOWLEDGEBASE("KNOWLEDGEBASE", "知识库")
         ,SAASADMIN("SAASADMIN", "SaaS应用管理")
         ,SAASUSERAUTH("SAASUSERAUTH", "SaaS用户授权（内置）")
         ,SAASUSERAUTHSERVICE("SAASUSERAUTHSERVICE", "SaaS用户授权服务（对外）")
@@ -24312,8 +24501,8 @@ public class PSModelEnums {
                     return APPCUSTOMIZE;
                 case "EXTENSION":
                     return EXTENSION;
-                case "ACFACTORY":
-                    return ACFACTORY;
+                case "KNOWLEDGEBASE":
+                    return KNOWLEDGEBASE;
                 case "SAASADMIN":
                     return SAASADMIN;
                 case "SAASUSERAUTH":
@@ -24334,6 +24523,43 @@ public class PSModelEnums {
                     return LOGLISTENER;
                 case "USER":
                     return USER;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体打印动态模式，数值项
+     * <P>
+     * <ul>
+     * <li>STATIC&nbsp;(0)
+     * <P>
+     * 静态内容
+     * <li>DEDATASET&nbsp;(1)
+     * <P>
+     * 实体数据集，从实体数据集获取代理消息
+     * </ul>     
+     */
+    public static enum DEPrintDynamicMode{
+        STATIC(0, "静态内容")
+        ,DEDATASET(1, "实体数据集")
+;
+           
+        public final String text;
+        public final int value;
+        
+        private DEPrintDynamicMode(int value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEPrintDynamicMode from(int value){
+            switch(value){
+                case 0:
+                    return STATIC;
+                case 1:
+                    return DEDATASET;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -26036,7 +26262,7 @@ public class PSModelEnums {
      * 开始
      * <li>DEACTION
      * <P>
-     * 实体行为
+     * 实体行为，调用目标实体行为
      * <li>PREPAREPARAM
      * <P>
      * 准备参数
@@ -26048,13 +26274,13 @@ public class PSModelEnums {
      * 拷贝参数，将源参数对象拷贝至目标参数对象
      * <li>BINDPARAM
      * <P>
-     * 绑定参数，处理逻辑变量绑定指定变量
+     * 绑定参数，将源参数或源参数属性绑定至目标参数
      * <li>APPENDPARAM
      * <P>
-     * 附加到数组参数
+     * 附加到数组参数，附加源参数或源参数属性至目标数组参数
      * <li>SORTPARAM
      * <P>
-     * 排序数组参数
+     * 排序数组参数，对目标数组参数进行排序
      * <li>RENEWPARAM
      * <P>
      * 重新建立参数
@@ -26072,13 +26298,13 @@ public class PSModelEnums {
      * 聚合数组参数，聚合源数组参数合并至目标数组
      * <li>LOOPSUBCALL
      * <P>
-     * 循环子调用，循环源列表参数对象并绑定至目标参数对象，执行子调用处理
+     * 循环子调用
      * <li>RAWSQLCALL
      * <P>
      * 直接SQL调用
      * <li>RAWSQLANDLOOPCALL
      * <P>
-     * 直接SQL并循环调用
+     * 直接SQL并循环调用，直接SQL查询并对数据集逐项调用行为
      * <li>RAWWEBCALL
      * <P>
      * 直接Web调用
@@ -26129,13 +26355,13 @@ public class PSModelEnums {
      * 主状态，主状态迁移逻辑`MAINSTATELOGIC`节点，存在两种配置模式：使用预置主状态`PSDEMAINSTATE`的常规模式及直接定义参数的简单模式（快速）
      * <li>DEDATASET
      * <P>
-     * 实体数据集
+     * 实体数据集，获取目标实体数据集
      * <li>DENOTIFY
      * <P>
-     * 实体通知
+     * 实体通知，触发目标实体通知
      * <li>DELOGIC
      * <P>
-     * 实体逻辑
+     * 实体逻辑，调用目标逻辑
      * <li>COMMIT
      * <P>
      * 提交事务
@@ -26150,28 +26376,31 @@ public class PSModelEnums {
      * 实体数据查询
      * <li>DEPRINT
      * <P>
-     * 实体打印
+     * 实体打印，打印指定数据至输出流
      * <li>DEREPORT
      * <P>
-     * 实体报表
+     * 实体报表，输出实体报表至指定输出流
      * <li>DEDTSQUEUE
      * <P>
      * 实体异步处理队列
      * <li>DEDATASYNC
      * <P>
-     * 实体数据同步
+     * 实体数据同步，触发实体数据同步
      * <li>DEDATAIMP
      * <P>
      * 实体数据导入
      * <li>DEDATAEXP
      * <P>
      * 实体数据导出
+     * <li>DEDATAFLOW
+     * <P>
+     * 实体数据流，触发实体数据流操作
      * <li>SUBSYSSAMETHOD
      * <P>
-     * 外部服务接口方法
+     * 外部服务接口方法，调用外部接口中定义的方法
      * <li>SYSDATASYNCAGENTOUT
      * <P>
-     * 系统数据同步代理输出
+     * 系统数据同步代理输出，调用系统同步代理向外传递数据
      * <li>SYSDBTABLEACTION
      * <P>
      * 系统数据库表操作
@@ -26184,9 +26413,12 @@ public class PSModelEnums {
      * <li>SYSBIREPORT
      * <P>
      * 系统智能报表
+     * <li>SYSMSGTEMPL
+     * <P>
+     * 系统消息模板处理
      * <li>SYSAICHATAGENT
      * <P>
-     * 系统AI交谈
+     * 系统AI交谈，调用AI工厂预置AGENT交谈
      * <li>SYSAIPIPELINEAGENT
      * <P>
      * 系统AI生产线
@@ -26198,7 +26430,7 @@ public class PSModelEnums {
      * 备注
      * <li>END
      * <P>
-     * 结束
+     * 结束，结束当前处理（子处理）
      * </ul>     
      */
     public static enum LogicNodeType{
@@ -26247,12 +26479,14 @@ public class PSModelEnums {
         ,DEDATASYNC("DEDATASYNC", "实体数据同步")
         ,DEDATAIMP("DEDATAIMP", "实体数据导入")
         ,DEDATAEXP("DEDATAEXP", "实体数据导出")
+        ,DEDATAFLOW("DEDATAFLOW", "实体数据流")
         ,SUBSYSSAMETHOD("SUBSYSSAMETHOD", "外部服务接口方法")
         ,SYSDATASYNCAGENTOUT("SYSDATASYNCAGENTOUT", "系统数据同步代理输出")
         ,SYSDBTABLEACTION("SYSDBTABLEACTION", "系统数据库表操作")
         ,SYSBDTABLEACTION("SYSBDTABLEACTION", "系统大数据表操作")
         ,SYSSEARCHDOCACTION("SYSSEARCHDOCACTION", "系统检索文档操作")
         ,SYSBIREPORT("SYSBIREPORT", "系统智能报表")
+        ,SYSMSGTEMPL("SYSMSGTEMPL", "系统消息模板处理")
         ,SYSAICHATAGENT("SYSAICHATAGENT", "系统AI交谈")
         ,SYSAIPIPELINEAGENT("SYSAIPIPELINEAGENT", "系统AI生产线")
         ,DECISION("DECISION", "决策")
@@ -26360,6 +26594,8 @@ public class PSModelEnums {
                     return DEDATAIMP;
                 case "DEDATAEXP":
                     return DEDATAEXP;
+                case "DEDATAFLOW":
+                    return DEDATAFLOW;
                 case "SUBSYSSAMETHOD":
                     return SUBSYSSAMETHOD;
                 case "SYSDATASYNCAGENTOUT":
@@ -26372,6 +26608,8 @@ public class PSModelEnums {
                     return SYSSEARCHDOCACTION;
                 case "SYSBIREPORT":
                     return SYSBIREPORT;
+                case "SYSMSGTEMPL":
+                    return SYSMSGTEMPL;
                 case "SYSAICHATAGENT":
                     return SYSAICHATAGENT;
                 case "SYSAIPIPELINEAGENT":
@@ -27070,6 +27308,55 @@ public class PSModelEnums {
                     return USER3;
                 case "USER4":
                     return USER4;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * AI记忆隔离模式
+     * <P>
+     * <ul>
+     * <li>NONE&nbsp;(none)
+     * <P>
+     * 无
+     * <li>BUSINESS_SCOPE&nbsp;(business_scope)
+     * <P>
+     * 业务范围
+     * <li>USER_SCOPE&nbsp;(user_scope)
+     * <P>
+     * 用户范围
+     * <li>BUSINESS_USER_SCOPE&nbsp;(business_user_scope)
+     * <P>
+     * 业务及用户范围
+     * </ul>     
+     */
+    public static enum AIMemoryIsolationMode{
+        NONE("none", "无")
+        ,BUSINESS_SCOPE("business_scope", "业务范围")
+        ,USER_SCOPE("user_scope", "用户范围")
+        ,BUSINESS_USER_SCOPE("business_user_scope", "业务及用户范围")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AIMemoryIsolationMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIMemoryIsolationMode from(String value){
+            switch(value){
+                case "none":
+                    return NONE;
+                case "business_scope":
+                    return BUSINESS_SCOPE;
+                case "user_scope":
+                    return USER_SCOPE;
+                case "business_user_scope":
+                    return BUSINESS_USER_SCOPE;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -28352,14 +28639,14 @@ public class PSModelEnums {
      * 部件，面板中的部件成员，挂载系统或实体定义的界面部件。不支持子成员
      * <li>CTRLPOS
      * <P>
-     * 部件占位，视图布局面板中的部件占位成员，默认与部件占位项同名的视图部件将被放置到当前位置。不支持子成员
+     * 部件占位，视图布局面板中的部件占位成员，默认与部件占位项同名的视图部件成员将被放置到当前位置。不支持子成员
      * <li>RAWITEM
      * <P>
      * 直接内容，面板中的直接内容项，输出文本或图片。不支持子成员
      * <li>TABPANEL
      * <P>
      * 分页部件，面板中的分页部件，提供分页界面容器。分页部件只能包含分页面板（TABPAGE）
-     * <li>TAGPAGE
+     * <li>TABPAGE
      * <P>
      * 分页面板，面板分页部件的成员部件，是基础的布局容器。只允许放置在分页部件（TABPANEL）中。支持子成员
      * <li>FIELD
@@ -28368,6 +28655,9 @@ public class PSModelEnums {
      * <li>BUTTON
      * <P>
      * 面板按钮，面板中的按钮对象，为面板提供命令能力。不支持子成员
+     * <li>BUTTONLIST
+     * <P>
+     * 面板按钮组，面板中的按钮列表对象，通过指定界面行为组或直接包含按钮`BUTTON`提供多个按钮操作能力
      * <li>USERCONTROL
      * <P>
      * 用户控件，面板中的自定义用户部件，需指定前端模板插件进行内容输出。不支持子成员
@@ -28379,9 +28669,10 @@ public class PSModelEnums {
         ,CTRLPOS("CTRLPOS", "部件占位")
         ,RAWITEM("RAWITEM", "直接内容")
         ,TABPANEL("TABPANEL", "分页部件")
-        ,TAGPAGE("TAGPAGE", "分页面板")
+        ,TABPAGE("TABPAGE", "分页面板")
         ,FIELD("FIELD", "面板属性")
         ,BUTTON("BUTTON", "面板按钮")
+        ,BUTTONLIST("BUTTONLIST", "面板按钮组")
         ,USERCONTROL("USERCONTROL", "用户控件")
 ;
            
@@ -28405,12 +28696,14 @@ public class PSModelEnums {
                     return RAWITEM;
                 case "TABPANEL":
                     return TABPANEL;
-                case "TAGPAGE":
-                    return TAGPAGE;
+                case "TABPAGE":
+                    return TABPAGE;
                 case "FIELD":
                     return FIELD;
                 case "BUTTON":
                     return BUTTON;
+                case "BUTTONLIST":
+                    return BUTTONLIST;
                 case "USERCONTROL":
                     return USERCONTROL;
                 default:
@@ -28920,7 +29213,7 @@ public class PSModelEnums {
      * <ul>
      * <li>NONE
      * <P>
-     * 无处理
+     * 无默认处理
      * <li>UIACTION
      * <P>
      * 界面行为，按钮点击触发界面行为处理
@@ -29005,7 +29298,7 @@ public class PSModelEnums {
      * </ul>     
      */
     public static enum PanelButtonActionType{
-        NONE("NONE", "无处理")
+        NONE("NONE", "无默认处理")
         ,UIACTION("UIACTION", "界面行为")
         ,UILOGIC("UILOGIC", "界面逻辑")
         ,OPENVIEW("OPENVIEW", "打开应用视图")
@@ -29486,6 +29779,9 @@ public class PSModelEnums {
      * <li>MDCTRL
      * <P>
      * 多数据部件，轻量呈现表单中数组数据，支持列表、表格、表单、卡片视图和重复器类型。类型为重复器可放入其它表单成员，其它则为叶子节点
+     * <li>BUTTONS
+     * <P>
+     * 按钮列表，可通过界面行为组自动展开子按钮或是包含表单按钮`BUTTON`
      * </ul>     
      */
     public static enum FormDetailType{
@@ -29502,6 +29798,7 @@ public class PSModelEnums {
         ,IFRAME("IFRAME", "直接页面嵌入")
         ,FORMITEMEX("FORMITEMEX", "复合表单项")
         ,MDCTRL("MDCTRL", "多数据部件")
+        ,BUTTONS("BUTTONS", "按钮列表")
 ;
            
         public final String text;
@@ -29540,6 +29837,8 @@ public class PSModelEnums {
                     return FORMITEMEX;
                 case "MDCTRL":
                     return MDCTRL;
+                case "BUTTONS":
+                    return BUTTONS;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -31097,6 +31396,12 @@ public class PSModelEnums {
      * <li>DECIMALARRAY2
      * <P>
      * 数值数组（没有长度限制）
+     * <li>VECTOR
+     * <P>
+     * 向量
+     * <li>TSVECTOR
+     * <P>
+     * 文本搜索向量
      * </ul>     
      */
     public static enum DEFDataType{
@@ -31156,6 +31461,8 @@ public class PSModelEnums {
         ,FLOATARRAY2("FLOATARRAY2", "浮点数组（没有长度限制）")
         ,DECIMALARRAY("DECIMALARRAY", "数值数组")
         ,DECIMALARRAY2("DECIMALARRAY2", "数值数组（没有长度限制）")
+        ,VECTOR("VECTOR", "向量")
+        ,TSVECTOR("TSVECTOR", "文本搜索向量")
 ;
            
         public final String text;
@@ -31280,6 +31587,10 @@ public class PSModelEnums {
                     return DECIMALARRAY;
                 case "DECIMALARRAY2":
                     return DECIMALARRAY2;
+                case "VECTOR":
+                    return VECTOR;
+                case "TSVECTOR":
+                    return TSVECTOR;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -32210,13 +32521,13 @@ public class PSModelEnums {
      * 不启用
      * <li>MINHERIT&nbsp;(1)
      * <P>
-     * 常规多继承模式，对多个实体使用多继承关系`DERMULINH`进行剪裁组装，形成新的实体，无持久化
+     * 常规多继承模式，对多个实体使用多继承关系`DERMULINH`（从关系）进行剪裁组装，形成新的实体，无持久化
      * <li>INHERIT&nbsp;(2)
      * <P>
-     * 高级继承扩展模式，对指定实体进行虚拟继承`DERINHERIT`，指定实体无需设置为继承主实体，一般用于对子系统或是外部服务实体的功能扩展，无持久化
+     * 高级继承扩展模式，对指定实体进行虚拟继承`DERINHERIT`（从关系），指定实体无需设置为继承主实体，一般用于对子系统或是外部服务实体的功能扩展，无持久化
      * <li>INDEXMAJOR&nbsp;(3)
      * <P>
-     * 索引主实体模式，将多个索引从实体`DERINDEX`进行数据联合，以统一的视角供外部使用，无持久化
+     * 索引主实体模式，将多个索引从实体`DERINDEX`（主关系）进行数据联合，以统一的视角供外部使用，无持久化
      * <li>MIXMINHERIT&nbsp;(4)
      * <P>
      * 混合多继承模式，当前实体混合多个实体使用多继承关系`DERMULINH`进行组装，形成新的实体，支持持久化
@@ -32352,9 +32663,12 @@ public class PSModelEnums {
      * <li>JR
      * <P>
      * JasperReport
-     * <li>MD
+     * <li>FREEMARKER
      * <P>
-     * Markdown
+     * FreeMarker
+     * <li>CHATRESOURCE
+     * <P>
+     * 聊天资源
      * <li>USER
      * <P>
      * 用户自定义
@@ -32372,7 +32686,8 @@ public class PSModelEnums {
     public static enum PrintType{
         POI_TL("POI_TL", "POI模板引擎")
         ,JR("JR", "JasperReport")
-        ,MD("MD", "Markdown")
+        ,FREEMARKER("FREEMARKER", "FreeMarker")
+        ,CHATRESOURCE("CHATRESOURCE", "聊天资源")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -32393,8 +32708,10 @@ public class PSModelEnums {
                     return POI_TL;
                 case "JR":
                     return JR;
-                case "MD":
-                    return MD;
+                case "FREEMARKER":
+                    return FREEMARKER;
+                case "CHATRESOURCE":
+                    return CHATRESOURCE;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -33568,27 +33885,99 @@ public class PSModelEnums {
      * <ul>
      * <li>DEFAULT
      * <P>
-     * 默认，同步调用聊天请求
+     * 默认，同步调用聊天请求，返回交谈内容
+     * <li>CHATRAW
+     * <P>
+     * 直接交谈，同步调用聊天请求，返回聊天结果对象
      * <li>CHATCATEGORY
      * <P>
      * 交谈问题分类
+     * <li>CHATINPUT
+     * <P>
+     * 交谈等待输入
      * <li>CHATOUTPUT
      * <P>
-     * 交谈输出（等待输入）
+     * 交谈输出
+     * <li>CHATSTEP
+     * <P>
+     * 交谈步骤
+     * <li>CHATUIACTION
+     * <P>
+     * 交谈界面行为
+     * <li>CHATDECISION
+     * <P>
+     * 交谈决策
+     * <li>CHATINTENTS
+     * <P>
+     * 交谈意图
+     * <li>CHATEXECUTEACTION
+     * <P>
+     * 交谈执行行为
+     * <li>CHATFETCHDATASET
+     * <P>
+     * 交谈获取数据集
+     * <li>CHATEXECUTECODE
+     * <P>
+     * 交谈执行代码
+     * <li>CHATEXECUTECODE_DOCUMENTS
+     * <P>
+     * 交谈执行代码（知识库文档）
+     * <li>CHATEXECUTESKILL
+     * <P>
+     * 交谈执行技能
+     * <li>APPENDCHATREQUEST
+     * <P>
+     * 附加聊天请求
+     * <li>APPENDCHATRESULT
+     * <P>
+     * 附加聊天结果
+     * <li>FETCHCHUNKS
+     * <P>
+     * 知识检索
+     * <li>FETCHCHUNKSBYHISTORIES
+     * <P>
+     * 知识检索（通过聊天记录）
      * <li>CHATAGGREGATION
      * <P>
      * 交谈聚合
      * <li>CHATAGGREGATIONOUTPUT
      * <P>
      * 交谈聚合（等待输入）
+     * <li>CHATKNOWLEDGEBASES
+     * <P>
+     * 交谈资料库
+     * <li>CHATTRIMMING_LEASTIMPORTANT
+     * <P>
+     * 交谈截断（基于内容重要性）
+     * <li>CHATTRIMMING_SUMMARIZEOLDEST
+     * <P>
+     * 交谈截断（摘要保留早期）
      * </ul>     
      */
     public static enum DELogicSysAIChatAgentType{
         DEFAULT("DEFAULT", "默认")
+        ,CHATRAW("CHATRAW", "直接交谈")
         ,CHATCATEGORY("CHATCATEGORY", "交谈问题分类")
-        ,CHATOUTPUT("CHATOUTPUT", "交谈输出（等待输入）")
+        ,CHATINPUT("CHATINPUT", "交谈等待输入")
+        ,CHATOUTPUT("CHATOUTPUT", "交谈输出")
+        ,CHATSTEP("CHATSTEP", "交谈步骤")
+        ,CHATUIACTION("CHATUIACTION", "交谈界面行为")
+        ,CHATDECISION("CHATDECISION", "交谈决策")
+        ,CHATINTENTS("CHATINTENTS", "交谈意图")
+        ,CHATEXECUTEACTION("CHATEXECUTEACTION", "交谈执行行为")
+        ,CHATFETCHDATASET("CHATFETCHDATASET", "交谈获取数据集")
+        ,CHATEXECUTECODE("CHATEXECUTECODE", "交谈执行代码")
+        ,CHATEXECUTECODE_DOCUMENTS("CHATEXECUTECODE_DOCUMENTS", "交谈执行代码（知识库文档）")
+        ,CHATEXECUTESKILL("CHATEXECUTESKILL", "交谈执行技能")
+        ,APPENDCHATREQUEST("APPENDCHATREQUEST", "附加聊天请求")
+        ,APPENDCHATRESULT("APPENDCHATRESULT", "附加聊天结果")
+        ,FETCHCHUNKS("FETCHCHUNKS", "知识检索")
+        ,FETCHCHUNKSBYHISTORIES("FETCHCHUNKSBYHISTORIES", "知识检索（通过聊天记录）")
         ,CHATAGGREGATION("CHATAGGREGATION", "交谈聚合")
         ,CHATAGGREGATIONOUTPUT("CHATAGGREGATIONOUTPUT", "交谈聚合（等待输入）")
+        ,CHATKNOWLEDGEBASES("CHATKNOWLEDGEBASES", "交谈资料库")
+        ,CHATTRIMMING_LEASTIMPORTANT("CHATTRIMMING_LEASTIMPORTANT", "交谈截断（基于内容重要性）")
+        ,CHATTRIMMING_SUMMARIZEOLDEST("CHATTRIMMING_SUMMARIZEOLDEST", "交谈截断（摘要保留早期）")
 ;
            
         public final String text;
@@ -33603,14 +33992,50 @@ public class PSModelEnums {
             switch(value){
                 case "DEFAULT":
                     return DEFAULT;
+                case "CHATRAW":
+                    return CHATRAW;
                 case "CHATCATEGORY":
                     return CHATCATEGORY;
+                case "CHATINPUT":
+                    return CHATINPUT;
                 case "CHATOUTPUT":
                     return CHATOUTPUT;
+                case "CHATSTEP":
+                    return CHATSTEP;
+                case "CHATUIACTION":
+                    return CHATUIACTION;
+                case "CHATDECISION":
+                    return CHATDECISION;
+                case "CHATINTENTS":
+                    return CHATINTENTS;
+                case "CHATEXECUTEACTION":
+                    return CHATEXECUTEACTION;
+                case "CHATFETCHDATASET":
+                    return CHATFETCHDATASET;
+                case "CHATEXECUTECODE":
+                    return CHATEXECUTECODE;
+                case "CHATEXECUTECODE_DOCUMENTS":
+                    return CHATEXECUTECODE_DOCUMENTS;
+                case "CHATEXECUTESKILL":
+                    return CHATEXECUTESKILL;
+                case "APPENDCHATREQUEST":
+                    return APPENDCHATREQUEST;
+                case "APPENDCHATRESULT":
+                    return APPENDCHATRESULT;
+                case "FETCHCHUNKS":
+                    return FETCHCHUNKS;
+                case "FETCHCHUNKSBYHISTORIES":
+                    return FETCHCHUNKSBYHISTORIES;
                 case "CHATAGGREGATION":
                     return CHATAGGREGATION;
                 case "CHATAGGREGATIONOUTPUT":
                     return CHATAGGREGATIONOUTPUT;
+                case "CHATKNOWLEDGEBASES":
+                    return CHATKNOWLEDGEBASES;
+                case "CHATTRIMMING_LEASTIMPORTANT":
+                    return CHATTRIMMING_LEASTIMPORTANT;
+                case "CHATTRIMMING_SUMMARIZEOLDEST":
+                    return CHATTRIMMING_SUMMARIZEOLDEST;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -37150,7 +37575,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体视图预置类型
+     * 实体视图预置功能模式
      * <P>
      * <ul>
      * <li>PICKUPVIEW
@@ -37679,6 +38104,43 @@ public class PSModelEnums {
     }
 
     /**
+     * AI技能加载模式
+     * <P>
+     * <ul>
+     * <li>ALL&nbsp;(all)
+     * <P>
+     * 全部，加载全部技能
+     * <li>SPECIFIED&nbsp;(specified)
+     * <P>
+     * 指定，仅加载指定技能
+     * </ul>     
+     */
+    public static enum AISkillLoadMode{
+        ALL("all", "全部")
+        ,SPECIFIED("specified", "指定")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AISkillLoadMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AISkillLoadMode from(String value){
+            switch(value){
+                case "all":
+                    return ALL;
+                case "specified":
+                    return SPECIFIED;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 实体数据访问控制方式，数值项
      * <P>
      * <ul>
@@ -37893,27 +38355,27 @@ public class PSModelEnums {
     }
 
     /**
-     * 实体处理处理返回值类型
+     * 实体逻辑处理返回值类型
      * <P>
      * <ul>
      * <li>NONEVALUE
      * <P>
-     * 无值（NONE）
+     * 无值（NONE），无返回
      * <li>NULLVALUE
      * <P>
-     * 空值（NULL）
+     * 空值（NULL），返回空值
      * <li>SRCVALUE
      * <P>
-     * 直接值
+     * 直接值，返回直接值
      * <li>LOGICPARAM
      * <P>
-     * 逻辑参数对象
+     * 逻辑参数对象，返回目标逻辑参数对象
      * <li>LOGICPARAMFIELD
      * <P>
-     * 逻辑参数属性
+     * 逻辑参数属性，返回目标参数的指定属性值
      * <li>BREAK
      * <P>
-     * 跳出循环（BREAK）
+     * 跳出循环（BREAK），跳出循环子调用
      * </ul>     
      */
     public static enum LogicReturnType{
@@ -38033,6 +38495,43 @@ public class PSModelEnums {
                     return FORMITEMS;
                 case "SCRIPT":
                     return SCRIPT;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 实体数据导入导出内容格式
+     * <P>
+     * <ul>
+     * <li>XLSX
+     * <P>
+     * XLSX
+     * <li>JSON
+     * <P>
+     * JSON
+     * </ul>     
+     */
+    public static enum DEDataImpExpContentType{
+        XLSX("XLSX", "XLSX")
+        ,JSON("JSON", "JSON")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DEDataImpExpContentType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DEDataImpExpContentType from(String value){
+            switch(value){
+                case "XLSX":
+                    return XLSX;
+                case "JSON":
+                    return JSON;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -38211,6 +38710,55 @@ public class PSModelEnums {
                     return COMMON;
                 case "CALCULATED":
                     return CALCULATED;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * AI知识库模式
+     * <P>
+     * <ul>
+     * <li>DEFAULT&nbsp;(default)
+     * <P>
+     * 默认，支持当前指定或外部传入的知识库
+     * <li>INCLUDE&nbsp;(include)
+     * <P>
+     * 包含，仅支持指定的知识库
+     * <li>EXCLUDE&nbsp;(exclude)
+     * <P>
+     * 排除，支持除指定知识库外的知识库
+     * <li>FIXED&nbsp;(fixed)
+     * <P>
+     * 固定
+     * </ul>     
+     */
+    public static enum AIKBMode{
+        DEFAULT("default", "默认")
+        ,INCLUDE("include", "包含")
+        ,EXCLUDE("exclude", "排除")
+        ,FIXED("fixed", "固定")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private AIKBMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static AIKBMode from(String value){
+            switch(value){
+                case "default":
+                    return DEFAULT;
+                case "include":
+                    return INCLUDE;
+                case "exclude":
+                    return EXCLUDE;
+                case "fixed":
+                    return FIXED;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -39720,6 +40268,12 @@ public class PSModelEnums {
      * <li>SRCDLPARAM
      * <P>
      * 源逻辑参数，指定源处理逻辑参数
+     * <li>LOGICPARAM
+     * <P>
+     * 逻辑参数对象
+     * <li>LOGICPARAMFIELD
+     * <P>
+     * 逻辑参数属性
      * <li>WEBCONTEXT
      * <P>
      * 网页请求上下文
@@ -39766,6 +40320,8 @@ public class PSModelEnums {
      */
     public static enum DELogicParamValueType{
         SRCDLPARAM("SRCDLPARAM", "源逻辑参数")
+        ,LOGICPARAM("LOGICPARAM", "逻辑参数对象")
+        ,LOGICPARAMFIELD("LOGICPARAMFIELD", "逻辑参数属性")
         ,WEBCONTEXT("WEBCONTEXT", "网页请求上下文")
         ,APPDATA("APPDATA", "当前应用数据")
         ,APPLICATION("APPLICATION", "系统全局对象")
@@ -39794,6 +40350,10 @@ public class PSModelEnums {
             switch(value){
                 case "SRCDLPARAM":
                     return SRCDLPARAM;
+                case "LOGICPARAM":
+                    return LOGICPARAM;
+                case "LOGICPARAMFIELD":
+                    return LOGICPARAMFIELD;
                 case "WEBCONTEXT":
                     return WEBCONTEXT;
                 case "APPDATA":
@@ -40949,15 +41509,11 @@ public class PSModelEnums {
      * <li>THREAD&nbsp;(1)
      * <P>
      * 线程执行
-     * <li>TIMER&nbsp;(2)
-     * <P>
-     * 定时执行
      * </ul>     
      */
     public static enum DELogicNodeThreadRunMode{
         NONE(0, "不启用")
         ,THREAD(1, "线程执行")
-        ,TIMER(2, "定时执行")
 ;
            
         public final String text;
@@ -40974,8 +41530,6 @@ public class PSModelEnums {
                     return NONE;
                 case 1:
                     return THREAD;
-                case 2:
-                    return TIMER;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -41082,7 +41636,7 @@ public class PSModelEnums {
      * 移动位置，移动位置
      * <li>CHECKKEY
      * <P>
-     * 检查主键，检查主键
+     * 检查主键，检查主键返回整形：`0`主键不存在，`1`主键已存在，`2`主键已删除，无法使用
      * <li>SAVE
      * <P>
      * 保存数据，保存数据，自动判断新建或更新

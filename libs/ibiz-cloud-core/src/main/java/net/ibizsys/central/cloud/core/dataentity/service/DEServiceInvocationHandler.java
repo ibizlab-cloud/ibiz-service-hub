@@ -14,8 +14,7 @@ import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 
 public class DEServiceInvocationHandler<T> implements InvocationHandler {
 
-	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory
-			.getLog(DEServiceInvocationHandler.class);
+	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DEServiceInvocationHandler.class);
 
 	// private IDataEntityRuntimeContext iDataEntityRuntimeContext = null;
 	private IDataEntityRuntime iDataEntityRuntime = null;
@@ -29,8 +28,7 @@ public class DEServiceInvocationHandler<T> implements InvocationHandler {
 		this.iDataEntityRuntime = (IDataEntityRuntime) iDataEntityRuntimeContext.getDataEntityRuntime();
 		this.cls = cls;
 		try {
-			this.t = (T) Proxy.newProxyInstance(iDataEntityRuntime.getSystemRuntime().getGroovyClassLoader(),
-					new Class[] { cls }, this);
+			this.t = (T) Proxy.newProxyInstance(iDataEntityRuntime.getSystemRuntime().getGroovyClassLoader(), new Class[] { cls }, this);
 		} catch (Throwable ex) {
 			log.error(ex);
 			this.t = (T) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[] { cls }, this);

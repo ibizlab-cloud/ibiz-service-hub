@@ -28,9 +28,11 @@ import net.ibizsys.central.cloud.core.bi.SysBISchemeRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
 import net.ibizsys.central.cloud.core.database.SysDBSchemeRuntime;
 import net.ibizsys.central.cloud.core.dataentity.DataEntityRuntime;
+import net.ibizsys.central.cloud.core.dataentity.logic.DELogicDEPrintNodeRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.IProxyDEService;
 import net.ibizsys.central.cloud.core.eai.SysAIAgentRuntime;
 import net.ibizsys.central.cloud.core.security.IAuthenticationUser;
+import net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSetting;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
@@ -57,6 +59,9 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemMerge;
 import net.ibizsys.central.cloud.core.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.central.database.ISysDBSchemeRuntime;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicNodeTypes;
+import net.ibizsys.central.dataentity.logic.IDELogicNodeRuntime;
+import net.ibizsys.central.service.SysServiceAPILevels;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.central.system.ISystemModuleUtilRuntime;
 import net.ibizsys.central.sysutil.ISysOSSUtilRuntime;
@@ -67,6 +72,7 @@ import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.res.IPSSysContent;
 import net.ibizsys.model.res.IPSSysContentCat;
 import net.ibizsys.model.res.IPSSysDataSyncAgent;
+import net.ibizsys.model.service.IPSSysServiceAPI;
 import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.runtime.ISystemEventListener;
 import net.ibizsys.runtime.SystemRuntimeException;
@@ -139,6 +145,8 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	private CredentialRepo credentialRepo = new CredentialRepo();
 	
 	private Map<Class<? extends IProxyDEService>, IProxyDEService> proxyDEServiceMap = new ConcurrentHashMap<Class<? extends IProxyDEService>, IProxyDEService>();
+	
+	private ISysServiceAPIRuntime defaultSysServiceAPIRuntime = null;
 	
 	private IConfigListener systemExtensionConfigListener = new IConfigListener() {
 
@@ -1056,7 +1064,7 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	
 	@Override
 	public boolean isUpdateDBSchema() {
-		return this.bUpdateDBSchema;
+		return ServiceHub.getInstance().getServiceHubSetting().isUpdateDBSchema() &&  this.bUpdateDBSchema;
 	}
 	
 	@Override
@@ -1302,4 +1310,35 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 		}
 		return (T)iProxyDEService;
 	}
+
+	@Override
+	public ISysServiceAPIRuntime getDefaultSysServiceAPIRuntime(boolean tryMode) {
+		if(this.defaultSysServiceAPIRuntime == null) {
+			List<IPSSysServiceAPI> psSysServiceAPIList = this.getPSSystem().getAllPSSysServiceAPIs();
+			if(!ObjectUtils.isEmpty(psSysServiceAPIList)) {
+				for(IPSSysServiceAPI iPSSysServiceAPI : psSysServiceAPIList) {
+					if(iPSSysServiceAPI.getCodeName().indexOf("_") == 0) {
+						continue;
+					}
+					if(iPSSysServiceAPI.getAPILevel() == SysServiceAPILevels.USER) {
+						this.defaultSysServiceAPIRuntime = (ISysServiceAPIRuntime)this.getSysServiceAPIRuntime(iPSSysServiceAPI.getCodeName(), false);
+						break;
+					}
+				}
+			}
+		}
+		if(this.defaultSysServiceAPIRuntime != null || tryMode) {
+			return this.defaultSysServiceAPIRuntime;
+		}
+		throw new SystemRuntimeException(this, String.format("系统未指定默认服务接口"));
+	}
+	
+	@Override
+	protected IDELogicNodeRuntime onCreateDELogicNodeRuntime(String strLogicNodeType) throws Exception {
+		if (DELogicNodeTypes.DEPRINT.equals(strLogicNodeType)) {
+			return new DELogicDEPrintNodeRuntime();
+		}
+		return super.onCreateDELogicNodeRuntime(strLogicNodeType);
+	}
+
 }

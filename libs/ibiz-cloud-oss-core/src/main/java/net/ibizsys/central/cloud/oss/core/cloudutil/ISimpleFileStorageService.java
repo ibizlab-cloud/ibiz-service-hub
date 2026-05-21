@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.oss.core.cloudutil;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
+import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTextMode;
 import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTicketMode;
 import net.ibizsys.central.cloud.oss.core.util.domain.FileItem;
 
@@ -44,6 +46,17 @@ public interface ISimpleFileStorageService {
 	 */
 	public final static String PACKMODE_FLAT = "flat";
 	
+	
+	/**
+	 * 上传参数：返回预览信息
+	 */
+	public final static String UPLOADPARAM_PREVIEW = "preview";
+	
+	
+	/**
+	 * 上传参数：解压
+	 */
+	public final static String UPLOADPARAM_UNZIP = "unzip";
 	
 	
 	/**
@@ -102,8 +115,9 @@ public interface ISimpleFileStorageService {
 	 * @param strCat
 	 * @param strFileid
 	 * @param response
+	 * @param params
 	 */
-	void downloadText(String strCat, String strFileId, HttpServletResponse response);
+	void downloadText(String strCat, String strFileId, HttpServletResponse response, Map<String, Object> params);
 	
 	/**
 	 * 保存远程上传的文件内容
@@ -124,6 +138,17 @@ public interface ISimpleFileStorageService {
 	 * @return
 	 */
 	FileItem uploadFile(String strCat, MultipartFile multipartFile, boolean bPreview);
+	
+	/**
+	 * 保存远程上传的文件内容
+	 * 
+	 * @param multipartFile
+	 * @param strCat 分类
+	 * @param params
+	 * @return
+	 */
+	List<FileItem> uploadFile(String strCat, MultipartFile multipartFile, Map<String, Object> params);
+	
 	
 	
 	
@@ -152,9 +177,10 @@ public interface ISimpleFileStorageService {
 	 * @param strCat
 	 * @param strDownloadKey
 	 * @param response
+	 * @param params 
 	 * @param bTryOrigin 尝试文件标识
 	 */
-	void downloadTextByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, boolean bTryFileId);
+	void downloadTextByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, Map<String, Object> params, boolean bTryFileId);
 	
 	
 	/**
@@ -177,4 +203,47 @@ public interface ISimpleFileStorageService {
 	 * @return
 	 */
 	Set<String> getDownloadTicketFolders();
+	
+	
+	
+	/**
+	 * 直接上传文件
+	 * @param strCat
+	 * @param srcFile
+	 * @return
+	 */
+	FileItem uploadFile(String strCat, File srcFile);
+	
+	
+	
+	/**
+	 * 获取指定文件的文本信息
+	 * @param strCat
+	 * @param strFileid
+	 * @param params
+	 */
+	String getText(String strCat, String strFileId, Map<String, Object> params);
+	
+	
+	
+	/**
+	 * 获取下载文本模式
+	 * @return
+	 */
+	DownloadTextMode getDownloadTextMode();
+	
+	
+	/**
+	 * 是否包含下载文本文件后缀
+	 * @param strExt
+	 * @return
+	 */
+	boolean containsDownloadTextExt(String strExt);
+	
+	
+	/**
+	 * 获取下载文本控制后缀集合
+	 * @return
+	 */
+	Set<String> getDownloadTextExts();
 }

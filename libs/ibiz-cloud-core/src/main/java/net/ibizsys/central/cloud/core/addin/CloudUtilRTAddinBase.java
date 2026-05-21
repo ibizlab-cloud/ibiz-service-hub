@@ -15,7 +15,7 @@ import net.ibizsys.central.sysutil.ISysUniStateUtilRuntime;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.plugin.ModelRTAddinBase;
 
-public abstract class CloudUtilRTAddinBase extends ModelRTAddinBase  {
+public abstract class CloudUtilRTAddinBase extends ModelRTAddinBase implements ICloudUtilRTAddin {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(CloudUtilRTAddinBase.class);
 	
@@ -176,6 +176,7 @@ public abstract class CloudUtilRTAddinBase extends ModelRTAddinBase  {
 		this.strClientSecret = strClientSecret;
 	}
 	
+	@Override
 	public boolean isEnabled() {
 		return this.bEnabled;
 	}
@@ -185,7 +186,14 @@ public abstract class CloudUtilRTAddinBase extends ModelRTAddinBase  {
 		this.bEnabled = bEnabled;
 	}
 	
+	@Override
+	public void reloadSetting() throws Throwable {
+		this.onReloadSetting();
+	}
 	
+	protected void onReloadSetting() throws Throwable {
+		
+	}
 	
 	protected abstract ICloudUtilRuntime getCloudUtilRuntime();
 	

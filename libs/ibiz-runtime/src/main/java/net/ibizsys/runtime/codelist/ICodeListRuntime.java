@@ -126,4 +126,14 @@ public interface ICodeListRuntime extends IModelRuntime{
 	 * @return
 	 */
 	IPSCodeItem getPSCodeItemByUserData(String strUserData, boolean bTryMode);
+	
+	
+	
+	/**
+	 * 获取指定标记的代码项
+	 * @param strTag
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSCodeItem getPSCodeItemByTag(String strTag, boolean bTryMode);
 }

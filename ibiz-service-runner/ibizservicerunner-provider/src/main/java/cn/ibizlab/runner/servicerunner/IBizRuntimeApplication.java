@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient(autoRegister=false)
 @SpringBootApplication(exclude= SecurityAutoConfiguration.class)
-@ComponentScan({"net.ibizsys.central.cloud.core.spring","net.ibizsys.central.plugin.liquibase.spring","cn.ibizlab.runner.servicerunner"})
+@ComponentScan({"net.ibizsys.central.cloud.core.spring","net.ibizsys.central.plugin.liquibase.spring","cn.ibizlab.runner.servicerunner","net.ibizsys.central.plugin.ai.spring"})
 public class IBizRuntimeApplication {
 
     public static void main(String[] args) {

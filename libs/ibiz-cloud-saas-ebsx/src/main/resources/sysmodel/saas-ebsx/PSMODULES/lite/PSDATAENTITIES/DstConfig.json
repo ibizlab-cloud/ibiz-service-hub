@@ -1113,7 +1113,7 @@
         "codeName" : "UIMode",
         "editorType" : "TEXTAREA_10",
         "name" : "[CFG][配置内容]",
-        "stringLength" : 1048576,
+        "stringLength" : 16777215,
         "uIMode" : "CUSTOM"
       },
       "type" : "CUSTOM"
@@ -1124,7 +1124,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXTAREA",
         "name" : "[CFG][配置内容]移动端默认",
-        "stringLength" : 1048576,
+        "stringLength" : 16777215,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1137,7 +1137,7 @@
         "codeName" : "UIMode2",
         "editorType" : "TEXTAREA_10",
         "name" : "[CFG][配置内容]",
-        "stringLength" : 1048576,
+        "stringLength" : 16777215,
         "uIMode" : "CUSTOM"
       },
       "type" : "CUSTOM"
@@ -1148,7 +1148,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTAREA_10",
         "name" : "[CFG][配置内容]",
-        "stringLength" : 1048576,
+        "stringLength" : 16777215,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1163,16 +1163,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "CFG",
-          "maxValue" : 1048576,
+          "maxValue" : 16777215,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "ruleInfo" : "内容长度必须小于等于[16777215]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[1048576]"
+        "ruleInfo" : "内容长度必须小于等于[16777215]"
       },
-      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "ruleInfo" : "内容长度必须小于等于[16777215]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1182,7 +1182,7 @@
     "dEFType" : 1,
     "dataType" : "LONGTEXT",
     "importOrder" : 1000,
-    "length" : 1048576,
+    "length" : 16777215,
     "logicName" : "配置内容",
     "name" : "CFG",
     "orderValue" : 6,
@@ -1195,7 +1195,7 @@
       "id" : "CFG"
     },
     "stdDataType" : 21,
-    "stringLength" : 1048576,
+    "stringLength" : 16777215,
     "valueFormat" : "%1$s",
     "queryColumn" : false
   }, {
@@ -1376,7 +1376,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 21,
-      "stringLength" : 1048576,
+      "stringLength" : 16777215,
       "type" : "SIMPLE"
     }, {
       "jsonFormat" : "yyyy-MM-dd HH:mm:ss",

@@ -41,6 +41,9 @@ public class PSModelRTServiceFactory extends net.ibizsys.psmodel.runtime.util.PS
         
         instance.registerPSModelService(PSModels.PSDEFORM, net.ibizsys.central.plugin.extension.psmodel.service.PSDEFormRTService.class);
         instance.registerPSModelService("PSDEFORMS", net.ibizsys.central.plugin.extension.psmodel.service.PSDEFormRTService.class);
+
+        instance.registerPSModelService(PSModels.PSDEVIEWBASE, net.ibizsys.central.plugin.extension.psmodel.service.PSDEViewBaseRTService.class);
+        instance.registerPSModelService("PSDEVIEWBASES", net.ibizsys.central.plugin.extension.psmodel.service.PSDEViewBaseRTService.class);
         
         instance.registerPSModelService(PSModels.PSDELOGIC, net.ibizsys.central.plugin.extension.psmodel.service.PSDELogicRTService.class);
         instance.registerPSModelService("PSDELOGICS", net.ibizsys.central.plugin.extension.psmodel.service.PSDELogicRTService.class);

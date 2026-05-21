@@ -14,6 +14,7 @@ import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 import net.ibizsys.runtime.util.SimpleEntity;
 import net.ibizsys.runtime.util.domain.DataSyncIn;
 import net.ibizsys.runtime.util.script.IScriptEntity;
@@ -83,6 +84,7 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 		
 		if(invocable != null) {
 			try {
+				ScriptCodeHolder.push(this.getPSDEDataSync().getInScriptCode());
 				IScriptEntity dataSyncInScriptEntity = this.getSystemRuntime().createScriptEntity(dataSyncIn);
 				IScriptEntity dataScriptEntity = null;
 				if(iEntity != null) {
@@ -95,6 +97,9 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 				//log.error(String.format("执行数据输入脚本[%1$s]发生异常，%2$s",this.getName(), ex.getMessage()), ex);
 				this.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行实体数据输入脚本[%1$s][%2$s]发生异常，%3$s", this.getDataEntityRuntime().getName(), this.getName(), ex.getMessage()), ex);
 				throw new Exception(String.format("执行实体数据输入脚本发生异常，%1$s", ex.getMessage()), ex);
+			}
+			finally {
+				ScriptCodeHolder.poll();
 			}
 		}
 		else {

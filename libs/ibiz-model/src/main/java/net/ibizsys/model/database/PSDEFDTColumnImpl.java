@@ -6,6 +6,8 @@ public class PSDEFDTColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 
 	public final static String ATTR_GETCOLUMNNAME = "columnName";
 	public final static String ATTR_GETDBTYPE = "dBType";
+	public final static String ATTR_GETFORMULACOLUMNS = "formulaColumns";
+	public final static String ATTR_GETFORMULAFORMAT = "formulaFormat";
 	public final static String ATTR_GETQUERYCODEEXP = "queryCodeExp";
 	public final static String ATTR_GETSTANDARDCOLUMNNAME = "standardColumnName";
 	public final static String ATTR_ISAUTOINCREMENT = "autoIncrement";
@@ -21,6 +23,22 @@ public class PSDEFDTColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 
 	public java.lang.String getDBType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDBTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getFormulaColumns(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFORMULACOLUMNS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getFormulaFormat(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFORMULAFORMAT);
 		if(value == null){
 			return null;
 		}

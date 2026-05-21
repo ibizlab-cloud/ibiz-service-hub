@@ -212,6 +212,13 @@ public abstract class PSModelTranspilerBase implements IPSModelTranspiler{
 //			}
 //		}
 		
+		if(!objectNode.has(PSObjectImpl.ATTR_GETMEMO)) {
+			String memo = (String)domain.get("memo");
+			if(StringUtils.hasLength(memo)) {
+				objectNode.put(PSObjectImpl.ATTR_GETMEMO, memo);
+			}
+		}
+		
 		if(!objectNode.has(PSObjectImpl.ATTR_GETCODENAME)) {
 			String codeName = (String)domain.get("codename");
 			if(StringUtils.hasLength(codeName)) {

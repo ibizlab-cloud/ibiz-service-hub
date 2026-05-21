@@ -29,6 +29,7 @@ public class PSDENotifyTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setDomainValue(iPSModelTranspileContext, domain, "events", realPSModelObject.getEvents(), realPSModelObject, "getEvents");
 		this.setDomainValue(iPSModelTranspileContext, domain, "fields", realPSModelObject.getFields(), realPSModelObject, "getFields");
 		this.setDomainValue(iPSModelTranspileContext, domain, "filtermodel", realPSModelObject.getFilterModel(), realPSModelObject, "getFilterModel");
+		this.setDomainValue(iPSModelTranspileContext, domain, "logpsdeid", realPSModelObject.getLogPSDataEntity(), realPSModelObject, "getLogPSDataEntity");
 		this.setDomainValue(iPSModelTranspileContext, domain, "msgtype", realPSModelObject.getMsgType(), realPSModelObject, "getMsgType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "notifyend", realPSModelObject.getNotifyEnd(), realPSModelObject, "getNotifyEnd");
 		this.setDomainValue(iPSModelTranspileContext, domain, "notifystart", realPSModelObject.getNotifyStart(), realPSModelObject, "getNotifyStart");
@@ -38,6 +39,7 @@ public class PSDENotifyTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdedsid", realPSModelObject.getPSDEDataSet(), realPSModelObject, "getPSDEDataSet");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysmsgqueueid", realPSModelObject.getPSSysMsgQueue(), realPSModelObject, "getPSSysMsgQueue");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysmsgtemplid", realPSModelObject.getPSSysMsgTempl(), realPSModelObject, "getPSSysMsgTempl");
+		this.setDomainValue(iPSModelTranspileContext, domain, "statepsdefid", realPSModelObject.getStatePSDEField(), realPSModelObject, "getStatePSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "taskmode", realPSModelObject.getTaskMode(), realPSModelObject, "getTaskMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "threadrunmode", realPSModelObject.getThreadMode(), realPSModelObject, "getThreadMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ignoreexception", realPSModelObject.isIgnoreException(), realPSModelObject, "isIgnoreException");
@@ -56,6 +58,7 @@ public class PSDENotifyTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEVENTS, domain, "events", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETFIELDS, domain, "fields", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETFILTERMODEL, domain, "filtermodel", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGPSDATAENTITY, domain, "logpsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMSGTYPE, domain, "msgtype", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETNOTIFYEND, domain, "notifyend", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETNOTIFYSTART, domain, "notifystart", int.class, new String[]{"0"});
@@ -65,6 +68,7 @@ public class PSDENotifyTranspiler extends net.ibizsys.model.util.transpiler.data
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSDEDATASET, domain, "psdedsid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSMSGQUEUE, domain, "pssysmsgqueueid", net.ibizsys.model.msg.IPSSysMsgQueue.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSMSGTEMPL, domain, "pssysmsgtemplid", net.ibizsys.model.msg.IPSSysMsgTempl.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSTATEPSDEFIELD, domain, "statepsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTASKMODE, domain, "taskmode", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTHREADMODE, domain, "threadrunmode", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISIGNOREEXCEPTION, domain, "ignoreexception", boolean.class, new String[]{"false"});

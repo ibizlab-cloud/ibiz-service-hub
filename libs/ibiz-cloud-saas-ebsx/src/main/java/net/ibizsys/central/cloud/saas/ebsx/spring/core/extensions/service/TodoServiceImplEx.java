@@ -383,13 +383,13 @@ public class TodoServiceImplEx extends TodoServiceImpl {
 				strDCSystemid = dcSystem.getDCSystemId();
 
 				String strAppUrl = application.getUrl();
-				if(!StringUtils.hasLength(strAppUrl)) {
+				if(!StringUtils.hasLength(strAppUrl) && !"RouterUrl".equals(urltype)) {
 					throw new DataEntityRuntimeException(this.getDataEntityRuntime(), String.format("未定义应用访问路径"));
 				}
 
-				if (!strAppUrl.endsWith(application.getIndexCodeName())) {
-					strAppUrl = strAppUrl + application.getIndexCodeName();
-				}
+//				if (!strAppUrl.endsWith(application.getIndexCodeName())) {
+//					strAppUrl = strAppUrl + application.getIndexCodeName();
+//				}
 				Map<String, Object> viewparams = new HashMap<>();
 				viewparams.put("processDefinitionKey", strprocessDefinitionKey);
 				viewparams.put("taskDefinitionKey", strTaskdefinitionkey);

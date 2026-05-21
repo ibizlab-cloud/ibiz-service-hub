@@ -24,6 +24,7 @@ public class PSApplicationImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	public final static String ATTR_GETALLPSAPPMETHODDTOS = "getAllPSAppMethodDTOs";
 	public final static String ATTR_GETALLPSAPPMODULES = "getAllPSAppModules";
 	public final static String ATTR_GETALLPSAPPMSGTEMPLS = "getAllPSAppMsgTempls";
+	public final static String ATTR_GETALLPSAPPPDTVIEWS = "getAllPSAppPDTViews";
 	public final static String ATTR_GETALLPSAPPPFPLUGINREFS = "getAllPSAppPFPluginRefs";
 	public final static String ATTR_GETALLPSAPPPKGS = "getAllPSAppPkgs";
 	public final static String ATTR_GETALLPSAPPPORTLETCATS = "getAllPSAppPortletCats";
@@ -509,6 +510,30 @@ public class PSApplicationImpl extends net.ibizsys.model.PSSystemObjectImpl impl
 	}
 	public void setPSAppMsgTempls(java.util.List<net.ibizsys.model.app.msg.IPSAppMsgTempl> list){
 		this.allpsappmsgtempls = list;
+	}
+
+	private java.util.List<net.ibizsys.model.app.IPSAppPDTView> allpsapppdtviews = null;
+	public java.util.List<net.ibizsys.model.app.IPSAppPDTView> getAllPSAppPDTViews(){
+		if(this.allpsapppdtviews == null){
+			com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALLPSAPPPDTVIEWS);
+			if(value == null){return null;}
+			com.fasterxml.jackson.databind.node.ArrayNode arrayNode = (com.fasterxml.jackson.databind.node.ArrayNode)value;
+			if(arrayNode.size() == 0){return null;}
+			java.util.List<net.ibizsys.model.app.IPSAppPDTView> list = new java.util.ArrayList<net.ibizsys.model.app.IPSAppPDTView>();
+			for(int i = 0;i<arrayNode.size();i++) {
+				net.ibizsys.model.app.IPSAppPDTView obj = this.getPSModelObject(net.ibizsys.model.app.IPSAppPDTView.class, (com.fasterxml.jackson.databind.node.ObjectNode)arrayNode.get(i),ATTR_GETALLPSAPPPDTVIEWS);
+				if(obj!=null)list.add(obj);
+			}
+			this.allpsapppdtviews = list;
+		}
+		return (this.allpsapppdtviews.size() == 0)? null : this.allpsapppdtviews;
+	}
+
+	public net.ibizsys.model.app.IPSAppPDTView getPSAppPDTView(Object objKey, boolean bTryMode){
+		return getPSModelObject(net.ibizsys.model.app.IPSAppPDTView.class, this.getAllPSAppPDTViews(), objKey, bTryMode);
+	}
+	public void setPSAppPDTViews(java.util.List<net.ibizsys.model.app.IPSAppPDTView> list){
+		this.allpsapppdtviews = list;
 	}
 
 	private java.util.List<net.ibizsys.model.app.res.IPSAppPFPluginRef> allpsapppfpluginrefs = null;

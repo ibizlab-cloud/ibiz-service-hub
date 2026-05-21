@@ -29,7 +29,7 @@ public class SysSFPluginRuntimeObjectFactory implements ISysSFPluginRuntimeObjec
 	
 	private final Map<String, RuntimeObject> runtimeObjMap = new ConcurrentHashMap<>();
 	
-	private final Map<String, Map> runtimeObjListMap = new ConcurrentHashMap<>();
+	//private final Map<String, Map> runtimeObjListMap = new ConcurrentHashMap<>();
 	
 	private ISystemRuntimeContext iSystemRuntimeContext = null;
 	
@@ -307,10 +307,10 @@ public class SysSFPluginRuntimeObjectFactory implements ISysSFPluginRuntimeObjec
 		} else {
 			strTag = String.format("%1$s|", getObjectType(cls));
 		}
-		Object objMap = runtimeObjListMap.get(strTag);
-		if(objMap != null) {
-			return (Map<String, T>)objMap;
-		}
+//		Object objMap = runtimeObjListMap.get(strTag);
+//		if(objMap != null) {
+//			return (Map<String, T>)objMap;
+//		}
 		Map<String, T> map = new HashMap<String, T>();
 		for(java.util.Map.Entry<String, RuntimeObject> entry : runtimeObjMap.entrySet()) {
 			if(entry.getKey().toUpperCase().indexOf(strTag.toUpperCase())!=0) {
@@ -324,7 +324,7 @@ public class SysSFPluginRuntimeObjectFactory implements ISysSFPluginRuntimeObjec
 			}
 		}
 		
-		runtimeObjListMap.put(strTag, map);
+//		runtimeObjListMap.put(strTag, map);
 		return map;
 	}
 	

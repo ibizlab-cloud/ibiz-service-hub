@@ -1,9 +1,16 @@
 package net.ibizsys.central.cloud.core.dataentity.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
+
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.dataentity.logic.DELogicParamRuntimeBase;
 import net.ibizsys.central.dataentity.logic.IDELogicSession;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
+import net.ibizsys.runtime.util.IEntity;
 
 /**
  * 聊天交互请求参数运行时对象实现
@@ -13,6 +20,13 @@ import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
  */
 public class DELogicChatCompletionRequestParamRuntime extends DELogicParamRuntimeBase {
 
+	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DELogicChatCompletionRequestParamRuntime.class);
+	
+	/**
+	 * 参数：最后的消息内容
+	 */
+	public final static String PARAM_LAST = "last";
+	
 	@Override
 	public Object getScriptObject(IDELogicSession iDELogicSession) throws Throwable {
 //		Object objParam = getParamObject(iDELogicSession);
@@ -65,83 +79,120 @@ public class DELogicChatCompletionRequestParamRuntime extends DELogicParamRuntim
 			chatCompletionRequest = (ChatCompletionRequest)param;
 		}
 		
-		if(chatCompletionRequest == null || objValue == null) {
+		if(chatCompletionRequest == null) {
 			super.set(iDELogicSession, strName, objValue);
 			return;
 		}
 		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_PAGE.equalsIgnoreCase(strName)) {
-//			int nPage = Integer.valueOf(objValue.toString());
-//			if (nPage < 0) {
-//				nPage = 0;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionRequest.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionRequest.setPageable(PageRequest.of(nPage, SearchContextDTO.getMaxSize(), 0));
-//			}
-//			else {
-//				chatCompletionRequest.setPageable(PageRequest.of(nPage, lastPageable.getPageSize(), lastPageable.getOffset()));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_SIZE.equalsIgnoreCase(strName)) {
-//			int nSize = Integer.valueOf(objValue.toString());
-//			if (nSize <= 0) {
-//				nSize = ChatCompletionRequest.DEFAULTPAGESIZE;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionRequest.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionRequest.setPageable(PageRequest.of(ChatCompletionRequest.STARTPAGE, nSize));
-//			}
-//			else {
-//				chatCompletionRequest.setPageable(PageRequest.of(lastPageable.getPageNumber(), nSize, lastPageable.getOffset()));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_OFFSET.equalsIgnoreCase(strName)) {
-//			int nOffset = Integer.valueOf(objValue.toString());
-//			if (nOffset < 0) {
-//				nOffset = 0;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionRequest.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionRequest.setPageable(PageRequest.of(ChatCompletionRequest.STARTPAGE, ChatCompletionRequest.DEFAULTPAGESIZE, nOffset));
-//			}
-//			else {
-//				chatCompletionRequest.setPageable(PageRequest.of(lastPageable.getPageNumber(), lastPageable.getPageSize(), nOffset));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_SORT.equalsIgnoreCase(strName)) {
-//			String strSortInfo = (String) objValue;
-//			strSortInfo = strSortInfo.trim();
-//			chatCompletionRequest.setPageSort(strSortInfo);
-//			return ;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_QUERY.equalsIgnoreCase(strName)) {
-//			String strQuery = objValue.toString();
-//			strQuery = strQuery.trim();
-//			
-//			SearchContextDTO.addSearchQuickCond(chatCompletionRequest, strQuery);
-//			return ;
-//		}
-//		
-//		if(chatCompletionRequest.getDEMethodDTORuntime()!=null) {
-//			IPSDEMethodDTOField iPSDEMethodDTOField = chatCompletionRequest.getDEMethodDTORuntime().getPSDEMethodDTOField(strName, true);
-//			if(iPSDEMethodDTOField!=null) {
-//				SearchContextDTO.addSearchFieldCond(chatCompletionRequest, strName, objValue);
-//				return;
-//			}
-//		}
-//		
-//		chatCompletionRequest.set(strName, objValue);
+		if(ChatCompletionRequest.FIELD_CHUNKQUERIES.equalsIgnoreCase(strName)) {
+			List<String> chunkQueries = this.getIntentList(objValue);
+			chatCompletionRequest.setChunkQueries(chunkQueries);
+			return;
+		}
+		
+		
+		chatCompletionRequest.set(strName, objValue);
 		return;
+	}
+	
+	protected List<String> getIntentList(Object objParam) throws Exception {
+		List<String> intentList = new ArrayList<String>();
+		if(objParam == null) {
+			return intentList;
+		}
+		//判断类型
+		if(objParam instanceof List) {
+			List list = (List)objParam;
+			for(Object item : list) {
+				if(item instanceof IEntity) {
+					IEntity iEntity = (IEntity)item;
+					for(String field : DELogicSysAIChatAgentNodeRuntime.INTENT_FIELDS) {
+						Object value = iEntity.get(field);
+						if(value instanceof String) {
+							String strIntent = (String)value;
+							if(StringUtils.hasLength(strIntent)) {
+								intentList.add(strIntent);
+							}
+							break;
+						}
+					}
+				}
+				else
+					if(item instanceof String) {
+						String strIntent = (String)item;
+						if(StringUtils.hasLength(strIntent)) {
+							intentList.add(strIntent);
+						}
+					}
+					else
+						throw new Exception(String.format("无法从数据项类型[%1$s]提取用户意图", item.getClass()));
+			}
+		}
+		else 
+			if(objParam instanceof IEntity) {
+				IEntity iEntity = (IEntity)objParam;
+				for(String field : DELogicSysAIChatAgentNodeRuntime.INTENT_FIELDS) {
+					Object value = iEntity.get(field);
+					if(value instanceof String) {
+						String strIntent = (String)value;
+						if(StringUtils.hasLength(strIntent)) {
+							intentList.add(strIntent);
+						}
+						break;
+					}
+				}
+			}
+			else
+				if(objParam instanceof String) {
+					String strIntent = (String)objParam;
+					if(StringUtils.hasLength(strIntent)) {
+						intentList.add(strIntent);
+					}
+				}
+				else
+					throw new Exception(String.format("无法从参数类型[%1$s]提取用户意图", objParam.getClass()));
+		
+		return intentList;
+	}
+	
+	
+	@Override
+	public Object get(IDELogicSession iDELogicSession, String strName) throws Throwable {
+		Object param = this.getParamObject(iDELogicSession);
+		ChatCompletionRequest chatCompletionRequest = null;
+		if(param instanceof ChatCompletionRequest) {
+			chatCompletionRequest = (ChatCompletionRequest)param;
+		}
+		
+		if(chatCompletionRequest == null) {
+			return super.get(iDELogicSession, strName);
+		}
+		
+		if(PARAM_LAST.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
+				return null;
+			}
+			
+			String strContent = chatCompletionRequest.getMessages().get(chatCompletionRequest.getMessages().size() -1).getContent();
+			return strContent;
+		}
+		
+		return super.get(iDELogicSession, strName);
+	}
+	
+	@Override
+	public void reset(IDELogicSession iDELogicSession, String strName) throws Throwable {
+		Object param = this.getParamObject(iDELogicSession);
+		ChatCompletionRequest chatCompletionRequest = null;
+		if(param instanceof ChatCompletionRequest) {
+			chatCompletionRequest = (ChatCompletionRequest)param;
+		}
+		
+		if(chatCompletionRequest == null) {
+			super.reset(iDELogicSession, strName);
+			return;
+		}
+		
+		chatCompletionRequest.reset(strName);
 	}
 }

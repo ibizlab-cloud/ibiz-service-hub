@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.Map;
 
 import net.ibizsys.central.cloud.core.dataentity.security.IDataEntityAccessManager;
+import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtil;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.wf.IDEWFRuntime;
 import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
@@ -13,6 +14,7 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionLogic;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionSuite;
 import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
+import net.ibizsys.model.dataentity.defield.IPSDEFGroup;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.runtime.util.EntityError;
 import net.ibizsys.runtime.util.IEntity;
@@ -152,5 +154,48 @@ public interface IDataEntityRuntime extends net.ibizsys.central.dataentity.IData
 	 */
 	DownloadTicket createDownloadTicket(Object keyOrEntity, String strStorageField, String strOSSFileId, boolean bTryMode) throws Throwable;
 	
-
+	
+	
+	/**
+	 * 获取AI信息
+	 * @param keyOrData
+	 * @return
+	 */
+	String getAIInfo(Object keyOrData) throws Throwable;
+	
+	
+	
+	/**
+	 * 获取AI完整信息
+	 * @param keyOrData
+	 * @return
+	 */
+	String getAIFullInfo(Object keyOrData) throws Throwable;
+	
+	/**
+	 * 获取AI信息属性组模型对象
+	 * @param bTryMode
+	 * @return
+	 * @throws Throwable
+	 */
+	IPSDEFGroup getAIInfoPSDEFGroup(boolean bTryMode) throws Throwable;
+	
+	
+	/**
+	 * 获取AI完整信息属性组模型对象
+	 * @param bTryMode
+	 * @return
+	 * @throws Throwable
+	 */
+	IPSDEFGroup getAIFullInfoPSDEFGroup(boolean bTryMode) throws Throwable;
+	
+	
+	
+	/**
+	 * 获取实体交谈提示词功能对象
+	 * @param bTryMode
+	 * @return
+	 * @throws Throwable
+	 */
+	IDEChatPromptUtil getDEChatPromptUtil(boolean bTryMode) throws Throwable;
 }

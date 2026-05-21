@@ -21,6 +21,7 @@ import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.search.IPSSysSearchDoc;
 import net.ibizsys.model.search.IPSSysSearchScheme;
+import net.ibizsys.runtime.IModelRuntime;
 import net.ibizsys.runtime.ISystemRuntimeException;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.Entity;
@@ -74,6 +75,7 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	
 	private IPSSysBDScheme iPSSysBDScheme = null;
 	
+	private boolean bEnabled = true;
 	
 	/**
 	 * 设置当前数据库名称
@@ -93,13 +95,7 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	}
 	
 	
-	private ISysSearchSchemeRuntimeContext iSysSearchSchemeRuntimeContext = new ISysSearchSchemeRuntimeContext() {
-
-		@Override
-		public ISysSearchSchemeRuntime getSysSearchSchemeRuntime() {
-			return getSelf();
-		}
-	};
+	private ISysSearchSchemeRuntimeContext iSysSearchSchemeRuntimeContext = null;
 	
 	
 	/**
@@ -124,7 +120,7 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	public void init(ISystemRuntimeContext iSystemRuntimeContext, IPSSysSearchScheme iPSSysSearchScheme) throws Exception {
 		Assert.notNull(iSystemRuntimeContext, "传入系统运行时上下文对象无效");
 		Assert.notNull(iPSSysSearchScheme, "传入检索体系模型对象无效");
-		this.setSystemRuntimeBase(iSystemRuntimeContext.getSystemRuntime());
+		this.setSystemRuntimeBaseContext(iSystemRuntimeContext);
 		this.iPSSysSearchScheme = iPSSysSearchScheme;
 		
 		this.setConfigFolder(getConfigFolder(iPSSysSearchScheme));
@@ -141,7 +137,7 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		else {
 			this.setDBName(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".dbname", null));
 		}
-		
+		this.setEnabled(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".enabled", this.isEnabled()));
 		this.setServiceUrl(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceurl", this.getPSSysSearchScheme().getServicePath()));
 		
 		this.setAuthMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".authmode", this.getPSSysSearchScheme().getAuthMode()));
@@ -188,12 +184,32 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	
 
 	protected ISysSearchSchemeRuntimeContext getSysSearchSchemeRuntimeContext() {
+		if(this.iSysSearchSchemeRuntimeContext == null) {
+			this.iSysSearchSchemeRuntimeContext = this.createModelRuntimeContext();
+		}
 		return this.iSysSearchSchemeRuntimeContext;
 	}
 	
 	private SysSearchSchemeRuntimeBase getSelf() {
 		return this;
 	}
+	
+	protected ISysSearchSchemeRuntimeContext createModelRuntimeContext() {
+		return new SysSearchSchemeRuntimeContextBase() {
+
+			@Override
+			public ISysSearchSchemeRuntime getSysSearchSchemeRuntime() {
+				return getSelf();
+			}
+
+			@Override
+			public IModelRuntime getModelRuntime() {
+				return getSelf();
+			}
+			
+		};
+	}
+	
 	
 	protected ISysSearchDocRuntime createSysSearchDocRuntime(IPSSysSearchDoc iPSSysSearchDoc) {
 		return new SysSearchDocRuntime();
@@ -483,8 +499,12 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	@Override
 	public synchronized void install() throws Exception {
 		if(!this.bInstalled) {
-			this.onInstall();
-			
+			if(this.isEnabled()) {
+				this.onInstall();
+			}
+			else {
+				log.warn(String.format("检索体系[%1$s]未启用，忽略安装"));
+			}
 			this.bInstalled = true;
 		}
 	}
@@ -559,6 +579,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(args, "未传入插入数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onInsert(strDocName, args, extParamMap);
 		}
 		catch(Throwable ex) {
@@ -580,6 +603,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(args, "未传入更新数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onUpdate(strDocName, args, extParamMap, bAppendMode);
 		}
 		catch(Throwable ex) {
@@ -601,6 +627,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(args, "未传入删除数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onDelete(strDocName, args, extParamMap);
 		}
 		catch(Throwable ex) {
@@ -624,6 +653,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(arg, "未传入插入数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onInsert(strDocName, arg, extParamMap);
 		}
 		catch(Throwable ex) {
@@ -645,6 +677,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(arg, "未传入更新数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onUpdate(strDocName, arg, extParamMap, bAppendMode);
 		}
 		catch(Throwable ex) {
@@ -666,6 +701,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 		Assert.hasLength(strDocName, "未传入数据表标识");
 		Assert.notNull(arg, "未传入删除数据");
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onDelete(strDocName, arg, extParamMap);
 		}
 		catch(Throwable ex) {
@@ -685,6 +723,9 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 	@Override
 	public Page fetch(String strDocName, ISearchContext iSearchContext, String[] outputFields, Map<String, Object> extParamMap) throws Throwable {
 		try {
+			if(!this.isEnabled()) {
+				throw new Exception("检索体系未启用");
+			}
 			return this.onFetch(strDocName, iSearchContext, outputFields, extParamMap);
 		}
 		catch(Throwable ex) {
@@ -699,6 +740,15 @@ public abstract class SysSearchSchemeRuntimeBase extends SystemModelRuntimeBase 
 			return iSysBDSchemeRuntime.fetch(strDocName, iSearchContext, outputFields, extParamMap);
 		}
 		throw new SysSearchSchemeRuntimeException(this, "没有实现", Errors.NOTIMPL);
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		return this.bEnabled;
+	}
+	
+	protected void setEnabled(boolean bEnabled) {
+		this.bEnabled = bEnabled;
 	}
 	
 	

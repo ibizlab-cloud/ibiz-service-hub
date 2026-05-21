@@ -13,6 +13,15 @@ public interface IPSDEDEPrintLogic extends net.ibizsys.model.dataentity.logic.IP
 	
 	
 	/**
+	 * 获取打印聊天资源选项
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PrintLogicChatResourceOption}
+	 * @return
+	 */
+	int getChatResourceOption();
+	
+	
+	/**
 	 * 获取目标逻辑参数对象
 	 * @return
 	 */

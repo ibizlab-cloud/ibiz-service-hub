@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.core;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +32,13 @@ import net.ibizsys.central.cloud.core.ba.CloudOSSBDSchemeRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
 import net.ibizsys.central.cloud.core.dataentity.ac.DEChatCompletionRuntime;
+import net.ibizsys.central.cloud.core.dataentity.dataexport.JsonDEDataExportRuntime;
 import net.ibizsys.central.cloud.core.dataentity.dataflow.DEDataFlowRuntime;
+import net.ibizsys.central.cloud.core.dataentity.dataimport.JsonDEDataImportRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionRequestParamRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionResultParamRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicSysAIChatAgentNodeRuntime;
+import net.ibizsys.central.cloud.core.dataentity.print.FreeMarkerDEPrintRuntime;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.DataSetDRProvider;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.DeptDRProvider;
 import net.ibizsys.central.cloud.core.dataentity.security.dr.OrgDRProvider;
@@ -45,16 +49,24 @@ import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.security.SystemAccessManager;
 import net.ibizsys.central.cloud.core.service.SysServiceAPIRuntime;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysChatPromptUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudLogUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUAAUtilRuntime;
+import net.ibizsys.central.cloud.core.util.IPortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.UserCancelException;
 import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionState;
+import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionType;
 import net.ibizsys.central.cloud.core.util.groovy.MetaClassCreationHandle;
 import net.ibizsys.central.cloud.core.util.groovy.SystemRTGroovyContext;
 import net.ibizsys.central.dataentity.ac.IDEAutoCompleteRuntime;
 import net.ibizsys.central.dataentity.dataflow.IDEDataFlowRuntime;
+import net.ibizsys.central.dataentity.defield.IDEFGroupRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicNodeTypes;
 import net.ibizsys.central.dataentity.logic.IDELogicNodeRuntime;
 import net.ibizsys.central.dataentity.logic.IDELogicParamRuntime;
@@ -70,8 +82,10 @@ import net.ibizsys.central.system.ISystemModuleUtilRuntime;
 import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
 import net.ibizsys.central.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.model.IPSModelObjectRuntime;
+import net.ibizsys.model.PSModelEnums.DEDataImpExpContentType;
 import net.ibizsys.model.PSModelEnums.DEUtilType;
 import net.ibizsys.model.PSModelEnums.ModuleUtilType;
+import net.ibizsys.model.PSModelEnums.PrintType;
 import net.ibizsys.model.PSModelEnums.SysRefType;
 import net.ibizsys.model.ai.IPSSysAIFactory;
 import net.ibizsys.model.app.IPSApplication;
@@ -83,6 +97,7 @@ import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.codelist.ICodeListRuntime;
 import net.ibizsys.runtime.dataentity.dataexport.IDEDataExportRuntime;
 import net.ibizsys.runtime.dataentity.dataimport.IDEDataImportRuntime;
+import net.ibizsys.runtime.dataentity.print.IDEPrintRuntime;
 import net.ibizsys.runtime.dataentity.util.IDEUtilRuntime;
 import net.ibizsys.runtime.res.ISysDataSyncAgentRuntime;
 import net.ibizsys.runtime.res.ISysUtilRuntime;
@@ -91,10 +106,12 @@ import net.ibizsys.runtime.security.IUserContext;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.INamedAction;
+import net.ibizsys.runtime.util.INamedRunnable;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.wf.IWFRoleRuntime;
@@ -104,6 +121,8 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	private static final Log log = LogFactory.getLog(ServiceSystemRuntimeBase.class);
 
 	public final static String TREADPARAM_AUTHENTICATIONUSER = "AUTHENTICATIONUSER";
+	
+	
 	static {
 
 		registerRuntimeObjectIf(ISystemModuleUtilRuntime.class, ModuleUtilType.EXTENSION.value, "net.ibizsys.central.plugin.extension.system.ExtensionSystemModuleUtilRuntime");
@@ -137,6 +156,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:AIFACTORY", "net.ibizsys.central.plugin.ai.sysutil.SysAIFactoryUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:DATAFLOW", "net.ibizsys.central.plugin.cloud.sysutil.SysDataFlowUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:KB", "net.ibizsys.central.plugin.cloud.sysutil.SysKBUtilRuntime");
+		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:CHATPROMPT", "net.ibizsys.central.plugin.ai.sysutil.SysChatPromptUtilRuntime");
 
 		// registerRuntimeObjectIf(ISysUtilRuntime.class,
 		// "USER:DEBIREPORTPROXY",
@@ -155,6 +175,13 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(IDEWFRuntime.class, null, "net.ibizsys.central.cloud.core.dataentity.wf.DEWFRuntime");
 		registerRuntimeObjectIf(IDEDataImportRuntime.class, null, "net.ibizsys.central.plugin.poi.dataentity.dataimport.POIDEDataImportRuntime");
 		registerRuntimeObjectIf(IDEDataExportRuntime.class, null, "net.ibizsys.central.plugin.poi.dataentity.dataexport.POIDEDataExportRuntime");
+		registerRuntimeObjectIf(IDEDataImportRuntime.class, DEDataImpExpContentType.XLSX.value, "net.ibizsys.central.plugin.poi.dataentity.dataimport.POIDEDataImportRuntime");
+		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.XLSX.value, "net.ibizsys.central.plugin.poi.dataentity.dataexport.POIDEDataExportRuntime");
+		registerRuntimeObjectIf(IDEDataImportRuntime.class, DEDataImpExpContentType.JSON.value, "net.ibizsys.central.plugin.poi.dataentity.dataimport.JsonDEDataImportRuntime");
+		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.JSON.value, JsonDEDataExportRuntime.class.getCanonicalName());
+		
+		registerRuntimeObjectIf(IDEPrintRuntime.class, PrintType.FREEMARKER.value, FreeMarkerDEPrintRuntime.class.getCanonicalName());
+		registerRuntimeObjectIf(IDEPrintRuntime.class, PrintType.CHATRESOURCE.value, "net.ibizsys.central.plugin.ai.dataentity.print.DEChatResourceRuntime");
 
 		registerRuntimeObjectIf(ISysBDSchemeRuntime.class, CloudOSSBDSchemeRuntime.BDTYPE_CLOUDOSS, CloudOSSBDSchemeRuntime.class.getCanonicalName());
 
@@ -165,15 +192,23 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(IDEUtilRuntime.class, DEUtilType.EXTENSION.value, "net.ibizsys.central.plugin.extension.dataentity.util.DEExtensionUtilRuntime");
 		registerRuntimeObjectIf(IDEUtilRuntime.class, DEUtilType.DYNASTORAGE.value, "net.ibizsys.central.plugin.extension.dataentity.util.DEDynaStorageUtilRuntime");
 
-		// registerRuntimeObject(IRestExceptionHandler.class, null, new
-		// RestExceptionHandler());
+		registerRuntimeObjectIf(IDEFGroupRuntime.class, "LOGICMODE:AIINFO", "net.ibizsys.central.plugin.ai.dataentity.defield.AIInfoDEFGroupRuntime");
+		registerRuntimeObjectIf(IDEFGroupRuntime.class, "LOGICMODE:AIFULLINFO", "net.ibizsys.central.plugin.ai.dataentity.defield.AIInfoDEFGroupRuntime");
+		
+		registerRuntimeObjectIf(ISysAIFactoryRuntime.class, "DEFAULT", "net.ibizsys.central.plugin.ai.agent.DefaultSysAIFactoryRuntime");
+		
 		GroovySystem.getMetaClassRegistry().setMetaClassCreationHandle(new MetaClassCreationHandle());
 	}
 
 	static ThreadPoolExecutor globalWorkThreadPoolExecutor = null;
+	static ThreadPoolExecutor globalSseThreadPoolExecutor = null;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
 	private ICloudPortalClient iCloudPortalClient = null;
-	// private ISysCloudLogUtilRuntime iSysCloudLogUtilRuntime = null;
+	private ISysAIUtilRuntime iSysAIUtilRuntime = null;
+	private ISysKBUtilRuntime iSysKBUtilRuntime = null;
+	private ISysChatPromptUtilRuntime iSysChatPromptUtilRuntime = null;
+	private ISysCacheUtilRuntime iSysCacheUtilRuntime = null;
+	private ISysPortalUtilRuntime iSysPortalUtilRuntime = null;
 
 	protected static void setGlobalWorkThreadPoolExecutor(ThreadPoolExecutor globalWorkThreadPoolExecutor) {
 		ServiceSystemRuntimeBase.globalWorkThreadPoolExecutor = globalWorkThreadPoolExecutor;
@@ -182,6 +217,15 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	protected static ThreadPoolExecutor getGlobalWorkThreadPoolExecutor() {
 		return ServiceSystemRuntimeBase.globalWorkThreadPoolExecutor;
 	}
+	
+	protected static void setGlobalSseThreadPoolExecutor(ThreadPoolExecutor globalSseThreadPoolExecutor) {
+		ServiceSystemRuntimeBase.globalSseThreadPoolExecutor = globalSseThreadPoolExecutor;
+	}
+
+	protected static ThreadPoolExecutor getGlobalSseThreadPoolExecutor() {
+		return ServiceSystemRuntimeBase.globalSseThreadPoolExecutor;
+	}
+	
 
 	@Override
 	public IWebClient createWebClient(Object data) {
@@ -226,11 +270,13 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 	@Override
 	public ISysCacheUtilRuntime getSysCacheUtilRuntime(boolean bTryMode) {
-		ISysCacheUtilRuntime iSysCacheUtilRuntime = super.getSysCacheUtilRuntime(true);
-		if (iSysCacheUtilRuntime != null) {
-			return iSysCacheUtilRuntime;
+		if(this.iSysCacheUtilRuntime == null) {
+			this.iSysCacheUtilRuntime = super.getSysCacheUtilRuntime(true);
+			if (this.iSysCacheUtilRuntime == null) {
+				this.iSysCacheUtilRuntime = this.getSysUtilRuntime(ISysCacheUtilRuntime.class, bTryMode);
+			}
 		}
-		return this.getSysUtilRuntime(ISysCacheUtilRuntime.class, bTryMode);
+		return this.iSysCacheUtilRuntime;
 	}
 
 	protected void prepareSysCloudLogUtilRuntime() throws Exception {
@@ -279,6 +325,17 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		}
 		super.logAudit(nLogLevel, strCat, strInfo, strPersonId, strAddress, objData);
 	}
+	
+	@Override
+	protected void onShutdownThreadPoolExecutors() throws Exception {
+		super.onShutdownThreadPoolExecutors();
+	}
+	
+	@Override
+	protected void onPrepareThreadPoolExecutors() throws Exception {
+		super.onPrepareThreadPoolExecutors();
+	}
+	
 
 	protected ThreadPoolExecutor createWorkThreadPoolExecutor() {
 		ThreadPoolExecutor threadPoolExecutor = getGlobalWorkThreadPoolExecutor();
@@ -315,15 +372,26 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 	@Override
 	public IEmployeeContext createAnonymousUserContext() {
-
 		IUserContext iUserContext = super.createAnonymousUserContext();
 		Employee employee = new Employee();
 		employee.setUserId(iUserContext.getUserid());
 		employee.setUserName(iUserContext.getUsername());
 		employee.setPersonName(iUserContext.getUsername());
-
 		EmployeeContext iEmployeeContext = new EmployeeContext(employee, null, this.getDeploySystemId());
 		iEmployeeContext.setAnonymoususer(true);
+		return iEmployeeContext;
+	}
+	
+	@Override
+	public IEmployeeContext createSuperUserContext() {
+		IUserContext iUserContext = super.createDefaultUserContext();
+		Employee employee = new Employee();
+		employee.setUserId(iUserContext.getUserid());
+		employee.setUserName(iUserContext.getUsername());
+		employee.setPersonName(iUserContext.getUsername());
+		//设置为超级用户
+		employee.setSuperUser(EntityBase.BOOLEAN_TRUE);
+		EmployeeContext iEmployeeContext = new EmployeeContext(employee, null, this.getDeploySystemId());
 		return iEmployeeContext;
 	}
 
@@ -399,13 +467,20 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		} catch (Throwable ex) {
 			throw new SystemRuntimeException(this, String.format("建立门户异步作业发生异常，%1$s", ex.getMessage()), ex);
 		}
-
+		
 		String strAsyncActionId = portalAsyncAction.getAsyncAcitonId();
+		String strActionType = portalAsyncAction.getActionType();
 		this.threadRun(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					onAsyncExecute(iAction, args, strAsyncActionId);
+					if(PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue().equalsIgnoreCase(strActionType)) {
+						onAsyncExecute(iAction, args, strAsyncActionId, 120);
+					}
+					else {
+						onAsyncExecute(iAction, args, strAsyncActionId);
+					}
+				
 				} catch (Throwable ex) {
 					log.error(ex);
 				}
@@ -416,13 +491,25 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	}
 
 	protected void onAsyncExecute(IAction iAction, Object[] args, String strAsyncActionId) throws Throwable {
+		this.onAsyncExecute(iAction, args, strAsyncActionId, 200);
+	}
+	protected void onAsyncExecute(IAction iAction, Object[] args, String strAsyncActionId, int nPollingInterval) throws Throwable {
 
 		ICloudPortalClient iCloudPortalClient = getCloudPortalClient();
 
 		// 开启会话
 		boolean bOpenActionSession = (ActionSessionManager.getCurrentSession() == null);
 		if (bOpenActionSession) {
-			ActionSessionManager.openSession().setName(this.getName());
+			String strActionName = null;
+			if(iAction instanceof INamedAction) {
+				strActionName = ((INamedAction)iAction).getName();
+			}
+			if(StringUtils.hasLength(strActionName)) {
+				ActionSessionManager.openSession().setName(strActionName);
+			}
+			else {
+				ActionSessionManager.openSession();
+			}
 			ActionSessionManager.getCurrentSession().setUserContext(EmployeeContext.getCurrent());
 		}
 
@@ -430,6 +517,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		String strWorkTag = KeyValueUtils.genUniqueId();
 
 		actionSession.setActionParam(strWorkTag, "1");
+		actionSession.setActionParam(ActionSession.PARAM_ASYNCACTION_ID, strAsyncActionId);
 
 		threadRun(new Runnable() {
 			@Override
@@ -478,7 +566,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					}
 
 					try {
-						Thread.sleep(200);
+						Thread.sleep(nPollingInterval);
 					} catch (InterruptedException ex) {
 						log.error(ex);
 					}
@@ -499,6 +587,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			Object objRet = iAction.execute(args);
 			// 移除线程参数
 			actionSession.removeActionParam(strWorkTag);
+			actionSession.removeActionParam(ActionSession.PARAM_ASYNCACTION_ID);
 
 			if (objRet != null) {
 				if (objRet instanceof String) {
@@ -538,7 +627,8 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		} catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
 			actionSession.removeActionParam(strWorkTag);
-
+			actionSession.removeActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+			
 			if (bOpenActionSession) {
 				ActionSessionManager.closeSession(false);
 			}
@@ -548,7 +638,11 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			portalAsyncAction.setActionResult(ex.getMessage());
 			portalAsyncAction.setFullStepInfo(actionSession.getActionFullStep());
 			try {
-				iCloudPortalClient.errorAsyncAction(strAsyncActionId, portalAsyncAction);
+				if(ex instanceof UserCancelException) {
+					iCloudPortalClient.cancelAsyncAction(strAsyncActionId, portalAsyncAction);
+				}
+				else
+					iCloudPortalClient.errorAsyncAction(strAsyncActionId, portalAsyncAction);
 			} catch (Throwable ex2) {
 				log.error(String.format("执行门户异步作业发生异常，%1$s", ex2.getMessage()), ex2);
 			}
@@ -558,13 +652,21 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 		}
 	}
+	
+	/**
+	 * 获取Sse执行器
+	 * @return
+	 */
+	public Executor getSseExecutor() {
+		return getGlobalSseThreadPoolExecutor();
+	}
 
 	@Override
 	public SseEmitter sseExecute(IAction iAction, Object[] args, Object actionTag, long nTimeout) throws Throwable {
 
 		final SseEmitter sseEmitter = (nTimeout == -1) ? new SseEmitter() : new SseEmitter(nTimeout);
 
-		this.threadRun(new Runnable() {
+		this.threadRun(new INamedRunnable() {
 			@Override
 			public void run() {
 				try {
@@ -573,6 +675,11 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					log.error(ex);
 				}
 			}
+			
+			@Override
+			public Executor getExecutor() {
+				return getGlobalSseThreadPoolExecutor();
+			}
 		});
 
 		return sseEmitter;
@@ -580,10 +687,24 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 	protected void onSseExecute(IAction iAction, Object[] args, SseEmitter sseEmitter) throws Throwable {
 
+		PortalAsyncAction srcPortalAsyncAction = null;
+		if(iAction instanceof IPortalAsyncAction) {
+			srcPortalAsyncAction = ((IPortalAsyncAction)iAction).getPortalAsyncAction();
+		}
+		
 		// 开启会话
 		boolean bOpenActionSession = (ActionSessionManager.getCurrentSession() == null);
 		if (bOpenActionSession) {
-			ActionSessionManager.openSession().setName(this.getName());
+			String strActionName = null;
+			if(iAction instanceof INamedAction) {
+				strActionName = ((INamedAction)iAction).getName();
+			}
+			if(StringUtils.hasLength(strActionName)) {
+				ActionSessionManager.openSession().setName(strActionName);
+			}
+			else {
+				ActionSessionManager.openSession();
+			}
 			ActionSessionManager.getCurrentSession().setUserContext(EmployeeContext.getCurrent());
 		}
 
@@ -593,6 +714,9 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 		PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
 		portalAsyncAction.setActionState(PortalAsyncActionState.NOTSTARTED.getValue());
+		if(srcPortalAsyncAction != null) {
+			portalAsyncAction.setAsyncAcitonId(srcPortalAsyncAction.getAsyncAcitonId());
+		}
 
 		try {
 			sseEmitter.send(portalAsyncAction);
@@ -604,14 +728,14 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 		// 空闲超时
 		int nTimeout = 20 * 60 * 1000;
-		threadRun(new Runnable() {
+		threadRun(new INamedRunnable() {
 			@Override
 			public void run() {
 
 				String strLastActionStep = actionSession.getActionStep();
 				double fLastCompletionRate = actionSession.getCompletionRate();
 				String strLastActionResult = actionSession.getActionResult();
-
+				
 				long nLastActive = System.currentTimeMillis();
 
 				while (true) {
@@ -624,7 +748,11 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					String strActionStep = actionSession.getActionStep();
 					double fCompletionRate = actionSession.getCompletionRate();
 					String strActionFullStep = actionSession.getActionFullStep();
-
+					String strAsyncAcitonId = (String)actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+					if(StringUtils.hasLength(strAsyncAcitonId)) {
+						portalAsyncAction.setAsyncAcitonId(strAsyncAcitonId);
+					}
+					
 					if (DataTypeUtils.compare(strLastActionStep, strActionStep) != 0 || DataTypeUtils.compare(strLastActionResult, strActionResult) != 0 || fLastCompletionRate != fCompletionRate) {
 						// 执行任务更新
 						String strTemp = strLastActionResult;
@@ -637,13 +765,6 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 						portalAsyncAction.setStepInfo(strLastActionStep);
 
-						// 提取增加增量
-//						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && strLastActionResult.length() > strTemp.length()) {
-//							portalAsyncAction.setActionResult(strLastActionResult.substring(strTemp.length()));
-//						} else {
-//							portalAsyncAction.setActionResult(strLastActionResult);
-//						}
-						
 						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && (strLastActionResult.indexOf(strTemp) == 0)) {
 							portalAsyncAction.setActionResult(strLastActionResult.substring(strTemp.length()));
 						} else {
@@ -671,6 +792,11 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 						break;
 					}
 				}
+			}
+			
+			@Override
+			public Executor getExecutor() {
+				return getGlobalSseThreadPoolExecutor();
 			}
 		});
 
@@ -746,8 +872,11 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			if (bOpenActionSession) {
 				ActionSessionManager.closeSession(false);
 			}
-
-			portalAsyncAction.setActionState(PortalAsyncActionState.FAILED.getValue());
+			if(ex instanceof UserCancelException) {
+				portalAsyncAction.setActionState(PortalAsyncActionState.CANCELED.getValue());
+			}else {
+				portalAsyncAction.setActionState(PortalAsyncActionState.FAILED.getValue());
+			}
 			portalAsyncAction.setEndTime(new java.sql.Timestamp(System.currentTimeMillis()));
 			portalAsyncAction.setActionResult(ex.getMessage());
 
@@ -764,14 +893,18 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 		}
 	}
-
+	
 	public ISysCloudClientUtilRuntime getSysCloudClientUtilRuntime() {
+		return getSysCloudClientUtilRuntime(false);
+	}
+
+	public ISysCloudClientUtilRuntime getSysCloudClientUtilRuntime(boolean tryMode) {
 		if (this.iSysCloudClientUtilRuntime == null) {
-			this.iSysCloudClientUtilRuntime = this.getSysUtilRuntime(ISysCloudClientUtilRuntime.class, false);
+			this.iSysCloudClientUtilRuntime = this.getSysUtilRuntime(ISysCloudClientUtilRuntime.class, tryMode);
 		}
 		return this.iSysCloudClientUtilRuntime;
 	}
-
+	
 	@Override
 	protected ISystemRTGroovyContext createSystemRTGroovyContext() {
 		return new SystemRTGroovyContext(this.getSystemRuntimeContext());
@@ -781,6 +914,8 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	public ISysAIFactoryRuntime createSysAIFactoryRuntime(IPSSysAIFactory iPSSysAIFactory) {
 		throw new SystemRuntimeException(this, "没有实现");
 	}
+	
+	
 
 	@Override
 	protected Map<String, Object> backupThreadRunEnv() {
@@ -790,7 +925,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	}
 
 	@Override
-	protected void doThreadRun(Runnable runnable, String strTaskName, Object env) {
+	protected void doThreadRun(Runnable runnable, String strTaskName, Object env) throws InterruptedException{
 		Map<String, Object> map = null;
 		if (env instanceof Map) {
 			map = (Map) env;
@@ -841,4 +976,39 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		}
 		return super.onCreateDELogicNodeRuntime(strLogicNodeType);
 	}
+	
+
+	//@Override
+	public ISysAIUtilRuntime getSysAIUtilRuntime(boolean tryMode) {
+		if(this.iSysAIUtilRuntime == null) {
+			this.iSysAIUtilRuntime = this.getSysUtilRuntime(ISysAIUtilRuntime.class, tryMode);
+		}
+		return this.iSysAIUtilRuntime;
+	}
+
+	//@Override
+	public ISysKBUtilRuntime getSysKBUtilRuntime(boolean tryMode) {
+		if(this.iSysKBUtilRuntime == null) {
+			this.iSysKBUtilRuntime = this.getSysUtilRuntime(ISysKBUtilRuntime.class, tryMode);
+		}
+		return this.iSysKBUtilRuntime;
+	}
+	
+	//@Override
+	public ISysChatPromptUtilRuntime getSysChatPromptUtilRuntime(boolean tryMode) {
+		if(this.iSysChatPromptUtilRuntime == null) {
+			this.iSysChatPromptUtilRuntime = this.getSysUtilRuntime(ISysChatPromptUtilRuntime.class, tryMode);
+		}
+		return this.iSysChatPromptUtilRuntime;
+	}
+	
+	//@Override
+	public ISysPortalUtilRuntime getSysPortalUtilRuntime(boolean tryMode) {
+		if(this.iSysPortalUtilRuntime == null) {
+			this.iSysPortalUtilRuntime = this.getSysUtilRuntime(ISysPortalUtilRuntime.class, tryMode);
+		}
+		return this.iSysPortalUtilRuntime;
+	}
+	
+	
 }

@@ -22,19 +22,27 @@ public class PSDERawSqlCallLogicTranspiler extends net.ibizsys.model.util.transp
 		}
 		net.ibizsys.model.dataentity.logic.PSDERawSqlCallLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDERawSqlCallLogicImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDELogicParam(), realPSModelObject, "getDstPSDELogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "jdbcpassword", realPSModelObject.getJdbcPassword(), realPSModelObject, "getJdbcPassword");
+		this.setDomainValue(iPSModelTranspileContext, domain, "jdbcurl", realPSModelObject.getJdbcUrl(), realPSModelObject, "getJdbcUrl");
+		this.setDomainValue(iPSModelTranspileContext, domain, "jdbcusername", realPSModelObject.getJdbcUserName(), realPSModelObject, "getJdbcUserName");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysdbschemeid", realPSModelObject.getPSSysDBScheme(), realPSModelObject, "getPSSysDBScheme");
 		this.setDomainValue(iPSModelTranspileContext, domain, "param4", realPSModelObject.getSql(), realPSModelObject, "getSql");
 		this.setDomainValue(iPSModelTranspileContext, domain, "param9", realPSModelObject.isFillDstLogicParam(), realPSModelObject, "isFillDstLogicParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "param7", realPSModelObject.isIgnoreResetDstLogicParam(), realPSModelObject, "isIgnoreResetDstLogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "usejdbc", realPSModelObject.useJdbc(), realPSModelObject, "useJdbc");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDELOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJDBCPASSWORD, domain, "jdbcpassword", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJDBCURL, domain, "jdbcurl", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJDBCUSERNAME, domain, "jdbcusername", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSDBSCHEME, domain, "pssysdbschemeid", net.ibizsys.model.database.IPSSysDBScheme.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSQL, domain, "param4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISFILLDSTLOGICPARAM, domain, "param9", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISIGNORERESETDSTLOGICPARAM, domain, "param7", boolean.class, new String[]{"true"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_USEJDBC, domain, "usejdbc", boolean.class, new String[]{"false"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

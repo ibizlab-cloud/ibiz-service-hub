@@ -29,9 +29,9 @@ import net.ibizsys.model.PSModelEnums.DEVirtualMode;
 import net.ibizsys.model.PSModelEnums.PredefinedFieldType;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
+import net.ibizsys.model.dataentity.defield.IPSInheritDEField;
 import net.ibizsys.model.dataentity.defield.IPSLinkDEField;
 import net.ibizsys.model.dataentity.defield.IPSPickupObjectDEField;
-import net.ibizsys.model.dataentity.defield.IPSInheritDEField;
 import net.ibizsys.model.dataentity.der.IPSDER1N;
 import net.ibizsys.model.dataentity.der.IPSDERBase;
 import net.ibizsys.model.dataentity.der.IPSDERCustom;
@@ -69,7 +69,7 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 	private static final Log log = LogFactory.getLog(SysDBPersistentAdapter.class);
 
 	private ISysDBSchemeRuntime iSysDBSchemeRuntime = null;
-
+	
 	@Override
 	public void init(ISystemRuntimeContext iSystemRuntimeContext, ISysDBSchemeRuntime iSysDBSchemeRuntime) throws Exception {
 		Assert.notNull(iSysDBSchemeRuntime, "传入系统数据库体系无效");
@@ -82,11 +82,14 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 		return this.iSysDBSchemeRuntime;
 	}
 
+	
 	@Override
 	public String getDBType() {
 		return getSysDBSchemeRuntime().getDBType();
 	}
 
+	
+	
 	@Override
 	public Object create(IDataEntityRuntime iDataEntityRuntime, IPSDEAction iPSDEAction, IEntity iEntity, String[] inputFields, boolean bGet, String[] outputFields, boolean bSysMode) throws Throwable {
 
@@ -117,6 +120,7 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 						objValue = JsonUtils.toString(objValue);
 					}
 				}
+				
 				map.put(iPSDEField.getLowerCaseName(), objValue);
 			}
 

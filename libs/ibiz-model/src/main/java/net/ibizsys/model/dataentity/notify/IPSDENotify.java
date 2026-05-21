@@ -88,6 +88,20 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	
 	
 	/**
+	 * 获取日志存储实体对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.IPSDataEntity getLogPSDataEntity();
+
+
+	/**
+	 * 获取日志存储实体对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.IPSDataEntity getLogPSDataEntityMust();
+	
+	
+	/**
 	 * 获取发送通知类型
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.InfomMsgType}
@@ -208,6 +222,20 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * @return
 	 */
 	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPluginMust();
+	
+	
+	/**
+	 * 获取状态值存储属性
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField();
+
+
+	/**
+	 * 获取状态值存储属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEFieldMust();
 	
 	
 	/**

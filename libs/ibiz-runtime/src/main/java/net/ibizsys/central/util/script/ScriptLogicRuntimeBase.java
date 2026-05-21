@@ -17,6 +17,7 @@ import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 
 /**
  * 脚本逻辑运行时基类
@@ -101,6 +102,7 @@ public abstract class ScriptLogicRuntimeBase extends ModelRuntimeBase implements
 	public Object execute(Object[] args) {
 
 		try {
+			ScriptCodeHolder.push(this.strScript);
 			if(ISystemUtilRuntime.SCRIPTENGINE_GROOVY.equals(this.getScriptEngine())) {
 				if(args != null && args.length> 0) {
 					switch(args.length) {
@@ -157,6 +159,9 @@ public abstract class ScriptLogicRuntimeBase extends ModelRuntimeBase implements
 			log.error(ex);
 			this.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()), ex);
 			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this.getModelRuntime(), String.format("执行脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()));
+		}
+		finally {
+			ScriptCodeHolder.poll();
 		}
 	}
 

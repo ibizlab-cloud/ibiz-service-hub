@@ -22,6 +22,7 @@ public class PSDEDataImportTranspiler extends net.ibizsys.model.util.transpiler.
 		}
 		net.ibizsys.model.dataentity.dataimport.PSDEDataImportImpl realPSModelObject = (net.ibizsys.model.dataentity.dataimport.PSDEDataImportImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "batchsize", realPSModelObject.getBatchSize(), realPSModelObject, "getBatchSize");
+		this.setDomainValue(iPSModelTranspileContext, domain, "contenttype", realPSModelObject.getContentType(), realPSModelObject, "getContentType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "createpsdeopprivid", realPSModelObject.getCreateDataAccessAction(), realPSModelObject, "getCreateDataAccessAction");
 		this.setDomainValue(iPSModelTranspileContext, domain, "createpsdeactionid", realPSModelObject.getCreatePSAppDEAction(), realPSModelObject, "getCreatePSAppDEAction");
 		this.setDomainValue(iPSModelTranspileContext, domain, "createpsdeactionid", realPSModelObject.getCreatePSDEAction(), realPSModelObject, "getCreatePSDEAction");
@@ -42,6 +43,7 @@ public class PSDEDataImportTranspiler extends net.ibizsys.model.util.transpiler.
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBATCHSIZE, domain, "batchsize", int.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCONTENTTYPE, domain, "contenttype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCREATEDATAACCESSACTION, domain, "createpsdeopprivid", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCREATEPSAPPDEACTION, domain, "createpsdeactionid", net.ibizsys.model.app.dataentity.IPSAppDEAction.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCREATEPSDEACTION, domain, "createpsdeactionid", net.ibizsys.model.dataentity.action.IPSDEAction.class, false);

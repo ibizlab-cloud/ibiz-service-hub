@@ -133,6 +133,13 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取是否默认接口
+	 * @return
+	 */
+	boolean getDefaultFlag();
+	
+	
+	/**
 	 * 获取处理对象
 	 * @return
 	 */

@@ -29,6 +29,7 @@ import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
 import net.ibizsys.runtime.util.PropertiesUtils;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 import net.ibizsys.runtime.util.script.IScriptEntity;
 
 /**
@@ -201,6 +202,7 @@ public abstract class SysTestDataRuntimeBase extends SystemModelRuntimeBase impl
 			}
 			
 			try {
+				ScriptCodeHolder.push(this.getPSSysTestData().getScriptCode());
 				invocable.invokeFunction("main", this.getSystemRuntime().getSystemRTScriptContext(), iScriptEntity);
 				
 			} catch (NoSuchMethodException | ScriptException ex) {
@@ -208,7 +210,9 @@ public abstract class SysTestDataRuntimeBase extends SystemModelRuntimeBase impl
 				this.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行测试数据脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()), ex);
 				throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("执行脚本发生异常，%1$s", ex.getMessage()));
 			}
-			
+			finally {
+				ScriptCodeHolder.poll();
+			}
 			return;
 		}
 	}

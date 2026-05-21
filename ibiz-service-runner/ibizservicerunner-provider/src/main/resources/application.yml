@@ -18,11 +18,11 @@ spring:
 
 ibiz:
   servicehub:
-    id: ibizservicerunner
+    id: ibizplm
 #    register-naming-service: false
 #    publish-config: false
     # 新增初始化模式 initmode ，默认 manual：手动模式（手工初始化nacos和system），auto：自动模式
-    initmode: manual
+    initmode: auto
   tenant: true
 
 #生产环境需要关闭

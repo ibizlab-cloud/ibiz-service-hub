@@ -46,6 +46,40 @@ public class EBSXServiceHubProperties  {
         this.cloudDevops = cloudDevops;
     }
 
+
+    @JsonProperty("cloud-oss")
+    private CloudOSS cloudOSS ;
+
+    public CloudOSS getCloudOSS() {
+        return cloudOSS;
+    }
+
+    public void setCloudOSS(CloudOSS cloudOSS) {
+        this.cloudOSS = cloudOSS;
+    }
+
+    @JsonProperty("cloud-ai")
+    private CloudAI cloudAI ;
+
+    public CloudAI getCloudAI() {
+        return cloudAI;
+    }
+
+    public void setCloudAI(CloudAI cloudAI) {
+        this.cloudAI = cloudAI;
+    }
+
+    @JsonProperty("cloud-kb")
+    private CloudKB cloudKB ;
+
+    public CloudKB getCloudKB() {
+        return cloudKB;
+    }
+
+    public void setCloudKB(CloudKB cloudKB) {
+        this.cloudKB = cloudKB;
+    }
+
     public static class AppGateway {
 
 
@@ -70,6 +104,90 @@ public class EBSXServiceHubProperties  {
     }
 
     public static class CloudDevops extends HashMap<String,Object> {
+
+        @Override
+        public Object put(String s, Object o) {
+            return super.put(s.toLowerCase(), o);
+        }
+
+        @Override
+        public Object get(Object o) {
+            Object value = super.get(o);
+            if(value != null || o == null)
+                return value;
+
+            String key = o.toString().toUpperCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.toLowerCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.replace("-","");
+            return super.get(key);
+        }
+    }
+
+    public static class CloudOSS extends HashMap<String,Object> {
+
+        @Override
+        public Object put(String s, Object o) {
+            return super.put(s.toLowerCase(), o);
+        }
+
+        @Override
+        public Object get(Object o) {
+            Object value = super.get(o);
+            if(value != null || o == null)
+                return value;
+
+            String key = o.toString().toUpperCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.toLowerCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.replace("-","");
+            return super.get(key);
+        }
+    }
+
+    public static class CloudAI extends HashMap<String,Object> {
+
+        @Override
+        public Object put(String s, Object o) {
+            return super.put(s.toLowerCase(), o);
+        }
+
+        @Override
+        public Object get(Object o) {
+            Object value = super.get(o);
+            if(value != null || o == null)
+                return value;
+
+            String key = o.toString().toUpperCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.toLowerCase();
+            value = super.get(key);
+            if(value != null)
+                return value;
+
+            key = key.replace("-","");
+            return super.get(key);
+        }
+    }
+
+    public static class CloudKB extends HashMap<String,Object> {
 
         @Override
         public Object put(String s, Object o) {

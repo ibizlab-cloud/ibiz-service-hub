@@ -4,8 +4,17 @@ package net.ibizsys.model.app;
 
 public class PSAppPDTViewImpl extends net.ibizsys.model.app.PSApplicationObjectImpl implements net.ibizsys.model.app.IPSAppPDTView{
 
+	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETPSAPPVIEW = "getPSAppView";
 	public final static String ATTR_GETPSSYSPDTVIEW = "getPSSysPDTView";
+
+	public java.lang.String getCodeName(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.app.view.IPSAppView psappview;
 
 	public net.ibizsys.model.app.view.IPSAppView getPSAppView(){

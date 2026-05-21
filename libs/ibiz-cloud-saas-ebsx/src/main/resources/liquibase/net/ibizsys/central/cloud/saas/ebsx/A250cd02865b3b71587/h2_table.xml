@@ -331,7 +331,7 @@
     <!--输出实体[IBZCFG]数据结构 -->
     <changeSet author="root" id="IBZCFG">
         <createTable tableName="IBZCFG" remarks="配置">
-            <column name="CFG" remarks="配置内容" type="TEXT(1048576)">
+            <column name="CFG" remarks="配置内容" type="TEXT(16777215)">
             </column>
             <column name="CFGID" remarks="标识" type="VARCHAR(100)">
                 <constraints primaryKey="true" primaryKeyName="PK_IBZCFG_CFGID"/>

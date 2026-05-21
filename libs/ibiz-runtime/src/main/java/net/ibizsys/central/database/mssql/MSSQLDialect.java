@@ -2,6 +2,7 @@ package net.ibizsys.central.database.mssql;
 
 import net.ibizsys.central.database.DBDialectBase;
 import net.ibizsys.central.util.ISearchContext;
+import net.ibizsys.model.PSModelEnums.DBObjNameCaseMode;
 import net.ibizsys.runtime.util.Conditions;
 import net.ibizsys.runtime.util.DBTypes;
 
@@ -25,7 +26,18 @@ public class MSSQLDialect extends DBDialectBase{
 
 	
 	@Override
-	public String getDBObjStandardName(String strOriginName) throws Throwable {
+	public String getDBObjStandardName(String strOriginName, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
+		switch(dbObjNameCaseMode) {
+		case LCASE:
+			strOriginName = strOriginName.toLowerCase();
+			break;
+		case UCASE:
+			strOriginName = strOriginName.toUpperCase();
+			break;
+		default:
+			break;
+		}
+		
 		String[] items = strOriginName.split("[.]");
 		if(items.length == 1) {
 			return String.format("[%1$s]",strOriginName);

@@ -233,4 +233,12 @@ public interface ISysSearchSchemeRuntime extends ISystemModelRuntime, ISubSysSer
 	 */
 	Page fetch(String strDocName, ISearchContext iSearchContext, String[] outputFields, Map<String, Object> extParamMap) throws Throwable;
 	
+	
+	/**
+	 * 全文检索体系运行时是否启用
+	 * @return
+	 */
+	default boolean isEnabled() {
+		return true;
+	}
 }

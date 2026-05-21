@@ -21,6 +21,7 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 	public final static String ATTR_GETAUTHPARAM3 = "authParam3";
 	public final static String ATTR_GETAUTHPARAM4 = "authParam4";
 	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETDEFAULTFLAG = "defaultFlag";
 	public final static String ATTR_GETHANDLER = "handler";
 	public final static String ATTR_GETHTTPPORT = "httpPort";
 	public final static String ATTR_GETIGNOREAUTHPATTERNS = "ignoreAuthPatterns";
@@ -173,6 +174,14 @@ public class PSSysServiceAPIImpl extends net.ibizsys.model.PSSystemObjectImpl im
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean getDefaultFlag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDEFAULTFLAG);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
 	}
 
 	public java.lang.String getHandler(){

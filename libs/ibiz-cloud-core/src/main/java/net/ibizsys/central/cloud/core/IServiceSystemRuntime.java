@@ -6,9 +6,9 @@ import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.IProxyDEService;
 import net.ibizsys.central.cloud.core.security.IAuthenticationUser;
 import net.ibizsys.central.cloud.core.security.ISystemAccessManager;
+import net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime;
 import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.util.IChatResourceUtils;
-import net.ibizsys.central.cloud.core.util.IConfigListenerRepo;
 import net.ibizsys.central.cloud.core.util.IRTCodeUtils;
 import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
@@ -409,4 +409,15 @@ public interface IServiceSystemRuntime extends IServiceSystemRuntimeBase,ISystem
 	 * @return
 	 */
 	IChatResourceUtils getChatResourceUtils();
+	
+	
+	/**
+	 * 获取默认的服务接口运行时对象
+	 * @param tryMode 尝试模式
+	 * @return
+	 */
+	ISysServiceAPIRuntime getDefaultSysServiceAPIRuntime(boolean tryMode);
+	
+	
+
 }

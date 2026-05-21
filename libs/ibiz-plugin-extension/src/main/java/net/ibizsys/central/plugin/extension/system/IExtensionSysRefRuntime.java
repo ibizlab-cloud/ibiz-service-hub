@@ -56,4 +56,14 @@ public interface IExtensionSysRefRuntime extends net.ibizsys.central.cloud.core.
 	 */
 	boolean unregisterMainAppRefApp(String strMainAppTag, String strSubAppTag);
 	
+	
+	
+	/**
+	 * 获取传入主应用、子应用的合并菜单标记
+	 * @param strMainAppTag
+	 * @param strSubAppTag
+	 * @return
+	 */
+	String getSubAppMenuTag(String strMainAppTag, String strSubAppTag); 
+	
 }

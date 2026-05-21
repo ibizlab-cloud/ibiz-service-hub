@@ -13,6 +13,7 @@ import net.ibizsys.runtime.ISystemUtilRuntime;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 
 /**
  * 系统脚本逻辑运行时对象
@@ -59,6 +60,7 @@ public class SysScriptLogicRuntime extends SysLogicRuntimeBase implements ISysSc
 	public Object execute(Object... args) {
 
 		try {
+			ScriptCodeHolder.push(this.getPSSysLogic().getScriptCode());
 			if(ISystemUtilRuntime.SCRIPTENGINE_GROOVY.equals(this.getScriptEngine())) {
 				if (args != null && args.length > 0) {
 					switch (args.length) {
@@ -113,6 +115,9 @@ public class SysScriptLogicRuntime extends SysLogicRuntimeBase implements ISysSc
 			log.error(ex);
 			this.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行系统逻辑脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()), ex);
 			throw new SystemRuntimeException(this.getSystemRuntimeBase(), String.format("执行系统逻辑脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()));
+		}
+		finally {
+			ScriptCodeHolder.poll();
 		}
 	}
 

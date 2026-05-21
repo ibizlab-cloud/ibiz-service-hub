@@ -31,6 +31,31 @@ public class Document extends EntityBase {
 	
 	
 	/**
+	 *  知识库标识
+	 */
+	public final static String FIELD_KBID = "kbid";
+	
+	
+	/**
+	 *  知识库名称
+	 */
+	public final static String FIELD_KBNAME = "kbname";
+	
+	
+	/**
+	 *  文档分类
+	 */
+	public final static String FIELD_CATEGORIES = "categories";
+	
+	
+	
+	/**
+	 * 文件类型
+	 */
+	public final static String FIELD_FILETYPE = "filetype";
+	
+	
+	/**
 	 * 设置「文档标识」
 	 *
 	 * @param val
@@ -187,4 +212,163 @@ public class Document extends EntityBase {
 		return this;
 	}
 
+	/**
+	 * 设置「 知识库标识」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Document setKBId(String val) {
+		this.set(FIELD_KBID, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 知识库标识」值
+	 *
+	 */
+	@JsonIgnore
+	public String getKBId() {
+		return (String) this.get(FIELD_KBID);
+	}
+
+	/**
+	 * 判断 「 知识库标识」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsKBId() {
+		return this.contains(FIELD_KBID);
+	}
+
+	/**
+	 * 重置 「 知识库标识」
+	 *
+	 */
+	@JsonIgnore
+	public Document resetKBId() {
+		this.reset(FIELD_KBID);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「 知识库名称」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Document setKBName(String val) {
+		this.set(FIELD_KBNAME, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 知识库名称」值
+	 *
+	 */
+	@JsonIgnore
+	public String getKBName() {
+		return (String) this.get(FIELD_KBNAME);
+	}
+
+	/**
+	 * 判断 「 知识库名称」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsKBName() {
+		return this.contains(FIELD_KBNAME);
+	}
+
+	/**
+	 * 重置 「 知识库名称」
+	 *
+	 */
+	@JsonIgnore
+	public Document resetKBName() {
+		this.reset(FIELD_KBNAME);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「 文档分类」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Document setCategories(String val) {
+		this.set(FIELD_CATEGORIES, val);
+		return this;
+	}
+
+	/**
+	 * 获取「 文档分类」值
+	 *
+	 */
+	@JsonIgnore
+	public String getCategories() {
+		return (String) this.get(FIELD_CATEGORIES);
+	}
+
+	/**
+	 * 判断 「 文档分类」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsCategories() {
+		return this.contains(FIELD_CATEGORIES);
+	}
+
+	/**
+	 * 重置 「 文档分类」
+	 *
+	 */
+	@JsonIgnore
+	public Document resetCategories() {
+		this.reset(FIELD_CATEGORIES);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「文件类型」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public Document setFileType(String val) {
+		this.set(FIELD_FILETYPE, val);
+		return this;
+	}
+
+	/**
+	 * 获取「文件类型」值
+	 *
+	 */
+	@JsonIgnore
+	public String getFileType() {
+		return (String) this.get(FIELD_FILETYPE);
+	}
+
+	/**
+	 * 判断 「文件类型」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsFileType() {
+		return this.contains(FIELD_FILETYPE);
+	}
+
+	/**
+	 * 重置 「文件类型」
+	 *
+	 */
+	@JsonIgnore
+	public Document resetFileType() {
+		this.reset(FIELD_FILETYPE);
+		return this;
+	}
+	
 }

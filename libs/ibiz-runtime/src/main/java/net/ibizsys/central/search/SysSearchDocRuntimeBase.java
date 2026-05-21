@@ -1,7 +1,14 @@
 package net.ibizsys.central.search;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.util.ObjectUtils;
+
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.search.IPSSysSearchDoc;
+import net.ibizsys.model.search.IPSSysSearchField;
 import net.ibizsys.runtime.ModelRuntimeBase;
 
 public abstract class SysSearchDocRuntimeBase extends ModelRuntimeBase implements ISysSearchDocRuntime{
@@ -10,6 +17,7 @@ public abstract class SysSearchDocRuntimeBase extends ModelRuntimeBase implement
 	
 	private ISysSearchSchemeRuntimeContext iSysSearchSchemeRuntimeContext = null;
 	private IPSSysSearchDoc iPSSysSearchDoc = null;
+	private Map<String, IPSSysSearchField> psSysSearchFieldMap = new HashMap<String, IPSSysSearchField>();
 
 	
 	
@@ -22,15 +30,12 @@ public abstract class SysSearchDocRuntimeBase extends ModelRuntimeBase implement
 	
 	@Override
 	protected void onInit() throws Exception {
-//		List<IPSSysDBColumn> psSysDBColumnList = this.getPSSysSearchDoc().getAllPSSysDBColumns();
-//		if(psSysDBColumnList != null) {
-//			for(IPSSysDBColumn iPSSysDBColumn : psSysDBColumnList) {
-//				SysDBColumnRuntime sysDBColumnRuntime = new SysDBColumnRuntime();
-//				sysDBColumnRuntime.init(ISysSearchSchemeRuntimeContext, this, iPSSysDBColumn);
-//				this.sysDBColumnRuntimeList.add(sysDBColumnRuntime);
-//				this.sysDBColumnRuntimeMap.put(sysDBColumnRuntime.getName(), sysDBColumnRuntime);
-//			}
-//		}
+		List<IPSSysSearchField> psSysSearchFieldList = this.getPSSysSearchDoc().getAllPSSysSearchFields();
+		if(!ObjectUtils.isEmpty(psSysSearchFieldList)) {
+			for(IPSSysSearchField iPSSysSearchField : psSysSearchFieldList) {
+				psSysSearchFieldMap.put(iPSSysSearchField.getName().toUpperCase(), iPSSysSearchField);
+			}
+		}
 		super.onInit();
 	}
 	
@@ -66,6 +71,13 @@ public abstract class SysSearchDocRuntimeBase extends ModelRuntimeBase implement
 		return this.getSysSearchSchemeRuntimeContext().getSysSearchSchemeRuntime();
 	}
 
-	
+	@Override
+	public IPSSysSearchField getPSSysSearchField(String name, boolean tryMode) {
+		IPSSysSearchField iPSSysSearchField = psSysSearchFieldMap.get(name.toUpperCase());
+		if(iPSSysSearchField != null || tryMode) {
+			return iPSSysSearchField;
+		}
+		throw new SysSearchSchemeRuntimeException(this.getSysSearchSchemeRuntime(), this, String.format("指定属性[%1$s]不存在", name));
+	}
 	
 }

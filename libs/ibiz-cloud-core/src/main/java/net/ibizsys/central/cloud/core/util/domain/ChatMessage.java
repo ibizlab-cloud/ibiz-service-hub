@@ -1,8 +1,14 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import net.ibizsys.runtime.util.EntityBase;
+import net.ibizsys.runtime.util.JsonUtils;
 
 /**
  * 交谈消息对象（用于AIChat）
@@ -10,6 +16,9 @@ import net.ibizsys.runtime.util.EntityBase;
  */
 public class ChatMessage extends EntityBase {
 
+	public static final TypeReference<List<ChatContent>> ChatContentListType = new TypeReference<List<ChatContent>>() {
+	};
+	
 	/**
 	* 消息标识
 	*/
@@ -37,7 +46,6 @@ public class ChatMessage extends EntityBase {
 	 */
 	public final static String FIELD_SUBTYPE = "subtype";
 	
-
 	/**
 	 * 消息内容
 	 *
@@ -69,7 +77,28 @@ public class ChatMessage extends EntityBase {
 	 *
 	 */
 	public final static String FIELD_TOOLCALLID = "toolcallid";
+	
+	
+	/**
+	 * 消息分类
+	 */
+	public final static String FIELD_CAT = "cat";
+	
+//	/**
+//	 *思维内容
+//	 *
+//	 */
+//	public final static String FIELD_REASONINGCONTENT = "reasoningcontent";
+	
 
+	@JsonIgnore
+	public static ChatMessage create(ChatMessageRole role, Object content) {
+		ChatMessage chatMessage = new ChatMessage();
+		chatMessage.setRole(role.getValue());
+		chatMessage.setContent(content);
+		return chatMessage;
+	}
+	
 	/**
 	 * 设置「消息标识」
 	 *
@@ -276,7 +305,7 @@ public class ChatMessage extends EntityBase {
 	 * @param val
 	 */
 	@JsonIgnore
-	public ChatMessage setContent(String val) {
+	public ChatMessage setContent(Object val) {
 		this.set(FIELD_CONTENT, val);
 		return this;
 	}
@@ -287,7 +316,60 @@ public class ChatMessage extends EntityBase {
 	 */
 	@JsonIgnore
 	public String getContent() {
-		return (String) this.get(FIELD_CONTENT);
+		Object value = getRawContent();
+		if(value == null) {
+			return null;
+		}
+		if(value instanceof String) {
+			return (String)value;
+		}
+		return JsonUtils.toString(value);
+	}
+	
+	/**
+	 * 获取「消息内容」值
+	 *
+	 */
+	@JsonIgnore
+	public List<ChatContent> getChatContents() {
+		Object value = getRawContent();
+		if(value == null) {
+			return null;
+		}
+		if(value instanceof String) {
+			value = JsonUtils.as(value, ChatContentListType);
+			this.set(FIELD_CONTENT, value);
+		}
+		else
+			if(value instanceof List) {
+				List list = (List)value;
+				if(list.size() != 0) {
+					if(list.get(0) instanceof Map) {
+						value = JsonUtils.as(value, ChatContentListType);
+						this.set(FIELD_CONTENT, value);
+					}
+				}
+			}
+		return (List<ChatContent>)value;
+	}
+	
+	@JsonIgnore
+	public List<ChatContent> getChatContentsIf() {
+		List<ChatContent> list = this.getChatContents();
+		if(list == null) {
+			list = new ArrayList<ChatContent>();
+			this.set(FIELD_CONTENT, list);
+		}
+		return list;
+	}
+	
+	/**
+	 * 获取「消息内容」值
+	 *
+	 */
+	@JsonIgnore
+	public Object getRawContent() {
+		return this.get(FIELD_CONTENT);
 	}
 
 	/**
@@ -468,5 +550,93 @@ public class ChatMessage extends EntityBase {
 		this.reset(FIELD_TOOLCALLID);
 		return this;
 	}
+	 
+	
+	
+	/**
+	 * 设置「CAT」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatMessage setCat(Object val) {
+		this.set(FIELD_CAT, val);
+		return this;
+	}
+	
+
+	/**
+	 * 获取「CAT」值
+	 *
+	 */
+	@JsonIgnore
+	public String getCat() {
+		return (String) this.get(FIELD_CAT);
+	}
+
+	/**
+	 * 判断 「CAT」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsCat() {
+		return this.contains(FIELD_CAT);
+	}
+
+	/**
+	 * 重置 「CAT」
+	 *
+	 */
+	@JsonIgnore
+	public ChatMessage resetCat() {
+		this.reset(FIELD_CAT);
+		return this;
+	}
+	
+	
+//	/**
+//	 * 获取「思考内容」值
+//	 *
+//	 */
+//	@JsonIgnore
+//	public String getReasoningContent() {
+//		Object value = getRawReasoningContent();
+//		if(value == null) {
+//			return null;
+//		}
+//		if(value instanceof String) {
+//			return (String)value;
+//		}
+//		return JsonUtils.toString(value);
+//	}
+//	
+//	/**
+//	 * 获取「思考内容」值
+//	 *
+//	 */
+//	@JsonIgnore
+//	public Object getRawReasoningContent() {
+//		return this.get(FIELD_REASONINGCONTENT);
+//	}
+//
+//	/**
+//	 * 判断 「思考内容」是否有值
+//	 *
+//	 */
+//	@JsonIgnore
+//	public boolean containsReasoningContent() {
+//		return this.contains(FIELD_REASONINGCONTENT);
+//	}
+//
+//	/**
+//	 * 重置 「思考内容」
+//	 *
+//	 */
+//	@JsonIgnore
+//	public ChatMessage resetReasoningContent() {
+//		this.reset(FIELD_REASONINGCONTENT);
+//		return this;
+//	}
+	
 	
 }

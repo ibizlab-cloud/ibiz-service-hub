@@ -130,6 +130,8 @@ public class PSDELogicNodeListMerger extends net.ibizsys.model.util.merger.PSMod
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysDBTableActionLogicImpl.class, false);
 			case "SYSLOGIC":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysLogicLogicImpl.class, false);
+			case "SYSMSGTEMPL":
+				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysMsgTemplLogicImpl.class, false);
 			case "SYSSEARCHDOCACTION":
 				return iPSModelMergeContext.getPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysSearchDocActionLogicImpl.class, false);
 			case "SYSUTIL":

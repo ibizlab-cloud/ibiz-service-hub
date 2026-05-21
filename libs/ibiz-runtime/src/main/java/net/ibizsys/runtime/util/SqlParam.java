@@ -17,6 +17,8 @@ public class SqlParam {
 	private String strName = null;
 	private boolean bRawCode = false;
 	private boolean bCondition = false;
+	private String strBeforeCode = "";
+	private String strAfterCode = "";
 	
 	public final static SqlParam NOTSET = new SqlParam();
 
@@ -177,4 +179,42 @@ public class SqlParam {
 	public boolean isCondition() {
 		return this.bCondition;
 	}
+	
+	
+	/**
+	 * 获取参数前置代码
+	 * 
+	 * @return
+	 */
+	public String getBeforeCode() {
+		return strBeforeCode;
+	}
+
+	/**
+	 * 设置参数前置代码
+	 * 
+	 * @param strBeforeCode
+	 */
+	public void setBeforeCode(String strBeforeCode) {
+		this.strBeforeCode = strBeforeCode;
+	}
+
+	/**
+	 * 获取参数后缀代码
+	 * 
+	 * @return
+	 */
+	public String getAfterCode() {
+		return strAfterCode;
+	}
+
+	/**
+	 * 设置参数后缀代码
+	 * 
+	 * @param strAfterCode
+	 */
+	public void setAfterCode(String strAfterCode) {
+		this.strAfterCode = strAfterCode;
+	}
+
 }

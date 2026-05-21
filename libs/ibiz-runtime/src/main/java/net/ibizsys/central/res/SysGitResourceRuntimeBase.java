@@ -181,4 +181,12 @@ public abstract class SysGitResourceRuntimeBase extends SysSCMResourceRuntimeBas
 		return new File(strFilePath);
 	}
 	
+	@Override
+	protected void onReload() throws Throwable {
+		
+		super.onReload();
+		
+		this.checkout(null);
+	}
+	
 }

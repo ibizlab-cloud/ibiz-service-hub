@@ -4,14 +4,16 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.codegen.core.util.StdDataTypeUtils;
 import net.ibizsys.codegen.groovy.util.GroovyUtils;
+import net.ibizsys.model.PSModelEnums.CodeListType;
 import net.ibizsys.model.PSModelEnums.DEFDataType;
 import net.ibizsys.model.PSModelEnums.DEMethodDTOFieldType;
 import net.ibizsys.model.PSModelEnums.DEMethodDTOType;
@@ -19,8 +21,10 @@ import net.ibizsys.model.PSModelEnums.DERSubType;
 import net.ibizsys.model.PSModelEnums.DERType;
 import net.ibizsys.model.PSModelEnums.StdDataType;
 import net.ibizsys.model.PSModelException;
+import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.app.dataentity.IPSAppDataEntity;
+import net.ibizsys.model.codelist.IPSCodeItem;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.IPSDataEntityObject;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -33,6 +37,7 @@ import net.ibizsys.model.dataentity.der.IPSDERCustom;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
 import net.ibizsys.model.system.IPSSystemModule;
+import net.ibizsys.model.util.JsonUtils;
 
 public class PSDataEntityExtension {
 
@@ -104,10 +109,7 @@ public class PSDataEntityExtension {
 				}
 			}
 
-//			StringBuilder sb = new StringBuilder();
-
-			ObjectMapper mapper = new ObjectMapper();
-			ObjectNode objectNode = mapper.createObjectNode();
+			ObjectNode objectNode = JsonUtils.createObjectNode();
 
 			objectNode.put("type", "object");
 			objectNode.put("title", iPSAppDataEntity.getLogicName());
@@ -118,14 +120,6 @@ public class PSDataEntityExtension {
 				for(IPSDEMethodDTOField iPSDEMethodDTOField : defaultPSDEMethodDTO.getPSDEMethodDTOFields()) {
 
 					IPSDEField iPSDEField = iPSDEMethodDTOField.getPSDEField();
-//					if(iPSDEField!=null) {
-//						DEFDataType defDataType = DEFDataType.from(iPSDEField.getDataType());
-//						if(defDataType == DEFDataType.PICKUP ) {
-//						//if(defDataType == DEFDataType.PICKUP || defDataType == DEFDataType.PICKUPTEXT || defDataType == DEFDataType.PICKUPDATA) {
-//							continue;
-//						}
-//					}
-
 					String codeName = iPSDEMethodDTOField.getCodeName();
 					if(!StringUtils.hasLength(codeName)) {
 						codeName = iPSDEMethodDTOField.getName();
@@ -188,7 +182,7 @@ public class PSDataEntityExtension {
 							if(iPSDEField!=null) {
 								DEFDataType defDataType = DEFDataType.from(iPSDEField.getDataType());
 								if(defDataType == DEFDataType.PICKUP ) {
-									IPSDERBase iPSDERBase = ((IPSPickupDEField)iPSDEField).getPSDER();
+									IPSDERBase iPSDERBase = ((IPSPickupDEField)iPSDEField).getPSDERMust();
 									DERType derType = DERType.from(iPSDERBase.getDERType());
 									if (derType == DERType.DER1N) {
 										if (!StringUtils.hasLength(iPSDERBase.getCodeName())) {
@@ -535,10 +529,7 @@ public class PSDataEntityExtension {
 			}
 		}
 
-//		StringBuilder sb = new StringBuilder();
-
-		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode objectNode = mapper.createObjectNode();
+		ObjectNode objectNode = JsonUtils.createObjectNode();
 
 		objectNode.put("type", "object");
 		objectNode.put("title", iPSDataEntity.getLogicName());
@@ -572,7 +563,7 @@ public class PSDataEntityExtension {
 					case SIMPLE:
 					{
 						StdDataType stdDataType = StdDataType.from(iPSDEMethodDTOField.getStdDataType());
-						String strDataType = iPSDEField.getDataType();
+						String strDataType = iPSDEField!=null?iPSDEField.getDataType():null;
 						ObjectNode property = properties.putObject(codeName.toLowerCase());
 
 						if(StdDataTypeUtils.isBigDecimalDataType(stdDataType)
@@ -619,7 +610,7 @@ public class PSDataEntityExtension {
 						if(iPSDEField!=null) {
 							DEFDataType defDataType = DEFDataType.from(iPSDEField.getDataType());
 							if(defDataType == DEFDataType.PICKUP ) {
-								IPSDERBase iPSDERBase = ((IPSPickupDEField)iPSDEField).getPSDER();
+								IPSDERBase iPSDERBase = ((IPSPickupDEField)iPSDEField).getPSDERMust();
 								DERType derType = DERType.from(iPSDERBase.getDERType());
 								if (derType == DERType.DER1N) {
 									if (!StringUtils.hasLength(iPSDERBase.getCodeName())) {
@@ -847,5 +838,301 @@ public class PSDataEntityExtension {
 		return objectNode.toPrettyString();
 
 	}
+	
+	public static String getPSDEMethodDTOJsonSchema(IPSDEMethodDTO iPSDEMethodDTO) {
+		
+		Assert.notNull(iPSDEMethodDTO, "传入实体方法DTO对象无效");
+		
+		ObjectNode objectNode = JsonUtils.createObjectNode();
 
+		objectNode.put("type", "object");
+		String strLogicName = iPSDEMethodDTO.getLogicName();
+		if(ObjectUtils.isEmpty(strLogicName)) {
+			strLogicName = iPSDEMethodDTO.getName();
+		}
+		objectNode.put("title", strLogicName);
+
+		ObjectNode properties = objectNode.putObject("properties");
+		ArrayNode required = objectNode.putArray("required");
+		
+		boolean bDefaultDTO = DEMethodDTOType.DEFAULT.value.equals(iPSDEMethodDTO.getType());
+		
+		if(!ObjectUtils.isEmpty(iPSDEMethodDTO.getPSDEMethodDTOFields())) {
+			for(IPSDEMethodDTOField iPSDEMethodDTOField : iPSDEMethodDTO.getPSDEMethodDTOFields()) {
+				
+				if(iPSDEMethodDTOField.isIgnoreOutput()) {
+					continue;
+				}
+
+				IPSDEField iPSDEField = null;
+				if(bDefaultDTO) {
+					//仅默认DTO支持属性
+					iPSDEField = iPSDEMethodDTOField.getPSDEField();
+				}
+
+				String codeName = iPSDEMethodDTOField.getCodeName();
+				if(!StringUtils.hasLength(codeName)) {
+					codeName = iPSDEMethodDTOField.getName();
+				}
+				
+				boolean bReadonly =  iPSDEMethodDTOField.isReadOnly();
+//				if(iPSDEField instanceof IPSLinkDEField) {
+//
+//					continue;
+//				}
+
+				DEMethodDTOFieldType deMethodDTOFieldType = DEMethodDTOFieldType.from(iPSDEMethodDTOField.getType());
+				switch (deMethodDTOFieldType) {
+					case SIMPLE:
+					{
+						StdDataType stdDataType = StdDataType.from(iPSDEMethodDTOField.getStdDataType());
+						String strDataType = iPSDEField!=null?iPSDEField.getDataType():null;
+						
+						ObjectNode property = properties.putObject(codeName.toLowerCase());
+						
+
+						if(StdDataTypeUtils.isBigDecimalDataType(stdDataType)
+								|| StdDataTypeUtils.isBigIntDataType(stdDataType)) {
+							property.put("type", "number");
+						}
+						else {
+							property.put("type", GroovyUtils.getJavaScriptType(stdDataType));
+						}
+						
+						
+						if (StdDataTypeUtils.isDateTimeDataType(stdDataType)) {
+							if(StringUtils.hasLength(strDataType)) {
+								if(DEFDataType.DATE.value.equals(strDataType)) {
+									property.put("format", "date");
+								}
+								else
+									if(DEFDataType.TIME.value.equals(strDataType)) {
+										property.put("format", "time");
+									}
+									else {
+										property.put("format", "date-time");
+									}
+							}
+							else {
+								if (stdDataType == StdDataType.DATE) {
+									property.put("format", "date");
+								}
+								else
+								if (stdDataType == StdDataType.TIME) {
+									property.put("format", "time");
+								}
+								else {
+									property.put("format", "date-time");
+								}
+							}
+						}
+						
+						String strDescription = iPSDEMethodDTOField.getLogicName();
+						if(StringUtils.hasLength(iPSDEMethodDTOField.getMemo())) {
+							strDescription += String.format("，%1$s", iPSDEMethodDTOField.getMemo());
+						}
+
+						if(iPSDEField!=null && iPSDEField.getPSCodeList()!=null) {
+							property.put("enumSource", iPSDEField.getPSCodeList().getCodeListTag());
+						}
+						//补充外键值属性信息
+						if(iPSDEField!=null) {
+							DEFDataType defDataType = DEFDataType.from(iPSDEField.getDataType());
+							if(defDataType == DEFDataType.PICKUP ) {
+								IPSDERBase iPSDERBase = ((IPSPickupDEField)iPSDEField).getPSDERMust();
+								DERType derType = DERType.from(iPSDERBase.getDERType());
+								if (derType == DERType.DER1N) {
+									strDescription += String.format("。外键属性，引用实体`%1$s`(%2$s)", iPSDERBase.getMajorPSDataEntityMust().getLogicName(), PSModelUtils.calcFullUniqueTag2(iPSDERBase.getMajorPSDataEntityMust()));
+								}
+								else
+								if (derType == DERType.DERCUSTOM) {
+									IPSDERCustom iPSDERCustom = (IPSDERCustom) iPSDERBase;
+									if (DERSubType.DER1N.value.equals(iPSDERCustom.getDERSubType())) {
+										strDescription += String.format("。外键属性，引用实体`%1$s`(%2$s)", iPSDERBase.getMajorPSDataEntityMust().getLogicName(), PSModelUtils.calcFullUniqueTag2(iPSDERBase.getMajorPSDataEntityMust()));
+									}
+								}
+							}
+						}
+						
+						if(iPSDEField!=null && iPSDEField.getPSCodeList()!=null) {
+							if(CodeListType.STATIC.value.equals(iPSDEField.getPSCodeList().getCodeListType()) && !ObjectUtils.isEmpty(iPSDEField.getPSCodeList().getPSCodeItems())) {
+								strDescription +="。枚举定义：";
+								boolean bFirst = true;
+								for(IPSCodeItem iPSCodeItem : iPSDEField.getPSCodeList().getPSCodeItems()) {
+									if(bFirst) {
+										bFirst = false;
+									}
+									else {
+										strDescription += "、";
+									}
+									strDescription += String.format("%1$s(%2$s)", iPSCodeItem.getValue(), iPSCodeItem.getText());
+								}
+								strDescription += "。";
+							}
+						}
+						
+						property.put("description", strDescription);
+						if(bReadonly) {
+							property.put("readonly", true);
+						}
+						else {
+							if(!iPSDEMethodDTOField.isAllowEmpty() && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValue()) && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValueType())) {
+								if(iPSDEField == null || !iPSDEField.isKeyDEField())
+									required.add(codeName.toLowerCase());
+							}
+							if(StdDataTypeUtils.isStringDataType(stdDataType)) {
+								//TODO: 正则式
+								//property.put("pattern", strDescription);
+								if(iPSDEMethodDTOField.getMinStringLength() > 0) {
+									property.put("minLength", iPSDEMethodDTOField.getMinStringLength());
+								}
+								if(iPSDEMethodDTOField.getStringLength() > 0) {
+									property.put("maxLength", iPSDEMethodDTOField.getStringLength());
+								}
+							}
+							else if(StdDataTypeUtils.isNumberDataType(stdDataType)){
+									if(StringUtils.hasLength(iPSDEMethodDTOField.getMinValueString())) {
+										if(iPSDEMethodDTOField.getMinValueString().indexOf(".") == -1) {
+											long value = Long.valueOf(iPSDEMethodDTOField.getMinValueString());
+											if(value <= Integer.MAX_VALUE) 
+												property.put("minimum", (int) value);
+											else
+												property.put("minimum", value);
+										}
+										else {
+											property.put("minimum", Double.valueOf(iPSDEMethodDTOField.getMinValueString()));
+										}
+									}
+									
+									if(StringUtils.hasLength(iPSDEMethodDTOField.getMaxValueString())) {
+										if(iPSDEMethodDTOField.getMaxValueString().indexOf(".") == -1) {
+											long value = Long.valueOf(iPSDEMethodDTOField.getMaxValueString());
+											if(value <= Integer.MAX_VALUE) 
+												property.put("maximum", (int) value);
+											else
+												property.put("maximum", value);
+										}
+										else {
+											property.put("maximum", Double.valueOf(iPSDEMethodDTOField.getMaxValueString()));
+										}
+									}
+							}
+						}
+					}
+					break;
+					case SIMPLES:
+					{
+						ObjectNode property = properties.putObject(codeName.toLowerCase());
+						property.put("type", "array");
+						ObjectNode items =  property.putObject("items");
+
+						StdDataType stdDataType = StdDataType.from(iPSDEMethodDTOField.getStdDataType());
+						if(StdDataTypeUtils.isBigDecimalDataType(stdDataType)
+								|| StdDataTypeUtils.isBigIntDataType(stdDataType)) {
+							items.put("type", "number");
+						}
+						else {
+							items.put("type", GroovyUtils.getJavaScriptType(stdDataType));
+						}
+						if(StdDataTypeUtils.isDateTimeDataType(stdDataType)) {
+							if(stdDataType == StdDataType.DATE) {
+								items.put("format", "date");
+							}
+							else {
+								items.put("format", "date-time");
+							}
+						}
+						
+						String strDescription = iPSDEMethodDTOField.getLogicName();
+						if(StringUtils.hasLength(iPSDEMethodDTOField.getMemo())) {
+							strDescription += String.format("，%1$s", iPSDEMethodDTOField.getMemo());
+						}
+						if(iPSDEField!=null && iPSDEField.getPSCodeList()!=null) {
+							property.put("enumSource", iPSDEField.getPSCodeList().getCodeListTag());
+						}
+						if(iPSDEField!=null && iPSDEField.getPSCodeList()!=null) {
+							if(CodeListType.STATIC.value.equals(iPSDEField.getPSCodeList().getCodeListType()) && !ObjectUtils.isEmpty(iPSDEField.getPSCodeList().getPSCodeItems())) {
+								strDescription +="。枚举定义：";
+								boolean bFirst = true;
+								for(IPSCodeItem iPSCodeItem : iPSDEField.getPSCodeList().getPSCodeItems()) {
+									if(bFirst) {
+										bFirst = false;
+									}
+									else {
+										strDescription += "、";
+									}
+									strDescription += String.format("%1$s(%2$s)", iPSCodeItem.getValue(), iPSCodeItem.getText());
+								}
+								strDescription += "。";
+							}
+						}
+						property.put("description", strDescription);
+						if(bReadonly) {
+							property.put("readonly", true);
+						}
+						else {
+							if(!iPSDEMethodDTOField.isAllowEmpty() && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValue()) && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValueType())) {
+								required.add(codeName.toLowerCase());
+							}
+						}
+					}
+					break;
+					case DTO:
+					{
+						IPSDEMethodDTO refPSDEMethodDTO = iPSDEMethodDTOField.getRefPSDEMethodDTO();
+						if(refPSDEMethodDTO != null) {
+							ObjectNode property = properties.putObject(codeName.toLowerCase());
+							property.put("$ref", String.format("%1$s.json", refPSDEMethodDTO.getCodeName()));
+							String strDescription = iPSDEMethodDTOField.getLogicName();
+							if(StringUtils.hasLength(iPSDEMethodDTOField.getMemo())) {
+								strDescription += String.format("，%1$s", iPSDEMethodDTOField.getMemo());
+							}
+							property.put("description", strDescription);
+							if(bReadonly) {
+								property.put("readonly", true);
+							}
+							else {
+								if(!iPSDEMethodDTOField.isAllowEmpty() && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValue()) && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValueType())) {
+									required.add(codeName.toLowerCase());
+								}
+							}
+						}
+					}
+					break;
+					case DTOS:
+					{
+						IPSDEMethodDTO refPSDEMethodDTO = iPSDEMethodDTOField.getRefPSDEMethodDTO();
+						if(refPSDEMethodDTO != null) {
+							ObjectNode property = properties.putObject(codeName.toLowerCase());
+							property.put("type", "array");
+							ObjectNode items =  property.putObject("items");
+							items.put("$ref", String.format("%1$s.json", refPSDEMethodDTO.getCodeName()));
+							String strDescription = iPSDEMethodDTOField.getLogicName();
+							if(StringUtils.hasLength(iPSDEMethodDTOField.getMemo())) {
+								strDescription += String.format("，%1$s", iPSDEMethodDTOField.getMemo());
+							}
+							property.put("description", strDescription);
+							if(bReadonly) {
+								property.put("readonly", true);
+							}
+							else {
+								if(!iPSDEMethodDTOField.isAllowEmpty() && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValue()) && ObjectUtils.isEmpty(iPSDEMethodDTOField.getDefaultValueType())) {
+									required.add(codeName.toLowerCase());
+								}
+							}
+						}
+					}
+					break;
+
+					default:
+						break;
+				}
+
+			}
+		}
+
+		return objectNode.toPrettyString();
+	}
+
+	
 }

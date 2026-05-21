@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.574.3</version>
+        <version>8.1.0.578.170</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,14 +14,14 @@
 		
 	<properties><maven-jar-plugin.version>2.6</maven-jar-plugin.version></properties>
 	<dependencies>
-		
 
- 
- 		<!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
-		<dependency>
-		    <groupId>org.elasticsearch.client</groupId>
-		    <artifactId>elasticsearch-rest-high-level-client</artifactId>
-		</dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-client -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-client</artifactId>
+        </dependency>
 
  		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
 		<dependency>
@@ -32,7 +32,7 @@
  		
         <dependency>
             <groupId>cn.ibizlab.plugin</groupId>
-            <artifactId>ibiz-runtime</artifactId>
+            <artifactId>ibiz-cloud-core</artifactId>
             <version>${ibiz.cloud.version}</version>
         </dependency>
 		

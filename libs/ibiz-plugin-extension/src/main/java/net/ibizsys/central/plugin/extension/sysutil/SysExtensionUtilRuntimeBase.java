@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -34,6 +35,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import groovy.text.Template;
 import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.ISystemRuntimeContext;
 import net.ibizsys.central.ISystemRuntimeSetting;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudExtensionClient;
@@ -60,6 +62,7 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemMerge;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemType;
 import net.ibizsys.central.codelist.IDynamicCodeListRuntime;
 import net.ibizsys.central.dataentity.logic.IDELogicRuntime;
+import net.ibizsys.central.plugin.ai.sysutil.ISysMcpServerUtilRuntime;
 import net.ibizsys.central.plugin.extension.dataentity.util.DEExtensionUtilRuntime;
 import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionPSModelRTServiceSession;
 import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionPSModelRTStorage;
@@ -71,6 +74,7 @@ import net.ibizsys.central.sysutil.ISysUniStateUtilRuntime;
 import net.ibizsys.central.sysutil.ISysUtilRuntimeContext;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
+import net.ibizsys.central.util.ISystemRuntimeContextAction;
 import net.ibizsys.central.util.Inflector;
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.codegen.groovy.support.PSDataEntityExtension;
@@ -84,6 +88,7 @@ import net.ibizsys.model.PSModelEnums.DevSysType;
 import net.ibizsys.model.PSModelEnums.DynaSysMode;
 import net.ibizsys.model.PSModelEnums.LogicSubType;
 import net.ibizsys.model.PSModelEnums.SysRefType;
+import net.ibizsys.model.PSModelEnums.SysUtilType;
 import net.ibizsys.model.PSModelServiceImpl;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.app.IPSApplication;
@@ -101,6 +106,8 @@ import net.ibizsys.model.database.IPSSysDBScheme;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.res.IPSSysContent;
+import net.ibizsys.model.res.IPSSysUtil;
+import net.ibizsys.model.res.PSSysUtilImpl;
 import net.ibizsys.model.system.IPSSysModelGroup;
 import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.model.system.PSSysRefImpl;
@@ -216,19 +223,20 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	private Map<String, V2SystemExtensionSuite> v2SystemExtensionSuiteMap = new ConcurrentHashMap<String, V2SystemExtensionSuite>();
 
 	private Map<String, Map<String, V2SystemExtensionLogic>> v2SystemExtensionTimerTaskLogicMap = new ConcurrentHashMap<String, Map<String, V2SystemExtensionLogic>>();
-	private Map<String, Map<String, V2SystemExtensionLogic>> v2SystemExtensionWebHookLogicMap = new ConcurrentHashMap<String, Map<String, V2SystemExtensionLogic>>();
+	private Map<String, Map<String, V2SystemExtensionLogic>> v2SystemExtensionWebhookLogicMap = new ConcurrentHashMap<String, Map<String, V2SystemExtensionLogic>>();
+	private Map<String, Map<String, V2SystemExtensionLogic>> v2SystemExtensionMcpToolLogicMap = new ConcurrentHashMap<String, Map<String, V2SystemExtensionLogic>>();
 
 	private Map<String, List<V2SystemMerge>> v2SystemMergeListMap = new ConcurrentHashMap<String, List<V2SystemMerge>>();
 	
 	private Map<String, Map<String, IExtensionSysRefRuntime>> extensionSysRefRuntimeMap = new ConcurrentHashMap<String, Map<String,IExtensionSysRefRuntime>>();
-
+	private Map<String, Map<String, IExtensionMcpServerUtilRuntime>> extensionMcpServerUtilRuntimeMap = new ConcurrentHashMap<String, Map<String,IExtensionMcpServerUtilRuntime>>();
 
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
 	private ISysUniStateUtilRuntime iSysUniStateUtilRuntime = null;
 	private Scheduler scheduler = null;
 	private ISysCloudExtensionUtilRuntime iSysCloudExtensionUtilRuntime = null;
 	
-	private String strWebHookAccessTokenMode = WEBHOOK_ACCESSTOKEN_AUTO;
+	private String strWebhookAccessTokenMode = WEBHOOK_ACCESSTOKEN_AUTO;
 	
 
 	@Override
@@ -242,6 +250,13 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 					log.error(ex);
 				}
 			}
+
+			@Override
+			public Object executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData, boolean bTimer) throws Throwable {
+				return getSelf().executeExtensionLogic(v2SystemExtensionLogic, objData, bTimer);
+			}
+			
+			
 		};
 	}
 
@@ -318,19 +333,19 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		this.strProductMarketProjectId = strProductMarketProjectId;
 	}
 	
-	public String getWebHookAccessTokenMode() {
-		return strWebHookAccessTokenMode;
+	public String getWebhookAccessTokenMode() {
+		return strWebhookAccessTokenMode;
 	}
 
-	protected void setWebHookAccessTokenMode(String strWebHookAccessTokenMode) {
-		this.strWebHookAccessTokenMode = strWebHookAccessTokenMode;
+	protected void setWebhookAccessTokenMode(String strWebhookAccessTokenMode) {
+		this.strWebhookAccessTokenMode = strWebhookAccessTokenMode;
 	}
 	
 
 	@Override
 	protected void onPrepareDefaultSetting() throws Exception {
 
-		this.setWebHookAccessTokenMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".webhook.accesstoken", getWebHookAccessTokenMode()));
+		this.setWebhookAccessTokenMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".webhook.accesstoken", getWebhookAccessTokenMode()));
 		this.setProductMarketServiceUrl(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".productmarket.serviceurl", null));
 		if(!StringUtils.hasLength(this.getProductMarketServiceUrl()) && !this.isHubMode()) {
 			log.warn(String.format("系统扩展功能组件未定义当前系统产品市场服务路径，使用全局配置"));
@@ -471,9 +486,9 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 	protected Object onInvokeWebhook(ISystemRuntime iSystemRuntime, String strKey, Object param) throws Throwable{
 		
-		if(WEBHOOK_ACCESSTOKEN_ENABLED.equalsIgnoreCase(this.getWebHookAccessTokenMode()) || WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebHookAccessTokenMode())) {
-			boolean bTryMode = WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebHookAccessTokenMode());
-			AccessToken accessToken = this.getWebHookAccessToken(iSystemRuntime, strKey, true, bTryMode);
+		if(WEBHOOK_ACCESSTOKEN_ENABLED.equalsIgnoreCase(this.getWebhookAccessTokenMode()) || WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebhookAccessTokenMode())) {
+			boolean bTryMode = WEBHOOK_ACCESSTOKEN_AUTO.equalsIgnoreCase(this.getWebhookAccessTokenMode());
+			AccessToken accessToken = this.getWebhookAccessToken(iSystemRuntime, strKey, true, bTryMode);
 			if(accessToken != null) {
 				//获取逻辑标记
 				String strLogicId = DataTypeUtils.asString(accessToken.get("logicid"));
@@ -487,7 +502,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				}
 				
 				
-				Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebHookLogicMap.get(iSystemRuntime.getDeploySystemId());
+				Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebhookLogicMap.get(iSystemRuntime.getDeploySystemId());
 				V2SystemExtensionLogic v2SystemExtensionLogic = (v2SystemExtensionLogicMap!=null)?v2SystemExtensionLogicMap.get(strKey):null;
 				if(v2SystemExtensionLogic == null) {
 					throw new Exception(String.format("无法获取指定Webhook[%1$s]", strKey));
@@ -496,7 +511,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			}
 		}
 
-		Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebHookLogicMap.get(iSystemRuntime.getDeploySystemId());
+		Map<String, V2SystemExtensionLogic> v2SystemExtensionLogicMap = this.v2SystemExtensionWebhookLogicMap.get(iSystemRuntime.getDeploySystemId());
 		V2SystemExtensionLogic v2SystemExtensionLogic = (v2SystemExtensionLogicMap!=null)?v2SystemExtensionLogicMap.get(strKey):null;
 		if(v2SystemExtensionLogic == null) {
 			throw new Exception(String.format("无法获取指定Webhook[%1$s]", strKey));
@@ -513,7 +528,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	 * @param bTryMode
 	 * @return
 	 */
-	protected AccessToken getWebHookAccessToken(ISystemRuntime iSystemRuntime, String strToken, boolean bValid, boolean bTryMode)  throws Exception {
+	protected AccessToken getWebhookAccessToken(ISystemRuntime iSystemRuntime, String strToken, boolean bValid, boolean bTryMode)  throws Exception {
 		
 		AccessToken accessToken = null;
 		String strAccessTokenId = String.format("%1$s%2$s-%3$s--webhook--%4$s", NacosServiceHubSettingBase.DATAID_ACCESSTOKEN_PREFIX, iSystemRuntime.getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strToken).toLowerCase();
@@ -1212,6 +1227,11 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			String strMainAppTag = mainPSApplication.getAppTag();
 
 			for (IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimeList) {
+				net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime iExtensionSysRefRuntimeExt = null; 
+				if(iExtensionSysRefRuntime instanceof net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime) {
+					iExtensionSysRefRuntimeExt = (net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime)iExtensionSysRefRuntime;
+				}
+				
 				// 判断系统引用类型
 				if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
 						|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
@@ -1285,8 +1305,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 						throw new Exception(String.format("子系统引用[%1$s]应用[%2$s]模型文件不存在", iExtensionSysRefRuntime.getName(), subPSApplication.getCodeName()));
 					}
 					
-					if(iExtensionSysRefRuntime instanceof net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime) {
-						((net.ibizsys.central.plugin.extension.system.IExtensionSysRefRuntime)iExtensionSysRefRuntime).registerMainAppRefApp(mainPSApplication.getCodeName(), subPSApplication.getCodeName());
+					if(iExtensionSysRefRuntimeExt != null) {
+						iExtensionSysRefRuntimeExt.registerMainAppRefApp(mainPSApplication.getCodeName(), subPSApplication.getCodeName());
 					}
 					
 					ObjectNode subAppRefNode = subAppRefsNode.addObject();
@@ -1337,7 +1357,14 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 					subAppRefNode.put(PSSubAppRefImpl.ATTR_GETSYSREFTYPE, iExtensionSysRefRuntime.getPSSysRef().getSysRefType());
 					
-					String strSubAppMenuTag = SUBAPPMENUTAG;
+					String strSubAppMenuTag = null;
+					if(iExtensionSysRefRuntimeExt != null) {
+						strSubAppMenuTag = iExtensionSysRefRuntimeExt.getSubAppMenuTag(mainPSApplication.getCodeName(), subPSApplication.getCodeName());
+					}
+					if(ObjectUtils.isEmpty(strSubAppMenuTag)) {
+						strSubAppMenuTag = SUBAPPMENUTAG;
+					}
+					
 					// if(!StringUtils.hasLength(strSubAppMenuTag)) {
 					// strSubAppMenuTag = SUBAPPMENUTAG;
 					// }
@@ -1562,34 +1589,61 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		}
 		throw new Exception(String.format("无法获取指定路径[%1$s]模型文件", strModelUri));
 	}
-
+	
 	protected File getPSApplicationObjectModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strModelUri, Object param) throws Throwable {
+		return this.getPSApplicationObjectModelFile(file, iSystemRuntime, strAppTag, null, strModelUri, param);
+	}
+
+	protected File getPSApplicationObjectModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag,  String strModelUri, Object param) throws Throwable {
 		V2SystemExtensionSuite v2SystemExtensionSuite = this.getV2SystemExtensionSuite(iSystemRuntime, true);
 		if(v2SystemExtensionSuite == null) {
 			return file;
 		}
 		
-		// 判断类型：
-		String[] items = strModelUri.split("[/]");
-		if (items.length >= 3) {
-			switch (items[2]) {
-				case "PSAPPDEVIEWS":
-				case "PSAPPINDEXVIEWS":
-				case "APPPORTALVIEWS":
-				case "PSAPPPANELVIEWS":
-				case "PSAPPUTILVIEWS":
-					return this.getPSAppViewModelFile(file, iSystemRuntime, strAppTag, strModelUri, items[2], param);
-				case "PSAPPCODELISTS":
-					return this.getPSAppCodeListModelFile(file, iSystemRuntime, strAppTag, strModelUri, param);
+		if(ObjectUtils.isEmpty(strSubAppTag)) {
+			// 判断类型：
+			String[] items = strModelUri.split("[/]");
+			if (items.length >= 3) {
+				switch (items[2]) {
+					case "PSAPPDEVIEWS":
+					case "PSAPPINDEXVIEWS":
+					case "APPPORTALVIEWS":
+					case "PSAPPPANELVIEWS":
+					case "PSAPPUTILVIEWS":
+						return this.getPSAppViewModelFile(file, iSystemRuntime, strAppTag, strModelUri, items[2], param);
+					case "PSAPPCODELISTS":
+						return this.getPSAppCodeListModelFile(file, iSystemRuntime, strAppTag, strModelUri, param);
+				}
 			}
 		}
+		else {
+			// 判断类型：
+			String[] items = strModelUri.split("[/]");
+			if (items.length >= 3) {
+				switch (items[2]) {
+					case "PSAPPDEVIEWS":
+					case "PSAPPINDEXVIEWS":
+					case "APPPORTALVIEWS":
+					case "PSAPPPANELVIEWS":
+					case "PSAPPUTILVIEWS":
+						return this.getPSAppViewModelFile(file, iSystemRuntime, strAppTag, strSubAppTag, strModelUri, items[2], param);
+					case "PSAPPCODELISTS":
+						return this.getPSAppCodeListModelFile(file, iSystemRuntime, strAppTag, strSubAppTag, strModelUri, param);
+				}
+			}
+		}
+		
 		return file;
 	}
+	
+	protected File getPSAppViewModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag,  String strModelUri, String strModelType, Object param) throws Throwable {
+		return this.getPSAppViewModelFile(file, iSystemRuntime, strAppTag, null, strModelUri, strModelType, param);
+	}
 
-	protected File getPSAppViewModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strModelUri, String strModelType, Object param) throws Throwable {
-		IPSApplication iPSApplication = getPSApplication(iSystemRuntime, strAppTag, false);
+	protected File getPSAppViewModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag, String strModelUri, String strModelType, Object param) throws Throwable {
+		IPSApplication iPSApplication = ObjectUtils.isEmpty(strSubAppTag)?getPSApplication(iSystemRuntime, strAppTag, false):getPSApplication(iSystemRuntime, strAppTag, strSubAppTag, false);
 		IPSAppView iPSAppView = iPSApplication.getPSAppView(strModelUri, true);
-		if(iPSAppView.getDynaSysMode() == DynaSysMode.DISABLED.value) {
+		if(iPSAppView == null || iPSAppView.getDynaSysMode() == DynaSysMode.DISABLED.value) {
 			return file;
 		}
 
@@ -1634,9 +1688,12 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 
 	}
 
-
 	protected File getPSAppCodeListModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strModelUri, Object param) throws Throwable {
-		IPSApplication iPSApplication = getPSApplication(iSystemRuntime, strAppTag, false);
+		return this.getPSAppCodeListModelFile(file, iSystemRuntime, strAppTag, null, strModelUri, param);
+	}
+
+	protected File getPSAppCodeListModelFile(File file, ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag, String strModelUri, Object param) throws Throwable {
+		IPSApplication iPSApplication = ObjectUtils.isEmpty(strSubAppTag)?getPSApplication(iSystemRuntime, strAppTag, false):getPSApplication(iSystemRuntime, strAppTag, strSubAppTag, false);
 		IPSAppCodeList iPSAppCodeList = iPSApplication.getPSAppCodeList(strModelUri, true);
 		if (iPSAppCodeList != null && iPSAppCodeList.getDynaSysMode() != DynaSysMode.DISABLED.value) {
 			ICodeListRuntime iCodeListRuntime = iSystemRuntime.getCodeListRuntime(iPSAppCodeList.getCodeListTag(), true);
@@ -1788,17 +1845,97 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 //	
 
 	protected IPSApplication getPSApplication(ISystemRuntime iSystemRuntime, String strAppTag, boolean bTryMode) throws Throwable {
-		if (!ObjectUtils.isEmpty(iSystemRuntime.getPSSystem().getAllPSApps())) {
-			for (IPSApplication iPSApplication : iSystemRuntime.getPSSystem().getAllPSApps()) {
-				if (strAppTag.equalsIgnoreCase(iPSApplication.getCodeName())) {
-					return iPSApplication;
+		return this.getPSApplication(iSystemRuntime, strAppTag, null, bTryMode);
+	}
+	
+	protected IPSApplication getPSApplication(ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag, boolean bTryMode) throws Throwable {
+		
+		if(ObjectUtils.isEmpty(strSubAppTag)) {
+			if (!ObjectUtils.isEmpty(iSystemRuntime.getPSSystem().getAllPSApps())) {
+				for (IPSApplication iPSApplication : iSystemRuntime.getPSSystem().getAllPSApps()) {
+					if (strAppTag.equalsIgnoreCase(iPSApplication.getCodeName())) {
+						return iPSApplication;
+					}
 				}
 			}
+			if (bTryMode) {
+				return null;
+			}
+			throw new Exception(String.format("无法获取指定应用模型对象[%1$s]", strAppTag));
 		}
-		if (bTryMode) {
-			return null;
+		else {
+			IServiceSystemRuntime iServiceSystemRuntime = null;
+			if(iSystemRuntime instanceof IServiceSystemRuntime) {
+				iServiceSystemRuntime = (IServiceSystemRuntime)iSystemRuntime;
+			}
+			
+			if(iServiceSystemRuntime!=null) {
+				Collection<IExtensionSysRefRuntime> list = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
+				if(!ObjectUtils.isEmpty(list)) {
+					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
+						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+
+							String strExtensionTag = iExtensionSysRefRuntime.getExtensionTag().toLowerCase();
+							if(strSubAppTag.indexOf(strExtensionTag)!=0) {
+								continue;
+							}
+							
+							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
+							if (ObjectUtils.isEmpty(psApplicationList)) {
+								continue;
+							}
+							for (IPSApplication iPSApplication : psApplicationList) {
+								String strDeployAppId = String.format("%1$s__%2$s__%3$s", strExtensionTag, strAppTag, iPSApplication.getCodeName()).toLowerCase();
+								if (strDeployAppId.equals(strSubAppTag)) {
+									return iPSApplication;
+								}
+							}
+						}
+					}
+				}
+			}
+			else {
+				List<IPSSysRef> psSysRefList = iSystemRuntime.getPSSystem().getAllPSSysRefs();
+				if (!ObjectUtils.isEmpty(psSysRefList)) {
+					for (IPSSysRef iPSSysRef : psSysRefList) {
+						ISysRefRuntime iSysRefRuntime = iSystemRuntime.getSysRefRuntime(iPSSysRef);
+						if (!(iSysRefRuntime instanceof IExtensionSysRefRuntime)) {
+							continue;
+						}
+
+						IExtensionSysRefRuntime iExtensionSysRefRuntime = (IExtensionSysRefRuntime) iSysRefRuntime;
+						// 判断系统引用类型
+						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+
+							String strExtensionTag = iExtensionSysRefRuntime.getExtensionTag().toLowerCase();
+							if(strSubAppTag.indexOf(strExtensionTag)!=0) {
+								continue;
+							}
+							
+							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
+							if (ObjectUtils.isEmpty(psApplicationList)) {
+								continue;
+							}
+
+							for (IPSApplication iPSApplication : psApplicationList) {
+								String strDeployAppId = String.format("%1$s__%2$s__%3$s", iExtensionSysRefRuntime.getExtensionTag(), strAppTag, iPSApplication.getCodeName()).toLowerCase();
+								if (strDeployAppId.equals(strSubAppTag)) {
+									return iPSApplication;
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			if (bTryMode) {
+				return null;
+			}
+			throw new Exception(String.format("无法获取指定应用模型对象[%1$s][%2$s]", strAppTag, strSubAppTag));
 		}
-		throw new Exception(String.format("无法获取指定应用模型对象[%1$s]", strAppTag));
+		
 	}
 
 	@Override
@@ -1818,8 +1955,10 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 	protected File onGetHubSubAppDynaModelFile(ISystemRuntime iSystemRuntime, String strAppTag, String strSubAppTag, String strModelUri, Object param, boolean bTryMode) throws Throwable {
 
 		String strTag = String.format("__HUBSUBAPP_PATH_%1$s", strSubAppTag);
+		String strSysRefTypeTag = String.format("__HUBSUBAPP_SYSREFTYPE_%1$s", strSubAppTag);
 		String strPSModelFolderPath = (String) iSystemRuntime.getGlobalParam(strTag);
-		if (!StringUtils.hasLength(strPSModelFolderPath)) {
+		String strSysRefType = (String) iSystemRuntime.getGlobalParam(strSysRefTypeTag);
+		if (!StringUtils.hasLength(strPSModelFolderPath) || !StringUtils.hasLength(strSysRefType)) {
 			
 			IServiceSystemRuntime iServiceSystemRuntime = null;
 			if(iSystemRuntime instanceof IServiceSystemRuntime) {
@@ -1831,7 +1970,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				if(!ObjectUtils.isEmpty(list)) {
 					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : list) {
 						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) 
-								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+								|| SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 							if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1842,6 +1982,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 								if (strDeployAppId.equals(strSubAppTag)) {
 									strPSModelFolderPath = iExtensionSysRefRuntime.getPSSystemService().getPSModelFolderPath();
 									strPSModelFolderPath += String.format("%2$sPSSYSAPPS%2$s%1$s", iPSApplication.getCodeName(), File.separator);
+									strSysRefType = iExtensionSysRefRuntime.getPSSysRef().getSysRefType();
 									break;
 								}
 							}
@@ -1864,7 +2005,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 						IExtensionSysRefRuntime iExtensionSysRefRuntime = (IExtensionSysRefRuntime) iSysRefRuntime;
 						// 判断系统引用类型
 						if (SysRefType.EXTENSION_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
-								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType()) || SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
+								|| SysRefType.MERGENCE_DEVSYS.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())
+								|| SysRefType.EXTENSION_DEVSYS_PSMODELTOOL.value.equals(iExtensionSysRefRuntime.getPSSysRef().getSysRefType())) {
 
 							List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
 							if (ObjectUtils.isEmpty(psApplicationList)) {
@@ -1876,6 +2018,7 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 								if (strDeployAppId.equals(strSubAppTag)) {
 									strPSModelFolderPath = iExtensionSysRefRuntime.getPSSystemService().getPSModelFolderPath();
 									strPSModelFolderPath += String.format("%2$sPSSYSAPPS%2$s%1$s", iPSApplication.getCodeName(), File.separator);
+									strSysRefType = iExtensionSysRefRuntime.getPSSysRef().getSysRefType();
 									break;
 								}
 							}
@@ -1888,14 +2031,25 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			}
 			
 			iSystemRuntime.setGlobalParam(strTag, strPSModelFolderPath);
+			iSystemRuntime.setGlobalParam(strSysRefTypeTag, strSysRefType);
 		}
 
 		if (StringUtils.hasLength(strPSModelFolderPath)) {
 			String strFilePath = String.format("%1$s%2$s", strPSModelFolderPath, strModelUri);
 			File file = new File(strFilePath);
 			if (file.exists()) {
-				// return this.getPSApplicationObjectModelFile(file,
-				// iSystemRuntime, strAppTag, strRealModelUri, param);
+				if(SysRefType.MERGENCE_DEVSYS.value.equals(strSysRefType)) {
+					String[] parts = strPSModelFolderPath.replace("\\", "/").split("[/]");
+					String strSubAppFolder = "";
+					for(int i=parts.length -2;i<parts.length;i++) {
+						if(StringUtils.hasLength(strSubAppFolder)) {
+							strSubAppFolder += "/";
+						}
+						strSubAppFolder += parts[i] ;
+					}
+					
+					return this.getPSApplicationObjectModelFile(file, iSystemRuntime, strAppTag, strSubAppTag, strSubAppFolder + strModelUri, param);
+				}
 				return file;
 			}
 		}
@@ -1935,12 +2089,13 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 			this.v2SystemExtensionSuiteMap.put(iSystemRuntime.getDeploySystemId(), v2SystemExtensionSuite);
 		} else {
 			this.v2SystemExtensionSuiteMap.remove(iSystemRuntime.getDeploySystemId());
+			//关闭mcp插件
+			this.resetExtensionMcpServerUtilRuntimes(iSystemRuntime);
 		}
 
-
-
 		Map<String, V2SystemExtensionLogic> curTimerTaskData = new LinkedHashMap<String, V2SystemExtensionLogic>();
-		Map<String, V2SystemExtensionLogic> curWebHookData = new LinkedHashMap<String, V2SystemExtensionLogic>();
+		Map<String, V2SystemExtensionLogic> curWebhookData = new LinkedHashMap<String, V2SystemExtensionLogic>();
+		Map<String, V2SystemExtensionLogic> curMcpToolData = new LinkedHashMap<String, V2SystemExtensionLogic>();
 
 		List<IPSDataEntity> psDataEntityList = iSystemRuntime.getPSSystem().getAllPSDataEntities();
 		if (!ObjectUtils.isEmpty(psDataEntityList)) {
@@ -1962,7 +2117,16 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 						for(V2SystemExtensionLogic logic : logics) {
 							logic.set("_dataentityid", iPSDataEntity.getId());
 							logic.set("_deploysystemid", iSystemRuntime.getDeploySystemId());
-							curWebHookData.put(logic.getId(), logic);
+							curWebhookData.put(logic.getId(), logic);
+						}
+					}
+					
+					logics = ((IDataEntityRuntime) iDataEntityRuntime).getExtensionLogics(IDEExtensionUtilRuntime.EXTENSIONLOGIC_MCPTOOL);
+					if(logics!=null) {
+						for(V2SystemExtensionLogic logic : logics) {
+							logic.set("_dataentityid", iPSDataEntity.getId());
+							logic.set("_deploysystemid", iSystemRuntime.getDeploySystemId());
+							curMcpToolData.put(logic.getId(), logic);
 						}
 					}
 				}
@@ -1992,16 +2156,27 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		}
 
 		this.v2SystemExtensionTimerTaskLogicMap.put(iSystemRuntime.getDeploySystemId(), curTimerTaskData);
-		this.v2SystemExtensionWebHookLogicMap.put(iSystemRuntime.getDeploySystemId(), curWebHookData);
+		this.v2SystemExtensionWebhookLogicMap.put(iSystemRuntime.getDeploySystemId(), curWebhookData);
+		this.v2SystemExtensionMcpToolLogicMap.put(iSystemRuntime.getDeploySystemId(), curMcpToolData);
 		if(lastTimerTaskData != null) {
 			for(java.util.Map.Entry<String, V2SystemExtensionLogic> entry : lastTimerTaskData.entrySet()) {
 				this.stopTimerTask(iSystemRuntime, entry.getValue());
 			}
 		}
+		
+		//
+		this.reloadExtensionMcpTools(iSystemRuntime, curMcpToolData.values());
 	}
 
 	protected V2SystemExtensionSuite getV2SystemExtensionSuite(ISystemRuntime iSystemRuntime, boolean bTryMode) throws Exception {
-		V2SystemExtensionSuite v2SystemExtensionSuite = this.v2SystemExtensionSuiteMap.get(iSystemRuntime.getDeploySystemId());
+		String strDeploySystemId = iSystemRuntime.getDeploySystemId();
+		if (iSystemRuntime instanceof IServiceSystemRuntime) {
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iSystemRuntime;
+			if (StringUtils.hasLength(iServiceSystemRuntime.getMainSystemId())) {
+				strDeploySystemId = iServiceSystemRuntime.getMainSystemId();
+			}
+		}
+		V2SystemExtensionSuite v2SystemExtensionSuite = this.v2SystemExtensionSuiteMap.get(strDeploySystemId);
 		if (v2SystemExtensionSuite != null || bTryMode) {
 			return v2SystemExtensionSuite;
 		}
@@ -2241,6 +2416,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 						if(!ObjectUtils.isEmpty(objDefaultDBInstTag)) {
 							//存在默认数据源
 							settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, objDefaultDBInstTag);
+							settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE));
+							settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE));
 						}
 					}
 					
@@ -2422,6 +2599,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 										if(!ObjectUtils.isEmpty(objDefaultDBInstTag)) {
 											//存在默认数据源
 											settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, objDefaultDBInstTag);
+											settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE));
+											settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE));
 										}
 									}
 									
@@ -2566,6 +2745,8 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 							if(!ObjectUtils.isEmpty(objDefaultDBInstTag)) {
 								//存在默认数据源
 								settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, objDefaultDBInstTag);
+								settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE));
+								settings.put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, iSystemRuntime.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE));
 							}
 						}
 						
@@ -2877,7 +3058,12 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		return iDataEntityRuntime.executeExtensionLogic(v2SystemExtensionLogic, objData);
 	}
 	
+	@Deprecated
 	protected Object executeWebHookLogic(ISystemRuntime iSystemRuntime, String strKey, Object param, AccessToken accessToken) throws Throwable{
+		return this.executeWebhookLogic(iSystemRuntime, strKey, param, accessToken);
+	}
+	
+	protected Object executeWebhookLogic(ISystemRuntime iSystemRuntime, String strKey, Object param, AccessToken accessToken) throws Throwable{
 		//获取逻辑对象
 		//获取父标识
 		String strDataEntityTag = PSModelUtils.getParentId(strKey);
@@ -2968,7 +3154,12 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		}
 	}
 	
+	@Deprecated
 	protected Object onExecuteWebHookLogic(IDataEntityRuntime iDataEntityRuntime, IDELogicRuntime iDELogicRuntime, Object param) throws Throwable{
+		return this.onExecuteWebhookLogic(iDataEntityRuntime, iDELogicRuntime, param);
+	}
+	
+	protected Object onExecuteWebhookLogic(IDataEntityRuntime iDataEntityRuntime, IDELogicRuntime iDELogicRuntime, Object param) throws Throwable{
 		return iDataEntityRuntime.executeLogic(iDELogicRuntime, new Object[] {param});
 	}
 
@@ -3034,6 +3225,120 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 		return codeList;
 	}
 	
+	@Override
+	public ISysMcpServerUtilRuntime getSysMcpServerUtilRuntime(String strId, boolean bTryMode) {
+		return (ISysMcpServerUtilRuntime)this.executeAction("获取McpServer系统功能运行时对象", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onGetSysMcpServerUtilRuntime(getSystemRuntime(), strId, bTryMode);
+			}
+		}, null);
+	}
+	
+	protected ISysMcpServerUtilRuntime onGetSysMcpServerUtilRuntime(ISystemRuntime iSystemRuntime, String strId, boolean bTryMode) throws Throwable{
+		return this.getExtensionMcpServerUtilRuntime(iSystemRuntime,strId,bTryMode);
+	}
+	
+	protected void reloadExtensionMcpTools(ISystemRuntime iSystemRuntime, Collection<V2SystemExtensionLogic> mcpTools) throws Throwable {
+		Map<String, IExtensionMcpServerUtilRuntime> map = getExtensionMcpServerUtilRuntimes(iSystemRuntime);
+		Map<String, IExtensionMcpServerUtilRuntime> mcpServerMap = new LinkedHashMap<String, IExtensionMcpServerUtilRuntime>(map);
+		//对工具进行分组
+		Map<String, List<V2SystemExtensionLogic>> mcpToolListMap = new LinkedHashMap<String, List<V2SystemExtensionLogic>>();
+		if(!ObjectUtils.isEmpty(mcpTools)) {
+			for(V2SystemExtensionLogic v2SystemExtensionLogic : mcpTools) {
+				String strMcpServerId = DataTypeUtils.asString(v2SystemExtensionLogic.get("mcpserverid"));
+				if(ObjectUtils.isEmpty(strMcpServerId)) {
+					log.error(String.format("扩展逻辑[%1$s]未指定mcpserverid，忽略加载", v2SystemExtensionLogic.getName()));
+					continue;
+				}
+				
+				strMcpServerId = strMcpServerId.toLowerCase();
+				List<V2SystemExtensionLogic> list = mcpToolListMap.get(strMcpServerId);
+				if(list == null) {
+					list = new ArrayList<V2SystemExtensionLogic>();
+					mcpToolListMap.put(strMcpServerId, list);
+				}
+				list.add(v2SystemExtensionLogic);
+			}
+		}
+		//循环分组
+		for(String strMcpServerId : mcpToolListMap.keySet()) {
+			IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime = mcpServerMap.remove(strMcpServerId);
+			List<V2SystemExtensionLogic> tools = mcpToolListMap.get(strMcpServerId);
+			if(iExtensionMcpServerUtilRuntime == null) {
+				iExtensionMcpServerUtilRuntime = createExtensionMcpServerUtilRuntime(iSystemRuntime, strMcpServerId);
+				iExtensionMcpServerUtilRuntime.install();
+				this.setExtensionMcpServerUtilRuntime(iSystemRuntime, strMcpServerId, iExtensionMcpServerUtilRuntime);
+			}
+			iExtensionMcpServerUtilRuntime.reloadExtensionTools(tools);
+		}
+		//剩余McpServer
+		for(IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime : mcpServerMap.values()) {
+			iExtensionMcpServerUtilRuntime.reloadExtensionTools(Collections.EMPTY_LIST);
+		}
+	}
+	
+	protected IExtensionMcpServerUtilRuntime createExtensionMcpServerUtilRuntime(ISystemRuntime iSystemRuntime, String strTag) throws Throwable {
+		ObjectNode mcpServerObjectNode = JsonUtils.createObjectNode();
+		mcpServerObjectNode.put(PSSysUtilImpl.ATTR_GETID, strTag);
+		mcpServerObjectNode.put(PSSysUtilImpl.ATTR_GETNAME, String.format("扩展McpServer[%1$s]", strTag));
+		mcpServerObjectNode.put(PSSysUtilImpl.ATTR_GETUTILTYPE, SysUtilType.USER.value);
+		mcpServerObjectNode.put(PSSysUtilImpl.ATTR_GETCODENAME, String.format("EXTENSION_MCP_%1$s", strTag).toLowerCase());
+		mcpServerObjectNode.put(PSSysUtilImpl.ATTR_GETUTILTAG, String.format("EXTENSION_MCP_%1$s", strTag).toUpperCase());
+		IPSSysUtil iPSSysUtil = iSystemRuntime.getPSSystemService().createAndInitPSModelObject(IPSSysUtil.class, mcpServerObjectNode);
+		ExtensionMcpServerUtilRuntime extensionMcpServerUtilRuntime = new ExtensionMcpServerUtilRuntime(this.getModelRuntimeContext());
+		IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime = (IExtensionMcpServerUtilRuntime)iSystemRuntime.execute(new ISystemRuntimeContextAction() {
+
+			@Override
+			public Object execute(ISystemRuntimeContext iSystemRuntimeContext, Object[] args) throws Throwable {
+				extensionMcpServerUtilRuntime.init(iSystemRuntimeContext, iPSSysUtil);
+				return extensionMcpServerUtilRuntime;
+			}
+			
+		}, null);
+		return iExtensionMcpServerUtilRuntime;
+	}
+
+	protected void setExtensionMcpServerUtilRuntime(ISystemRuntime iSystemRuntime, String strTag, IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime) {
+		Map<String, IExtensionMcpServerUtilRuntime> map = this.extensionMcpServerUtilRuntimeMap.get(iSystemRuntime.getDeploySystemId());
+		if(map == null) {
+			map = new ConcurrentHashMap<String, IExtensionMcpServerUtilRuntime>();
+			this.extensionMcpServerUtilRuntimeMap.put(iSystemRuntime.getDeploySystemId(), map);
+		}
+		map.put(strTag, iExtensionMcpServerUtilRuntime);
+	}
+	
+	protected IExtensionMcpServerUtilRuntime getExtensionMcpServerUtilRuntime(ISystemRuntime iSystemRuntime, String strTag, boolean bTryMode) throws Exception {
+		Map<String, IExtensionMcpServerUtilRuntime> map = this.extensionMcpServerUtilRuntimeMap.get(iSystemRuntime.getDeploySystemId());
+		IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime = (map != null)?map.get(strTag):null;
+		if(iExtensionMcpServerUtilRuntime != null || bTryMode) {
+			return iExtensionMcpServerUtilRuntime;
+		}
+		throw new Exception(String.format("无法获取指定标记[%1$s]扩展McpServer组件运行时对象", strTag));
+	}
+	
+	protected Map<String, IExtensionMcpServerUtilRuntime> getExtensionMcpServerUtilRuntimes(ISystemRuntime iSystemRuntime) {
+		Map<String, IExtensionMcpServerUtilRuntime> map = this.extensionMcpServerUtilRuntimeMap.get(iSystemRuntime.getDeploySystemId());
+		if(ObjectUtils.isEmpty(map)) {
+			return Collections.EMPTY_MAP;
+		}
+		return Collections.unmodifiableMap(new LinkedHashMap<String, IExtensionMcpServerUtilRuntime>(map));
+	}
+	
+	protected void resetExtensionMcpServerUtilRuntimes(ISystemRuntime iSystemRuntime) {
+		Map<String, IExtensionMcpServerUtilRuntime> map = this.extensionMcpServerUtilRuntimeMap.remove(iSystemRuntime.getDeploySystemId());
+		if(!ObjectUtils.isEmpty(map)) {
+			for(IExtensionMcpServerUtilRuntime iExtensionMcpServerUtilRuntime : map.values()) {
+				try {
+					iExtensionMcpServerUtilRuntime.uninstall();
+				}
+				catch (Throwable ex) {
+					log.error(String.format("卸载扩展McpServer组件[%1$s][%2$s]发生异常，%3$s", iSystemRuntime.getDeploySystemId(), iExtensionMcpServerUtilRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+	}
+
 	protected void setExtensionSysRefRuntime(ISystemRuntime iSystemRuntime, String strTag, IExtensionSysRefRuntime iExtensionSysRefRuntime) {
 		Map<String, IExtensionSysRefRuntime> map = this.extensionSysRefRuntimeMap.get(iSystemRuntime.getDeploySystemId());
 		if(map == null) {

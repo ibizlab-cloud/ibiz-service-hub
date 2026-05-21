@@ -18,7 +18,10 @@ public class ChatCompletionResult extends EntityBase {
 	
 	public final static String FIELD_SESSIONID = "sessionid";
 	
-
+	public final static String FIELD_MODEL = "model";
+	
+	public final static String FIELD_USAGE = "usage";
+	
 	/**
 	 * 设置「消息集合」
 	 *
@@ -98,5 +101,84 @@ public class ChatCompletionResult extends EntityBase {
 		this.reset(FIELD_SESSIONID);
 		return this;
 	}
+	
+	
+	/**
+	 * 设置「服务模型」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatCompletionResult setModel(String val) {
+		this.set(FIELD_MODEL, val);
+		return this;
+	}
 
+	/**
+	 * 获取「服务模型」值
+	 *
+	 */
+	@JsonIgnore
+	public String getModel() {
+		return (String) this.get(FIELD_MODEL);
+	}
+
+	/**
+	 * 判断 「服务模型」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsModel() {
+		return this.contains(FIELD_MODEL);
+	}
+
+	/**
+	 * 重置 「服务模型」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionResult resetModel() {
+		this.reset(FIELD_MODEL);
+		return this;
+	}
+	
+	/**
+	 * 设置「用量」
+	 *
+	 * @param val
+	 */
+	//@JsonIgnore
+	@JsonProperty(FIELD_USAGE)
+	public ChatCompletionResult setUsage(ChatCompletionUsage val) {
+		this.set(FIELD_USAGE, val);
+		return this;
+	}
+
+	/**
+	 * 获取「用量」值
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionUsage getUsage() {
+		return (ChatCompletionUsage) this.get(FIELD_USAGE);
+	}
+
+	/**
+	 * 判断 「用量」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsUsage() {
+		return this.contains(FIELD_USAGE);
+	}
+
+	/**
+	 * 重置 「用量」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionResult resetUsage() {
+		this.reset(FIELD_USAGE);
+		return this;
+	}
 }

@@ -6,6 +6,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import net.ibizsys.central.plugin.mybatisplus.util.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.VendorDatabaseIdProvider;
@@ -47,7 +49,7 @@ public class IBizMyBatisPlusPluginAutoConfiguration implements ApplicationContex
     private ApplicationContext applicationContext = null;
 
     @Bean
-    public ConfigurationCustomizer mybatisConfigurationCustomizer(){
+    public ConfigurationCustomizer mybatisConfigurationCustomizer() {
         return configuration -> configuration.setObjectWrapperFactory(new MapKeyUpperWrapperFactory());
     }
 
@@ -80,6 +82,9 @@ public class IBizMyBatisPlusPluginAutoConfiguration implements ApplicationContex
     @Value("${ibiz.db.search.ignorecase:false}")
     private boolean searchIgnoreCase;
 
+    @Value("${ibiz.db.orderby.keywords:}")
+    private String orderByKeyWords;
+
     /**
      * mybatis-plus分页
      *
@@ -90,6 +95,11 @@ public class IBizMyBatisPlusPluginAutoConfiguration implements ApplicationContex
     public PaginationInterceptor paginationInterceptor(@Autowired(required = false) TenantHandler tenantHandler) {
         MybatisSqlUtil.setSearchIgnoreCase(searchIgnoreCase);
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+//        if (StringUtils.isNotEmpty(orderByKeyWords)) {
+//            for (String keyword : orderByKeyWords.split(",")) {
+//                paginationInterceptor.addKeyword(keyword);
+//            }
+//        }
         // 设置请求的页面大于最大页后操作， true调回到首页，false 继续请求  默认false
         // paginationInterceptor.setOverflow(false);
         // 设置最大单页限制数量，默认 500 条，-1 不受限制
@@ -140,7 +150,7 @@ public class IBizMyBatisPlusPluginAutoConfiguration implements ApplicationContex
         dataSource.setApplicationContext(applicationContext);
         return dataSource;
     }
-    
+
 //    @Bean
 //	public DataSourceTransactionManager transactionManager(DataSource dataSource) {
 //		if(dataSource instanceof IDynaDataSource) {
@@ -148,7 +158,7 @@ public class IBizMyBatisPlusPluginAutoConfiguration implements ApplicationContex
 //		}
 //		return new JdbcTransactionManager(dataSource);
 //	}
-    
+
 //	/**
 //	 * 多数据源事务相关
 //	 * @return

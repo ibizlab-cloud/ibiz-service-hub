@@ -19,6 +19,7 @@ public class SysSearchSchemeRuntimeException extends RuntimeException implements
 
 	private ISysSearchSchemeRuntime iSysSearchSchemeRuntime = null;
 	private int nErrorCode = Errors.INTERNALERROR;
+	private IModelRuntime iModelRuntime = null;
 	
 	public SysSearchSchemeRuntimeException(ISysSearchSchemeRuntime iSysSearchSchemeRuntime, String strInfo) {
 		super(strInfo);
@@ -40,6 +41,32 @@ public class SysSearchSchemeRuntimeException extends RuntimeException implements
 		super(strInfo, throwable);
 		this.nErrorCode = nErrorCode;
 		this.iSysSearchSchemeRuntime = iSysSearchSchemeRuntime;
+	}
+	
+	public SysSearchSchemeRuntimeException(ISysSearchSchemeRuntime iSysSearchSchemeRuntime, IModelRuntime iModelRuntime, String strInfo) {
+		super(strInfo);
+		this.iSysSearchSchemeRuntime = iSysSearchSchemeRuntime;
+		this.iModelRuntime = iModelRuntime;
+	}
+	
+	public SysSearchSchemeRuntimeException(ISysSearchSchemeRuntime iSysSearchSchemeRuntime, IModelRuntime iModelRuntime, String strInfo, int nErrorCode) {
+		super(strInfo);
+		this.nErrorCode = nErrorCode;
+		this.iSysSearchSchemeRuntime = iSysSearchSchemeRuntime;
+		this.iModelRuntime = iModelRuntime;
+	}
+	
+	public SysSearchSchemeRuntimeException(ISysSearchSchemeRuntime iSysSearchSchemeRuntime, IModelRuntime iModelRuntime, String strInfo,Throwable throwable) {
+		super(strInfo, throwable);
+		this.iSysSearchSchemeRuntime = iSysSearchSchemeRuntime;
+		this.iModelRuntime = iModelRuntime;
+	}
+	
+	public SysSearchSchemeRuntimeException(ISysSearchSchemeRuntime iSysSearchSchemeRuntime, IModelRuntime iModelRuntime, String strInfo, int nErrorCode, Throwable throwable) {
+		super(strInfo, throwable);
+		this.nErrorCode = nErrorCode;
+		this.iSysSearchSchemeRuntime = iSysSearchSchemeRuntime;
+		this.iModelRuntime = iModelRuntime;
 	}
 	
 	
@@ -72,7 +99,10 @@ public class SysSearchSchemeRuntimeException extends RuntimeException implements
 
 	@Override
 	public IModelRuntime getModelRuntime() {
-		return this.getSysSearchSchemeRuntime();
+		if(this.iModelRuntime == null) {
+			return this.getSysSearchSchemeRuntime();
+		}
+		return this.iModelRuntime;
 	}
 	
 	public static void rethrow(IModelRuntime iModelRuntime, Throwable ex) {

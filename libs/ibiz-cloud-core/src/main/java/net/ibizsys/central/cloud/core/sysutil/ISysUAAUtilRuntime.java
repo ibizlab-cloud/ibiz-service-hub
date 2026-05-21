@@ -113,6 +113,12 @@ public interface ISysUAAUtilRuntime extends ISysUtilRuntime {
 	
 	
 	/**
+	 * 获取安全密码前缀
+	 * @return
+	 */
+	String getSecretKeyPrefix();
+	
+	/**
 	 * 鉴别Token
 	 * @param token
 	 * @param iAuthenticationUser

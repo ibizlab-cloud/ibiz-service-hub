@@ -358,9 +358,9 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 			StringWriter sw = new StringWriter();
 			template.process(params, sw);
 			String strContent = sw.toString();
-			if(StringUtils.hasLength(strContent)) {
-				strContent = strContent.toString();
-			}
+//			if(StringUtils.hasLength(strContent)) {
+//				strContent = strContent.toString();
+//			}
 			return strContent;
 		}
 		catch(Exception ex) {

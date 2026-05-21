@@ -10,6 +10,7 @@ import net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.codegen.groovy.support.PSDataEntityExtension;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.ITransactionalUtil;
@@ -127,6 +128,17 @@ public class DataEntityRuntimeExtension {
 		}
 		try {
 			return JsonUtils.toObjectNode(PSDataEntityExtension.getJsonSchema(iDataEntityRuntime.getPSDataEntity()));
+		} catch (Exception ex) {
+			throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("获取JsonSchema发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	public static ObjectNode getPSDEMethodDTOJsonSchemaModel(net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime iDataEntityRuntime, IPSDEMethodDTO iPSDEMethodDTO) {
+		if(iDataEntityRuntime.isEnableExtension() && iDataEntityRuntime.getDEExtensionUtilRuntime() != null) {
+			return iDataEntityRuntime.getDEExtensionUtilRuntime().getPSDEMethodDTOJsonSchemaModel(iPSDEMethodDTO, null);
+		}
+		try {
+			return JsonUtils.toObjectNode(PSDataEntityExtension.getPSDEMethodDTOJsonSchema(iPSDEMethodDTO));
 		} catch (Exception ex) {
 			throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("获取JsonSchema发生异常，%1$s", ex.getMessage()), ex);
 		}

@@ -9,6 +9,7 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETMOBVIEWCODENAME = "mobViewCodeName";
 	public final static String ATTR_GETMOBVIEWPSDATAENTITY = "getMobViewPSDataEntity";
+	public final static String ATTR_GETPDTVIEWTAG = "pDTViewTag";
 	public final static String ATTR_GETPSSYSTEMMODULE = "getPSSystemModule";
 	public final static String ATTR_GETVIEWCODENAME = "viewCodeName";
 	public final static String ATTR_GETVIEWPSDATAENTITY = "getViewPSDataEntity";
@@ -81,6 +82,14 @@ public class PSSysPDTViewImpl extends net.ibizsys.model.PSSystemObjectImpl imple
 		this.mobviewpsdataentity = mobviewpsdataentity;
 	}
 
+
+	public java.lang.String getPDTViewTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPDTVIEWTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;
 
 	public net.ibizsys.model.system.IPSSystemModule getPSSystemModule(){

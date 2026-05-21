@@ -52,6 +52,7 @@ import net.ibizsys.model.bi.IPSSysBIHierarchy;
 import net.ibizsys.model.bi.IPSSysBILevel;
 import net.ibizsys.model.bi.PSSysBICubeDimensionImpl;
 import net.ibizsys.model.bi.PSSysBICubeMeasureImpl;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.defield.IPSLinkDEField;
 import net.ibizsys.model.dataentity.defield.IPSPickupDEField;
@@ -1235,15 +1236,21 @@ public abstract class SysBICubeRuntimeBase extends ModelRuntimeBase implements I
 
 			IDataEntityRuntime biHierarchyDataEntityRuntime = this.getDataEntityRuntime().getSystemRuntime().getDataEntityRuntime(iPSSysBIHierarchy.getPSDataEntityMust().getId());
 			IDBDialect iDBDialect = this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().getDBDialect();
+			
+			IPSDEDBConfig biHierarchyPSDEDBConfig = biHierarchyDataEntityRuntime.getPSDEDBConfig(iDBDialect.getDBType(), true);
+					
 
-			String strJoinCode = String.format("LEFT JOIN %1$s %2$s ON (%3$s = %2$s.%4$s)", iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getTableName()), iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase()), strKeyCode, iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getKeyPSDEField().getName()));
+			String strJoinCode = String.format("LEFT JOIN %1$s %2$s ON (%3$s = %2$s.%4$s)", iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getTableName(), biHierarchyPSDEDBConfig),
+					iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase(), this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()), strKeyCode, 
+					iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getKeyPSDEField().getName(), biHierarchyPSDEDBConfig));
 			// 构建连接代码
 			String strGroupCode = "";
 			for (java.util.Map.Entry<String, String> entry : levelMap.entrySet()) {
 				if (StringUtils.hasLength(strGroupCode)) {
 					strGroupCode += ",";
 				}
-				strGroupCode += String.format("%1$s.%2$s AS %3$s", iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase()), iDBDialect.getDBObjStandardName(entry.getKey()), iDBDialect.getDBObjStandardName(entry.getValue()));
+				strGroupCode += String.format("%1$s.%2$s AS %3$s", iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase(), this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()), 
+						iDBDialect.getDBObjStandardName(entry.getKey()), iDBDialect.getDBObjStandardName(entry.getValue(), this.getDataEntityRuntime().getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()));
 			}
 
 			objectNode.put(PSDEDataSetGroupParamImpl.ATTR_GETGROUPCODE, strGroupCode);

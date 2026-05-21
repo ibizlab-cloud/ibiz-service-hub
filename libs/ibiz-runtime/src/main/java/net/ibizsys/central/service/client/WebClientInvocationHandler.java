@@ -8,12 +8,12 @@ import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 import java.lang.reflect.WildcardType;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,8 +29,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.util.EntityDTO;
+import net.ibizsys.central.util.PageImpl;
 import net.ibizsys.central.util.PageRequest;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.JsonUtils;
 
 public class WebClientInvocationHandler<T> implements InvocationHandler{
 
@@ -116,9 +118,18 @@ public class WebClientInvocationHandler<T> implements InvocationHandler{
 				if(StringUtils.hasLength(requestParam.name())) {
 					queries.put(requestParam.name(), arg2[i]);
 				}
-				else {
-					queries.put(requestParam.value(), arg2[i]);
-				}
+				else 
+					if(StringUtils.hasLength(requestParam.value())) {
+						queries.put(requestParam.value(), arg2[i]);
+					}
+					else {
+						if(arg2[i] instanceof Map) {
+							queries.putAll((Map)arg2[i]);
+						}
+						else{
+							log.warn(String.format("不支持的请求参数[%1$s]", arg2[i]));
+						}
+					}
 				continue;
 			}
 			
@@ -218,9 +229,15 @@ public class WebClientInvocationHandler<T> implements InvocationHandler{
 				int nSize = DataTypeUtils.getIntegerValue(rep.getHeader("x-per-page"), 0);
 				int nPage = DataTypeUtils.getIntegerValue(rep.getHeader("x-page"), 0);
 				
-				return new PageImpl(contentList, PageRequest.of(nPage, nSize, 0), nTotal);
+				PageImpl pageImpl = new PageImpl(contentList, PageRequest.of(nPage, nSize, 0), nTotal);
+				Object metaData = rep.getHeader("x-metadata");
+				if(!ObjectUtils.isEmpty(metaData)) {
+					Map<String, Object> map = JsonUtils.asMap(new String(Base64.getDecoder().decode((String)metaData), "utf-8"));
+					pageImpl.getMetadataIf().putAll(map);
+				}
+				
+				return pageImpl;
 			}
-			
 			
 			return this.getWebClient().execute(strMethod, strUri, uriParams, headers, queries, objBody, null, returnType, null).getBody();
 		}

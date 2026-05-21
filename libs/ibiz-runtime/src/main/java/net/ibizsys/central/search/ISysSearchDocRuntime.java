@@ -1,6 +1,7 @@
 package net.ibizsys.central.search;
 
 import net.ibizsys.model.search.IPSSysSearchDoc;
+import net.ibizsys.model.search.IPSSysSearchField;
 import net.ibizsys.runtime.IModelRuntime;
 
 /**
@@ -32,6 +33,7 @@ public interface ISysSearchDocRuntime extends IModelRuntime{
 	 */
 	ISysSearchSchemeRuntime getSysSearchSchemeRuntime();
 	
-
 	
+
+	IPSSysSearchField getPSSysSearchField(String name, boolean tryMode);
 }

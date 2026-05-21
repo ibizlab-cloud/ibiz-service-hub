@@ -1,7 +1,11 @@
 package net.ibizsys.central.cloud.core.database;
 
+import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Map;
+
+import javax.sql.DataSource;
 
 import org.springframework.util.ObjectUtils;
 
@@ -77,6 +81,33 @@ public abstract class SysDBSchemeRuntimeBase extends net.ibizsys.central.databas
 	public boolean isSelfUpdateSchema() {
 		return this.bSelfUpdateSchema;
 	}
+
+
+	@Override
+	public boolean doesTableExist(String tableName) throws SQLException {
+		DataSource dataSource = ServiceHub.getInstance().getDataSource((String) this.getDataSourceTag(), true);
+		if(dataSource == null) {
+			dataSource = ServiceHub.getInstance().getDefaultDataSource();
+		}
+		return this.getDBDialect().doesTableExist(dataSource, tableName);
+	}
+
+
+	@Override
+	public Map<String, Object> getTableColumns(String tableName) throws SQLException {
+		DataSource dataSource = ServiceHub.getInstance().getDataSource((String) this.getDataSourceTag(), true);
+		if(dataSource == null) {
+			dataSource = ServiceHub.getInstance().getDefaultDataSource();
+		}
+		return this.getDBDialect().getTableColumns(dataSource, tableName);
+	}
     
-    
+    @Override
+    public DataSource getDataSource() {
+    	DataSource dataSource = ServiceHub.getInstance().getDataSource((String) this.getDataSourceTag(), true);
+		if(dataSource == null) {
+			dataSource = ServiceHub.getInstance().getDefaultDataSource();
+		}
+    	return dataSource;
+    }
 }

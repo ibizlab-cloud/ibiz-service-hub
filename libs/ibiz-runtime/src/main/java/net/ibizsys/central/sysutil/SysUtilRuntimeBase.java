@@ -22,6 +22,7 @@ import net.ibizsys.runtime.IModelRuntimeContext;
 import net.ibizsys.runtime.ISystemRuntimeContext;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.plugin.IModelRTAddin;
+import net.ibizsys.runtime.plugin.ModelRTAddinException;
 import net.ibizsys.runtime.plugin.ModelRTAddinRepo;
 import net.ibizsys.runtime.res.ISysDataSyncAgentRuntime;
 import net.ibizsys.runtime.res.SysUtilTypes;
@@ -350,7 +351,7 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 	}
 	
 	@Override
-	public boolean isInstalled() {
+	public final boolean isInstalled() {
 		return this.bInstalled;
 	}
 	
@@ -405,6 +406,10 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 	
 	public String getLogicName() {
 		return this.getName();
+	}
+	
+	public String getFullName() {
+		return String.format("系统功能组件[%1$s]", this.getName());
 	}
 	
 	protected ISysCacheUtilRuntime getSysCacheUtilRuntime() {
@@ -513,6 +518,14 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 		}
 		catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
+			
+			if(ex instanceof ModelRTAddinException) {
+				Throwable ex2 = ((ModelRTAddinException)ex).getCause();
+				if(ex2 != null) {
+					ex = ex2;
+				}
+			}
+			
 			log.error(String.format("%1$s[%2$s]发生异常，%3$s", this.getLogicName(), strActionName, ex.getMessage()), ex);
 			throw dealException(String.format("%1$s发生异常，%2$s", strActionName, ex.getMessage()), ex);
 		}
@@ -541,7 +554,16 @@ public abstract class SysUtilRuntimeBase extends SystemModelRuntimeBase implemen
 		}
 		catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
+			
+			if(ex instanceof ModelRTAddinException) {
+				Throwable ex2 = ((ModelRTAddinException)ex).getCause();
+				if(ex2 != null) {
+					ex = ex2;
+				}
+			}
+			
 			log.error(String.format("%1$s[%2$s]发生异常，%3$s", this.getLogicName(), strActionName, ex.getMessage()), ex);
+			
 			throw dealException(String.format("%1$s发生异常，%2$s", strActionName, ex.getMessage()), ex);
 		}
 	}

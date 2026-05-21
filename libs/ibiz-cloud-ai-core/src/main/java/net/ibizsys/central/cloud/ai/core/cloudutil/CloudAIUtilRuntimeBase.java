@@ -21,6 +21,7 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntimeContext;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.ConfigEntity;
 import net.ibizsys.central.cloud.core.util.IConfigListener;
 import net.ibizsys.central.cloud.core.util.domain.AIAccess;
@@ -32,9 +33,12 @@ import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.McpServer;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionType;
 import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
 import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
+import net.ibizsys.runtime.util.ActionSession;
+import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.INamedAction;
 import net.ibizsys.runtime.util.KeyValueUtils;
@@ -51,7 +55,11 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:BAICHUAN", "net.ibizsys.central.cloud.ai.baichuanai.addin.BaichuanAIPlatform");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:OLLAMA", "net.ibizsys.central.cloud.ai.ollama.addin.OllamaPlatform");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:QWEN", "net.ibizsys.central.cloud.ai.core.addin.QwenPlatform");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:QWENVL", "net.ibizsys.central.cloud.ai.core.addin.QwenVLPlatform");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:RAGFLOW", "net.ibizsys.central.cloud.ai.core.addin.RAGFlowPlatform");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:DEEPSEEK", "net.ibizsys.central.cloud.ai.core.addin.DeepSeekPlatform");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:SILICONFLOW", "net.ibizsys.central.cloud.ai.core.addin.SiliconFlowPlatform");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "AIPLATFORM:PROXY", "net.ibizsys.central.cloud.ai.core.addin.ProxyPlatform");
 		
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudAIUtilRTAddin.class, "MCPSERVER:DEFAULT", "net.ibizsys.central.cloud.ai.core.addin.DefaultMcpServerProvider");
 	}
@@ -79,6 +87,16 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 			@Override
 			public IMcpServerAgent getMcpServerAgent(String strMcpServerId) throws Throwable {
 				return CloudAIUtilRuntimeBase.this.getMcpServerAgent(strMcpServerId);
+			}
+			
+			@Override
+			public boolean isCancelChatCompletion(ActionSession actionSession) {
+				return CloudAIUtilRuntimeBase.this.isCancelChatCompletion(actionSession);
+			}
+
+			@Override
+			public IAIAccessAgent getAIAccessAgent(String strAIAccessId, Object requestData) throws Throwable {
+				return CloudAIUtilRuntimeBase.this.getAIAccessAgent(strAIAccessId, requestData);
 			}
 			
 		};
@@ -222,9 +240,10 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	protected PortalAsyncAction onAsyncChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable {
 		
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
-		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, "ASYNCCHATCOMPLETION");
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue());
+		//关闭通知标记
+		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, null);
 
-		
 		return (PortalAsyncAction) this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
@@ -252,8 +271,9 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	protected SseEmitter onSseChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable {
 		
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
-		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, "SSECHATCOMPLETION");
-		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, "");
+		//actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, "SSECHATCOMPLETION");
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue());
+		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, null);
 		
 		return (SseEmitter) this.getSystemRuntime().sseExecute(new INamedAction() {
 			@Override
@@ -268,6 +288,35 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		}, null, actionTagMap, 0l);
 	}
 	
+	@Override
+	public void cancelChatCompletion(String type, String portalAsyncActionId) {
+		this.executeAction("取消异步聊天补全操作", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				onCancelChatCompletion(type, portalAsyncActionId);
+				return null;
+			}
+		}, null);
+	}
+	
+	protected void onCancelChatCompletion(String type, String portalAsyncActionId) throws Throwable {
+		String strCancelTag = String.format("%1$s-ai-chatcompletion-canceltag--%2$s", CloudCacheTagUtils.PREFIX, portalAsyncActionId);
+		//120 秒内有效
+		this.getSysCacheUtilRuntime(false).set(strCancelTag, "true", 120);
+	}
+	
+	protected boolean isCancelChatCompletion(ActionSession actionSession) {
+		if(actionSession == null) {
+			actionSession = ActionSessionManager.getCurrentSessionMust();
+		}
+		String strAsyncActionId = (String)actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+		if(ObjectUtils.isEmpty(strAsyncActionId)) {
+			return false;
+		}
+		String strCancelTag = String.format("%1$s-ai-chatcompletion-canceltag--%2$s", CloudCacheTagUtils.PREFIX, strAsyncActionId);
+		String strRet = this.getSysCacheUtilRuntime(false).get(strCancelTag);
+		return "true".equals(strRet);
+	}
 
 	@Override
 	public CompletionResult completion(String type, CompletionRequest completionRequest) {
@@ -336,6 +385,8 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 	}
 	
 	
+
+
 	@Override
 	public EmbeddingResult embedding(String type, EmbeddingRequest embeddingRequest) {
 		return (EmbeddingResult) this.executeAction("Embedding操作", new IAction() {
@@ -445,6 +496,9 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 			else {
 				//没有配置，尝试获取默认代理的配置
 				String strConfigId2 = String.format("%1$s-agent-%2$s", getCloudConfigId(), this.getDefaultAgent().toLowerCase());
+				
+				log.warn(String.format("未定义AI代理[%1$s]配置，使用默认代理[%2$s]配置", strAIAccessId, this.getDefaultAgent()));
+				
 				String strConfig2 = ServiceHub.getInstance().getConfig(strConfigId2);
 				if (StringUtils.hasLength(strConfig2)) {
 					ConfigEntity configEntity = new ConfigEntity(strConfig2);

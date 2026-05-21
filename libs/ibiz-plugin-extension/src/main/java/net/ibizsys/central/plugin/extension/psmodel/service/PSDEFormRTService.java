@@ -1,6 +1,7 @@
 package net.ibizsys.central.plugin.extension.psmodel.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -11,6 +12,8 @@ import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionForm;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionScopeType;
 import net.ibizsys.central.plugin.extension.psmodel.util.ExtensionUtils;
@@ -18,6 +21,8 @@ import net.ibizsys.central.plugin.extension.psmodel.util.IExtensionPSModelRTServ
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.model.PSModelEnums.FormType;
 import net.ibizsys.model.app.IPSApplication;
+import net.ibizsys.model.app.view.IPSAppView;
+import net.ibizsys.model.control.IPSControl;
 import net.ibizsys.model.control.form.IPSDEEditForm;
 import net.ibizsys.model.util.DataTypes;
 import net.ibizsys.psmodel.core.domain.PSDEForm;
@@ -406,5 +411,48 @@ public class PSDEFormRTService extends net.ibizsys.psmodel.runtime.service.PSDEF
 		}
 		
 		return null;
+	}
+	
+	@Override
+	protected <T extends IPSControl> void fillPSControlList(Class<T> cls, List<T> list) throws Exception {
+		super.fillPSControlList(cls, list);
+		
+		IExtensionPSModelRTServiceSession iExtensionPSModelRTServiceSession = (IExtensionPSModelRTServiceSession) this.getPSModelRTServiceSession();
+		if(iExtensionPSModelRTServiceSession.getSystemRuntime() instanceof IServiceSystemRuntime) {
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)iExtensionPSModelRTServiceSession.getSystemRuntime();
+			Collection<IExtensionSysRefRuntime> extensionSysRefRuntimeList = iServiceSystemRuntime.getExtensionSysRefRuntimes(true);
+			if(!ObjectUtils.isEmpty(extensionSysRefRuntimeList)) {
+				IPSApplication mainPSApplication = iExtensionPSModelRTServiceSession.getPSApplication();
+				if(mainPSApplication != null) {
+					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimeList) {
+						IPSApplication iPSApplication = iExtensionSysRefRuntime.getPSApplication(mainPSApplication.getCodeName(), true);
+						if(iPSApplication != null) {
+							List<IPSAppView> psAppViews = iPSApplication.getAllPSAppViews();
+							if(!ObjectUtils.isEmpty(psAppViews)) {
+								for(IPSAppView iPSAppView : psAppViews) {
+									fillPSControlList(cls, iPSAppView, list);
+								}
+							}
+						}
+					}
+				}
+				else {
+					for(IExtensionSysRefRuntime iExtensionSysRefRuntime : extensionSysRefRuntimeList) {
+						List<IPSApplication> psApplicationList = iExtensionSysRefRuntime.getPSSystemService().getPSSystem().getAllPSApps();
+						if(!ObjectUtils.isEmpty(psApplicationList)) {
+							for(IPSApplication iPSApplication : psApplicationList) {
+								List<IPSAppView> psAppViews = iPSApplication.getAllPSAppViews();
+								if(!ObjectUtils.isEmpty(psAppViews)) {
+									for(IPSAppView iPSAppView : psAppViews) {
+										fillPSControlList(cls, iPSAppView, list);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
 	}
 }

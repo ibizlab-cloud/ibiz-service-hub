@@ -113,4 +113,15 @@ public class DEActions {
 	 */
 	public final static String COPY = "copy";
 	
+	
+	/**
+	 * 获取AI数据信息
+	 */
+	public final static String GETAIINFO = "getaiinfo";
+	
+	
+	/**
+	 * 获取AI数据信息
+	 */
+	public final static String GETAIFULLINFO = "getaifullinfo";
 }

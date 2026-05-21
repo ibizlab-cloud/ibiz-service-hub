@@ -10,6 +10,7 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETCOLUMNTAG2 = "columnTag2";
 	public final static String ATTR_GETCREATESQL = "createSql";
 	public final static String ATTR_GETDATATYPE = "dataType";
+	public final static String ATTR_GETDATATYPES = "dataTypes";
 	public final static String ATTR_GETDEFAULTVALUE = "defaultValue";
 	public final static String ATTR_GETDROPSQL = "dropSql";
 	public final static String ATTR_GETLENGTH = "length";
@@ -71,6 +72,14 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 			return null;
 		}
 		return value.asText();
+	}
+
+	public com.fasterxml.jackson.databind.node.ObjectNode getDataTypes(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATATYPES);
+		if(value == null){
+			return null;
+		}
+		return (com.fasterxml.jackson.databind.node.ObjectNode)value;
 	}
 
 	public java.lang.String getDefaultValue(){

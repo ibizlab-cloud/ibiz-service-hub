@@ -1,5 +1,6 @@
 package net.ibizsys.runtime;
 
+import net.ibizsys.runtime.util.ErrorException;
 import net.ibizsys.runtime.util.Errors;
 
 /**
@@ -58,6 +59,9 @@ public class SystemRuntimeException extends RuntimeException implements ISystemR
 		super(strInfo, throwable);
 		this.iSystemRuntimeBase = iSystemRuntimeBase;
 		this.iModelRuntime = iModelRuntime;
+		if(throwable instanceof ErrorException) {
+			this.nErrorCode = ((ErrorException)throwable).getErrorCode();
+		}
 	}
 	
 	public SystemRuntimeException(ISystemRuntimeBase iSystemRuntimeBase, IModelRuntime iModelRuntime, String strInfo,int nErrorCode, Throwable throwable) {

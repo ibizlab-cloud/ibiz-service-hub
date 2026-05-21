@@ -5,7 +5,7 @@ ibiz:
   servicehub:
     id: allinone
     # 新增初始化模式 initmode ，默认 manual：手动模式（手工初始化nacos和system），auto：自动模式
-    initmode: manual
+    initmode: auto
 #    register-naming-service: false
 #    publish-config: false
   tenant: true
@@ -46,7 +46,7 @@ spring:
   datasource:
     username: a_lab01_3f9ebc219
     password: '9d@A178@'
-    url: jdbc:mysql://mysql:3306/a_LAB01_3f9ebc219?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=GMT%2B8&allowMultiQueries=true
+    url: jdbc:mysql://${mysql.host:mysql}:${mysql.port:3306}/a_lab01_3f9ebc219?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=GMT%2B8&allowMultiQueries=true&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     isSyncDBSchema: false
     defaultSchema: a_LAB01_3f9ebc219

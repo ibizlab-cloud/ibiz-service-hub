@@ -8,7 +8,7 @@
     <springProperty name="LOG_MQTT_TOPIC" scope="context" source="logging.mqtt.topic" defaultValue="ibiz-service-runner-log"/>
     <springProperty name="LOG_MQTT_CLIENTID" scope="context" source="logging.mqtt.clientId" defaultValue="ibiz-service-runner"/>
 
-    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log]" />
+    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log],GET[/portal/asyncaction/{id}]" />
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->

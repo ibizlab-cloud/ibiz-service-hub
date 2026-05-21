@@ -10,6 +10,7 @@ public class PSSysSearchDocImpl extends net.ibizsys.model.search.PSSysSearchSche
 	public final static String ATTR_GETDOCTAG = "docTag";
 	public final static String ATTR_GETDOCTAG2 = "docTag2";
 	public final static String ATTR_GETLOGICNAME = "logicName";
+	public final static String ATTR_GETPSSYSMSGTEMPL = "getPSSysMsgTempl";
 	public final static String ATTR_GETREPLICAS = "replicas";
 	public final static String ATTR_GETSHARDS = "shards";
 
@@ -76,6 +77,28 @@ public class PSSysSearchDocImpl extends net.ibizsys.model.search.PSSysSearchSche
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl;
+
+	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl(){
+		if(this.pssysmsgtempl != null) return this.pssysmsgtempl;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSMSGTEMPL);
+		if(value == null){
+			return null;
+		}
+		this.pssysmsgtempl = getPSModelObject(net.ibizsys.model.msg.IPSSysMsgTempl.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSMSGTEMPL);
+		return this.pssysmsgtempl;
+	}
+
+	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTemplMust(){
+		net.ibizsys.model.msg.IPSSysMsgTempl value = this.getPSSysMsgTempl();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定文档模板");}
+		return value;
+	}
+
+	public void setPSSysMsgTempl(net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl){
+		this.pssysmsgtempl = pssysmsgtempl;
+	}
+
 
 	public int getReplicas(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREPLICAS);

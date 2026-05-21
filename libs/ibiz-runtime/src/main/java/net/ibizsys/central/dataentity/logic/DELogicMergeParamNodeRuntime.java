@@ -56,7 +56,7 @@ public class DELogicMergeParamNodeRuntime extends DELogicNodeRuntimeBase{
 				}
 				
 				if(StringUtils.hasLength(psDELogicNodeParam.getAggMode()) 
-						&& !psDELogicNodeParam.getAggMode().equals(AggMode.GROUP)) {
+						&& !psDELogicNodeParam.getAggMode().equals(AggMode.GROUP.value)) {
 					continue;
 				}
 				
@@ -132,7 +132,7 @@ public class DELogicMergeParamNodeRuntime extends DELogicNodeRuntimeBase{
 		
 		//根据合并模式进行处理
 		String strMergeMode = iPSDEMergeParamLogic.getMergeMode();
-		if(DELNMergeParamMode.DEFAULT.equals(strMergeMode)) {
+		if(DELNMergeParamMode.DEFAULT.value.equals(strMergeMode)) {
 			
 		}
 

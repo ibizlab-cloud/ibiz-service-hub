@@ -230,4 +230,10 @@ public class DELogicNodeTypes {
      */
     public final static String MEMO = "MEMO";
     
+    
+    /**
+     *  系统消息模板调用，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String SYSMSGTEMPL = "SYSMSGTEMPL";
+    
 }

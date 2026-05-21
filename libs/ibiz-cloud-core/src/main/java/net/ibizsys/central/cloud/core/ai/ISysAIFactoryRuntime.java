@@ -165,4 +165,25 @@ public interface ISysAIFactoryRuntime extends ISystemModelRuntime, IAIFactoryRun
 	 * @return
 	 */
 	List<ISysAIPipelineAgentRuntime> getSysAIPipelineAgentRuntimes();
+	
+	
+	/**
+	 * 获取指定标记的聊天代理运行时
+	 * @param agentTag
+	 * @param tryMode
+	 * @return
+	 */
+	ISysAIChatAgentRuntime getRealSysAIChatAgentRuntime(String agentTag, boolean tryMode);
+	
+	
+	
+	/**
+	 * 获取AI聊天技能集合
+	 * @return
+	 */
+	List<ISysAIChatSkill> getAIChatSkills();
+	
+	
+
+	
 }

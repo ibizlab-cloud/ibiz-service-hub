@@ -10,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import net.ibizsys.central.ba.SysBDSchemeRuntime;
 import net.ibizsys.central.ba.SysBDSchemeRuntimeException;
 import net.ibizsys.central.cloud.core.sysutil.ISysOSSUtilRuntime;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
@@ -34,7 +33,7 @@ import net.ibizsys.runtime.util.SearchGroupCond;
  * @author lionlau
  *
  */
-public class CloudOSSBDSchemeRuntime extends SysBDSchemeRuntime{
+public class CloudOSSBDSchemeRuntime extends SysBDSchemeRuntimeBase{
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(CloudOSSBDSchemeRuntime.class);
 	

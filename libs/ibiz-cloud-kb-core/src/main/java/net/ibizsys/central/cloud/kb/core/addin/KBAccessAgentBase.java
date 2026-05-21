@@ -1,5 +1,11 @@
 package net.ibizsys.central.cloud.kb.core.addin;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.util.StringUtils;
@@ -7,6 +13,7 @@ import org.springframework.util.StringUtils;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
+import net.ibizsys.central.cloud.core.util.domain.Document;
 import net.ibizsys.central.cloud.core.util.domain.KBAccess;
 import net.ibizsys.central.cloud.kb.core.cloudutil.ICloudKBUtilRuntimeContext;
 import net.ibizsys.runtime.SystemRuntimeException;
@@ -178,7 +185,6 @@ public abstract class KBAccessAgentBase extends CloudKBUtilRTAddinBase implement
 			throw new SystemRuntimeException(this.getSystemRuntime(), this.getCloudKBUtilRuntime(), String.format("KB应用[%1$s]认证发生异常，%2$s", getName(), ex.getMessage()), ex);
 		}
 		
-		
 		try {
 			long nLastTokenTimeout = this.getTokenTimeout();
 			this.setToken(doRequestToken());
@@ -187,8 +193,6 @@ public abstract class KBAccessAgentBase extends CloudKBUtilRTAddinBase implement
 			}
 			
 			//this.getSystemRuntime().logEvent(LogLevels.ERROR, LogCats.KB_KBACCESS, String.format("KB应用[%1$s]认证发生异常，%2$s", getName(), ex.getMessage()), ex);
-			
-			
 		} catch (Throwable ex) {
 			log.error(String.format("KB应用[%1$s]认证发生异常，%2$s", getName(), ex.getMessage()), ex);
 			this.getSystemRuntime().log(LogLevels.ERROR, LogCats.KB_KBACCESS, String.format("KB应用[%1$s]认证发生异常，%2$s", getName(), ex.getMessage()), ex);
@@ -239,48 +243,6 @@ public abstract class KBAccessAgentBase extends CloudKBUtilRTAddinBase implement
 	}
 	
 	
-//	
-//	
-//	
-//	@Override
-//	public KnowledgeBase createKnowledgeBase(KnowledgeBase knowledgeBase) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public KnowledgeBase getKnowledgeBase(String strType, String strKBName) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public KnowledgeBase updateKnowledgeBase(KnowledgeBase knowledgeBase) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public void deleteKnowledgeBase(String strKBName) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public Collection createCollection(String strKBName, Collection collection) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public Collection getCollection(String strKBName, String strCollectName) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public Collection updateCollection(String strKBName, Collection collection) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
-//
-//	@Override
-//	public void deleteCollection(String strKBName, String strCollectName) throws Throwable {
-//		throw new RuntimeException("没有实现");
-//	}
 
 	@Override
 	public Page<Chunk> fetchChunks(IChunkSearchContext iChunkSearchContext) throws Throwable {
@@ -288,6 +250,145 @@ public abstract class KBAccessAgentBase extends CloudKBUtilRTAddinBase implement
 	}
 	
 	protected Page<Chunk> onFetchChunks(IChunkSearchContext iChunkSearchContext) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Page<Chunk> fetchChunksByHistories(IChunkSearchContext iChunkSearchContext) throws Throwable {
+		return this.onFetchChunksByHistories(iChunkSearchContext);
+	}
+	
+	protected Page<Chunk> onFetchChunksByHistories(IChunkSearchContext iChunkSearchContext) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	@Override
+	public String getGuidancePrompt() throws Throwable {
+		return this.onGetGuidancePrompt();
+	}
+	
+	protected String onGetGuidancePrompt() throws Throwable {
+		return this.getAgentData().getGuidancePrompt();
+	}
+	
+	
+	@Override
+	public List listFiles(Map<String, Object> params) throws Throwable {
+		return this.onListFiles(params);
+	}
+	
+	protected List onListFiles(Map<String, Object> params) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	@Override
+	public Document createDocument(Document document) throws Throwable {
+		return this.onCreateDocument( document);
+	}
+	
+	protected Document onCreateDocument(Document document) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Document updateDocument(String document_id, Document document) throws Throwable {
+		return this.onUpdateDocument(document_id, document);
+	}
+
+	protected Document onUpdateDocument(String document_id, Document document) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	@Override
+	public Document saveDocument(String document_id, Document document) throws Throwable {
+		return this.onSaveDocument(document_id, document);
+	}
+
+	protected Document onSaveDocument(String document_id, Document document) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	@Override
+	public Document getDocument(String document_id) throws Throwable {
+		return this.onGetDocument(document_id);
+	}
+	
+	protected Document onGetDocument(String document_id) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+
+	@Override
+	public Integer deleteDocument(String document_id) throws Throwable {
+		return this.onDeleteDocument(document_id);
+	}
+	
+	protected Integer onDeleteDocument(String document_id) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	
+	@Override
+	public void downloadDocument(String document_id, HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		this.onDownloadDocument(document_id, request, response);
+	}
+	
+	protected void onDownloadDocument(String document_id, HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Chunk createChunk(String document_id, Chunk chunk) throws Throwable {
+		return this.onCreateChunk(document_id, chunk);
+	}
+	
+	protected Chunk onCreateChunk(String document_id, Chunk chunk) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Chunk updateChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable {
+		return this.onUpdateChunk(document_id, chunk_id, chunk);
+	}
+	
+	protected Chunk onUpdateChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	@Override
+	public Chunk saveChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable {
+		return this.onSaveChunk(document_id, chunk_id, chunk);
+	}
+	
+	protected Chunk onSaveChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+
+	@Override
+	public Chunk getChunk(String document_id, String chunk_id) throws Throwable {
+		return this.onGetChunk(document_id, chunk_id);
+	}
+	
+	protected Chunk onGetChunk(String document_id, String chunk_id) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Integer deleteChunk(String document_id, String chunk_id) throws Throwable {
+		return this.onDeleteChunk(document_id, chunk_id);
+	}
+	
+	protected Integer onDeleteChunk(String document_id, String chunk_id) throws Throwable {
+		throw new Exception("没有实现");
+	}
+
+	@Override
+	public Page<Chunk> fetchChunks(String document_id, IChunkSearchContext iChunkSearchContext) throws Throwable {
+		return this.onFetchChunks(document_id, iChunkSearchContext);
+	}
+	
+	protected Page<Chunk> onFetchChunks(String document_id, IChunkSearchContext iChunkSearchContext) throws Throwable {
 		throw new Exception("没有实现");
 	}
 

@@ -24,9 +24,9 @@ import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyShell;
 import groovy.text.GStringTemplateEngine;
 import groovy.text.Template;
-import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntimeBase;
 import net.ibizsys.central.cloud.core.ai.util.ChatCompletionRequestHolder;
-import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
@@ -40,6 +40,7 @@ import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.util.PageImpl;
+import net.ibizsys.central.util.expression.ExpressionUtils;
 import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.plugin.ModelRTScriptBase;
 import net.ibizsys.runtime.util.DataTypeUtils;
@@ -102,13 +103,37 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	
 	/**
+	 * 模板上下文参数：辅助工具
+	 */
+	public final static String TEMPLATE_PARAM_UTILS = "utils";
+	
+	
+	/**
+	 * 模板上下文参数：API 接口对象
+	 */
+	public final static String TEMPLATE_PARAM_API = "api";
+	
+	
+	/**
 	 * AI代理历史消息数量
 	 */
 	public final static String AIAGENTPARAM_HISTORYCOUNT = "historycount";
 	
+	/**
+	 * 功能参数：AI代理配置标识，支持{param}
+	 */
+	public final static String AIAGENTPARAM_AIAGENTCONFIGID = "aiagentconfigid";
+	
+	
+	/**
+	 * 功能参数：KB代理配置标识，支持{param}
+	 */
+	public final static String AIAGENTPARAM_KBAGENTCONFIGID = "kbagentconfigid";
+	
 	
 	private String strConfigPath = null;
-	private String strAIPlatformType = ICloudAIUtilRuntime.AIPLATFORM_DEFAULT;
+	private String strAIPlatformType = null;
+	private String strKBPlatformType = null;
 	private ISysAIUtilRuntime iSysAIUtilRuntime = null;
 	private ISysKBUtilRuntime iSysKBUtilRuntime = null;
 	
@@ -125,6 +150,12 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	private int nHistoryCount = -1;
 	
+	private String strAIAgentConfigIdFormat = "";
+	
+	private String strKBAgentConfigIdFormat = "";
+	
+	
+	
 	protected void init(ISysAIFactoryRuntimeContext ctx) throws Exception {
 		this.ctx = ctx;
 		onInit();
@@ -132,18 +163,37 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	@Override
 	protected void onInit() throws Exception {
+		
 		if (!StringUtils.hasLength(this.getConfigPath())) {
 			this.setConfigPath(String.format("%1$s%2$s%3$s", this.getAgentType(), "/", this.getAgentSubType()).toLowerCase());
 		}
 		
+		if(ObjectUtils.isEmpty(this.getAIPlatformType())) {
+			this.setAIPlatformType(this.getSysAIFactoryRuntimeContext().getAIPlatformType());
+		}
+		
+		if(ObjectUtils.isEmpty(this.getKBPlatformType())) {
+			this.setKBPlatformType(this.getSysAIFactoryRuntimeContext().getKBPlatformType());
+		}
+		
 		String strAIPlatformTypeParamKey = String.format(".%1$s.%2$s.aiplatformtype", this.getAgentType(), this.getAgentMode()).toLowerCase();
 		this.setAIPlatformType(this.getSysAIFactoryRuntimeContext().getParam(strAIPlatformTypeParamKey, this.getAIPlatformType()));
+		
+		String strKBPlatformTypeParamKey = String.format(".%1$s.%2$s.kbplatformtype", this.getAgentType(), this.getAgentMode()).toLowerCase();
+		this.setKBPlatformType(this.getSysAIFactoryRuntimeContext().getParam(strKBPlatformTypeParamKey, this.getKBPlatformType()));
 
-		this.setHistoryCount(DataTypeUtils.asInteger(this.getAgentParam(AIAGENTPARAM_HISTORYCOUNT, null), this.getSysAIFactoryRuntimeContext().getHistoryCount()));
+		this.setHistoryCount(DataTypeUtils.asInteger(this.getAgentParam(AIAGENTPARAM_HISTORYCOUNT, null), this.getDefaultHistoryCount()));
 		String strHistoryCountParamKey = String.format(".%1$s.%2$s.historycount", this.getAgentType(), this.getAgentMode()).toLowerCase();
 		this.setHistoryCount(this.getSysAIFactoryRuntimeContext().getParam(strHistoryCountParamKey, this.getHistoryCount()));
 		
+		this.setAIAgentConfigIdFormat(this.getSysAIFactoryRuntimeContext().getParam(AIAGENTPARAM_AIAGENTCONFIGID, "{system}-ai--{key}"));
+		this.setKBAgentConfigIdFormat(this.getSysAIFactoryRuntimeContext().getParam(AIAGENTPARAM_KBAGENTCONFIGID, "{system}-kb--{key}"));
+		
 		super.onInit();
+	}
+	
+	protected int getDefaultHistoryCount() {
+		return this.getSysAIFactoryRuntimeContext().getHistoryCount();
 	}
 	
 	protected ISysAIUtilRuntime getSysAIUtilRuntime() {
@@ -206,6 +256,11 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 				ChatCompletionResult chatCompletionResult = rawChatCompletion(strAIPlatformType, chatCompletionRequest);
 				return chatCompletionResult.getChoices().get(0).getContent();
 			}
+			
+			@Override
+			public List<Chunk> rawFetchChunks(String strKBPlatformType, List<IChunkSearchContext> chunkSearchContextList) {
+				return getSelf().rawFetchChunks(strKBPlatformType, chunkSearchContextList);
+			}
 		};
 	}
 	
@@ -240,6 +295,19 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		this.strAIPlatformType = strAIPlatformType;
 	}
 	
+	/**
+	 * 获取KB平台类型
+	 * @return
+	 */
+	public String getKBPlatformType() {
+		return this.strKBPlatformType;
+	}
+	
+	protected void setKBPlatformType(String strKBPlatformType) {
+		this.strKBPlatformType = strKBPlatformType;
+	}
+	
+	
 	protected ISysAIFactoryRuntimeContext getSysAIFactoryRuntimeContext() {
 		return this.ctx;
 	}
@@ -250,8 +318,8 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	}
 	
 	
-	protected ISystemRuntime getSystemRuntime() {
-		return getSysAIFactoryRuntimeContext().getAIFactoryRuntime().getSystemRuntime();
+	protected IServiceSystemRuntimeBase getSystemRuntime() {
+		return (IServiceSystemRuntimeBase)getSysAIFactoryRuntimeContext().getAIFactoryRuntime().getSystemRuntime();
 	}
 	
 	@Override
@@ -572,7 +640,14 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		if(size != null) {
 			chunkSearchContext.setPageable(0, size, 0);
 		}
-		return this.doFetchChunks(type, chunkSearchContext);
+		
+		if(StringUtils.hasLength(type)) {
+			return this.doFetchChunks(type, chunkSearchContext);
+		}
+		if(ISysKBUtilRuntime.KBPLATFORM_DISABLED.equalsIgnoreCase(this.getKBPlatformType())) {
+			return new PageImpl<Chunk>(Collections.EMPTY_LIST, chunkSearchContext.getPageable(), 0);
+		}
+		return this.doFetchChunks(this.getKBPlatformType(), chunkSearchContext);
 	}
 	
 	protected Page<Chunk> doFetchChunks(String type, IChunkSearchContext iChunkSearchContext) {
@@ -639,6 +714,106 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 		return this.getSysKBUtilRuntime().fetchChunks(type, iChunkSearchContext);
 	}
 	
+	
+	protected List<Chunk> rawFetchChunks(String type, List<IChunkSearchContext> chunkSearchContextList) {
+		if(ObjectUtils.isEmpty(type)) {
+			type = this.getKBPlatformType();
+		}
+		
+		if(ObjectUtils.isEmpty(chunkSearchContextList)) {
+			//throw new SysAIFactoryRuntimeException(this, iModelRuntime, strInfo)
+			return Collections.EMPTY_LIST;
+		}
+		
+		//判断是否需要展开
+		List<IAction> actionList = new ArrayList<IAction>();
+		int nIndex = 0;
+		for(IChunkSearchContext iChunkSearchContext : chunkSearchContextList) {
+			int nFinalIndex = nIndex;
+			if(StringUtils.hasLength(type) && type.indexOf(";") != -1) {
+				String[] subTypes = type.split("[;]");
+				
+				for(String subType : subTypes) {
+					actionList.add(new INamedAction() {
+						@Override
+						public Object execute(Object[] args) throws Throwable {
+							return getSysKBUtilRuntime().fetchChunks(subType, iChunkSearchContext);
+						}
+						
+						@Override
+						public String getName() {
+							return String.format("fetchChunks#%1$s-%2$s", subType, nFinalIndex);
+						}
+					});
+				}
+			}
+			else {
+				String subTypes = type;
+				actionList.add(new INamedAction() {
+					@Override
+					public Object execute(Object[] args) throws Throwable {
+						return getSysKBUtilRuntime().fetchChunks(subTypes, iChunkSearchContext);
+					}
+					
+					@Override
+					public String getName() {
+						return String.format("fetchChunks#%1$s-%2$s", subTypes, nFinalIndex);
+					}
+				});
+			}
+			nIndex ++;
+		}
+		
+		try {
+			if(actionList.size() == 1) {
+				Page<Chunk> page = (Page<Chunk>)actionList.get(0).execute(null);
+				return page.getContent();
+			}
+			else {
+				List<Chunk> list1 = new ArrayList<Chunk>();
+				List<Chunk> list2 = new ArrayList<Chunk>();
+				Map<String, Object> ret = this.getSystemRuntime().threadRunAllOf(actionList, true);
+				for(java.util.Map.Entry<String, Object> entry : ret.entrySet()) {
+					if(entry.getValue() instanceof Page) {
+						Page page = (Page)entry.getValue();
+						if(ObjectUtils.isEmpty(page.getContent())) {
+							continue;
+						}
+						
+						for(int i = 0;i<page.getContent().size();i++) {
+							if(i == 0) {
+								list1.add((Chunk)page.getContent().get(i));
+							}
+							else {
+								list2.add((Chunk)page.getContent().get(i));
+							}
+						}
+					}
+					else {
+						log.error(String.format("[%1$s]返回对象[%2$s]无效", entry.getKey(), entry.getValue()));
+					}
+				}
+				
+				//对列表2进行排序
+				Collections.sort(list2, new Comparator<Chunk>() {
+					@Override
+					public int compare(Chunk arg0, Chunk arg1) {
+						return (int)DataTypeUtils.compare(DataTypes.DECIMAL, arg0.getSimilarity(), arg0.getSimilarity());
+					}
+				});
+				
+				list1.addAll(list2);
+				return list1;
+			}
+			
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			ExceptionUtils.rethrowRuntimeException(ex);
+		}
+		
+		return Collections.EMPTY_LIST;
+	}
+	
 	protected ChatCompletionResult rawChatCompletion(String strAIPlatformType, ChatCompletionRequest chatCompletionRequest){
 		if(StringUtils.hasLength(strAIPlatformType)) {
 			return this.getSysAIUtilRuntime().chatCompletion(strAIPlatformType, chatCompletionRequest);
@@ -657,7 +832,32 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	 * @return
 	 */
 	protected PortalAsyncAction doAsyncChatCompletion(String strAIPlatformType, ChatCompletionRequest chatCompletionRequest) throws Throwable{
-		return this.getSysAIUtilRuntime().asyncChatCompletion(strAIPlatformType, chatCompletionRequest);
+		return this.rawAsyncChatCompletion(strAIPlatformType, chatCompletionRequest);
+	}
+	
+	protected PortalAsyncAction rawAsyncChatCompletion(String strAIPlatformType, ChatCompletionRequest chatCompletionRequest) throws Throwable{
+		if(StringUtils.hasLength(strAIPlatformType)) {
+			return this.getSysAIUtilRuntime().asyncChatCompletion(strAIPlatformType, chatCompletionRequest);
+		}
+		return this.getSysAIUtilRuntime().asyncChatCompletion(this.getAIPlatformType(), chatCompletionRequest);
+	}
+	
+	/**
+	 * 取消异步交互补全
+	 * @param type
+	 * @param strAsyncActionId
+	 * @return
+	 */
+	protected void doCancelChatCompletion(String strAIPlatformType, String strAsyncActionId) throws Throwable{
+		this.rawCancelChatCompletion(strAIPlatformType, strAsyncActionId);
+	}
+	
+	protected void rawCancelChatCompletion(String strAIPlatformType, String strAsyncActionId) throws Throwable{
+		if(StringUtils.hasLength(strAIPlatformType)) {
+			this.getSysAIUtilRuntime().cancelChatCompletion(strAIPlatformType, strAsyncActionId);
+			return;
+		}
+		this.getSysAIUtilRuntime().cancelChatCompletion(this.getAIPlatformType(), strAsyncActionId);
 	}
 	
 	@Override
@@ -676,6 +876,49 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	protected void setHistoryCount(int nHistoryCount) {
 		this.nHistoryCount = nHistoryCount;
 	}
+	
+	public String getAIAgentConfigIdFormat() {
+		return this.strAIAgentConfigIdFormat;
+	}
+	
+	protected void setAIAgentConfigIdFormat(String strAIAgentConfigIdFormat) {
+		this.strAIAgentConfigIdFormat = strAIAgentConfigIdFormat;
+	}
+	
+	public String getKBAgentConfigIdFormat() {
+		return this.strKBAgentConfigIdFormat;
+	}
+	
+	protected void setKBAgentConfigIdFormat(String strKBAgentConfigIdFormat) {
+		this.strKBAgentConfigIdFormat = strKBAgentConfigIdFormat;
+	}
+	
+	protected String getKBAgentConfigId(Object tag) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("key", tag);
+		params.put("system", this.getSystemRuntime().getDeploySystemId());
+		if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
+			if(StringUtils.hasLength(iServiceSystemRuntime.getMainSystemId())) {
+				params.put("system", iServiceSystemRuntime.getMainSystemId());
+			}
+		}
+		return ExpressionUtils.getValue(getKBAgentConfigIdFormat(), params).toLowerCase();
+	}
+	
+	protected String getAIAgentConfigId(Object tag) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("key", tag);
+		params.put("system", this.getSystemRuntime().getDeploySystemId());
+		if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
+			IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
+			if(StringUtils.hasLength(iServiceSystemRuntime.getMainSystemId())) {
+				params.put("system", iServiceSystemRuntime.getMainSystemId());
+			}
+		}
+		return ExpressionUtils.getValue(getAIAgentConfigIdFormat(), params).toLowerCase();
+	}
+	
 	
 	@Override
 	public void reload() {

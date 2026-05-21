@@ -100,6 +100,17 @@ public class KBAccess extends EntityBase {
 	 */
 	public final static String FIELD_KBTYPE = "kbtype";
 
+	/**
+	 * 凭证标识
+	 */
+	public final static String FIELD_CREDENTIALID = "credentialid";
+	
+	/**
+	 *  引导提示词
+	 */
+	public final static String FIELD_GUIDANCEPROMPT = "guidanceprompt";
+	
+	
 	
 	/**
 	 * 设置「KB应用标识」
@@ -779,6 +790,84 @@ public class KBAccess extends EntityBase {
 	@JsonIgnore
 	public KBAccess resetKBType() {
 		this.reset(FIELD_KBTYPE);
+		return this;
+	}
+	
+	/**
+	 * 设置「CredentialId」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public KBAccess setCredentialId(String val) {
+		this.set(FIELD_CREDENTIALID, val);
+		return this;
+	}
+
+	/**
+	 * 获取「CredentialId」值
+	 *
+	 */
+	@JsonIgnore
+	public String getCredentialId() {
+		return (String) this.get(FIELD_CREDENTIALID);
+	}
+
+	/**
+	 * 判断 「CredentialId」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsCredentialId() {
+		return this.contains(FIELD_CREDENTIALID);
+	}
+
+	/**
+	 * 重置 「CredentialId」
+	 *
+	 */
+	@JsonIgnore
+	public KBAccess resetCredentialId() {
+		this.reset(FIELD_CREDENTIALID);
+		return this;
+	}
+	
+	/**
+	 * 设置「KB引导提示词」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public KBAccess setGuidancePrompt(String val) {
+		this.set(FIELD_GUIDANCEPROMPT, val);
+		return this;
+	}
+
+	/**
+	 * 获取「KB引导提示词」值
+	 *
+	 */
+	@JsonIgnore
+	public String getGuidancePrompt() {
+		return (String) this.get(FIELD_GUIDANCEPROMPT);
+	}
+
+	/**
+	 * 判断 「KB引导提示词」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsGuidancePrompt() {
+		return this.contains(FIELD_GUIDANCEPROMPT);
+	}
+
+	/**
+	 * 重置 「KB引导提示词」
+	 *
+	 */
+	@JsonIgnore
+	public KBAccess resetGuidancePrompt() {
+		this.reset(FIELD_GUIDANCEPROMPT);
 		return this;
 	}
 }

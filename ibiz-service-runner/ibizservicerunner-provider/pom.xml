@@ -7,7 +7,7 @@
     <parent>
         <artifactId>ibiz-service-runner</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.574.3</version>
+        <version>8.1.0.578.170</version>
     </parent>
 
     <artifactId>ibizservicerunner-provider</artifactId>
@@ -24,6 +24,17 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.haibiiin</groupId>
+            <artifactId>json-repair</artifactId>
+            <version>0.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.du00cs</groupId>
+            <artifactId>json-repairj</artifactId>
+            <version>0.50.0</version>
         </dependency>
     </dependencies>
 

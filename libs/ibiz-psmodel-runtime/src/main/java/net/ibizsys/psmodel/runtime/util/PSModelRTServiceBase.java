@@ -1,13 +1,13 @@
 package net.ibizsys.psmodel.runtime.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Arrays;
 import java.util.Random;
 
 import org.apache.commons.logging.Log;
@@ -67,6 +67,9 @@ public class PSModelRTServiceBase<M extends IPSModel, F extends IPSModelFilter> 
 	
 	public final static String KEY_UNKNOWN = "__UNKNOWN__";
 
+	
+	//protected final static String FIELD_CONTROLPRIORITY = "__priority__";
+	
 	//private Map<String, Map<String, Object>> datasetCondMap = new HashMap<String, Map<String,Object>>()
 	
 	protected Random getRandom() {

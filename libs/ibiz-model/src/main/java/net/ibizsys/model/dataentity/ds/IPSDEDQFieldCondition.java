@@ -49,6 +49,8 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	
 	/**
 	 * 获取变量类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDQVarType}
 	 * @return
 	 */
 	java.lang.String getPSVARTypeId();

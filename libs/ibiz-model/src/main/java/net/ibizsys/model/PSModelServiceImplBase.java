@@ -225,6 +225,10 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 			T t = createIPSAppModule(parentPSModelObject,cls,objNode);
 			if(t != null) return (T)t;
 			throw new PSModelServiceException(this, "无法建立类型(net.ibizsys.model.app.IPSAppModule)实现对象", parentPSModelObject);		}
+		if(cls.equals(net.ibizsys.model.app.IPSAppPDTView.class)){
+			T t = createIPSAppPDTView(parentPSModelObject,cls,objNode);
+			if(t != null) return (T)t;
+			throw new PSModelServiceException(this, "无法建立类型(net.ibizsys.model.app.IPSAppPDTView)实现对象", parentPSModelObject);		}
 		if(cls.equals(net.ibizsys.model.app.IPSAppPkg.class)){
 			T t = createIPSAppPkg(parentPSModelObject,cls,objNode);
 			if(t != null) return (T)t;
@@ -1901,6 +1905,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 	}
 	protected <T> T createIPSAppModule(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.app.PSAppModuleImpl());
+	}
+	protected <T> T createIPSAppPDTView(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
+				return (T)(new net.ibizsys.model.app.PSAppPDTViewImpl());
 	}
 	protected <T> T createIPSAppPkg(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.app.PSAppPkgImpl());
@@ -4690,6 +4697,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 			if(strTypeValue.equals("SYSLOGIC")){
 				return createIPSDESysLogicLogic(parentPSModelObject, cls, objNode);
 			}
+			if(strTypeValue.equals("SYSMSGTEMPL")){
+				return createIPSDESysMsgTemplLogic(parentPSModelObject, cls, objNode);
+			}
 			if(strTypeValue.equals("SYSSEARCHDOCACTION")){
 				return createIPSDESysSearchDocActionLogic(parentPSModelObject, cls, objNode);
 			}
@@ -4816,6 +4826,9 @@ public abstract class PSModelServiceImplBase extends PSModelServiceImplBaseBase 
 	}
 	protected <T> T createIPSDESysLogicLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDESysLogicLogicImpl());
+	}
+	protected <T> T createIPSDESysMsgTemplLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
+				return (T)(new net.ibizsys.model.dataentity.logic.PSDESysMsgTemplLogicImpl());
 	}
 	protected <T> T createIPSDESysSearchDocActionLogic(IPSModelObjectRuntime parentPSModelObject,Class<T> cls,ObjectNode objNode){
 				return (T)(new net.ibizsys.model.dataentity.logic.PSDESysSearchDocActionLogicImpl());

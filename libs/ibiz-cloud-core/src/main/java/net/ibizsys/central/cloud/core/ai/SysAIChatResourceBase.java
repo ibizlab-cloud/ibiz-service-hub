@@ -3,6 +3,9 @@ package net.ibizsys.central.cloud.core.ai;
 import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.codehaus.groovy.control.CompilerConfiguration;
 import org.springframework.data.domain.Page;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import groovy.lang.Binding;
@@ -22,7 +26,12 @@ import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
+import net.ibizsys.central.util.PageImpl;
+import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.DataTypes;
 import net.ibizsys.runtime.util.ExceptionUtils;
+import net.ibizsys.runtime.util.IAction;
+import net.ibizsys.runtime.util.INamedAction;
 
 public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 	
@@ -116,8 +125,15 @@ public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 			public List<Chunk> chunks(String type, String query, Float similaritythreshold, Float vectorSimilarityWeight, Integer size) {
 				return getSelf().fetchChunks(type, query, similaritythreshold, vectorSimilarityWeight, size).getContent();
 			}
+			
+			@Override
+			public List<Chunk> rawFetchChunks(String type, List<IChunkSearchContext> chunkSearchContextList) {
+				return getSelf().rawFetchChunks(type, chunkSearchContextList);
+			}
 		};
 	}
+	
+	
 	
 
 	@Override
@@ -148,6 +164,10 @@ public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 	//@Override
 	public ISysAIFactoryRuntime getAIFactoryRuntime() {
 		return this.getSysAIFactoryRuntimeContext().getAIFactoryRuntime();
+	}
+	
+	public String getKBPlatformType() {
+		return getSysAIFactoryRuntimeContext().getKBPlatformType();
 	}
 	
 	
@@ -388,12 +408,117 @@ public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 		if(size != null) {
 			chunkSearchContext.setPageable(0, size, 0);
 		}
-		return this.doFetchChunks(type, chunkSearchContext);
-		
+		//chunkSearchContext.setTextReRank(0);
+		if(StringUtils.hasLength(type)) {
+			return this.doFetchChunks(type, chunkSearchContext);
+		}
+		if(ISysKBUtilRuntime.KBPLATFORM_DISABLED.equalsIgnoreCase(this.getKBPlatformType())) {
+			return new PageImpl<Chunk>(Collections.EMPTY_LIST, chunkSearchContext.getPageable(), 0);
+		}
+		return this.doFetchChunks(this.getKBPlatformType(), chunkSearchContext);
 	}
 	
 	protected Page<Chunk> doFetchChunks(String type, IChunkSearchContext iChunkSearchContext) {
 		return this.getSysKBUtilRuntime().fetchChunks(type, iChunkSearchContext);
+	}
+	
+	protected List<Chunk> rawFetchChunks(String type, List<IChunkSearchContext> chunkSearchContextList) {
+		if(ObjectUtils.isEmpty(type)) {
+			type = this.getKBPlatformType();
+		}
+		
+		if(ObjectUtils.isEmpty(chunkSearchContextList)) {
+			//throw new SysAIFactoryRuntimeException(this, iModelRuntime, strInfo)
+			return Collections.EMPTY_LIST;
+		}
+		
+		//判断是否需要展开
+		List<IAction> actionList = new ArrayList<IAction>();
+		int nIndex = 0;
+		for(IChunkSearchContext iChunkSearchContext : chunkSearchContextList) {
+			int nFinalIndex = nIndex;
+			if(StringUtils.hasLength(type) && type.indexOf(";") != -1) {
+				String[] subTypes = type.split("[;]");
+				
+				for(String subType : subTypes) {
+					actionList.add(new INamedAction() {
+						@Override
+						public Object execute(Object[] args) throws Throwable {
+							return getSysKBUtilRuntime().fetchChunks(subType, iChunkSearchContext);
+						}
+						
+						@Override
+						public String getName() {
+							return String.format("fetchChunks#%1$s-%2$s", subType, nFinalIndex);
+						}
+					});
+				}
+			}
+			else {
+				String subTypes = type;
+				actionList.add(new INamedAction() {
+					@Override
+					public Object execute(Object[] args) throws Throwable {
+						return getSysKBUtilRuntime().fetchChunks(subTypes, iChunkSearchContext);
+					}
+					
+					@Override
+					public String getName() {
+						return String.format("fetchChunks#%1$s-%2$s", subTypes, nFinalIndex);
+					}
+				});
+			}
+			nIndex ++;
+		}
+		
+		try {
+			if(actionList.size() == 1) {
+				Page<Chunk> page = (Page<Chunk>)actionList.get(0).execute(null);
+				return page.getContent();
+			}
+			else {
+				List<Chunk> list1 = new ArrayList<Chunk>();
+				List<Chunk> list2 = new ArrayList<Chunk>();
+				Map<String, Object> ret = this.getSystemRuntime().threadRunAllOf(actionList, true);
+				for(java.util.Map.Entry<String, Object> entry : ret.entrySet()) {
+					if(entry.getValue() instanceof Page) {
+						Page page = (Page)entry.getValue();
+						if(ObjectUtils.isEmpty(page.getContent())) {
+							continue;
+						}
+						
+						for(int i = 0;i<page.getContent().size();i++) {
+							if(i == 0) {
+								list1.add((Chunk)page.getContent().get(i));
+							}
+							else {
+								list2.add((Chunk)page.getContent().get(i));
+							}
+						}
+					}
+					else {
+						log.error(String.format("[%1$s]返回对象[%2$s]无效", entry.getKey(), entry.getValue()));
+					}
+				}
+				
+				//对列表2进行排序
+				Collections.sort(list2, new Comparator<Chunk>() {
+					@Override
+					public int compare(Chunk arg0, Chunk arg1) {
+						return (int)DataTypeUtils.compare(DataTypes.DECIMAL, arg0.getSimilarity(), arg0.getSimilarity());
+					}
+				});
+				
+				list1.addAll(list2);
+				return list1;
+			}
+			
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			ExceptionUtils.rethrowRuntimeException(ex);
+		}
+		
+		return Collections.EMPTY_LIST;
 	}
 	
 	@Override

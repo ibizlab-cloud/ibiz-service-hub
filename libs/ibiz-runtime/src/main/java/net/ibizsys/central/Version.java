@@ -970,8 +970,9 @@ public class Version {
 	public final static Integer MAJOR = 8;
 	public final static Integer MINOR = 1;
 	public final static Integer FUNC = 0;
-	public final static Integer FIX = 574;
-	public final static Integer DATE = 251112;
+	public final static Integer FIX = 578;
+	public final static Integer BUILD = 169;
+	public final static Integer DATE = 260517;
 	
 	
 	/* (non-Javadoc)
@@ -989,6 +990,15 @@ public class Version {
 	public static String toVersionString()
 	{
 		return String.format("%1$s.%2$s.%3$s.%4$s",MAJOR,MINOR,FUNC,FIX);
+	}
+	
+	/**
+	 * 输出版本字符串（携带构建号）
+	 * @return
+	 */
+	public static String toVersionStringWithBuild()
+	{
+		return String.format("%1$s.%2$s.%3$s.%4$s.%5$s",MAJOR,MINOR,FUNC,FIX,BUILD);
 	}
 
 }

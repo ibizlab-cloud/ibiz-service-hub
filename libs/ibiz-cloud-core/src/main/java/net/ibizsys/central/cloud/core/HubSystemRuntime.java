@@ -212,6 +212,12 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 		return super.createSysUtilRuntime(iPSSysUtil);
 	}
 
+	@Override
+	protected void onPrepareThreadPoolExecutors() throws Exception {
+		super.onPrepareThreadPoolExecutors();
+		
+		createSseThreadPoolExecutor();
+	}
 
 	@Override
 	protected ThreadPoolExecutor createWorkThreadPoolExecutor() {
@@ -223,6 +229,16 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 		return threadPoolExecutor;
 	}
 	
+	protected ThreadPoolExecutor createSseThreadPoolExecutor() {
+		ThreadPoolExecutor threadPoolExecutor = getGlobalSseThreadPoolExecutor();
+		if(threadPoolExecutor == null) {
+			threadPoolExecutor =  new ThreadPoolExecutor(getSseThreadCorePoolSize(), getSseThreadMaximumPoolSize(), 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(getSseThreadBlockingQueueSize()), new ThreadPoolExecutor.AbortPolicy());
+			setGlobalSseThreadPoolExecutor(threadPoolExecutor);
+		}
+		return threadPoolExecutor;
+	}
+	
+	@Override
 	protected int getWorkThreadCorePoolSize() {
 		return ServiceHub.getInstance().getWorkThreadCorePoolSize();
 	}
@@ -236,6 +252,24 @@ public class HubSystemRuntime extends ServiceSystemRuntimeBase implements IHubSy
 	protected int getWorkThreadBlockingQueueSize() {
 		return ServiceHub.getInstance().getWorkThreadBlockingQueueSize();
 	}
+	
+	@Override
+	protected int getWorkThreadBatchSize() {
+		return ServiceHub.getInstance().getWorkThreadBatchSize();
+	}
+	
+	protected int getSseThreadCorePoolSize() {
+		return ServiceHub.getInstance().getSseThreadCorePoolSize();
+	}
+
+	protected int getSseThreadMaximumPoolSize() {
+		return ServiceHub.getInstance().getSseThreadMaximumPoolSize();
+	}
+
+	protected int getSseThreadBlockingQueueSize() {
+		return ServiceHub.getInstance().getSseThreadBlockingQueueSize();
+	}
+	
 	
 	@Override
 	public IConfigListenerRepo getConfigListenerRepo() {

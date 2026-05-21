@@ -2,6 +2,7 @@ package net.ibizsys.central.plugin.es.search;
 
 import net.ibizsys.central.plugin.es.ba.IESBDSchemeRuntimeBase;
 import net.ibizsys.central.plugin.es.util.ESClientPool;
+import net.ibizsys.central.plugin.es.util.IESAction;
 import net.ibizsys.central.search.ISysSearchSchemeRuntime;
 
 /**
@@ -21,6 +22,15 @@ public interface IESSearchSchemeRuntime extends ISysSearchSchemeRuntime, IESBDSc
 	ESClientPool getESClientPool();
 	
 
+	
+	/**
+	 * 执行ES行为
+	 * @param iESAction
+	 * @param args
+	 * @return
+	 * @throws Throwable
+	 */
+	Object executeESAction(IESAction iESAction, Object[] args) throws Throwable;
 	
 //	
 //	

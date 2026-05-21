@@ -135,6 +135,18 @@ public class SysZooKeeperUtilRuntime extends SysUtilRuntimeBase implements ISysZ
 
 		return leaderLatch.hasLeadership();
 	}
+	
+	
+
+	@Override
+	public boolean hasLeadershipIf(String strTag) {
+		Assert.hasLength(strTag, "传入标记无效");
+		LeaderLatch leaderLatch = this.doAddLeaderLatch(strTag, true);
+		if (leaderLatch == null) {
+			throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("传入控制标记[%1$s]不存在", strTag));
+		}
+		return leaderLatch.hasLeadership();
+	}
 
 	@Override
 	public void addLeaderLatch(String strTag) {
@@ -149,15 +161,20 @@ public class SysZooKeeperUtilRuntime extends SysUtilRuntimeBase implements ISysZ
 	protected void addLeaderLatch(String strTag, boolean bTryMode) {
 		Assert.hasLength(strTag, "传入标记无效");
 
+		this.doAddLeaderLatch(strTag, bTryMode);
+	}
+	
+	protected LeaderLatch doAddLeaderLatch(String strTag, boolean bTryMode) {
 		synchronized (this.leaderLatchMap) {
-			if (this.leaderLatchMap.containsKey(strTag)) {
+			LeaderLatch leaderLatch = this.leaderLatchMap.get(strTag);
+			if (leaderLatch != null) {
 				if (bTryMode) {
-					return;
+					return leaderLatch;
 				}
 				throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("传入控制标记[%1$s]已经存在", strTag));
 			}
 			String strFullPath = String.format("%1$s/%2$s", this.getLeaderShipPath(), KeyValueUtils.genUniqueId(strTag));
-			LeaderLatch leaderLatch = new LeaderLatch(getCuratorFramework(), strFullPath, this.getRandomClientTag());
+			leaderLatch = new LeaderLatch(getCuratorFramework(), strFullPath, this.getRandomClientTag());
 
 			try {
 				leaderLatch.start();
@@ -165,6 +182,7 @@ public class SysZooKeeperUtilRuntime extends SysUtilRuntimeBase implements ISysZ
 			} catch (Exception ex) {
 				throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("启动控制获取发生异常，%1$s", ex.getMessage()), ex);
 			}
+			return leaderLatch;
 		}
 	}
 

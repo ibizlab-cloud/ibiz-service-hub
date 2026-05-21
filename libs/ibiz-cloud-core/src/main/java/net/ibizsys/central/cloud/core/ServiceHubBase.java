@@ -40,6 +40,7 @@ import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.PullCommand;
 import org.eclipse.jgit.api.errors.CheckoutConflictException;
+import org.eclipse.jgit.api.errors.InvalidConfigurationException;
 import org.eclipse.jgit.api.errors.WrongRepositoryStateException;
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
@@ -125,6 +126,7 @@ import net.ibizsys.model.database.IPSSysDBScheme;
 import net.ibizsys.model.res.IPSSysSFPlugin;
 import net.ibizsys.model.service.IPSSysServiceAPI;
 import net.ibizsys.runtime.ModelException;
+import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.res.SysSFPluginRuntime;
 import net.ibizsys.runtime.security.IUserContext;
 import net.ibizsys.runtime.security.UserContext;
@@ -144,6 +146,11 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(ServiceHubBase.class);
 
 	public final static String LOGCAT = "SERVICEHUB";
+	
+	static {
+		RuntimeObjectFactory.getInstance().registerObjectIf(ISystemRuntime.class, DEPLOYSYSYTEMID_GATEWAY, HubSystemRuntime.class);
+		RuntimeObjectFactory.getInstance().registerObjectIf(ISystemRuntime.class, null, ServiceSystemRuntime.class);
+	}
 
 	private IServiceHubSetting iServiceHubSetting;
 
@@ -246,7 +253,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 				log.debug(e);
 			}
 		}
-		log.info(String.format("服务网关版本[%1$s]", Version.toVersionString()));
+		log.info(String.format("服务网关版本[%1$s]", Version.toVersionStringWithBuild()));
 		log.debug(String.format("服务网关开始初始化[%1$s:%2$s]", this.strIPAddress, this.port));
 	}
 
@@ -575,6 +582,27 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 	public int getWorkThreadBlockingQueueSize() {
 		return this.getServiceHubSetting().getWorkThreadBlockingQueueSize();
 	}
+	
+	@Override
+	public int getWorkThreadBatchSize() {
+		return this.getServiceHubSetting().getWorkThreadBatchSize();
+	}
+	
+	@Override
+	public int getSseThreadCorePoolSize() {
+		return this.getServiceHubSetting().getSseThreadCorePoolSize();
+	}
+
+	@Override
+	public int getSseThreadMaximumPoolSize() {
+		return this.getServiceHubSetting().getSseThreadMaximumPoolSize();
+	}
+
+	@Override
+	public int getSseThreadBlockingQueueSize() {
+		return this.getServiceHubSetting().getSseThreadBlockingQueueSize();
+	}
+	
 
 	@Override
 	public boolean isConcurrentLoadSystemMergences() {
@@ -706,6 +734,8 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 							deploySystem.getSettings().put(String.format("sysdbscheme.%1$s.updateschema", strModelTag), DataTypeUtils.getBooleanValue(v2DeploySystemDataSource.getUpdateSchema(), true));
 							if (DataSourceLink.DEFAULT.value.equalsIgnoreCase(strModelTag)) {
 								deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, dataSource.getDataSourceId());
+								deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, dataSource.getDBType());
+								deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, dataSource.getDBRealType());
 							}
 						}
 
@@ -788,10 +818,9 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 			}
 
 			if (iSystemRuntime == null) {
-				if (DEPLOYSYSYTEMID_GATEWAY.equalsIgnoreCase(deploySystem.getDeploySystemId())) {
-					iSystemRuntime = new HubSystemRuntime();
-				} else {
-					iSystemRuntime = new ServiceSystemRuntime();
+				iSystemRuntime = createDefaultSystemRuntime(deploySystem);
+				if(iSystemRuntime == null) {
+					throw new Exception(String.format("无法建立系统[%1$s]运行时对象", deploySystem.getDeploySystemId()));
 				}
 			}
 		}
@@ -812,6 +841,23 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		this.registerSystemRuntime(deploySystem, iSystemRuntime);
 
 		return iSystemRuntime;
+	}
+	
+	protected ISystemRuntime createDefaultSystemRuntime(DeploySystem deploySystem) throws Exception {
+		ISystemRuntime iSystemRuntime = RuntimeObjectFactory.getInstance().getObject(ISystemRuntime.class, deploySystem.getDeploySystemId());
+		if(iSystemRuntime != null) {
+			return iSystemRuntime;
+		}
+
+		if (DEPLOYSYSYTEMID_GATEWAY.equalsIgnoreCase(deploySystem.getDeploySystemId())) {
+			return new HubSystemRuntime();
+		} else {
+			iSystemRuntime = RuntimeObjectFactory.getInstance().getObject(ISystemRuntime.class);
+			if(iSystemRuntime != null) {
+				return iSystemRuntime;
+			}
+			return new ServiceSystemRuntime();
+		}
 	}
 
 	protected void prepareRemotePlugin(IPSSysSFPlugin iPSSysSFPlugin) throws Exception {
@@ -1351,7 +1397,7 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 					}
 				}
 			} catch (Throwable ex) {
-				if (ex instanceof WrongRepositoryStateException || ex instanceof CheckoutConflictException) {
+				if (ex instanceof WrongRepositoryStateException || ex instanceof CheckoutConflictException || ex instanceof InvalidConfigurationException) {
 					log.error(String.format("Git仓库状态异常，%1$s。执行清除目录操作[%2$s]", ex.getMessage(), file.getCanonicalPath()));
 					FileUtils.deleteDirectory(file);
 				}
@@ -1853,11 +1899,11 @@ public abstract class ServiceHubBase extends SystemGateway implements IServiceHu
 		}
 
 		boolean bUpdateDBScheme = DataTypeUtils.getBooleanValue(deploySystem.getUpdateDBSchema(), false);
-		if (!bUpdateDBScheme) {
+		if (!bUpdateDBScheme || !this.getServiceHubSetting().isUpdateDBSchema()) {
 			log.warn(String.format("系统[%1$s]忽略发布数据库结构", deploySystem.getDeploySystemId()));
 			return;
 		}
-		if (this.getSysDBSchemeSyncAdapter() != null && bUpdateDBScheme) {
+		if (this.getSysDBSchemeSyncAdapter() != null && bUpdateDBScheme && this.getServiceHubSetting().isUpdateDBSchema()) {
 			for (IPSSysDBScheme iPSSysDBScheme : psSysDBSchemes) {
 				ISysDBSchemeRuntime iSysDBSchemeRuntime = iSystemRuntime.getSysDBSchemeRuntime(iPSSysDBScheme);
 				if (iSysDBSchemeRuntime instanceof net.ibizsys.central.cloud.core.database.ISysDBSchemeRuntime) {

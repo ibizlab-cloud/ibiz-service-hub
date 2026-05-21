@@ -26,6 +26,16 @@ public final class SystemRuntimeHolder {
     public static ISystemRuntime peek() {
         return LOOKUP_KEY_HOLDER.get().peek();
     }
+    
+    
+    public static ISystemRuntime peekMust() {
+    	ISystemRuntime iSystemRuntime = peek();
+    	if(iSystemRuntime == null) {
+    		throw new RuntimeException("当前系统运行时对象无效");
+    	}
+    	return iSystemRuntime;
+    		
+    }
 
 
     public static void push(ISystemRuntime iSystemRuntime) {

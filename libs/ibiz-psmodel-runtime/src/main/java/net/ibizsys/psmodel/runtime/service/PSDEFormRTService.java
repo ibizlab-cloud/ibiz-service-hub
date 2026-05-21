@@ -11,6 +11,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.PSModelEnums.AppViewPriority;
+import net.ibizsys.model.app.view.IPSAppView;
 import net.ibizsys.model.control.IPSControl;
 import net.ibizsys.model.control.form.IPSDEForm;
 import net.ibizsys.psmodel.core.domain.PSDEForm;
@@ -96,8 +98,36 @@ public class PSDEFormRTService extends PSModelRTServiceBase<PSDEForm, PSDEFormFi
     			}
     		}
     		
-    		psDEFormMap.put(this.getPSModelRTServiceSession().getPSModelUniqueTag(iPSDEForm), iPSDEForm);
-    		
+    		String strPSDEFormUniqueTag = this.getPSModelRTServiceSession().getPSModelUniqueTag(iPSDEForm);
+    		IPSDEForm lastPSDEForm = psDEFormMap.get(strPSDEFormUniqueTag);
+    		if(lastPSDEForm != null) {
+    			IPSAppView iPSAppView = iPSDEForm.getParentPSModelObject(IPSAppView.class, true);
+    			if(iPSAppView == null) {
+    				continue;
+    			}
+    			IPSAppView lastPSAppView = lastPSDEForm.getParentPSModelObject(IPSAppView.class, true);
+    			if(lastPSAppView == null ) {
+    				psDEFormMap.put(strPSDEFormUniqueTag, iPSDEForm);
+    				continue;
+    			}
+    			
+    			int nPriority = iPSAppView.getPriority();
+    			int nLastPriority = lastPSAppView.getPriority();
+    			if(nPriority == -1) {
+    				nPriority = AppViewPriority.LEVEL_50.value;
+    			}
+    			if(nLastPriority == -1) {
+    				nLastPriority = AppViewPriority.LEVEL_50.value;
+    			}
+    			 
+    			if(nPriority < nLastPriority) {
+    				psDEFormMap.put(strPSDEFormUniqueTag, iPSDEForm);
+    				continue;
+    			}
+    		}
+    		else {
+    			psDEFormMap.put(strPSDEFormUniqueTag, iPSDEForm);
+    		}
     	}
     	
     	psDEFormList.clear();

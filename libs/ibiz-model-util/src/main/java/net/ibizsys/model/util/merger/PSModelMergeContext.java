@@ -14,6 +14,7 @@ import net.ibizsys.model.control.IPSControl;
 import net.ibizsys.model.control.form.PSDEFDLogicImpl;
 import net.ibizsys.model.control.panel.PSPanelItemLogicImpl;
 import net.ibizsys.model.control.tree.PSDETreeImpl;
+import net.ibizsys.model.database.IPSDEFDTColumn;
 import net.ibizsys.model.dataentity.action.IPSDEActionLogic;
 import net.ibizsys.model.dataentity.dataflow.PSDEDataFlowImpl;
 import net.ibizsys.model.dataentity.datamap.IPSDEMapAction;
@@ -58,6 +59,7 @@ public class PSModelMergeContext implements IPSModelMergeContext {
 		psModelMergeTagMap.put(IPSControl.class.getSimpleName(), "name");
 		psModelMergeTagMap.put(IPSAppDEMethod.class.getSimpleName(), "methodType;codeName");
 		psModelMergeTagMap.put(IPSDEActionLogic.class.getSimpleName(), "codeName|AUTO");
+		psModelMergeTagMap.put(IPSDEFDTColumn.class.getSimpleName(), "dBType");
 		
 		
 		psModelMergeAppendOnlyMap.put(IPSAppDEUIAction.class.getSimpleName(), true);

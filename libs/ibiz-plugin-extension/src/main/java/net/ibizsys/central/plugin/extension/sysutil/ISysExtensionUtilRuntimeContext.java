@@ -25,4 +25,15 @@ public interface ISysExtensionUtilRuntimeContext extends ISysUtilRuntimeContext 
 	 * @param objData
 	 */
 	void executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData);
+	
+	
+	
+	/**
+	 * 执行扩展逻辑
+	 * @param v2SystemExtensionLogic
+	 * @param objData
+	 * @param bTimer
+	 * @return
+	 */
+	Object executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData, boolean bTimer) throws Throwable;
 }

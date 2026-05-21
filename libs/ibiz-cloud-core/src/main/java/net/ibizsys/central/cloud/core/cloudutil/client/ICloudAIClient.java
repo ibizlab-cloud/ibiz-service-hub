@@ -24,6 +24,8 @@ public interface ICloudAIClient {
 	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/asyncchatcompletion"})
 	PortalAsyncAction asyncChatCompletion(@PathVariable("type") String type, @RequestBody ChatCompletionRequest chatCompletionRequest);
 	
+	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/cancelchatcompletion/{id}"})
+	void cancelChatCompletion(@PathVariable("type") String type, @PathVariable("id") String id);
 	
 	@RequestMapping(method = {RequestMethod.POST}, value = "/ai/{type}/completion")
 	CompletionResult completion(@PathVariable("type") String type, @RequestBody CompletionRequest completionRequest);

@@ -1,10 +1,22 @@
 package net.ibizsys.model;
 
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.model.app.IPSApplication;
+import net.ibizsys.model.control.IPSControl;
+import net.ibizsys.model.control.IPSControlContainer;
+import net.ibizsys.model.dataentity.IPSDataEntity;
+import net.ibizsys.model.dataentity.action.IPSDEAction;
+import net.ibizsys.model.dataentity.defield.IPSDEField;
+import net.ibizsys.model.dataentity.der.IPSDERBase;
+import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
+import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
+import net.ibizsys.model.dataentity.print.IPSDEPrint;
+import net.ibizsys.model.dataentity.report.IPSDEReport;
+import net.ibizsys.model.service.IPSSubSysServiceAPIDE;
 import net.ibizsys.model.system.IPSSysModelGroup;
 import net.ibizsys.model.system.IPSSystemModule;
 import net.ibizsys.model.wf.IPSWFLink;
@@ -282,6 +294,61 @@ public class PSModelUtils {
 			refPSModelObject.put("id", refModelObject.getId());
 		}
 		return refPSModelObject;
+	}
+	
+	
+	public static IPSControl findPSControl(IPSControlContainer iPSControlContainer, String strControlName, boolean bTryMode) {
+		if(!ObjectUtils.isEmpty(iPSControlContainer.getPSControls())) {
+			for(IPSControl iPSControl : iPSControlContainer.getPSControls()) {
+				if(strControlName.equalsIgnoreCase(iPSControl.getName())) {
+					return iPSControl;
+				}
+			}
+			
+			for(IPSControl iPSControl : iPSControlContainer.getPSControls()) {
+				if(iPSControl instanceof IPSControlContainer) {
+					IPSControl retPSControl = findPSControl((IPSControlContainer)iPSControl, strControlName, true);
+					if(retPSControl != null) {
+						return retPSControl;
+					}
+				}
+			}
+		}
+		
+		if(bTryMode) {
+			return null;
+		}
+		
+		throw new PSModelException(iPSControlContainer, String.format("指定成员部件[%1$s]不存在", strControlName));
+	}
+	
+	
+	public static String calcDSLId(IPSModelObject iPSModelObject) {
+		if(iPSModelObject instanceof IPSDataEntity ) {
+			IPSDataEntity iPSDataEntity = (IPSDataEntity)iPSModelObject;
+			return calcDSLId(iPSDataEntity.getPSSystemModuleMust()) + "." + iPSModelObject.getName();
+		}
+			
+			
+		if(iPSModelObject instanceof IPSDEField || iPSModelObject instanceof IPSDEAction || iPSModelObject instanceof IPSDEDataSet || iPSModelObject instanceof IPSDEDataQuery || iPSModelObject instanceof IPSDEReport || iPSModelObject instanceof IPSDEPrint) {
+			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
+			return calcDSLId(iPSModelObject.getParentPSModelObject(IPSDataEntity.class)) + "." + iPSModelObject.getName();
+		}
+		
+		if(iPSModelObject instanceof IPSDERBase) {
+			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
+			IPSDERBase iPSDERBase = (IPSDERBase)iPSModelObject;
+			return calcDSLId(iPSDERBase.getMinorPSDataEntityMust()) + "." + iPSDERBase.getCodeName();
+		}
+		
+		if(iPSModelObject instanceof IPSSubSysServiceAPIDE) {
+			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
+			//IPSSubSysServiceAPIDE iPSSubSysServiceAPIDE = (IPSSubSysServiceAPIDE)iPSModelObject;
+			
+			return calcDSLId(iPSModelObject.getParentPSModelObject()) + "." + iPSModelObject.getName();
+		}
+		
+		return calcFullUniqueTag(iPSModelObject, true);
 	}
 
 }

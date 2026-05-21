@@ -271,4 +271,20 @@ public interface IEntityDTO extends IEntity,IDEMethodDTO{
 	 * @return
 	 */
 	Map<String, Object> any(boolean bJsonFormat);
+	
+	
+	/**
+	 * 直接设置值
+	 * @param strName
+	 * @param objValue
+	 */
+	void rawSet(String strName,Object objValue);
+	
+	
+	/**
+	 * 直接获取值
+	 * @param strName
+	 * @return
+	 */
+	Object rawGet(String strName);
 }

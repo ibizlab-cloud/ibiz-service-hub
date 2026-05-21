@@ -430,11 +430,14 @@ public abstract class NacosServiceHubSettingBase extends ServiceHubSettingBase {
 				
 				//判断是否存在默认数据源
 				String strDefaultDBInstTag = String.format("%1$s__default", deploySystem.getDeploySystemId());
-				if(dataSourceMap.containsKey(strDefaultDBInstTag)) {
+				DataSource dataSource = dataSourceMap.get(strDefaultDBInstTag);
+				if(dataSource!=null) {
 					if(deploySystem.getSettings()==null) {
 						deploySystem.setSettings(new HashMap<String, Object>());
 					}
 					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, strDefaultDBInstTag);
+					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, dataSource.getDBType());
+					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, dataSource.getDBRealType());
 				}
 				
 				
@@ -562,11 +565,14 @@ public abstract class NacosServiceHubSettingBase extends ServiceHubSettingBase {
 				
 				//判断是否存在默认数据源
 				String strDefaultDBInstTag = String.format("%1$s__default", deploySystem.getDeploySystemId());
-				if(dataSourceMap.containsKey(strDefaultDBInstTag)) {
+				DataSource dataSource = dataSourceMap.get(strDefaultDBInstTag);
+				if(dataSource!=null) {
 					if(deploySystem.getSettings()==null) {
 						deploySystem.setSettings(new HashMap<String, Object>());
 					}
 					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, strDefaultDBInstTag);
+					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, dataSource.getDBType());
+					deploySystem.getSettings().put(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, dataSource.getDBRealType());
 				}
 				
 				deploySystemList.add(deploySystem);

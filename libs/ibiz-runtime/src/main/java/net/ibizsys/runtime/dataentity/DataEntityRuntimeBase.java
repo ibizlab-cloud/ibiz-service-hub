@@ -1973,7 +1973,21 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		
 		return null;
 	}
+	
+	@Override
+	public String getMajorTextIf(IEntityBase iEntityBase) {
+		return this.getMajorTextIf(iEntityBase, null);
+	}
 
+	@Override
+	public String getMajorTextIf(IEntityBase iEntityBase, String defaultValue) {
+		final IPSDEField majorPSDEField = this.getMajorPSDEField();
+		if(majorPSDEField != null) {
+			return DataTypeUtils.asString(this.getFieldValue(iEntityBase, majorPSDEField), defaultValue);
+		}
+		return defaultValue;
+	}
+	
 //	@Override
 //	public boolean isEnableParentMainState() {
 //		this.prepare();
@@ -2709,6 +2723,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 
 		return false;
 	}
+	
 
 	protected boolean isGetDraftOrCreateAction(String strActionName, IPSDEAction iPSDEAction) {
 		if (iPSDEAction != null) {
@@ -4709,7 +4724,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 				}
 			}
 		}
-
+		
 		// 行为主状态控制检查
 		if (iPSDEAction != null) {
 			// 进行主状态控制
@@ -4786,6 +4801,14 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 								throw new DataEntityRuntimeException(this, Errors.getErrorInfo(Errors.DUPLICATEKEY), Errors.DUPLICATEKEY);
 							}
 						}
+					}
+				}
+			}
+			else {
+				if(!this.getKeyPSDEField().isPhisicalDEField()) {
+					Object objKeyValue = this.getFieldValue(iEntityBase, this.getKeyPSDEField());
+					if (!ObjectUtils.isEmpty(objKeyValue)) {
+						parseUnionKeyToEntity(iEntityBase, objKeyValue);
 					}
 				}
 			}
@@ -5079,6 +5102,29 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		return true;
 	}
 
+	protected void parseUnionKeyToEntity(IEntityBase iEntityBase, Object objKeyValue) throws Throwable {
+	    // 1. 获取分隔符
+	    String delimiter = this.getUnionKeyParam();
+	    if (!StringUtils.hasLength(delimiter)) {
+	        throw new DataEntityRuntimeException(this, "未定义虚拟主键分隔符");
+	    }
+
+	    // 2. 拆分键值
+	    String[] keySegments = String.valueOf(objKeyValue).split(delimiter);
+	    List<IPSDEField> keyFields = this.getUnionKeyValuePSDEFields();
+
+	    // 3. 校验数量一致性
+	    if (ObjectUtils.isEmpty(keyFields) || keyFields.size() != keySegments.length) {
+	        throw new DataEntityRuntimeException(this, "联合主键属性数量和键值段数量不一致");
+	    }
+
+	    // 4. 循环赋值
+	    for (int i = 0; i < keyFields.size(); i++) {
+	        IPSDEField iPSDEField = keyFields.get(i);
+	        this.setFieldValue(iEntityBase, iPSDEField, keySegments[i]);
+	    }
+	}
+	
 	/**
 	 * 获取运行时的数据库类型
 	 *
@@ -5856,7 +5902,14 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	}
 	
 	
-	
+	@Override
+	public void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable {
+		if (iPSDEWF == null) {
+			this.executeAction(DEActions.WFCANCEL, null, new Object[] { iEntityBase });
+		} else {
+			this.executeAction(DEActions.WFCANCEL, null, new Object[] { iEntityBase, iPSDEWF });
+		}
+	}
 
 	@Override
 	public IEntityBase clone(IEntityBase iEntityBase, boolean bResetUncopyValues) throws Throwable {

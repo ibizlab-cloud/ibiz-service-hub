@@ -12,15 +12,18 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.ISystemRuntimeContext;
+import net.ibizsys.central.ISystemRuntimeSetting;
 import net.ibizsys.central.SystemGateway;
 import net.ibizsys.central.SystemModelRuntimeBase;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.util.ISearchContext;
 import net.ibizsys.central.util.SysDBSchemeRuntimeHolder;
 import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.PSModelEnums.DBObjNameCaseMode;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.database.IPSSysDBScheme;
 import net.ibizsys.model.database.IPSSysDBTable;
+import net.ibizsys.model.database.IPSSystemDBConfig;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.runtime.util.ActionSessionManager;
@@ -79,6 +82,10 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 	
 	private IDBDialect iDBDialect = null;
 
+	private DBObjNameCaseMode dbObjNameCaseMode = DBObjNameCaseMode.DEFAULT;
+	
+	private IPSSystemDBConfig iPSSystemDBConfig = null;
+	
 	private ISysDBSchemeRuntimeContext iSysDBSchemeRuntimeContext = new ISysDBSchemeRuntimeContext() {
 
 		@Override
@@ -90,7 +97,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 
 	@Override
 	public void init(ISystemRuntimeContext iSystemRuntimeContext, IPSSysDBScheme iPSSysDBScheme) throws Exception {
-		this.setSystemRuntimeBase(iSystemRuntimeContext.getSystemRuntime());
+		this.setSystemRuntimeBaseContext(iSystemRuntimeContext);
 		this.iPSSysDBScheme = iPSSysDBScheme;
 		Assert.notNull(this.iPSSysDBScheme, "传入系统数据库体系模型对象无效");
 
@@ -114,13 +121,18 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 
 	@Override
 	protected void onInit() throws Exception {
-
+		String strDefaultDBInstType = null;
+		String strDefaultDBInstRealType = null;
 		this.setDataSourceTag(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".datasourcetag", null));
 		if (ObjectUtils.isEmpty(this.getDataSourceTag())) {
 			String strDefaultDSName = this.getPSSysDBScheme().getDBInstTag();
 			if (!StringUtils.hasLength(strDefaultDSName)) {
 				// 全局默认数据源配置
-				strDefaultDSName = this.getSystemRuntimeSetting().getParam("defaultdbinsttag", null);
+				strDefaultDSName = this.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTAG, null);
+				if (StringUtils.hasLength(strDefaultDSName)) {
+					strDefaultDBInstType = this.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTTYPE, null);
+					strDefaultDBInstRealType = this.getSystemRuntimeSetting().getParam(ISystemRuntimeSetting.PARAM_DEFAULTDBINSTREALTYPE, null);
+				}
 			}
 			if (!StringUtils.hasLength(strDefaultDSName)) {
 				strDefaultDSName = this.getDSLink();
@@ -128,15 +140,37 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 			this.setDataSourceTag(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".datasource", strDefaultDSName));
 		}
 		
-		String strDBType = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".dbtype", null);
+		String strDBType = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".dbtype", strDefaultDBInstType);
 		if (StringUtils.hasLength(strDBType)) {
 			this.setDBType(strDBType);
 			this.setDBTypeDefined(true);
 		}
 
-		String strRealDBType = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".realdbtype", null);
+		String strRealDBType = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".realdbtype", strDefaultDBInstRealType);
 		if (StringUtils.hasLength(strRealDBType)) {
 			this.setRealDBType(strRealDBType);
+		}
+		
+		//获取数据库默认的大小写转换
+		try {
+			List<IPSSystemDBConfig> psSystemDBConfigList = this.getSystemRuntime().getPSSystem().getAllPSSystemDBConfigs();
+			
+			if(!ObjectUtils.isEmpty(psSystemDBConfigList) && StringUtils.hasLength(this.getDBType())) {
+				for(IPSSystemDBConfig config : psSystemDBConfigList) {
+					if(this.getDBType().equals(config.getDBType())) {
+						this.iPSSystemDBConfig = config;
+						break;
+					}
+				}
+			}
+			
+			String strDBObjNameCaseMode = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".dbobjnamecasemode", this.iPSSystemDBConfig!=null?this.iPSSystemDBConfig.getObjNameCase():null);
+			if (StringUtils.hasLength(strDBObjNameCaseMode)) {
+				this.setDBObjNameCaseMode(DBObjNameCaseMode.from(strDBObjNameCaseMode.toUpperCase()));
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("设置关系数据库对象大小写模式发生异常，%1$s", ex.getMessage()), ex);
 		}
 
 		this.setSaaSDCIdColumnName(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".saasdccolumn", this.getSaaSDCIdColumnName()));
@@ -284,7 +318,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				}
@@ -301,7 +335,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 						sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					} else {
-						SqlParam sqlParam = SqlParam.value(objValue);
+						SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 						sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 						sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					}
@@ -357,7 +391,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					}
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					if (iSysDBColumnRuntime.isPKey()) {
 						sqlParam.setCondition(true);
@@ -385,7 +419,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 							conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 						}
 					} else {
-						SqlParam sqlParam = SqlParam.value(objValue);
+						SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 						sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 						if (iSysDBColumnRuntime.isPKey()) {
 							sqlParam.setCondition(true);
@@ -439,7 +473,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 				sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 				sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 			} else {
-				SqlParam sqlParam = SqlParam.value(objValue);
+				SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 				sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 				sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 			}
@@ -456,7 +490,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					sqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				}
@@ -501,7 +535,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				}
 			} else {
-				SqlParam sqlParam = SqlParam.value(objValue);
+				SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 				sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 				if (iSysDBColumnRuntime.isPKey()) {
 					sqlParam.setCondition(true);
@@ -529,7 +563,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					}
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					if (iSysDBColumnRuntime.isPKey()) {
 						sqlParam.setCondition(true);
@@ -586,7 +620,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 				}
 			} else {
-				SqlParam sqlParam = SqlParam.value(objValue);
+				SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 				sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 				if (iSysDBColumnRuntime.isPKey()) {
 					sqlParam.setCondition(true);
@@ -616,7 +650,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					}
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					if (iSysDBColumnRuntime.isPKey()) {
 						sqlParam.setCondition(true);
@@ -675,7 +709,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 					}
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					if (iSysDBColumnRuntime.isPKey()) {
 						sqlParam.setCondition(true);
@@ -705,7 +739,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 							conditionSqlParamMap.put(iSysDBColumnRuntime.getStandardName(), sqlParam);
 						}
 					} else {
-						SqlParam sqlParam = SqlParam.value(objValue);
+						SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 						sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 						if (iSysDBColumnRuntime.isPKey()) {
 							sqlParam.setCondition(true);
@@ -782,7 +816,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					conditionSqlParamMap.put(iSysDBColumnRuntime.getDataItemName(), sqlParam);
 				}
 			} else {
-				SqlParam sqlParam = SqlParam.value(objValue);
+				SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 				sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 				if (iSysDBColumnRuntime.isPKey()) {
 					sqlParam.setCondition(true);
@@ -818,7 +852,7 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						conditionSqlParamMap.put(iSysDBColumnRuntime.getDataItemName(), sqlParam);
 					}
 				} else {
-					SqlParam sqlParam = SqlParam.value(objValue);
+					SqlParam sqlParam = this.getSqlParam(iSysDBColumnRuntime, objValue);
 					sqlParam.setName(iSysDBColumnRuntime.getStandardName());
 					if (iSysDBColumnRuntime.isPKey()) {
 						sqlParam.setCondition(true);
@@ -1142,6 +1176,18 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 		this.strRealDBType = strRealDBType;
 	}
 	
+	
+	
+	@Override
+	public DBObjNameCaseMode getDBObjNameCaseMode() {
+		return this.dbObjNameCaseMode;
+	}
+
+	@Override
+	public void setDBObjNameCaseMode(DBObjNameCaseMode dbObjNameCaseMode) {
+		this.dbObjNameCaseMode = dbObjNameCaseMode;
+	}
+
 	@Override
 	public IDBDialect getDBDialect() {
 		if(this.iDBDialect == null) {
@@ -1151,6 +1197,27 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 			}
 		}
 		return this.iDBDialect;
+	}
+	
+	/**
+	 * 获取插入SqlParam
+	 * @param stdDataType
+	 * @param value
+	 * @return
+	 */
+	protected SqlParam getSqlParam(ISysDBColumnRuntime iSysDBColumnRuntime, Object value) {
+		Assert.notNull(iSysDBColumnRuntime, "传入数据列运行时对象无效");
+		return this.getDBDialect().getSqlParam(iSysDBColumnRuntime, value);
+	}
+	
+	/**
+	 * 获取更新SqlParam
+	 * @param stdDataType
+	 * @param value
+	 * @return
+	 */
+	protected SqlParam getSqlParam(int stdDataType, Object value) {
+		return this.getDBDialect().getSqlParam(stdDataType, value);
 	}
 
 	@Override

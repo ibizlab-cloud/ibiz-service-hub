@@ -14,6 +14,7 @@ public class PSDENotifyImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 	public final static String ATTR_GETEVENTS = "events";
 	public final static String ATTR_GETFIELDS = "fields";
 	public final static String ATTR_GETFILTERMODEL = "filterModel";
+	public final static String ATTR_GETLOGPSDATAENTITY = "getLogPSDataEntity";
 	public final static String ATTR_GETMSGTYPE = "msgType";
 	public final static String ATTR_GETNOTIFYEND = "notifyEnd";
 	public final static String ATTR_GETNOTIFYSTART = "notifyStart";
@@ -26,6 +27,7 @@ public class PSDENotifyImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 	public final static String ATTR_GETPSSYSMSGQUEUE = "getPSSysMsgQueue";
 	public final static String ATTR_GETPSSYSMSGTEMPL = "getPSSysMsgTempl";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+	public final static String ATTR_GETSTATEPSDEFIELD = "getStatePSDEField";
 	public final static String ATTR_GETTASKMODE = "taskMode";
 	public final static String ATTR_GETTHREADMODE = "threadMode";
 	public final static String ATTR_ISIGNOREEXCEPTION = "ignoreException";
@@ -134,6 +136,28 @@ public class PSDENotifyImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.IPSDataEntity logpsdataentity;
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getLogPSDataEntity(){
+		if(this.logpsdataentity != null) return this.logpsdataentity;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGPSDATAENTITY);
+		if(value == null){
+			return null;
+		}
+		this.logpsdataentity = getPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETLOGPSDATAENTITY);
+		return this.logpsdataentity;
+	}
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getLogPSDataEntityMust(){
+		net.ibizsys.model.dataentity.IPSDataEntity value = this.getLogPSDataEntity();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定日志存储实体对象");}
+		return value;
+	}
+
+	public void setLogPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity logpsdataentity){
+		this.logpsdataentity = logpsdataentity;
+	}
+
 
 	public int getMsgType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMSGTYPE);
@@ -302,6 +326,29 @@ public class PSDENotifyImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 
 	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
 		this.pssyssfplugin = pssyssfplugin;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField(){
+		if(this.statepsdefield != null) return this.statepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSTATEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
+		this.statepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.statepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getStatePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态值存储属性");}
+		return value;
+	}
+
+	public void setStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield){
+		this.statepsdefield = statepsdefield;
 	}
 
 

@@ -7,9 +7,14 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudAIClient;
 import net.ibizsys.central.cloud.core.sysutil.CloudSysUtilRuntimeBase;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
+import net.ibizsys.central.cloud.core.util.ChatResourceUtils;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
+import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
+import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 import net.ibizsys.runtime.util.IAction;
 
 /**
@@ -84,6 +89,8 @@ public abstract class SysAIUtilRuntimeBase extends CloudSysUtilRuntimeBase imple
 	}
 	
 	protected ChatCompletionResult onChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable{
+		//移除请求中备份的原始内容
+		ChatResourceUtils.clearOriginalContent(chatCompletionRequest);
 		return getCloudAIClient().chatCompletion(type, chatCompletionRequest);
 	}
 	
@@ -99,6 +106,57 @@ public abstract class SysAIUtilRuntimeBase extends CloudSysUtilRuntimeBase imple
 	}
 
 	protected PortalAsyncAction onAsyncChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable{
+		//移除请求中备份的原始内容
+		ChatResourceUtils.clearOriginalContent(chatCompletionRequest);
 		return getCloudAIClient().asyncChatCompletion(type, chatCompletionRequest);
 	}
+
+	
+	
+	@Override
+	public void cancelChatCompletion(String type, String asyncActionId) {
+		this.executeAction("取消交互补全", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				onCancelChatCompletion(StringUtils.hasLength(type)?type:getDefaultAIPlatformType(), asyncActionId);
+				return null;
+			}
+		}, null);
+	}
+
+	protected void onCancelChatCompletion(String type, String asyncActionId) throws Throwable{
+		getCloudAIClient().cancelChatCompletion(type, asyncActionId);
+	}
+	
+	
+	@Override
+	public EmbeddingResult embedding(String type, EmbeddingRequest embeddingRequest) {
+		return this.executeAction("文本嵌入值计算", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onEmbedding(StringUtils.hasLength(type)?type:getDefaultAIPlatformType(), embeddingRequest);
+			}
+		}, null, EmbeddingResult.class);
+	}
+
+	protected EmbeddingResult onEmbedding(String type, EmbeddingRequest embeddingRequest) throws Throwable{
+		return getCloudAIClient().embedding(type, embeddingRequest);
+	}
+
+	@Override
+	public TextReRankResult textReRank(String type, TextReRankRequest textReRankRequest) {
+		return this.executeAction("文本重排序", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onTextReRank(StringUtils.hasLength(type)?type:getDefaultAIPlatformType(), textReRankRequest);
+			}
+		}, null, TextReRankResult.class);
+	}
+
+	protected TextReRankResult onTextReRank(String type, TextReRankRequest textReRankRequest) throws Throwable{
+		return getCloudAIClient().textReRank(type, textReRankRequest);
+	}
+
+	
+	
 }

@@ -7,12 +7,12 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   datasource:
-    username: root
-    password: 'root'
-    url: jdbc:h2:mem:master
-    driver-class-name: org.h2.Driver
+    username: plm
+    password: 'plm@2024'
+    url: jdbc:mysql://${mysql.host:mysql}:${mysql.port:3306}/plm?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
     isSyncDBSchema: false
-    defaultSchema: IBizServiceRunner
+    defaultSchema: plm
     dynamic:
       datasource:
         master:
@@ -51,10 +51,11 @@ logging:
 
 ### 启用Gzip压缩
 server:
- compression:
-   enabled: true
-   mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
-   min-response-size: 10240
+  max-http-header-size: 100KB
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 10240
 
 
 

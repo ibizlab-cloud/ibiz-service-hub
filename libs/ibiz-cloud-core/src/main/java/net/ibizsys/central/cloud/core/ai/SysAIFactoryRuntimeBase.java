@@ -5,8 +5,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.io.FileUtils;
@@ -24,13 +26,21 @@ import net.ibizsys.central.ISystemRuntimeSetting;
 import net.ibizsys.central.SystemModelRuntimeBase;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
+import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysChatMemoryUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysChatSkillUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatResourceUtils;
 import net.ibizsys.central.cloud.core.util.IChatResourceUtils;
 import net.ibizsys.central.cloud.core.util.IConfigListener;
+import net.ibizsys.central.cloud.core.util.domain.Chunk;
+import net.ibizsys.central.cloud.core.util.domain.Document;
 import net.ibizsys.central.dataentity.service.DEMethodPluginRuntimeRepo;
 import net.ibizsys.central.res.ISysFileResourceRuntime;
 import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.res.ISysSCMResourceRuntime;
+import net.ibizsys.central.sysutil.ISysUniStateUtilRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.PSModelEnums.AIAgentDynamicMode;
@@ -43,39 +53,47 @@ import net.ibizsys.model.ai.IPSSysAIFactory;
 import net.ibizsys.model.ai.IPSSysAIPipelineAgent;
 import net.ibizsys.model.ai.IPSSysAIWorkerAgent;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
+import net.ibizsys.runtime.ISystemEventListener;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.dataentity.IDataEntityRuntimeContext;
 import net.ibizsys.runtime.dataentity.action.IDEActionPluginRuntime;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.DateUtils;
 import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
 
 public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase implements ISysAIFactoryRuntime {
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(SysAIFactoryRuntimeBase.class);
-	
+
+	public final static String AIFACTORY_MEMORYMAINTENANCETASK = "AIFACTORY_MEMORYMAINTENANCETASK";
+
+	public final static String AIFACTORY_PUBLISHSKILLSTASK = "AIFACTORY_PUBLISHSKILLSTASK";
+
+
 	/**
 	 * 模板上下文参数：上下文对象
 	 */
 	public final static String TEMPLATE_PARAM_CTX = "ctx";
-	
+
 	/**
 	 * 模板上下文参数：实体运行时对象
 	 */
 	public final static String TEMPLATE_PARAM_DE = "de";
-	
+
 	/**
 	 * 模板上下文参数：系统运行时对象
 	 */
 	public final static String TEMPLATE_PARAM_SYS = "sys";
-	
+
 	/**
 	 * 模板上下文参数：当前工厂对象
 	 */
 	public final static String TEMPLATE_PARAM_FACTORY = "factory";
-	
+
 
 	private IPSSysAIFactory iPSSysAIFactory = null;
 
@@ -99,14 +117,22 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 	private Map<String, ISysAIChatAgentRuntime> sysAIChatAgentRuntimeMap = new ConcurrentHashMap<String, ISysAIChatAgentRuntime>();
 	
+	private Map<String, ISysAIChatAgentRuntime> realSysAIChatAgentRuntimeMap = new ConcurrentHashMap<String, ISysAIChatAgentRuntime>();
+
 	private Map<String, ISysAIWorkerAgentRuntime> sysAIWorkerAgentRuntimeMap = new ConcurrentHashMap<String, ISysAIWorkerAgentRuntime>();
-	
+
 	private Map<String, ISysAIPipelineAgentRuntime> sysAIPipelineAgentRuntimeMap = new ConcurrentHashMap<String, ISysAIPipelineAgentRuntime>();
 	
 	private Map<String, ISysAIChatResource> sysAIChatResourceMap = new ConcurrentHashMap<String, ISysAIChatResource>();
 	
-	private IChatResourceUtils iChatResourceUtils = null; 
+	private Map<String, ISysAIChatSkill> sysAIChatSkillMap = new ConcurrentHashMap<String, ISysAIChatSkill>();
 	
+	private Map<String, ISysAIChatAgentGroup> sysAIChatAgentGroupMap = new ConcurrentHashMap<String, ISysAIChatAgentGroup>();
+	
+	private List<ISysAIChatSkill> sysAIChatSkillList = null;
+
+	private IChatResourceUtils iChatResourceUtils = null;
+
 	private AIFactoryRTScriptBase aiFactoryRTScriptBase = null;
 
 	private ISysFileResourceRuntime configSysFileResourceRuntime = null;
@@ -119,81 +145,49 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	private boolean bInstalled = false;
 
 	private int nHistoryCount = -1;
+
+	private String strAIPlatformType = ISysAIUtilRuntime.AIPLATFORM_DEFAULT;
 	
-	private String strAIPlatformType = null;
-	
+	private String strKBPlatformType = ISysKBUtilRuntime.KBPLATFORM_DISABLED;
+
 	private DEMethodPluginRuntimeRepo deMethodPluginRuntimeRepo = new DEMethodPluginRuntimeRepo();
 
-	private ISysAIFactoryRuntimeContext iSysAIFactoryRuntimeContext = new ISysAIFactoryRuntimeContext() {
+	private boolean bRunMemoryMaintenanceTimer = false;
 
-		@Override
-		public ISysAIFactoryRuntime getModelRuntime() {
-			return getSelf();
-		}
+	private ISysUniStateUtilRuntime iSysUniStateUtilRuntime = null;
 
-		@Override
-		public String getConfigContent(Object data, String strConfigId, boolean bTryMode) throws Throwable {
-			return getSelf().getConfigContent(data, strConfigId, bTryMode);
-		}
-
-		@Override
-		public String getParam(String strKey, String strDefault) {
-			return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, strDefault);
-		}
-
-		@Override
-		public int getParam(String strKey, int nDefault) {
-			return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, nDefault);
-		}
-
-		@Override
-		public long getParam(String strKey, long nDefault) {
-			return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, nDefault);
-		}
-
-		@Override
-		public double getParam(String strKey, double fDefault) {
-			return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, fDefault);
-		}
-
-		@Override
-		public boolean getParam(String strKey, boolean bDefault) {
-			return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, bDefault);
-		}
-
-		@Override
-		public Map<String, Object> getParams(String strPKey, Map<String, Object> params) {
-			return getSystemRuntimeSetting().getParams(getConfigFolder() + strPKey, params);
-		}
-
-		@Override
-		public int getHistoryCount() {
-			return SysAIFactoryRuntimeBase.this.getHistoryCount();
-		}
-
-		@Override
-		public String getAIPlatformType() {
-			return SysAIFactoryRuntimeBase.this.getAIPlatformType();
-		}
-		
-		@Override
-		public ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) {
-			return SysAIFactoryRuntimeBase.this.createSysAIChatAgentRuntime(iPSSysAIChatAgent);
-		}
-
-	};
+	private String strSkillsDocId = null;
 	
+	private File workspace = null;
+	
+	
+	
+	private int nChatResourceMaxTokens = 15000;
+	
+	private int nResidentMemoryMaxTokens = 1000;
+	
+	private int nDailyMemoryMaxTokens = 2000;
+	
+	private int nRegularMemoryMaxTokens = 10000;
+	
+	private ISysChatMemoryUtilRuntime iSysChatMemoryUtilRuntime = null;
+	
+	private ISysChatSkillUtilRuntime iSysChatSkillUtilRuntime = null;
+	
+	private ISysAIFactoryRuntimeContext iSysAIFactoryRuntimeContext = null;
+
+	private boolean enableCloudReload = false;
 
 	/**
 	 * 获取AI工厂的配置目录
-	 * 
+	 *
 	 * @param iPSSysAIFactory
 	 * @return
 	 */
 	public static String getConfigFolder(IPSSysAIFactory iPSSysAIFactory) {
 		return ISystemRuntimeSetting.CONFIGFOLDER_SYSAIFACTORY + "." + PSModelUtils.calcUniqueTag(iPSSysAIFactory.getPSSystemModule(), iPSSysAIFactory.getCodeName());
 	}
-	
+
 
 	@Override
 	public void init(ISystemRuntimeContext iSystemRuntimeContext, IPSSysAIFactory iPSSysAIFactory) throws Exception {
@@ -205,6 +199,17 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 		this.setConfigFolder(getConfigFolder(iPSSysAIFactory));
 
+		this.strSkillsDocId = KeyValueUtils.genUniqueId(iSystemRuntimeContext.getSystemRuntime().getDeploySystemId(), this.getConfigFolder(), "SKILLS");
+
+		this.workspace = new File(new StringBuilder(this.getSystemRuntime().getFileFolder())
+				.append(File.separator)
+				.append(this.getConfigFolder()).toString().toLowerCase());
+		if(!this.workspace.exists()) {
+			this.workspace.mkdirs();
+		}
+	
+		getSysAIFactoryRuntimeContext();
+		prepareDefaultSetting();
 		this.onInit();
 	}
 
@@ -219,22 +224,74 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				}
 				return super.getResource(type, subType, key, params, testPriv);
 			}
-			
+
 			@Override
 			protected String getTemplateContent(String resourcePath, String defaultValue) throws Exception {
 				String content = getChatResourceTemplateContent(resourcePath);
 				if(StringUtils.hasLength(content)) {
 					return content;
-				}				
+				}
 				return super.getTemplateContent(resourcePath, defaultValue);
+			}
+			
+			protected int getMaxConvertTokens() {
+				return getChatResourceMaxTokens();
 			}
 		} ;
 		
-		this.setAIPlatformType(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".aiplatformtype", this.getAIPlatformType()));
+		this.deMethodPluginRuntimeRepo.init(this.getSystemRuntime(), true);
+		this.prepareSysUniStateUtilRuntime();
+		super.onInit();
+
+		ISysUniStateUtilRuntime iSysUniStateUtilRuntime = this.tryGetSysUniStateUtilRuntime();
+		if(iSysUniStateUtilRuntime!=null) {
+			String strTag = KeyValueUtils.genUniqueId(this.getSystemRuntime().getDeploySystemId(), AIFACTORY_PUBLISHSKILLSTASK, this.getFullUniqueTag());
+			iSysUniStateUtilRuntime.addLeaderLatchIf(strTag);
+		}
 		
+		//注册系统加载
+		this.getSystemRuntime().registerSystemLoadEventListener(new ISystemEventListener() {
+			@Override
+			public void receiveEvent(String event, Object[] params) {
+				try {
+					onReload(true);
+				}
+				catch (Throwable ex) {
+					log.error(String.format("AI工厂加载发生异常，%1$s", ex.getMessage()), ex);
+				}
+			}
+		});
+	}
+	
+	/**
+	 * 准备默认设置
+	 * @throws Exception
+	 */
+	protected void prepareDefaultSetting() throws Exception{
+		this.onPrepareDefaultSetting();
+		this.prepareServiceClientSetting();
+	}
+	
+	protected void onPrepareDefaultSetting() throws Exception{
+		this.setAIPlatformType(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".aiplatformtype", this.getAIPlatformType()));
+		this.setKBPlatformType(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".kbplatformtype", this.getKBPlatformType()));
+
 		this.setHistoryCount(JsonUtils.getField(this.getPSSysAIFactory().getAIFactoryParams(), "historycount", this.getHistoryCount()));
 		this.setHistoryCount(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".historycount", this.getHistoryCount()));
+
+		this.setChatResourceMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".chatresource.maxtokens", this.getChatResourceMaxTokens()));
+		this.setChatResourceMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".chatresource.maxtokens", this.getChatResourceMaxTokens()));
 		
+		this.setResidentMemoryMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".memory.resident.maxtokens", this.getResidentMemoryMaxTokens()));
+		this.setDailyMemoryMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".memory.daily.maxtokens", this.getDailyMemoryMaxTokens()));
+		this.setRegularMemoryMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".memory.regular.maxtokens", this.getRegularMemoryMaxTokens()));
+	}
+	
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	protected void prepareServiceClientSetting() throws Exception{
 		this.setServiceUrl(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceurl", this.getPSSysAIFactory().getServicePath()));
 
 		this.setAuthMode(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".authmode", this.getPSSysAIFactory().getAuthMode()));
@@ -246,12 +303,33 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 		this.setServiceParam(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceparam", this.getPSSysAIFactory().getServiceParam()));
 		this.setServiceParam2(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".serviceparam2", this.getPSSysAIFactory().getServiceParam2()));
-		
-		
-		
+	}
 
-		this.deMethodPluginRuntimeRepo.init(this.getSystemRuntime(), true);
-		super.onInit();
+	protected ISysUniStateUtilRuntime getSysUniStateUtilRuntime() throws Exception {
+		return getSysUniStateUtilRuntime(false);
+	}
+
+	protected ISysUniStateUtilRuntime tryGetSysUniStateUtilRuntime() {
+		try {
+			return getSysUniStateUtilRuntime(true);
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+	protected ISysUniStateUtilRuntime getSysUniStateUtilRuntime(boolean bTryMode) throws Exception {
+		if (this.iSysUniStateUtilRuntime != null || bTryMode) {
+			return this.iSysUniStateUtilRuntime;
+		}
+		throw new Exception("未指定系统统一状态功能组件");
+	}
+
+	protected void setSysUniStateUtilRuntime(ISysUniStateUtilRuntime iSysUniStateUtilRuntime) {
+		this.iSysUniStateUtilRuntime = iSysUniStateUtilRuntime;
+	}
+
+	protected void prepareSysUniStateUtilRuntime() {
+		this.setSysUniStateUtilRuntime(this.getSystemRuntime().getSysUtilRuntime(ISysUniStateUtilRuntime.class, true));
 	}
 
 	protected DEMethodPluginRuntimeRepo getDEMethodPluginRuntimeRepo() {
@@ -272,81 +350,212 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	}
 
 	protected ISysAIFactoryRuntimeContext getSysAIFactoryRuntimeContext() {
+		if(this.iSysAIFactoryRuntimeContext == null) {
+			this.iSysAIFactoryRuntimeContext = this.createSysAIFactoryRuntimeContext();
+		}
 		return this.iSysAIFactoryRuntimeContext;
+	}
+	
+	protected ISysAIFactoryRuntimeContext createSysAIFactoryRuntimeContext() {
+		return new ISysAIFactoryRuntimeContext() {
+
+			@Override
+			public ISysAIFactoryRuntime getModelRuntime() {
+				return getSelf();
+			}
+
+			@Override
+			public String getConfigContent(Object data, String strConfigId, boolean bTryMode) throws Throwable {
+				return getSelf().getConfigContent(data, strConfigId, bTryMode);
+			}
+
+			@Override
+			public String getParam(String strKey, String strDefault) {
+				return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, strDefault);
+			}
+
+			@Override
+			public int getParam(String strKey, int nDefault) {
+				return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, nDefault);
+			}
+
+			@Override
+			public long getParam(String strKey, long nDefault) {
+				return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, nDefault);
+			}
+
+			@Override
+			public double getParam(String strKey, double fDefault) {
+				return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, fDefault);
+			}
+
+			@Override
+			public boolean getParam(String strKey, boolean bDefault) {
+				return getSystemRuntimeSetting().getParam(getConfigFolder() + strKey, bDefault);
+			}
+
+			@Override
+			public Map<String, Object> getParams(String strPKey, Map<String, Object> params) {
+				return getSystemRuntimeSetting().getParams(getConfigFolder() + strPKey, params);
+			}
+
+			@Override
+			public int getHistoryCount() {
+				return SysAIFactoryRuntimeBase.this.getHistoryCount();
+			}
+
+			@Override
+			public String getAIPlatformType() {
+				return SysAIFactoryRuntimeBase.this.getAIPlatformType();
+			}
+
+			
+			
+			@Override
+			public String getKBPlatformType() {
+				return SysAIFactoryRuntimeBase.this.getKBPlatformType();
+			}
+
+			@Override
+			public ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) throws Exception {
+				return SysAIFactoryRuntimeBase.this.createSysAIChatAgentRuntime(iPSSysAIChatAgent);
+			}
+
+			@Override
+			public File getWorkspace() {
+				return getSelf().getWorkspace();
+			}
+			
+			@Override
+			public ISysAIChatAgentGroup getAIChatAgentGroup(String groupTag) throws Exception {
+				return SysAIFactoryRuntimeBase.this.getAIChatAgentGroupIf(groupTag);
+			}
+
+			@Override
+			public IAIChatMemoryUtil getAIChatMemoryUtil(boolean tryMode) throws Exception {
+				return SysAIFactoryRuntimeBase.this.getAIChatMemoryUtil(tryMode);
+			}
+
+			@Override
+			public IAIChatSkillUtil getAIChatSkillUtil(boolean tryMode) throws Exception {
+				return SysAIFactoryRuntimeBase.this.getAIChatSkillUtil(tryMode);
+			}
+
+			@Override
+			public int getChatResourceMaxTokens() {
+				return SysAIFactoryRuntimeBase.this.getChatResourceMaxTokens();
+			}
+
+			@Override
+			public int getRegularMemoryMaxTokens() {
+				return SysAIFactoryRuntimeBase.this.getRegularMemoryMaxTokens();
+			}
+
+			@Override
+			public int getResidentMemoryMaxTokens() {
+				return SysAIFactoryRuntimeBase.this.getResidentMemoryMaxTokens();
+			}
+
+			@Override
+			public int getDailyMemoryMaxTokens() {
+				return SysAIFactoryRuntimeBase.this.getDailyMemoryMaxTokens();
+			}
+			
+			
+		};
 	}
 
 	private SysAIFactoryRuntimeBase getSelf() {
 		return this;
 	}
 
-	protected ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) {
-		if (iPSSysAIChatAgent.getPSSysSFPlugin() != null) {
-			return this.getSystemRuntime().getRuntimeObject(iPSSysAIChatAgent.getPSSysSFPlugin(), ISysAIChatAgentRuntime.class, true);
-		}
-		return createDefaultSysAIChatAgentRuntime(iPSSysAIChatAgent);
+	protected String getSkillsDocId() {
+		return this.strSkillsDocId;
 	}
 
-	protected ISysAIChatAgentRuntime createDefaultSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) {
-
+	protected ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) throws Exception {
 		if(iPSSysAIChatAgent.getDynamicMode() == AIAgentDynamicMode.DEDATASET.value) {
 			return new DynaDEDataSetSysAIChatAgentRuntime();
 		}
-		
+		if (iPSSysAIChatAgent.getPSSysSFPlugin() != null) {
+			return this.getSystemRuntime().getRuntimeObject(iPSSysAIChatAgent.getPSSysSFPlugin(), ISysAIChatAgentRuntime.class, true);
+		}
+
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =	this.getSystemRuntime().getRuntimeObject(ISysAIChatAgentRuntime.class, iPSSysAIChatAgent.getAgentType());
+		if(iSysAIChatAgentRuntime != null) {
+			return iSysAIChatAgentRuntime;
+		}
+
+		return createDefaultSysAIChatAgentRuntime(iPSSysAIChatAgent);
+	}
+
+	protected ISysAIChatAgentRuntime createDefaultSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) throws Exception{
 		AIChatAgentType aiChatAgentType = AIChatAgentType.from(iPSSysAIChatAgent.getAgentType());
 
 		switch (aiChatAgentType) {
-		case DEFAULT:
-			return new DefaultSysAIChatAgentRuntime();
-		case DE:
-			return new DESysAIChatAgentRuntime();
-		default:
-			return new DefaultSysAIChatAgentRuntime();
+			case DEFAULT:
+				return new DefaultSysAIChatAgentRuntime();
+			case DE:
+				return new DESysAIChatAgentRuntime();
+			default:
+				return new DefaultSysAIChatAgentRuntime();
 		}
 	}
 
-	protected ISysAIWorkerAgentRuntime createSysAIWorkerAgentRuntime(IPSSysAIWorkerAgent iPSSysAIWorkerAgent) {
+	protected ISysAIWorkerAgentRuntime createSysAIWorkerAgentRuntime(IPSSysAIWorkerAgent iPSSysAIWorkerAgent) throws Exception{
 		if (iPSSysAIWorkerAgent.getPSSysSFPlugin() != null) {
 			return this.getSystemRuntime().getRuntimeObject(iPSSysAIWorkerAgent.getPSSysSFPlugin(), ISysAIWorkerAgentRuntime.class, true);
 		}
 		return createDefaultSysAIWorkerAgentRuntime(iPSSysAIWorkerAgent);
 	}
 
-	protected ISysAIWorkerAgentRuntime createDefaultSysAIWorkerAgentRuntime(IPSSysAIWorkerAgent iPSSysAIWorkerAgent) {
+	protected ISysAIWorkerAgentRuntime createDefaultSysAIWorkerAgentRuntime(IPSSysAIWorkerAgent iPSSysAIWorkerAgent)  throws Exception{
 
 		AIWorkerAgentType aiWorkerAgentType = AIWorkerAgentType.from(iPSSysAIWorkerAgent.getAgentType());
 
 		switch (aiWorkerAgentType) {
-		case DEFAULT:
-			return new DefaultSysAIWorkerAgentRuntime();
-		default:
-			return new DefaultSysAIWorkerAgentRuntime();
+			case DEFAULT:
+				return new DefaultSysAIWorkerAgentRuntime();
+			default:
+				return new DefaultSysAIWorkerAgentRuntime();
 		}
 	}
-	
-	protected ISysAIPipelineAgentRuntime createSysAIPipelineAgentRuntime(IPSSysAIPipelineAgent iPSSysAIPipelineAgent) {
+
+	protected ISysAIPipelineAgentRuntime createSysAIPipelineAgentRuntime(IPSSysAIPipelineAgent iPSSysAIPipelineAgent) throws Exception{
 		if (iPSSysAIPipelineAgent.getPSSysSFPlugin() != null) {
 			return this.getSystemRuntime().getRuntimeObject(iPSSysAIPipelineAgent.getPSSysSFPlugin(), ISysAIPipelineAgentRuntime.class, true);
 		}
 		return createDefaultSysAIPipelineAgentRuntime(iPSSysAIPipelineAgent);
 	}
 
-	protected ISysAIPipelineAgentRuntime createDefaultSysAIPipelineAgentRuntime(IPSSysAIPipelineAgent iPSSysAIPipelineAgent) {
+	protected ISysAIPipelineAgentRuntime createDefaultSysAIPipelineAgentRuntime(IPSSysAIPipelineAgent iPSSysAIPipelineAgent) throws Exception {
 
 		AIPipelineAgentType aiPipelineAgentType = AIPipelineAgentType.from(iPSSysAIPipelineAgent.getAgentType());
 
 		switch (aiPipelineAgentType) {
-		case DEFAULT:
-			return new DefaultSysAIPipelineAgentRuntime();
-		default:
-			return new DefaultSysAIPipelineAgentRuntime();
+			case DEFAULT:
+				return new DefaultSysAIPipelineAgentRuntime();
+			default:
+				return new DefaultSysAIPipelineAgentRuntime();
 		}
 	}
-	
-	protected ISysAIChatResource createSysAIChatResource(String resourceType) {
+
+	protected ISysAIChatResource createSysAIChatResource(String resourceType) throws Exception {
 		return new DefaultSysAIChatResource();
+	}
+
+	protected ISysAIChatSkill createSysAIChatSkill(Object skillData) throws Exception{
+		if(skillData instanceof File)
+			return new DefaultSysAIChatSkill();
+		throw new Exception(String.format("无法识别的技能数据类型[%1$s]", skillData.getClass()));
+	}
+	
+	protected ISysAIChatAgentGroup createSysAIChatAgentGroup(Object agentGroupData) throws Exception{
+		return new DefaultSysAIChatAgentGroup();
 	}
 	
 	
+
 	@Override
 	public IPSSysAIFactory getPSSysAIFactory() {
 		return this.iPSSysAIFactory;
@@ -365,19 +574,27 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	public String getAIPlatformType() {
 		return this.strAIPlatformType;
 	}
-	
+
 	protected void setAIPlatformType(String strAIPlatformType) {
 		this.strAIPlatformType = strAIPlatformType;
 	}
 	
+	public String getKBPlatformType() {
+		return this.strKBPlatformType;
+	}
+	
+	protected void setKBPlatformType(String strKBPlatformType) {
+		this.strKBPlatformType = strKBPlatformType;
+	}
+
 	public int getHistoryCount() {
 		return this.nHistoryCount;
 	}
-	
+
 	protected void setHistoryCount(int nHistoryCount) {
 		this.nHistoryCount = nHistoryCount;
 	}
-	
+
 	@Override
 	public String getServiceUrl() {
 		return this.strServiceUrl;
@@ -449,12 +666,47 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	protected void setAuthParam2(String strAuthParam2) {
 		this.strAuthParam2 = strAuthParam2;
 	}
+	
+	
 
+	protected int getChatResourceMaxTokens() {
+		return this.nChatResourceMaxTokens;
+	}
+	
+	protected void setChatResourceMaxTokens(int nChatResourceMaxTokens) {
+		this.nChatResourceMaxTokens = nChatResourceMaxTokens;
+	}
+	
+	protected int getRegularMemoryMaxTokens() {
+		return this.nRegularMemoryMaxTokens;
+	}
+	
+	protected void setRegularMemoryMaxTokens(int nRegularMemoryMaxTokens) {
+		this.nRegularMemoryMaxTokens = nRegularMemoryMaxTokens;
+	}
+	
+	protected int getResidentMemoryMaxTokens() {
+		return this.nResidentMemoryMaxTokens;
+	}
+	
+	protected void setResidentMemoryMaxTokens(int nResidentMemoryMaxTokens) {
+		this.nResidentMemoryMaxTokens = nResidentMemoryMaxTokens;
+	}
+	
+	protected int getDailyMemoryMaxTokens() {
+		return this.nDailyMemoryMaxTokens;
+	}
+	
+	protected void setDailyMemoryMaxTokens(int nDailyMemoryMaxTokens) {
+		this.nDailyMemoryMaxTokens = nDailyMemoryMaxTokens;
+	}
+	
+	
 	@Override
 	public IPSModelObject getPSModelObject() {
 		return this.getPSSysAIFactory();
 	}
-	
+
 	@Override
 	public IServiceSystemRuntime getSystemRuntime() {
 		return (IServiceSystemRuntime)super.getSystemRuntime();
@@ -553,67 +805,22 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	protected void onInstall() throws Exception {
 
 		prepareConfig();
-
-		java.util.List<IPSSysAIChatAgent> psSysAIChatAgentList = this.getPSSysAIFactory().getAllPSSysAIChatAgents();
-		if (!ObjectUtils.isEmpty(psSysAIChatAgentList)) {
-			for (IPSSysAIChatAgent iPSSysAIChatAgent : psSysAIChatAgentList) {
-
-				if (!StringUtils.hasLength(iPSSysAIChatAgent.getCodeName())) {
-					log.warn(String.format("初始化AI交谈代理[%1$s]未指定代码标识，忽略加载", iPSSysAIChatAgent.getName()));
-					continue;
-				}
-
-				ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.createSysAIChatAgentRuntime(iPSSysAIChatAgent);
-				try {
-					iSysAIChatAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIChatAgent);
-					sysAIChatAgentRuntimeMap.put(iPSSysAIChatAgent.getCodeName().toUpperCase(), iSysAIChatAgentRuntime);
-				} catch (Exception ex) {
-					throw new Exception(String.format("初始化AI交谈代理[%1$s]运行时发生异常，%2$s", iPSSysAIChatAgent.getName(), ex.getMessage()), ex);
-				}
-			}
+		
+		if(this.getSysChatMemoryUtilRuntime(true) == null) {
+			this.prepareSysChatMemoryUtilRuntime();
 		}
 		
-		java.util.List<IPSSysAIWorkerAgent> psSysAIWorkerAgentList = this.getPSSysAIFactory().getAllPSSysAIWorkerAgents();
-		if (!ObjectUtils.isEmpty(psSysAIWorkerAgentList)) {
-			for (IPSSysAIWorkerAgent iPSSysAIWorkerAgent : psSysAIWorkerAgentList) {
-
-				if (!StringUtils.hasLength(iPSSysAIWorkerAgent.getCodeName())) {
-					log.warn(String.format("初始化AI工作者代理[%1$s]未指定代码标识，忽略加载", iPSSysAIWorkerAgent.getName()));
-					continue;
-				}
-
-				ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime = this.createSysAIWorkerAgentRuntime(iPSSysAIWorkerAgent);
-				try {
-					iSysAIWorkerAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIWorkerAgent);
-					sysAIWorkerAgentRuntimeMap.put(iPSSysAIWorkerAgent.getCodeName().toUpperCase(), iSysAIWorkerAgentRuntime);
-				} catch (Exception ex) {
-					throw new Exception(String.format("初始化AI工作者代理[%1$s]运行时发生异常，%2$s", iPSSysAIWorkerAgent.getName(), ex.getMessage()), ex);
-				}
-			}
+		if(this.getSysChatSkillUtilRuntime(true) == null) {
+			this.prepareSysChatSkillUtilRuntime();
 		}
 		
-		java.util.List<IPSSysAIPipelineAgent> psSysAIPipelineAgentList = this.getPSSysAIFactory().getAllPSSysAIPipelineAgents();
-		if (!ObjectUtils.isEmpty(psSysAIPipelineAgentList)) {
-			for (IPSSysAIPipelineAgent iPSSysAIPipelineAgent : psSysAIPipelineAgentList) {
-
-				if (!StringUtils.hasLength(iPSSysAIPipelineAgent.getCodeName())) {
-					log.warn(String.format("初始化AI生产线代理[%1$s]未指定代码标识，忽略加载", iPSSysAIPipelineAgent.getName()));
-					continue;
-				}
-
-				ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime = this.createSysAIPipelineAgentRuntime(iPSSysAIPipelineAgent);
-				try {
-					iSysAIPipelineAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIPipelineAgent);
-					sysAIPipelineAgentRuntimeMap.put(iPSSysAIPipelineAgent.getCodeName().toUpperCase(), iSysAIPipelineAgentRuntime);
-				} catch (Exception ex) {
-					throw new Exception(String.format("初始化AI生产线代理[%1$s]运行时发生异常，%2$s", iPSSysAIPipelineAgent.getName(), ex.getMessage()), ex);
-				}
-			}
-		}
 
 		this.onRegisterDEMethodPluginRuntimes();
 
 		listenReloadSignal();
+
+		this.bRunMemoryMaintenanceTimer = true;
+		runMemoryMaintenanceTimer();
 	}
 
 	protected void onRegisterDEMethodPluginRuntimes() throws Exception {
@@ -625,11 +832,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				if(iPSSysAIWorkerAgent.getPSDataEntity() == null) {
 					continue;
 				}
-				
+
 				if(ObjectUtils.isEmpty(iPSSysAIWorkerAgent.getAgentTag2())) {
 					continue;
 				}
-				
+
 				String[] actions = iPSSysAIWorkerAgent.getAgentTag2().split("[;]");
 				for(String strAction : actions) {
 					this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSSysAIWorkerAgent.getPSDataEntity().getName(), strAction, new IDEActionPluginRuntime() {
@@ -641,7 +848,7 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				}
 			}
 		}
-		
+
 		//循环生产线代理，如指定实体及标记，则尝试接管行为
 		java.util.List<IPSSysAIPipelineAgent> psSysAIPipelineAgents = this.getPSSysAIFactory().getAllPSSysAIPipelineAgents();
 		if(!ObjectUtils.isEmpty(psSysAIPipelineAgents)) {
@@ -649,11 +856,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				if(iPSSysAIPipelineAgent.getPSDataEntity() == null) {
 					continue;
 				}
-				
+
 				if(ObjectUtils.isEmpty(iPSSysAIPipelineAgent.getAgentTag2())) {
 					continue;
 				}
-				
+
 				String[] actions = iPSSysAIPipelineAgent.getAgentTag2().split("[;]");
 				for(String strAction : actions) {
 					this.getDEMethodPluginRuntimeRepo().registerDEActionPluginRuntimeIf(iPSSysAIPipelineAgent.getPSDataEntity().getName(), strAction, new IDEActionPluginRuntime() {
@@ -666,14 +873,14 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			}
 		}
 	}
-	
-	
+
+
 	protected Object doAIWorkerAgentExecute(IPSSysAIWorkerAgent iPSSysAIWorkerAgent, IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
 		//获取指定数据
 		if(args == null || args.length == 0) {
 			throw new Exception("传入参数无效");
 		}
-		
+
 		Object key = null;
 		if(args[0] instanceof IEntityDTO) {
 			key = iDataEntityRuntimeContext.getDataEntityRuntime().getKeyFieldValue((IEntityDTO)args[0]);
@@ -681,25 +888,25 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		else {
 			key = DataTypeUtils.asSimple(args[0]);
 		}
-		
+
 		if(ObjectUtils.isEmpty(key)) {
 			throw new Exception("传入参数未携带键值");
 		}
-		
+
 		//获取工作者代理对象
 		ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime = this.getSysAIWorkerAgentRuntime(iPSSysAIWorkerAgent);
 		//获取数据
 		IEntityDTO data = (IEntityDTO)iDataEntityRuntimeContext.getDataEntityRuntime().get(key);
 		return iSysAIWorkerAgentRuntime.executeAction(iPSDEAction.getName(), new Object[] { data });
 	}
-	
-	
+
+
 	protected Object doAIPipelineAgentExecute(IPSSysAIPipelineAgent iPSSysAIPipelineAgent, IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
 		//获取指定数据
 		if(args == null || args.length == 0) {
 			throw new Exception("传入参数无效");
 		}
-		
+
 		Object key = null;
 		if(args[0] instanceof IEntityDTO) {
 			key = iDataEntityRuntimeContext.getDataEntityRuntime().getKeyFieldValue((IEntityDTO)args[0]);
@@ -707,36 +914,51 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		else {
 			key = DataTypeUtils.asSimple(args[0]);
 		}
-		
+
 		if(ObjectUtils.isEmpty(key)) {
 			throw new Exception("传入参数未携带键值");
 		}
-		
+
 		//获取生产线代理对象
 		ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime = this.getSysAIPipelineAgentRuntime(iPSSysAIPipelineAgent);
 		//获取数据
 		IEntityDTO data = (IEntityDTO)iDataEntityRuntimeContext.getDataEntityRuntime().get(key);
 		return iSysAIPipelineAgentRuntime.executeAction(iPSDEAction.getName(), new Object[] { data });
 	}
-	
 
-	
+
+	protected String getReloadSignalId() {
+		return String.format("%1$s%2$s-%3$s", NacosServiceHubSettingBase.DATAID_RELOADSIGNAL_PREFIX, this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-")).toLowerCase();
+	}
+
+
 	protected void listenReloadSignal() throws Exception {
 		if (!(this.getSystemRuntime() instanceof IServiceSystemRuntime)) {
 			return;
 		}
 
-		String strReloadSignalId = String.format("%1$s%2$s-%3$s", NacosServiceHubSettingBase.DATAID_RELOADSIGNAL_PREFIX, this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-")).toLowerCase();
+		String strReloadSignalId = getReloadSignalId();
 		log.debug(String.format("AI工厂[%1$s]监控重载配置[%2$s]", this.getName(), strReloadSignalId));
 		((IServiceSystemRuntime) this.getSystemRuntime()).getConfigListenerRepo().addConfigListener(strReloadSignalId, new IConfigListener() {
 			@Override
 			public void receiveConfigInfo(String configInfo) {
 				log.debug(String.format("%1$s接收到重载信号", getConfigFolder()));
-				reload();
+				getSystemRuntime().threadRun(new Runnable() {
+					@Override
+					public void run() {
+						localReload();
+					}
+				});
+
 			}
 		});
+		this.enableCloudReload = true;
 	}
 
+	protected boolean isEnableCloudReload() {
+		return this.enableCloudReload;
+	}
+	
 	@Override
 	public boolean isInstalled() {
 		return this.bInstalled;
@@ -754,6 +976,8 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 	protected void onUninstall() throws Throwable {
 		this.getDEMethodPluginRuntimeRepo().shutdown();
+		this.bRunMemoryMaintenanceTimer = false;
+
 	}
 
 	@Override
@@ -773,7 +997,7 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 		return this.getAIChatAgentRuntime(iPSSysAIChatAgent.getCodeName(), false);
 	}
-	
+
 	@Override
 	public ISysAIWorkerAgentRuntime getAIWorkerAgentRuntime(String strAIWorkerAgentTag, boolean bTryMode) {
 		Assert.hasLength(strAIWorkerAgentTag, "未传入AI工作者代理标记");
@@ -784,7 +1008,7 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		}
 		throw new SysAIFactoryRuntimeException(this, String.format("无法获取指定AI工作者代理[%1$s]运行时对象", strAIWorkerAgentTag));
 	}
-	
+
 	protected ISysAIChatResource getAIChatResource(String resourceType) throws Exception {
 		Assert.hasLength(resourceType, "未传入AI资源类型");
 		ISysAIChatResource iSysAIChatResource = this.sysAIChatResourceMap.get(resourceType.toUpperCase());
@@ -821,8 +1045,28 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		return this.getAIPipelineAgentRuntime(iPSSysAIPipelineAgent.getCodeName(), false);
 	}
 	
+	@Override
+	public ISysAIChatAgentRuntime getRealSysAIChatAgentRuntime(String agentTag, boolean tryMode) {
+		try {
+			return this.onGetRealSysAIChatAgentRuntime(agentTag, tryMode);
+		}
+		catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SysAIFactoryRuntimeException.rethrow(this, ex);
+			throw new SysAIFactoryRuntimeException(this, String.format("获取实际AI交谈代理发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
 	
-	
+	protected ISysAIChatAgentRuntime onGetRealSysAIChatAgentRuntime(String agentTag, boolean tryMode) throws Throwable {
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.realSysAIChatAgentRuntimeMap.get(agentTag.toUpperCase());
+		if (iSysAIChatAgentRuntime != null || tryMode) {
+			return iSysAIChatAgentRuntime;
+		}
+		throw new Exception(String.format("指定AI交谈代理[%1$s]不存在", agentTag));
+	}
+
+
+
 	@Override
 	public List<ISysAIChatAgentRuntime> getSysAIChatAgentRuntimes() {
 		List<IPSSysAIChatAgent> psSysAIChatAgentList = this.getPSSysAIFactory().getAllPSSysAIChatAgents();
@@ -831,8 +1075,13 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		}
 		List<ISysAIChatAgentRuntime> list = new ArrayList<ISysAIChatAgentRuntime>();
 		for(IPSSysAIChatAgent iPSSysAIChatAgent : psSysAIChatAgentList) {
-			ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(iPSSysAIChatAgent);
-			list.add(iSysAIChatAgentRuntime);
+			try {
+				ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(iPSSysAIChatAgent);
+				list.add(iSysAIChatAgentRuntime);
+			}
+			catch (Throwable ex) {
+				log.error(ex);
+			}
 		}
 		return Collections.unmodifiableList(list);
 	}
@@ -867,17 +1116,30 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		return Collections.unmodifiableList(list);
 	}
 
+	@Override
+	public List<ISysAIChatSkill> getAIChatSkills() {
+		return this.sysAIChatSkillList;
+	}
+	
+	protected ISysAIChatSkill getAIChatSkill(String strSkillId, boolean tryMode) throws Exception {
+		ISysAIChatSkill iSysAIChatSkill = this.sysAIChatSkillMap.get(strSkillId);
+		if (iSysAIChatSkill != null || tryMode) {
+			return iSysAIChatSkill;
+		}
+		throw new Exception(String.format("指定技能[%1$s]不存在", strSkillId));
+	}
+	
 
 	@Override
 	public IChatResourceUtils getChatResourceUtils() {
 		return this.iChatResourceUtils;
 	}
-	
+
 	protected String getChatResource(String type, String subType, Object key, Map<String, Object> params, boolean testPriv) throws Exception {
 		final ISysAIChatResource iSysAIChatResource = this.getAIChatResource(type);
 		return iSysAIChatResource.getContent(subType, key, params, testPriv);
 	}
-	
+
 	protected String getChatResourceTemplateContent(String resourcePath) throws Exception {
 		resourcePath = resourcePath.replace("/chatresources/", "/resources/chat/");
 		String content = getConfigContent(null, resourcePath, true);
@@ -886,11 +1148,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		}
 		return null;
 	}
-	
+
 	protected AIFactoryRTScriptBase createAIFactoryRTScript(String strObjectName, String strScriptCode) throws Exception{
 		return this.createAIFactoryRTScript(strObjectName, strScriptCode, null);
 	}
-	
+
 	protected AIFactoryRTScriptBase createAIFactoryRTScript(String strObjectName, String strScriptCode, Class<? extends AIFactoryRTScriptBase> baseCls) throws Exception{
 		Object obj = null;
 		if(StringUtils.hasLength(strObjectName)) {
@@ -912,7 +1174,7 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			else {
 				compilerConfiguration.setScriptBaseClass(baseCls.getName());
 			}
-			
+
 			try(GroovyClassLoader classLoader = new GroovyClassLoader(this.getSystemRuntime().getGroovyClassLoader())) {
 				GroovyShell groovyShell = new GroovyShell(classLoader, compilerConfiguration);
 				obj = groovyShell.parse(strScriptCode);
@@ -921,20 +1183,20 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				throw new Exception(String.format("建立AI工厂脚本对象发生异常，%1$s", ex.getMessage()), ex);
 			}
 		}
-		
+
 		if(!(obj instanceof AIFactoryRTScriptBase)) {
 			throw new Exception(String.format("建立AI工厂脚本对象[%1$s]类型不正确", obj));
 		}
-		
+
 		try {
 			AIFactoryRTScriptBase aiFactoryScriptBase = (AIFactoryRTScriptBase)obj;
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put(TEMPLATE_PARAM_CTX, this.getSysAIFactoryRuntimeContext());
 			params.put(TEMPLATE_PARAM_SYS, this.getSystemRuntime());
 			params.put(TEMPLATE_PARAM_FACTORY, this);
-			
+
 			this.onFillScriptBinding(params);
-			
+
 			aiFactoryScriptBase.setBinding(new Binding(params));
 			aiFactoryScriptBase.setOwner(this);
 			aiFactoryScriptBase.run();
@@ -944,16 +1206,16 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			throw new Exception(String.format("AI工厂脚本对象运行发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
-	
+
 	protected void onFillScriptBinding(Map<String, Object> params) {
-		
+
 	}
-	
+
 	protected Class<?> getScriptBaseClass() {
 		return AIFactoryRTScriptBase.class;
 	}
-	
-	
+
+
 	protected AIFactoryRTScriptBase getAIFactoryRTScript(boolean bTryMode) throws Exception{
 		if(this.aiFactoryRTScriptBase == null) {
 			String strTemplateContent = this.getConfigContent(null, getModelRTScriptConfigId(), bTryMode);
@@ -964,13 +1226,84 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		}
 		return this.aiFactoryRTScriptBase;
 	}
-	
+
 	protected String getModelRTScriptConfigId() throws Exception {
 		return String.format("%1$s.groovy", this.getPSSysAIFactory().getCodeName()).toLowerCase();
 	}
 
+	protected void runMemoryMaintenanceTimer() {
+		runMemoryMaintenanceTimer(false);
+	}
+
+	protected final boolean isRunMemoryMaintenanceTimer() {
+		return this.bRunMemoryMaintenanceTimer;
+	}
+
+	protected void runMemoryMaintenanceTimer(boolean bTimerOnly) {
+		if (!this.bRunMemoryMaintenanceTimer) {
+			return;
+		}
+
+		if (!bTimerOnly) {
+			try {
+				onMemoryMaintenanceTimer();
+			} catch (Throwable ex) {
+				log.error(String.format("[%1$s]记忆维持定时器处理发生异常，%2$s", getName(), ex.getMessage()), ex);
+			}
+		}
+
+		this.getSystemRuntime().threadRun(new Runnable() {
+			@Override
+			public void run() {
+				runMemoryMaintenanceTimer();
+			}
+		}, System.currentTimeMillis() + 30000, "MemoryMaintenanceTimer_SysAIFactory_" + this.getFullUniqueTag());
+	}
+
+	protected void onMemoryMaintenanceTimer() throws Throwable {
+		ISysUniStateUtilRuntime iSysUniStateUtilRuntime = this.tryGetSysUniStateUtilRuntime();
+
+		List<ISysAIChatAgentRuntime> sysAIChatAgentRuntimeList = new ArrayList<ISysAIChatAgentRuntime>(sysAIChatAgentRuntimeMap.values());
+		for(ISysAIChatAgentRuntime iSysAIChatAgentRuntime : sysAIChatAgentRuntimeList) {
+			try {
+				boolean bHasLeaderShip = true;
+				if(iSysUniStateUtilRuntime!=null) {
+					String strTag = KeyValueUtils.genUniqueId(this.getSystemRuntime().getDeploySystemId(), AIFACTORY_MEMORYMAINTENANCETASK, iSysAIChatAgentRuntime.getId(), this.getFullUniqueTag());
+					bHasLeaderShip = iSysUniStateUtilRuntime.hasLeadershipIf(strTag);
+				}
+				iSysAIChatAgentRuntime.scheduleMemoryMaintenance(bHasLeaderShip, new HashMap<String, Object>());
+			}
+			catch (Throwable ex) {
+				log.error(String.format("定时处理[%1$s]记忆维持发生异常，%2$s", iSysAIChatAgentRuntime.getName(), ex.getMessage()), ex);
+			}
+		}
+	}
+
 	@Override
 	public void reload() {
+		try {
+			if (this.isEnableCloudReload() && ServiceHub.getInstance().getServiceHubSetting().isPublishConfig()) {
+				String strReloadSignalId = getReloadSignalId();
+				Map<String, String> map = new LinkedHashMap<String, String>();
+				map.put("reloaddate", DateUtils.getCurTimeString2());
+				this.onFillReloadSignal(map);
+				ServiceHub.getInstance().publishConfig(strReloadSignalId, map);
+				return;
+			}
+			
+			this.onReload();
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SysAIFactoryRuntimeException.rethrow(this, ex);
+			throw new SysAIFactoryRuntimeException(this, String.format("重新加载发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected void onFillReloadSignal(Map<String, String> map) throws Throwable {
+
+	}
+	
+	public void localReload() {
 		try {
 			this.onReload();
 		} catch (Throwable ex) {
@@ -981,33 +1314,344 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 	}
 
 	protected void onReload() throws Throwable {
+		this.onReload(false);
+	}
+	
+	protected void onReload(boolean bFirst) throws Throwable {
 		// 重新加载资源
-		if (this.getConfigSysFileResourceRuntime(true) != null) {
-			this.getConfigSysFileResourceRuntime(false).reload();
+		if(!bFirst) {
+			if (this.getConfigSysFileResourceRuntime(true) != null) {
+				this.getConfigSysFileResourceRuntime(false).reload();
+			}
 		}
-		
-		this.aiFactoryRTScriptBase = null;
 
-		for (ISysAIChatResource iSysAIChatResource : sysAIChatResourceMap.values()) {
-			iSysAIChatResource.reload();
+		this.realSysAIChatAgentRuntimeMap.clear();
+		this.aiFactoryRTScriptBase = null;
+		this.sysAIChatSkillMap.clear();
+		this.sysAIChatAgentGroupMap.clear();
+		
+		Map<String, ISysAIChatSkill> aiChatSkillMap = new LinkedHashMap<String, ISysAIChatSkill>();
+		
+		ISysFileResourceRuntime iSysFileResourceRuntime =this.getConfigSysFileResourceRuntime(true);
+		if(iSysFileResourceRuntime != null) {
+			File configFolder = iSysFileResourceRuntime.getFile(null);
+			if(configFolder != null && configFolder.isDirectory()) {
+				File skillsFolder = new File(configFolder.getCanonicalPath() + File.separator + "skills");
+				if(skillsFolder.exists() && skillsFolder.isDirectory()) {
+					File[] skillFolders = skillsFolder.listFiles();
+					for(File skillFolder : skillFolders) {
+						if(!skillFolder.isDirectory() && !skillFolder.isHidden()) {
+							continue;
+						}
+						ISysAIChatSkill iSysAIChatSkill = this.createSysAIChatSkill(skillFolder);
+						try {
+							iSysAIChatSkill.init(this.getSysAIFactoryRuntimeContext(), skillFolder);
+							aiChatSkillMap.put(iSysAIChatSkill.getId() , iSysAIChatSkill);
+							log.debug(String.format("初始化AI交谈技能[%1$s]", iSysAIChatSkill.getId()));
+						} catch (Throwable ex) {
+							log.error(String.format("初始化AI交谈技能[%1$s]运行时发生异常，%2$s", skillFolder.getName(), ex.getMessage()), ex);
+						}
+					}
+				}
+			}
 		}
 		
-		// 循环重新加载AI代理
+		if(this.getSysChatSkillUtilRuntime(true) != null) {
+			List<File> skillFolderList  = this.getSysChatSkillUtilRuntime(false).getAIChatSkillUtil().listSkills();
+			if(!ObjectUtils.isEmpty(skillFolderList)) {
+				for(File skillFolder : skillFolderList) {
+					if(!skillFolder.isDirectory() && !skillFolder.isHidden()) {
+						continue;
+					}
+					ISysAIChatSkill iSysAIChatSkill = this.createSysAIChatSkill(skillFolder);
+					ISysAIChatSkill lastSysAIChatSkill = aiChatSkillMap.get(skillFolder.getName());
+					try {
+						iSysAIChatSkill.init(this.getSysAIFactoryRuntimeContext(), skillFolder, lastSysAIChatSkill, true);
+						aiChatSkillMap.put(iSysAIChatSkill.getId() , iSysAIChatSkill);
+						log.debug(String.format("初始化AI交谈技能扩展[%1$s]", iSysAIChatSkill.getId()));
+					} catch (Throwable ex) {
+						log.error(String.format("初始化AI交谈技能扩展[%1$s]运行时发生异常，%2$s", skillFolder.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+		}
+		
+		this.sysAIChatSkillMap.putAll(aiChatSkillMap);
+		
+		if(ObjectUtils.isEmpty(this.sysAIChatSkillMap)) {
+			this.sysAIChatSkillList = Collections.EMPTY_LIST;
+		}
+		else {
+			this.sysAIChatSkillList = Collections.unmodifiableList(new ArrayList(this.sysAIChatSkillMap.values()));
+		}
+		
+		if(bFirst) {
+			java.util.List<IPSSysAIChatAgent> psSysAIChatAgentList = this.getPSSysAIFactory().getAllPSSysAIChatAgents();
+			if (!ObjectUtils.isEmpty(psSysAIChatAgentList)) {
+				for (IPSSysAIChatAgent iPSSysAIChatAgent : psSysAIChatAgentList) {
+
+					if (!StringUtils.hasLength(iPSSysAIChatAgent.getCodeName())) {
+						log.warn(String.format("初始化AI交谈代理[%1$s]未指定代码标识，忽略加载", iPSSysAIChatAgent.getName()));
+						continue;
+					}
+
+					ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.createSysAIChatAgentRuntime(iPSSysAIChatAgent);
+					try {
+						iSysAIChatAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIChatAgent);
+						sysAIChatAgentRuntimeMap.put(iPSSysAIChatAgent.getCodeName().toUpperCase(), iSysAIChatAgentRuntime);
+					} catch (Exception ex) {
+						//throw new Exception(String.format("初始化AI交谈代理[%1$s]运行时发生异常，%2$s", iPSSysAIChatAgent.getName(), ex.getMessage()), ex);
+						log.error(String.format("初始化AI交谈代理[%1$s]运行时发生异常，%2$s", iPSSysAIChatAgent.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+
+			java.util.List<IPSSysAIWorkerAgent> psSysAIWorkerAgentList = this.getPSSysAIFactory().getAllPSSysAIWorkerAgents();
+			if (!ObjectUtils.isEmpty(psSysAIWorkerAgentList)) {
+				for (IPSSysAIWorkerAgent iPSSysAIWorkerAgent : psSysAIWorkerAgentList) {
+
+					if (!StringUtils.hasLength(iPSSysAIWorkerAgent.getCodeName())) {
+						log.warn(String.format("初始化AI工作者代理[%1$s]未指定代码标识，忽略加载", iPSSysAIWorkerAgent.getName()));
+						continue;
+					}
+
+					ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime = this.createSysAIWorkerAgentRuntime(iPSSysAIWorkerAgent);
+					try {
+						iSysAIWorkerAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIWorkerAgent);
+						sysAIWorkerAgentRuntimeMap.put(iPSSysAIWorkerAgent.getCodeName().toUpperCase(), iSysAIWorkerAgentRuntime);
+					} catch (Exception ex) {
+						//throw new Exception(String.format("初始化AI工作者代理[%1$s]运行时发生异常，%2$s", iPSSysAIWorkerAgent.getName(), ex.getMessage()), ex);
+						log.error(String.format("初始化AI工作者代理[%1$s]运行时发生异常，%2$s", iPSSysAIWorkerAgent.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+
+			java.util.List<IPSSysAIPipelineAgent> psSysAIPipelineAgentList = this.getPSSysAIFactory().getAllPSSysAIPipelineAgents();
+			if (!ObjectUtils.isEmpty(psSysAIPipelineAgentList)) {
+				for (IPSSysAIPipelineAgent iPSSysAIPipelineAgent : psSysAIPipelineAgentList) {
+
+					if (!StringUtils.hasLength(iPSSysAIPipelineAgent.getCodeName())) {
+						log.warn(String.format("初始化AI生产线代理[%1$s]未指定代码标识，忽略加载", iPSSysAIPipelineAgent.getName()));
+						continue;
+					}
+
+					ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime = this.createSysAIPipelineAgentRuntime(iPSSysAIPipelineAgent);
+					try {
+						iSysAIPipelineAgentRuntime.init(this.getSysAIFactoryRuntimeContext(), iPSSysAIPipelineAgent);
+						sysAIPipelineAgentRuntimeMap.put(iPSSysAIPipelineAgent.getCodeName().toUpperCase(), iSysAIPipelineAgentRuntime);
+					} catch (Exception ex) {
+						//throw new Exception(String.format("初始化AI生产线代理[%1$s]运行时发生异常，%2$s", iPSSysAIPipelineAgent.getName(), ex.getMessage()), ex);
+						log.error(String.format("初始化AI生产线代理[%1$s]运行时发生异常，%2$s", iPSSysAIPipelineAgent.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+		}
+		else {
+			for (ISysAIChatResource iSysAIChatResource : sysAIChatResourceMap.values()) {
+				iSysAIChatResource.reload();
+			}
+
+			// 循环重新加载AI代理
+			for (ISysAIChatAgentRuntime iSysAIChatAgentRuntime : sysAIChatAgentRuntimeMap.values()) {
+				iSysAIChatAgentRuntime.reload();
+			}
+
+			for (ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime : sysAIWorkerAgentRuntimeMap.values()) {
+				iSysAIWorkerAgentRuntime.reload();
+			}
+
+			for (ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime : sysAIPipelineAgentRuntimeMap.values()) {
+				iSysAIPipelineAgentRuntime.reload();
+			}
+
+		}
+		
+		
+		this.realSysAIChatAgentRuntimeMap.putAll(sysAIChatAgentRuntimeMap);
+		
 		for (ISysAIChatAgentRuntime iSysAIChatAgentRuntime : sysAIChatAgentRuntimeMap.values()) {
-			iSysAIChatAgentRuntime.reload();
+			if(iSysAIChatAgentRuntime instanceof IDynaSysAIChatAgentFactoryRuntime) {
+				IDynaSysAIChatAgentFactoryRuntime dynaSysAIChatAgentFactoryRuntime = (IDynaSysAIChatAgentFactoryRuntime)iSysAIChatAgentRuntime;
+				List<ISysAIChatAgentRuntime> list = dynaSysAIChatAgentFactoryRuntime.getSysAIChatAgentRuntimes();
+				if(ObjectUtils.isEmpty(list)) {
+					continue;
+				}
+				
+				for(ISysAIChatAgentRuntime child : list) {
+					String strAgentTag = child.getPSModelObject().getCodeName().toUpperCase();
+					ISysAIChatAgentRuntime last = this.realSysAIChatAgentRuntimeMap.get(strAgentTag);
+					if(last == null || DataTypeUtils.asInteger(child.getPSModelObject().getPriority()) < DataTypeUtils.asInteger(last.getPSModelObject().getPriority())) {
+						this.realSysAIChatAgentRuntimeMap.put(strAgentTag, child);
+					}
+				}
+			}
 		}
 		
-		for (ISysAIWorkerAgentRuntime iSysAIWorkerAgentRuntime : sysAIWorkerAgentRuntimeMap.values()) {
-			iSysAIWorkerAgentRuntime.reload();
+		try {
+			publishSkills();
 		}
-		
-		for (ISysAIPipelineAgentRuntime iSysAIPipelineAgentRuntime : sysAIPipelineAgentRuntimeMap.values()) {
-			iSysAIPipelineAgentRuntime.reload();
+		catch (Throwable ex) {
+			log.debug(String.format("发布技能发生异常，%1$s", ex.getMessage()), ex);
 		}
-		
-		
 	}
 
+	protected void publishSkills() throws Throwable {
+		ISysUniStateUtilRuntime iSysUniStateUtilRuntime = this.tryGetSysUniStateUtilRuntime();
+		if(iSysUniStateUtilRuntime!=null) {
+			String strTag = KeyValueUtils.genUniqueId(this.getSystemRuntime().getDeploySystemId(), AIFACTORY_PUBLISHSKILLSTASK, this.getFullUniqueTag());
+			if(!iSysUniStateUtilRuntime.hasLeadershipIf(strTag)) {
+				return;
+			}
+		}
+
+
+		Map<String, Object> chatSkillMap = new TreeMap<String, Object>();
+		Map<String, Object> params = new HashMap<String, Object>();
+		for (ISysAIChatAgentRuntime iSysAIChatAgentRuntime : sysAIChatAgentRuntimeMap.values()) {
+			try {
+				iSysAIChatAgentRuntime.fillSkills(chatSkillMap, params);
+			}
+			catch (Throwable ex) {
+				log.error(String.format("交谈代理[%1$s]填充技能发生异常，%2$s", iSysAIChatAgentRuntime.getName(), ex.getMessage()), ex);
+			}
+		}
+		Map<String, Object> skillMap = new TreeMap<String, Object>();
+		for(java.util.Map.Entry<String, Object> entry : chatSkillMap.entrySet()) {
+			skillMap.put(String.format("chats/%1$s", entry.getKey()), entry.getValue());
+		}
+
+		//向cloud进行发布
+		this.doPublishSkills(skillMap);
+	}
+
+	protected void doPublishSkills(Map<String, Object> skillMap) throws Throwable {
+
+		Document lastDocument = null;
+		try {
+			lastDocument = this.getSystemRuntime().getSysKBUtilRuntime(false).getDocument(ISysKBUtilRuntime.KBPLATFORM_SKILLS, this.getSkillsDocId(), true);
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+		}
+
+		if(ObjectUtils.isEmpty(skillMap) ) {
+			if(lastDocument == null) {
+				return;
+			}
+			String strContent = lastDocument.getContent();
+			if(ObjectUtils.isEmpty(strContent)) {
+				return;
+			}
+		}
+
+		List<Chunk> chunkList = new ArrayList<>();
+		for(java.util.Map.Entry<String, Object> entry : skillMap.entrySet()) {
+			Chunk chunk = new Chunk();
+			chunk.setName(String.format("%1$s", entry.getKey()));
+			if(entry.getValue() instanceof String) {
+				chunk.setContent((String)entry.getValue());
+			}
+			else {
+				chunk.setContent(JsonUtils.toString(entry.getValue()));
+			}
+			chunkList.add(chunk);
+		}
+
+		String strContent = JsonUtils.toString(chunkList);
+		if(lastDocument != null) {
+			if(strContent.equals(lastDocument.getContent())) {
+				return;
+			}
+		}
+
+		String strFullTag = PSModelUtils.calcFullUniqueTag2(this.getPSSysAIFactory());
+		Document document = new Document();
+		document.setId(this.getSkillsDocId());
+		document.setName(String.format("AI工厂[%1$s.%2$s]", this.getSystemRuntime().getDeploySystemId(), strFullTag));
+		document.setContent(strContent);
+		document.setCategories(String.format("%1$s/ai/factories/%2$s", this.getSystemRuntime().getDeploySystemId(), strFullTag));
+
+		//设置要求重新切片
+		document.set("rechunk", 1);
+		try {
+			if(lastDocument == null) {
+				this.getSystemRuntime().getSysKBUtilRuntime(false).createDocument(ISysKBUtilRuntime.KBPLATFORM_SKILLS, document);
+			}
+			else {
+				this.getSystemRuntime().getSysKBUtilRuntime(false).updateDocument(ISysKBUtilRuntime.KBPLATFORM_SKILLS, this.getSkillsDocId(), document);
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("发布AI工厂技能文档发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected File getWorkspace() {
+		return this.workspace;
+	}
+	
+	protected ISysAIChatAgentGroup getAIChatAgentGroupIf(String groupTag) throws Exception {
+		ISysAIChatAgentGroup iSysAIChatAgentGroup = this.sysAIChatAgentGroupMap.get(groupTag); 
+		if(iSysAIChatAgentGroup != null) {
+			return iSysAIChatAgentGroup;
+		}
+		
+		iSysAIChatAgentGroup = this.createSysAIChatAgentGroup(groupTag);
+		try {
+			iSysAIChatAgentGroup.init(this.getSysAIFactoryRuntimeContext(), groupTag);
+			this.sysAIChatAgentGroupMap.put(iSysAIChatAgentGroup.getId() , iSysAIChatAgentGroup);
+		} catch (Exception ex) {
+			throw new Exception(String.format("建立聊天代理组[%1$s]运行时发生异常，%2$s", groupTag, ex.getMessage()), ex);
+		}
+		return iSysAIChatAgentGroup;
+	}
+	
+	protected ISysChatMemoryUtilRuntime getSysChatMemoryUtilRuntime(boolean tryMode) throws Exception{
+		if(this.iSysChatMemoryUtilRuntime != null || tryMode) {
+			return this.iSysChatMemoryUtilRuntime;
+		}
+		throw new Exception("系统聊天记忆组件对象无效");
+	}
+	
+	protected void setSysChatMemoryUtilRuntime(ISysChatMemoryUtilRuntime iSysChatMemoryUtilRuntime) {
+		this.iSysChatMemoryUtilRuntime = iSysChatMemoryUtilRuntime;
+	}
+	
+	protected void prepareSysChatMemoryUtilRuntime() throws Exception{
+		this.setSysChatMemoryUtilRuntime(this.getSystemRuntime().getSysUtilRuntime(ISysChatMemoryUtilRuntime.class, true));
+	}
+	
+	protected IAIChatMemoryUtil getAIChatMemoryUtil(boolean tryMode) throws Exception {
+		ISysChatMemoryUtilRuntime iSysChatMemoryUtilRuntime = this.getSysChatMemoryUtilRuntime(tryMode);
+		if(iSysChatMemoryUtilRuntime == null) {
+			return null;
+		}
+		return iSysChatMemoryUtilRuntime.getAIChatMemoryUtil();
+	}
+	
+	protected ISysChatSkillUtilRuntime getSysChatSkillUtilRuntime(boolean tryMode) throws Exception{
+		if(this.iSysChatSkillUtilRuntime != null || tryMode) {
+			return this.iSysChatSkillUtilRuntime;
+		}
+		throw new Exception("系统聊天记忆组件对象无效");
+	}
+	
+	protected void setSysChatSkillUtilRuntime(ISysChatSkillUtilRuntime iSysChatSkillUtilRuntime) {
+		this.iSysChatSkillUtilRuntime = iSysChatSkillUtilRuntime;
+	}
+	
+	protected void prepareSysChatSkillUtilRuntime() throws Exception{
+		this.setSysChatSkillUtilRuntime(this.getSystemRuntime().getSysUtilRuntime(ISysChatSkillUtilRuntime.class, true));
+	}
+	
+	protected IAIChatSkillUtil getAIChatSkillUtil(boolean tryMode) throws Exception {
+		ISysChatSkillUtilRuntime iSysChatSkillUtilRuntime = this.getSysChatSkillUtilRuntime(tryMode);
+		if(iSysChatSkillUtilRuntime == null) {
+			return null;
+		}
+		return iSysChatSkillUtilRuntime.getAIChatSkillUtil();
+	}
+	
 	@Override
 	public void shutdown() throws Exception {
 		onShutdown();

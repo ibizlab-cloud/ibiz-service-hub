@@ -15,12 +15,14 @@ public class PSDELogicImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 	public final static String ATTR_GETEVENTMODEL = "eventModel";
 	public final static String ATTR_GETEVENTS = "events";
 	public final static String ATTR_GETEXTENDMODE = "extendMode";
+	public final static String ATTR_GETLOGICCONTEXTID = "logicContextId";
 	public final static String ATTR_GETLOGICNAME = "logicName";
 	public final static String ATTR_GETLOGICSUBTYPE = "logicSubType";
 	public final static String ATTR_GETLOGICTAG = "logicTag";
 	public final static String ATTR_GETLOGICTAG2 = "logicTag2";
 	public final static String ATTR_GETLOGICTAG3 = "logicTag3";
 	public final static String ATTR_GETLOGICTAG4 = "logicTag4";
+	public final static String ATTR_GETMCPSERVERID = "mcpServerId";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDELOGICNODES = "getPSDELogicNodes";
 	public final static String ATTR_GETPSDELOGICPARAMS = "getPSDELogicParams";
@@ -29,6 +31,7 @@ public class PSDELogicImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 	public final static String ATTR_GETSTARTPSDELOGICNODE = "getStartPSDELogicNode";
 	public final static String ATTR_GETTHREADMODE = "threadMode";
 	public final static String ATTR_GETTIMERPOLICY = "timerPolicy";
+	public final static String ATTR_GETTOOLSPECIFICATION = "toolSpecification";
 	public final static String ATTR_ISCUSTOMCODE = "customCode";
 	public final static String ATTR_ISENABLEBACKEND = "enableBackend";
 	public final static String ATTR_ISENABLEFRONT = "enableFront";
@@ -139,6 +142,14 @@ public class PSDELogicImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		return value.asInt();
 	}
 
+	public java.lang.String getLogicContextId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICCONTEXTID);
+		if(value == null){
+			return "default";
+		}
+		return value.asText();
+	}
+
 	public java.lang.String getLogicName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICNAME);
 		if(value == null){
@@ -181,6 +192,14 @@ public class PSDELogicImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 
 	public java.lang.String getLogicTag4(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTAG4);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getMcpServerId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMCPSERVERID);
 		if(value == null){
 			return null;
 		}
@@ -306,6 +325,14 @@ public class PSDELogicImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 
 	public java.lang.String getTimerPolicy(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTIMERPOLICY);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getToolSpecification(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOOLSPECIFICATION);
 		if(value == null){
 			return null;
 		}

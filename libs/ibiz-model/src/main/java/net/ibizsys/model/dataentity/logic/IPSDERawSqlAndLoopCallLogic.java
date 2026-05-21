@@ -41,6 +41,27 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	
 	
 	/**
+	 * 获取直接数据源登录密码
+	 * @return
+	 */
+	java.lang.String getJdbcPassword();
+	
+	
+	/**
+	 * 获取直接数据源Url
+	 * @return
+	 */
+	java.lang.String getJdbcUrl();
+	
+	
+	/**
+	 * 获取直接数据源登录用户
+	 * @return
+	 */
+	java.lang.String getJdbcUserName();
+	
+	
+	/**
 	 * 获取数据库体系
 	 * @return
 	 */
@@ -73,4 +94,11 @@ public interface IPSDERawSqlAndLoopCallLogic extends net.ibizsys.model.dataentit
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDELogicParam getSrcPSDELogicParamMust();
+	
+	
+	/**
+	 * 获取是否使用直接数据源
+	 * @return
+	 */
+	boolean useJdbc();
 }

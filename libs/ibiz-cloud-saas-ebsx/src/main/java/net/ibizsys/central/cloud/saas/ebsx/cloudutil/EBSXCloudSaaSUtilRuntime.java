@@ -114,6 +114,7 @@ import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.KeyValueUtils;
+import net.ibizsys.runtime.util.ZipUtils;
 import net.ibizsys.runtime.util.domain.File;
 import net.ibizsys.runtime.util.domain.Log;
 import net.ibizsys.runtime.util.domain.LogTypes;
@@ -121,6 +122,7 @@ import net.ibizsys.runtime.util.domain.LogTypes;
 public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(EBSXCloudSaaSUtilRuntime.class);
+	public static final String ZIPDATA_PREFIX = "__ZIP_DATA__:";
 
 	@Override
 	protected void onInstall() throws Exception {
@@ -933,6 +935,18 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 		if (dstConfigDTO != null) {
 			dstConfigDTO.copyTo(config, true);
 		}
+		
+		String strConfig = config.getCfg();
+		if(!ObjectUtils.isEmpty(strConfig)) {
+			if(strConfig.indexOf(ZIPDATA_PREFIX) == 0) {
+				strConfig = strConfig.substring(ZIPDATA_PREFIX.length());
+				if(!ObjectUtils.isEmpty(strConfig)) {
+					strConfig = ZipUtils.decompressString(java.util.Base64.getDecoder().decode(strConfig));
+				}
+				config.setCfg(strConfig);
+			}
+		}
+		
 		return config;
 	}
 
@@ -940,7 +954,10 @@ public class EBSXCloudSaaSUtilRuntime extends CloudSaaSUtilRuntimeBase {
 	protected Config onSaveConfig(String strConfigType, String strTargetType, Object objConfig, boolean bAsGlobal) throws Throwable {
 		IEmployeeContext employeeContext = EmployeeContext.getCurrentMust();
 		String strConfig = (objConfig != null) ? (String) this.getSystemRuntime().serialize(objConfig) : null;
-
+		if(strConfig != null && strConfig.length() >= 1000000) {
+			strConfig = ZIPDATA_PREFIX + java.util.Base64.getEncoder().encodeToString(ZipUtils.compressString(strConfig));
+		}
+		
 		DstConfigDTO dstConfigDTO = new DstConfigDTO();
 		String strKey = KeyValueUtils.genUniqueId(employeeContext.getSystemid(), strConfigType, strTargetType, employeeContext.getUserid());
 		dstConfigDTO.setCfgId(strKey);

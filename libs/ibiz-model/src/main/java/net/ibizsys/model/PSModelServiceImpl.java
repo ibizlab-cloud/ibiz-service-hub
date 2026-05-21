@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.model.PSModelEnums.DEFDataType;
+import net.ibizsys.model.ai.PSSysAIChatAgentImpl;
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.codelist.IPSCodeList;
 import net.ibizsys.model.dataentity.IPSDataEntity;
@@ -1333,6 +1334,22 @@ public class PSModelServiceImpl extends PSModelServiceImplBase implements IPSDyn
 	}
 	
 	@Override
+	protected <T> T createIPSDELogicNode(IPSModelObjectRuntime parentPSModelObject, Class<T> cls, ObjectNode objNode) {
+		String strTypeValue = net.ibizsys.model.PSObjectImplBase.getString(objNode, "logicNodeType", null);
+		if(StringUtils.hasLength(strTypeValue)) {
+			String[] types = strTypeValue.split("[_]");
+			if(types.length > 1) {
+				objNode.put("logicNodeType", types[0]);
+				T t = super.createIPSDELogicNode(parentPSModelObject, cls, objNode);
+				//恢复
+				objNode.put("logicNodeType", strTypeValue);
+				return t;
+			}
+		}
+		return super.createIPSDELogicNode(parentPSModelObject, cls, objNode);
+	}
+	
+	@Override
 	protected <T> T createIPSSysContent(IPSModelObjectRuntime parentPSModelObject, Class<T> cls, ObjectNode objNode) {
 		if(parentPSModelObject instanceof IPSSysContentCat) {
 			return (T) new PSSysContentImplEx();
@@ -1436,6 +1453,14 @@ public class PSModelServiceImpl extends PSModelServiceImplBase implements IPSDyn
 			}
 		}
 		return super.createIPSDERCustom(parentPSModelObject, cls, objNode);
+	}
+	
+	@Override
+	protected <T> T createIPSSysAIChatAgent(IPSModelObjectRuntime parentPSModelObject, Class<T> cls, ObjectNode objNode) {
+		if(!objNode.has(PSSysAIChatAgentImpl.ATTR_GETAGENTCONTEXTID)) {
+			objNode.put(PSSysAIChatAgentImpl.ATTR_GETAGENTCONTEXTID, String.format("%1$s__%2$s", parentPSModelObject.getCodeName(), objNode.get(PSSysAIChatAgentImpl.ATTR_GETCODENAME).asText()));
+		}
+		return super.createIPSSysAIChatAgent(parentPSModelObject, cls, objNode);
 	}
 
 	@Override

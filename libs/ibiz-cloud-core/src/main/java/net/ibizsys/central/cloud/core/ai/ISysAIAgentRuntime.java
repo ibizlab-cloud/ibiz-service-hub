@@ -5,6 +5,14 @@ import net.ibizsys.runtime.IModelRuntime;
 
 public interface ISysAIAgentRuntime extends IAIAgentRuntimeBase, IModelRuntime{
 
+	public final static String AIAGENTTAG = "srfaiagenttag";
+	
+	
+	/**
+	 * 业务范围
+	 */
+	public final static String SCOPE = "srfscope";
+	
 	/**
 	 * 获取代理子类型
 	 * @return
@@ -77,4 +85,8 @@ public interface ISysAIAgentRuntime extends IAIAgentRuntimeBase, IModelRuntime{
 	 * @return
 	 */
 	String getAccessKey();
+	
+	
+	
+	
 }

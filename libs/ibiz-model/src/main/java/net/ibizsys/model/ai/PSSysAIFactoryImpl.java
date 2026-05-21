@@ -22,6 +22,7 @@ public class PSSysAIFactoryImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETPSSYSRESOURCE = "getPSSysResource";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+	public final static String ATTR_GETPSSYSSERVICEAPI = "getPSSysServiceAPI";
 	public final static String ATTR_GETPSSYSTEMMODULE = "getPSSystemModule";
 	public final static String ATTR_GETSERVICEPARAM = "serviceParam";
 	public final static String ATTR_GETSERVICEPARAM2 = "serviceParam2";
@@ -246,6 +247,28 @@ public class PSSysAIFactoryImpl extends net.ibizsys.model.PSSystemObjectImpl imp
 
 	public void setPSSysSFPlugin(net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin){
 		this.pssyssfplugin = pssyssfplugin;
+	}
+
+	private net.ibizsys.model.service.IPSSysServiceAPI pssysserviceapi;
+
+	public net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPI(){
+		if(this.pssysserviceapi != null) return this.pssysserviceapi;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSSYSSERVICEAPI);
+		if(value == null){
+			return null;
+		}
+		this.pssysserviceapi = getPSModelObject(net.ibizsys.model.service.IPSSysServiceAPI.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPSSYSSERVICEAPI);
+		return this.pssysserviceapi;
+	}
+
+	public net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPIMust(){
+		net.ibizsys.model.service.IPSSysServiceAPI value = this.getPSSysServiceAPI();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定引用系统接口");}
+		return value;
+	}
+
+	public void setPSSysServiceAPI(net.ibizsys.model.service.IPSSysServiceAPI pssysserviceapi){
+		this.pssysserviceapi = pssysserviceapi;
 	}
 
 	private net.ibizsys.model.system.IPSSystemModule pssystemmodule;

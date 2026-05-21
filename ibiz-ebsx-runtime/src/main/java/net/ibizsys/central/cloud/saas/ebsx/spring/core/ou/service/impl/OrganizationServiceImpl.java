@@ -206,7 +206,7 @@ public class OrganizationServiceImpl extends DEServiceBase<OrganizationDTO, Sear
     }
 
     @Override
-    public void create(OrganizationDTO dto) throws Throwable {
+    public void update(OrganizationDTO dto) throws Throwable {
         IWebClientRep<SysOrganizationDTO> rep = getWebClient().put(String.format("/sys_organizations/%1$s",dto.getOrgId()), null, getHerder(), null, SysOrganizationDTO.from(dto), null, SysOrganizationDTO.class, null);
         if (rep != null && rep.getBody() != null) {
             SysOrganizationDTO ret = rep.getBody();
@@ -218,7 +218,7 @@ public class OrganizationServiceImpl extends DEServiceBase<OrganizationDTO, Sear
     }
 
     @Override
-    public void update(OrganizationDTO dto) throws Throwable {
+    public void create(OrganizationDTO dto) throws Throwable {
 
         IWebClientRep<SysOrganizationDTO> rep = getWebClient().post("/sys_organizations", null, getHerder(), null, SysOrganizationDTO.from(dto), null, SysOrganizationDTO.class, null);
         if (rep != null && rep.getBody() != null) {

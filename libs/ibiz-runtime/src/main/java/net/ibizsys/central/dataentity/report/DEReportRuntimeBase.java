@@ -227,6 +227,9 @@ public abstract class DEReportRuntimeBase extends net.ibizsys.runtime.dataentity
 		case TEXT:
 			servletResponse.setContentType(MediaType.TEXT_PLAIN_VALUE);
 			break;
+		case MARKDOWN:
+			servletResponse.setContentType(MediaType.TEXT_MARKDOWN_VALUE);
+			break;
 		default:
 			log.warn(String.format("未支持的类型[%1$s]", reportContentType.value));
 			break;

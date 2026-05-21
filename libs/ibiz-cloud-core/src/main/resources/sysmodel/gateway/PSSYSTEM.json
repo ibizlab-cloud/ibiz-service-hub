@@ -75,6 +75,11 @@
     "name" : "KB",
     "utilTag" : "KB",
     "utilType" : "USER"
+  }, {
+    "codeName" : "CHATPROMPT",
+    "name" : "CHATPROMPT",
+    "utilTag" : "CHATPROMPT",
+    "utilType" : "USER"
   }
   ]
 }

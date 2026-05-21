@@ -3,11 +3,11 @@ package net.ibizsys.central.cloud.oss.core.addin;
 import org.apache.commons.logging.LogFactory;
 
 import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.addin.CloudUtilRTAddinBase;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudOSSUtilRuntime;
 import net.ibizsys.central.cloud.oss.core.cloudutil.ICloudOSSUtilRuntimeContext;
-import net.ibizsys.runtime.plugin.ModelRTAddinBase;
 
-public abstract class CloudOSSUtilRTAddinBase extends ModelRTAddinBase implements ICloudOSSUtilRTAddin {
+public abstract class CloudOSSUtilRTAddinBase extends CloudUtilRTAddinBase implements ICloudOSSUtilRTAddin {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(CloudOSSUtilRTAddinBase.class);
 	
@@ -25,7 +25,13 @@ public abstract class CloudOSSUtilRTAddinBase extends ModelRTAddinBase implement
 		return this.getContext().getCloudOSSUtilRuntime();
 	}
 	
+	@Override
 	protected ISystemRuntime getSystemRuntime() {
 		return this.getCloudOSSUtilRuntime().getSystemRuntime();
+	}
+	
+	@Override
+	protected ICloudOSSUtilRuntime getCloudUtilRuntime() {
+		return getCloudOSSUtilRuntime();
 	}
 }

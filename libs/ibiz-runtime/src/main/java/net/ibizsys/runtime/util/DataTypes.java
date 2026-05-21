@@ -38,8 +38,8 @@ public final class DataTypes {
 	final public static int DATE = 27; // 纯日期型
 	final public static int TIME = 28; // 纯时间
 	final public static int BIGDECIMAL = 29; // 大数值
-	
-	
+	final public static int VECTOR = 30; // 向量
+	final public static int TSVECTOR = 31; // 文本搜索向量
 	
 	final public static String NAME_UNKNOWN = "UNKNOWN";
 	final public static String NAME_BIGINT = "BIGINT";
@@ -71,7 +71,8 @@ public final class DataTypes {
 	final public static String NAME_DATE = "DATE";
 	final public static String NAME_TIME = "TIME";
 	final public static String NAME_BIGDECIMAL = "BIGDECIMAL";
-	
+	final public static String NAME_VECTOR = "VECTOR";
+	final public static String NAME_TSVECTOR = "TSVECTOR";
 
 	public DataTypes() {
 	}
@@ -199,6 +200,14 @@ public final class DataTypes {
 		if (strValue.compareToIgnoreCase("BIGDECIMAL") == 0) {
 			return DataTypes.BIGDECIMAL;
 		}
+		
+		if (strValue.compareToIgnoreCase("VECTOR") == 0) {
+			return DataTypes.VECTOR;
+		}
+		
+		if (strValue.compareToIgnoreCase("TSVECTOR") == 0) {
+			return DataTypes.TSVECTOR;
+		}
 
 		return DataTypes.VARCHAR;
 	}
@@ -325,6 +334,15 @@ public final class DataTypes {
 		if (nDataType == DataTypes.BIGDECIMAL) {
 			return "BIGDECIMAL";
 		}
+		
+		if (nDataType == DataTypes.VECTOR) {
+			return "VECTOR";
+		}
+		
+		if (nDataType == DataTypes.TSVECTOR) {
+			return "TSVECTOR";
+		}
+
 
 		return "VARCHAR";
 	}

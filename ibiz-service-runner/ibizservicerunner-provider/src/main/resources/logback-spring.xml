@@ -3,7 +3,7 @@
     <springProperty name="LOG_PATH" scope="context" source="logging.path" defaultValue="logs"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg%n" />
 
-    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log]" />
+    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log],GET[/portal/asyncaction/{id}]" />
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->

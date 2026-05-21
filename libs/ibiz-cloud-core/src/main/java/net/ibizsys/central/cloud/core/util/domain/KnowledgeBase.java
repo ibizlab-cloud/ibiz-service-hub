@@ -30,7 +30,10 @@ public class KnowledgeBase extends EntityBase {
 	public final static String FIELD_EMBED_MODEL = "embed_model";
 
 	
-	
+	/**
+	 * 知识库描述
+	 */
+	public final static String FIELD_DESCRIPTION = "description";
 	
 	/**
 	 * 设置「知识库标识」
@@ -148,6 +151,47 @@ public class KnowledgeBase extends EntityBase {
 		this.reset(FIELD_TYPE);
 		return this;
 	}
+	
+	
+	/**
+	 * 设置「知识库描述」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public KnowledgeBase setDescription(String val) {
+		this.set(FIELD_DESCRIPTION, val);
+		return this;
+	}
+
+	/**
+	 * 获取「知识库描述」值
+	 *
+	 */
+	@JsonIgnore
+	public String getDescription() {
+		return (String) this.get(FIELD_DESCRIPTION);
+	}
+
+	/**
+	 * 判断 「知识库描述」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDescription() {
+		return this.contains(FIELD_DESCRIPTION);
+	}
+
+	/**
+	 * 重置 「知识库描述」
+	 *
+	 */
+	@JsonIgnore
+	public KnowledgeBase resetDescription() {
+		this.reset(FIELD_DESCRIPTION);
+		return this;
+	}
+	
 
 	/**
 	 * 设置「嵌入模型」

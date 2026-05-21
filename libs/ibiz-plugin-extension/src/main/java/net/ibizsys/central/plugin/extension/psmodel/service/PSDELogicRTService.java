@@ -20,6 +20,7 @@ import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.logic.IPSDELogic;
+import net.ibizsys.model.dataentity.logic.PSDELogicImpl;
 import net.ibizsys.model.util.PSModelMergeUtils;
 import net.ibizsys.psmodel.core.domain.PSDELogic;
 import net.ibizsys.psmodel.core.domain.PSDataEntity;
@@ -28,6 +29,7 @@ import net.ibizsys.psmodel.core.util.IPSModelFilter;
 import net.ibizsys.psmodel.core.util.PSModels;
 import net.ibizsys.psmodel.runtime.util.IPSModelRTService;
 import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.KeyValueUtils;
 
 public class PSDELogicRTService extends net.ibizsys.psmodel.runtime.service.PSDELogicRTService {
 
@@ -297,6 +299,7 @@ public class PSDELogicRTService extends net.ibizsys.psmodel.runtime.service.PSDE
 		}
 
 		ObjectNode objectNode = iExtensionPSModelRTServiceSession.getPSModelTranspiler(IPSDELogic.class, false).compile(iExtensionPSModelRTServiceSession, psDELogic, null);
+		objectNode.put(PSDELogicImpl.ATTR_GETLOGICCONTEXTID, KeyValueUtils.genUniqueId(m.getId()));
 
 		IPSModelRTService iPSDataEntityService = (IPSModelRTService) this.getPSModelRTServiceSession().getPSModelService(PSModels.PSDATAENTITY);
 		IPSDataEntity iPSDataEntity = (IPSDataEntity) iPSDataEntityService.getPSModelObject(psDELogic.getPSDEId(), IPSDataEntity.class, false);

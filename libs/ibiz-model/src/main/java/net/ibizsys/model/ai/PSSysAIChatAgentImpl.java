@@ -6,14 +6,22 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public final static String ATTR_GETAIPLATFORMPSDEFIELD = "getAIPlatformPSDEField";
 	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
+	public final static String ATTR_GETAGENTCONTEXTID = "agentContextId";
+	public final static String ATTR_GETAGENTGROUPTAGS = "agentGroupTags";
+	public final static String ATTR_GETAGENTGROUPTAGSPSDEFIELD = "getAgentGroupTagsPSDEField";
 	public final static String ATTR_GETAGENTINFO = "agentInfo";
 	public final static String ATTR_GETAGENTPARAMS = "agentParams";
+	public final static String ATTR_GETAGENTSCOPE = "agentScope";
 	public final static String ATTR_GETAGENTTAG = "agentTag";
 	public final static String ATTR_GETAGENTTAG2 = "agentTag2";
 	public final static String ATTR_GETAGENTTYPE = "agentType";
 	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETCUSTOMCODEPSDEFIELD = "getCustomCodePSDEField";
 	public final static String ATTR_GETDEFAULTFLAGPSDEFIELD = "getDefaultFlagPSDEField";
+	public final static String ATTR_GETDIGESTPROMPT = "digestPrompt";
 	public final static String ATTR_GETDYNAMICMODE = "dynamicMode";
+	public final static String ATTR_GETENABLESEARCHING = "enableSearching";
+	public final static String ATTR_GETENABLESEARCHINGPSDEFIELD = "getEnableSearchingPSDEField";
 	public final static String ATTR_GETENABLESUGGESTEDQUESTIONS = "enableSuggestedQuestions";
 	public final static String ATTR_GETENABLESUGGESTEDQUESTIONSPSDEFIELD = "getEnableSuggestedQuestionsPSDEField";
 	public final static String ATTR_GETENABLETHINKING = "enableThinking";
@@ -22,20 +30,49 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETENABLETOOLSPSDEFIELD = "getEnableToolsPSDEField";
 	public final static String ATTR_GETGENERATIONMODE = "generationMode";
 	public final static String ATTR_GETGENERATIONMODEPSDEFIELD = "getGenerationModePSDEField";
+	public final static String ATTR_GETKNOWLEDGEBASEMODE = "knowledgeBaseMode";
+	public final static String ATTR_GETKNOWLEDGEBASEMODEPSDEFIELD = "getKnowledgeBaseModePSDEField";
+	public final static String ATTR_GETKNOWLEDGEBASETAGS = "knowledgeBaseTags";
+	public final static String ATTR_GETKNOWLEDGEBASETAGSPSDEFIELD = "getKnowledgeBaseTagsPSDEField";
 	public final static String ATTR_GETMAXINPUTTOKENS = "maxInputTokens";
 	public final static String ATTR_GETMAXINPUTTOKENSPSDEFIELD = "getMaxInputTokensPSDEField";
 	public final static String ATTR_GETMAXTOKENS = "maxTokens";
 	public final static String ATTR_GETMAXTOKENSPSDEFIELD = "getMaxTokensPSDEField";
+	public final static String ATTR_GETMCPSERVERTAGS = "mcpServerTags";
+	public final static String ATTR_GETMCPSERVERTAGSPSDEFIELD = "getMcpServerTagsPSDEField";
+	public final static String ATTR_GETMEMORYDOCTAG = "memoryDocTag";
+	public final static String ATTR_GETMEMORYDOCTAGPSDEFIELD = "getMemoryDocTagPSDEField";
+	public final static String ATTR_GETMEMORYISOLATIONMODE = "memoryIsolationMode";
+	public final static String ATTR_GETMEMORYISOLATIONMODEPSDEFIELD = "getMemoryIsolationModePSDEField";
+	public final static String ATTR_GETMEMORYKBTAG = "memoryKBTag";
+	public final static String ATTR_GETMEMORYKBTAGPSDEFIELD = "getMemoryKBTagPSDEField";
 	public final static String ATTR_GETMEMORYMAXTURNS = "memoryMaxTurns";
 	public final static String ATTR_GETMEMORYMAXTURNSPSDEFIELD = "getMemoryMaxTurnsPSDEField";
 	public final static String ATTR_GETMEMORYMODE = "memoryMode";
 	public final static String ATTR_GETMEMORYMODEPSDEFIELD = "getMemoryModePSDEField";
+	public final static String ATTR_GETMEMORYPSDATAENTITY = "getMemoryPSDataEntity";
+	public final static String ATTR_GETMESSAGEPSDATAENTITY = "getMessagePSDataEntity";
 	public final static String ATTR_GETNAMEPSDEFIELD = "getNamePSDEField";
+	public final static String ATTR_GETOSSIMAGEVLPROMPT = "oSSImageVLPrompt";
+	public final static String ATTR_GETOSSIMAGEVLPROMPTPSDEFIELD = "getOSSImageVLPromptPSDEField";
 	public final static String ATTR_GETPSDEDATASET = "getPSDEDataSet";
 	public final static String ATTR_GETPSDELOGIC = "getPSDELogic";
 	public final static String ATTR_GETPSDATAENTITY = "getPSDataEntity";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
 	public final static String ATTR_GETPSSYSUNIRES = "getPSSysUniRes";
+	public final static String ATTR_GETPRIORITY = "priority";
+	public final static String ATTR_GETPUBLISHSKILL = "publishSkill";
+	public final static String ATTR_GETPUBLISHSKILLPSDEFIELD = "getPublishSkillPSDEField";
+	public final static String ATTR_GETREADME = "readme";
+	public final static String ATTR_GETREADMEPSDEFIELD = "getReadmePSDEField";
+	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
+	public final static String ATTR_GETSESSIONPSDATAENTITY = "getSessionPSDataEntity";
+	public final static String ATTR_GETSKILLLOADMODE = "skillLoadMode";
+	public final static String ATTR_GETSKILLLOADMODEPSDEFIELD = "getSkillLoadModePSDEField";
+	public final static String ATTR_GETSKILLPROMPT = "skillPrompt";
+	public final static String ATTR_GETSKILLPROMPTPSDEFIELD = "getSkillPromptPSDEField";
+	public final static String ATTR_GETSKILLTAGS = "skillTags";
+	public final static String ATTR_GETSKILLTAGSPSDEFIELD = "getSkillTagsPSDEField";
 	public final static String ATTR_GETSTREAM = "stream";
 	public final static String ATTR_GETSTREAMPSDEFIELD = "getStreamPSDEField";
 	public final static String ATTR_GETSUGGESTIONPROMPT = "suggestionPrompt";
@@ -44,6 +81,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETSYSTEMPROMPTPSDEFIELD = "getSystemPromptPSDEField";
 	public final static String ATTR_GETTEMPERATURE = "temperature";
 	public final static String ATTR_GETTEMPERATUREPSDEFIELD = "getTemperaturePSDEField";
+	public final static String ATTR_GETTEMPLENGINE = "templEngine";
 	public final static String ATTR_GETTOOLEXCEEDMESSAGE = "toolExceedMessage";
 	public final static String ATTR_GETTOOLEXCEEDMESSAGEPSDEFIELD = "getToolExceedMessagePSDEField";
 	public final static String ATTR_GETTOOLMAXCALLS = "toolMaxCalls";
@@ -52,6 +90,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETTOPPPSDEFIELD = "getTopPPSDEField";
 	public final static String ATTR_GETTRIMMINGSTRATEGY = "trimmingStrategy";
 	public final static String ATTR_GETTRIMMINGSTRATEGYPSDEFIELD = "getTrimmingStrategyPSDEField";
+	public final static String ATTR_GETTYPEPSDEFIELD = "getTypePSDEField";
 	public final static String ATTR_GETUNIQUETAGPSDEFIELD = "getUniqueTagPSDEField";
 	public final static String ATTR_GETWELCOMEMESSAGE = "welcomeMessage";
 	public final static String ATTR_GETWELCOMEMESSAGEPSDEFIELD = "getWelcomeMessagePSDEField";
@@ -87,6 +126,45 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 		return value.asText();
 	}
 
+	public java.lang.String getAgentContextId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTCONTEXTID);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getAgentGroupTags(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTGROUPTAGS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField agentgrouptagspsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAgentGroupTagsPSDEField(){
+		if(this.agentgrouptagspsdefield != null) return this.agentgrouptagspsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTGROUPTAGSPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.agentgrouptagspsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.agentgrouptagspsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAgentGroupTagsPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getAgentGroupTagsPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定代理组标记集合值属性");}
+		return value;
+	}
+
+	public void setAgentGroupTagsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField agentgrouptagspsdefield){
+		this.agentgrouptagspsdefield = agentgrouptagspsdefield;
+	}
+
+
 	public java.lang.String getAgentInfo(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTINFO);
 		if(value == null){
@@ -101,6 +179,14 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 			return null;
 		}
 		return (com.fasterxml.jackson.databind.node.ObjectNode)value;
+	}
+
+	public java.lang.String getAgentScope(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTSCOPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
 	}
 
 	public java.lang.String getAgentTag(){
@@ -134,6 +220,29 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField customcodepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getCustomCodePSDEField(){
+		if(this.customcodepsdefield != null) return this.customcodepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCUSTOMCODEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.customcodepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.customcodepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getCustomCodePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getCustomCodePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定自定义代码值属性");}
+		return value;
+	}
+
+	public void setCustomCodePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField customcodepsdefield){
+		this.customcodepsdefield = customcodepsdefield;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField defaultflagpsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getDefaultFlagPSDEField(){
@@ -158,6 +267,14 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	}
 
 
+	public java.lang.String getDigestPrompt(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDIGESTPROMPT);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
 	public int getDynamicMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDYNAMICMODE);
 		if(value == null){
@@ -165,6 +282,37 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 		}
 		return value.asInt();
 	}
+
+	public java.lang.Boolean getEnableSearching(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETENABLESEARCHING);
+		if(value == null){
+			return null;
+		}
+		return value.asBoolean();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField enablesearchingpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getEnableSearchingPSDEField(){
+		if(this.enablesearchingpsdefield != null) return this.enablesearchingpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETENABLESEARCHINGPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.enablesearchingpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.enablesearchingpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getEnableSearchingPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getEnableSearchingPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定启用在线搜索值属性");}
+		return value;
+	}
+
+	public void setEnableSearchingPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField enablesearchingpsdefield){
+		this.enablesearchingpsdefield = enablesearchingpsdefield;
+	}
+
 
 	public java.lang.Boolean getEnableSuggestedQuestions(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETENABLESUGGESTEDQUESTIONS);
@@ -290,6 +438,68 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	}
 
 
+	public java.lang.String getKnowledgeBaseMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETKNOWLEDGEBASEMODE);
+		if(value == null){
+			return "default";
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField knowledgebasemodepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getKnowledgeBaseModePSDEField(){
+		if(this.knowledgebasemodepsdefield != null) return this.knowledgebasemodepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETKNOWLEDGEBASEMODEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.knowledgebasemodepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.knowledgebasemodepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getKnowledgeBaseModePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getKnowledgeBaseModePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定知识库模式值属性");}
+		return value;
+	}
+
+	public void setKnowledgeBaseModePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField knowledgebasemodepsdefield){
+		this.knowledgebasemodepsdefield = knowledgebasemodepsdefield;
+	}
+
+
+	public java.lang.String getKnowledgeBaseTags(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETKNOWLEDGEBASETAGS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField knowledgebasetagspsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getKnowledgeBaseTagsPSDEField(){
+		if(this.knowledgebasetagspsdefield != null) return this.knowledgebasetagspsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETKNOWLEDGEBASETAGSPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.knowledgebasetagspsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.knowledgebasetagspsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getKnowledgeBaseTagsPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getKnowledgeBaseTagsPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定知识库标记集合值属性");}
+		return value;
+	}
+
+	public void setKnowledgeBaseTagsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField knowledgebasetagspsdefield){
+		this.knowledgebasetagspsdefield = knowledgebasetagspsdefield;
+	}
+
+
 	public java.lang.Integer getMaxInputTokens(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMAXINPUTTOKENS);
 		if(value == null){
@@ -349,6 +559,130 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setMaxTokensPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField maxtokenspsdefield){
 		this.maxtokenspsdefield = maxtokenspsdefield;
+	}
+
+
+	public java.lang.String getMcpServerTags(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMCPSERVERTAGS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField mcpservertagspsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMcpServerTagsPSDEField(){
+		if(this.mcpservertagspsdefield != null) return this.mcpservertagspsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMCPSERVERTAGSPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.mcpservertagspsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.mcpservertagspsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMcpServerTagsPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getMcpServerTagsPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定McpServer标记集合值属性");}
+		return value;
+	}
+
+	public void setMcpServerTagsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField mcpservertagspsdefield){
+		this.mcpservertagspsdefield = mcpservertagspsdefield;
+	}
+
+
+	public java.lang.String getMemoryDocTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYDOCTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField memorydoctagpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryDocTagPSDEField(){
+		if(this.memorydoctagpsdefield != null) return this.memorydoctagpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYDOCTAGPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.memorydoctagpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.memorydoctagpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryDocTagPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getMemoryDocTagPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定记忆文档标识值属性");}
+		return value;
+	}
+
+	public void setMemoryDocTagPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField memorydoctagpsdefield){
+		this.memorydoctagpsdefield = memorydoctagpsdefield;
+	}
+
+
+	public java.lang.String getMemoryIsolationMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYISOLATIONMODE);
+		if(value == null){
+			return "none";
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField memoryisolationmodepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryIsolationModePSDEField(){
+		if(this.memoryisolationmodepsdefield != null) return this.memoryisolationmodepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYISOLATIONMODEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.memoryisolationmodepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.memoryisolationmodepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryIsolationModePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getMemoryIsolationModePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定记忆隔离模式值属性");}
+		return value;
+	}
+
+	public void setMemoryIsolationModePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField memoryisolationmodepsdefield){
+		this.memoryisolationmodepsdefield = memoryisolationmodepsdefield;
+	}
+
+
+	public java.lang.String getMemoryKBTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYKBTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField memorykbtagpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryKBTagPSDEField(){
+		if(this.memorykbtagpsdefield != null) return this.memorykbtagpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYKBTAGPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.memorykbtagpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.memorykbtagpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getMemoryKBTagPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getMemoryKBTagPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定记忆知识库标识值属性");}
+		return value;
+	}
+
+	public void setMemoryKBTagPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField memorykbtagpsdefield){
+		this.memorykbtagpsdefield = memorykbtagpsdefield;
 	}
 
 
@@ -413,6 +747,50 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 		this.memorymodepsdefield = memorymodepsdefield;
 	}
 
+	private net.ibizsys.model.dataentity.IPSDataEntity memorypsdataentity;
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getMemoryPSDataEntity(){
+		if(this.memorypsdataentity != null) return this.memorypsdataentity;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMEMORYPSDATAENTITY);
+		if(value == null){
+			return null;
+		}
+		this.memorypsdataentity = getPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETMEMORYPSDATAENTITY);
+		return this.memorypsdataentity;
+	}
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getMemoryPSDataEntityMust(){
+		net.ibizsys.model.dataentity.IPSDataEntity value = this.getMemoryPSDataEntity();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定给予存储实体对象");}
+		return value;
+	}
+
+	public void setMemoryPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity memorypsdataentity){
+		this.memorypsdataentity = memorypsdataentity;
+	}
+
+	private net.ibizsys.model.dataentity.IPSDataEntity messagepsdataentity;
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getMessagePSDataEntity(){
+		if(this.messagepsdataentity != null) return this.messagepsdataentity;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETMESSAGEPSDATAENTITY);
+		if(value == null){
+			return null;
+		}
+		this.messagepsdataentity = getPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETMESSAGEPSDATAENTITY);
+		return this.messagepsdataentity;
+	}
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getMessagePSDataEntityMust(){
+		net.ibizsys.model.dataentity.IPSDataEntity value = this.getMessagePSDataEntity();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定消息存储实体对象");}
+		return value;
+	}
+
+	public void setMessagePSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity messagepsdataentity){
+		this.messagepsdataentity = messagepsdataentity;
+	}
+
 	private net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEField(){
@@ -434,6 +812,37 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setNamePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield){
 		this.namepsdefield = namepsdefield;
+	}
+
+
+	public java.lang.String getOSSImageVLPrompt(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETOSSIMAGEVLPROMPT);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField ossimagevlpromptpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getOSSImageVLPromptPSDEField(){
+		if(this.ossimagevlpromptpsdefield != null) return this.ossimagevlpromptpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETOSSIMAGEVLPROMPTPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.ossimagevlpromptpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.ossimagevlpromptpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getOSSImageVLPromptPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getOSSImageVLPromptPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定OSS图片识别提示词值属性");}
+		return value;
+	}
+
+	public void setOSSImageVLPromptPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField ossimagevlpromptpsdefield){
+		this.ossimagevlpromptpsdefield = ossimagevlpromptpsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.ds.IPSDEDataSet psdedataset;
@@ -546,6 +955,199 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setPSSysUniRes(net.ibizsys.model.security.IPSSysUniRes pssysunires){
 		this.pssysunires = pssysunires;
+	}
+
+
+	public java.lang.Integer getPriority(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRIORITY);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
+	}
+
+	public java.lang.Integer getPublishSkill(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPUBLISHSKILL);
+		if(value == null){
+			return null;
+		}
+		return value.asInt();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField publishskillpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getPublishSkillPSDEField(){
+		if(this.publishskillpsdefield != null) return this.publishskillpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPUBLISHSKILLPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.publishskillpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.publishskillpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getPublishSkillPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getPublishSkillPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定发布技能值属性");}
+		return value;
+	}
+
+	public void setPublishSkillPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField publishskillpsdefield){
+		this.publishskillpsdefield = publishskillpsdefield;
+	}
+
+
+	public java.lang.String getReadme(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREADME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField readmepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReadmePSDEField(){
+		if(this.readmepsdefield != null) return this.readmepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREADMEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.readmepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.readmepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReadmePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getReadmePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定读我值属性");}
+		return value;
+	}
+
+	public void setReadmePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField readmepsdefield){
+		this.readmepsdefield = readmepsdefield;
+	}
+
+
+	public java.lang.String getScriptCode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSCRIPTCODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.IPSDataEntity sessionpsdataentity;
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getSessionPSDataEntity(){
+		if(this.sessionpsdataentity != null) return this.sessionpsdataentity;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSESSIONPSDATAENTITY);
+		if(value == null){
+			return null;
+		}
+		this.sessionpsdataentity = getPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSESSIONPSDATAENTITY);
+		return this.sessionpsdataentity;
+	}
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getSessionPSDataEntityMust(){
+		net.ibizsys.model.dataentity.IPSDataEntity value = this.getSessionPSDataEntity();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定会话存储实体对象");}
+		return value;
+	}
+
+	public void setSessionPSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity sessionpsdataentity){
+		this.sessionpsdataentity = sessionpsdataentity;
+	}
+
+
+	public java.lang.String getSkillLoadMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLLOADMODE);
+		if(value == null){
+			return "all";
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField skillloadmodepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillLoadModePSDEField(){
+		if(this.skillloadmodepsdefield != null) return this.skillloadmodepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLLOADMODEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.skillloadmodepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.skillloadmodepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillLoadModePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getSkillLoadModePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定技能加载模式值属性");}
+		return value;
+	}
+
+	public void setSkillLoadModePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField skillloadmodepsdefield){
+		this.skillloadmodepsdefield = skillloadmodepsdefield;
+	}
+
+
+	public java.lang.String getSkillPrompt(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLPROMPT);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField skillpromptpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillPromptPSDEField(){
+		if(this.skillpromptpsdefield != null) return this.skillpromptpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLPROMPTPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.skillpromptpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.skillpromptpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillPromptPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getSkillPromptPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定技能提示词值属性");}
+		return value;
+	}
+
+	public void setSkillPromptPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField skillpromptpsdefield){
+		this.skillpromptpsdefield = skillpromptpsdefield;
+	}
+
+
+	public java.lang.String getSkillTags(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLTAGS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField skilltagspsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillTagsPSDEField(){
+		if(this.skilltagspsdefield != null) return this.skilltagspsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSKILLTAGSPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.skilltagspsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.skilltagspsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getSkillTagsPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getSkillTagsPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定加载技能标记集合值属性");}
+		return value;
+	}
+
+	public void setSkillTagsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField skilltagspsdefield){
+		this.skilltagspsdefield = skilltagspsdefield;
 	}
 
 
@@ -673,6 +1275,14 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	}
 
 
+	public java.lang.String getTemplEngine(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTEMPLENGINE);
+		if(value == null){
+			return "GROOVY";
+		}
+		return value.asText();
+	}
+
 	public java.lang.String getToolExceedMessage(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTOOLEXCEEDMESSAGE);
 		if(value == null){
@@ -769,7 +1379,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public java.lang.String getTrimmingStrategy(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTRIMMINGSTRATEGY);
 		if(value == null){
-			return null;
+			return "oldest";
 		}
 		return value.asText();
 	}
@@ -794,6 +1404,29 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setTrimmingStrategyPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField trimmingstrategypsdefield){
 		this.trimmingstrategypsdefield = trimmingstrategypsdefield;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getTypePSDEField(){
+		if(this.typepsdefield != null) return this.typepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTYPEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.typepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.typepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getTypePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getTypePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定类型值属性");}
+		return value;
+	}
+
+	public void setTypePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField typepsdefield){
+		this.typepsdefield = typepsdefield;
 	}
 
 	private net.ibizsys.model.dataentity.defield.IPSDEField uniquetagpsdefield;

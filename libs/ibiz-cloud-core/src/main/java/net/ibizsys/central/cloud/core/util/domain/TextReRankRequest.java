@@ -1,6 +1,10 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import org.springframework.util.ObjectUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,6 +35,9 @@ public class TextReRankRequest extends EntityBase {
 	 * 查询内容
 	 */
 	public final static String FIELD_QUERY = "query";
+	
+	
+	
 	
 //	/**
 //	 * 返回文档
@@ -66,7 +73,8 @@ public class TextReRankRequest extends EntityBase {
 	 * 获取「文档集合」值
 	 *
 	 */
-	@JsonIgnore
+	//@JsonIgnore
+	@JsonProperty(FIELD_DOCUMENTS)
 	public List<Document> getDocuments() {
 		Object objValue = this.get(FIELD_DOCUMENTS);
 		if (objValue == null) {
@@ -311,7 +319,7 @@ public class TextReRankRequest extends EntityBase {
 	 * @param val
 	 */
 	@JsonIgnore
-	public TextReRankRequest setQuery(String val) {
+	public TextReRankRequest setQuery(Object val) {
 		this.set(FIELD_QUERY, val);
 		return this;
 	}
@@ -322,9 +330,41 @@ public class TextReRankRequest extends EntityBase {
 	 */
 	@JsonIgnore
 	public String getQuery() {
-		return (String) this.get(FIELD_QUERY);
+		Object objValue = this.get(FIELD_QUERY);
+		if (ObjectUtils.isEmpty(objValue)) {
+			return null;
+		}
+
+		if (objValue instanceof List) {
+			List list = (List)objValue;
+			return String.valueOf(list.get(0));
+		}
+		return String.valueOf(objValue);
 	}
 
+	/**
+	 * 获取「消息内容」值
+	 *
+	 */
+	@JsonIgnore
+	public Object getRawQuery() {
+		return this.get(FIELD_QUERY);
+	}
+	
+	@JsonIgnore
+	public List<String> getQueries() {
+		Object objValue = this.get(FIELD_QUERY);
+		if (ObjectUtils.isEmpty(objValue)) {
+			return Collections.EMPTY_LIST;
+		}
+
+		if (objValue instanceof List) {
+			return (List)objValue;
+		}
+		return Arrays.asList(String.valueOf(objValue));
+	}
+	
+	
 	/**
 	 * 判断 「查询内容」是否有值
 	 *

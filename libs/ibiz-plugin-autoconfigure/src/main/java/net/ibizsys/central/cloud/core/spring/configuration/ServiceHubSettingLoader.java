@@ -112,7 +112,9 @@ public class ServiceHubSettingLoader extends NacosServiceHubSettingBase {
         this.setWorkThreadCorePoolSize(DataTypeUtils.getIntegerValue(config.get("workthreadcorepoolsize"), this.getWorkThreadCorePoolSize()));
         this.setWorkThreadMaximumPoolSize(DataTypeUtils.getIntegerValue(config.get("workthreadmaximumpoolsize"), this.getWorkThreadMaximumPoolSize()));
         this.setWorkThreadBlockingQueueSize(DataTypeUtils.getIntegerValue(config.get("workthreadblockingqueuesize"), this.getWorkThreadBlockingQueueSize()));
-
+        this.setSseThreadCorePoolSize(DataTypeUtils.getIntegerValue(config.get("ssethreadcorepoolsize"), this.getSseThreadCorePoolSize()));
+        this.setSseThreadMaximumPoolSize(DataTypeUtils.getIntegerValue(config.get("ssethreadmaximumpoolsize"), this.getSseThreadMaximumPoolSize()));
+        this.setSseThreadBlockingQueueSize(DataTypeUtils.getIntegerValue(config.get("ssethreadblockingqueuesize"), this.getSseThreadBlockingQueueSize()));
 
         bLocal = true;
 

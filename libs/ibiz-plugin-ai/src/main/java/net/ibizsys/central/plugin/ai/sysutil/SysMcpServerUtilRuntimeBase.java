@@ -1,7 +1,6 @@
 package net.ibizsys.central.plugin.ai.sysutil;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -20,12 +19,10 @@ import io.modelcontextprotocol.server.McpAsyncServer;
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpServerFeatures;
 import io.modelcontextprotocol.spec.McpSchema.ServerCapabilities;
-import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.SysUtilRuntimeBase;
-import net.ibizsys.central.cloud.core.util.IConfigListener;
 import net.ibizsys.central.cloud.core.util.domain.AccessToken;
 import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.plugin.ai.addin.IMcpServerToolProvider;
@@ -52,8 +49,6 @@ import net.ibizsys.runtime.util.JsonUtils;
 public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase implements ISysMcpServerUtilRuntime{
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(SysMcpServerUtilRuntimeBase.class);
-	//private static final Logger logger = LoggerFactory.getLogger(SysMcpServerUtilRuntimeBase.class);
-	
 	
 	static {
 		RuntimeObjectFactory.getInstance().registerObjectIf(ISysMcpServerUtilRTAddin.class, "*:" + ADDIN_TRANSPORT_PREFIX + TRANSPORT_HTTP_SSE, HttpSseMcpServerTransportProvider.class);
@@ -80,6 +75,11 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 			public boolean isDefaultUserOnly() {
 				return getSelf().isDefaultUserOnly();
 			}
+
+			@Override
+			public int getDEMethodMaxTokens() {
+				return getSelf().getDEMethodMaxTokens();
+			}
 		};
 	}
 	
@@ -102,6 +102,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	private IUserContext defaultUserContext = null;
 	private boolean bDefaultUserOnly = true;
 	private String strTokenPrefix = "Bearer ";
+	private int nDEMethodMaxTokens = 10000;
 	private List<McpServerFeatures.AsyncToolSpecification> asyncToolSpecificationList = null;
 	
 	
@@ -118,6 +119,8 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 			this.setTokenPrefix(strTokenPrefix);
 		}
 		
+		this.setDEMethodMaxTokens(this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".demethod.maxtokens", this.getDEMethodMaxTokens()));
+		
 		this.bDefaultUserOnly = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".defaultuseronly", isDefaultUserOnly());
 		Map<String, Object> employeeMap = this.getSystemRuntimeSetting().getParams(this.getConfigFolder()+".employee", null);
 		if(!ObjectUtils.isEmpty(employeeMap)) {
@@ -132,6 +135,20 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	protected String getBaseUrl() {
 		return this.strBaseUrl;
 	}
+	
+	protected void setBaseUrl(String strBaseUrl) {
+		this.strBaseUrl = strBaseUrl;
+	}
+	
+	
+	protected int getDEMethodMaxTokens() {
+		return this.nDEMethodMaxTokens;
+	}
+	
+	protected void setDEMethodMaxTokens(int nDEMethodMaxTokens) {
+		this.nDEMethodMaxTokens = nDEMethodMaxTokens;
+	}
+	
 	
 	
 	protected IUserContext getDefaultUserContext() {
@@ -161,40 +178,26 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 		
 		super.onInstall();
 	
-		this.mcpServerTransportProviderMap = this.getAddins(IMcpServerTransportProvider.class, ADDIN_TRANSPORT_PREFIX);
-		this.mcpServerToolProviderMap = this.getAddins(IMcpServerToolProvider.class, ADDIN_TOOL_PREFIX);
+		this.mcpServerTransportProviderMap = this.getDefaultMcpServerTransportProviders();
+		this.mcpServerToolProviderMap = this.getDefaultMcpServerToolProviders();
 		
 		this.listenReloadSignal();
 	}
 	
+	protected Map<String, IMcpServerToolProvider> getDefaultMcpServerToolProviders() {
+		return this.getAddins(IMcpServerToolProvider.class, ADDIN_TOOL_PREFIX);
+	}
 	
-	protected void listenReloadSignal() throws Exception {
-		if (!(this.getSystemRuntime() instanceof IServiceSystemRuntime)) {
-			return;
-		}
-
-		String strReloadSignalId = String.format("%1$s%2$s-%3$s", NacosServiceHubSettingBase.DATAID_RELOADSIGNAL_PREFIX, this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-")).toLowerCase();
-		log.debug(String.format("McpServer组件[%1$s]监控重载配置[%2$s]", this.getName(), strReloadSignalId));
-		((IServiceSystemRuntime) this.getSystemRuntime()).getConfigListenerRepo().addConfigListener(strReloadSignalId, new IConfigListener() {
-			@Override
-			public void receiveConfigInfo(String configInfo) {
-				log.debug(String.format("%1$s接收到重载信号", getConfigFolder()));
-				reload();
-			}
-		});
+	protected Map<String, IMcpServerTransportProvider> getDefaultMcpServerTransportProviders() {
+		return this.getAddins(IMcpServerTransportProvider.class, ADDIN_TRANSPORT_PREFIX);
 	}
 	
 	@Override
-	public void reload() {
-		try {
-			this.onReload();
-		} catch (Throwable ex) {
-			ex = ExceptionUtils.unwrapThrowable(ex);
-			SystemRuntimeException.rethrow(this, ex);
-			throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("重新加载发生异常，%1$s", ex.getMessage()), ex);
-		}
+	public String getFullName() {
+		return String.format("McpServer组件[%1$s]", this.getName());
 	}
-
+	
+	@Override
 	protected void onReload() throws Throwable {
 		this.accessTokenMap.clear();
 	}
@@ -420,6 +423,56 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 		this.asyncToolSpecificationList = null;
 	}
 	
+	protected void reloadAsyncToolSpecifications() {
+		//获取当前工具集合
+		List<McpServerFeatures.AsyncToolSpecification> list = this.getAsyncToolSpecifications();
+		Map<String, McpServerFeatures.AsyncToolSpecification> map = new LinkedHashMap<String, McpServerFeatures.AsyncToolSpecification>();
+		if(!ObjectUtils.isEmpty(list)) {
+			for(McpServerFeatures.AsyncToolSpecification asyncToolSpecification : list) {
+				map.put(asyncToolSpecification.getTool().getName(), asyncToolSpecification);
+			}
+		}
+		resetAsyncToolSpecifications();
+		list = this.getAsyncToolSpecifications();
+		
+		Map<String, Object> mcpServerMap = new LinkedHashMap<>(this.mcpServerMap);
+		for(String serverType  : mcpServerMap.keySet()) {
+			Object server = mcpServerMap.get(serverType);
+			if(server instanceof McpAsyncServer) {
+				McpAsyncServer mcpAsyncServer = (McpAsyncServer)server;
+				for(String strToolName : map.keySet()) {
+					try {
+						mcpAsyncServer.removeTool(strToolName).subscribe();
+					}
+					catch (Throwable ex) {
+						log.error(String.format("McpServer[%1$s]移除工具发生异常，%2$s", serverType, ex.getMessage()), ex);
+						continue;
+					}
+				}
+					
+				if(!ObjectUtils.isEmpty(list)) {
+					for(McpServerFeatures.AsyncToolSpecification asyncToolSpecification : list) {
+						try {
+							mcpAsyncServer.addTool(asyncToolSpecification).subscribe();
+						}
+						catch (Throwable ex) {
+							log.error(String.format("McpServer[%1$s]添加工具发生异常，%2$s", serverType, ex.getMessage()), ex);
+							continue;
+						}
+					}
+				}
+				
+				try {
+					mcpAsyncServer.notifyToolsListChanged().subscribe();
+				}
+				catch (Throwable ex) {
+					log.error(String.format("McpServer[%1$s]通知工具变化发生异常，%2$s", serverType, ex.getMessage()), ex);
+					continue;
+				}
+			}
+		}
+	}
+	
 	protected void destoryTransportAgent(IMcpServerTransportAgent iTransportAgent) throws Throwable {
 		Object server = this.mcpServerMap.get(iTransportAgent.getType());
 		if(server instanceof McpAsyncServer) {
@@ -458,7 +511,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 	
 	@Override
 	public void resetTransportAgents() {
-		Collection<IMcpServerTransportAgent> agents = Collections.unmodifiableCollection(this.mcpServerTransportAgentMap.values());
+		List<IMcpServerTransportAgent> agents = new ArrayList<IMcpServerTransportAgent>(this.mcpServerTransportAgentMap.values());
 		this.mcpServerTransportAgentMap.clear();
 		if(!ObjectUtils.isEmpty(agents)) {
 			for(IMcpServerTransportAgent iMcpServerTransportAgent : agents) {
@@ -517,7 +570,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 				});
 			}
 			this.mcpServerToolProviderMap2.put(strToolProviderName, list);
-			resetAsyncToolSpecifications();
+			reloadAsyncToolSpecifications();
 		}
 	}
 
@@ -535,7 +588,7 @@ public abstract class SysMcpServerUtilRuntimeBase extends SysUtilRuntimeBase imp
 			if(list.contains(iMcpServerTool)) {
 				list.remove(iMcpServerTool);
 				this.mcpServerToolProviderMap2.put(strToolProviderName, list);
-				resetAsyncToolSpecifications();
+				reloadAsyncToolSpecifications();
 				return true;
 			}
 			return false;			

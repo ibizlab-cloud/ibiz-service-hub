@@ -53,6 +53,13 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取自定义连接条件
+	 * @return
+	 */
+	java.lang.String getJoinCond();
+	
+	
+	/**
 	 * 获取连接实体关系
 	 * @return
 	 */

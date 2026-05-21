@@ -5,7 +5,9 @@ package net.ibizsys.model.dataentity.logic;
 public class PSDELoopSubCallLogicImpl extends net.ibizsys.model.dataentity.logic.PSDELogicNodeImpl implements net.ibizsys.model.dataentity.logic.IPSDELoopSubCallLogic{
 
 	public final static String ATTR_GETDSTPSDELOGICPARAM = "getDstPSDELogicParam";
+	public final static String ATTR_GETRETPSDELOGICPARAM = "getRetPSDELogicParam";
 	public final static String ATTR_GETSRCPSDELOGICPARAM = "getSrcPSDELogicParam";
+	public final static String ATTR_GETTHREADMODE = "threadMode";
 	private net.ibizsys.model.dataentity.logic.IPSDELogicParam dstpsdelogicparam;
 
 	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam(){
@@ -27,6 +29,29 @@ public class PSDELoopSubCallLogicImpl extends net.ibizsys.model.dataentity.logic
 
 	public void setDstPSDELogicParam(net.ibizsys.model.dataentity.logic.IPSDELogicParam dstpsdelogicparam){
 		this.dstpsdelogicparam = dstpsdelogicparam;
+	}
+
+	private net.ibizsys.model.dataentity.logic.IPSDELogicParam retpsdelogicparam;
+
+	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParam(){
+		if(this.retpsdelogicparam != null) return this.retpsdelogicparam;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRETPSDELOGICPARAM);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.logic.IPSDELogic ipsdelogic = getParentPSModelObject(net.ibizsys.model.dataentity.logic.IPSDELogic.class);
+		this.retpsdelogicparam = ipsdelogic.getPSDELogicParam(value, false);
+		return this.retpsdelogicparam;
+	}
+
+	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getRetPSDELogicParamMust(){
+		net.ibizsys.model.dataentity.logic.IPSDELogicParam value = this.getRetPSDELogicParam();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定返回值绑定逻辑参数对象");}
+		return value;
+	}
+
+	public void setRetPSDELogicParam(net.ibizsys.model.dataentity.logic.IPSDELogicParam retpsdelogicparam){
+		this.retpsdelogicparam = retpsdelogicparam;
 	}
 
 	private net.ibizsys.model.dataentity.logic.IPSDELogicParam srcpsdelogicparam;
@@ -52,4 +77,12 @@ public class PSDELoopSubCallLogicImpl extends net.ibizsys.model.dataentity.logic
 		this.srcpsdelogicparam = srcpsdelogicparam;
 	}
 
+
+	public int getThreadMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTHREADMODE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
 }

@@ -38,6 +38,7 @@ import net.ibizsys.central.util.IPage;
 import net.ibizsys.central.util.IWebResponse;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
 import net.ibizsys.runtime.util.ActionSessionManager;
+import net.ibizsys.runtime.util.DataTypeUtils;
 
 public abstract class MethodHandlerBase {
 
@@ -785,10 +786,20 @@ public abstract class MethodHandlerBase {
 			if(StringUtils.hasLength(strContentType)) {
 				httpServletResponse.setContentType(strContentType);
 			}
-			else {
-				httpServletResponse.setContentType("application/json;charset=UTF-8");
+			String strBody = "";
+			Object simple = DataTypeUtils.asSimple(object);
+			if(simple != null) {
+				strBody = String.valueOf(simple);
+				if(!StringUtils.hasLength(strContentType)) {
+					httpServletResponse.setContentType("text/plain;charset=UTF-8");
+				}
 			}
-			String strBody = MAPPER.writeValueAsString(object);
+			else {
+				strBody = MAPPER.writeValueAsString(object);
+				if(!StringUtils.hasLength(strContentType)) {
+					httpServletResponse.setContentType("application/json;charset=UTF-8");
+				}
+			}
 			
 			if(isEnableCompress() && strBody.length() >= getCompressMinSize()) {
 				String strAcceptEncoding = httpServletRequest.getHeader(HttpHeaders.ACCEPT_ENCODING);

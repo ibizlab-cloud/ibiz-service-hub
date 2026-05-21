@@ -29,4 +29,18 @@ public interface IPSSysSearchDoc extends net.ibizsys.model.search.IPSSysSearchSc
 	 * @param list 检索属性集合
 	 */
 	void setPSSysSearchFields(java.util.List<net.ibizsys.model.search.IPSSysSearchField> list);
+	
+	
+	/**
+	 * 获取文档模板
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl();
+
+
+	/**
+	 * 获取文档模板，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTemplMust();
 }

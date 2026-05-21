@@ -1,7 +1,5 @@
 package net.ibizsys.central.cloud.core.service;
 
-import net.ibizsys.central.dataentity.service.IDEServiceAPIRSRuntime;
-
 public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysServiceAPIRuntime {
 
 	/**

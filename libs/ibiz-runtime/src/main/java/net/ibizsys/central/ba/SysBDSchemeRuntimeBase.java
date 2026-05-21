@@ -24,6 +24,7 @@ import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.ba.PSSysBDSchemeImpl;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
+import net.ibizsys.runtime.IModelRuntime;
 import net.ibizsys.runtime.ISystemRuntimeException;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.Entity;
@@ -92,14 +93,7 @@ public abstract class SysBDSchemeRuntimeBase extends SystemModelRuntimeBase impl
 	}
 	
 	
-	private ISysBDSchemeRuntimeContext iSysBDSchemeRuntimeContext = new ISysBDSchemeRuntimeContext() {
-
-		@Override
-		public ISysBDSchemeRuntime getSysBDSchemeRuntime() {
-			return getSelf();
-		}
-		
-	};
+	private ISysBDSchemeRuntimeContext iSysBDSchemeRuntimeContext = null;
 	
 	
 	/**
@@ -187,7 +181,7 @@ public abstract class SysBDSchemeRuntimeBase extends SystemModelRuntimeBase impl
 	public void init(ISystemRuntimeContext iSystemRuntimeContext, IPSSysBDScheme iPSSysBDScheme) throws Exception {
 		Assert.notNull(iSystemRuntimeContext, "传入系统运行时上下文对象无效");
 		Assert.notNull(iPSSysBDScheme, "传入大数据体系模型对象无效");
-		this.setSystemRuntimeBase(iSystemRuntimeContext.getSystemRuntime());
+		this.setSystemRuntimeBaseContext(iSystemRuntimeContext);
 		this.iPSSysBDScheme = iPSSysBDScheme;
 		
 		this.setConfigFolder(getConfigFolder(iPSSysBDScheme));
@@ -226,12 +220,32 @@ public abstract class SysBDSchemeRuntimeBase extends SystemModelRuntimeBase impl
 	
 
 	protected ISysBDSchemeRuntimeContext getSysBDSchemeRuntimeContext() {
+		if(this.iSysBDSchemeRuntimeContext == null) {
+			this.iSysBDSchemeRuntimeContext = this.createModelRuntimeContext();
+		}
 		return this.iSysBDSchemeRuntimeContext;
 	}
 	
 	private SysBDSchemeRuntimeBase getSelf() {
 		return this;
 	}
+	
+	protected ISysBDSchemeRuntimeContext createModelRuntimeContext() {
+		return new SysBDSchemeRuntimeContextBase() {
+
+			@Override
+			public ISysBDSchemeRuntime getSysBDSchemeRuntime() {
+				return getSelf();
+			}
+
+			@Override
+			public IModelRuntime getModelRuntime() {
+				return getSelf();
+			}
+			
+		};
+	}
+	
 	
 //	@Override
 //	public ISysBDTableRuntime getSysBDTableRuntime(String strTableName, boolean bTryMode) {

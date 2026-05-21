@@ -81,6 +81,13 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	
 	
 	/**
+	 * 获取预置视图标记
+	 * @return
+	 */
+	java.lang.String getPDTViewTag();
+	
+	
+	/**
 	 * 获取项图标资源对象
 	 * @return
 	 */
@@ -176,4 +183,11 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	 * @return
 	 */
 	com.fasterxml.jackson.databind.node.ObjectNode getViewParamJO();
+	
+	
+	/**
+	 * 获取是否使用系统预置视图
+	 * @return
+	 */
+	boolean isUsePDTView();
 }

@@ -1,6 +1,8 @@
 package net.ibizsys.central.util;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.domain.Pageable;
 
@@ -15,6 +17,8 @@ public class PageImpl<T> extends org.springframework.data.domain.PageImpl<T> imp
 	private int totalPages = -1;
 	
 	private long totalX = -1;
+	
+	private Map<String, Object> metadata = null;
 	
 	public PageImpl(List<T> content, Pageable pageable, long total, int totalPages, long totalX) {
 		super(content, pageable, total);
@@ -46,5 +50,17 @@ public class PageImpl<T> extends org.springframework.data.domain.PageImpl<T> imp
 	@Override
 	public long getTotalX() {
 		return this.totalX;
+	}
+
+	@Override
+	public Map<String, Object> getMetadata() {
+		return this.metadata;
+	}
+	
+	public Map<String, Object> getMetadataIf() {
+		if(this.metadata == null) {
+			this.metadata = new LinkedHashMap<String, Object>();
+		}
+		return this.metadata;
 	}
 }

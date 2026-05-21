@@ -14,9 +14,11 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
+import net.ibizsys.central.cloud.core.util.ConfigEntityEx;
 import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
 import net.ibizsys.central.security.ISystemAccessManager;
@@ -44,6 +46,7 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 	private List<INamedAction> unregisterActionList = new ArrayList<INamedAction>();
 	private Map<String, IPSApplication> psApplicationMap = new HashMap<String, IPSApplication>();
 	private Map<String, String> mainAppRefAppMap = new HashMap<String, String>();
+	private ConfigEntityEx settings = null;
 	
 	@Override
 	protected void onInstall() throws Exception {
@@ -96,6 +99,9 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 		//判断文件ID是否存在路径符号
 		if(strFileId.indexOf("\\") != -1 || strFileId.indexOf("/") != -1) {
 			strDynaModelPath = strFileId;
+			if(strDynaModelPath.indexOf("MERGENCES/") == 0) {
+				strDynaModelPath =  this.getSystemRuntime().getPSSystemService().getPSModelFolderPath() + File.separator + strDynaModelPath;
+			}
 		}
 		else {
 			strDynaModelPath = String.format("%1$s%2$s%3$s", this.getDeploySystemModelPath(), File.separator, strFileId);
@@ -353,6 +359,34 @@ public abstract class ExtensionSysRefRuntimeBase extends SysRefRuntimeBase imple
 		return this.mainAppRefAppMap.remove(strMainAppTag, strSubAppTag);
 	}
 	
+
+	@Override
+	public String getSubAppMenuTag(String strMainAppTag, String strSubAppTag) {
+		ConfigEntityEx configEntityEx = this.getV2SystemMergeSettings();
+		String subtag = (String)configEntityEx.get(String.format("SUBAPPMENUTAG.%1$s.%2$s", strMainAppTag, strSubAppTag));
+		if(ObjectUtils.isEmpty(subtag)) {
+			subtag = (String)configEntityEx.get(String.format("SUBAPPMENUTAG.%1$s", strSubAppTag));
+		}
+		
+		return subtag;
+	}
 	
+	protected ConfigEntityEx getV2SystemMergeSettings() {
+		if(this.settings == null) {
+			if(this.getDeploySystem() != null) {
+				ISystemRuntime iSystemRuntime = ServiceHub.getInstance().getLoadedSystemRuntime(this.getDeploySystem().getDeploySystemId(), false);
+				if(iSystemRuntime instanceof IServiceSystemRuntime) {
+					IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)iSystemRuntime;
+					if(iServiceSystemRuntime.getV2SystemMerge()!=null) {
+						if(this.settings == null)
+							this.settings = new ConfigEntityEx(iServiceSystemRuntime.getV2SystemMerge().getSettings(), false);
+					}
+				}
+			}
+			if(this.settings == null)
+				this.settings = new ConfigEntityEx("", false);
+		}
+		return this.settings;
+	}
 	
 }

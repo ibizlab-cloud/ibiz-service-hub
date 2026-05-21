@@ -1,5 +1,6 @@
 package net.ibizsys.central.dataentity.logic;
 
+import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
@@ -25,23 +26,34 @@ public class DELogicDEPrintNodeRuntime extends DELogicNodeRuntimeBase{
 		}
 		
 		IPSDEDEPrintLogic iPSDEDEPrintLogic = (IPSDEDEPrintLogic)iPSDELogicNode;
+		Object value = iDELogicSession.getParamObject(iPSDEDEPrintLogic.getDstPSDELogicParamMust().getCodeName());
+		if(!(value instanceof IEntity)) {
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点[%1$s]目标参数类型不正确", iPSDELogicNode.getName()));
+		}
 		
-		IEntity dstEntity = (IEntity)iDELogicSession.getParamObject(iPSDEDEPrintLogic.getDstPSDELogicParamMust().getCodeName());
+		IEntity dstEntity = (IEntity)value;
 		IDataEntityRuntime dstDataEntityRuntime = iDELogicRuntimeContext.getDataEntityRuntime().getSystemRuntime().getDataEntityRuntime(iPSDEDEPrintLogic.getDstPSDataEntityMust().getId(), false);
 		IPSDEPrint dstPSDEPrint = iPSDEDEPrintLogic.getDstPSDEPrintMust();
 		
-		//取出文件
-		Object osParam = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDEDEPrintLogic.getOSPSDELogicParamMust().getCodeName(), false).getReal(iDELogicSession);
-		if(!(osParam instanceof File)) {
-			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点[%1$s]指定输出流参数[%2$s]不是文件对象类型", iPSDELogicNode.getName(), iPSDEDEPrintLogic.getOSPSDELogicParamMust().getCodeName()));
+		if(iPSDEDEPrintLogic.getOSPSDELogicParam() != null) {
+			//取出文件
+			Object osParam = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDEDEPrintLogic.getOSPSDELogicParamMust().getCodeName(), false).getReal(iDELogicSession);
+			if(!(osParam instanceof File)) {
+				throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点[%1$s]指定输出流参数[%2$s]不是文件对象类型", iPSDELogicNode.getName(), iPSDEDEPrintLogic.getOSPSDELogicParamMust().getCodeName()));
+			}
+			File file = (File)osParam;
+			
+			try(OutputStream os = iDELogicRuntimeContext.getDataEntityRuntime().getDEFileUtilRuntime().getOutputStream(file, false);){
+				dstDataEntityRuntime.outputPrint(dstPSDEPrint.getId(), os, new Object[] {dstDataEntityRuntime.getKeyFieldValue(dstEntity)}, null, false);
+			}
+			
+			iDELogicSession.setLastReturn(null);
 		}
-		File file = (File)osParam;
-		
-		try(OutputStream os = iDELogicRuntimeContext.getDataEntityRuntime().getDEFileUtilRuntime().getOutputStream(file, false);){
-			dstDataEntityRuntime.outputPrint(dstPSDEPrint.getId(), os, new Object[] {dstDataEntityRuntime.getKeyFieldValue(dstEntity)}, null, false);
+		else {
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			dstDataEntityRuntime.outputPrint(dstPSDEPrint.getId(), bos, new Object[] {dstDataEntityRuntime.getKeyFieldValue(dstEntity)}, null, false);
+			iDELogicSession.setLastReturn(bos.toString("utf-8"));
 		}
-		
-		iDELogicSession.setLastReturn(null);
 		
 	}
 	

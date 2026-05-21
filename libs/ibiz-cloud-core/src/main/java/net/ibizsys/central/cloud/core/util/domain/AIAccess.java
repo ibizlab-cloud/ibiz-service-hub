@@ -30,7 +30,7 @@ public class AIAccess extends EntityBase {
 	public final static String FIELD_NAME = "name";
 
 	/**
-	 *  AI应用类型
+	 * AI应用类型
 	 */
 	public final static String FIELD_AITYPE = "aitype";
 
@@ -41,7 +41,7 @@ public class AIAccess extends EntityBase {
 
 	/**
 	 * SecretKey(AppSecret)
-	*/
+	 */
 	public final static String FIELD_SECRETKEY = "secretkey";
 
 	/**
@@ -56,108 +56,96 @@ public class AIAccess extends EntityBase {
 
 	/**
 	 * 管理账号token过期时间
-	  */
+	 */
 	public final static String FIELD_EXPIRESTIME = "expirestime";
-
-
 
 	/**
 	 * EmbeddingUrl
 	 */
 	public final static String FIELD_EMBEDDINGURL = "embeddingurl";
-	
+
 	/**
 	 * 嵌入访问token
 	 */
 	public final static String FIELD_EMBEDDINGTOKEN = "embeddingtoken";
-	
 
 	/**
 	 * ProxyUrl
 	 */
 	public final static String FIELD_PROXYURL = "proxyurl";
-	
-	
+
 	/**
 	 * ServiceUrl
 	 */
 	public final static String FIELD_SERVICEURL = "serviceurl";
-	
-	
+
+	/**
+	 * ChatCompletionUrl
+	 */
+	public final static String FIELD_CHATCOMPLETIONURL = "chatcompletionurl";
 	
 	/**
 	 * Model
 	 */
 	public final static String FIELD_MODEL = "model";
-	
-	
+
 	/**
 	 * Embedding Model
 	 */
 	public final static String FIELD_EMBEDDINGMODEL = "embeddingmodel";
-	
-	
+
 	/**
 	 * 启用工具
 	 */
 	public final static String FIELD_TOOLS = "tools";
-	
-	
+
 	/**
 	 * 是否禁用
 	 */
 	public final static String FIELD_DISABLED = "disabled";
-	
-	
+
 	/**
 	 * 取值范围: [.0f, 1.0f]。 多样性，越高，多样性越好
 	 */
 	public final static String FIELD_TEMPERATURE = "temperature";
-	
-	
+
 	public final static String FIELD_MAXTOKENS = "maxtokens";
-	
-	
+
 	/**
 	 * 流模式： true, false, auto
 	 */
 	public final static String FIELD_STREAM = "stream";
-	
+
 	/**
 	 * 思考模式： true, false, auto
 	 */
 	public final static String FIELD_THINK = "think";
-	
-	
+
 	/**
 	 * 移除Think内容: all;input;output
 	 */
 	public final static String FIELD_REMOVETHINK = "removethink";
-	
 
 	/**
 	 * McpServer集合
 	 */
 	public final static String FIELD_MCPSERVERS = "mcpservers";
-	
+
 	/**
 	 * 最大的工具调用次数
 	 */
 	public final static String FIELD_TOOLMAXCALLS = "toolmaxcalls";
-	
-	
+
 	/**
 	 * 工具调用超出提示信息
 	 */
 	public final static String FIELD_TOOLEXCEEDMESSAGE = "toolexceedmessage";
-	
-	
+
 	/**
 	 * 工具调用步骤，1：发送步骤，2：发送步骤并返回成功结果
 	 */
 	public final static String FIELD_TOOLCALLSTEP = "toolcallstep";
-	
-	
+
 	/**
 	 * 平行工具调用
 	 */
@@ -165,55 +153,147 @@ public class AIAccess extends EntityBase {
 	
 	
 	/**
+	 * 工具调用历史数量
+	 */
+	public final static String FIELD_TOOLCALLHISTORIES = "toolcallhistories";
+
+	/**
 	 * 思考预算
 	 */
 	public final static String FIELD_THINKBUDGET = "thinkbudget";
 	
+	
+	/**
+	 * 思考阈值
+	 */
+	public final static String FIELD_THINKTHRESHOLD = "thinkthreshold";
+	
+
 	/**
 	 * 最大输入词数
 	 */
 	public final static String FIELD_MAXINPUTTOKENS = "maxinputtokens";
-	
-	
+
 	/**
 	 * 凭证标识
 	 */
 	public final static String FIELD_CREDENTIALID = "credentialid";
-	
+
 	/**
 	 * 扩展参数
 	 */
 	public final static String FIELD_EXTRAPARAMS = "extraparams";
-	
+
 	/**
 	 * 文本排序 Model
 	 */
 	public final static String FIELD_TEXTRERANKMODEL = "textrerankmodel";
-	
+
 	/**
 	 * 文本排序Url
 	 */
 	public final static String FIELD_TEXTRERANKURL = "textrerankurl";
 	
+	/**
+	 * 文本排序token
+	 */
+	public final static String FIELD_TEXTRERANKTOKEN = "textreranktoken";
 	
+
+	/**
+	 * 描述用户请求中OSSImage
+	 */
+	public final static String FIELD_DESCOSSIMAGE = "descossimage";
+
+	/**
+	 * 最大OSSImage数量
+	 */
+	public final static String FIELD_MAXOSSIMAGES = "maxossimages";
+	
+	/**
+	 * OSSImage提示词
+	 */
+	public final static String FIELD_OSSIMAGEVLPROMPT = "ossimagevlprompt";
+	
+	/**
+	 * 最大OSSImage数量
+	 */
+	public final static String FIELD_MAXCHUNKS = "maxchunks";
+	
+	/**
+	 * 资料阈值 [.0f, 1.0f]。 越高，相似度越好, 缺省 0.7
+	 */
+	public final static String FIELD_CHUNKTHRESHOLD = "chunkthreshold";
+	
+	/**
+	 * 使用资料提示词
+	 */
+	public final static String FIELD_CHUNKPROMPT = "chunkprompt";
+	
+	/**
+	 * 输出资料章节：remote、local、no
+	 */
+	public final static String FIELD_CHUNKSECTION = "chunksection";
+	
+	
+	
+	/**
+	 * 资料反查路径
+	 */
+	public final static String FIELD_CHUNKVIEWURL = "chunkviewurl";
+	
+	
+	/**
+	 * 资料重排序模式
+	 */
+	public final static String FIELD_CHUNKRERANK = "chunkrerank";
+	
+	/**
+	 * 资料目录索引模式
+	 */
+	public final static String FIELD_CHUNKPAGEINDEX = "chunkpageindex";
+	
+	
+	/**
+	 * 默认向量维度
+	 */
+	public final static String FIELD_EMBEDDINGDIMENSIONS = "embeddingdimensions";
+	
+
 	/**
 	 * 工具调用步骤：禁用
 	 */
 	public final static int TOOLCALLSTEP_DISABLED = 0;
-	
+
 	/**
 	 * 工具调用步骤：启用
 	 */
 	public final static int TOOLCALLSTEP_ENABLED = 1;
-	
+
 	/**
 	 * 工具调用步骤：启动返回成功结果
 	 */
 	public final static int TOOLCALLSTEP_RESULT = 2;
 	
 	
-
+	/**
+	 * 资料目录：远程输出
+	 */
+	public final static String CHUNKSECTION_REMOTE = "remote";
 	
+	/**
+	 * 资料目录：本地输出
+	 */
+	public final static String CHUNKSECTION_LOCAL = "local";
+	
+	/**
+	 * 资料目录：不输出
+	 */
+	public final static String CHUNKSECTION_NO = "no";
+	
+	
+	
+
 	/**
 	 * 设置「AI应用标识」
 	 *
@@ -530,8 +610,6 @@ public class AIAccess extends EntityBase {
 		return this;
 	}
 
-	
-
 	/**
 	 * 设置「EmbeddingUrl」
 	 *
@@ -571,8 +649,6 @@ public class AIAccess extends EntityBase {
 		return this;
 	}
 
-	
-	
 	/**
 	 * 设置「EmbeddingToken」
 	 *
@@ -611,9 +687,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_EMBEDDINGTOKEN);
 		return this;
 	}
-	
-	
-	
+
 	/**
 	 * 设置「ProxyUrl」
 	 *
@@ -652,7 +726,6 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_PROXYURL);
 		return this;
 	}
-	
 
 	/**
 	 * 设置「ServiceUrl」
@@ -692,8 +765,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_SERVICEURL);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「Model」
 	 *
@@ -732,7 +804,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_MODEL);
 		return this;
 	}
-	
+
 	/**
 	 * 设置「EmbeddingModel」
 	 *
@@ -771,8 +843,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_EMBEDDINGMODEL);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「TextReRankModel」
 	 *
@@ -811,8 +882,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_TEXTRERANKMODEL);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「Tools」
 	 *
@@ -851,7 +921,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_TOOLS);
 		return this;
 	}
-	
+
 	/**
 	 * 设置「是否禁用」
 	 *
@@ -894,52 +964,51 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_DISABLED);
 		return this;
 	}
-	
-	
-    /**
-     * 设置「多样性参数」
-     *
-     * @param val
-    */
-    @JsonIgnore
-    public AIAccess setTemperature(Float val) {
-        this.set(FIELD_TEMPERATURE, val);
-        return this;
-    }
 
-    /**
-     * 获取「多样性参数」值
-     *
-    */
-    @JsonIgnore
-    public Float getTemperature() {
-        try{
-            return DataTypeUtils.getFloatValue(this.get(FIELD_TEMPERATURE),null);
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
+	/**
+	 * 设置「多样性参数」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setTemperature(Float val) {
+		this.set(FIELD_TEMPERATURE, val);
+		return this;
+	}
 
-    /**
-     * 判断 「多样性参数」是否有值
-     *
-    */
-    @JsonIgnore
-    public boolean containsTemperature() {
-        return this.contains(FIELD_TEMPERATURE);
-    }
+	/**
+	 * 获取「多样性参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Float getTemperature() {
+		try {
+			return DataTypeUtils.getFloatValue(this.get(FIELD_TEMPERATURE), null);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    /**
-     * 重置 「多样性参数」
-     *
-    */
-    @JsonIgnore
-    public AIAccess resetTemperature() {
-        this.reset(FIELD_TEMPERATURE);
-        return this;
-    }
-    
-    /**
+	/**
+	 * 判断 「多样性参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsTemperature() {
+		return this.contains(FIELD_TEMPERATURE);
+	}
+
+	/**
+	 * 重置 「多样性参数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetTemperature() {
+		this.reset(FIELD_TEMPERATURE);
+		return this;
+	}
+
+	/**
 	 * 设置「最大词量」
 	 *
 	 * @param val
@@ -977,8 +1046,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_MAXTOKENS);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「Stream」
 	 *
@@ -1017,8 +1085,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_STREAM);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「RemoveThink」
 	 *
@@ -1057,9 +1124,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_REMOVETHINK);
 		return this;
 	}
-	
-	
-	
+
 	/**
 	 * 设置「Think」
 	 *
@@ -1098,9 +1163,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_THINK);
 		return this;
 	}
-	
-	
-	
+
 	/**
 	 * 设置「McpServers」
 	 *
@@ -1122,13 +1185,13 @@ public class AIAccess extends EntityBase {
 		if (objValue == null) {
 			return null;
 		}
-		
-		if(objValue instanceof String) {
+
+		if (objValue instanceof String) {
 			List list = Arrays.asList(objValue.toString().split("[,]"));
 			this.set(FIELD_MCPSERVERS, list);
 			return list;
 		}
-		
+
 		return (List<String>) objValue;
 	}
 
@@ -1150,8 +1213,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_MCPSERVERS);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「ToolMaxCalls」
 	 *
@@ -1190,8 +1252,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_TOOLMAXCALLS);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「ToolExceedMessages」
 	 *
@@ -1230,8 +1291,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_TOOLEXCEEDMESSAGE);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「ToolCallStep」
 	 *
@@ -1270,8 +1330,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_TOOLCALLSTEP);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「ParallelToolCall」
 	 *
@@ -1310,9 +1369,8 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_PARALLELTOOLCALL);
 		return this;
 	}
-	
-	
-    /**
+
+	/**
 	 * 设置「思考预算」
 	 *
 	 * @param val
@@ -1350,9 +1408,8 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_THINKBUDGET);
 		return this;
 	}
-	
-	
-    /**
+
+	/**
 	 * 设置「最大输入词量」
 	 *
 	 * @param val
@@ -1390,8 +1447,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_MAXINPUTTOKENS);
 		return this;
 	}
-	
-	
+
 	/**
 	 * 设置「CredentialId」
 	 *
@@ -1430,7 +1486,6 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_CREDENTIALID);
 		return this;
 	}
-	
 
 	/**
 	 * 设置「扩展参数」
@@ -1450,16 +1505,16 @@ public class AIAccess extends EntityBase {
 	@JsonIgnore
 	public Map<String, Object> getExtraParams() {
 		Object value = this.get(FIELD_EXTRAPARAMS);
-		if(value == null) {
+		if (value == null) {
 			return null;
 		}
-		if(value instanceof Map) {
-			return (Map)value;
+		if (value instanceof Map) {
+			return (Map) value;
 		}
-		
+
 		Map map = JsonUtils.as(value, Map.class);
 		this.setExtraParams(map);
-		
+
 		return map;
 	}
 
@@ -1481,7 +1536,7 @@ public class AIAccess extends EntityBase {
 		this.reset(FIELD_EXTRAPARAMS);
 		return this;
 	}
-	
+
 	/**
 	 * 设置「TextReRankUrl」
 	 *
@@ -1521,4 +1576,607 @@ public class AIAccess extends EntityBase {
 		return this;
 	}
 	
+	
+	/**
+	 * 设置「TextReRankToken」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setTextReRankToken(String val) {
+		this.set(FIELD_TEXTRERANKTOKEN, val);
+		return this;
+	}
+
+	/**
+	 * 获取「TextReRankToken」值
+	 *
+	 */
+	@JsonIgnore
+	public String getTextReRankToken() {
+		return (String) this.get(FIELD_TEXTRERANKTOKEN);
+	}
+
+	/**
+	 * 判断 「TextReRankToken」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsTextReRankToken() {
+		return this.contains(FIELD_TEXTRERANKTOKEN);
+	}
+
+	/**
+	 * 重置 「TextReRankToken」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetTextReRankToken() {
+		this.reset(FIELD_TEXTRERANKTOKEN);
+		return this;
+	}
+	
+	
+
+	/**
+	 * 设置「DescOSSImage」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setDescOSSImage(String val) {
+		this.set(FIELD_DESCOSSIMAGE, val);
+		return this;
+	}
+
+	/**
+	 * 获取「DescOSSImage」值
+	 *
+	 */
+	@JsonIgnore
+	public String getDescOSSImage() {
+		return DataTypeUtils.asString(this.get(FIELD_DESCOSSIMAGE), null);
+	}
+
+	/**
+	 * 判断 「DescOSSImage」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDescOSSImage() {
+		return this.contains(FIELD_DESCOSSIMAGE);
+	}
+
+	/**
+	 * 重置 「DescOSSImage」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetDescOSSImage() {
+		this.reset(FIELD_DESCOSSIMAGE);
+		return this;
+	}
+
+	/**
+	 * 设置「最大OSS图片量」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setMaxOSSImages(Integer val) {
+		this.set(FIELD_MAXOSSIMAGES, val);
+		return this;
+	}
+
+	/**
+	 * 获取「最大OSS图片量」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getMaxOSSImages() {
+		return DataTypeUtils.asInteger(this.get(FIELD_MAXOSSIMAGES), null);
+	}
+
+	/**
+	 * 判断 「最大OSS图片量」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMaxOSSImages() {
+		return this.contains(FIELD_MAXOSSIMAGES);
+	}
+
+	/**
+	 * 重置 「最大OSS图片量」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetMaxOSSImages() {
+		this.reset(FIELD_MAXOSSIMAGES);
+		return this;
+	}
+	
+	/**
+	 * 设置「OSSImageVLPrompt」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setOSSImageVLPrompt(String val) {
+		this.set(FIELD_OSSIMAGEVLPROMPT, val);
+		return this;
+	}
+
+	/**
+	 * 获取「OSSImageVLPrompt」值
+	 *
+	 */
+	@JsonIgnore
+	public String getOSSImageVLPrompt() {
+		return DataTypeUtils.asString(this.get(FIELD_OSSIMAGEVLPROMPT), null);
+	}
+
+	/**
+	 * 判断 「OSSImageVLPrompt」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsOSSImageVLPrompt() {
+		return this.contains(FIELD_OSSIMAGEVLPROMPT);
+	}
+
+	/**
+	 * 重置 「OSSImageVLPrompt」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetOSSImageVLPrompt() {
+		this.reset(FIELD_OSSIMAGEVLPROMPT);
+		return this;
+	}
+	
+	
+	
+	/**
+	 * 设置「最大资料片段数」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setMaxChunks(Integer val) {
+		this.set(FIELD_MAXCHUNKS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「最大资料片段数」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getMaxChunks() {
+		return DataTypeUtils.asInteger(this.get(FIELD_MAXCHUNKS), null);
+	}
+
+	/**
+	 * 判断 「最大资料片段数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsMaxChunks() {
+		return this.contains(FIELD_MAXCHUNKS);
+	}
+
+	/**
+	 * 重置 「最大资料片段数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetMaxChunks() {
+		this.reset(FIELD_MAXCHUNKS);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「资料阈值参数」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkThreshold(Float val) {
+		this.set(FIELD_CHUNKTHRESHOLD, val);
+		return this;
+	}
+
+	/**
+	 * 获取「资料阈值参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Float getChunkThreshold() {
+		try {
+			return DataTypeUtils.getFloatValue(this.get(FIELD_CHUNKTHRESHOLD), null);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * 判断 「资料阈值参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkThreshold() {
+		return this.contains(FIELD_CHUNKTHRESHOLD);
+	}
+
+	/**
+	 * 重置 「资料阈值参数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkThreshold() {
+		this.reset(FIELD_CHUNKTHRESHOLD);
+		return this;
+	}
+
+	
+
+	/**
+	 * 设置「ChunkPrompt」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkPrompt(String val) {
+		this.set(FIELD_CHUNKPROMPT, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ChunkPrompt」值
+	 *
+	 */
+	@JsonIgnore
+	public String getChunkPrompt() {
+		return (String) this.get(FIELD_CHUNKPROMPT);
+	}
+
+	/**
+	 * 判断 「ChunkPrompt」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkPrompt() {
+		return this.contains(FIELD_CHUNKPROMPT);
+	}
+
+	/**
+	 * 重置 「ChunkPrompt」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkPrompt() {
+		this.reset(FIELD_CHUNKPROMPT);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「嵌入向量维度」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setEmbeddingDimensions(Integer val) {
+		this.set(FIELD_EMBEDDINGDIMENSIONS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「嵌入向量维度」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getEmbeddingDimensions() {
+		return DataTypeUtils.asInteger(this.get(FIELD_EMBEDDINGDIMENSIONS), null);
+	}
+
+	/**
+	 * 判断 「嵌入向量维度」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsEmbeddingDimensions() {
+		return this.contains(FIELD_EMBEDDINGDIMENSIONS);
+	}
+
+	/**
+	 * 重置 「嵌入向量维度」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetEmbeddingDimensions() {
+		this.reset(FIELD_EMBEDDINGDIMENSIONS);
+		return this;
+	}
+	
+	/**
+	 * 设置「资料重排序参数」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkReRank(Integer val) {
+		this.set(FIELD_CHUNKRERANK, val);
+		return this;
+	}
+
+	/**
+	 * 获取「资料重排序参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getChunkReRank() {
+		return DataTypeUtils.asInteger(this.get(FIELD_CHUNKRERANK), null);
+	}
+
+	/**
+	 * 判断 「资料重排序参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkReRank() {
+		return this.contains(FIELD_CHUNKRERANK);
+	}
+
+	/**
+	 * 重置 「资料重排序参数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkReRank() {
+		this.reset(FIELD_CHUNKRERANK);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「资料目录索引参数」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkPageIndex(Integer val) {
+		this.set(FIELD_CHUNKPAGEINDEX, val);
+		return this;
+	}
+
+	/**
+	 * 获取「资料目录索引参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getChunkPageIndex() {
+		return DataTypeUtils.asInteger(this.get(FIELD_CHUNKPAGEINDEX), null);
+	}
+
+	/**
+	 * 判断 「资料目录索引参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkPageIndex() {
+		return this.contains(FIELD_CHUNKPAGEINDEX);
+	}
+
+	/**
+	 * 重置 「资料目录索引参数」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkPageIndex() {
+		this.reset(FIELD_CHUNKPAGEINDEX);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ChunkViewUrl」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkViewUrl(String val) {
+		this.set(FIELD_CHUNKVIEWURL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ChunkViewUrl」值
+	 *
+	 */
+	@JsonIgnore
+	public String getChunkViewUrl() {
+		return (String) this.get(FIELD_CHUNKVIEWURL);
+	}
+
+	/**
+	 * 判断 「ChunkViewUrl」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkViewUrl() {
+		return this.contains(FIELD_CHUNKVIEWURL);
+	}
+
+	/**
+	 * 重置 「ChunkViewUrl」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkViewUrl() {
+		this.reset(FIELD_CHUNKVIEWURL);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ChunkSection」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChunkSection(String val) {
+		this.set(FIELD_CHUNKSECTION, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ChunkSection」值
+	 *
+	 */
+	@JsonIgnore
+	public String getChunkSection() {
+		return (String) this.get(FIELD_CHUNKSECTION);
+	}
+
+	/**
+	 * 判断 「ChunkSection」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChunkSection() {
+		return this.contains(FIELD_CHUNKSECTION);
+	}
+
+	/**
+	 * 重置 「ChunkSection」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChunkSection() {
+		this.reset(FIELD_CHUNKSECTION);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「思考阈值」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setThinkThreshold(Integer val) {
+		this.set(FIELD_THINKTHRESHOLD, val);
+		return this;
+	}
+
+	/**
+	 * 获取「思考阈值」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getThinkThreshold() {
+		return DataTypeUtils.asInteger(this.get(FIELD_THINKTHRESHOLD), null);
+	}
+
+	/**
+	 * 判断 「思考阈值」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsThinkThreshold() {
+		return this.contains(FIELD_THINKTHRESHOLD);
+	}
+
+	/**
+	 * 重置 「思考阈值」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetThinkThreshold() {
+		this.reset(FIELD_THINKTHRESHOLD);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ChatCompletionUrl」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setChatCompletionUrl(String val) {
+		this.set(FIELD_CHATCOMPLETIONURL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ChatCompletionUrl」值
+	 *
+	 */
+	@JsonIgnore
+	public String getChatCompletionUrl() {
+		return (String) this.get(FIELD_CHATCOMPLETIONURL);
+	}
+
+	/**
+	 * 判断 「ChatCompletionUrl」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsChatCompletionUrl() {
+		return this.contains(FIELD_CHATCOMPLETIONURL);
+	}
+
+	/**
+	 * 重置 「ChatCompletionUrl」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetChatCompletionUrl() {
+		this.reset(FIELD_CHATCOMPLETIONURL);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「ToolCallHistories」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public AIAccess setToolCallHistories(String val) {
+		this.set(FIELD_TOOLCALLHISTORIES, val);
+		return this;
+	}
+
+	/**
+	 * 获取「ToolCallHistories」值
+	 *
+	 */
+	@JsonIgnore
+	public String getToolCallHistories() {
+		return DataTypeUtils.asString(this.get(FIELD_TOOLCALLHISTORIES), null);
+	}
+
+	/**
+	 * 判断 「ToolCallHistories」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsToolCallHistories() {
+		return this.contains(FIELD_TOOLCALLHISTORIES);
+	}
+
+	/**
+	 * 重置 「ToolCallHistories」
+	 *
+	 */
+	@JsonIgnore
+	public AIAccess resetToolCallHistories() {
+		this.reset(FIELD_TOOLCALLHISTORIES);
+		return this;
+	}
 }

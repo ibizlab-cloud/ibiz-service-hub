@@ -37,6 +37,8 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	java.lang.String getDefaultValueType();
 	
 	
+	
+	
 	/**
 	 * 获取属性标记
 	 * @return
@@ -91,6 +93,13 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.der.IPSDERBase getPSDERMust();
+	
+	
+	/**
+	 * 获取正则式模式
+	 * @return
+	 */
+	java.lang.String getPattern();
 	
 	
 	/**

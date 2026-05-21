@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import net.ibizsys.model.database.IPSDEDBConfig;
+import net.ibizsys.model.database.IPSDEFDTColumn;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
@@ -399,6 +401,8 @@ public class PSDEDQSQLCodeGenEngine {
 
 	private IDataEntityRuntime majorDataEntityRuntime = null;
 
+	private IPSDEDBConfig iPSDEDBConfig = null;
+
 	public PSDEDQSQLCodeGenEngine(IDataEntityRuntime iDataEntityRuntime, IDBDialect iDBDialect) throws Exception {
 		this.init(iDataEntityRuntime, iDBDialect);
 	}
@@ -414,6 +418,7 @@ public class PSDEDQSQLCodeGenEngine {
 		this.iSystemRuntime = iDataEntityRuntime.getSystemRuntime();
 		this.majorPSDataEntity = iDataEntityRuntime.getPSDataEntity();
 		this.iDBDialect = iDBDialect;
+		this.iPSDEDBConfig = iDataEntityRuntime.getPSDEDBConfig(iDBDialect.getDBType(), true);
 
 		onInit();
 	}
@@ -561,9 +566,9 @@ public class PSDEDQSQLCodeGenEngine {
 					} else {
 						IPSDEField iPSDEField = this.majorPSDataEntity.getIndexTypePSDEField();
 						if (DataTypeUtils.isStringDataType(iPSDEField.getStdDataType())) {
-							sb.append(String.format("'%1$s' AS %2$s", iPSDERIndex.getTypeValue(), this.iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+							sb.append(String.format("'%1$s' AS %2$s", iPSDERIndex.getTypeValue(), getStandardName(iPSDEField.getName())));
 						} else {
-							sb.append(String.format("%1$s AS %2$s", iPSDERIndex.getTypeValue(), this.iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+							sb.append(String.format("%1$s AS %2$s", iPSDERIndex.getTypeValue(), getStandardName(iPSDEField.getName())));
 						}
 					}
 
@@ -589,12 +594,12 @@ public class PSDEDQSQLCodeGenEngine {
 							IPSDEField minorPSDEField = fieldMap.get(iPSDEField.getName());
 							if (minorPSDEField == null) {
 								// 常规模式
-								sb.append(String.format(",NULL AS %1$s\n", this.iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+								sb.append(String.format(",NULL AS %1$s\n", getStandardName(iPSDEField.getName())));
 							} else {
 								// 别名
 								// IPSDEFDTColumn minorPSDEFDTColumn =
 								// minorPSDEField.getPSDTColumn(this.getDBType());
-								sb.append(String.format(",v%1$s.%2$s AS %3$s\n", nIndex, this.iDBDialect.getDBObjStandardName(minorPSDEField.getName()), this.iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+								sb.append(String.format(",v%1$s.%2$s AS %3$s\n", nIndex, getStandardName(minorPSDEField.getName()), getStandardName(iPSDEField.getName())));
 							}
 						}
 					}
@@ -685,7 +690,7 @@ public class PSDEDQSQLCodeGenEngine {
 						// iPSDEField.getPSDTColumn(this.getDBType());
 						String strPSDEFieldExp = null;
 						if (mainQueryConfig.getPSDEDataQuery().isQueryFromView()) {
-							strPSDEFieldExp = String.format("%1$s.%2$s", "t1", this.iDBDialect.getDBObjStandardName(iPSDEField.getName()));
+							strPSDEFieldExp = String.format("%1$s.%2$s", "t1", getStandardName(iPSDEField.getName()));
 							// this.setFieldQueryCaseSensitive(strPSDEFieldExp,
 							// iPSDEFDTColumn.getQueryCaseSenstive());
 						} else {
@@ -704,7 +709,7 @@ public class PSDEDQSQLCodeGenEngine {
 				// iPSDEField.getPSDTColumn(this.getDBType());
 				String strPSDEFieldExp = null;
 				if (mainQueryConfig.getPSDEDataQuery().isQueryFromView()) {
-					strPSDEFieldExp = String.format("%1$s.%2$s", "t1", this.iDBDialect.getDBObjStandardName(iPSDEField.getName()));
+					strPSDEFieldExp = String.format("%1$s.%2$s", "t1", getStandardName(iPSDEField.getName()));
 					// this.setFieldQueryCaseSensitive(strPSDEFieldExp,
 					// iPSDEFDTColumn.getQueryCaseSenstive());
 				} else {
@@ -771,11 +776,11 @@ public class PSDEDQSQLCodeGenEngine {
 			if (!ObjectUtils.isEmpty(strRealQueryCode)) {
 				script.append(String.format("\nFROM (%1$s) t1 \n", strRealQueryCode));
 			} else {
-				script.append(String.format("\nFROM %1$s t1 \n", this.iDBDialect.getDBObjStandardName(strMainTable)));
+				script.append(String.format("\nFROM %1$s t1 \n", getStandardName(strMainTable)));
 				// if (!ObjectUtils.isEmpty(strUserTable) && !bDelete) {
 				// script.append("INNER JOIN %1$s t2 ON t1.%2$s = t2.%2$s",
-				// this.iDBDialect.getDBObjStandardName(strUserTable),
-				// this.iDBDialect.getDBObjStandardName(keyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+				// getStandardName(strUserTable),
+				// getStandardName(keyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 				// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 				// script.append(" AND t2.%1$s = '__SRFSAASDCID__'",
 				// strSaaSDCIdColName);
@@ -785,14 +790,14 @@ public class PSDEDQSQLCodeGenEngine {
 
 				// 临时
 				if (scriptTemp != null) {
-					scriptTemp.append(String.format("\nFROM %1$s t1 \n", this.iDBDialect.getDBObjStandardName(strMainTable + "_TMP")));
+					scriptTemp.append(String.format("\nFROM %1$s t1 \n", getStandardName(strMainTable + "_TMP")));
 					// if (!ObjectUtils.isEmpty(strUserTable) && !bDelete) {
 					// scriptTemp.append("INNER JOIN %1$s t2 ON t1.%2$s =
 					// t2.%2$s"
-					// , this.iDBDialect.getDBObjStandardName(strUserTable +
+					// , getStandardName(strUserTable +
 					// "_TMP")
 					// ,
-					// this.iDBDialect.getDBObjStandardName(keyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+					// getStandardName(keyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 					// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 					// scriptTemp.append(" AND t2.%1$s = '__SRFSAASDCID__'",
 					// strSaaSDCIdColName);
@@ -1129,7 +1134,7 @@ public class PSDEDQSQLCodeGenEngine {
 				// }
 
 				String[] parts = strField.split("[.]");
-				String strAlias = this.iDBDialect.getDBObjStandardName(strColumnName);
+				String strAlias = getStandardName(strColumnName);
 				if (parts.length == 2 && DataTypeUtils.compare(parts[1], strAlias, false) == 0) {
 					strQueryScript += String.format("%1$s", strField);
 				} else {
@@ -1147,7 +1152,7 @@ public class PSDEDQSQLCodeGenEngine {
 		if (scriptTemp != null) {
 			strQueryScriptTemp = strQueryScript;
 			if (!bDelete) {
-				strQueryScriptTemp += String.format(",t1.%1$s AS %1$s,t1.%2$s AS %2$s", this.iDBDialect.getDBObjStandardName("SRFORIKEY"), this.iDBDialect.getDBObjStandardName("SRFDRAFTFLAG"));
+				strQueryScriptTemp += String.format(",t1.%1$s AS %1$s,t1.%2$s AS %2$s", getStandardName("SRFORIKEY"), getStandardName("SRFDRAFTFLAG"));
 			}
 		}
 		strQueryScript += script.toString();
@@ -1804,21 +1809,21 @@ public class PSDEDQSQLCodeGenEngine {
 
 			derAliasMap.put("", nCurAliasIndex);
 
-			script.append(String.format("SELECT * FROM %1$s t%2$s \n", this.iDBDialect.getDBObjStandardName(strMainTable2), nCurAliasIndex + 1));
+			script.append(String.format("SELECT * FROM %1$s t%2$s \n", getStandardName(strMainTable2), nCurAliasIndex + 1));
 			// if (!ObjectUtils.isEmpty(strUserTable)) {
 			// script.append("INNER JOIN %1$s t%4$s ON t%3$s.%2$s =
 			// t%4$s.%2$s\n",
-			// this.iDBDialect.getDBObjStandardName(strUserTable2),
-			// this.iDBDialect.getDBObjStandardName(pKeyDEFHelper.getPSDTColumn(this.getDBType()).getColumnName()),
+			// getStandardName(strUserTable2),
+			// getStandardName(pKeyDEFHelper.getPSDTColumn(this.getDBType()).getColumnName()),
 			// nCurAliasIndex + 1, nCurAliasIndex + 2);
 			// }
 
 			if (iCurDEHelper.isEnableLogicValid()) {
 				IPSDEField iValidDEFHelper = iCurDEHelper.getPSDEFieldByPredefinedType(PredefinedFieldType.LOGICVALID, false);
 				if (DataTypeUtils.isNumberDataType(iValidDEFHelper.getStdDataType())) {
-					mainConditionList.add(String.format("t%3$s.%1$s = %2$s", this.iDBDialect.getDBObjStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
+					mainConditionList.add(String.format("t%3$s.%1$s = %2$s", getStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
 				} else {
-					mainConditionList.add(String.format("t%3$s.%1$s = '%2$s'", this.iDBDialect.getDBObjStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
+					mainConditionList.add(String.format("t%3$s.%1$s = '%2$s'", getStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
 				}
 			}
 
@@ -1901,11 +1906,11 @@ public class PSDEDQSQLCodeGenEngine {
 
 			derAliasMap.put("", nCurAliasIndex);
 
-			script.append(String.format("SELECT * FROM %1$s t%2$s \n", this.iDBDialect.getDBObjStandardName(strMainTable2), nCurAliasIndex + 1));
+			script.append(String.format("SELECT * FROM %1$s t%2$s \n", getStandardName(strMainTable2), nCurAliasIndex + 1));
 			// if (!ObjectUtils.isEmpty(strUserTable)) {
 			// script.append("INNER JOIN %1$s t%4$s ON t%3$s.%2$s = t%4$s.%2$s",
-			// this.iDBDialect.getDBObjStandardName(strUserTable2),
-			// this.iDBDialect.getDBObjStandardName(pKeyDEFHelper.getPSDTColumn(this.getDBType()).getColumnName()),
+			// getStandardName(strUserTable2),
+			// getStandardName(pKeyDEFHelper.getPSDTColumn(this.getDBType()).getColumnName()),
 			// nCurAliasIndex + 1, nCurAliasIndex + 2);
 			// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 			// script.append(" AND t%1$s.%2$s = '__SRFSAASDCID__'",
@@ -1921,9 +1926,9 @@ public class PSDEDQSQLCodeGenEngine {
 				IPSDEField iValidDEFHelper = iCurDEHelper.getPSDEFieldByPredefinedType(PredefinedFieldType.LOGICVALID, false);
 				if (iValidDEFHelper != null) {
 					if (DataTypeUtils.isNumberDataType(iValidDEFHelper.getStdDataType())) {
-						mainConditionList.add(String.format("t%3$s.%1$s = %2$s", this.iDBDialect.getDBObjStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
+						mainConditionList.add(String.format("t%3$s.%1$s = %2$s", getStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
 					} else {
-						mainConditionList.add(String.format("t%3$s.%1$s = '%2$s'", this.iDBDialect.getDBObjStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
+						mainConditionList.add(String.format("t%3$s.%1$s = '%2$s'", getStandardName(iValidDEFHelper.getName()), iCurDEHelper.getValidLogicValue(), nCurAliasIndex + 1));
 					}
 				} else {
 					throw new Exception(String.format("无法找到实体[%1$s]的逻辑有效属性", iCurDEHelper.getName()));
@@ -1939,20 +1944,20 @@ public class PSDEDQSQLCodeGenEngine {
 			// else
 			// bMT = false;
 
-			mainConditionList.add(String.format("t%1$s.%3$s = t%2$s.%4$s", nAlias + 1, nCurAliasIndex + (bMT ? 1 : 2), this.iDBDialect.getDBObjStandardName(pickupRelatedDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(pickupDEFHelper.getName())));
+			mainConditionList.add(String.format("t%1$s.%3$s = t%2$s.%4$s", nAlias + 1, nCurAliasIndex + (bMT ? 1 : 2), getStandardName(pickupRelatedDEFHelper.getName()), getStandardName(pickupDEFHelper.getName())));
 
 			if (derCustom != null) {
 				IPSDEField parentType = iCurDEHelper.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE, true);
 				IPSDEField parentSubType = iCurDEHelper.getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
 				if (parentType != null) {
-					String strFieldName = String.format("t%1$s.%2$s", nCurAliasIndex + (bMT ? 1 : 2), this.iDBDialect.getDBObjStandardName(parentType.getName()));
+					String strFieldName = String.format("t%1$s.%2$s", nCurAliasIndex + (bMT ? 1 : 2), getStandardName(parentType.getName()));
 					// mainConditionList.add(parentType.getPSDTColumn(this.getDBType()).getConditionSQL(this,
 					// strFieldName, null, ICondition.CONDOP_EQ,
 					// iPSDataEntity.getName(), null, null));
 					mainConditionList.add(this.iDBDialect.getConditionSQL(strFieldName, parentType.getStdDataType(), Conditions.EQ, iDataEntityRuntime.getName(), false, null));
 				}
 				if (parentSubType != null) {
-					String strFieldName = String.format("t%1$s.%2$s", nCurAliasIndex + (bMT ? 1 : 2), this.iDBDialect.getDBObjStandardName(parentSubType.getName()));
+					String strFieldName = String.format("t%1$s.%2$s", nCurAliasIndex + (bMT ? 1 : 2), getStandardName(parentSubType.getName()));
 					String strTypeValue = derCustom.getTypeValue();
 					if (ObjectUtils.isEmpty(strTypeValue)) {
 						strTypeValue = derCustom.getMinorCodeName();
@@ -2363,11 +2368,11 @@ public class PSDEDQSQLCodeGenEngine {
 								case Conditions.LIKE:
 								case Conditions.USERLIKE:
 									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+										sb.append(String.format("CONCAT('%%', #{ctx.%1$s.%2$s}, '%%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else
-									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("'%' || #{ctx.%1$s.%2$s} || '%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType()) || DBType.POSTGRESQL.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("'%%' || #{ctx.%1$s.%2$s} || '%%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
@@ -2375,11 +2380,11 @@ public class PSDEDQSQLCodeGenEngine {
 									break;
 								case Conditions.LEFTLIKE:
 									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("CONCAT('%',#{ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+										sb.append(String.format("CONCAT('%%', #{ctx.%1$s.%2$s})", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else
-									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("'%' || #{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType()) || DBType.POSTGRESQL.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("'%%' || #{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
@@ -2387,11 +2392,11 @@ public class PSDEDQSQLCodeGenEngine {
 									break;
 								case Conditions.RIGHTLIKE:
 									if(DBType.MYSQL5.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("CONCAT(#{ctx.%1$s.%2$s},'%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+										sb.append(String.format("CONCAT(#{ctx.%1$s.%2$s}, '%%')", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else
-									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType())) {
-										sb.append(String.format("#{ctx.%1$s.%2$s} || '%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
+									if(DBType.ORACLE.value.equals(this.iDBDialect.getDBType()) || DBType.POSTGRESQL.value.equals(this.iDBDialect.getDBType())) {
+										sb.append(String.format("#{ctx.%1$s.%2$s} || '%%'", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
 									}
 									else {
 										sb.append(String.format("#{ctx.%1$s.%2$s}", strPSVarTypeId.toLowerCase(), strCondValue.toLowerCase()));
@@ -2744,7 +2749,7 @@ public class PSDEDQSQLCodeGenEngine {
 					//
 					// }
 
-					script.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(iKeyDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(iNextDEHelper.getKeyPSDEField().getName())));
+					script.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(iKeyDEFHelper.getName()), getStandardName(iNextDEHelper.getKeyPSDEField().getName())));
 					// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 					// script.append(" AND %1$s.%2$s = '__SRFSAASDCID__'",
 					// strCurMTAlias, strSaaSDCIdColName);
@@ -2756,9 +2761,9 @@ public class PSDEDQSQLCodeGenEngine {
 					// iNextDEHelper.getKeyPSDEField();
 					// script.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s =
 					// %2$s.%4$s",
-					// this.iDBDialect.getDBObjStandardName(strUserTable2),
+					// getStandardName(strUserTable2),
 					// strCurUTAlias, strCurMTAlias,
-					// this.iDBDialect.getDBObjStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+					// getStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 					// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 					// script.append(" AND %1$s.%2$s = '__SRFSAASDCID__'",
 					// strCurUTAlias, strSaaSDCIdColName);
@@ -2767,7 +2772,7 @@ public class PSDEDQSQLCodeGenEngine {
 					// }
 
 					if (scriptTemp != null) {
-						scriptTemp.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(iKeyDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(iNextDEHelper.getKeyPSDEField().getName())));
+						scriptTemp.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(iKeyDEFHelper.getName()), getStandardName(iNextDEHelper.getKeyPSDEField().getName())));
 						// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 						// script.append(" AND %1$s.%2$s = '__SRFSAASDCID__'",
 						// strCurMTAlias, strSaaSDCIdColName);
@@ -2779,9 +2784,9 @@ public class PSDEDQSQLCodeGenEngine {
 						// iNextDEHelper.getKeyPSDEField();
 						// scriptTemp.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s =
 						// %2$s.%4$s",
-						// this.iDBDialect.getDBObjStandardName(strUserTable3),
+						// getStandardName(strUserTable3),
 						// strCurUTAlias, strCurMTAlias,
-						// this.iDBDialect.getDBObjStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+						// getStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 						// if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 						// script.append(" AND %1$s.%2$s = '__SRFSAASDCID__'",
 						// strCurUTAlias, strSaaSDCIdColName);
@@ -3026,7 +3031,7 @@ public class PSDEDQSQLCodeGenEngine {
 //					}
 
 					if (bLeftOuterJoin) {
-						script.append(String.format("LEFT OUTER JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+						script.append(String.format("LEFT OUTER JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 						if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 							script.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 						}
@@ -3036,11 +3041,11 @@ public class PSDEDQSQLCodeGenEngine {
 							IPSDEField parentSubType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
 
 							if (parentType != null) {
-								String strFieldName = String.format("%1$s.%2$s", strCurMTAlias, this.iDBDialect.getDBObjStandardName(parentType.getName()));
+								String strFieldName = String.format("%1$s.%2$s", strCurMTAlias, getStandardName(parentType.getName()));
 								script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentType.getStdDataType(), Conditions.EQ, iDataEntityRuntime.getName(), false, null));
 							}
 							if (parentSubType != null) {
-								String strFieldName = String.format("%1$s.%2$s", strCurMTAlias, this.iDBDialect.getDBObjStandardName(parentSubType.getName()));
+								String strFieldName = String.format("%1$s.%2$s", strCurMTAlias, getStandardName(parentSubType.getName()));
 								String strTypeValue = derCustom.getTypeValue();
 								if (ObjectUtils.isEmpty(strTypeValue)) {
 									strTypeValue = derCustom.getMinorCodeName();
@@ -3055,7 +3060,7 @@ public class PSDEDQSQLCodeGenEngine {
 						}
 						script.append("\n");
 						if (scriptTemp != null) {
-							scriptTemp.append(String.format("LEFT OUTER JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+							scriptTemp.append(String.format("LEFT OUTER JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 							if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 								scriptTemp.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 							}
@@ -3063,7 +3068,7 @@ public class PSDEDQSQLCodeGenEngine {
 						}
 					} else {
 						if (bRightJoin) {
-							script.append(String.format("RIGHT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+							script.append(String.format("RIGHT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 							if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 								script.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 							}
@@ -3072,12 +3077,12 @@ public class PSDEDQSQLCodeGenEngine {
 								IPSDEField parentType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE, true);
 								IPSDEField parentSubType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
 								if (parentType != null) {
-									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(parentType.getName()));
+									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(parentType.getName()));
 									//script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, nStdDataType, strCondOp, objValueOrParam, bParam, iSearchContext)parentType.getPSDTColumn(this.getDBType()).getConditionSQL(this, strFieldName, null, ICondition.CONDOP_EQ, iPSDataEntity.getName(), null, null));
 									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentType.getStdDataType(), Conditions.EQ, iDataEntityRuntime.getName(), false, null));
 								}
 								if (parentSubType != null) {
-									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(parentSubType.getName()));
+									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(parentSubType.getName()));
 									String strTypeValue = derCustom.getTypeValue();
 									if (ObjectUtils.isEmpty(strTypeValue)) {
 										strTypeValue = derCustom.getMinorCodeName();
@@ -3092,14 +3097,14 @@ public class PSDEDQSQLCodeGenEngine {
 							}
 							script.append("\n");
 							if (scriptTemp != null) {
-								scriptTemp.append(String.format("RIGHT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+								scriptTemp.append(String.format("RIGHT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 								if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 									scriptTemp.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 								}
 								scriptTemp.append("\n");
 							}
 						} else {
-							script.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+							script.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable2), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 							if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 								script.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 							}
@@ -3108,12 +3113,12 @@ public class PSDEDQSQLCodeGenEngine {
 								IPSDEField parentType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTTYPE, true);
 								IPSDEField parentSubType = this.getDataEntityRuntime(derCustom.getMinorPSDataEntity().getId()).getPSDEFieldByPredefinedType(PredefinedFieldType.PARENTSUBTYPE, true);
 								if (parentType != null) {
-									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(parentType.getName()));
+									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(parentType.getName()));
 									//script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, nStdDataType, strCondOp, objValueOrParam, bParam, iSearchContext)parentType.getPSDTColumn(this.getDBType()).getConditionSQL(this, strFieldName, null, ICondition.CONDOP_EQ, iPSDataEntity.getName(), null, null));
 									script.append(" AND " + this.iDBDialect.getConditionSQL(strFieldName, parentType.getStdDataType(), Conditions.EQ, iDataEntityRuntime.getName(), false, null));
 								}
 								if (parentSubType != null) {
-									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(parentSubType.getName()));
+									String strFieldName = String.format("%1$s.%2$s", bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(parentSubType.getName()));
 									String strTypeValue = derCustom.getTypeValue();
 									if (ObjectUtils.isEmpty(strTypeValue)) {
 										strTypeValue = derCustom.getMinorCodeName();
@@ -3128,7 +3133,7 @@ public class PSDEDQSQLCodeGenEngine {
 							}
 							script.append("\n");
 							if (scriptTemp != null) {
-								scriptTemp.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", this.iDBDialect.getDBObjStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, this.iDBDialect.getDBObjStandardName(joinDEFHelper.getName()), this.iDBDialect.getDBObjStandardName(joinRelatedDEFHelper.getName())));
+								scriptTemp.append(String.format("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%5$s ", getStandardName(strMainTable3), strCurMTAlias, bJoinAsMain ? strMTAlias : strUTAlias, getStandardName(joinDEFHelper.getName()), getStandardName(joinRelatedDEFHelper.getName())));
 								if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 									scriptTemp.append(String.format(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurMTAlias, strSaaSDCIdColName));
 								}
@@ -3144,13 +3149,13 @@ public class PSDEDQSQLCodeGenEngine {
 //						else {
 //							pkeyPSDEField = iNextDEHelper.getKeyPSDEField();
 //						}
-//						script.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%4$s", this.iDBDialect.getDBObjStandardName(strUserTable2), strCurUTAlias, strCurMTAlias, this.iDBDialect.getDBObjStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+//						script.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%4$s", getStandardName(strUserTable2), strCurUTAlias, strCurMTAlias, getStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 //						if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 //							script.append(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurUTAlias, strSaaSDCIdColName);
 //						}
 //						script.append("\n");
 //						if (scriptTemp != null) {
-//							scriptTemp.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%4$s", this.iDBDialect.getDBObjStandardName(strUserTable3), strCurUTAlias, strCurMTAlias, this.iDBDialect.getDBObjStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
+//							scriptTemp.append("LEFT JOIN %1$s %2$s ON %3$s.%4$s = %2$s.%4$s", getStandardName(strUserTable3), strCurUTAlias, strCurMTAlias, getStandardName(pkeyPSDEField.getPSDTColumn(this.getDBType()).getColumnName()));
 //							if (!ObjectUtils.isEmpty(strSaaSDCIdColName)) {
 //								scriptTemp.append(" AND %1$s.%2$s = '__SRFSAASDCID__'", strCurUTAlias, strSaaSDCIdColName);
 //							}
@@ -3235,6 +3240,16 @@ public class PSDEDQSQLCodeGenEngine {
 			//iPSDEFDTColumn.isFormula() && !iPSDEFDTColumn.isFormulaPhisical()
 			if (iPSFormulaDEField != null && !iPSFormulaDEField.isPhisicalDEField()) {
 				// 公式字段
+				String formulaFormat = iPSFormulaDEField.getFormulaFormat();
+				List<IPSDEFDTColumn> allPSDEFDTColumns = iPSFormulaDEField.getAllPSDEFDTColumns();
+				if (allPSDEFDTColumns != null){
+					for (IPSDEFDTColumn iPSDEFDTColumn : allPSDEFDTColumns){
+						if (iPSDEFDTColumn.getFormulaFormat() != null && this.iDBDialect.getDBType().equals(iPSDEFDTColumn.getDBType())){
+							formulaFormat =  iPSDEFDTColumn.getFormulaFormat();
+							break;
+						}
+					}
+				}
 				String strFormulaFields = iPSFormulaDEField.getFormulaColumns();
 				if (!ObjectUtils.isEmpty(strFormulaFields)) {
 					Object[] params = null;
@@ -3250,16 +3265,14 @@ public class PSDEDQSQLCodeGenEngine {
 							params[i] = strDEFName;
 						}
 					}
-
-					String strExp = String.format(iPSFormulaDEField.getFormulaFormat(), params);
-					return strExp;
+					return String.format(formulaFormat, params);
 				} else {
 					if (iDataEntityRuntime.isVirtual() && iDataEntityRuntime.getVirtualMode() == DEVirtualMode.INDEXMAJOR.value) {
-						String strExp = String.format("%1$s.%2$s", "t1", this.iDBDialect.getDBObjStandardName(iPSDEField.getName()));
+						String strExp = String.format("%1$s.%2$s", "t1", getStandardName(iPSDEField.getName()));
 						//this.setFieldQueryCaseSensitive(strExp, iPSDEFDTColumn.getQueryCaseSenstive());
 						return strExp;
 					}
-					String strExp = String.format(iPSFormulaDEField.getFormulaFormat());
+					String strExp = String.format(formulaFormat);
 					//this.setFieldQueryCaseSensitive(strExp, iPSDEFDTColumn.getQueryCaseSenstive());
 					return strExp;
 				}
@@ -3380,13 +3393,13 @@ public class PSDEDQSQLCodeGenEngine {
 					}
 
 					if (bDynamicTable || DataTypeUtils.compare(strMainTable, strDEFTableName, true) == 0) {
-						String strExp = String.format("%1$s.%2$s", strMTAlias, this.iDBDialect.getDBObjStandardName(iPSDEField2.getName()));
+						String strExp = String.format("%1$s.%2$s", strMTAlias, getStandardName(iPSDEField2.getName()));
 						//this.setFieldQueryCaseSensitive(strExp, iPSDEFDTColumn.getQueryCaseSenstive());
 						return strExp;
 					}
 
 //					if (DataTypeUtils.compare(strUserTable, strDEFTableName, true) == 0) {
-//						String strExp = String.format("%1$s.%2$s", strUTAlias, this.iDBDialect.getDBObjStandardName(iPSDEFDTColumn.getColumnName()));
+//						String strExp = String.format("%1$s.%2$s", strUTAlias, getStandardName(iPSDEFDTColumn.getColumnName()));
 //						this.setFieldQueryCaseSensitive(strExp, iPSDEFDTColumn.getQueryCaseSenstive());
 //						return strExp;
 //					}
@@ -3431,6 +3444,7 @@ public class PSDEDQSQLCodeGenEngine {
 			throw new Exception(String.format("获取实体属性[%1$s]表达式发生异常，%2$s", iPSDEField.getName(), ex.getMessage()), ex);
 		}
 	}
+
 
 	protected String getTableAlias(IPSDataEntity iPSDataEntity, boolean bMain, String strParentDER, Map<String, Integer> derAliasMap, List<String> derList) throws Exception {
 		int nAlias = derAliasMap.get("");
@@ -4184,7 +4198,7 @@ public class PSDEDQSQLCodeGenEngine {
 
 //	/**
 //	 * 获取分组语句
-//	 * 
+//	 *
 //	 * @param strSQL
 //	 * @param queryGroupModelConfig
 //	 * @return
@@ -4691,6 +4705,9 @@ public class PSDEDQSQLCodeGenEngine {
 
 	}
 
+	public String getStandardName(String strOriginName) throws Throwable {
+		return this.iDBDialect.getDBObjStandardName(strOriginName, this.iPSDEDBConfig);
+	}
 	protected boolean isSameTable(IPSDERInherit iPSDERInherit) throws Exception {
 		IDataEntityRuntime majorDataEntityRuntime = this.getDataEntityRuntime(iPSDERInherit.getMajorPSDataEntityMust().getId());
 		IDataEntityRuntime minorDataEntityRuntime = this.getDataEntityRuntime(iPSDERInherit.getMinorPSDataEntityMust().getId());

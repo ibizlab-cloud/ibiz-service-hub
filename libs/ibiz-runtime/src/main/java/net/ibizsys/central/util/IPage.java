@@ -1,5 +1,7 @@
 package net.ibizsys.central.util;
 
+import java.util.Map;
+
 public interface IPage<T> extends org.springframework.data.domain.Page<T>{
 
 	/**
@@ -7,4 +9,11 @@ public interface IPage<T> extends org.springframework.data.domain.Page<T>{
 	 * @return
 	 */
 	long getTotalX();
+	
+	
+	/**
+	 * 获取分页的元数据
+	 * @return
+	 */
+	Map<String, Object> getMetadata();
 }

@@ -33,5 +33,10 @@ public interface ISysUniStateUtilRuntime extends ISysUtilRuntime, ISysUniStateUt
 	boolean hasLeadership(String strTag);
 	
 	
-
+	/**
+	 * 判断传入路径是否具备主控能力（如果主控关系不存在则先建立）
+	 * @param strTag
+	 * @return
+	 */
+	boolean hasLeadershipIf(String strTag);
 }

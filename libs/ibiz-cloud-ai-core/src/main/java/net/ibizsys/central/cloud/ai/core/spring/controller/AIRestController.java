@@ -92,6 +92,18 @@ public class AIRestController {
 	}
 	
 	
+	/**
+	 * 取消异步补全
+	 * @param type
+	 * @param portalAsyncActionId
+	 * @return
+	 */
+	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/cancelchatcompletion/{id}"})
+	public void cancelChatCompletion(@PathVariable("type") String type, @PathVariable("id") String id) {
+		this.getCloudAIUtilRuntime().cancelChatCompletion(type, id);
+	}
+	
+	
 	
 	/**
 	 * 补全
@@ -127,6 +139,10 @@ public class AIRestController {
 		return this.getCloudAIUtilRuntime().sseCompletion(type, completionRequest);
 	}
 	
+//	@RequestMapping(method = {RequestMethod.POST}, value = { "/ai/{type}/v1/chat/completions"})
+//	public Object openAiChatCompletions(@PathVariable("type") String type, @RequestBody CompletionRequest embeddingRequest) {
+//		return null;
+//	}
 	
 	/**
 	 * 获取嵌入值

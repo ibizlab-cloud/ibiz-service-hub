@@ -12,7 +12,7 @@ public abstract class McpServerTransportAgentBase extends SysMcpServerUtilRTAddi
 	@Override
 	public void start() throws Exception {
 		if(this.bStarted) {
-			log.warn("AI应用代理已经启动");
+			log.warn("Mcp服务器传输代理已经启动");
 			return;
 		}
 		this.onStart();

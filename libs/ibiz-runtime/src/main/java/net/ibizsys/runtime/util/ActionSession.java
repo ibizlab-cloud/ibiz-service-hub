@@ -32,6 +32,11 @@ public class ActionSession {
 	 */
 	public final static String PARAM_ASYNCACTION_DOWNLOADURL = "__ASYNCACTION_DOWNLOADURL__";
 	
+	/**
+	 * 系统保留参数标识：异步调用：标识
+	 */
+	public final static String PARAM_ASYNCACTION_ID = "__ASYNCACTION_ID__";
+	
 	
 	/**
 	 * 系统保留参数标识：异步调用：步骤

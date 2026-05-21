@@ -108,17 +108,22 @@ public class EmployeeServiceImplEx extends EmployeeServiceImpl {
 		person.setId(id);
 		person.setDisplayName(dto.getPersonName());
 		person.setOrganizationId(dto.getOrgId());
-		person.setUid(dto.getLoginName());
-		person.setEmployeeNumber(dto.getUserCode()==null? id : dto.getUserCode());
+		if(StringUtils.hasLength(dto.getLoginName()))
+			person.setUid(dto.getLoginName());
+		if(StringUtils.hasLength(dto.getUserCode()))
+			person.setEmployeeNumber(dto.getUserCode());
 		person.setMobile(dto.getPhone());
 		person.setMdepartmentId(dto.getMDeptId());
 		person.setIdentificationNumber(dto.getCertCode());
 		if(StringUtils.hasLength(dto.getFromOpenUserTag()))
 			person.setIdentificationNumber(dto.getFromOpenUserTag());
+		if(StringUtils.hasLength(dto.getState()))
+			person.setStatus(dto.getState());
 		person.setMail(dto.getEmail());
 		person.setPostalAddress(dto.getAddr());
 		Map header = new HashMap();
 		header.put("Authorization", "Bearer " + AuthenticationUser.getCurrentMust().getToken());
+
 
 
 

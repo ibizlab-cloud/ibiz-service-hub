@@ -1,9 +1,16 @@
 package net.ibizsys.central.cloud.kb.core.addin;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.data.domain.Page;
 
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
+import net.ibizsys.central.cloud.core.util.domain.Document;
 import net.ibizsys.central.cloud.core.util.domain.KBAccess;
 import net.ibizsys.central.cloud.kb.core.cloudutil.ICloudKBUtilRuntimeContext;
 
@@ -45,75 +52,44 @@ public interface IKBAccessAgent extends ICloudKBUtilRTAddin{
 	 */
 	String getKBType();
 	
+	/**
+	 * 获取知识库引导词
+	 * @return
+	 */
+	String getGuidancePrompt() throws Throwable;
 	
+	List listFiles(Map<String, Object> params )throws Throwable;
+
+	Document createDocument(Document document) throws Throwable;
+
+	Document updateDocument(String document_id, Document document) throws Throwable;
 	
-//	/**
-//	 * 建立知识库
-//	 * @param knowledgeBase
-//	 * @return
-//	 */
-//	KnowledgeBase createKnowledgeBase(KnowledgeBase knowledgeBase) throws Throwable;
-//	
-//	
-//	/**
-//	 * 获取知识库
-//	 * @param strKBName
-//	 * @return
-//	 */
-//	KnowledgeBase getKnowledgeBase(String strType, String strKBName) throws Throwable;
-//	
-//	
-//	
-//	/**
-//	 * 更新知识库
-//	 * @param knowledgeBase
-//	 * @return
-//	 */
-//	KnowledgeBase updateKnowledgeBase(KnowledgeBase knowledgeBase) throws Throwable;
-//	
-//
-//	/**
-//	 * 删除知识库
-//	 * @param strKBName
-//	 */
-//	void deleteKnowledgeBase(String strKBName) throws Throwable;
-//	
-//	
-//	
-//	/**
-//	 * 建立数据集
-//	 * @param strKBName 知识库名称
-//	 * @param collection
-//	 * @return
-//	 */
-//	Collection createCollection(String strKBName, Collection collection) throws Throwable;
-//	
-//	
-//	/**
-//	 * 获取数据集
-//	 * @param strKBName 知识库名称
-//	 * @param strCollectName 数据集名称 
-//	 * @return
-//	 */
-//	Collection getCollection(String strKBName, String strCollectName) throws Throwable;
-//	
-//	
-//	
-//	/**
-//	 * 更新数据集
-//	 * @param strKBName 知识库名称
-//	 * @param collection 数据集
-//	 * @return
-//	 */
-//	Collection updateCollection(String strKBName, Collection collection) throws Throwable;
-//	
-//
-//	/**
-//	 * 删除数据集
-//	 * @param strKBName 知识库名称
-//	 * @param strCollectName  数据集名称
-//	 */
-//	void deleteCollection(String strKBName, String strCollectName) throws Throwable;
+	Document saveDocument(String document_id, Document document) throws Throwable;
+
+	Document getDocument(String document_id) throws Throwable;
+
+	Integer deleteDocument(String document_id) throws Throwable;
+	
+	/**
+	 * 下载文档
+	 * @param document_id
+	 * @param request
+	 * @param response
+	 * @throws Throwable
+	 */
+	void downloadDocument(String document_id, HttpServletRequest request, HttpServletResponse response) throws Throwable;
+
+	Chunk createChunk(String document_id, Chunk chunk) throws Throwable;
+
+	Chunk updateChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable;
+	
+	Chunk saveChunk(String document_id, String chunk_id, Chunk chunk) throws Throwable;
+
+	Chunk getChunk(String document_id, String chunk_id) throws Throwable;
+
+	Integer deleteChunk(String document_id, String chunk_id) throws Throwable;
+
+	Page<Chunk> fetchChunks(String document_id, IChunkSearchContext iChunkSearchContext) throws Throwable;
 	
 	
 	/**
@@ -125,4 +101,10 @@ public interface IKBAccessAgent extends ICloudKBUtilRTAddin{
 	Page<Chunk> fetchChunks(IChunkSearchContext iChunkSearchContext) throws Throwable;
 	
 	
+	/**
+	 * 查询聊天请求的知识块
+	 * @param chatCompletionRequest
+	 * @return
+	 */
+	Page fetchChunksByHistories(IChunkSearchContext iChunkSearchContext) throws Throwable;
 }

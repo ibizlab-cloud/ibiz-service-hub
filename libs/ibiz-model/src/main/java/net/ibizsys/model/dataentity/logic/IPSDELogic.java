@@ -80,6 +80,13 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取运行时逻辑上下文标识
+	 * @return
+	 */
+	java.lang.String getLogicContextId();
+	
+	
+	/**
 	 * 获取逻辑子类
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicSubType}
@@ -114,6 +121,13 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * @return
 	 */
 	java.lang.String getLogicTag4();
+	
+	
+	/**
+	 * 获取McpServer标识
+	 * @return
+	 */
+	java.lang.String getMcpServerId();
 	
 	
 	/**
@@ -207,6 +221,13 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * @return
 	 */
 	java.lang.String getTimerPolicy();
+	
+	
+	/**
+	 * 获取工具描述
+	 * @return
+	 */
+	java.lang.String getToolSpecification();
 	
 	
 	/**

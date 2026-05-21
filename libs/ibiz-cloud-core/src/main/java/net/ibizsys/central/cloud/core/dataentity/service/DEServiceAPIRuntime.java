@@ -85,9 +85,9 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 	public Object chatCompletion(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strACTag, String strMethod, Object objBody, String strKey, Object objTag) throws Throwable {
 		testAccessUser();
 		try {
-			if (ObjectUtils.isEmpty(strKey)) {
-				throw new Exception("没有指定输入参数");
-			}
+//			if (ObjectUtils.isEmpty(strKey)) {
+//				throw new Exception("没有指定输入参数");
+//			}
 
 			return this.onChatCompletion(strScope, iDEServiceAPIRSRuntime, strParentKey, strACTag, strMethod, objBody, strKey, objTag);
 		} catch (Throwable ex) {
@@ -103,23 +103,50 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 
 		IDEChatCompletionRuntime iDEChatCompletionRuntime = (IDEChatCompletionRuntime) this.getDataEntityRuntime().getDEAutoCompleteRuntime(strACTag, false);
 
-		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, strKey, null, DataAccessActions.READ)) {
+		if (ObjectUtils.isEmpty(strKey)) {
+			IEntityDTO iEntityDTO = this.getDataEntityRuntime().createEntity();
+			Object objValue = null;
+			if (iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
+				IPSDEField parentIdPSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentIdPSDEField();
+				if (parentIdPSDEField != null) {
+					objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
+					iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
 
-			// if
-			// (!StringUtils.hasLength(iDEPrintRuntime.getPSDEPrint().getDataAccessAction()))
-			// {
-			// throw new DEServiceAPIRuntimeException(this,
-			// String.format("聊天补全[%1$s]未定义访问操作标识",
-			// iDEPrintRuntime.getPSDEPrint().getName()), Errors.ACCESSDENY);
-			// }
+					IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
+					if (parentTypePSDEField != null) {
+						iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
+					}
+				}
+				else {
+					throw new DEServiceAPIRuntimeException(this, "交谈补全发生异常，未指定关系属性");
+				}
+			}
+			if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
+				throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+			}
+		}else {
+			// 判断数据访问
+			if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, strKey, null, DataAccessActions.READ)) {
 
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s[%2$s]不具备操作能力[%3$s]", this.getLogicName(), strKey, DataAccessActions.READ), Errors.ACCESSDENY);
+				// if
+				// (!StringUtils.hasLength(iDEPrintRuntime.getPSDEPrint().getDataAccessAction()))
+				// {
+				// throw new DEServiceAPIRuntimeException(this,
+				// String.format("聊天补全[%1$s]未定义访问操作标识",
+				// iDEPrintRuntime.getPSDEPrint().getName()), Errors.ACCESSDENY);
+				// }
 
+				throw new DEServiceAPIRuntimeException(this, String.format("%1$s[%2$s]不具备操作能力[%3$s]", this.getLogicName(), strKey, DataAccessActions.READ), Errors.ACCESSDENY);
+
+			}
 		}
-
-		Object key = this.getDataEntityRuntime().convertValue(this.getDataEntityRuntime().getKeyPSDEField().getStdDataType(), strKey);
-
+		Object key = null;
+		if (!ObjectUtils.isEmpty(strKey)) {
+			key = this.getDataEntityRuntime().convertValue(this.getDataEntityRuntime().getKeyPSDEField().getStdDataType(), strKey);
+		}else {
+			key = this.getDataEntityRuntime().createEntity();
+			((IEntityDTO) key).reload(objBody,true);
+		}
 		// 判断行为模式，增强ChatCompletion
 		if (IDEChatCompletionRuntime.METHOD_SSECHATCOMPLETION.equalsIgnoreCase(strMethodName)) {
 			return iDEChatCompletionRuntime.sseChatCompletion(key, JsonUtils.as(objBody, ChatCompletionRequest.class));
@@ -143,6 +170,22 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 
 		if (IDEChatCompletionRuntime.METHOD_CHATSUGGESTION.equalsIgnoreCase(strMethodName)) {
 			return iDEChatCompletionRuntime.chatSuggestion(key, JsonUtils.as(objBody, ChatCompletionRequest.class));
+		}
+		
+		if (IDEChatCompletionRuntime.METHOD_CHATDIGEST.equalsIgnoreCase(strMethodName)) {
+			return iDEChatCompletionRuntime.chatDigest(key, JsonUtils.as(objBody, ChatCompletionRequest.class));
+		}
+		
+		if (IDEChatCompletionRuntime.METHOD_CANCELCHATCOMPLETION.equalsIgnoreCase(strMethodName)) {
+			String strAsyncActionId = "";
+			if(objBody instanceof Map) {
+				strAsyncActionId = (String)((Map)objBody).get("asyncacitonid");
+			}
+			if(!StringUtils.hasLength(strAsyncActionId)) {
+				throw new Exception("取消聊天交互未指定行为标识");
+			}
+			iDEChatCompletionRuntime.cancelChatCompletion(key, strAsyncActionId, objBody);
+			return null;
 		}
 
 		throw new Exception(String.format("未识别的请求方法[%1$s]", strMethodName));

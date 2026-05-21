@@ -8,11 +8,10 @@ import org.apache.commons.pool2.PooledObjectFactory;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
 
 import net.ibizsys.central.plugin.es.ba.IESBDSchemeRuntimeBase;
 
-public class ESClientFactory implements PooledObjectFactory<RestHighLevelClient> {
+public class ESClientFactory implements PooledObjectFactory<RestClient> {
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(ESClientFactory.class);
 	
@@ -30,19 +29,15 @@ public class ESClientFactory implements PooledObjectFactory<RestHighLevelClient>
 	
 	
 	@Override
-	public PooledObject<RestHighLevelClient> makeObject() throws Exception {
+	public PooledObject<RestClient> makeObject() throws Exception {
 		
 		String strServiceUrl = iESBDSchemeRuntimeBase.getServiceUrl();
-		
-		RestHighLevelClient restHighLevelClient = new RestHighLevelClient(  RestClient.builder(
-				HttpHost.create(strServiceUrl)
-        ));
-		
-		return new DefaultPooledObject<RestHighLevelClient>(restHighLevelClient);
+		RestClient restClient = RestClient.builder(HttpHost.create(strServiceUrl)).build();
+		return new DefaultPooledObject<RestClient>(restClient);
 	}
 
 	@Override
-	public void destroyObject(PooledObject<RestHighLevelClient> p) throws Exception {
+	public void destroyObject(PooledObject<RestClient> p) throws Exception {
 		try {
 			p.getObject().close();
 		}
@@ -53,18 +48,18 @@ public class ESClientFactory implements PooledObjectFactory<RestHighLevelClient>
 	}
 
 	@Override
-	public boolean validateObject(PooledObject<RestHighLevelClient> p) {
+	public boolean validateObject(PooledObject<RestClient> p) {
 		return p.getObject() != null;
 	}
 
 	@Override
-	public void activateObject(PooledObject<RestHighLevelClient> p) throws Exception {
+	public void activateObject(PooledObject<RestClient> p) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void passivateObject(PooledObject<RestHighLevelClient> p) throws Exception {
+	public void passivateObject(PooledObject<RestClient> p) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

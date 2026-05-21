@@ -9,11 +9,14 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.database.IDBDialect;
+import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicPrepareParamValueTypes;
 import net.ibizsys.central.dataentity.logic.util.DEFCaseWhenLogicRuntime;
 import net.ibizsys.central.dataentity.logic.util.IDEFCaseWhenLogicNodeRuntime;
 import net.ibizsys.central.dataentity.logic.util.IDEFCaseWhenLogicRuntime;
 import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.database.IPSDEDBConfig;
+import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.der.IPSDERAggDataDEFieldMap;
 import net.ibizsys.model.dataentity.logic.IPSDEFLogic;
@@ -189,6 +192,7 @@ public class DERAggDataDEFMapRuntime extends ModelRuntimeBase implements IDERAgg
 		
 		IDEFCaseWhenLogicRuntime iDEFCaseWhenLogicRuntime = DEFCaseWhenLogicRuntime.getInstance(iPSDEFLogic);
 		
+		
 		List<IDEFCaseWhenLogicNodeRuntime> defCaseWhenLogicNodeRuntimeList = iDEFCaseWhenLogicRuntime.getDEFCaseWhenLogicNodeRuntimes();
 		if(defCaseWhenLogicNodeRuntimeList == null || defCaseWhenLogicNodeRuntimeList.size() == 0) {
 			throw new Exception("未定义任何CASEWHEN逻辑");
@@ -210,7 +214,13 @@ public class DERAggDataDEFMapRuntime extends ModelRuntimeBase implements IDERAgg
 			if(DELogicPrepareParamValueTypes.SRCDLPARAM.equals(item.getValueType())) {
 				strValue =String.valueOf(item.getValue());
 				if(StringUtils.hasLength(strValue)) {
-					strValue = iDBDialect.getDBObjStandardName(strValue);
+					IPSDataEntity iPSDataEntity = iPSDEFLogic.getParentPSModelObject(IPSDataEntity.class, true);
+					IPSDEDBConfig iPSDEDBConfig = null;
+					if(iPSDataEntity != null) {
+						IDataEntityRuntime iDataEntityRuntime = this.getDERBaseRuntimeContext().getDERRuntime().getMajorDataEntityRuntime().getSystemRuntime().getDataEntityRuntime(iPSDataEntity.getId());
+						iPSDEDBConfig = iDataEntityRuntime.getPSDEDBConfig(iDBDialect.getDBType(), true);
+					}
+					strValue = iDBDialect.getDBObjStandardName(strValue, iPSDEDBConfig);
 				}
 			}
 			else		
@@ -321,7 +331,7 @@ public class DERAggDataDEFMapRuntime extends ModelRuntimeBase implements IDERAgg
 				nStdDataType = iPSDEField.getStdDataType();
 			}
 			
-			return iDBDialect.getConditionSQL(iDBDialect.getDBObjStandardName(iPSDELogicLinkSingleCond.getDstFieldName()), nStdDataType, iPSDELogicLinkSingleCond.getCondOP(), strCondValue, false, null);
+			return iDBDialect.getConditionSQL(iDBDialect.getDBObjStandardName(iPSDELogicLinkSingleCond.getDstFieldName(), this.getDERBaseRuntimeContext().getDERRuntime().getMajorDataEntityRuntime().getPSDEDBConfig(iDBDialect.getDBType(), true)), nStdDataType, iPSDELogicLinkSingleCond.getCondOP(), strCondValue, false, null);
 
 		}
 

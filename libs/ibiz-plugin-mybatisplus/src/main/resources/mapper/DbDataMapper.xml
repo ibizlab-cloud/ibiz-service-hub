@@ -14,7 +14,7 @@
         (
         <foreach collection="param.values" item="item" separator=",">
             <if test="item.rawCode == true">${item.value}</if>
-            <if test="item.rawCode == false">#{item.value}</if>
+            <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
         </foreach>
         )
     </insert>
@@ -32,7 +32,7 @@
             (
             <foreach collection="param.values" item="item" separator=",">
                 <if test="item.rawCode == true">${item.value}</if>
-                <if test="item.rawCode == false">#{item.value}</if>
+                <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
             </foreach>
             )
         </foreach>
@@ -53,7 +53,7 @@
                     (
                     <foreach collection="param.values" item="item" separator=",">
                         <if test="item.rawCode == true">${item.value}</if>
-                        <if test="item.rawCode == false">#{item.value}</if>
+                        <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                     </foreach>
                     )
                 </foreach>
@@ -70,7 +70,7 @@
                     (
                     <foreach collection="param.values" item="item" separator=",">
                         <if test="item.rawCode == true">${item.value}</if>
-                        <if test="item.rawCode == false">#{item.value}</if>
+                        <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                     </foreach>
                     )
                 </foreach>
@@ -120,13 +120,13 @@
         <foreach collection="param.values" item="item" separator=",">
             ${item.name} =
             <if test="item.rawCode == true">${item.value}</if>
-            <if test="item.rawCode == false">#{item.value}</if>
+            <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
         </foreach>
         <where>
             <foreach collection="param.conditions" item="item" separator="and">
                 ${item.name} =
                 <if test="item.rawCode == true">${item.value}</if>
-                <if test="item.rawCode == false">#{item.value}</if>
+                <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
             </foreach>
         </where>
     </update>
@@ -138,13 +138,13 @@
             <foreach collection="param.values" item="item" separator=",">
                 ${item.name} =
                 <if test="item.rawCode == true">${item.value}</if>
-                <if test="item.rawCode == false">#{item.value}</if>
+                <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
             </foreach>
             <where>
                 <foreach collection="param.conditions" item="item" separator="and">
                     ${item.name} =
                     <if test="item.rawCode == true">${item.value}</if>
-                    <if test="item.rawCode == false">#{item.value}</if>
+                    <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                 </foreach>
             </where>
         </foreach>
@@ -159,13 +159,13 @@
                     <foreach collection="param.values" item="item" separator=",">
                         ${item.name} =
                         <if test="item.rawCode == true">${item.value}</if>
-                        <if test="item.rawCode == false">#{item.value}</if>
+                        <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                     </foreach>
                     <where>
                         <foreach collection="param.conditions" item="item" separator="and">
                             ${item.name} =
                             <if test="item.rawCode == true">${item.value}</if>
-                            <if test="item.rawCode == false">#{item.value}</if>
+                            <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                         </foreach>
                     </where>
                 </foreach>
@@ -176,13 +176,13 @@
                     <foreach collection="param.values" item="item" separator=",">
                         ${item.name} =
                         <if test="item.rawCode == true">${item.value}</if>
-                        <if test="item.rawCode == false">#{item.value}</if>
+                        <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                     </foreach>
                     <where>
                         <foreach collection="param.conditions" item="item" separator="and">
                             ${item.name} =
                             <if test="item.rawCode == true">${item.value}</if>
-                            <if test="item.rawCode == false">#{item.value}</if>
+                            <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
                         </foreach>
                     </where>
                 </foreach>
@@ -206,7 +206,7 @@
         <foreach collection="param.conditions" item="item" separator="and">
             ${item.name} =
             <if test="item.rawCode == true">${item.value}</if>
-            <if test="item.rawCode == false">#{item.value}</if>
+            <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
         </foreach>
     </update>
 
@@ -224,7 +224,7 @@
             <foreach collection="param.conditions" item="item" separator="and">
                 ${item.name} =
                 <if test="item.rawCode == true">${item.value}</if>
-                <if test="item.rawCode == false">#{item.value}</if>
+                <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
             </foreach>
         </where>
     </select>
@@ -291,7 +291,7 @@
             <foreach collection="param.conditions" item="item" separator="and">
                 ${item.name} =
                 <if test="item.rawCode == true">${item.value}</if>
-                <if test="item.rawCode == false">#{item.value}</if>
+                <if test="item.rawCode == false">${item.beforeCode}#{item.value}${item.afterCode}</if>
             </foreach>
         </where>
         limit 1;

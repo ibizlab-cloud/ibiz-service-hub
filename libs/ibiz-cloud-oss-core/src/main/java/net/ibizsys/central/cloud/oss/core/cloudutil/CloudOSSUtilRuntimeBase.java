@@ -1,5 +1,6 @@
 package net.ibizsys.central.cloud.oss.core.cloudutil;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +37,40 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSPREVIEW:XLSX", "net.ibizsys.central.cloud.oss.poi.addin.XlsxPOIOSSPreviewProvider");
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSPREVIEW:XLS", "net.ibizsys.central.cloud.oss.poi.addin.XlsxPOIOSSPreviewProvider");
 		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:DOCX", "net.ibizsys.central.cloud.oss.poi.addin.DocxPOIOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:PPTX", "net.ibizsys.central.cloud.oss.poi.addin.PptxPOIOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:VSD", "net.ibizsys.central.cloud.oss.poi.addin.PptxPOIOSSTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:XLSX", "net.ibizsys.central.cloud.oss.poi.addin.XlsxPOIOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:XLS", "net.ibizsys.central.cloud.oss.poi.addin.CsvPOIOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:CSV", "net.ibizsys.central.cloud.oss.poi.addin.CsvPOIOSSTextProvider");
+		
 		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:PDF", "net.ibizsys.central.cloud.oss.poi.addin.PdfPOIOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:OFD", "net.ibizsys.central.cloud.oss.poi.addin.OfdPOIOSSTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:GIF", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:PNG", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:BMP", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:JPE", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:JPEG", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:JPG", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:TIF", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:TIFF", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:WEBP", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:HEIC", "net.ibizsys.central.cloud.oss.core.addin.AIImageOSSTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.OCR", "net.ibizsys.central.cloud.oss.core.addin.OCRTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.PADDLEOCR", "net.ibizsys.central.cloud.oss.core.addin.PaddleOCRTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.PPT", "net.ibizsys.central.cloud.oss.core.addin.PresentationOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.MANUAL", "net.ibizsys.central.cloud.oss.core.addin.ManualOSSTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.VL", "net.ibizsys.central.cloud.oss.core.addin.AIImageVLOnlyOSSTextProvider");
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:ENGINE.VLOCR", "net.ibizsys.central.cloud.oss.core.addin.AIImageVLOCROSSTextProvider");
+		
+		RuntimeObjectFactory.getInstance().registerObjectIf(ICloudOSSUtilRTAddin.class, "OSSTEXT:*", "net.ibizsys.central.cloud.oss.poi.addin.POIOSSTextProvider");
+		
+		
 	}
 
 	private Map<String, IOSSPreviewProvider> ossPreviewProviderMap = null;
@@ -49,7 +83,16 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 	@Override
 	protected ICloudOSSUtilRuntimeContext createModelRuntimeContext() {
 		return new CloudOSSUtilRuntimeContextBase<ICloudOSSUtilRuntime, ICloudUtilRuntimeContext>(super.createModelRuntimeContext()) {
+
+			@Override
+			public File getOSSRootFolder() {
+				return CloudOSSUtilRuntimeBase.this.getOSSRootFolder();
+			}
 			
+			@Override
+			public IOSSTextProvider getOSSTextProvider(String strFileExt, boolean tryMode) throws Exception {
+				return getSelf().getOSSTextProvider(strFileExt, tryMode);
+			}
 		};
 	}
 	
@@ -69,6 +112,7 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 		return CLOUDCONFIGID_OSS;
 	}
 	
+	protected abstract File getOSSRootFolder();
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -297,5 +341,34 @@ public abstract class CloudOSSUtilRuntimeBase extends CloudUtilRuntimeBase imple
 		}
 
 		throw new Exception(String.format("无法获取指定OSS文本插件[%1$s]", strFileExt));
+	}
+	
+	@Override
+	protected void onReloadSetting(boolean bFirst) throws Throwable {
+		super.onReloadSetting(bFirst);
+		
+		if(!bFirst) {
+			if(!ObjectUtils.isEmpty(ossPreviewProviderMap)) {
+				for(IOSSPreviewProvider iOSSPreviewProvider : ossPreviewProviderMap.values()) {
+					try {
+						iOSSPreviewProvider.reloadSetting();
+					}
+					catch (Throwable ex) {
+						log.error(String.format("OSS预览插件[%1$s]重载配置发生异常，%2$s", iOSSPreviewProvider.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+			
+			if(!ObjectUtils.isEmpty(ossTextProviderMap)) {
+				for(IOSSTextProvider iOSSTextProvider : ossTextProviderMap.values()) {
+					try {
+						iOSSTextProvider.reloadSetting();
+					}
+					catch (Throwable ex) {
+						log.error(String.format("OSS文本插件[%1$s]重载配置发生异常，%2$s", iOSSTextProvider.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+		}
 	}
 }

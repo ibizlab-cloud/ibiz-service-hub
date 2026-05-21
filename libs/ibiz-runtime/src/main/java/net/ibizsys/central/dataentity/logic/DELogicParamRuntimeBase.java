@@ -20,6 +20,7 @@ import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.dataentity.der.DER1NDEFMapTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.EntityUtils;
 import net.ibizsys.runtime.util.IEntity;
 
 public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implements IDELogicParamRuntime {
@@ -167,7 +168,14 @@ public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implement
 			return;
 		}
 		
-		throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持set操作", getCodeName()));
+		try {
+			EntityUtils.setFieldValue(objParam, strName, objValue, false);
+			return;
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持set操作", getCodeName()));
+		}
 	}
 	
 	@Override
@@ -184,7 +192,14 @@ public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implement
 			((IEntity)objParam).reset(strName);
 			return;
 		}
-		throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持reset操作", getCodeName()));
+		try {
+			EntityUtils.resetFieldValue(objParam, strName, false);
+			return;
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持reset操作", getCodeName()));
+		}
 	}
 
 	@Override
@@ -198,7 +213,14 @@ public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implement
 			((IEntity)objParam).resetAll();
 			return;
 		}
-		throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持resetAll操作", getCodeName()));
+		try {
+			EntityUtils.resetAllFieldValues(objParam);
+			return;
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持resetAll操作", getCodeName()));
+		}
 	}
 
 
@@ -230,23 +252,42 @@ public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implement
 				return list.size();
 			}
 		}
+		else if(PARAM_CONTENT.equalsIgnoreCase(strName)) {
+			if(objParam instanceof Page) {
+				return ((Page)objParam).getContent();
+			}
+		} 
 		else {
-			List list = asList(objParam);
-			if(list != null) {
-				try {
-					int nPos = Integer.parseInt(strName);
-					if(nPos <0 || nPos >= list.size()) {
-						throw new Exception(String.format("无效的位置[%1$s]",nPos));
+			//判断是否为数值
+			int nPos = -1;
+			try {
+				nPos = Integer.parseInt(strName);
+			}
+			catch (Throwable ex) {
+			}
+			if(nPos>=0) {
+				List list = asList(objParam);
+				if(list != null) {
+					try {
+						if(nPos >= list.size()) {
+							throw new Exception(String.format("无效的位置[%1$s]",nPos));
+						}
+						return list.get(nPos);
 					}
-					return list.get(nPos);
-				}
-				catch(Exception ex) {
-					throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]get操作发生异常，%2$s", getCodeName(), ex.getMessage()), ex);
+					catch(Exception ex) {
+						throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]get操作发生异常，%2$s", getCodeName(), ex.getMessage()), ex);
+					}
 				}
 			}
 		}
-			
-		throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持get[%2$s]操作", getCodeName(), strName));
+		
+		try {
+			return EntityUtils.getFieldValue(objParam, strName, false);
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持get[%2$s]操作", getCodeName(), strName));
+		}
 	}
 
 	@Override
@@ -262,7 +303,13 @@ public abstract class DELogicParamRuntimeBase extends ModelRuntimeBase implement
 		if(objParam instanceof IEntity) {
 			return ((IEntity)objParam).contains(strName);
 		}
-		throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持contains操作", getCodeName()));
+		try {
+			return EntityUtils.containsFieldValue(objParam, strName);
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("逻辑参数[%1$s]未支持contains操作", getCodeName()));
+		}
 	}
 	
 	

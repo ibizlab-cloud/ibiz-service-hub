@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -120,7 +121,9 @@ import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.IEntityBase;
 import net.ibizsys.runtime.util.INamedAction;
+import net.ibizsys.runtime.util.INamedRunnable;
 import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 import net.ibizsys.runtime.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 import net.ibizsys.runtime.wf.IWFRoleRuntime;
@@ -148,12 +151,12 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 	private static Map<String, DecimalFormat> DecimalFormatMap = new ConcurrentHashMap<String, DecimalFormat>();
 	private static Map<String, DateFormat> DateFormatMap = new ConcurrentHashMap<String, DateFormat>();
-	
+
 	private GroovyClassLoader groovyClassLoader = new GroovyClassLoader();
-	
+
 	private GStringTemplateEngine engine = new GStringTemplateEngine(groovyClassLoader);
 	private Map<String, Template> templateCacheMap = new ConcurrentHashMap<String, Template>();
-	
+
 	public static int TEMPLATECACHE_SIZE = 200;
 
 	protected class TimerTask {
@@ -204,28 +207,27 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	protected static boolean registerRuntimeObjectIf(Class<?> cls, Object strObject) {
 		return RuntimeObjectFactory.getInstance().registerObjectIf(cls, null, strObject);
 	}
-	
+
 	public static boolean registerSingleInstanceRuntimeObjectIf(Class<?> cls, String strType, Object object) {
 		Assert.notNull(cls, "传入运行时对象类型无效");
 		Assert.notNull(object, "传入运行时对象无效");
 		try {
-			if(RuntimeObjectFactory.getInstance().containsObject(cls, strType)) {
+			if (RuntimeObjectFactory.getInstance().containsObject(cls, strType)) {
 				return false;
 			}
-			
-			if(object instanceof String) {
-				object = Class.forName((String)object);
+
+			if (object instanceof String) {
+				object = Class.forName((String) object);
 			}
-			if(object instanceof Class<?>) {
-				object = ((Class<?>)object).newInstance();
+			if (object instanceof Class<?>) {
+				object = ((Class<?>) object).newInstance();
 				return RuntimeObjectFactory.getInstance().registerObjectIf(cls, strType, object);
 			}
-			if(cls.isAssignableFrom(object.getClass())) {
+			if (cls.isAssignableFrom(object.getClass())) {
 				return RuntimeObjectFactory.getInstance().registerObjectIf(cls, strType, object);
 			}
 			return false;
-		}
-		catch (Throwable ex) {
+		} catch (Throwable ex) {
 			return false;
 		}
 	}
@@ -234,22 +236,21 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		Assert.notNull(cls, "传入运行时对象类型无效");
 		Assert.notNull(object, "传入运行时对象无效");
 		try {
-			if(RuntimeObjectFactory.getInstance().containsObject(cls, null)) {
+			if (RuntimeObjectFactory.getInstance().containsObject(cls, null)) {
 				return false;
 			}
-			if(object instanceof String) {
-				object = Class.forName((String)object);
+			if (object instanceof String) {
+				object = Class.forName((String) object);
 			}
-			if(object instanceof Class<?>) {
-				object = ((Class<?>)object).newInstance();
+			if (object instanceof Class<?>) {
+				object = ((Class<?>) object).newInstance();
 				return RuntimeObjectFactory.getInstance().registerObjectIf(cls, null, object);
 			}
-			if(cls.isAssignableFrom(object.getClass())) {
+			if (cls.isAssignableFrom(object.getClass())) {
 				return RuntimeObjectFactory.getInstance().registerObjectIf(cls, null, object);
 			}
 			return false;
-		}
-		catch (Throwable ex) {
+		} catch (Throwable ex) {
 			return false;
 		}
 	}
@@ -328,38 +329,36 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		return DataTypeUtils.compare(nValueDataType, objSrcValue, objDstValue);
 	}
 
-	
-
 	@Override
 	public String writeValue(int nStdDataType, Object value, String strJsonFormat) throws Exception {
 		Assert.notNull(value, "传入值无效");
 		Assert.hasLength(strJsonFormat, "传入格式化无效");
-		
-		if(DataTypeUtils.isNumberDataType(nStdDataType)) {
+
+		if (DataTypeUtils.isNumberDataType(nStdDataType)) {
 			return getDecimalFormat(strJsonFormat).format(value);
 		}
-		
-		if(DataTypeUtils.isDateTimeDataType(nStdDataType)) {
+
+		if (DataTypeUtils.isDateTimeDataType(nStdDataType)) {
 			return getDateFormat(strJsonFormat).format(value);
 		}
-		
+
 		throw new Exception(String.format("未支持的标准数据类型[%1$s]", DataTypeUtils.getTypeName(nStdDataType)));
 	}
 
 	@Override
 	public Object readValue(int nStdDataType, String strValue, String strJsonFormat) throws Exception {
-		
+
 		Assert.hasLength(strValue, "传入值无效");
 		Assert.hasLength(strJsonFormat, "传入格式化无效");
-		
-		if(DataTypeUtils.isNumberDataType(nStdDataType)) {
+
+		if (DataTypeUtils.isNumberDataType(nStdDataType)) {
 			return getDecimalFormat(strJsonFormat).parseObject(strValue);
 		}
-		
-		if(DataTypeUtils.isDateTimeDataType(nStdDataType)) {
+
+		if (DataTypeUtils.isDateTimeDataType(nStdDataType)) {
 			return getDateFormat(strJsonFormat).parseObject(strValue);
 		}
-		
+
 		throw new Exception(String.format("未支持的标准数据类型[%1$s]", DataTypeUtils.getTypeName(nStdDataType)));
 	}
 
@@ -408,18 +407,18 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysValueRuleRuntime != null) {
 			return iSysValueRuleRuntime;
 		}
-		
-		if(iPSSysValueRule.getPSSystemModule()!=null) {
+
+		if (iPSSysValueRule.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysValueRule.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysValueRuleRuntime = iSystemModuleUtilRuntime.createSysValueRuleRuntime(iPSSysValueRule);
 				if (iSysValueRuleRuntime != null) {
 					return iSysValueRuleRuntime;
 				}
 			}
 		}
-		
-		if(StringUtils.hasLength(iPSSysValueRule.getRuleType())) {
+
+		if (StringUtils.hasLength(iPSSysValueRule.getRuleType())) {
 			iSysValueRuleRuntime = this.getRuntimeObject(ISysValueRuleRuntime.class, iPSSysValueRule.getRuleType());
 			if (iSysValueRuleRuntime != null) {
 				return iSysValueRuleRuntime;
@@ -428,7 +427,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 		return this.onCreateSysValueRuleRuntime(iPSSysValueRule);
 	}
-	
+
 	protected ISysValueRuleRuntime onCreateSysValueRuleRuntime(IPSSysValueRule iPSSysValueRule) {
 		if (SysValueRuleTypes.REGEX.equals(iPSSysValueRule.getRuleType()) || SysValueRuleTypes.REG.equals(iPSSysValueRule.getRuleType())) {
 			return new SysRegExValueRuleRuntime();
@@ -450,10 +449,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysSequenceRuntime != null) {
 			return iSysSequenceRuntime;
 		}
-		
-		if(iPSSysSequence.getPSSystemModule()!=null) {
+
+		if (iPSSysSequence.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysSequence.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysSequenceRuntime = iSystemModuleUtilRuntime.createSysSequenceRuntime(iPSSysSequence);
 				if (iSysSequenceRuntime != null) {
 					return iSysSequenceRuntime;
@@ -492,27 +491,27 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysTranslatorRuntime != null) {
 			return iSysTranslatorRuntime;
 		}
-		
-		if(iPSSysTranslator.getPSSystemModule()!=null) {
+
+		if (iPSSysTranslator.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysTranslator.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysTranslatorRuntime = iSystemModuleUtilRuntime.createSysTranslatorRuntime(iPSSysTranslator);
 				if (iSysTranslatorRuntime != null) {
 					return iSysTranslatorRuntime;
 				}
 			}
 		}
-		
+
 		if (StringUtils.hasLength(iPSSysTranslator.getTranslatorType())) {
 			iSysTranslatorRuntime = this.getRuntimeObject(ISysTranslatorRuntime.class, iPSSysTranslator.getTranslatorType());
-			if(iSysTranslatorRuntime!=null) {
+			if (iSysTranslatorRuntime != null) {
 				return iSysTranslatorRuntime;
 			}
 		}
-		
-		return this.onCreateSysTranslatorRuntime(iPSSysTranslator);		
+
+		return this.onCreateSysTranslatorRuntime(iPSSysTranslator);
 	}
-	
+
 	protected ISysTranslatorRuntime onCreateSysTranslatorRuntime(IPSSysTranslator iPSSysTranslator) {
 		if (SysTranslatorTypes.DIGEST.equals(iPSSysTranslator.getTranslatorType())) {
 			return new SysDigestTranslatorRuntime();
@@ -525,7 +524,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (SysTranslatorTypes.DESTORAGE.equals(iPSSysTranslator.getTranslatorType())) {
 			return new SysDEStorageTranslatorRuntime();
 		}
-	
+
 		if (SysTranslatorTypes.UCASE.equals(iPSSysTranslator.getTranslatorType())) {
 			return new SysUCaseTranslatorRuntime();
 		}
@@ -533,7 +532,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (SysTranslatorTypes.LCASE.equals(iPSSysTranslator.getTranslatorType())) {
 			return new SysLCaseTranslatorRuntime();
 		}
-		
+
 		if (SysTranslatorTypes.CODELIST.equals(iPSSysTranslator.getTranslatorType())) {
 			return new SysCodeListTranslatorRuntime();
 		}
@@ -550,10 +549,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iCodeListRuntime != null) {
 			return iCodeListRuntime;
 		}
-		
-		if(iPSCodeList.getPSSystemModule()!=null) {
+
+		if (iPSCodeList.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSCodeList.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iCodeListRuntime = iSystemModuleUtilRuntime.createCodeListRuntime(iPSCodeList);
 				if (iCodeListRuntime != null) {
 					return iCodeListRuntime;
@@ -572,9 +571,8 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (CodeListTypes.PREDEFINED.equals(iPSCodeList.getCodeListType())) {
 			return createPredefinedCodeListRuntime(iPSCodeList);
 		}
-		
-		if (CodeListTypes.INLINE.equals(iPSCodeList.getCodeListType())
-				|| !StringUtils.hasLength(iPSCodeList.getCodeListType())) {
+
+		if (CodeListTypes.INLINE.equals(iPSCodeList.getCodeListType()) || !StringUtils.hasLength(iPSCodeList.getCodeListType())) {
 			return createStaticCodeListRuntime(iPSCodeList);
 		}
 
@@ -610,9 +608,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		}
 		return createDefaultDynamicCodeListRuntime(iPSCodeList);
 	}
-	
+
 	/**
 	 * 建立默认动态代码表对象运行时
+	 * 
 	 * @param iPSCodeList
 	 * @return
 	 */
@@ -622,13 +621,14 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 	/**
 	 * 建立默认动态代码表对象运行时
+	 * 
 	 * @deprecated
 	 * @return
 	 */
 	protected ICodeListRuntime createDefaultDynamicCodeListRuntime() {
 		return new DynamicCodeListRuntime();
 	}
-	
+
 	@Override
 	public ISysUtilRuntime createSysUtilRuntime(IPSSysUtil iPSSysUtil) {
 		Assert.notNull(iPSSysUtil, "系统功能模型对象无效");
@@ -637,10 +637,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysUtilRuntime != null) {
 			return iSysUtilRuntime;
 		}
-		
-		if(iPSSysUtil.getPSSystemModule()!=null) {
+
+		if (iPSSysUtil.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysUtil.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysUtilRuntime = iSystemModuleUtilRuntime.createSysUtilRuntime(iPSSysUtil);
 				if (iSysUtilRuntime != null) {
 					return iSysUtilRuntime;
@@ -664,11 +664,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 		if (SysUtilTypes.USER.equals(iPSSysUtil.getUtilType())) {
 			throw new SystemRuntimeException(this, String.format("无法识别的系统预置功能组件[%1$s:%2$s]", iPSSysUtil.getUtilType(), iPSSysUtil.getUtilTag()));
-		}
-		else {
+		} else {
 			throw new SystemRuntimeException(this, String.format("无法识别的系统预置功能组件[%1$s]", iPSSysUtil.getUtilType()));
 		}
-		
+
 	}
 
 	protected ISysUtilRuntime onCreateSysUtilRuntime(IPSSysUtil iPSSysUtil) {
@@ -706,17 +705,17 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysDataSyncAgentRuntime != null) {
 			return iSysDataSyncAgentRuntime;
 		}
-		
-		if(iPSSysDataSyncAgent.getPSSystemModule()!=null) {
+
+		if (iPSSysDataSyncAgent.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysDataSyncAgent.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysDataSyncAgentRuntime = iSystemModuleUtilRuntime.createSysDataSyncAgentRuntime(iPSSysDataSyncAgent);
 				if (iSysDataSyncAgentRuntime != null) {
 					return iSysDataSyncAgentRuntime;
 				}
 			}
 		}
-		
+
 		return onCreateSysDataSyncAgentRuntime(iPSSysDataSyncAgent);
 	}
 
@@ -729,7 +728,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysDataSyncAgentRuntime != null) {
 			return iSysDataSyncAgentRuntime;
 		}
-		
+
 		if (SysDataSyncAgentTypes.ACTIVEMQ.equals(iPSSysDataSyncAgent.getAgentType())) {
 			return new SysMQDataSyncAgentRuntime();
 		}
@@ -749,10 +748,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysMsgTemplRuntime != null) {
 			return iSysMsgTemplRuntime;
 		}
-		
-		if(iPSSysMsgTempl.getPSSystemModule()!=null) {
+
+		if (iPSSysMsgTempl.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysMsgTempl.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysMsgTemplRuntime = iSystemModuleUtilRuntime.createSysMsgTemplRuntime(iPSSysMsgTempl);
 				if (iSysMsgTemplRuntime != null) {
 					return iSysMsgTemplRuntime;
@@ -764,12 +763,12 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	}
 
 	protected ISysMsgTemplRuntime onCreateSysMsgTemplRuntime(IPSSysMsgTempl iPSSysMsgTempl) {
-		
+
 		ISysMsgTemplRuntime iSysMsgTemplRuntime = this.getRuntimeObject(ISysMsgTemplRuntime.class, iPSSysMsgTempl.getTemplEngine());
 		if (iSysMsgTemplRuntime != null) {
 			return iSysMsgTemplRuntime;
 		}
-		
+
 		return new SysMsgTemplRuntime();
 	}
 
@@ -781,10 +780,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysMsgQueueRuntime != null) {
 			return iSysMsgQueueRuntime;
 		}
-		
-		if(iPSSysMsgQueue.getPSSystemModule()!=null) {
+
+		if (iPSSysMsgQueue.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysMsgQueue.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysMsgQueueRuntime = iSystemModuleUtilRuntime.createSysMsgQueueRuntime(iPSSysMsgQueue);
 				if (iSysMsgQueueRuntime != null) {
 					return iSysMsgQueueRuntime;
@@ -792,9 +791,9 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			}
 		}
 
-		return this.onCreateSysMsgQueueRuntime(iPSSysMsgQueue);		
+		return this.onCreateSysMsgQueueRuntime(iPSSysMsgQueue);
 	}
-	
+
 	protected ISysMsgQueueRuntime onCreateSysMsgQueueRuntime(IPSSysMsgQueue iPSSysMsgQueue) {
 		Assert.notNull(iPSSysMsgQueue.getMsgQueueType(), "系统消息队列模型对象类型无效");
 
@@ -813,10 +812,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysMsgTargetRuntime != null) {
 			return iSysMsgTargetRuntime;
 		}
-		
-		if(iPSSysMsgTarget.getPSSystemModule()!=null) {
+
+		if (iPSSysMsgTarget.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysMsgTarget.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysMsgTargetRuntime = iSystemModuleUtilRuntime.createSysMsgTargetRuntime(iPSSysMsgTarget);
 				if (iSysMsgTargetRuntime != null) {
 					return iSysMsgTargetRuntime;
@@ -826,7 +825,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 		return this.onCreateSysMsgTargetRuntime(iPSSysMsgTarget);
 	}
-	
+
 	protected ISysMsgTargetRuntime onCreateSysMsgTargetRuntime(IPSSysMsgTarget iPSSysMsgTarget) {
 		Assert.notNull(iPSSysMsgTarget.getMsgTargetType(), "系统消息目标模型对象类型无效");
 
@@ -845,20 +844,20 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysValueFuncRuntime != null) {
 			return iSysValueFuncRuntime;
 		}
-		
-		if(iPSSysDBValueFunc.getPSSystemModule()!=null) {
+
+		if (iPSSysDBValueFunc.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysDBValueFunc.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysValueFuncRuntime = iSystemModuleUtilRuntime.createSysValueFuncRuntime(iPSSysDBValueFunc);
 				if (iSysValueFuncRuntime != null) {
 					return iSysValueFuncRuntime;
 				}
 			}
 		}
-		
+
 		return this.onCreateSysValueFuncRuntime(iPSSysDBValueFunc);
 	}
-	
+
 	protected ISysValueFuncRuntime onCreateSysValueFuncRuntime(IPSSysDBValueFunc iPSSysDBValueFunc) {
 		Assert.notNull(iPSSysDBValueFunc.getCodeName(), "系统值函数模型对象代码标识无效");
 
@@ -878,10 +877,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		if (iSysLogicRuntime != null) {
 			return iSysLogicRuntime;
 		}
-		
-		if(iPSSysLogic.getPSSystemModule()!=null) {
+
+		if (iPSSysLogic.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysLogic.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				iSysLogicRuntime = iSystemModuleUtilRuntime.createSysLogicRuntime(iPSSysLogic);
 				if (iSysLogicRuntime != null) {
 					return iSysLogicRuntime;
@@ -891,7 +890,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 		return this.onCreateSysLogicRuntime(iPSSysLogic);
 	}
-	
+
 	protected ISysLogicRuntime onCreateSysLogicRuntime(IPSSysLogic iPSSysLogic) {
 
 		if (iPSSysLogic.isCustomCode()) {
@@ -904,20 +903,20 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	@Override
 	public IWFRoleRuntime createWFRoleRuntime(IPSWFRole iPSWFRole) {
 		Assert.notNull(iPSWFRole, "工作流角色模型对象无效");
-		
-		if(iPSWFRole.getPSSystemModule()!=null) {
+
+		if (iPSWFRole.getPSSystemModule() != null) {
 			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSWFRole.getPSSystemModuleMust().getId(), true);
-			if(iSystemModuleUtilRuntime != null) {
+			if (iSystemModuleUtilRuntime != null) {
 				IWFRoleRuntime iWFRoleRuntime = iSystemModuleUtilRuntime.createWFRoleRuntime(iPSWFRole);
 				if (iWFRoleRuntime != null) {
 					return iWFRoleRuntime;
 				}
 			}
 		}
-		
+
 		return this.onCreateWFRoleRuntime(iPSWFRole);
 	}
-	
+
 	protected IWFRoleRuntime onCreateWFRoleRuntime(IPSWFRole iPSWFRole) {
 		// //
 		// IWFRoleRuntime iWFRoleRuntime =
@@ -1072,7 +1071,14 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		strJSCode += "}";
 		engine.eval(strJSCode);
 		Invocable invocable = (Invocable) engine;
-		invocable.invokeFunction("main", this.getSystemRTScriptContext(), iPSSysContent);
+		try	{
+			ScriptCodeHolder.push(strJSCode);
+			invocable.invokeFunction("main", this.getSystemRTScriptContext(), iPSSysContent);
+		}
+		finally {
+			ScriptCodeHolder.poll();
+		}
+		
 	}
 
 	@Override
@@ -1093,6 +1099,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	protected void prepareThreadPoolExecutors() throws Exception {
 		this.bThreadRun = true;
 
+		this.onPrepareThreadPoolExecutors();
+	}
+
+	protected void onPrepareThreadPoolExecutors() throws Exception {
 		this.workThreadPoolExecutor = this.createWorkThreadPoolExecutor();
 		this.timerThreadPoolExecutor = this.createScheduleThreadPoolExecutor();
 		this.timerThreadPoolExecutor.scheduleAtFixedRate(new Runnable() {
@@ -1109,14 +1119,20 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			return;
 		}
 		this.bThreadRun = false;
+		try {
+			this.onShutdownThreadPoolExecutors();
+		} catch (Exception ex) {
+			log.error(ex);
+		}
+	}
 
+	protected void onShutdownThreadPoolExecutors() throws Exception {
 		this.shutdownWorkThreadPoolExecutor();
-
 		this.shutdownScheduleThreadPoolExecutor();
 	}
 
 	protected ThreadPoolExecutor createWorkThreadPoolExecutor() {
-		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, getWorkThreadMaximumPoolSize(), 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(getWorkThreadBlockingQueueSize()), new ThreadPoolExecutor.AbortPolicy());
+		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(getWorkThreadCorePoolSize(), getWorkThreadMaximumPoolSize(), 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(getWorkThreadBlockingQueueSize()), new ThreadPoolExecutor.AbortPolicy());
 		return threadPoolExecutor;
 	}
 
@@ -1146,6 +1162,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		}
 	}
 
+	protected int getWorkThreadCorePoolSize() {
+		return 10;
+	}
+
 	protected int getWorkThreadMaximumPoolSize() {
 		return 40;
 	}
@@ -1156,6 +1176,10 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 	protected int getTimerThreadTimer() {
 		return 1000;
+	}
+	
+	protected int getWorkThreadBatchSize() {
+		return 10;
 	}
 
 	private void timerThreadRun() {
@@ -1178,7 +1202,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			if (!this.isThreadRun()) {
 				break;
 			}
-			
+
 			TimerTask timerTask = timerTaskList2.remove(0);
 			if (nCurrentTime >= timerTask.time) {
 				IUserContext last = UserContext.getCurrent();
@@ -1213,19 +1237,37 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 		Object env = this.backupThreadRunEnv();
 		threadRun(runnable, nTime, strTaskName, env);
 	}
-	
+
 	protected void threadRun(Runnable runnable, long nTime, String strTaskName, Object env) {
+
+		Executor executor = null;
+		if (runnable instanceof INamedRunnable) {
+			INamedRunnable iNamedRunnable = (INamedRunnable) runnable;
+			executor = iNamedRunnable.getExecutor();
+			if (!StringUtils.hasLength(strTaskName)) {
+				strTaskName = iNamedRunnable.getName();
+			}
+		}
 
 		if (nTime <= 0) {
 			final IUserContext iUserContext = UserContext.getCurrent();
-			Assert.notNull(this.workThreadPoolExecutor, "后台作业线程池对象无效");
-			this.workThreadPoolExecutor.execute(new Runnable() {
+			if (executor == null) {
+				executor = this.workThreadPoolExecutor;
+			}
+			final String strFinalTaskName = strTaskName;
+			Assert.notNull(executor, "后台作业线程池对象无效");
+			executor.execute(new Runnable() {
 				@Override
 				public void run() {
 					IUserContext last = UserContext.getCurrent();
 					UserContext.setCurrent(getThreadTaskUserContext(iUserContext));
-					doThreadRun(runnable, strTaskName, env);
-					UserContext.setCurrent(last);
+					try {
+						doThreadRun(runnable, strFinalTaskName, env);
+					} catch (Throwable ex) {
+						ExceptionUtils.rethrowRuntimeException(ex);
+					} finally {
+						UserContext.setCurrent(last);
+					}
 				}
 			});
 		} else {
@@ -1252,12 +1294,15 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			}
 		}
 	}
-	
+
 	protected Object backupThreadRunEnv() {
 		return null;
 	}
-	
-	protected void doThreadRun(Runnable runnable, String strTaskName, Object env) {
+
+	protected void doThreadRun(Runnable runnable, String strTaskName, Object env) throws InterruptedException {
+		if (!this.isThreadRun()) {
+			throw new InterruptedException("线程停止运行");
+		}
 		runnable.run();
 	}
 
@@ -1281,83 +1326,106 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			}
 		}
 	}
-	
+
 	public Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException) throws Throwable {
 		return this.threadRunAllOf(actions, bIgnoreException, null);
 	}
-	
+
 	@Override
 	public Map<String, Object> threadRunAllOf(List<IAction> actions, boolean bIgnoreException, Object env) throws Throwable {
 		Assert.notNull(this.workThreadPoolExecutor, "后台作业线程池对象无效");
 		Assert.notEmpty(actions, "传入行为数组无效");
-		
-		Map<String, Object> taskRetMap = new LinkedHashMap<String, Object>();
-		List<CompletableFuture<?>> taskList = new ArrayList<CompletableFuture<?>>();
-		final IUserContext iUserContext = UserContext.getCurrent();
-		
-		for(int i = 0; i<actions.size() ;i++) {
-			IAction iAction = actions.get(i);
-			Assert.notNull(iAction, String.format("#%1$s行为无效", i));
-			
-			String strActionName = String.format("#%1$s", i);
-			if(iAction instanceof INamedAction) {
-				String name = ((INamedAction)iAction).getName();
-				Assert.hasLength(name, String.format("#%1$s行为名称无效", i));
-				strActionName = name;
-			}
-			
-			if(taskRetMap.containsKey(strActionName)) {
-				throw new SystemRuntimeException(this, String.format("出现重复的行为名称[%1$s]", strActionName));
-			}
-			taskRetMap.put(strActionName, null);
-			
-			final String strActionName2 = strActionName;
-			
-			CompletableFuture<Void> task = CompletableFuture.runAsync(new Runnable() {
 
-				@Override
-				public void run() {
-					IUserContext last = UserContext.getCurrent();
-					try {
-						UserContext.setCurrent(getThreadTaskUserContext(iUserContext));
-						doThreadRun(new Runnable() {
-							public void run() {
-								try {
-									Object ret = iAction.execute(null);
-									taskRetMap.put(strActionName2, ret);
-								}catch (Throwable ex) {
-									ExceptionUtils.rethrowRuntimeException(ex);
-								}
-							}
-						}, strActionName2, env);
-					}
-					catch (Throwable ex) {
-						ex= ExceptionUtils.unwrapThrowable(ex);
-						log.error(String.format("行为[%1$s]执行发生异常，%2$s", strActionName2, ex.getMessage()), ex);
-						taskRetMap.put(strActionName2, ex);
-					}
-					finally {
-						UserContext.setCurrent(last);
-					}
+		Map<String, Object> totalTaskRetMap = new LinkedHashMap<String, Object>();
+
+		int nIndex = 0;
+		int nBatchSize = getWorkThreadBatchSize();// getWorkThreadCorePoolSize() * 4;
+		while (true) {
+
+			if (!isThreadRun()) {
+				throw new InterruptedException("线程停止运行");
+			}
+
+			int nStart = nIndex * nBatchSize;
+			int nEnd = Math.min((nIndex + 1) * nBatchSize, actions.size());
+
+			Map<String, Object> taskRetMap = new LinkedHashMap<String, Object>();
+			List<CompletableFuture<?>> taskList = new ArrayList<CompletableFuture<?>>();
+			final IUserContext iUserContext = UserContext.getCurrent();
+
+			for (int i = nStart; i < nEnd; i++) {
+				IAction iAction = actions.get(i);
+				Assert.notNull(iAction, String.format("#%1$s行为无效", i));
+
+				String strActionName = String.format("#%1$s", i);
+				if (iAction instanceof INamedAction) {
+					String name = ((INamedAction) iAction).getName();
+					Assert.hasLength(name, String.format("#%1$s行为名称无效", i));
+					strActionName = name;
 				}
-				
-			}, this.workThreadPoolExecutor);
-			
-			taskList.add(task);
-		}
-		
-		CompletableFuture.allOf(taskList.toArray(new CompletableFuture<?>[taskList.size()])).get();
-		//判断是否存在异常
-		if(!bIgnoreException) {
-			for(java.util.Map.Entry<String, Object> entry : taskRetMap.entrySet()) {
-				if(entry.getValue() instanceof Throwable) {
-					Throwable ex = (Throwable)entry.getValue();
-					throw new SystemRuntimeException(this, String.format("行为[%1$s]执行发生异常，%2$s", entry.getKey(), ex.getMessage()), ex);
+
+				if (taskRetMap.containsKey(strActionName) || totalTaskRetMap.containsKey(strActionName)) {
+					throw new SystemRuntimeException(this, String.format("出现重复的行为名称[%1$s]", strActionName));
+				}
+				taskRetMap.put(strActionName, null);
+
+				final String strActionName2 = strActionName;
+
+				CompletableFuture<Void> task = CompletableFuture.runAsync(new Runnable() {
+
+					@Override
+					public void run() {
+						IUserContext last = UserContext.getCurrent();
+						try {
+							UserContext.setCurrent(getThreadTaskUserContext(iUserContext));
+							doThreadRun(new Runnable() {
+								public void run() {
+									try {
+										Object ret = iAction.execute(null);
+										taskRetMap.put(strActionName2, ret);
+									} catch (Throwable ex) {
+										ExceptionUtils.rethrowRuntimeException(ex);
+									}
+								}
+							}, strActionName2, env);
+						} catch (Throwable ex) {
+							ex = ExceptionUtils.unwrapThrowable(ex);
+							log.error(String.format("行为[%1$s]执行发生异常，%2$s", strActionName2, ex.getMessage()), ex);
+							taskRetMap.put(strActionName2, ex);
+						} finally {
+							UserContext.setCurrent(last);
+						}
+					}
+
+				}, this.workThreadPoolExecutor);
+
+				taskList.add(task);
+			}
+
+			if (taskList.size() > 0) {
+				CompletableFuture.allOf(taskList.toArray(new CompletableFuture<?>[taskList.size()])).get();
+				// 判断是否存在异常
+				if (!bIgnoreException) {
+					for (java.util.Map.Entry<String, Object> entry : taskRetMap.entrySet()) {
+						if (entry.getValue() instanceof Throwable) {
+							Throwable ex = (Throwable) entry.getValue();
+							throw new SystemRuntimeException(this, String.format("行为[%1$s]执行发生异常，%2$s", entry.getKey(), ex.getMessage()), ex);
+						}
+					}
 				}
 			}
+
+			totalTaskRetMap.putAll(taskRetMap);
+
+			if (nEnd >= actions.size()) {
+				break;
+			}
+
+			nIndex++;
+
 		}
-		
-		return taskRetMap;
+
+		return totalTaskRetMap;
 	}
 
 	@Override
@@ -1379,22 +1447,22 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public Object sseExecute(IAction iAction, Object[] args, Object actionTag, long nTimeout) throws Throwable {
 		return this.asyncExecute(iAction, args, actionTag);
 	}
-	
+
 	@Override
 	public Object executeUserContextAction(IAction iAction, Object[] args) throws Throwable {
 		return this.executeUserContextAction(iAction, args, this.createDefaultUserContext());
 	}
-	
+
 	@Override
 	public Object executeUserContextActionIf(IAction iAction, Object[] args) throws Throwable {
 		return this.executeUserContextActionIf(iAction, args, this.createDefaultUserContext());
 	}
-	
+
 	@Override
 	public Object executeUserContextAction(IAction iAction, Object[] args, IUserContext iUserContext) throws Throwable {
 		IUserContext lastUserContext = UserContext.getCurrent();
 		try {
-			UserContext.setCurrent(iUserContext!=null?iUserContext:this.createDefaultUserContext());
+			UserContext.setCurrent(iUserContext != null ? iUserContext : this.createDefaultUserContext());
 			return iAction.execute(args);
 		} catch (Throwable ex) {
 			// 直接抛出异常
@@ -1403,13 +1471,13 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
-	
+
 	@Override
 	public Object executeUserContextActionIf(IAction iAction, Object[] args, IUserContext iUserContext) throws Throwable {
 		IUserContext lastUserContext = UserContext.getCurrent();
 		try {
-			if(lastUserContext == null) {
-				UserContext.setCurrent(iUserContext!=null?iUserContext:this.createDefaultUserContext());
+			if (lastUserContext == null) {
+				UserContext.setCurrent(iUserContext != null ? iUserContext : this.createDefaultUserContext());
 			}
 			return iAction.execute(args);
 		} catch (Throwable ex) {
@@ -1419,7 +1487,6 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			UserContext.setCurrent(lastUserContext);
 		}
 	}
-	
 
 	protected IUserContext getThreadTaskUserContext(IUserContext iUserContext) {
 		return iUserContext;
@@ -1498,7 +1565,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public IUserContext createDefaultUserContext() {
 		throw new SystemRuntimeException(this, "没有实现", Errors.NOTIMPL);
 	}
-	
+
 	@Override
 	public IUserContext createAnonymousUserContext() {
 		throw new SystemRuntimeException(this, "没有实现", Errors.NOTIMPL);
@@ -1539,7 +1606,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 
 		}
 	}
-	
+
 	@Override
 	public IRuntimeObjectFactory getRuntimeObjectFactory() {
 		return RuntimeObjectFactory.getInstance();
@@ -1609,8 +1676,8 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public void autowareObject(Object object) {
 
 		Assert.notNull(object, "传入装配对象不能为空");
-		
-		if(object instanceof INonAutowiredObject) {
+
+		if (object instanceof INonAutowiredObject) {
 			return;
 		}
 
@@ -1650,7 +1717,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 				Qualifier qualifier = field.getAnnotation(Qualifier.class);
 				Autowired autowired = field.getAnnotation(Autowired.class);
 				if (qualifier != null || autowired != null) {
-					if(qualifier == null && field.getType().isInterface()) {
+					if (qualifier == null && field.getType().isInterface()) {
 						qualifier = field.getType().getAnnotation(Qualifier.class);
 					}
 					Object value = getObjectFieldValue(object, field, qualifier);
@@ -1670,10 +1737,9 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 					} else {
 						field.set(object, getRealValue(field.getType(), value));
 					}
-				}
-				else {
-					if(field.getName().equals("sys")) {
-						if(field.getType().isAssignableFrom(this.getClass())) {
+				} else {
+					if (field.getName().equals("sys")) {
+						if (field.getType().isAssignableFrom(this.getClass())) {
 							if (!field.isAccessible()) {
 								field.setAccessible(true);
 							}
@@ -1687,7 +1753,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			throw new Exception(ex);
 		}
 	}
-	
+
 	protected void doAutowareObjectInstantMode(Object object, Class<?> cls) throws Exception {
 
 		if (cls.equals(Object.class)) {
@@ -1708,19 +1774,19 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 				Qualifier qualifier = field.getAnnotation(Qualifier.class);
 				Autowired autowired = field.getAnnotation(Autowired.class);
 				if (qualifier != null || autowired != null) {
-//					if(qualifier == null && field.getType().isInterface()) {
-//						qualifier = field.getType().getAnnotation(Qualifier.class);
-//					}
-					if(field.getType().isAssignableFrom(this.getClass())) {
+					// if(qualifier == null && field.getType().isInterface()) {
+					// qualifier =
+					// field.getType().getAnnotation(Qualifier.class);
+					// }
+					if (field.getType().isAssignableFrom(this.getClass())) {
 						if (!field.isAccessible()) {
 							field.setAccessible(true);
 						}
 						field.set(object, this);
 					}
-				}
-				else {
-					if(field.getName().equals("sys")) {
-						if(field.getType().isAssignableFrom(this.getClass())) {
+				} else {
+					if (field.getName().equals("sys")) {
+						if (field.getType().isAssignableFrom(this.getClass())) {
 							if (!field.isAccessible()) {
 								field.setAccessible(true);
 							}
@@ -1820,7 +1886,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public Object getFieldValue(IEntityBase objEntity, String strFieldName) {
 		Assert.notNull(objEntity, "传入数据对象无效");
 		Assert.hasLength(strFieldName, "传入属性名称无效");
-		
+
 		return getEntity(objEntity).get(strFieldName.toLowerCase());
 	}
 
@@ -1828,7 +1894,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public void setFieldValue(IEntityBase objEntity, String strFieldName, Object objValue) {
 		Assert.notNull(objEntity, "传入数据对象无效");
 		Assert.hasLength(strFieldName, "传入属性名称无效");
-		
+
 		getEntity(objEntity).set(strFieldName.toLowerCase(), objValue);
 	}
 
@@ -1836,7 +1902,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public boolean containsFieldValue(IEntityBase objEntity, String strFieldName) {
 		Assert.notNull(objEntity, "传入数据对象无效");
 		Assert.hasLength(strFieldName, "传入属性名称无效");
-		
+
 		return getEntity(objEntity).contains(strFieldName.toLowerCase());
 	}
 
@@ -1844,43 +1910,43 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	public void resetFieldValue(IEntityBase objEntity, String strFieldName) {
 		Assert.notNull(objEntity, "传入数据对象无效");
 		Assert.hasLength(strFieldName, "传入属性名称无效");
-		
+
 		getEntity(objEntity).reset(strFieldName.toLowerCase());
 	}
-	
+
 	protected IEntity getEntity(IEntityBase iEntityBase) {
 		if (!(iEntityBase instanceof IEntity)) {
 			throw new SystemRuntimeException(this, String.format("无法识别的数据对象[%1$s]", iEntityBase.getClass()));
 		}
 		return (IEntity) iEntityBase;
 	}
-	
+
 	@Override
 	public GroovyClassLoader getGroovyClassLoader() {
 		return this.groovyClassLoader;
 	}
-	
+
 	@Override
-	public Template getGroovyTemplate(String strTemplate) throws Exception{
+	public Template getGroovyTemplate(String strTemplate) throws Exception {
 		Template template = templateCacheMap.get(strTemplate);
 		if (template == null) {
 			StringReader reader = new StringReader(strTemplate);
 			template = engine.createTemplate(reader);
-			if(templateCacheMap.size() > TEMPLATECACHE_SIZE) {
+			if (templateCacheMap.size() > TEMPLATECACHE_SIZE) {
 				templateCacheMap.clear();
-			}			
+			}
 			templateCacheMap.put(strTemplate, template);
 		}
 		return template;
 	}
-	
+
 	public ISystemModuleUtilRuntime getSystemModuleUtilRuntime(String strTag, boolean bTryMode) {
-		if(bTryMode) {
+		if (bTryMode) {
 			return null;
 		}
 		throw new SystemRuntimeException(this, "没有实现");
 	}
-	
+
 	@Override
 	public void registerModelRuntimeShutdownable(IModelRuntimeShutdownable iModelRuntimeShutdownable) {
 		Assert.notNull(iModelRuntimeShutdownable, "传入可关闭模型运行时对象无效");
@@ -1888,7 +1954,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			modelRuntimeShutdownableList.add(iModelRuntimeShutdownable);
 		}
 	}
-	
+
 	@Override
 	public void unregisterModelRuntimeShutdownable(IModelRuntimeShutdownable iModelRuntimeShutdownable) {
 		Assert.notNull(iModelRuntimeShutdownable, "传入可关闭模型运行时对象无效");
@@ -1896,7 +1962,7 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 			modelRuntimeShutdownableList.remove(iModelRuntimeShutdownable);
 		}
 	}
-	
+
 	@Override
 	protected void onBeforeStart() throws Exception {
 		this.bAutowareObjectList = false;
@@ -1912,38 +1978,35 @@ public abstract class SystemUtilRuntimeBase extends SystemRuntimeBaseBase implem
 	@Override
 	protected void onShutdown() throws Exception {
 		shutdownThreadPoolExecutors();
-		
+
 		synchronized (this.modelRuntimeShutdownableList) {
-			for(IModelRuntimeShutdownable iModelRuntimeShutdownable : this.modelRuntimeShutdownableList) {
+			for (IModelRuntimeShutdownable iModelRuntimeShutdownable : this.modelRuntimeShutdownableList) {
 				try {
 					iModelRuntimeShutdownable.shutdown();
-				}
-				catch (Exception ex) {
+				} catch (Exception ex) {
 					log.error(String.format("关闭模型[%1$s]运行时对象发生异常，%2$s", iModelRuntimeShutdownable, ex.getMessage()), ex);
 				}
 			}
 			this.modelRuntimeShutdownableList.clear();
 		}
-		
+
 		super.onShutdown();
-		
+
 		try {
-			if(this.engine != null) {
+			if (this.engine != null) {
 				this.engine = null;
 			}
-			if(this.groovyClassLoader != null) {
+			if (this.groovyClassLoader != null) {
 				this.groovyClassLoader.close();
 				this.groovyClassLoader = null;
 			}
-			if(this.templateCacheMap != null) {
+			if (this.templateCacheMap != null) {
 				this.templateCacheMap.clear();
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error(String.format("关闭Groovy动态类加载对象发生异常，%1$s", ex.getMessage()), ex);
 		}
-		
-		
+
 		timerTaskList.clear();
 		timerTaskList2.clear();
 	}

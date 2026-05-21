@@ -76,11 +76,13 @@ public class CommonSqlDialect extends SqlDialect {
 		if (interval.getSign() == -1) {
 			writer.print("-");
 		}
-		writer.literal(interval.getIntervalLiteral());
+		//补充为标准sql格式
+		writer.keyword("INTERVAL");
+		writer.literal("'" + interval.getIntervalLiteral() + "'");
 		unparseSqlIntervalQualifier(writer, interval.getIntervalQualifier(), RelDataTypeSystem.DEFAULT);
 	}
 
-	
+
 	@Override
 	public void unparseCall(SqlWriter writer, SqlCall call, int leftPrec, int rightPrec) {
 		

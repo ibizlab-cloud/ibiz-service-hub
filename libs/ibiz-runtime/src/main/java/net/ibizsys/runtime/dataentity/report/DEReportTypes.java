@@ -75,7 +75,8 @@ public class DEReportTypes {
      *  系统智能报表（全部），注意：值为对象值，不能直接用于 == 比较
      */
     public final static String ALLSYSBIREPORTS = "ALLSYSBIREPORTS";
-    /**
+    
+  /**
      *  用户自定义，注意：值为对象值，不能直接用于 == 比较
      */
     public final static String USER = "USER";

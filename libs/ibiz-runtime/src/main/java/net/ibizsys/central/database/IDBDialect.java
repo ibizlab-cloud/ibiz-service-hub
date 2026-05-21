@@ -1,9 +1,18 @@
 package net.ibizsys.central.database;
 
+import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.util.Assert;
 
 import net.ibizsys.central.util.ISearchContext;
+import net.ibizsys.model.PSModelEnums.DBObjNameCaseMode;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
+import net.ibizsys.runtime.util.SqlParam;
 
 /**
  * 数据库类型运行时对象接口
@@ -88,6 +97,35 @@ public interface IDBDialect{
 	String getDBObjStandardName(String strOriginName) throws Throwable;
 	
 	
+	/**
+	 * 获取数据库对象标准名称
+	 * 
+	 * @param strOriginName
+	 * @param iPSDEDBConfig
+	 * @return
+	 */
+	String getDBObjStandardName(String strOriginName, IPSDEDBConfig iPSDEDBConfig) throws Throwable;
+	
+	
+	/**
+	 * 获取数据库对象标准名称
+	 * 
+	 * @param strOriginName
+	 * @param strDBObjNameCaseMode
+	 * @return
+	 */
+	String getDBObjStandardName(String strOriginName, String strDBObjNameCaseMode) throws Throwable;
+	
+	
+	/**
+	 * 获取数据库对象标准名称
+	 * 
+	 * @param strOriginName
+	 * @param dbObjNameCaseMode 数据库对象转换模式
+	 * @return
+	 */
+	String getDBObjStandardName(String strOriginName, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable;
+	
 	
 	/**
 	 * 获取数据库函数
@@ -167,6 +205,28 @@ public interface IDBDialect{
 	String getCreateColumnSQL(String strTableName, IPSDEField iPSDEField) throws Throwable;
 	
 	
+	/**
+	 * 获取建立数据表的语句
+	 * @param strTableName
+	 * @param psDEFieldList
+	 * @param dbObjNameCaseMode 数据库对象转换模式
+	 * @return
+	 * @throws Throwable
+	 */
+	String getCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable;
+	
+	
+	/**
+	 * 获取建立数据列的语句
+	 * @param strTableName
+	 * @param iPSDEField
+	 * @param dbObjNameCaseMode 数据库对象转换模式
+	 * @return
+	 * @throws Throwable
+	 */
+	String getCreateColumnSQL(String strTableName, IPSDEField iPSDEField, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable;
+	
+	
 	
 	/**
 	 * 获取插入数据表的语句
@@ -201,4 +261,51 @@ public interface IDBDialect{
 	String getDeleteTableSQL(String strTableName, Collection<String> whereColumnList) throws Throwable;
 	
 	
+	/**
+	 * 判断表是否存在
+	 * @param dataSource
+	 * @param tableName
+	 * @return
+	 * @throws SQLException
+	 */
+	boolean doesTableExist(DataSource dataSource, String tableName) throws SQLException;
+
+	
+	/**
+	 * 获取指定表列集合
+	 * @param dataSource
+	 * @param tableName
+	 * @return
+	 * @throws SQLException
+	 */
+	Map<String, Object> getTableColumns(DataSource dataSource, String tableName) throws SQLException;
+	
+	
+	/**
+	 * 支持传入数据类型
+	 * @param stdDataType
+	 * @return
+	 */
+	boolean supportDataType(int stdDataType);
+	
+	/**
+	 * 获取插入SqlParam
+	 * @param stdDataType
+	 * @param value
+	 * @return
+	 */
+	default SqlParam getSqlParam(ISysDBColumnRuntime iSysDBColumnRuntime, Object value) {
+		Assert.notNull(iSysDBColumnRuntime, "传入数据列运行时对象无效");
+		return getSqlParam(iSysDBColumnRuntime.getStdDataType(), value);
+	}
+	
+	/**
+	 * 获取更新SqlParam
+	 * @param stdDataType
+	 * @param value
+	 * @return
+	 */
+	default SqlParam getSqlParam(int stdDataType, Object value) {
+		return SqlParam.value(value);
+	}
 }

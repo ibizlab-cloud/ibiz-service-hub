@@ -10,8 +10,9 @@ import org.springframework.util.Assert;
 
 import net.ibizsys.central.util.script.IScriptEntity;
 import net.ibizsys.runtime.util.script.IScriptCodeItem;
+import net.ibizsys.runtime.util.template.ITemplateEntityBase;
 
-public class TemplateEntity implements IScriptEntity {
+public class TemplateEntity implements IScriptEntity ,ITemplateEntityBase{
 
 	private final IScriptEntity iScriptEntity;
 	private final boolean bReadOnly;

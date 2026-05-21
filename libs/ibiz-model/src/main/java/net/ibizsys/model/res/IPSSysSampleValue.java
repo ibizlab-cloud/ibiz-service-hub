@@ -32,17 +32,17 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
-	 * 获取随机示例值
-	 * @return
-	 */
-	java.lang.String getRandomValue();
-	
-	
-	/**
 	 * 获取示例值
 	 * @return
 	 */
 	java.lang.String getValue();
+	
+	
+	/**
+	 * 获取示例值集合
+	 * @return
+	 */
+	java.lang.String[] getValues();
 	
 	
 	/**

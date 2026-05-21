@@ -35,13 +35,17 @@ import net.ibizsys.runtime.util.IEntityBase;
 public class ScriptEntity extends net.ibizsys.runtime.util.script.ScriptEntity implements IScriptEntity {
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(ScriptEntity.class);
-	
+	private IDataEntityRuntime iDataEntityRuntime = null;
 	public ScriptEntity(IDataEntityRuntime iDataEntityRuntime, IEntityBase iEntityBase) {
 		super(iDataEntityRuntime, iEntityBase);
+		this.iDataEntityRuntime = iDataEntityRuntime;
 	}
 	
 	public ScriptEntity(ISystemRuntime iSystemRuntime, IEntity iEntity) {
 		super(iSystemRuntime, iEntity);
+		if(iEntity instanceof IEntityDTO && ((IEntityDTO)iEntity).getDEMethodDTORuntime()!=null) {
+			this.iDataEntityRuntime = ((IEntityDTO)iEntity).getDEMethodDTORuntime().getDataEntityRuntime();
+		}
 	}
 	
 	protected ISystemRuntime getSystemRuntime() {
@@ -50,6 +54,9 @@ public class ScriptEntity extends net.ibizsys.runtime.util.script.ScriptEntity i
 	
 	@Override
 	protected IDataEntityRuntime getDataEntityRuntime() {
+		if(this.iDataEntityRuntime != null) {
+			return this.iDataEntityRuntime;
+		}
 		return (IDataEntityRuntime)super.getDataEntityRuntime();
 	}
 
@@ -388,4 +395,6 @@ public class ScriptEntity extends net.ibizsys.runtime.util.script.ScriptEntity i
 			throw new RuntimeException(ex);
 		}
 	}
+
+	
 }

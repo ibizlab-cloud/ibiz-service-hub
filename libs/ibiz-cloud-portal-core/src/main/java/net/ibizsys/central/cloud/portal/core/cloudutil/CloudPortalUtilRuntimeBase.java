@@ -301,13 +301,18 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 
 		return list;
 	}
-
+	
+		
 	@Override
 	public PortalAsyncAction createAsyncAction(Map params) {
 		return (PortalAsyncAction) this.executeAction("建立异步作业", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				return onCreateAsyncAction(params);
+				PortalAsyncAction portalAsyncAction = onCreateAsyncAction(params);
+				if(portalAsyncAction != null) {
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
+				}
+				return portalAsyncAction;
 			}
 		}, null);
 	}
@@ -323,6 +328,7 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 			public Object execute(Object[] args) throws Throwable {
 				PortalAsyncAction portalAsyncAction = onExecuteAsyncAction(strId, params);
 				if(portalAsyncAction!=null) {
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
 					informPortalAsyncAction(portalAsyncAction);
 				}
 				return portalAsyncAction;
@@ -341,6 +347,7 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 			public Object execute(Object[] args) throws Throwable {
 				PortalAsyncAction portalAsyncAction = onErrorAsyncAction(strId, params);
 				if(portalAsyncAction!=null) {
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
 					informPortalAsyncAction(portalAsyncAction);
 				}
 				return portalAsyncAction;
@@ -353,12 +360,33 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 	}
 
 	@Override
+	public PortalAsyncAction cancelAsyncAction(String strId, Map params) {
+		return (PortalAsyncAction) this.executeAction("取消异步作业", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				PortalAsyncAction portalAsyncAction = onCancelAsyncAction(strId, params);
+				if(portalAsyncAction!=null) {
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
+					informPortalAsyncAction(portalAsyncAction);
+				}
+				return portalAsyncAction;
+			}
+		}, null);
+	}
+
+	protected PortalAsyncAction onCancelAsyncAction(String strId, Map params) throws Throwable {
+		throw new Exception("没有实现");
+	}
+	
+	
+	@Override
 	public PortalAsyncAction finishAsyncAction(String strId, Map params) {
 		return (PortalAsyncAction) this.executeAction("完成异步作业", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
 				PortalAsyncAction portalAsyncAction = onFinishAsyncAction(strId, params);
 				if(portalAsyncAction!=null) {
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
 					informPortalAsyncAction(portalAsyncAction);
 				}
 				return portalAsyncAction;
@@ -374,12 +402,17 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 	public PortalAsyncAction getAsyncAction(String strId) {
 
 		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
-
+		
 		return (PortalAsyncAction) this.executeAction("获取异步作业", new IAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				PortalAsyncAction portalAsyncAction = onGetAsyncAction(strId);
-
+				
+				PortalAsyncAction portalAsyncAction = getSysCacheUtilRuntime().get(CloudCacheTagUtils.getPortalAsyncActionCat(strId), PortalAsyncAction.class);
+				if(portalAsyncAction == null) {
+					portalAsyncAction = onGetAsyncAction(strId);
+					getSysCacheUtilRuntime().set(CloudCacheTagUtils.getPortalAsyncActionCat(portalAsyncAction.getAsyncAcitonId()), portalAsyncAction, 120);
+				}
+				
 				if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
 					throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
 				}

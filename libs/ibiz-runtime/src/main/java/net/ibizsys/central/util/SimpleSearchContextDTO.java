@@ -205,11 +205,6 @@ public class SimpleSearchContextDTO extends EntityBase implements ISearchContext
 		this.sort = sort;
 	}
 
-	@Override
-	@JsonIgnore
-	public boolean isCount() {
-		return this.bCount;
-	}
 
 	@Override
 	@JsonIgnore
@@ -226,7 +221,7 @@ public class SimpleSearchContextDTO extends EntityBase implements ISearchContext
 
 	
 	@Override
-	@JsonIgnore
+	@JsonProperty(PARAM_SEARCHCONDS)
 	public List<ISearchCond> getSearchConds() {
 		return this.searchCondList;
 	}
@@ -743,6 +738,61 @@ public class SimpleSearchContextDTO extends EntityBase implements ISearchContext
 		this.setTranslateFields(bTranslateFields);
 		return this;
 	}
+	
+	@JsonProperty(PARAM_SORT)
+	public String getSortInfo() {
+		if(this.getPageSort() != null && this.getPageSort() != Sort.unsorted()) {
+			java.util.Iterator<Sort.Order> orders = sort.iterator();
+			if(orders != null) {
+				String strSortInfo = "";
+				while (orders.hasNext()) {
+					if(StringUtils.hasLength(strSortInfo)) {
+						strSortInfo += ";";
+					}
+					Sort.Order order = orders.next();
+					if(order.isAscending()) {
+						strSortInfo += String.format("%1$s,asc", order.getProperty());
+					}
+					else {
+						strSortInfo += String.format("%1$s,desc", order.getProperty());
+					}
+				}
+				return strSortInfo;
+			}
+		}
+		return null;
+	}
+
+	@JsonProperty(PARAM_OFFSET)
+	public long getOffset() {
+		if(this.getPageable() != null) {
+			return this.getPageable().getOffset();
+		}
+		return 0;
+	}
+
+	@JsonProperty(PARAM_SIZE)
+	public int getSize() {
+		if(this.getPageable() != null) {
+			return this.getPageable().getPageSize();
+		}
+		return DEFAULTPAGESIZE;
+	}
+
+	@JsonProperty(PARAM_PAGE)
+	public int getPage() {
+		if(this.getPageable() != null) {
+			return this.getPageable().getPageNumber();
+		}
+		return STARTPAGE;
+	}
+	
+	@Override
+	@JsonProperty(PARAM_COUNT)
+	public boolean isCount() {
+		return this.bCount;
+	}
+
 	
 	@Override
 	@JsonIgnore

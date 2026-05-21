@@ -697,6 +697,9 @@ public abstract class DEVersionStorageUtilRuntimeBase extends DEUtilRuntimeBase 
 		if (pickupPSDEField == null) {
 			throw new Exception(String.format("传入关系无效，未提供连接属性"));
 		}
+		//保存恢复前关联子数据
+		Object strLastVersionId = this.getLastVersionId(parentData,iPSDERBase);
+		this.commit(parentData,iPSDERBase,strLastVersionId);
 
 		Object key = this.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId()).getKeyFieldValue(parentData);
 
@@ -866,5 +869,11 @@ public abstract class DEVersionStorageUtilRuntimeBase extends DEUtilRuntimeBase 
 		searchFieldCond.setValue(objValue);
 
 		return searchFieldCond;
+	}
+
+	protected Object getLastVersionId(IEntityBase parentData, IPSDERBase iPSDERBase){
+		IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMajorPSDataEntityMust().getId(), false);
+		IPSDEField versionField = majorDataEntityRuntime.getPSDEFieldByPredefinedType(PredefinedFieldType.VERSIONID, false);
+		return majorDataEntityRuntime.getFieldValue(parentData,versionField);
 	}
 }

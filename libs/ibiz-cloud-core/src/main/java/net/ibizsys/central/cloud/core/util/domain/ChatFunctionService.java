@@ -1,5 +1,7 @@
 package net.ibizsys.central.cloud.core.util.domain;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -101,6 +103,54 @@ public class ChatFunctionService extends EntityBase {
 	@JsonIgnore
 	public ChatFunctionService resetMethod() {
 		this.reset(FIELD_METHOD);
+		return this;
+	}
+	
+	/**
+	 * Header
+	 *
+	 */
+	public final static String FIELD_HEADER = "header";
+
+	
+	
+	/**
+	 * 设置「Header」
+	 *
+	 * @param val
+	 */
+	@JsonProperty(FIELD_HEADER)
+	public ChatFunctionService setHeader(Map<String, Object> val) {
+		this.set(FIELD_HEADER, val);
+		return this;
+	}
+	
+
+	/**
+	 * 获取「Header」值
+	 *
+	 */
+	@JsonIgnore
+	public Map<String, Object> getHeader() {
+		return (Map<String, Object>) this.get(FIELD_HEADER);
+	}
+
+	/**
+	 * 判断 「Header」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsHeader() {
+		return this.contains(FIELD_HEADER);
+	}
+
+	/**
+	 * 重置 「Header」
+	 *
+	 */
+	@JsonIgnore
+	public ChatFunctionService resetHeader() {
+		this.reset(FIELD_HEADER);
 		return this;
 	}
 	

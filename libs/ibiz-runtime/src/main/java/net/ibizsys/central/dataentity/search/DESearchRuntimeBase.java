@@ -89,6 +89,9 @@ public abstract class DESearchRuntimeBase extends DataEntityModelRuntimeBase imp
 
 	@Override
 	public void syncEntity(int nEvent, Object arg0) {
+		if(!this.getSysSearchSchemeRuntime().isEnabled()) {
+			return;
+		}
 		try {
 			if(isThreadMode()) {
 				getSystemRuntime().threadRun(new Runnable() {
@@ -194,6 +197,10 @@ public abstract class DESearchRuntimeBase extends DataEntityModelRuntimeBase imp
 			map.put(EntityBase.KEY, getUniqueId(value));
 		}
 		
+		this.doCreateEntity(iEntityDTO, map);
+	}
+	
+	protected void doCreateEntity(IEntityDTO iEntityDTO, Map<String, Object> map) throws Throwable {
 		this.getSysSearchSchemeRuntime().insert(this.getPSSysSearchDoc().getName(), map, null);
 	}
 	
@@ -233,6 +240,10 @@ public abstract class DESearchRuntimeBase extends DataEntityModelRuntimeBase imp
 			map.put(EntityBase.KEY, getUniqueId(value));
 		}
 		
+		this.doUpdateEntity(iEntityDTO, map);
+	}
+	
+	protected void doUpdateEntity(IEntityDTO iEntityDTO, Map<String, Object> map) throws Throwable {
 		this.getSysSearchSchemeRuntime().update(this.getPSSysSearchDoc().getName(), map, null, true);
 	}
 	
@@ -270,11 +281,23 @@ public abstract class DESearchRuntimeBase extends DataEntityModelRuntimeBase imp
 			map.put(EntityBase.KEY, getUniqueId(key));
 		}
 		
+		this.doRemoveEntity(obj, map);
+	}
+	
+	protected void doRemoveEntity(Object obj, Map<String, Object> map) throws Throwable {
 		this.getSysSearchSchemeRuntime().delete(this.getPSSysSearchDoc().getName(), map, null);
 	}
 	
 	
 	protected String getUniqueId(Object id) {
-		return KeyValueUtils.genUniqueId(this.getDataEntityRuntime().getName(), id);
+		if(this.getPSDESearch().isEnableUnionKeyValue()) {
+			return KeyValueUtils.genUniqueId(this.getDataEntityRuntime().getName(), id);
+		}
+		return String.valueOf(id);
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		return getSysSearchSchemeRuntime().isEnabled();
 	}
 }

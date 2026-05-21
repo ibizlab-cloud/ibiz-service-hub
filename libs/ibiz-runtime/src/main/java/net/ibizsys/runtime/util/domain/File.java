@@ -675,6 +675,31 @@ public class File extends net.ibizsys.runtime.util.EntityBase {
 		return this.contains(FIELD_FILEEXT);
 	}
 
+	/**
+	 * 路径
+	 */
+	// private String Path;
+	public final static String FIELD_PATH = "path";
+
+	@JsonIgnore
+	public String getPath() {
+		Object objValue = this.get(FIELD_PATH);
+		if (objValue == null) {
+			return null;
+		}
+		return (String) objValue;
+	}
+
+	@JsonProperty(FIELD_PATH)
+	public void setPath(String Path) {
+		this.set(FIELD_PATH, Path);
+	}
+
+	@JsonIgnore
+	public boolean isPathDirty() {
+		return this.contains(FIELD_PATH);
+	}
+	
 	
 	
 

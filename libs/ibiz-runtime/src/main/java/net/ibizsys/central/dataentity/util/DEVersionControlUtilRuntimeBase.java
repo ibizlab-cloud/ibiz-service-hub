@@ -396,7 +396,9 @@ public abstract class DEVersionControlUtilRuntimeBase extends DEUtilRuntimeBase 
 		IEntityDTO iEntityDTO = (IEntityDTO) versionData;
 		iEntityDTO.set(versionPSDEField.getName(), nVer + 1);
 		if (namePSDEField != null) {
-			iEntityDTO.set(namePSDEField.getName(), String.format("v%1$s", nVer + 1));
+			if(ObjectUtils.isEmpty(iEntityDTO.get(namePSDEField.getName()))){
+				iEntityDTO.set(namePSDEField.getName(), String.format("v%1$s", nVer + 1));
+			}
 		}
 		this.getVersionDataEntityRuntime().rawCreate(Arrays.asList(iEntityDTO), false);
 		return iEntityDTO;

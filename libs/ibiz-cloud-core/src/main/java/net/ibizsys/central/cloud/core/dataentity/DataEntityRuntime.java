@@ -11,23 +11,31 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletResponse;
+
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import io.jsonwebtoken.lang.Assert;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntimeBase;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudOSSClient;
 import net.ibizsys.central.cloud.core.dataentity.dataflow.DEDataFlowRuntime;
+import net.ibizsys.central.cloud.core.dataentity.defield.IAIInfoDEFGroupRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicRuntime;
+import net.ibizsys.central.cloud.core.dataentity.search.DESearchRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.DEServiceInvocationHandler;
+import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtilRuntime;
+import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtil;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.wf.IDEWFRuntime;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.IHubSysExtensionUtilRuntime;
+import net.ibizsys.central.cloud.core.sysutil.ISysChatPromptUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUtilContainerOnly;
@@ -36,6 +44,8 @@ import net.ibizsys.central.cloud.core.util.domain.V2ImportSchema;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionLogic;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemExtensionSuite;
 import net.ibizsys.central.dataentity.dataflow.IDEDataFlowRuntime;
+import net.ibizsys.central.dataentity.defield.IDEFGroupRuntime;
+import net.ibizsys.central.dataentity.search.IDESearchRuntime;
 import net.ibizsys.central.dataentity.security.IDataEntityAccessManager;
 import net.ibizsys.central.dataentity.service.IDEMethodDTO;
 import net.ibizsys.central.dataentity.service.IDEMethodDTORuntime;
@@ -46,16 +56,22 @@ import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.model.IPSModelObjectRuntime;
+import net.ibizsys.model.PSModelEnums.DEFGroupLogicMode;
 import net.ibizsys.model.PSModelEnums.DEUtilType;
+import net.ibizsys.model.codelist.IPSCodeItem;
+import net.ibizsys.model.codelist.IPSCodeList;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.dataflow.IPSDEDataFlow;
+import net.ibizsys.model.dataentity.defield.IPSDEFGroup;
+import net.ibizsys.model.dataentity.defield.IPSDEFGroupDetail;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.defield.valuerule.IPSDEFVRQueryCountCondition;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.logic.IPSDEMSLogic;
+import net.ibizsys.model.dataentity.search.IPSDESearch;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
 import net.ibizsys.model.dataentity.util.IPSDEUtil;
@@ -63,13 +79,16 @@ import net.ibizsys.model.dataentity.util.PSDEUtilImpl;
 import net.ibizsys.model.dataentity.wf.IPSDEWF;
 import net.ibizsys.runtime.IDynaInstRuntime;
 import net.ibizsys.runtime.ISystemRuntime;
+import net.ibizsys.runtime.codelist.ICodeListRuntime;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.dataentity.IDynaInstDataEntityRuntime;
+import net.ibizsys.runtime.dataentity.action.DEActions;
 import net.ibizsys.runtime.dataentity.dataexport.IDEDataExportRuntime;
 import net.ibizsys.runtime.dataentity.dataimport.IDEDataImportRuntime;
 import net.ibizsys.runtime.dataentity.defield.DEFDataTypes;
 import net.ibizsys.runtime.dataentity.logic.IDELogicRuntime;
 import net.ibizsys.runtime.dataentity.logic.IDEMSLogicRuntime;
+import net.ibizsys.runtime.dataentity.print.IDEPrintRuntime;
 import net.ibizsys.runtime.dataentity.service.DEMethodDTOFieldTypes;
 import net.ibizsys.runtime.dataentity.util.IDEUtilRuntime;
 import net.ibizsys.runtime.plugin.RuntimeObjectFactory;
@@ -106,7 +125,10 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	private IDEExtensionUtilRuntime iDEExtensionUtilRuntime = null;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
 	private String strOSSFolder = null;
-
+	private IPSDEFGroup aiInfoPSDEFGroup = null;
+	private IPSDEFGroup aiFullInfoPSDEFGroup = null;
+	private IDEChatPromptUtil iDEChatPromptUtil = null;
+	
 
 	@Override
 	protected void onInit() throws Exception {
@@ -118,6 +140,26 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		if(iServiceSystemRuntime!=null) {
 			this.bEnableRTCodeMode = iServiceSystemRuntime.isEnableRTCodeMode();
 			this.strOSSFolder = iServiceSystemRuntime.getOSSFolder();
+		}
+		
+		List<IPSDEFGroup> psDEFGroupList = this.getPSDataEntity().getAllPSDEFGroups();
+		if(!ObjectUtils.isEmpty(psDEFGroupList)) {
+			for(IPSDEFGroup iPSDEFGroup : psDEFGroupList) {
+				String strLogicMode = iPSDEFGroup.getLogicMode();
+				if(ObjectUtils.isEmpty(strLogicMode)) {
+					continue;
+				}
+				
+				if(this.aiInfoPSDEFGroup == null && DEFGroupLogicMode.AIINFO.value.equals(strLogicMode)) {
+					this.aiInfoPSDEFGroup = iPSDEFGroup;
+					continue;
+				}
+				
+				if(this.aiFullInfoPSDEFGroup == null && DEFGroupLogicMode.AIFULLINFO.value.equals(strLogicMode)) {
+					this.aiFullInfoPSDEFGroup = iPSDEFGroup;
+					continue;
+				}
+			}
 		}
 
 		if(this.isEnableRTCodeMode()) {
@@ -376,11 +418,24 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		ISearchContextDTO searchContext = this.createSearchContext();
 		searchContext.setCount(true);
 		//设置上下文
-		EntityBase datacontext = (EntityBase) arg0;
+		IEntity datacontext = (IEntity) arg0;
 		//保留原始，避免影响旧代码
 		if (datacontext != null) {
-			searchContext.putAll(datacontext.any());
-			searchContext.set("datacontext", datacontext.any());
+			//需要获取原始属性
+			if(datacontext instanceof IEntityDTO) {
+				Map<String, Object> data = new HashMap<String, Object>();
+				IEntityDTO iEntityDTO = (IEntityDTO)datacontext;
+				//先放入DTO属性
+				iEntityDTO.copyTo(data, true);
+				//再放入属性
+				iEntityDTO.copyTo(data, false);
+				searchContext.putAll(data);
+				searchContext.set("datacontext", data);
+			}
+			else {
+				searchContext.putAll(datacontext.any());
+				searchContext.set("datacontext", datacontext.any());
+			}
 		}
 		searchContext.set("sessioncontext",  ActionSessionManager.getUserContextMust().getSessionParams());
 		java.util.List result = this.selectDataQuery(iPSDEDataQuery, searchContext);
@@ -1211,7 +1266,190 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		return this.iSysCloudClientUtilRuntime;
 	}
+	
+	
 
+
+	@Override
+	public String getAIInfo(Object keyOrData) throws Throwable{
+		IEntityDTO iEntityDTO = null;
+		if(keyOrData instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)keyOrData;
+		}
+		else
+			iEntityDTO = this.get(keyOrData);
+		
+		return (String)this.executeAction(DEActions.GETAIINFO, null, new Object[] { iEntityDTO });
+	}
+
+	@Override
+	public String getAIFullInfo(Object keyOrData) throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(keyOrData instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)keyOrData;
+		}
+		else
+			iEntityDTO = this.get(keyOrData);
+		
+		return (String)this.executeAction(DEActions.GETAIFULLINFO, null, new Object[] { iEntityDTO });
+	}
+	
+	@Override
+	protected Object onExecuteActionUnknown(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
+		if (DEActions.GETAIINFO.equalsIgnoreCase(strActionName)) {
+			return doGetAIInfo(args);
+		}
+		
+		if (DEActions.GETAIFULLINFO.equalsIgnoreCase(strActionName)) {
+			return doGetAIFullInfo(args);
+		}
+		
+		return super.onExecuteActionUnknown(strActionName, iPSDEAction, args, actionData);
+	}
+	
+	protected String doGetAIInfo(Object[] args)throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)args[0];
+		}
+		Assert.notNull(iEntityDTO, "未传入数据对象");
+		return this.doGetAIInfo(iEntityDTO, this.getAIInfoPSDEFGroup(true), args);
+	}
+	
+	protected String doGetAIFullInfo(Object[] args)throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)args[0];
+		}
+		Assert.notNull(iEntityDTO, "未传入数据对象");
+		return this.doGetAIInfo(iEntityDTO, this.getAIFullInfoPSDEFGroup(true), args);
+	}
+	
+	
+	protected String doGetAIInfo(IEntityDTO iEntityDTO, IPSDEFGroup iPSDEFGroup, Object[] args)throws Throwable {
+		if(iPSDEFGroup != null) {
+			IDEFGroupRuntime iDEFGroupRuntime = this.getDEFGroupRuntime(iPSDEFGroup, true);
+			if(iDEFGroupRuntime instanceof IAIInfoDEFGroupRuntime) {
+				return ((IAIInfoDEFGroupRuntime)iDEFGroupRuntime).getAIInfo(iEntityDTO, args);
+			}
+		}
+		
+		if(iPSDEFGroup == null || ObjectUtils.isEmpty(iPSDEFGroup.getPSDEFGroupDetails())) {
+			if(this.getMajorPSDEField() != null) {
+				return iEntityDTO.getString(this.getMajorPSDEField().getLowerCaseName(), null);
+			}
+			return null;
+		}
+		List<IPSDEFGroupDetail> psDEFGroupDetails = iPSDEFGroup.getPSDEFGroupDetails();
+		StringBuilder sb = new StringBuilder();
+		boolean bFirst = true;
+		for(IPSDEFGroupDetail iPSDEFGroupDetail : psDEFGroupDetails) {
+			Object value = iEntityDTO.get(iPSDEFGroupDetail.getPSDEFieldMust().getLowerCaseName());
+			if(ObjectUtils.isEmpty(value)) {
+				continue;
+			}
+			
+			String text = String.valueOf(value);
+			IPSCodeList iPSCodeList = iPSDEFGroupDetail.getPSCodeList();
+			if(iPSCodeList != null) {
+				ICodeListRuntime iCodeListRuntime = this.getSystemRuntime().getCodeListRuntime(iPSCodeList);
+				IPSCodeItem iPSCodeItem = iCodeListRuntime.getPSCodeItem(text, true);
+				if(iPSCodeItem != null) {
+					text = String.format("%1$s`%2$s`", iPSCodeItem.getText(), text);
+				}
+				else {
+					text = String.format("`%1$s`无法识别的枚举值(%2$s)", iPSCodeList.getName(), text);
+				}
+			}
+			if(bFirst) {
+				bFirst = false;
+			}
+			else {
+				sb.append("，");
+			}
+			sb.append(text);
+		}
+		return sb.toString();
+	}
+	
+
+	@Override
+	public IPSDEFGroup getAIInfoPSDEFGroup(boolean bTryMode) throws Throwable {
+		if(this.aiInfoPSDEFGroup != null || bTryMode) {
+			return this.aiInfoPSDEFGroup;
+		}
+		throw new DataEntityRuntimeException(this, String.format("未指定AI信息属性组模型对象"));
+	}
+
+	@Override
+	public IPSDEFGroup getAIFullInfoPSDEFGroup(boolean bTryMode) throws Throwable {
+		if(this.aiFullInfoPSDEFGroup != null || bTryMode) {
+			return this.aiFullInfoPSDEFGroup;
+		}
+		throw new DataEntityRuntimeException(this, String.format("未指定AI完整信息属性组模型对象"));
+	}
+
+	@Override
+	public IDEPrintRuntime getDEPrintRuntime(String strId, boolean bTryMode) {
+		String[] parts = strId.split("[@]");
+		if(parts.length == 2) {
+			return super.getDEPrintRuntime(parts[1],bTryMode);
+		}
+		return super.getDEPrintRuntime(strId,bTryMode);
+	}
+
+	@Override
+	protected void onOutputPrint(String strPrintId, OutputStream outputStream, Object[] keys, String strType, boolean bTestPriv) throws Throwable {
+		String[] parts = strPrintId.split("[@]");
+		if(parts.length == 2) {
+			IDEPrintRuntime iDEPrintRuntime = this.getDEPrintRuntime(parts[1]);
+			if (iDEPrintRuntime instanceof net.ibizsys.central.cloud.core.dataentity.print.IDEPrintRuntime) {
+				((net.ibizsys.central.cloud.core.dataentity.print.IDEPrintRuntime) iDEPrintRuntime).output(parts[0], outputStream, keys, strType, bTestPriv);
+				return;
+			}
+			
+			throw new Exception(String.format("对象[%1$s]未支持接口", iDEPrintRuntime));
+		}
+		super.onOutputPrint(strPrintId, outputStream, keys, strType, bTestPriv);
+	}
+	
+	@Override
+	protected void onOutputPrint(String strPrintId, ServletResponse servletResponse, Object[] keys, String strType, boolean bTestPriv) throws Throwable {
+		String[] parts = strPrintId.split("[@]");
+		if(parts.length == 2) {
+			IDEPrintRuntime iDEPrintRuntime = this.getDEPrintRuntime(parts[1]);
+			if (iDEPrintRuntime instanceof net.ibizsys.central.cloud.core.dataentity.print.IDEPrintRuntime) {
+				((net.ibizsys.central.cloud.core.dataentity.print.IDEPrintRuntime) iDEPrintRuntime).output(parts[0], servletResponse, keys, strType, bTestPriv);
+				return;
+			}
+			
+			throw new Exception(String.format("对象[%1$s]未支持接口", iDEPrintRuntime));
+		}
+		super.onOutputPrint(strPrintId, servletResponse, keys, strType, bTestPriv);
+	}
+	
+	@Override
+	protected IDESearchRuntime createDefaultDESearchRuntime(IPSDESearch iPSDESearch) {
+		return new DESearchRuntime();
+	}
+	
+	@Override
+	public IDEChatPromptUtil getDEChatPromptUtil(boolean bTryMode) throws Throwable {
+		if(this.iDEChatPromptUtil == null) {
+			//获取当前实体功能对象
+			IDEChatPromptUtilRuntime iDEChatPromptUtilRuntime = this.getDEUtilRuntime(IDEChatPromptUtilRuntime.class, true);
+			if(iDEChatPromptUtilRuntime != null) {
+				this.iDEChatPromptUtil = iDEChatPromptUtilRuntime.getDEChatPromptUtil();
+			}
+			else {
+				ISysChatPromptUtilRuntime iSysChatPromptUtilRuntime = ((IServiceSystemRuntimeBase)this.getSystemRuntime()).getSysChatPromptUtilRuntime(bTryMode);
+				if(iSysChatPromptUtilRuntime != null) {
+					this.iDEChatPromptUtil = iSysChatPromptUtilRuntime.getDEChatPromptUtil();
+				}
+			}
+		}
+		return this.iDEChatPromptUtil;
+	}
 
 	@Override
 	protected void onShutdown() throws Exception {

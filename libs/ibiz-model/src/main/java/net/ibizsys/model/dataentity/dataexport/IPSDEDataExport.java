@@ -21,6 +21,8 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	
 	/**
 	 * 获取内容类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataImpExpContentType}
 	 * @return
 	 */
 	java.lang.String getContentType();

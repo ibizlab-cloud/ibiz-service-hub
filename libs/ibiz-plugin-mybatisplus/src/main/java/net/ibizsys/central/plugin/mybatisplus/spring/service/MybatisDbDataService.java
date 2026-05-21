@@ -359,9 +359,9 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
-
+			data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
 			//查询别名加入参数
-			Map<String, Object> alias = new HashMap();
+			Map<String, Object> alias = new CaseInsensitiveMap();
 			data.put("alias", alias);
 			for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
 				IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
@@ -410,8 +410,9 @@ public class MybatisDbDataService implements IDBDataService {
 		}
 		data.put("systemcontext", new HashMap<String, Object>());
 		data.put("webcontext", dataMap);
+		data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
 		//查询别名加入参数
-		Map<String, Object> alias = new HashMap();
+		Map<String, Object> alias = new CaseInsensitiveMap();
 		data.put("alias", alias);
 		for (IPSDEDataQuery iPSDEDataQuery : iPSDEDataSet.getPSDEDataQueries()) {
 			IDEDataQueryCodeRuntime iDEDataQueryCodeRuntime = iDataEntityRuntime.getDEDataQueryCodeRuntime(iPSDEDataQuery, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), true);
@@ -468,8 +469,9 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
+			data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
 			//查询别名加入参数
-			Map<String, Object> alias = new HashMap();
+			Map<String, Object> alias = new CaseInsensitiveMap();
 			data.put("alias", alias);
 			if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
@@ -526,8 +528,9 @@ public class MybatisDbDataService implements IDBDataService {
 			}
 			data.put("systemcontext", SystemContextUtils.getInstance().getParams(null));
 			data.put("webcontext", dataMap);
+			data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
 			//查询别名加入参数
-			Map<String, Object> alias = new HashMap();
+			Map<String, Object> alias = new CaseInsensitiveMap();
 			data.put("alias", alias);
 			if (iDEDataQueryCodeRuntime != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode() != null && iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps() != null) {
 				iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getPSDEDataQueryCodeExps().forEach(iPSDEDataQueryCodeExp -> {
@@ -610,6 +613,9 @@ public class MybatisDbDataService implements IDBDataService {
 				strSQL = strSQL.replaceFirst(regex, String.format("#{ctx.%s}", i));
 				i++;
 			}
+			Map<String, Object> data = new HashMap();
+			data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
+			strSQL= MybatisSqlUtil.convertSQL(strSQL, data, sqlSession);
 			List<Map<String, Object>> datas = dbDataMapper.queryData(null, strSQL, convertListParam(params));
 			return datas;
 		} catch (Exception e) {
@@ -632,6 +638,9 @@ public class MybatisDbDataService implements IDBDataService {
 				strSQL = strSQL.replaceFirst(regex, String.format("#{ctx.%s}", i));
 				i++;
 			}
+			Map<String, Object> data = new HashMap();
+			data.put("dbtype", iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType());
+			strSQL= MybatisSqlUtil.convertSQL(strSQL, data, sqlSession);
 			return dbDataMapper.updateBySQL(strSQL, convertListParam(params));
 		} catch (Exception e) {
 			log.error(e);

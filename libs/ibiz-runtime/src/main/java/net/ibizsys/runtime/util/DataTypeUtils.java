@@ -12,6 +12,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 
 
 /**
@@ -60,6 +62,8 @@ public class DataTypeUtils {
 			return testDecimal(strValue);
 		}else if (dataType == DataTypes.VARBINARY || dataType == DataTypes.BINARY) {
 			return testByteArray(strValue);
+		}else if (dataType == DataTypes.VECTOR) {
+			return testDoubleArray(strValue);
 		}
 		return strValue;
 	}
@@ -107,8 +111,11 @@ public class DataTypeUtils {
 			//return testDecimal(strValue);
 			return getBigDecimalValue(value, null);
 		}
-		else if(dataType == DataTypes.VARBINARY) {
+		else if(dataType == DataTypes.VARBINARY || dataType == DataTypes.BINARY) {
 			return getByteArrayValue(value, null);
+		} 
+		else if(dataType == DataTypes.VECTOR) {
+			return getDoubleArrayValue(value, null);
 		}
 			
 		return value;
@@ -149,11 +156,13 @@ public class DataTypeUtils {
 			return DataTypes.BIGDECIMAL;
 		}
 		
-		
 		if (objValue instanceof Byte[] || objValue instanceof byte[]) {
 			return DataTypes.VARBINARY;
 		}
 		
+		if (objValue instanceof Double[] || objValue instanceof double[]) {
+			return DataTypes.VECTOR;
+		}
 		
 		return DataTypes.VARCHAR;
 	}
@@ -392,6 +401,50 @@ public class DataTypeUtils {
 		return Base64.getDecoder().decode(strValue);
 	}
 	
+	/**
+	 * 转换文本值到双进度数组
+	 * 
+	 * @param strInput
+	 * @return
+	 * @throws Exception
+	 */
+	public static Object testDoubleArray(String strInput) throws Exception {
+		if (!StringUtils.hasLength(strInput)) return null;
+		ArrayNode arrayNode = JsonUtils.toArrayNode(strInput);
+		double[] ret = new double[arrayNode.size()];
+		for(int i = 0;i < arrayNode.size(); i++) {
+			ret[i] = arrayNode.get(i).asDouble();
+		}
+		return ret;
+	}
+	
+	
+	/**
+	 * 获取传入值的双进度数组值
+	 * @param objValue
+	 * @param def
+	 * @return
+	 */
+	final static public double[] getDoubleArrayValue(Object objValue, double[] def) {
+		if (objValue == null) {
+			return def;
+		}
+		
+		if(objValue instanceof double[]){
+			return  (double[])objValue;
+		}
+		
+		String strValue = objValue.toString();
+		if(!StringUtils.hasLength(strValue))
+			return def;
+		
+		ArrayNode arrayNode = JsonUtils.toArrayNode(strValue);
+		double[] ret = new double[arrayNode.size()];
+		for(int i = 0;i < arrayNode.size(); i++) {
+			ret[i] = arrayNode.get(i).asDouble();
+		}
+		return ret;
+	}
 	
 	
 //
@@ -570,6 +623,11 @@ public class DataTypeUtils {
 			
 			nTemp =  java.util.Base64.getEncoder().encodeToString(val).compareTo(java.util.Base64.getEncoder().encodeToString(valCompare));
 		}
+		else if(dataType == DataTypes.VECTOR) {
+			double[] val = getDoubleArrayValue(objValue, null);
+			double[] valCompare = getDoubleArrayValue(objValueCompare, null);
+			nTemp = JsonUtils.toArrayNode(val).toString().compareTo(JsonUtils.toArrayNode(valCompare).toString());
+		}
 
 		if (nTemp == 0) {
 			return 0;
@@ -683,7 +741,18 @@ public class DataTypeUtils {
 	 * @param dataType
 	 * @return
 	 */
+	@Deprecated
 	public final static boolean isBinaryType(int dataType) {
+		return (dataType == DataTypes.BINARY || dataType == DataTypes.VARBINARY);
+	}
+	
+	/**
+	 * 是否为二进制流类型
+	 * 
+	 * @param dataType
+	 * @return
+	 */
+	public final static boolean isBinaryDataType(int dataType) {
 		return (dataType == DataTypes.BINARY || dataType == DataTypes.VARBINARY);
 	}
 	
@@ -767,6 +836,26 @@ public class DataTypeUtils {
 	 */
 	public final static boolean isNumberDataType(int dataType) {
 		return isIntDataType(dataType) || isDoubleDataType(dataType);
+	}
+	
+	/**
+	 * 是否为向量类型
+	 * 
+	 * @param dataType
+	 * @return
+	 */
+	public final static boolean isVectorDataType(int dataType) {
+		return (dataType == DataTypes.VECTOR);
+	}
+	
+	/**
+	 * 是否为文本搜索向量类型
+	 * 
+	 * @param dataType
+	 * @return
+	 */
+	public final static boolean isTSVectorDataType(int dataType) {
+		return (dataType == DataTypes.TSVECTOR);
 	}
 	
 	

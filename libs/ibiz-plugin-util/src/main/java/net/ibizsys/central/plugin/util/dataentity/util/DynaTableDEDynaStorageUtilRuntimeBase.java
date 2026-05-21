@@ -266,7 +266,7 @@ public abstract class DynaTableDEDynaStorageUtilRuntimeBase extends DEDynaStorag
 				// String defaultValue = columns.getString("COLUMN_DEF");
 				// boolean isNullable = columns.getBoolean("NULLABLE");
 
-				map.put(columnName.toUpperCase(), "");
+				map.put(columnName.toUpperCase(), columnType);
 			}
 
 			return map;

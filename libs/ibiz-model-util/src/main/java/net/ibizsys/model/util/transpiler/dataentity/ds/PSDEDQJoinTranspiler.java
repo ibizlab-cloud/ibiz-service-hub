@@ -22,6 +22,7 @@ public class PSDEDQJoinTranspiler extends net.ibizsys.model.util.transpiler.PSMo
 		}
 		net.ibizsys.model.dataentity.ds.PSDEDQJoinImpl realPSModelObject = (net.ibizsys.model.dataentity.ds.PSDEDQJoinImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "aliasname", realPSModelObject.getAlias(), realPSModelObject, "getAlias");
+		this.setDomainValue(iPSModelTranspileContext, domain, "condmodel", realPSModelObject.getJoinCond(), realPSModelObject, "getJoinCond");
 		this.setDomainValue(iPSModelTranspileContext, domain, "joinpsdeid", realPSModelObject.getJoinPSDataEntity(), realPSModelObject, "getJoinPSDataEntity");
 		this.setDomainValue(iPSModelTranspileContext, domain, "jointag", realPSModelObject.getJoinTag(), realPSModelObject, "getJoinTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "jointag2", realPSModelObject.getJoinTag2(), realPSModelObject, "getJoinTag2");
@@ -31,6 +32,7 @@ public class PSDEDQJoinTranspiler extends net.ibizsys.model.util.transpiler.PSMo
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETALIAS, domain, "aliasname", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJOINCOND, domain, "condmodel", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJOINPSDATAENTITY, domain, "joinpsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJOINTAG, domain, "jointag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETJOINTAG2, domain, "jointag2", java.lang.String.class);

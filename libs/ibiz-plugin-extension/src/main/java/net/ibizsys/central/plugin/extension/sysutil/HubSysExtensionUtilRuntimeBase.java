@@ -18,6 +18,7 @@ import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.PullCommand;
 import org.eclipse.jgit.api.errors.CheckoutConflictException;
+import org.eclipse.jgit.api.errors.InvalidConfigurationException;
 import org.eclipse.jgit.api.errors.WrongRepositoryStateException;
 import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
@@ -58,6 +59,7 @@ import net.ibizsys.central.cloud.core.util.domain.V2SystemVersion;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemVersionSource;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemVersionState;
 import net.ibizsys.central.cloud.core.util.domain.V2SystemVersionType;
+import net.ibizsys.central.plugin.ai.sysutil.ISysMcpServerUtilRuntime;
 import net.ibizsys.central.plugin.extension.psmodel.merger.ExtensionPSModelMergeContext;
 import net.ibizsys.central.service.client.IWebClientRep;
 import net.ibizsys.central.service.client.WebClientBase;
@@ -1917,7 +1919,7 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 				}
 			}
 			catch (Throwable ex) {
-				if (ex instanceof WrongRepositoryStateException || ex instanceof CheckoutConflictException) {
+				if (ex instanceof WrongRepositoryStateException || ex instanceof CheckoutConflictException || ex instanceof InvalidConfigurationException) {
 					log.error(String.format("Git仓库状态异常，%1$s。执行清除目录操作[%2$s]", ex.getMessage(), file.getCanonicalPath()));
 					FileUtils.deleteDirectory(file);
 				}
@@ -1974,6 +1976,17 @@ public abstract class HubSysExtensionUtilRuntimeBase extends SysExtensionUtilRun
 	}
 	
 	
+	@Override
+	public ISysMcpServerUtilRuntime getSysMcpServerUtilRuntime(ISystemRuntime iSystemRuntime, String strId, boolean bTryMode) {
+		return (ISysMcpServerUtilRuntime)this.executeAction("获取McpServer系统功能运行时对象", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onGetSysMcpServerUtilRuntime(iSystemRuntime, strId, bTryMode);
+			}
+		}, null);
+	}
+	
+
 	@Override
 	protected void logEvent(int nLogLevel, String strCat, String strInfo, Object objData) {
 		if(objData instanceof V2System) {

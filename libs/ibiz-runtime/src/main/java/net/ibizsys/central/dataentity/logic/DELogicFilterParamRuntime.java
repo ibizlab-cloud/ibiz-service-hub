@@ -1,10 +1,13 @@
 package net.ibizsys.central.dataentity.logic;
 
+import java.util.Map;
+
 import org.springframework.data.domain.Pageable;
 
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.central.util.PageRequest;
 import net.ibizsys.central.util.SearchContextDTO;
+import net.ibizsys.central.util.SimpleSearchContextDTO;
 import net.ibizsys.model.dataentity.service.IPSDEMethodDTOField;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.util.ISearchContextBase;
@@ -55,13 +58,34 @@ public class DELogicFilterParamRuntime extends DELogicParamRuntimeBase {
 
 	@Override
 	public void bind(IDELogicSession iDELogicSession, Object paramObject) throws Throwable {
+		ISearchContextBase srcSearchContextBase = null;
 		if (paramObject != null) {
 			// 检查类型是否正确
-			if (!(paramObject instanceof ISearchContextBase)) {
-				throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]无法绑定非搜索过滤器类型参数", getCodeName()));
+			if(paramObject instanceof ISearchContextBase) {
+				srcSearchContextBase = (ISearchContextBase)paramObject;
+			}
+			else {
+				try {
+					Map map = null;
+					if(paramObject instanceof Map) {
+						map = (Map)paramObject;
+					}
+					else {
+						map = this.getSystemRuntime().deserialize(paramObject, Map.class);
+					}
+					if (this.getDataEntityRuntime() == null) {
+						srcSearchContextBase = new SimpleSearchContextDTO(map);
+					}
+					else {
+						srcSearchContextBase = this.getDataEntityRuntime().createSearchContext(map);
+					}
+				}
+				catch(Throwable ex) {
+					throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]无法绑定非搜索过滤器类型值[%2$s]", getCodeName(), paramObject), ex);
+				}
 			}
 		}
-		super.bind(iDELogicSession, paramObject);
+		super.bind(iDELogicSession, srcSearchContextBase);
 	}
 	
 

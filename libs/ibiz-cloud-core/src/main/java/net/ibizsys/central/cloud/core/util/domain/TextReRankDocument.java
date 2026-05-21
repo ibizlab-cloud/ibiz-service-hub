@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.core.util.domain;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
@@ -74,7 +75,8 @@ public class TextReRankDocument extends EntityBase {
 	 *
 	 * @param val
 	 */
-	@JsonIgnore
+	//@JsonIgnore
+	@JsonProperty(FIELD_DOCUMENT)
 	public TextReRankDocument setDocument(Document val) {
 		this.set(FIELD_DOCUMENT, val);
 		return this;
@@ -84,7 +86,8 @@ public class TextReRankDocument extends EntityBase {
 	 * 获取「文档」值
 	 *
 	 */
-	@JsonIgnore
+	//@JsonIgnore
+	@JsonProperty(FIELD_DOCUMENT)
 	public Document getDocument() {
 		return (Document) this.get(FIELD_DOCUMENT);
 	}

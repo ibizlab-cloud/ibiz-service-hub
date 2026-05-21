@@ -227,52 +227,67 @@ public class FunctionParser {
 		
 		registerSQLFunction(DBType.MYSQL5.value, STARTOFDAY, MysqlStartOfDayFunction.DEFAULT);
 		registerSQLFunction("MYSQL", STARTOFDAY, MysqlStartOfDayFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, STARTOFDAY, PostgresqlStartOfDayFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, ENDOFDAY, MysqlEndOfDayFunction.DEFAULT);
 		registerSQLFunction("MYSQL", ENDOFDAY, MysqlEndOfDayFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, ENDOFDAY, PostgresqlEndOfDayFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, STARTOFWEEK, MysqlStartOfWeekFunction.DEFAULT);
 		registerSQLFunction("MYSQL", STARTOFWEEK, MysqlStartOfWeekFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, STARTOFWEEK, PostgresqlStartOfWeekFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, ENDOFWEEK, MysqlEndOfWeekFunction.DEFAULT);
 		registerSQLFunction("MYSQL", ENDOFWEEK, MysqlEndOfWeekFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, ENDOFWEEK, PostgresqlEndOfWeekFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, STARTOFMONTH, MysqlStartOfMonthFunction.DEFAULT);
 		registerSQLFunction("MYSQL", STARTOFMONTH, MysqlStartOfMonthFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, STARTOFMONTH, PostgresqlStartOfMonthFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, ENDOFMONTH, MysqlEndOfMonthFunction.DEFAULT);
 		registerSQLFunction("MYSQL", ENDOFMONTH, MysqlEndOfMonthFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, ENDOFMONTH,PostgresqlEndOfMonthFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, STARTOFQUARTER, MysqlStartOfQuarterFunction.DEFAULT);
 		registerSQLFunction("MYSQL", STARTOFQUARTER, MysqlStartOfQuarterFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, STARTOFQUARTER, PostgresqlStartOfQuarterFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, ENDOFQUARTER, MysqlEndOfQuarterFunction.DEFAULT);
 		registerSQLFunction("MYSQL", ENDOFQUARTER, MysqlEndOfQuarterFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, ENDOFQUARTER, PostgresqlEndOfQuarterFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, STARTOFYEAR, MysqlStartOfYearFunction.DEFAULT);
 		registerSQLFunction("MYSQL", STARTOFYEAR, MysqlStartOfYearFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, STARTOFYEAR, PostgresqlStartOfYearFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, ENDOFYEAR, MysqlEndOfYearFunction.DEFAULT);
 		registerSQLFunction("MYSQL", ENDOFYEAR, MysqlEndOfYearFunction.DEFAULT);
-		
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, ENDOFYEAR, PostgresqlEndOfYearFunction.DEFAULT);
+
+
 		registerSQLFunction(DBType.MYSQL5.value, DATEDIFF, MysqlDateDiffFunction.DEFAULT);
 		registerSQLFunction("MYSQL", DATEDIFF, MysqlDateDiffFunction.DEFAULT);
-		
+			registerSQLFunction(DBType.POSTGRESQL.value, DATEDIFF, PostgresqlDateDiffFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, DATEFORMAT, MysqlDateFormatFunction.DEFAULT);
 		registerSQLFunction("MYSQL", DATEFORMAT, MysqlDateFormatFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, DATEFORMAT, PostgresqlDateFormatFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, DATE_FORMAT, MysqlDateFormatFunction.DEFAULT);
 		registerSQLFunction("MYSQL", DATE_FORMAT, MysqlDateFormatFunction.DEFAULT);
-		
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, DATE_FORMAT, PostgresqlDateFormatFunction.DEFAULT);
+
+
 		registerSQLFunction(DBType.MYSQL5.value, YEARWEEKCHAR, MysqlYearWeekCharFunction.DEFAULT);
 		registerSQLFunction("MYSQL", YEARWEEKCHAR, MysqlYearWeekCharFunction.DEFAULT);
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, YEARWEEKCHAR, PostgresqlYearWeekCharFunction.DEFAULT);
+
 		registerSQLFunction(DBType.MYSQL5.value, YEARQUARTERCHAR, MysqlYearQuarterCharFunction.DEFAULT);
 		registerSQLFunction("MYSQL", YEARQUARTERCHAR, MysqlYearQuarterCharFunction.DEFAULT);
-		
-		
+		registerSQLFunction(DBType.POSTGRESQL.value, YEARQUARTERCHAR, PostgresqlYearQuarterCharFunction.DEFAULT);
+
+		registerSQLFunction(DBType.POSTGRESQL.value, TIMESTAMP, PostgresqlTimestampFunction.DEFAULT);
 		//registerSQLFunction(DBType.MYSQL5.value, TIMESTAMP, MysqlTimestampFunction.DEFAULT);
 		//registerSQLFunction("MYSQL", TIMESTAMP, MysqlTimestampFunction.DEFAULT);
 		

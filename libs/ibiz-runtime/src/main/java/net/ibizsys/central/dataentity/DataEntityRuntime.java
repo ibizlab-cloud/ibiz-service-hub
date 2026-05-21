@@ -282,7 +282,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DataEntityRuntime.class);
 
 	public final static String DEFAULTTAG = "DEFAULT";
-	
+
 	public static final String ACTIONSESSIONPARAM_COPYSOURCE_X = "_COPYSOURCE__%1$s__%2$s";
 
 	private ISystemRuntimeContext iSystemRuntimeContext = null;
@@ -329,6 +329,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private ISystemPersistentAdapter iSystemPersistentAdapter = null;
 	private ISysDBSchemeRuntime iSysDBSchemeRuntime = null;
 	private IPSDEDBConfig defaultPSDEDBConfig = null;
+	private Map<String, IPSDEDBConfig> psDEDBConfigMap = null;
 	private ISysBDSchemeRuntime iSysBDSchemeRuntime = null;
 	private IDataEntityAccessManager iDataEntityAccessManager = null;
 	private IDEService iDEService = null;
@@ -359,23 +360,23 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	private List<IPSDEField> dynaStoragePSDEFieldList = null;
 
 	private List<IPSDEField> extendedDynaStoragePSDEFieldList = null;
-	
+
 	private List<IPSDEField> attachmentPSDEFieldList = null;
 
 	private List<IPSDEField> extendedAttachmentPSDEFieldList = null;
-	
 
 	private final static ThreadLocal<Boolean> IgnoreExecuteDEOPPrivLogics = new ThreadLocal<Boolean>() {
 		protected Boolean initialValue() {
 			return false;
 		}
 	};
-	
-//	private final static ThreadLocal<Boolean> IgnoreTestDEMSLogicOPPriv = new ThreadLocal<Boolean>() {
-//		protected Boolean initialValue() {
-//			return false;
-//		}
-//	};
+
+	// private final static ThreadLocal<Boolean> IgnoreTestDEMSLogicOPPriv = new
+	// ThreadLocal<Boolean>() {
+	// protected Boolean initialValue() {
+	// return false;
+	// }
+	// };
 
 	private IDataEntityRuntimeContext iDataEntityRuntimeContext = new IDataEntityRuntimeContext() {
 
@@ -466,11 +467,11 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 					this.psDEFieldMap2.put(iPSDEField.getCodeName().toLowerCase(), iPSDEField);
 				}
 
-				if(this.isDynaStoragePSDEField(iPSDEField, true)) {
+				if (this.isDynaStoragePSDEField(iPSDEField, true)) {
 					dynaStoragePSDEFieldList.add(iPSDEField);
 				}
-				
-				if(this.isAttachmentPSDEField(iPSDEField, true)) {
+
+				if (this.isAttachmentPSDEField(iPSDEField, true)) {
 					attachmentPSDEFieldList.add(iPSDEField);
 				}
 			}
@@ -671,6 +672,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			}
 
 			if (this.getPSDataEntity().isEnableSQLStorage()) {
+				this.psDEDBConfigMap = new HashMap<>();
+				List<IPSDEDBConfig> psDEDBConfigList = this.getPSDataEntity().getAllPSDEDBConfigs();
+				if (psDEDBConfigList != null) {
+					for (IPSDEDBConfig iPSDEDBConfig : psDEDBConfigList) {
+						this.psDEDBConfigMap.put(iPSDEDBConfig.getDBType(), iPSDEDBConfig);
+					}
+				}
+				
 				if (this.getPSDataEntity().getPSSysDBScheme() != null) {
 					this.iSysDBSchemeRuntime = this.getSystemRuntime().getSysDBSchemeRuntime(this.getPSDataEntity().getPSSysDBScheme().getId(), false);
 				}
@@ -679,7 +688,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 					if (!StringUtils.hasLength(strDBType)) {
 						strDBType = DBTypes.MYSQL5;
 					}
-					List<IPSDEDBConfig> psDEDBConfigList = this.getPSDataEntity().getAllPSDEDBConfigs();
 					if (psDEDBConfigList != null) {
 						for (IPSDEDBConfig iPSDEDBConfig : psDEDBConfigList) {
 							if (strDBType.equals(iPSDEDBConfig.getDBType())) {
@@ -781,7 +789,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		return this.getAttachmentPSDEFields();
 	}
-	
+
 	@Override
 	protected IDataEntityRuntimeContext getDataEntityRuntimeContext() {
 		return this.iDataEntityRuntimeContext;
@@ -1219,6 +1227,20 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	public IPSDEDBConfig getDefaultPSDEDBConfig() {
 		this.prepare();
 		return this.defaultPSDEDBConfig;
+	}
+	
+	@Override
+	public IPSDEDBConfig getPSDEDBConfig(String strDBType, boolean bTryMode) {
+		this.prepare();
+		if(this.psDEDBConfigMap != null) {
+			IPSDEDBConfig iPSDEDBConfig = this.psDEDBConfigMap.get(strDBType);
+			if(iPSDEDBConfig != null) {
+				return iPSDEDBConfig;
+			}
+		}
+		if(bTryMode)
+			return null;
+		throw new DataEntityRuntimeException(this, String.format("指定实体数据库配置[%1$s]不存在", strDBType));
 	}
 
 	@Override
@@ -1715,15 +1737,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 
 		if (iPSDEAction == null) {
-			if(DEActions.COPY.equalsIgnoreCase(strActionName)) {
-				if(args!=null && args.length > 0 && args[0] instanceof IEntityDTO) {
-					return this.onCopy((IEntityDTO)args[0]);
-				}
-				else {
+			if (DEActions.COPY.equalsIgnoreCase(strActionName)) {
+				if (args != null && args.length > 0 && args[0] instanceof IEntityDTO) {
+					return this.onCopy((IEntityDTO) args[0]);
+				} else {
 					throw new Exception("拷贝操作传入参数不正确");
 				}
 			}
-			
+
 			return super.onExecuteActionReal(strActionName, iPSDEAction, args, actionData);
 		}
 
@@ -2163,16 +2184,15 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			}
 			return null;
 		}
-		
+
 		if (DEActionModes.COPY.equals(strActionMode)) {
-			if(args!=null && args.length > 0 && args[0] instanceof IEntityDTO) {
-				return this.onCopy((IEntityDTO)args[0]);
-			}
-			else {
+			if (args != null && args.length > 0 && args[0] instanceof IEntityDTO) {
+				return this.onCopy((IEntityDTO) args[0]);
+			} else {
 				throw new Exception("拷贝操作传入参数不正确");
 			}
 		}
-		
+
 		return super.onExecuteActionReal(strActionName, iPSDEAction, args, actionData);
 	}
 
@@ -2237,6 +2257,15 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			IPSSubSysServiceAPIDEMethod iPSSubSysServiceAPIDEMethod = iPSDEDataSet.getPSSubSysServiceAPIDEMethod();
 			if (iPSSubSysServiceAPIDEMethod != null) {
 				return this.executeSubSysServiceAPIDEMethod(iPSSubSysServiceAPIDEMethod, iPSDEDataSet, args);
+			}
+		}
+		
+		List<IDESearchRuntime> deSearchRuntimeList = this.getDESearchRuntimes();
+		if(!ObjectUtils.isEmpty(deSearchRuntimeList)) {
+			for(IDESearchRuntime iDESearchRuntime : deSearchRuntimeList) {
+				if(iDESearchRuntime.isValid(iPSDEDataSet, args)) {
+					return iDESearchRuntime.fetchDataSet(iPSDEDataSet, args, actionData);
+				}
 			}
 		}
 
@@ -3231,6 +3260,30 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			throw new DataEntityRuntimeException(this, String.format("数据对象重新加载数据发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
+	
+	@Override
+	public boolean existsData(Object keyOrData) {
+		
+		Assert.notNull(keyOrData, "传入数据无效");
+		
+		if(keyOrData instanceof IEntityDTO) {
+			return this.existsData((IEntityDTO)keyOrData);
+		}
+		
+		if(keyOrData instanceof ISearchContextDTO) {
+			return this.existsData((ISearchContextDTO)keyOrData);
+		}
+		
+		Object simple = DataTypeUtils.asSimple(keyOrData);
+		if(simple == null) {
+			throw new DataEntityRuntimeException(this, String.format("判断数据存在发生异常，%1$s", "传入键值无效"));
+		}
+		
+		ISearchContextDTO iSearchContextDTO = this.createSearchContext();
+		iSearchContextDTO.eq(this.getKeyPSDEField().getLowerCaseName(), simple);
+		return this.existsData(iSearchContextDTO);
+	}
+	
 
 	@Override
 	public boolean existsData(IEntityDTO iEntityDTO) {
@@ -3377,7 +3430,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		return iEntityDTO;
 	}
-	
+
 	protected void setSessionEntity(IEntityDTO iEntityDTO) {
 		Object objKey = this.getKeyFieldValue(iEntityDTO);
 		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
@@ -3428,7 +3481,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	protected void onWFFinish(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
 		this.getDEWFRuntime(iPSDEWF).finish(arg0, iPSDEAction, actionData);
 	}
-	
+
 	@Override
 	protected void onWFNotify(IEntityBase arg0, IPSDEAction iPSDEAction, IPSDEWF iPSDEWF, Object actionData) throws Throwable {
 		this.getDEWFRuntime(iPSDEWF).notify(arg0, iPSDEAction, actionData);
@@ -4223,7 +4276,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				} else
 					throw new DataEntityRuntimeException(this, String.format("无法执行实体行为[%1$s]，传入参数无效", strActionName), Errors.INPUTERROR);
 			}
-			
 
 			if (iPSDEAction.getPSDEActionInputMust().getPSDEMethodDTO() != null) {
 				// 判断参数DTO对象是否有运行时
@@ -4488,6 +4540,21 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		}
 		super.wfStart(iEntityBase, iPSDEWF);
 	}
+	
+	@Override
+	public void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable {
+		wfCancel(iEntityBase, iPSDEWF, false);
+	}
+
+	@Override
+	public void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF, boolean bIgnoreDEService) throws Throwable {
+		if (!this.isEnableRuntimeServiceMode() && !bIgnoreDEService && this.getDEService() != null) {
+			this.getDEService().wfCancel(iEntityBase, iPSDEWF);
+			return;
+		}
+		super.wfCancel(iEntityBase, iPSDEWF);
+	}
+	
 
 	@Override
 	public void checkNestedEntities(IEntityBase parentEntity, IEntityBase[] entities, IDynaInstRuntime iDynaInstRuntime) throws Throwable {
@@ -4514,7 +4581,16 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				// strAction = DEActions.UPDATE;
 				// }
 				// }
-				this.checkEntityBeforeProceed(iEntityBase, strAction, null, (iDynaInstDataEntityRuntime == null) ? this.getPSDataEntity() : iDynaInstDataEntityRuntime.getPSDataEntity(), iDynaInstRuntime, entities);
+				try {
+					this.checkEntityBeforeProceed(iEntityBase, strAction, null, (iDynaInstDataEntityRuntime == null) ? this.getPSDataEntity() : iDynaInstDataEntityRuntime.getPSDataEntity(), iDynaInstRuntime, entities);
+				}
+				catch (Throwable ex) {
+					String strDataInfo = this.getMajorTextIf(iEntityBase);
+					if(StringUtils.hasLength(strDataInfo)) {
+						throw new DataEntityRuntimeException(this, String.format("检查[%1$s]发生错误，%2$s", strDataInfo, ex.getMessage()), ex);
+					}
+					throw ex;
+				}
 			}
 
 			super.checkNestedEntities(parentEntity, entities, iDynaInstRuntime);
@@ -4934,8 +5010,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 											refDataEntityRuntime.fillEntityKeyValue(item);
 										}
 									}
-
-									refDataEntityRuntime.checkNestedEntities(arg0, minorEntities, iDynaInstRuntime);
+									
+									try {
+										refDataEntityRuntime.checkNestedEntities(arg0, minorEntities, iDynaInstRuntime);
+									}
+									catch (Throwable ex) {
+										String strFieldName = StringUtils.hasLength(iPSDEMethodDTOField.getLogicName())?iPSDEMethodDTOField.getLogicName():iPSDEMethodDTOField.getName();
+										throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("检查嵌套数据[%1$s]发生错误，%2$s", strFieldName, ex.getMessage()), ex);
+									}
 								}
 
 							} else {
@@ -4947,8 +5029,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 								if (!(dtoData instanceof IEntityBase)) {
 									throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
 								}
-
-								refDataEntityRuntime.checkNestedEntities(arg0, new IEntityBase[] { (IEntityBase) dtoData }, iDynaInstRuntime);
+								
+								try {
+									refDataEntityRuntime.checkNestedEntities(arg0, new IEntityBase[] { (IEntityBase) dtoData }, iDynaInstRuntime);
+								}
+								catch (Throwable ex) {
+									String strFieldName = StringUtils.hasLength(iPSDEMethodDTOField.getLogicName())?iPSDEMethodDTOField.getLogicName():iPSDEMethodDTOField.getName();
+									throw new DataEntityRuntimeException(this, iEntityDTO.getDEMethodDTORuntime(), String.format("检查嵌套数据[%1$s]发生错误，%2$s", strFieldName, ex.getMessage()), ex);
+								}
 							}
 						}
 					}
@@ -6157,83 +6245,81 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				return iDEVersionStorageUtilRuntime.executeAction(strActionName, iPSDEAction, args, actionData);
 			}
 		}
-		
-		
-		
 
 		return super.onExecuteAction(strActionName, iPSDEAction, args, actionData);
 	}
-	
-	
+
 	protected IEntityDTO onCopy(IEntityDTO iEntityDTO) throws Throwable {
-		
+
 		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
-		
+
 		Object objKeyValue = this.getKeyFieldValue(iEntityDTO);
-		if(ObjectUtils.isEmpty(objKeyValue)) {
+		if (ObjectUtils.isEmpty(objKeyValue)) {
 			throw new Exception("传入数据键值无效");
 		}
-		
+
 		IEntityDTO ret = this.get(objKeyValue);
-		
+
 		this.rebuildCopyEntityDTO(ret, true, true);
-		
+
 		java.util.List<IPSDEField> psDEFields = this.getPSDEFields(true);
 		if (psDEFields != null) {
 			for (IPSDEField iPSDEField : psDEFields) {
-				if(iPSDEField.isKeyDEField()) {
+				if (iPSDEField.isKeyDEField()) {
 					continue;
 				}
-				if(iEntityDTO.contains(iPSDEField.getLowerCaseName())) {
+				if (iEntityDTO.contains(iPSDEField.getLowerCaseName())) {
 					ret.set(iPSDEField.getLowerCaseName(), iEntityDTO.get(iPSDEField.getLowerCaseName()));
 				}
 			}
 		}
-		
-		//进一步填充外键
+
+		// 进一步填充外键
 		List<IPSDERBase> psDERBaseList = this.getPSDERBases(true);
-		if(!ObjectUtils.isEmpty(psDERBaseList)) {
-			for(IPSDERBase iPSDERBase : psDERBaseList) {
-				if(!(iPSDERBase instanceof IPSDER1NBase)) {
+		if (!ObjectUtils.isEmpty(psDERBaseList)) {
+			for (IPSDERBase iPSDERBase : psDERBaseList) {
+				if (!(iPSDERBase instanceof IPSDER1NBase)) {
 					continue;
 				}
-				
-				IPSDER1NBase iPSDER1NBase = (IPSDER1NBase)iPSDERBase;
-				if(iPSDER1NBase.getCloneOrder() < 0) {
+
+				IPSDER1NBase iPSDER1NBase = (IPSDER1NBase) iPSDERBase;
+				if (iPSDER1NBase.getCloneOrder() < 0) {
 					continue;
 				}
-				
+
 				IPSDEField pickupPSDEField = iPSDER1NBase.getPickupPSDEFieldMust();
-				//IPSDEMethodDTOField field = iDEMethodDTORuntime.getPSDEMethodDTOFieldByDEField(pickupPSDEField.getName(), true);
+				// IPSDEMethodDTOField field =
+				// iDEMethodDTORuntime.getPSDEMethodDTOFieldByDEField(pickupPSDEField.getName(),
+				// true);
 				Object value = ret.get(pickupPSDEField.getLowerCaseName());
-				
-				if(value == null) {
+
+				if (value == null) {
 					continue;
 				}
-				
+
 				String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, iPSDER1NBase.getMajorPSDataEntityMust().getId(), value);
 				Object cache = actionSession.getActionParam(strTag);
-				if(cache instanceof IEntityDTO) {
+				if (cache instanceof IEntityDTO) {
 					IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDER1NBase.getMajorPSDataEntityMust().getId());
-					IEntityDTO cacheEntityDTO = (IEntityDTO)cache;
+					IEntityDTO cacheEntityDTO = (IEntityDTO) cache;
 					ret.set(pickupPSDEField.getLowerCaseName(), majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
 				}
 			}
 		}
-		
-		//建立新数据
+
+		// 建立新数据
 		this.create(ret);
-		
+
 		Object newKeyValue = this.getKeyFieldValue(ret);
-		
-		//放入缓存
+
+		// 放入缓存
 		String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, this.getId(), objKeyValue);
 		actionSession.setActionParam(strTag, ret);
-		
-		//获取全部克隆关系
+
+		// 获取全部克隆关系
 		List<IPSDER1NBase> clonelist = this.getClonePSDER1Ns(true);
-		if(!ObjectUtils.isEmpty(clonelist)) {
-			for(IPSDER1NBase iPSDERBase : clonelist) {
+		if (!ObjectUtils.isEmpty(clonelist)) {
+			for (IPSDER1NBase iPSDERBase : clonelist) {
 				IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDERBase.getMinorPSDataEntityMust().getId());
 				// 找到外键
 				IPSDEField pickupPSDEField = null;
@@ -6244,7 +6330,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				String strParentType = null;
 
 				IPSDEDataSet nestedPSDEDataSet = null;
-				
+
 				if (iPSDERBase instanceof IPSDER1N) {
 					pickupPSDEField = ((IPSDER1N) iPSDERBase).getPSPickupDEFieldMust();
 					nestedPSDEDataSet = ((IPSDER1N) iPSDERBase).getNestedPSDEDataSet();
@@ -6273,7 +6359,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				if (pickupPSDEField == null) {
 					throw new Exception(String.format("克隆关系[%1$s]未定义连接属性", iPSDERBase.getName()));
 				}
-				
 
 				ISearchContextDTO iSearchContextDTO = refDataEntityRuntime.createSearchContext();
 				iSearchContextDTO.all().count(false);
@@ -6300,18 +6385,19 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				} else {
 					lastList = refDataEntityRuntime.select(iSearchContextDTO);
 				}
-				
-				if(!ObjectUtils.isEmpty(lastList)) {
-					for(IEntityDTO item : lastList) {
+
+				if (!ObjectUtils.isEmpty(lastList)) {
+					for (IEntityDTO item : lastList) {
 						IEntityDTO newItem = refDataEntityRuntime.createEntity();
 						newItem.set(refDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), refDataEntityRuntime.getKeyFieldValue(item));
-						//newItem.set(pickupPSDEField.getLowerCaseName(), objValue);
+						// newItem.set(pickupPSDEField.getLowerCaseName(),
+						// objValue);
 						refDataEntityRuntime.copy(newItem);
 					}
 				}
 			}
 		}
-		
+
 		return ret;
 	}
 
@@ -6454,7 +6540,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			}
 		}
 
-		iDEDataExportRuntime = this.getSystemRuntime().getRuntimeObject(IDEDataExportRuntime.class, null);
+		iDEDataExportRuntime = this.getSystemRuntime().getRuntimeObject(IDEDataExportRuntime.class, iPSDEDataExport.getContentType());
 		if (iDEDataExportRuntime != null) {
 			return iDEDataExportRuntime;
 		}
@@ -6480,7 +6566,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			}
 		}
 
-		iDEDataImportRuntime = this.getSystemRuntime().getRuntimeObject(IDEDataImportRuntime.class, null);
+		iDEDataImportRuntime = this.getSystemRuntime().getRuntimeObject(IDEDataImportRuntime.class, iPSDEDataImport.getContentType());
 		if (iDEDataImportRuntime != null) {
 			return iDEDataImportRuntime;
 		}
@@ -6642,14 +6728,12 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	}
 
 	public IDESearchRuntime createDESearchRuntime(IPSDESearch iPSDESearch) {
-		// IDESearchRuntime iDESearchRuntime =
-		// this.getSystemRuntime().getRuntimeObject(iPSDESearch.getPSSysSFPlugin(),
-		// IDESearchRuntime.class, true);
-		// if (iDESearchRuntime != null) {
-		// return iDESearchRuntime;
-		// }
+		IDESearchRuntime iDESearchRuntime = this.getSystemRuntime().getRuntimeObject(iPSDESearch.getPSSysSFPlugin(), IDESearchRuntime.class, true);
+		if (iDESearchRuntime != null) {
+			return iDESearchRuntime;
+		}
 
-		IDESearchRuntime iDESearchRuntime = this.getSystemRuntime().getRuntimeObject(IDESearchRuntime.class, null);
+		iDESearchRuntime = this.getSystemRuntime().getRuntimeObject(IDESearchRuntime.class, null);
 		if (iDESearchRuntime != null) {
 			return iDESearchRuntime;
 		}
@@ -6700,6 +6784,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		IDEFGroupRuntime iDEFGroupRuntime = this.getSystemRuntime().getRuntimeObject(iPSDEFGroup.getPSSysSFPlugin(), IDEFGroupRuntime.class, true);
 		if (iDEFGroupRuntime != null) {
 			return iDEFGroupRuntime;
+		}
+
+		if (StringUtils.hasLength(iPSDEFGroup.getLogicMode())) {
+			String strLogicModeTag = String.format("LOGICMODE:%1$s", iPSDEFGroup.getLogicMode());
+			iDEFGroupRuntime = this.getSystemRuntime().getRuntimeObject(IDEFGroupRuntime.class, strLogicModeTag);
+			if (iDEFGroupRuntime != null) {
+				return iDEFGroupRuntime;
+			}
 		}
 
 		iDEFGroupRuntime = this.getSystemRuntime().getRuntimeObject(IDEFGroupRuntime.class, null);
@@ -6899,6 +6991,27 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		throw new DataEntityRuntimeException(this, String.format("无法获取指定数据[%1$s]", key), Errors.INVALIDDATA);
 	}
+	
+	@Override
+	public IEntityDTO rawGetSessionEntityIf(Object objKey) throws Throwable {
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		String strCacheTag = String.format("__SESSIONENTITY_%1$s_%2$s", this.getId(), objKey);
+		if (actionSession != null) {
+			Object item = actionSession.getActionParam(strCacheTag);
+			if (item instanceof IEntityDTO) {
+				return (IEntityDTO) item;
+			}
+			
+			strCacheTag = String.format("__RAW_SESSIONENTITY_%1$s_%2$s", this.getId(), objKey);
+		}
+
+		IEntityDTO iEntityDTO = this.rawGet(objKey);
+		if (actionSession != null) {
+			actionSession.setActionParam(strCacheTag, iEntityDTO);
+		}
+		return iEntityDTO;
+	}
+	
 
 	@Override
 	public List<IEntityDTO> rawSelect(ISearchContextDTO iSearchContextDTO) {
@@ -8389,14 +8502,13 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				dynaStoragePSDEFieldMap.put(iPSDEField.getName(), iPSDEField);
 			}
 		}
-		
+
 		List<IPSDEField> attachmentPSDEFieldList = this.getAttachmentPSDEFields();
 		if (!ObjectUtils.isEmpty(attachmentPSDEFieldList)) {
 			for (IPSDEField iPSDEField : attachmentPSDEFieldList) {
 				attachmentPSDEFieldMap.put(iPSDEField.getName(), iPSDEField);
 			}
 		}
-		
 
 		final List<IDataEntityExtendLogic> dataEntityExtendLogicList = this.getDataEntityExtendLogics();
 		if (!ObjectUtils.isEmpty(dataEntityExtendLogicList)) {
@@ -8415,10 +8527,10 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 						// 判断类型，构建新属性
 						psDEFieldMap.put(iPSDEField2.getName(), iPSDEField2);
-						if(this.isDynaStoragePSDEField(iPSDEField2, false)) {
+						if (this.isDynaStoragePSDEField(iPSDEField2, false)) {
 							dynaStoragePSDEFieldMap.put(iPSDEField.getName(), iPSDEField2);
 						}
-						if(this.isAttachmentPSDEField(iPSDEField2, false)) {
+						if (this.isAttachmentPSDEField(iPSDEField2, false)) {
 							attachmentPSDEFieldMap.put(iPSDEField.getName(), iPSDEField2);
 						}
 					}
@@ -8430,34 +8542,30 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		this.extendedDynaStoragePSDEFieldList = java.util.Collections.unmodifiableList(new ArrayList<IPSDEField>(dynaStoragePSDEFieldMap.values()));
 		this.extendedAttachmentPSDEFieldList = java.util.Collections.unmodifiableList(new ArrayList<IPSDEField>(attachmentPSDEFieldMap.values()));
 	}
-	
+
 	/**
 	 * 是否附件存储属性
+	 * 
 	 * @param iPSDEField
 	 * @return
 	 */
 	protected boolean isAttachmentPSDEField(IPSDEField iPSDEField, boolean bInherit) {
 		IPSDEField realPSDEField = iPSDEField;
-		if(bInherit) {
+		if (bInherit) {
 			while (realPSDEField instanceof IPSInheritDEField) {
 				realPSDEField = ((IPSInheritDEField) realPSDEField).getRelatedPSDEFieldMust();
 			}
 		}
 		String strDataType = realPSDEField.getDataType();
-		if(DEFDataType.FILE.value.equals(strDataType)
-				|| DEFDataType.FILELIST.value.equals(strDataType)
-				|| DEFDataType.LONGFILELIST.value.equals(strDataType)
-				|| DEFDataType.PICTURE.value.equals(strDataType)
-				|| DEFDataType.PICTURELIST.value.equals(strDataType)
-				|| DEFDataType.LONGPICTURELIST.value.equals(strDataType)) {
+		if (DEFDataType.FILE.value.equals(strDataType) || DEFDataType.FILELIST.value.equals(strDataType) || DEFDataType.LONGFILELIST.value.equals(strDataType) || DEFDataType.PICTURE.value.equals(strDataType) || DEFDataType.PICTURELIST.value.equals(strDataType) || DEFDataType.LONGPICTURELIST.value.equals(strDataType)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	protected boolean isDynaStoragePSDEField(IPSDEField iPSDEField, boolean bInherit) {
 		IPSDEField realPSDEField = iPSDEField;
-		if(bInherit) {
+		if (bInherit) {
 			while (realPSDEField instanceof IPSInheritDEField) {
 				realPSDEField = ((IPSInheritDEField) realPSDEField).getRelatedPSDEFieldMust();
 			}
@@ -9457,8 +9565,6 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	protected IDENotifyRuntime createDefaultDENotifyRuntime(IPSDENotify iPSDENotify) {
 		return new DENotifyRuntime();
 	}
-	
-	
 
 	@Override
 	public net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime getDEMSLogicRuntime(IEntity iEntity, boolean bTryMode) {
@@ -9849,18 +9955,18 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 	@Override
 	protected boolean onTestDataAccessAction(Object objKeyOrEntity, String strAccessAction) throws Exception {
 		boolean bRet = super.onTestDataAccessAction(objKeyOrEntity, strAccessAction);
-		if(!bRet){
+		if (!bRet) {
 			return bRet;
 		}
 		IEntityDTO iEntityDTO = null;
 		if (isEnableDEMSLogic()) {
-			if(iEntityDTO == null)
+			if (iEntityDTO == null)
 				iEntityDTO = this.getSimpleEntity(objKeyOrEntity);
-			//获取主状态逻辑
+			// 获取主状态逻辑
 			net.ibizsys.central.dataentity.logic.IDEMSLogicRuntime iDEMSLogicRuntime = this.getDEMSLogicRuntime(iEntityDTO, true);
-			if(iDEMSLogicRuntime != null) {
+			if (iDEMSLogicRuntime != null) {
 				try {
-					if(!iDEMSLogicRuntime.testDataAccessAction(iEntityDTO, strAccessAction)){
+					if (!iDEMSLogicRuntime.testDataAccessAction(iEntityDTO, strAccessAction)) {
 						return false;
 					}
 				} catch (Throwable ex) {
@@ -9872,7 +9978,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			if (!DataTypeUtils.getBooleanValue(IgnoreExecuteDEOPPrivLogics.get(), false)) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put(strAccessAction, null);
-				if(iEntityDTO == null)
+				if (iEntityDTO == null)
 					iEntityDTO = this.getSimpleEntity(objKeyOrEntity);
 				try {
 					this.executeDEOPPrivLogics(iEntityDTO, map, true);
@@ -10785,26 +10891,25 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 						}
 
 						Map srcMap = (Map) value;
-						if(ObjectUtils.isEmpty(srcMap)) {
+						if (ObjectUtils.isEmpty(srcMap)) {
 							return value;
 						}
-						
+
 						for (Object key : srcMap.keySet()) {
 							Object item = srcMap.get(key);
-							if(item instanceof IEntityDTO) {
+							if (item instanceof IEntityDTO) {
 								return value;
-							}
-							else
+							} else
 								break;
 						}
-						
+
 						Map dtoMap = new LinkedHashMap();
 						for (Object key : srcMap.keySet()) {
 							try {
 								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), srcMap.get(key));
 								dtoMap.put(key, iDEMethodDTO);
 							} catch (Exception ex) {
-								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage()), ex);
 							}
 						}
 
@@ -10816,25 +10921,24 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 						}
 
 						List list = (List) value;
-						if(ObjectUtils.isEmpty(list)) {
+						if (ObjectUtils.isEmpty(list)) {
 							return value;
 						}
-						
+
 						for (Object item : list) {
-							if(item instanceof IEntityDTO) {
+							if (item instanceof IEntityDTO) {
 								return value;
-							}
-							else
+							} else
 								break;
 						}
-						
+
 						List dtoList = new ArrayList();
 						for (Object item : list) {
 							try {
 								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), item);
 								dtoList.add(iDEMethodDTO);
 							} catch (Exception ex) {
-								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+								throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage()), ex);
 							}
 						}
 						return dtoList;
@@ -10845,43 +10949,39 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 						// 执行序列化，此处代码有问题
 						value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
 					}
-					
-					if(value instanceof IEntityDTO) {
+
+					if (value instanceof IEntityDTO) {
 						return value;
 					}
 					try {
 						return refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), value);
 					} catch (Exception ex) {
-						throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage())	,ex);
+						throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]对象发生异常，%3$s", value, refDataEntityRuntime.getName(), ex.getMessage()), ex);
 					}
+				}
+			}
+		} else if (DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType()) || DEMethodDTOFieldTypes.SIMPLES.equals(iPSDEMethodDTOField.getType())) {
+			int nStdDataType = iPSDEMethodDTOField.getStdDataType();
+			if (nStdDataType != DataTypes.UNKNOWN) {
+				try {
+					if (DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())) {
+						return this.getSystemRuntime().convertValue(nStdDataType, value);
+					} else {
+						return this.getSystemRuntime().convertListValue(nStdDataType, value);
+					}
+				} catch (Exception ex) {
+					throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]发生异常，%3$s", value, DataTypeUtils.getTypeName(nStdDataType), ex.getMessage()), ex);
 				}
 			}
 		}
-		else
-			if(DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())
-					||DEMethodDTOFieldTypes.SIMPLES.equals(iPSDEMethodDTOField.getType())) {
-				int nStdDataType = iPSDEMethodDTOField.getStdDataType();
-				if(nStdDataType != DataTypes.UNKNOWN){
-					try {
-						if(DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())) {
-							return this.getSystemRuntime().convertValue(nStdDataType, value);
-						}
-						else {
-							return this.getSystemRuntime().convertListValue(nStdDataType, value);
-						}
-					} catch (Exception ex) {
-						throw new DataEntityRuntimeException(this, String.format("转化数据[%1$s]至[%2$s]发生异常，%3$s", value, DataTypeUtils.getTypeName(nStdDataType), ex.getMessage())	,ex);
-					}
-				}
-			}
 		return value;
 	}
-	
+
 	@Override
 	public void rebuildCopyEntityDTO(IEntityDTO iEntityDTO, boolean bResetUncopyValues, boolean bFillDefaultValues) throws Throwable {
 		Assert.notNull(iEntityDTO, "未传入DTO数据对象");
 		prepare();
-		
+
 		ActionSession actionSession = ActionSessionManager.getCurrentSession();
 		boolean bOpenActionSession = (actionSession == null);
 		if (bOpenActionSession) {
@@ -10890,19 +10990,19 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			actionSession.setDEName(this.getName());
 			actionSession.setUserContext(this.getUserContext());
 		}
-		
+
 		try {
 			onRebuildCopyEntityDTO(iEntityDTO, bResetUncopyValues, bFillDefaultValues);
-			if(bOpenActionSession) {
+			if (bOpenActionSession) {
 				ActionSessionManager.closeSession(true);
 			}
 		} catch (Throwable ex) {
 
 			DataEntityRuntimeException.rethrow(this, ex);
-			if(bOpenActionSession) {
+			if (bOpenActionSession) {
 				ActionSessionManager.closeSession(false);
 			}
-			
+
 			throw new DataEntityRuntimeException(this, String.format("重建拷贝数据对象发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
@@ -10922,8 +11022,8 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
 		Object originKey = iEntityDTO.get(this.getKeyPSDEField().getLowerCaseName());
 		iEntityDTO.reset(this.getKeyPSDEField().getLowerCaseName());
-		
-		if(bResetUncopyValues) {
+
+		if (bResetUncopyValues) {
 			java.util.List<IPSDEField> psDEFields = this.getPSDEFields(true);
 			if (psDEFields != null) {
 				for (IPSDEField iPSDEField : psDEFields) {
@@ -10931,50 +11031,57 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 						iEntityDTO.reset(iPSDEField.getLowerCaseName());
 						continue;
 					}
-					
-					if(iPSDEField.isPasteReset()) {
+
+					if (iPSDEField.isPasteReset()) {
 						iEntityDTO.reset(iPSDEField.getLowerCaseName());
 					}
 				}
 			}
 		}
-		
-		if(bFillDefaultValues) {
+
+		if (bFillDefaultValues) {
 			this.fillEntityDefaultValues(iEntityDTO, DEActions.COPY);
 		}
-	
-		
-//		for (IPSDEMethodDTOField iPSDEMethodDTOField : psDEMethodDTOFieldList) {
-//
-//			if (DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType())) {
-//				Object value = iEntityDTO.get(iPSDEMethodDTOField.getLowerCaseName());
-//				if (ObjectUtils.isEmpty(value)) {
-//					continue;
-//				}
-//
-//				if (iPSDEMethodDTOField.getPSDEField() != null) {
-//					// 判断是否为引用值
-//					if (iPSDEMethodDTOField.getPSDEField() instanceof IPSPickupDEField) {
-//						IPSPickupDEField iPSPickupDEField = (IPSPickupDEField) iPSDEMethodDTOField.getPSDEField();
-//						if (iPSPickupDEField.getPSDERMust() instanceof IPSDER1N) {
-//							IPSDER1N iPSDER1N = (IPSDER1N) iPSPickupDEField.getPSDERMust();
-//							String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, iPSDER1N.getMajorPSDataEntityMust().getId(), value);
-//							Object cache = actionSession.getActionParam(strTag);
-//							if(cache instanceof IEntityDTO) {
-//								IDataEntityRuntime majorDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDER1N.getMajorPSDataEntityMust().getId());
-//								IEntityDTO cacheEntityDTO = (IEntityDTO)cache;
-//								iEntityDTO.set(iPSDEMethodDTOField.getLowerCaseName(), majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
-//							}
-//						}
-//						continue;
-//					}
-//				}
-//			}
-//		}
 
-		if (!ObjectUtils.isEmpty(this.getPSDERBases())){
-			for(IPSDERBase ipsderBase: this.getPSDERBases()){
-				if(ipsderBase instanceof  IPSDER1NBase) {
+		// for (IPSDEMethodDTOField iPSDEMethodDTOField :
+		// psDEMethodDTOFieldList) {
+		//
+		// if
+		// (DEMethodDTOFieldTypes.SIMPLE.equals(iPSDEMethodDTOField.getType()))
+		// {
+		// Object value =
+		// iEntityDTO.get(iPSDEMethodDTOField.getLowerCaseName());
+		// if (ObjectUtils.isEmpty(value)) {
+		// continue;
+		// }
+		//
+		// if (iPSDEMethodDTOField.getPSDEField() != null) {
+		// // 判断是否为引用值
+		// if (iPSDEMethodDTOField.getPSDEField() instanceof IPSPickupDEField) {
+		// IPSPickupDEField iPSPickupDEField = (IPSPickupDEField)
+		// iPSDEMethodDTOField.getPSDEField();
+		// if (iPSPickupDEField.getPSDERMust() instanceof IPSDER1N) {
+		// IPSDER1N iPSDER1N = (IPSDER1N) iPSPickupDEField.getPSDERMust();
+		// String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X,
+		// iPSDER1N.getMajorPSDataEntityMust().getId(), value);
+		// Object cache = actionSession.getActionParam(strTag);
+		// if(cache instanceof IEntityDTO) {
+		// IDataEntityRuntime majorDataEntityRuntime =
+		// this.getSystemRuntime().getDataEntityRuntime(iPSDER1N.getMajorPSDataEntityMust().getId());
+		// IEntityDTO cacheEntityDTO = (IEntityDTO)cache;
+		// iEntityDTO.set(iPSDEMethodDTOField.getLowerCaseName(),
+		// majorDataEntityRuntime.getKeyFieldValue(cacheEntityDTO));
+		// }
+		// }
+		// continue;
+		// }
+		// }
+		// }
+		// }
+
+		if (!ObjectUtils.isEmpty(this.getPSDERBases())) {
+			for (IPSDERBase ipsderBase : this.getPSDERBases()) {
+				if (ipsderBase instanceof IPSDER1NBase) {
 					IPSDER1NBase iPSDER1N = (IPSDER1NBase) ipsderBase;
 					if (iPSDER1N.getPickupPSDEField() != null) {
 						Object value = iEntityDTO.get(iPSDER1N.getPickupPSDEField().getLowerCaseName());
@@ -10992,14 +11099,13 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				}
 			}
 		}
-		
-		//重新填充键值
+
+		// 重新填充键值
 		this.fillEntityKeyValue(iEntityDTO);
-		
+
 		String strTag = String.format(ACTIONSESSIONPARAM_COPYSOURCE_X, this.getId(), originKey);
 		actionSession.setActionParam(strTag, iEntityDTO);
-		
-		
+
 		for (IPSDEMethodDTOField iPSDEMethodDTOField : psDEMethodDTOFieldList) {
 			if (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType()) || DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
 
@@ -11007,7 +11113,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 				if (ObjectUtils.isEmpty(value)) {
 					continue;
 				}
-				
+
 				if (iPSDEMethodDTOField.getRefPSDataEntity() == null) {
 					continue;
 				}

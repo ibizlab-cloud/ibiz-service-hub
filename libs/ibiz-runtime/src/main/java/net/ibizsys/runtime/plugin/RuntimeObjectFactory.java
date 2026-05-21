@@ -29,7 +29,7 @@ public class RuntimeObjectFactory implements IRuntimeObjectFactory {
 	 */
 	private final static Map<String, RuntimeObject> RUNTIMEOBJMAP = new ConcurrentHashMap<>();
 	
-	private final static Map<String, Map> RUNTIMEOBJLISTMAP = new ConcurrentHashMap<>();
+	//private final static Map<String, Map> RUNTIMEOBJLISTMAP = new ConcurrentHashMap<>();
 	
 	
 	
@@ -209,10 +209,10 @@ public class RuntimeObjectFactory implements IRuntimeObjectFactory {
 		} else {
 			strTag = String.format("%1$s|", getObjectType(cls));
 		}
-		Object objMap = RUNTIMEOBJLISTMAP.get(strTag);
-		if(objMap != null) {
-			return (Map<String, T>)objMap;
-		}
+//		Object objMap = RUNTIMEOBJLISTMAP.get(strTag);
+//		if(objMap != null) {
+//			return (Map<String, T>)objMap;
+//		}
 		Map<String, T> map = new HashMap<String, T>();
 		for(java.util.Map.Entry<String, RuntimeObject> entry : RUNTIMEOBJMAP.entrySet()) {
 			if(entry.getKey().indexOf(strTag)!=0) {
@@ -227,7 +227,7 @@ public class RuntimeObjectFactory implements IRuntimeObjectFactory {
 			}
 		}
 		
-		RUNTIMEOBJLISTMAP.put(strTag, map);
+//		RUNTIMEOBJLISTMAP.put(strTag, map);
 		return map;
 	}
 	

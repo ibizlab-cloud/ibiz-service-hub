@@ -4,25 +4,35 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
+import net.ibizsys.central.cloud.core.ai.SysAIFactoryRuntimeException;
+import net.ibizsys.central.cloud.core.ai.util.AIChatUtils;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.IChatResourceUtils;
+import net.ibizsys.central.cloud.core.util.UserCancelException;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
+import net.ibizsys.central.cloud.core.util.domain.ChatMessageRole;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionState;
 import net.ibizsys.central.dataentity.ac.DEAutoCompleteRuntimeBase;
 import net.ibizsys.central.msg.ISysMsgTemplRuntime;
 import net.ibizsys.central.util.IEntity;
+import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.model.ai.IPSSysAIChatAgent;
 import net.ibizsys.model.msg.IPSSysMsgTempl;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
@@ -33,6 +43,7 @@ import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.ErrorException;
 import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.IAction;
+import net.ibizsys.runtime.util.JsonUtils;
 
 public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeBase implements IDEChatCompletionRuntime {
 
@@ -51,8 +62,11 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	private boolean calcHistorySysMsgTemplRuntime = false;
 	
 	public final static String AIAGENTTAG = "srfaiagenttag";
+	public final static String AIAGENT = "srfaiagent";
 	
 	private String strAIAgentTag = null;
+	
+	private final static Random random = new Random();
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -120,6 +134,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onGetResource(dataOrKeys, params);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("获取交互资源发生异常，%1$s", ex.getMessage()), ex);
 		}
@@ -165,6 +182,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onGetHistories(key, body, templParams);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("获取交互历史发生异常，%1$s", ex.getMessage()), ex);
 		}
@@ -193,7 +213,14 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			}
 			
 			if(body instanceof Map) {
-				((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+				Map map = (Map)body;
+				String strAIAgent = (String)map.remove(AIAGENT);
+				if(StringUtils.hasLength(strAIAgent)) {
+					((Map)body).put(AIAGENTTAG, strAIAgent);
+				}
+				else {
+					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+				}
 			}
 			else 
 				if(body == null) {
@@ -219,6 +246,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onChatSuggestion(key, chatCompletionRequest);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("获取建议发生异常，%1$s", ex.getMessage()), ex);
 		}	
@@ -241,13 +271,64 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
+			String strAIAgent = (String)chatCompletionRequest.get(AIAGENT);
+			if(ObjectUtils.isEmpty(strAIAgent)) {
+				strAIAgent = this.getAIAgentTag();
+			}
+			else {
+				chatCompletionRequest.reset(AIAGENT);
+			}
+			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
 			return iSysAIChatAgentRuntime.chatSuggestion(iEntity, chatCompletionRequest, null);
 		}
 		
 		return new ChatCompletionResult();
 	}
 
+	@Override
+	public ChatCompletionResult chatDigest(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		try {
+			return this.onChatDigest(key, chatCompletionRequest);
+		}
+		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("聊天摘要发生异常，%1$s", ex.getMessage()), ex);
+		}	
+	}
+	
+	protected ChatCompletionResult onChatDigest(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
+		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
+			IEntity iEntity = null;
+			if(key instanceof IEntity) {
+				iEntity = (IEntity)key;
+			}
+			else {
+				iEntity = this.getDataEntityRuntime().createEntity();
+				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
+			}
+			String strAIAgent = (String)chatCompletionRequest.get(AIAGENT);
+			if(ObjectUtils.isEmpty(strAIAgent)) {
+				strAIAgent = this.getAIAgentTag();
+			}
+			else {
+				chatCompletionRequest.reset(AIAGENT);
+			}
+			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			return iSysAIChatAgentRuntime.chatDigest(iEntity, chatCompletionRequest, null);
+		}
+		
+		return new ChatCompletionResult();
+	}
 
 	@Override
 	public ChatCompletionResult chatCompletion(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
@@ -255,6 +336,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onChatCompletion(key, chatCompletionRequest);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("交互补全发生异常，%1$s", ex.getMessage()), ex);
 		}	
@@ -279,7 +363,15 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
+			String strAIAgent = (String)chatCompletionRequest.get(AIAGENT);
+			if(ObjectUtils.isEmpty(strAIAgent)) {
+				strAIAgent = this.getAIAgentTag();
+			}
+			else {
+				chatCompletionRequest.reset(AIAGENT);
+			}
+			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			
 			return iSysAIChatAgentRuntime.chatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
 		
@@ -294,6 +386,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onAsyncChatCompletion(key, chatCompletionRequest);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("异步交互补全发生异常，%1$s", ex.getMessage()), ex);
 		}	
@@ -318,11 +413,71 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				iEntity = this.getDataEntityRuntime().createEntity();
 				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, this.getAIAgentTag());
+			String strAIAgent = (String)chatCompletionRequest.get(AIAGENT);
+			if(ObjectUtils.isEmpty(strAIAgent)) {
+				strAIAgent = this.getAIAgentTag();
+			}
+			else {
+				chatCompletionRequest.reset(AIAGENT);
+			}
+			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
 			return iSysAIChatAgentRuntime.asyncChatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
 		
 		return this.getSysAIUtilRuntime().asyncChatCompletion(getAIPlatformType(), chatCompletionRequest);
+	}
+	
+	@Override
+	public void cancelChatCompletion(Object key, String strAsyncActionId, Object body) throws Throwable {
+		try {
+			this.onCancelChatCompletion(key, strAsyncActionId, body);
+		}
+		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("取消交互补全发生异常，%1$s", ex.getMessage()), ex);
+		}	
+	}
+	
+	protected void onCancelChatCompletion(Object key, String strAsyncActionId, Object body) throws Throwable {
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
+		if(iSysAIChatAgentRuntime != null) {
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+				}
+			}
+			IEntity iEntity = null;
+			if(key instanceof IEntity) {
+				iEntity = (IEntity)key;
+			}
+			else {
+				iEntity = this.getDataEntityRuntime().createEntity();
+				iEntity.set(this.getDataEntityRuntime().getKeyPSDEField().getLowerCaseName(), key);
+			}
+			if(body instanceof Map) {
+				Map map = (Map)body;
+				String strAIAgent = (String)map.remove(AIAGENT);
+				if(StringUtils.hasLength(strAIAgent)) {
+					((Map)body).put(AIAGENTTAG, strAIAgent);
+				}
+				else {
+					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+				}
+			}
+			else 
+				if(body == null) {
+					body = new HashMap<String, Object>();
+					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+				}
+			iSysAIChatAgentRuntime.cancelChatCompletion(iEntity, strAsyncActionId, body);
+			return;
+		}
+		
+		this.getSysAIUtilRuntime().cancelChatCompletion(getAIPlatformType(), strAsyncActionId);
 	}
 	
 	protected String getAIPlatformType() {
@@ -335,6 +490,9 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			return this.onSseChatCompletion(key, chatCompletionRequest);
 		}
 		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
 			DataEntityRuntimeException.rethrow(this, ex);
 			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("SSE交互补全发生异常，%1$s", ex.getMessage()), ex);
 		}
@@ -342,16 +500,32 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 
 	protected SseEmitter onSseChatCompletion(Object key, ChatCompletionRequest chatCompletionRequest) throws Throwable {
 		
-		PortalAsyncAction portalAsyncAction = this.asyncChatCompletion(key, chatCompletionRequest);
 		
-		long nTimeout = 300000;
-
+		final ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(false);
+		
+		long nTimeout = 3000000;
+		
 		return (SseEmitter)this.getSystemRuntime().sseExecute(new IAction() {
+			
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-
-				long nCurrentTime = System.currentTimeMillis();
 				ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
+				PortalAsyncAction portalAsyncAction = asyncChatCompletion(key, chatCompletionRequest);
+				Object session = (iSysAIChatAgentRuntime != null)?iSysAIChatAgentRuntime.beginChatSession(chatCompletionRequest):null;
+				if(session != null) {
+					if(!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
+						try {
+							iSysAIChatAgentRuntime.appendChatMessage(session, chatCompletionRequest.getMessages().get(chatCompletionRequest.getMessages().size() - 1));
+						}
+						catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
+				}
+				long nCurrentTime = System.currentTimeMillis();
+				
+				actionSession.setActionParam(ActionSession.PARAM_ASYNCACTION_ID, portalAsyncAction.getAsyncAcitonId());
+				
 				while(true) {
 					PortalAsyncAction last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
 					
@@ -368,9 +542,57 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 					
 					int nActionState = DataTypeUtils.getIntegerValue(last.getActionState(), PortalAsyncActionState.EXECUTING.getValue());
 					if(nActionState == PortalAsyncActionState.FINISHED.getValue()) {
+						if(session != null) {
+							ChatCompletionResult chatCompletionResult = JsonUtils.as(last.getActionResult(), ChatCompletionResult.class);
+							ChatMessage chatMessage = new ChatMessage();
+							chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
+							chatMessage.setContent(AIChatUtils.removeThinkingContent(chatCompletionResult.getChoices().get(0).getContent()));
+							try {
+								Object ret = iSysAIChatAgentRuntime.appendChatMessage(session, chatMessage, false, false);
+								if(ret instanceof IEntityDTO) {
+									IEntityDTO iEntityDTO = (IEntityDTO)ret;
+									if(iEntityDTO.getDEMethodDTORuntime() != null && iEntityDTO.getDEMethodDTORuntime().getDataEntityRuntime() != null) {
+										Object messageId =  iEntityDTO.getDEMethodDTORuntime().getDataEntityRuntime().getKeyFieldValue(iEntityDTO);
+										if(messageId != null) {
+											chatCompletionResult.getChoices().get(0).setMessageId(String.valueOf(messageId));
+											return JsonUtils.toString(chatCompletionResult);
+										}
+									}
+								}
+							}
+							catch (Throwable ex) {
+								log.error(ex);
+							}
+						}
 						return last.getActionResult();
 					}
+					if (nActionState == PortalAsyncActionState.CANCELED.getValue()) {
+						if(session != null) {
+							ChatMessage chatMessage = new ChatMessage();
+							chatMessage.setContent(AIChatUtils.removeThinkingContent(last.getActionResult()));
+							chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
+							try {
+								iSysAIChatAgentRuntime.appendChatMessage(session, chatMessage, true, false);
+							}
+							catch (Throwable ex) {
+								log.error(ex);
+							}
+						}
+						throw new UserCancelException(last.getActionResult());
+					}
+
 					if(nActionState == PortalAsyncActionState.FAILED.getValue()) {
+						if(session != null) {
+							ChatMessage chatMessage = new ChatMessage();
+							chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
+							chatMessage.setContent(AIChatUtils.removeThinkingContent(last.getActionResult()));
+							try {
+								iSysAIChatAgentRuntime.appendChatMessage(session, chatMessage, false, true);
+							}
+							catch (Throwable ex) {
+								log.error(ex);
+							}
+						}
 						throw new Exception(last.getActionResult());
 					}
 					
@@ -379,16 +601,23 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 					}
 	
 					try {
-						Thread.sleep(100);
+						Thread.sleep(200);
 					} catch (InterruptedException ex) {
 						log.error(ex);
 					}
 				}
 			}
+			
 		}, null, null, 0l);
 	}
 	
 	protected String getAIAgentTag() {
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        if (requestAttributes instanceof ServletRequestAttributes) {
+            String agent = ((ServletRequestAttributes) requestAttributes).getRequest().getParameter(AIAGENT);
+            if(StringUtils.hasLength(agent))
+                return agent;
+        }
 		return this.strAIAgentTag;
 	}
 	

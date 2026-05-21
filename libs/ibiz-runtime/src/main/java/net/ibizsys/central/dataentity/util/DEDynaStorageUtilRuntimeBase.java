@@ -15,6 +15,7 @@ import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.model.PSModelEnums.DEStorageType;
 import net.ibizsys.model.PSModelEnums.PredefinedFieldType;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -75,7 +76,6 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 
 	protected IDBDialect getDBDialect() {
 		return this.getStorageDataEntityRuntime().getSysDBSchemeRuntime().getDBDialect();
-		//return this.getStorageDataEntityRuntime().getSystemRuntime().getDBDialect(this.getStorageDataEntityRuntime().getSysDBSchemeRuntime().getDBType());
 	}
 
 	@Override
@@ -139,15 +139,11 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 				this.dynaPSDEFieldMap = null;
 			}
 
-			//this.setDynaPSDEFieldMap(dynaPSDEFieldMap);
 			this.lastDynaStoragePSDEFieldList = dynaStoragePSDEFields;
 		}
 		return dynaPSDEFieldMap;
 	}
 
-//	protected void setDynaPSDEFieldMap(Map<String, IPSDEField> dynaPSDEFieldMap) {
-//		this.dynaPSDEFieldMap = dynaPSDEFieldMap;
-//	}
 
 	protected void prepareStorageDataEntityRuntime() throws Exception {
 		IPSDataEntity utilPSDataEntity = this.getPSDEUtil().getUtilPSDE();
@@ -427,64 +423,6 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 				
 				value = this.getDataEntityRuntime().convertEntityDTOFieldValue(entry.getKey().toLowerCase(), value);
 				this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), value);
-				
-//				IPSDEMethodDTOField iPSDEMethodDTOField = this.getDataEntityRuntime().getDefaultPSDEMethodDTO().getPSDEMethodDTOField(entry.getKey().toLowerCase(),true);
-//				if(iPSDEMethodDTOField !=null && (DEMethodDTOFieldTypes.DTO.equals(iPSDEMethodDTOField.getType())
-//						||DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType()))) {
-//					if(value != null) {
-//						if(iPSDEMethodDTOField.getRefPSDataEntity() != null) {
-//							IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(iPSDEMethodDTOField.getRefPSDataEntityMust().getId());
-//							if(DEMethodDTOFieldTypes.DTOS.equals(iPSDEMethodDTOField.getType())) {
-//								if(iPSDEMethodDTOField.isListMap()) {
-//
-//									if(!(value instanceof Map)) {
-//										//执行序列化，此处代码有问题
-//										value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
-//									}
-//
-//									Map srcMap = (Map)value;
-//									Map dtoMap = new LinkedHashMap();
-//									for(Object key : srcMap.keySet()) {
-//										IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), srcMap.get(key));
-//										dtoMap.put(key, iDEMethodDTO);
-//									}
-//
-//									this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), dtoMap);
-//								}
-//								else {
-//									//列表模式
-//									if(!(value instanceof List)) {
-//										value = refDataEntityRuntime.getSystemRuntime().deserialize(value, List.class);
-//										//throw new DataEntityRuntimeException(this.getDEMethodDTORuntime().getDataEntityRuntime(), this.getDEMethodDTORuntime(), String.format("属性[%1$s]传入数据类型不正确", iPSDEMethodDTOField.getName()));
-//									}
-//
-//									List list = (List)value;
-//									List dtoList=  new ArrayList();
-//									for(Object item : list) {
-//										IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), item);
-//										dtoList.add(iDEMethodDTO);
-//
-//									}
-//									this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), dtoList);
-//								}
-//							}
-//							else {
-//
-//								if(!(value instanceof Map) && !(value instanceof IEntity)) {
-//									//执行序列化，此处代码有问题
-//									value = refDataEntityRuntime.getSystemRuntime().deserialize(value, Map.class);
-//								}
-//
-//
-//								IDEMethodDTO iDEMethodDTO = refDataEntityRuntime.getDEMethodDTO(iPSDEMethodDTOField.getRefPSDEMethodDTOMust(), value);
-//								this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), iDEMethodDTO);
-//							}
-//						}
-//					}
-//
-//				}else {
-//					this.getDataEntityRuntime().setFieldValue(iEntityBase, entry.getValue(), value);
-//				}
 			}
 
 			this.getDataEntityRuntime().resetFieldValue(iEntityBase, this.getLocalStoragePSDEField(false));
@@ -876,11 +814,13 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 
 							//动态属性，替换为自定义查询
 							SearchCustomCond searchCustomCond = new SearchCustomCond();
+							
+							IPSDEDBConfig iPSDEDBConfig = this.getStorageDataEntityRuntime().getPSDEDBConfig(getDBDialect().getDBType(), true);
 
 							String strSql = String.format("SELECT 1 FROM %1$s WHERE %2$s = %1$s.%3$s AND %1$s.%4$s ='%5$s' AND ",
-									getDBDialect().getDBObjStandardName(this.getStorageDataEntityRuntime().getTableName()),
-									strKeyExpCode, getDBDialect().getDBObjStandardName(parentIdPSDEField.getName()),
-									getDBDialect().getDBObjStandardName(parentTypePSDEField.getName()), this.getDataEntityRuntime().getName());
+									getDBDialect().getDBObjStandardName(this.getStorageDataEntityRuntime().getTableName(), iPSDEDBConfig),
+									strKeyExpCode, getDBDialect().getDBObjStandardName(parentIdPSDEField.getName(), iPSDEDBConfig),
+									getDBDialect().getDBObjStandardName(parentTypePSDEField.getName(), iPSDEDBConfig), this.getDataEntityRuntime().getName());
 
 							//附加条件
 							Object value = iSearchFieldCond.getValue();
@@ -888,7 +828,7 @@ public abstract class DEDynaStorageUtilRuntimeBase extends DEUtilRuntimeBase imp
 								value = iSearchContextDTO.get(value.toString());
 							}
 
-							strSql += getDBDialect().getConditionSQL(String.format("%1$s.%2$s", this.getStorageDataEntityRuntime().getTableName(), getDBDialect().getDBObjStandardName(storagePSDEField.getName()))
+							strSql += getDBDialect().getConditionSQL(String.format("%1$s.%2$s", this.getStorageDataEntityRuntime().getTableName(), getDBDialect().getDBObjStandardName(storagePSDEField.getName(), iPSDEDBConfig))
 									, storagePSDEField.getStdDataType(), iSearchFieldCond.getCondOp(), value, false, null);
 
 							searchCustomCond.setCustomCond(String.format("EXISTS(%1$s)", strSql));

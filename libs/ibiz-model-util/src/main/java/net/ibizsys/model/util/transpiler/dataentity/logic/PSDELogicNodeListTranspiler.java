@@ -108,6 +108,8 @@ public class PSDELogicNodeListTranspiler extends net.ibizsys.model.util.transpil
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDESysDBTableActionLogicImpl.class, false);
 			case "SYSLOGIC":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDESysLogicLogicImpl.class, false);
+			case "SYSMSGTEMPL":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDESysMsgTemplLogicImpl.class, false);
 			case "SYSSEARCHDOCACTION":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDESysSearchDocActionLogicImpl.class, false);
 			case "SYSUTIL":

@@ -59,6 +59,13 @@ public interface IPSSysPDTView extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取预置视图标记
+	 * @return
+	 */
+	java.lang.String getPDTViewTag();
+	
+	
+	/**
 	 * 获取系统模块
 	 * @return
 	 */

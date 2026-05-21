@@ -4,10 +4,19 @@ package net.ibizsys.model.dataentity.logic;
 
 public class PSDEDEPrintLogicImpl extends net.ibizsys.model.dataentity.logic.PSDELogicNodeImpl implements net.ibizsys.model.dataentity.logic.IPSDEDEPrintLogic{
 
+	public final static String ATTR_GETCHATRESOURCEOPTION = "chatResourceOption";
 	public final static String ATTR_GETDSTPSDELOGICPARAM = "getDstPSDELogicParam";
 	public final static String ATTR_GETDSTPSDEPRINT = "getDstPSDEPrint";
 	public final static String ATTR_GETDSTPSDATAENTITY = "getDstPSDataEntity";
 	public final static String ATTR_GETOSPSDELOGICPARAM = "getOSPSDELogicParam";
+
+	public int getChatResourceOption(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCHATRESOURCEOPTION);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
 	private net.ibizsys.model.dataentity.logic.IPSDELogicParam dstpsdelogicparam;
 
 	public net.ibizsys.model.dataentity.logic.IPSDELogicParam getDstPSDELogicParam(){

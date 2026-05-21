@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.core.ai;
 import java.util.List;
 import java.util.Map;
 
+import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
@@ -116,6 +117,12 @@ public class SysAIAgentRuntimeContextProxy<M extends ISysAIAgentRuntime, C exten
 	@Override
 	protected String getTemplateContent(String strConfigId, boolean bTryMode) throws Throwable {
 		throw new Exception("没有实现");
+	}
+
+
+	@Override
+	public List<Chunk> rawFetchChunks(String strKBPlatformType, List<IChunkSearchContext> chunkSearchContextList) {
+		return this.getProxyContext().rawFetchChunks(strKBPlatformType, chunkSearchContextList);
 	}
 
 

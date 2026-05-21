@@ -89,7 +89,7 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(SystemRuntimeBase.class);
 	
-	public final static String VERSION = "8.1.0.574";
+	public final static String VERSION = "8.1.0.578";
 	public final static String RUNTIMETYPE_R8 = "R8";
 	
 	private final static Map<String, String> ScriptCodeEngineMap = new HashMap<String, String>();
@@ -133,6 +133,8 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 	private Map<ISystemEventListener, String[]> systemEventListenerMap = new LinkedHashMap<ISystemEventListener, String[]>();
 	
 	private Map<String, Map<IDataEntityEventListener, String[]>> dataEntityEventListenerMap = new ConcurrentHashMap<String, Map<IDataEntityEventListener,String[]>>();
+	
+	private List<ISystemEventListener> systemLoadEventListenerList = new ArrayList<ISystemEventListener>();
 	
 	private IRuntimeObjectFactory iRuntimeObjectFactory = null;
 	
@@ -1122,6 +1124,43 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 	}
 	
 	
+	@Override
+	public void registerSystemLoadEventListener(ISystemEventListener listener) {
+		Assert.notNull(listener, "未传入系统事件侦听器");
+		if(this.isLoaded()) {
+			log.warn("系统已经加载，直接触发事件侦听");
+			Executor executor = listener.getExecutor();
+			if(executor != null) {
+				executor.execute(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							listener.receiveEvent(ISystemEventListener.EVENT_LOAD, null);
+						}
+						catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
+				});
+			}
+			else {
+				try {
+					listener.receiveEvent(ISystemEventListener.EVENT_LOAD, null);
+				}
+				catch (Throwable ex) {
+					log.error(ex);
+				}
+			}
+			return;
+		}
+		synchronized (this.systemLoadEventListenerList) {
+			if(this.systemLoadEventListenerList.contains(listener)) {
+				return;
+			}
+			this.systemLoadEventListenerList.add(listener);
+		}
+	}
+	
 	
 	
 	@Override
@@ -1216,6 +1255,37 @@ public abstract class SystemRuntimeBase extends SystemUtilRuntimeBase implements
 				}
 				catch (Throwable ex) {
 					log.error(ex);
+				}
+			}
+		}
+		
+		if(ISystemEventListener.EVENT_LOAD.equals(event)) {
+			//列表会被移除
+			synchronized (this.systemLoadEventListenerList) {
+				while(this.systemLoadEventListenerList.size()>0) {
+					ISystemEventListener iSystemEventListener = this.systemLoadEventListenerList.remove(0);
+					Executor executor = iSystemEventListener.getExecutor();
+					if(executor != null) {
+						executor.execute(new Runnable() {
+							@Override
+							public void run() {
+								try {
+									iSystemEventListener.receiveEvent(event, params);
+								}
+								catch (Throwable ex) {
+									log.error(ex);
+								}
+							}
+						});
+					}
+					else {
+						try {
+							iSystemEventListener.receiveEvent(event, params);
+						}
+						catch (Throwable ex) {
+							log.error(ex);
+						}
+					}
 				}
 			}
 		}

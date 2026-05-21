@@ -1,6 +1,6 @@
 package net.ibizsys.central.plugin.es.search;
 
-import net.ibizsys.central.search.SysSearchDocRuntimeBase;
+import net.ibizsys.central.cloud.core.search.SysSearchDocRuntimeBase;
 
 public class ESSearchDocRuntimeBase extends SysSearchDocRuntimeBase implements IESSearchDocRuntime {
 

@@ -110,6 +110,12 @@ public class PortalRestController {
     	return ResponseEntity.status(HttpStatus.OK).body(objRet);
     }
     
+    @RequestMapping(method = RequestMethod.POST, value = "/portal/asyncaction/{id}/cancel")
+    public ResponseEntity<PortalAsyncAction> cancelAsyncAction(@PathVariable("id") String id, @RequestBody Map params) {
+    	PortalAsyncAction objRet = this.getCloudPortalUtilRuntime().cancelAsyncAction(id, params);
+    	return ResponseEntity.status(HttpStatus.OK).body(objRet);
+    }
+    
     @RequestMapping(method = RequestMethod.POST, value = "/portal/asyncaction/{id}/finish")
     public ResponseEntity<PortalAsyncAction> finishAsyncAction(@PathVariable("id") String id, @RequestBody Map params) {
     	PortalAsyncAction objRet = this.getCloudPortalUtilRuntime().finishAsyncAction(id, params);

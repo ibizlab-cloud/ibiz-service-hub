@@ -34,6 +34,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.yaml.snakeyaml.Yaml;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -47,7 +48,10 @@ import net.ibizsys.central.cloud.core.security.IAuthenticationUserRuntime;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.security.IUAAGrantedAuthority;
 import net.ibizsys.central.cloud.core.servlet.IServiceHubFilter;
+import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettingBase;
+import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
+import net.ibizsys.central.cloud.core.util.domain.AccessToken;
 import net.ibizsys.central.cloud.core.util.domain.AppData;
 import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
@@ -56,6 +60,7 @@ import net.ibizsys.runtime.security.UserContext;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.IAction;
+import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.LogLevels;
 
 public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implements ISysUAAUtilRuntime, IServiceHubFilter {
@@ -71,6 +76,8 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 	private String strTokenHeader = "Authorization";
 	
 	private String strTokenPrefix = "Bearer ";
+	
+	private String strSecretKeyPrefix = "sk-";
 
 	// @Value("${ibiz.jwt.expiration:7200000}")
 	//private long nTokenExpiration = 7200000l;
@@ -90,6 +97,11 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 		String strTokenPrefix = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".tokenprefix", "Bearer ");
 		if(StringUtils.hasLength(strTokenPrefix)) {
 			this.setTokenPrefix(strTokenPrefix);
+		}
+		
+		String strSecretKeyPrefix = this.getSystemRuntimeSetting().getParam(this.getConfigFolder() + ".secretkeyprefix", "sk-");
+		if(StringUtils.hasLength(strSecretKeyPrefix)) {
+			this.setSecretKeyPrefix(strSecretKeyPrefix);
 		}
 		
 		super.onPrepareDefaultSetting();
@@ -141,6 +153,15 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 
 	protected void setTokenPrefix(String strTokenPrefix) {
 		this.strTokenPrefix = strTokenPrefix;
+	}
+	
+	@Override
+	public String getSecretKeyPrefix() {
+		return strSecretKeyPrefix;
+	}
+
+	protected void setSecretKeyPrefix(String strSecretKeyPrefix) {
+		this.strSecretKeyPrefix = strSecretKeyPrefix;
 	}
 	
 //	protected long getTokenExpiration() {
@@ -261,8 +282,70 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 			return false;
 		}
 
+		String srforgid = request.getHeader(ISysUAAUtilRuntime.HEADER_ORGID);
+		String srfsystemid = request.getHeader(ISysUAAUtilRuntime.HEADER_SYSTEMID);
+		if ("undefined".equals(srfsystemid)) {
+			srfsystemid = null;
+		}
+		if ("undefined".equals(srforgid)) {
+			srforgid = null;
+		}
+				
 		String username = null;
 		String authToken = StringUtils.hasLength(getTokenPrefix())?requestHeader.substring(getTokenPrefix().length()):requestHeader;
+		if(StringUtils.hasLength(authToken) && authToken.indexOf(this.getSecretKeyPrefix()) == 0 ) {
+			String strSecretKey = authToken.substring(this.getSecretKeyPrefix().length());
+			if(!StringUtils.hasLength(srfsystemid)) {
+				int nPos = strSecretKey.indexOf("--");
+				if(nPos > 0) {
+					srfsystemid = strSecretKey.substring(0, nPos);
+					strSecretKey = strSecretKey.substring(nPos + 2);
+				}
+			}
+			if(StringUtils.hasLength(srfsystemid) && StringUtils.hasLength(strSecretKey)) {
+				try {
+					AccessToken accessToken = this.getSecretKeyAccessToken(srfsystemid, strSecretKey, true, false);
+					if(accessToken.getEmployee() != null) {
+						Employee employee = new Employee();
+						employee.putAll(accessToken.getEmployee());
+						
+						Collection<? extends GrantedAuthority> authorities = null;
+						String strAuthorities = accessToken.getAuthorities();
+						if(StringUtils.hasLength(strAuthorities)) {
+							authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+						}
+						EmployeeContext employeeContext = new EmployeeContext(employee, null, srfsystemid, authorities);
+						
+						AuthenticationUser authenticationUser = new AuthenticationUser();
+						authenticationUser.setToken(authToken);
+						authenticationUser.setUserid(DataTypeUtils.asString(accessToken.getUserId(), employeeContext.getUaauserid()));
+						authenticationUser.setUsername(DataTypeUtils.asString(accessToken.getUserName(), employeeContext.getUaausername()));
+						authenticationUser.setLoginname(DataTypeUtils.asString(accessToken.getLoginName(), employee.getLoginName()));
+						//authenticationUser.setSuperuser(employeeContext.isSuperuser()?1:0);
+						authenticationUser.setApiuser(DataTypeUtils.asInteger(accessToken.getApiUser(), 0));
+						
+						//写入Token的缓存时长
+						this.getSysCacheUtilRuntime().set(CloudCacheTagUtils.getAuthenticationUserCat(authenticationUser.getUsername(), authToken), ISysUAAUtilRuntime.AUTHENTICATIONUSERCAT_UAATOKEN, authToken, 3600);
+						
+						UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(authenticationUser, employeeContext, authenticationUser.getAuthorities());
+						authentication.setDetails(employeeContext);
+						SecurityContextHolder.getContext().setAuthentication(authentication);
+						
+						UserContext.setCurrent(employeeContext);
+						return true;
+					}
+					else {
+						throw new Exception(String.format("Token未包含用户信息"));
+					}
+				} catch (Throwable e) {
+					log.debug(e);
+					response.setStatus(HttpStatus.UNAUTHORIZED.value());
+					return false;
+				}
+			}
+		}
+		
+		
 		try {
 			username = getUsernameFromToken(authToken);
 			if (!StringUtils.hasLength(username)) {
@@ -272,16 +355,6 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 			log.debug(e);
 			response.setStatus(HttpStatus.UNAUTHORIZED.value());
 			return false;
-		}
-
-		// 重新计算用户标识
-		String srforgid = request.getHeader(ISysUAAUtilRuntime.HEADER_ORGID);
-		String srfsystemid = request.getHeader(ISysUAAUtilRuntime.HEADER_SYSTEMID);
-		if ("undefined".equals(srfsystemid)) {
-			srfsystemid = null;
-		}
-		if ("undefined".equals(srforgid)) {
-			srforgid = null;
 		}
 		
 		String srfdcsystemid = request.getHeader(ISysUAAUtilRuntime.HEADER_DCSYSTEMID);
@@ -943,5 +1016,54 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 		}
 		
 		throw new SystemRuntimeException(this.getSystemRuntimeBase(), this, String.format("无法从缓存中获取指定机构人员"));
+	}
+	
+	
+	/**
+	 *  获取访问凭证数据对象
+	 * @param strSystemId
+	 * @param strToken
+	 * @param bValid
+	 * @param bTryMode
+	 * @return
+	 */
+	protected AccessToken getSecretKeyAccessToken(String strSystemId, String strToken, boolean bValid, boolean bTryMode) throws Exception {
+		
+		AccessToken accessToken = null;
+		String strAccessTokenId = String.format("%1$s%2$s-secretkey--%3$s", NacosServiceHubSettingBase.DATAID_ACCESSTOKEN_PREFIX, strSystemId, strToken).toLowerCase();
+		String strConfig = ServiceHub.getInstance().getConfig(strAccessTokenId);
+		if(!ObjectUtils.isEmpty(strConfig)) {
+			Yaml yaml = new Yaml();
+			accessToken = JsonUtils.as(yaml.loadAs(strConfig, Map.class), AccessToken.class);
+		}
+		
+		if(accessToken == null) {
+			if(bTryMode) {
+				return null;
+			}
+			throw new Exception("凭证不存在");
+		}
+		if(bValid) {
+			//判断有效
+			if(DataTypeUtils.asBoolean(accessToken.getDisabled(), false)) {
+				if(bTryMode) {
+					return null;
+				}
+				throw new Exception("凭证已禁用");
+			}
+			
+			java.sql.Timestamp expiresTime = accessToken.getExpiresTime();
+			if(expiresTime != null) {
+				if(expiresTime.getTime() < System.currentTimeMillis()) {
+					if(bTryMode) {
+						return null;
+					}
+					throw new Exception("凭证已过期");
+				}
+			}
+		}
+		
+		return accessToken;
+		
 	}
 }

@@ -596,12 +596,20 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		psCorePrdFunc.setSettingUrl(DataTypeUtils.getStringValue(item.get("setting_url"), null));
 		psCorePrdFunc.setSettings(DataTypeUtils.getStringValue(item.get("settings"), null));
 		psCorePrdFunc.setVers(DataTypeUtils.getStringValue(item.get("vers"), null));
+
+
+        if(item.get("versions") instanceof List){
+            psCorePrdFunc.set("versions",item.get("versions"));
+        }
+
 		psCorePrdFunc.setCategory(DataTypeUtils.getStringValue(item.get("category"), null));
 		psCorePrdFunc.setInfo(DataTypeUtils.getStringValue(item.get("info"), null));
 		psCorePrdFunc.setChangelog(DataTypeUtils.getStringValue(item.get("changelog"), null));
 		
 		psCorePrdFunc.setHttpUrlToRepo(DataTypeUtils.getStringValue(item.get("http_url_to_repo"), null));
-		psCorePrdFunc.setFuncTag(DataTypeUtils.getStringValue(item.get("func_tag"), null));
+        psCorePrdFunc.set("default_branch", DataTypeUtils.getStringValue(item.get("default_branch"), null));
+
+        psCorePrdFunc.setFuncTag(DataTypeUtils.getStringValue(item.get("func_tag"), null));
 		psCorePrdFunc.setFuncTag2(DataTypeUtils.getStringValue(item.get("func_tag2"), null));
 		
 		psCorePrdFunc.setDependencies(DataTypeUtils.getStringValue(item.get("dependencies"), null));
@@ -683,6 +691,10 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 						
 						v2SystemMerge2.setSettings(m.getSettings());
 						v2SystemMerge2.setDependencies(m.getDependencies());
+                        if(!ObjectUtils.isEmpty(m.get(V2SystemMerge.FIELD_MERGE_SYSTEM_SOURCE_ID)))
+                            v2SystemMerge2.setMergeSystemSourceId((String)m.get(V2SystemMerge.FIELD_MERGE_SYSTEM_SOURCE_ID));
+						else
+							v2SystemMerge2.setMergeSystemSourceId(null);
 						V2SystemMerge ret = iExtensionPSModelRTServiceSession.getCloudExtensionClientMust().updateSystemMerge(prdV2System.getId(), v2SystemMerge2.getId(), v2SystemMerge2);
 						
 						//设置返回，供外部使用
@@ -713,6 +725,10 @@ public class PSCorePrdFuncRTService extends net.ibizsys.psmodel.runtime.service.
 		v2SystemMerge.setMergeSystemId(v2System.getId());
 		v2SystemMerge.setOrderValue(nMaxOrderValue + 100);
 		v2SystemMerge.setSettings(m.getSettings());
+        if(!ObjectUtils.isEmpty(m.get(V2SystemMerge.FIELD_MERGE_SYSTEM_SOURCE_ID)))
+            v2SystemMerge.setMergeSystemSourceId((String)m.get(V2SystemMerge.FIELD_MERGE_SYSTEM_SOURCE_ID));
+		else
+			v2SystemMerge.setMergeSystemSourceId(null);
 		v2SystemMerge.setDependencies(m.getDependencies());
 		//判断安装系统类型
 		if(V2SystemType.MERGENCE.value.equals(v2System.getType())) {

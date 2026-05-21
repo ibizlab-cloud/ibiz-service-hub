@@ -27,6 +27,20 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取内容类型值属性对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getContentTypePSDEField();
+
+
+	/**
+	 * 获取内容类型值属性对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getContentTypePSDEFieldMust();
+	
+	
+	/**
 	 * 获取数据访问标识
 	 * @return
 	 */
@@ -62,6 +76,15 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取动态模式
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEPrintDynamicMode}
+	 * @return
+	 */
+	int getDynamicMode();
+	
+	
+	/**
 	 * 获取获取数据实体行为
 	 * @return
 	 */
@@ -87,6 +110,20 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.priv.IPSDEOPPriv getGetDataPSDEOPPrivMust();
+	
+	
+	/**
+	 * 获取名称值属性对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEField();
+
+
+	/**
+	 * 获取名称值属性对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEFieldMust();
 	
 	
 	/**
@@ -125,6 +162,13 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取运行时打印上下文标识
+	 * @return
+	 */
+	java.lang.String getPrintContextId();
+	
+	
+	/**
 	 * 获取动态参数
 	 * @return
 	 */
@@ -160,10 +204,40 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	
 	
 	/**
+	 * 获取报表模型值属性对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getReportModelPSDEField();
+
+
+	/**
+	 * 获取报表模型值属性对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getReportModelPSDEFieldMust();
+	
+	
+	/**
 	 * 获取报表类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PrintType}
 	 * @return
 	 */
 	java.lang.String getReportType();
+	
+	
+	/**
+	 * 获取报表类型值属性对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getReportTypePSDEField();
+
+
+	/**
+	 * 获取报表类型值属性对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getReportTypePSDEFieldMust();
 	
 	
 	/**
@@ -171,6 +245,48 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * @return
 	 */
 	java.lang.String getReportUIModel();
+	
+	
+	/**
+	 * 获取数据源数据集对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.ds.IPSDEDataSet getSourcePSDEDataSet();
+
+
+	/**
+	 * 获取数据源数据集对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.ds.IPSDEDataSet getSourcePSDEDataSetMust();
+	
+	
+	/**
+	 * 获取数据源实体对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.IPSDataEntity getSourcePSDataEntity();
+
+
+	/**
+	 * 获取数据源实体对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.IPSDataEntity getSourcePSDataEntityMust();
+	
+	
+	/**
+	 * 获取唯一标记值属性对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getUniqueTagPSDEField();
+
+
+	/**
+	 * 获取唯一标记值属性对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getUniqueTagPSDEFieldMust();
 	
 	
 	/**

@@ -29,6 +29,7 @@ public class PSSysAIFactoryTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setDomainValue(iPSModelTranspileContext, domain, "authparam", realPSModelObject.getAuthParam(), realPSModelObject, "getAuthParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "authparam2", realPSModelObject.getAuthParam2(), realPSModelObject, "getAuthParam2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssysresourceid", realPSModelObject.getPSSysResource(), realPSModelObject, "getPSSysResource");
+		this.setDomainValue(iPSModelTranspileContext, domain, "pssysserviceapiid", realPSModelObject.getPSSysServiceAPI(), realPSModelObject, "getPSSysServiceAPI");
 		this.setDomainValue(iPSModelTranspileContext, domain, "serviceparam", realPSModelObject.getServiceParam(), realPSModelObject, "getServiceParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "serviceparam2", realPSModelObject.getServiceParam2(), realPSModelObject, "getServiceParam2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "servicepath", realPSModelObject.getServicePath(), realPSModelObject, "getServicePath");
@@ -44,6 +45,7 @@ public class PSSysAIFactoryTranspiler extends net.ibizsys.model.util.transpiler.
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAUTHPARAM, domain, "authparam", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAUTHPARAM2, domain, "authparam2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSRESOURCE, domain, "pssysresourceid", net.ibizsys.model.res.IPSSysResource.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSSERVICEAPI, domain, "pssysserviceapiid", net.ibizsys.model.service.IPSSysServiceAPI.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSERVICEPARAM, domain, "serviceparam", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSERVICEPARAM2, domain, "serviceparam2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSERVICEPATH, domain, "servicepath", java.lang.String.class);

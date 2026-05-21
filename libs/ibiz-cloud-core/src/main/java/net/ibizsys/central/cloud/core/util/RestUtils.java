@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,6 +22,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 
+import net.ibizsys.central.util.IPage;
+import net.ibizsys.runtime.util.JsonUtils;
+
 public class RestUtils {
 
 	private static final Log log = LogFactory.getLog(RestUtils.class);
@@ -31,6 +35,10 @@ public class RestUtils {
 	
 	public final static String HEADER_X_TOTAL = "x-total";
 	
+	public static enum KeyNameCaseMode{
+		LOWER,UPPER,ORIGINAL
+	}
+	
 	
 	/**
 	 * 返回分页查询对象
@@ -39,6 +47,17 @@ public class RestUtils {
 	 * @return
 	 */
 	public static <T> ResponseEntity<Collection<T>> sendBackPage(Page<T> page, Class<T> cls){
+		if(page instanceof IPage) {
+			IPage iPage = (IPage)page;
+			if(iPage.getMetadata() != null) {
+				return ResponseEntity.status(HttpStatus.OK)
+			            .header("x-page", String.valueOf(page.getPageable().getPageNumber()))
+			            .header("x-per-page", String.valueOf(page.getPageable().getPageSize()))
+			            .header("x-total", String.valueOf(page.getTotalElements()))
+			            .header("x-metadata", Base64.getEncoder().encodeToString(JsonUtils.toString(iPage.getMetadata()).getBytes()))
+			            .body(page.getContent());
+			}
+		}
         return ResponseEntity.status(HttpStatus.OK)
             .header("x-page", String.valueOf(page.getPageable().getPageNumber()))
             .header("x-per-page", String.valueOf(page.getPageable().getPageSize()))
@@ -53,6 +72,17 @@ public class RestUtils {
 	 * @return
 	 */
 	public static ResponseEntity<Collection<?>> sendBackPage(Page<?> page){
+		if(page instanceof IPage) {
+			IPage iPage = (IPage)page;
+			if(iPage.getMetadata() != null) {
+				return ResponseEntity.status(HttpStatus.OK)
+			            .header("x-page", String.valueOf(page.getPageable().getPageNumber()))
+			            .header("x-per-page", String.valueOf(page.getPageable().getPageSize()))
+			            .header("x-total", String.valueOf(page.getTotalElements()))
+			            .header("x-metadata", Base64.getEncoder().encodeToString(JsonUtils.toString(iPage.getMetadata()).getBytes()))
+			            .body(page.getContent());
+			}
+		}
         return ResponseEntity.status(HttpStatus.OK)
             .header("x-page", String.valueOf(page.getPageable().getPageNumber()))
             .header("x-per-page", String.valueOf(page.getPageable().getPageSize()))
@@ -76,6 +106,27 @@ public class RestUtils {
 	 * @return
 	 */
 	public static Map<String, Object> queryString2Map(String queryString, boolean bDecode) {
+		return queryString2Map(queryString, bDecode, KeyNameCaseMode.ORIGINAL);
+	}
+	
+	/**
+	 * 将查询串转为为Map对象
+	 * @param queryString
+	 * @param keyNameCaseMode 键名转化模式
+	 * @return
+	 */
+	public static Map<String, Object> queryString2Map(String queryString, KeyNameCaseMode keyNameCaseMode) {
+		return queryString2Map(queryString, true, keyNameCaseMode);
+	}
+	
+	/**
+	 * 将查询串转为为Map对象
+	 * @param queryString
+	 * @param bDecode
+	 * @param keyNameCaseMode 键名转化模式
+	 * @return
+	 */
+	public static Map<String, Object> queryString2Map(String queryString, boolean bDecode, KeyNameCaseMode keyNameCaseMode) {
 		Map<String, Object> map = new LinkedHashMap<>();
 		if (!StringUtils.hasLength(queryString)) {
 			return map;
@@ -107,7 +158,18 @@ public class RestUtils {
 					strValue = keyAndValue[1];
 				}
 				
-				map.put(strKey, strValue);
+				switch(keyNameCaseMode) {
+				case LOWER:
+					map.put(strKey.toLowerCase(), strValue);
+					break;
+				case UPPER:
+					map.put(strKey.toUpperCase(), strValue);
+					break;
+				case ORIGINAL:
+				default:
+					map.put(strKey, strValue);
+					break;
+				}
 			}
 		}
 		return map;

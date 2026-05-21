@@ -34,7 +34,7 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	private boolean enableMergeSystem = false;
 	private boolean concurrentLoadSystemMergences = true;
 	private boolean ignoreLoadSystemError = false;
-	
+	private boolean updateDbSchema = true;
 	
 	private List<DataSource> dataSources = null;
 	private List<DeploySystem> deploySystems = null;
@@ -53,9 +53,15 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	private boolean startDebugger = false;
 	private String cloudPluginServiceId = null;
 
-	private int workThreadCorePoolSize = 20;
-	private int workThreadMaximumPoolSize = 40;
+	private int workThreadCorePoolSize = 100;
+	private int workThreadMaximumPoolSize = 200;
 	private int workThreadBlockingQueueSize = 2000;
+	private int workThreadBatchSize = 10;
+	
+	private int sseThreadCorePoolSize = 100;
+	private int sseThreadMaximumPoolSize = 200;
+	private int sseThreadBlockingQueueSize = 2000;
+	
 
 	public int monitorDebugModelPathsTimer = -1;
 	
@@ -308,7 +314,44 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	public void setWorkThreadBlockingQueueSize(int workThreadBlockingQueueSize) {
 		this.workThreadBlockingQueueSize = workThreadBlockingQueueSize;
 	}
+	
+	@Override
+	public int getWorkThreadBatchSize() {
+		return this.workThreadBatchSize;
+	}
+	
+	public void setWorkThreadBatchSize(int workThreadBatchSize) {
+		this.workThreadBatchSize = workThreadBatchSize;
+	}
+	
 
+	@Override
+	public int getSseThreadCorePoolSize() {
+		return this.sseThreadCorePoolSize;
+	}
+	
+	public void setSseThreadCorePoolSize(int sseThreadCorePoolSize) {
+		this.sseThreadCorePoolSize = sseThreadCorePoolSize;
+	}
+
+	@Override
+	public int getSseThreadMaximumPoolSize() {
+		return this.sseThreadMaximumPoolSize;
+	}
+
+	public void setSseThreadMaximumPoolSize(int sseThreadMaximumPoolSize) {
+		this.sseThreadMaximumPoolSize = sseThreadMaximumPoolSize;
+	}
+	
+	@Override
+	public int getSseThreadBlockingQueueSize() {
+		return this.sseThreadBlockingQueueSize;
+	}
+	
+	public void setSseThreadBlockingQueueSize(int sseThreadBlockingQueueSize) {
+		this.sseThreadBlockingQueueSize = sseThreadBlockingQueueSize;
+	}
+	
 	@Override
 	public boolean isEnableProdMode() {
 		return enableProdMode;
@@ -352,5 +395,17 @@ public abstract class ServiceHubSettingBase implements IServiceHubSetting {
 	public void setIgnoreLoadSystemError(boolean ignoreLoadSystemError) {
 		this.ignoreLoadSystemError = ignoreLoadSystemError;
 	}
+
+	@Override
+	public boolean isUpdateDBSchema() {
+		return this.updateDbSchema;
+	}
+	
+	public void setUpdateDBSchema(boolean updateDbSchema) {
+		this.updateDbSchema = updateDbSchema;
+	}
+	
+	
+	
 	
 }

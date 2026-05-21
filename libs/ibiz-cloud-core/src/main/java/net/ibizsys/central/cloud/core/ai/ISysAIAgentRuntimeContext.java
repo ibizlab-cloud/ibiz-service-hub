@@ -1,7 +1,9 @@
 package net.ibizsys.central.cloud.core.ai;
 
+import java.util.Arrays;
 import java.util.List;
 
+import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
@@ -86,5 +88,42 @@ public interface ISysAIAgentRuntimeContext extends IModelRuntimeContext, IAIAgen
 	 * @return
 	 */
 	String rawChatCompletion(String strAIPlatformType, String strMessage);
+	
+	/**
+	 * 直接获取资料
+	 * @param strKBPlatformType
+	 * @param iChunkSearchContext
+	 * @return
+	 */
+	default List<Chunk> rawFetchChunks(String strKBPlatformType, IChunkSearchContext iChunkSearchContext) {
+		return rawFetchChunks(strKBPlatformType, Arrays.asList(iChunkSearchContext));
+	}
+	
+	/**
+	 * @param iChunkSearchContext
+	 * @return
+	 */
+	default List<Chunk> rawFetchChunks(IChunkSearchContext iChunkSearchContext) {
+		return rawFetchChunks(null, Arrays.asList(iChunkSearchContext));
+	}
+	
+	/**
+	 * 直接获取资料
+	 * @param strKBPlatformType
+	 * @param chunkSearchContextList
+	 * @return
+	 */
+	List<Chunk> rawFetchChunks(String strKBPlatformType, List<IChunkSearchContext> chunkSearchContextList);
+	
+	
+	/**
+	 * 直接获取资料
+	 * @param strKBPlatformType
+	 * @param chunkSearchContextList
+	 * @return
+	 */
+	default List<Chunk> rawFetchChunks(List<IChunkSearchContext> chunkSearchContextList){
+		return rawFetchChunks(null, chunkSearchContextList);
+	}
 
 }

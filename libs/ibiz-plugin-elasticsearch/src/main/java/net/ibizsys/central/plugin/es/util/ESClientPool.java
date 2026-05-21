@@ -4,19 +4,19 @@ import org.apache.commons.pool2.PooledObjectFactory;
 import org.apache.commons.pool2.impl.AbandonedConfig;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.RestClient;
 
-public class ESClientPool extends GenericObjectPool<RestHighLevelClient>{
+public class ESClientPool extends GenericObjectPool<RestClient>{
 
-	public ESClientPool(PooledObjectFactory<RestHighLevelClient> factory) {
+	public ESClientPool(PooledObjectFactory<RestClient> factory) {
 		super(factory);
 	}
 
-	public ESClientPool(PooledObjectFactory<RestHighLevelClient> factory, GenericObjectPoolConfig<RestHighLevelClient> config, AbandonedConfig abandonedConfig) {
+	public ESClientPool(PooledObjectFactory<RestClient> factory, GenericObjectPoolConfig<RestClient> config, AbandonedConfig abandonedConfig) {
 		super(factory, config, abandonedConfig);
 	}
 
-	public ESClientPool(PooledObjectFactory<RestHighLevelClient> factory, GenericObjectPoolConfig<RestHighLevelClient> config) {
+	public ESClientPool(PooledObjectFactory<RestClient> factory, GenericObjectPoolConfig<RestClient> config) {
 		super(factory, config);
 	}
 	

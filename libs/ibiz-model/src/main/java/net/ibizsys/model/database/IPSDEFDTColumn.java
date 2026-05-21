@@ -24,6 +24,20 @@ public interface IPSDEFDTColumn extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取公式列参数
+	 * @return
+	 */
+	java.lang.String getFormulaColumns();
+	
+	
+	/**
+	 * 获取公式列格式
+	 * @return
+	 */
+	java.lang.String getFormulaFormat();
+	
+	
+	/**
 	 * 获取查询代码表达式
 	 * @return
 	 */

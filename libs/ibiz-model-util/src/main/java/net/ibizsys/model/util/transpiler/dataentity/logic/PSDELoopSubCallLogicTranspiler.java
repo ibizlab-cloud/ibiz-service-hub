@@ -22,13 +22,17 @@ public class PSDELoopSubCallLogicTranspiler extends net.ibizsys.model.util.trans
 		}
 		net.ibizsys.model.dataentity.logic.PSDELoopSubCallLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDELoopSubCallLogicImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDELogicParam(), realPSModelObject, "getDstPSDELogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "retpsdlparamid", realPSModelObject.getRetPSDELogicParam(), realPSModelObject, "getRetPSDELogicParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "srcpsdlparamid", realPSModelObject.getSrcPSDELogicParam(), realPSModelObject, "getSrcPSDELogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "threadrunmode", realPSModelObject.getThreadMode(), realPSModelObject, "getThreadMode");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDELOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETRETPSDELOGICPARAM, domain, "retpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSRCPSDELOGICPARAM, domain, "srcpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTHREADMODE, domain, "threadrunmode", int.class, new String[]{"0"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

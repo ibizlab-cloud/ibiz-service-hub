@@ -2246,8 +2246,9 @@ public class StaticDict {
         NOTCREATED(10,"未开始"),
         CREATING(20,"执行中"),
         CREATED(30,"已执行"),
-        FAILED(40,"执行失败");
-
+        FAILED(40,"执行失败"),
+    	CANCELED(41, "已取消");
+    	
         private int value;
         private String text;
         private String valueSeparator="";

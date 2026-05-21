@@ -271,6 +271,13 @@ public interface ISystemRuntime extends ISystemRuntimeBase,ISystemUtilRuntime{
      * @param listener
      */
     void unregisterSystemEventListener(ISystemEventListener listener);
+    
+    
+    /**
+	 * 增加系统加载事件侦听器对象，仅运行一次
+	 * @param listener
+	 */
+    void registerSystemLoadEventListener(ISystemEventListener listener);
 	
 
     /**

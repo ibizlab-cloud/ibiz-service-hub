@@ -1004,6 +1004,8 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	
 	/**
 	 * 获取索引实体类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEIndexType}
 	 * @return
 	 */
 	java.lang.String getIndexDEType();

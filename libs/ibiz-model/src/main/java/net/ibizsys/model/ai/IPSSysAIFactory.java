@@ -103,6 +103,20 @@ public interface IPSSysAIFactory extends net.ibizsys.model.ai.IPSAIFactory
 	
 	
 	/**
+	 * 获取引用系统接口
+	 * @return
+	 */
+	net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPI();
+
+
+	/**
+	 * 获取引用系统接口，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.service.IPSSysServiceAPI getPSSysServiceAPIMust();
+	
+	
+	/**
 	 * 获取系统模块
 	 * @return
 	 */

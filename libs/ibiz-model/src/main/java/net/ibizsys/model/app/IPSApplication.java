@@ -354,6 +354,27 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取应用预置视图集合
+	 * @return
+	 */
+	java.util.List<net.ibizsys.model.app.IPSAppPDTView> getAllPSAppPDTViews();
+	
+	/**
+	 * 获取应用预置视图集合的指定项
+	 * @param objKey 项标识
+	 * @param bTryMode 是否为尝试获取
+	 * @return 返回指定项，尝试模式下不存在返回null，否则抛出异常
+	 */
+	net.ibizsys.model.app.IPSAppPDTView getPSAppPDTView(Object objKey, boolean bTryMode);
+	
+	/**
+	 * 设置应用预置视图集合
+	 * @param list 应用预置视图集合
+	 */
+	void setPSAppPDTViews(java.util.List<net.ibizsys.model.app.IPSAppPDTView> list);
+	
+	
+	/**
 	 * 获取应用前端模板插件引用集合
 	 * @return
 	 */

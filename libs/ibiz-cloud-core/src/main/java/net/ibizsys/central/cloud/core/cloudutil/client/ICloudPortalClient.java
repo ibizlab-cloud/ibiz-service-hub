@@ -31,6 +31,9 @@ public interface ICloudPortalClient {
 	@RequestMapping(method = RequestMethod.POST, value = "/portal/asyncaction/{id}/error")
 	PortalAsyncAction errorAsyncAction(@PathVariable("id") String id, @RequestBody PortalAsyncAction action);
 	
+	@RequestMapping(method = RequestMethod.POST, value = "/portal/asyncaction/{id}/cancel")
+	PortalAsyncAction cancelAsyncAction(@PathVariable("id") String id, @RequestBody PortalAsyncAction action);
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/portal/asyncaction/{id}/finish")
 	PortalAsyncAction finishAsyncAction(@PathVariable("id") String id, @RequestBody PortalAsyncAction action);
 	

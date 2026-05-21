@@ -19,6 +19,7 @@ import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.IEntityBase;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 import net.ibizsys.runtime.util.script.IScriptEntity;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 import net.ibizsys.runtime.util.script.ScriptUtils;
@@ -131,7 +132,7 @@ public class DEScriptLogicRuntime extends ModelRuntimeBase implements IDEScriptL
 		}
 		
 		try {
-			
+			ScriptCodeHolder.push(this.strScript);
 			if(ISystemUtilRuntime.SCRIPTENGINE_GROOVY.equals(this.getScriptEngine())) {
 				Object objRet;
 				if (LOGICMODE_DEFCHECK.equals(this.getLogicMode()) || LOGICMODE_DEFDEFAULT.equals(this.getLogicMode())) {
@@ -163,6 +164,9 @@ public class DEScriptLogicRuntime extends ModelRuntimeBase implements IDEScriptL
 			log.error(ex);
 			iDataEntityRuntime.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行实体脚本[%1$s][%2$s]发生异常，%3$s", iDataEntityRuntime.getName(), this.getName(), ex.getMessage()), ex);
 			throw new DataEntityRuntimeException(this.iDataEntityRuntime, String.format("执行实体脚本[%1$s]发生异常，%2$s", this.getName(), ex.getMessage()));
+		}
+		finally {
+			ScriptCodeHolder.poll();
 		}
 	}
 

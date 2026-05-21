@@ -52,6 +52,7 @@ import net.ibizsys.central.dataentity.logic.DELogicAppContextParamRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicAppGlobalParamRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicAppendParamNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicBindParamNodeRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicCancelWFNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicCommitNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicCopyParamNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicDEActionNodeRuntime;
@@ -62,6 +63,7 @@ import net.ibizsys.central.dataentity.logic.DELogicDEDataSyncNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicDELogicNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicDENotifyNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicDEPrintNodeRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicDEReportNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicDebugParamNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicEndNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicEntityListParamRuntime;
@@ -95,6 +97,7 @@ import net.ibizsys.central.dataentity.logic.DELogicSubSysSAMethodNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicSubmitWFNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicSysDataSyncAgentOutNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicSysLogicNodeRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicSysMsgTemplNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicSysUtilNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicThrowExceptionNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicWebContextParamRuntime;
@@ -111,6 +114,7 @@ import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.res.ISysUniStateRuntime;
 import net.ibizsys.central.res.SysContentCatResourceRuntime;
 import net.ibizsys.central.res.SysDEFileResourceRuntime;
+import net.ibizsys.central.res.SysLocalFileResourceRuntime;
 import net.ibizsys.central.res.SysResourceRuntime;
 import net.ibizsys.central.res.SysUniStateRuntime;
 import net.ibizsys.central.res.SysZipFileResourceRuntime;
@@ -141,10 +145,12 @@ import net.ibizsys.central.testing.ISysTestDataRuntime;
 import net.ibizsys.central.testing.SysTestDataRuntime;
 import net.ibizsys.central.testing.TestCaseTargetTypes;
 import net.ibizsys.central.util.IEntityDTO;
+import net.ibizsys.central.util.ISystemRuntimeContextAction;
 import net.ibizsys.central.util.IWebResponse;
 import net.ibizsys.central.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.central.util.groovy.MetaClassCreationHandle;
 import net.ibizsys.central.util.groovy.SystemRTGroovyContext;
+import net.ibizsys.central.util.script.IScriptEntity;
 import net.ibizsys.central.util.script.IScriptList;
 import net.ibizsys.central.util.script.IScriptPage;
 import net.ibizsys.central.util.script.IScriptWebResponse;
@@ -220,7 +226,6 @@ import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.ModelRuntimeUtils;
 import net.ibizsys.runtime.util.SystemRuntimeHolder;
-import net.ibizsys.runtime.util.script.IScriptEntity;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 
 /**
@@ -278,6 +283,7 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		registerRuntimeObjectIf(ISysResourceRuntime.class, ResourceType.GITPROJECT.value, "net.ibizsys.central.plugin.jgit.res.JGitSysGitResourceRuntime");
 		registerRuntimeObjectIf(ISysResourceRuntime.class, ResourceType.SYSCONTENTCAT.value, SysContentCatResourceRuntime.class.getCanonicalName());
 		registerRuntimeObjectIf(ISysResourceRuntime.class, ResourceType.DEFILE.value, SysDEFileResourceRuntime.class.getCanonicalName());
+		registerRuntimeObjectIf(ISysResourceRuntime.class, ResourceType.LOCALFILE.value, SysLocalFileResourceRuntime.class.getCanonicalName());
 
 		registerRuntimeObjectIf(ISysMsgTemplRuntime.class, MsgTemplEngine.FREEMARKER.value, "net.ibizsys.central.msg.SysMsgTemplRuntime");
 		registerRuntimeObjectIf(ISysMsgTemplRuntime.class, null, "net.ibizsys.central.msg.SysMsgTemplRuntime");
@@ -929,70 +935,7 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 			}
 		}
 
-		// // 数据库体系安装数据
-		// java.util.List<IPSSysDBScheme> psSysDBSchemes =
-		// this.getPSSystem().getAllPSSysDBSchemes();
-		// if (psSysDBSchemes != null) {
-		// for (IPSSysDBScheme iPSSysDBScheme : psSysDBSchemes) {
-		// ISysDBSchemeRuntime iSysDBSchemeRuntime =
-		// this.getSysDBSchemeRuntime(iPSSysDBScheme.getId(), false);
-		// try {
-		// iSysDBSchemeRuntime.install();
-		// } catch (Throwable ex) {
-		// throw new Exception(String.format("系统数据库体系[%1$s]安装数据发生异常，%2$s",
-		// iSysDBSchemeRuntime.getName(), ex.getMessage()), ex);
-		// }
-		// }
-		// }
-
-		// // 大数据体系安装数据
-		// java.util.List<IPSSysBDScheme> psSysBDSchemes =
-		// this.getPSSystem().getAllPSSysBDSchemes();
-		// if (psSysBDSchemes != null) {
-		// for (IPSSysBDScheme iPSSysBDScheme : psSysBDSchemes) {
-		// ISysBDSchemeRuntime iSysBDSchemeRuntime =
-		// this.getSysBDSchemeRuntime(iPSSysBDScheme.getId(), false);
-		// try {
-		// iSysBDSchemeRuntime.install();
-		// } catch (Throwable ex) {
-		// throw new Exception(String.format("系统大数据体系[%1$s]安装数据发生异常，%2$s",
-		// iSysBDSchemeRuntime.getName(), ex.getMessage()), ex);
-		// }
-		// }
-		// }
-		//
-		// // 搜索体系安装数据
-		// java.util.List<IPSSysSearchScheme> psSysSearchSchemes =
-		// this.getPSSystem().getAllPSSysSearchSchemes();
-		// if (psSysSearchSchemes != null) {
-		// for (IPSSysSearchScheme iPSSysSearchScheme : psSysSearchSchemes) {
-		// ISysSearchSchemeRuntime iSysSearchSchemeRuntime =
-		// this.getSysSearchSchemeRuntime(iPSSysSearchScheme.getId(), false);
-		// try {
-		// iSysSearchSchemeRuntime.install();
-		// } catch (Throwable ex) {
-		// throw new Exception(String.format("系统搜索体系[%1$s]安装数据发生异常，%2$s",
-		// iSysSearchSchemeRuntime.getName(), ex.getMessage()), ex);
-		// }
-		// }
-		// }
-		//
-		// // 智能报表体系安装数据
-		// java.util.List<IPSSysBIScheme> psSysBISchemes =
-		// this.getPSSystem().getAllPSSysBISchemes();
-		// if (psSysBISchemes != null) {
-		// for (IPSSysBIScheme iPSSysBIScheme : psSysBISchemes) {
-		// ISysBISchemeRuntime iSysBISchemeRuntime =
-		// this.getSysBISchemeRuntime(iPSSysBIScheme.getId(), false);
-		// try {
-		// iSysBISchemeRuntime.install();
-		// } catch (Throwable ex) {
-		// throw new Exception(String.format("系统智能报表体系[%1$s]安装数据发生异常，%2$s",
-		// iSysBISchemeRuntime.getName(), ex.getMessage()), ex);
-		// }
-		// }
-		// }
-
+	
 		// 系统功能安装数据
 		java.util.List<IPSSysUtil> psSysUtils = this.getPSSystem().getAllPSSysUtils();
 		if (psSysUtils != null) {
@@ -2835,17 +2778,30 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 
 	protected IDELogicNodeRuntime createDELogicNodeRuntime(IPSDELogicNode iPSDELogicNode) {
 		String strLogicNodeType = iPSDELogicNode.getLogicNodeType();
-
+		String[] types = strLogicNodeType.split("[_]");
+		
 		if (this.isEnableAddins(ADDIN_DELOGICNODERUNTIME_PREFIX)) {
-			String strType = String.format("%1$s%2$s", ADDIN_DELOGICNODERUNTIME_PREFIX, strLogicNodeType);
+			if(types.length > 1) {
+				//优先完全
+				String strType = String.format("%1$s%2$s", ADDIN_DELOGICNODERUNTIME_PREFIX, strLogicNodeType);
+				IDELogicNodeRuntime iDELogicNodeRuntime = this.getAddinRepo().getAddin(IDELogicNodeRuntime.class, strType, true);
+				if (iDELogicNodeRuntime != null) {
+					return iDELogicNodeRuntime;
+				}
+			}
+			
+			String strType = String.format("%1$s%2$s", ADDIN_DELOGICNODERUNTIME_PREFIX, types[0]);
 			IDELogicNodeRuntime iDELogicNodeRuntime = this.getAddinRepo().getAddin(IDELogicNodeRuntime.class, strType, true);
 			if (iDELogicNodeRuntime != null) {
 				return iDELogicNodeRuntime;
 			}
 		}
-
+		
 		try {
-			IDELogicNodeRuntime iDELogicNodeRuntime = this.onCreateDELogicNodeRuntime(strLogicNodeType);
+			IDELogicNodeRuntime iDELogicNodeRuntime = this.getRuntimeObject(IDELogicNodeRuntime.class, types[0]);
+			if(iDELogicNodeRuntime == null) {
+				iDELogicNodeRuntime = this.onCreateDELogicNodeRuntime(types[0]);
+			}
 			if (iDELogicNodeRuntime instanceof ISystemRTAddin) {
 				((ISystemRTAddin) iDELogicNodeRuntime).init(this.getSystemRuntimeContext(), null);
 			}
@@ -2877,6 +2833,9 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		}
 		if (DELogicNodeTypes.SUBMITWF.equals(strLogicNodeType)) {
 			return new DELogicSubmitWFNodeRuntime();
+		}
+		if (DELogicNodeTypes.CANCELWF.equals(strLogicNodeType)) {
+			return new DELogicCancelWFNodeRuntime();
 		}
 		if (DELogicNodeTypes.SYSLOGIC.equals(strLogicNodeType)) {
 			return new DELogicSysLogicNodeRuntime();
@@ -2947,6 +2906,9 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		if (DELogicNodeTypes.DEPRINT.equals(strLogicNodeType)) {
 			return new DELogicDEPrintNodeRuntime();
 		}
+		if (DELogicNodeTypes.DEREPORT.equals(strLogicNodeType)) {
+			return new DELogicDEReportNodeRuntime();
+		}
 		if (DELogicNodeTypes.LOOPSUBCALL.equals(strLogicNodeType)) {
 			return new DELogicLoopSubCallNodeRuntime();
 		}
@@ -2959,6 +2921,10 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		if (DELogicNodeTypes.DEDATAFLOW.equals(strLogicNodeType)) {
 			return new DELogicDEDataFlowNodeRuntime();
 		}
+		if (DELogicNodeTypes.SYSMSGTEMPL.equals(strLogicNodeType)) {
+			return new DELogicSysMsgTemplNodeRuntime();
+		}
+		
 		throw new Exception(String.format("无法识别的处理逻辑节点类型[%1$s]", strLogicNodeType));
 	}
 
@@ -3547,7 +3513,7 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		userContextRuntime.setUsername("系统内置用户");
 		return userContextRuntime;
 	}
-
+	
 	@Override
 	public IUserContext createAnonymousUserContext() {
 		UserContextRuntime userContextRuntime = new UserContextRuntime();
@@ -3907,6 +3873,11 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 			return iPSSysContent.getContent();
 		}
 		return strDefault;
+	}
+	
+	@Override
+	public Object execute(ISystemRuntimeContextAction iSystemRuntimeContextAction, Object[] args) throws Throwable {
+		return iSystemRuntimeContextAction.execute(this.getSystemRuntimeContext(), args);
 	}
 
 	protected void onShutdown() throws Exception {

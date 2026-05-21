@@ -2,18 +2,28 @@ package net.ibizsys.central.database;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.util.ISearchContext;
+import net.ibizsys.model.PSModelEnums.DBObjNameCaseMode;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.runtime.util.Conditions;
 import net.ibizsys.runtime.util.DataTypeUtils;
@@ -35,7 +45,29 @@ public abstract class DBDialectBase implements IDBDialect {
 
 	@Override
 	public String getDBObjStandardName(String strOriginName) throws Throwable {
-		return strOriginName;
+		return getDBObjStandardName(strOriginName, DBObjNameCaseMode.DEFAULT);
+	}
+	
+	@Override
+	public String getDBObjStandardName(String strOriginName, IPSDEDBConfig iPSDEDBConfig) throws Throwable {
+		return this.getDBObjStandardName(strOriginName, iPSDEDBConfig!=null?iPSDEDBConfig.getObjNameCase(): DBObjNameCaseMode.DEFAULT.value);
+	}
+	
+	@Override
+	public String getDBObjStandardName(String strOriginName, String strDBObjNameCaseMode) throws Throwable {
+		return this.getDBObjStandardName(strOriginName, StringUtils.hasLength(strDBObjNameCaseMode)?DBObjNameCaseMode.from(strDBObjNameCaseMode.toUpperCase()): DBObjNameCaseMode.DEFAULT);
+	}
+	
+	@Override
+	public String getDBObjStandardName(String strOriginName, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
+		switch(dbObjNameCaseMode) {
+		case LCASE:
+			return strOriginName.toLowerCase();
+		case UCASE:
+			return strOriginName.toUpperCase();
+		default:
+			return strOriginName;
+		}
 	}
 
 	@Override
@@ -578,34 +610,42 @@ public abstract class DBDialectBase implements IDBDialect {
 	public String getDBType() {
 		return null;
 	}
+	
+	public String getCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList) throws Throwable {
+		return this.getCreateTableSQL(strTableName, psDEFieldList, DBObjNameCaseMode.DEFAULT);
+	}
 
 	@Override
-	public String getCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList) throws Throwable {
+	public String getCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
 		Assert.hasLength(strTableName, "未传入数据表名称");
 		Assert.notEmpty(psDEFieldList, "未传入实体属性集合");
-		String strSQL = this.onGetCreateTableSQL(strTableName, psDEFieldList);
+		String strSQL = this.onGetCreateTableSQL(strTableName, psDEFieldList, dbObjNameCaseMode);
 		if(ObjectUtils.isEmpty(strSQL)) {
 			throw new Exception(String.format("无法获取建立数据表[%1$s]SQL语句", strTableName));
 		}
 		return strSQL;
 	}
 	
-	protected String onGetCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList) throws Throwable {
+	protected String onGetCreateTableSQL(String strTableName, Collection<IPSDEField> psDEFieldList, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
 		return null;
 	}
 	
-	@Override
 	public String getCreateColumnSQL(String strTableName, IPSDEField iPSDEField) throws Throwable {
+		return this.getCreateColumnSQL(strTableName, iPSDEField, DBObjNameCaseMode.DEFAULT);
+	}
+	
+	@Override
+	public String getCreateColumnSQL(String strTableName, IPSDEField iPSDEField, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
 		Assert.hasLength(strTableName, "未传入数据表名称");
 		Assert.notNull(iPSDEField, "未传入实体属性对象");
-		String strSQL = this.onGetCreateColumnSQL(strTableName, iPSDEField);
+		String strSQL = this.onGetCreateColumnSQL(strTableName, iPSDEField, dbObjNameCaseMode);
 		if(ObjectUtils.isEmpty(strSQL)) {
 			throw new Exception(String.format("无法获取建立数据列[%1$s]SQL语句", strTableName));
 		}
 		return strSQL;
 	}
 	
-	protected String onGetCreateColumnSQL(String strTableName, IPSDEField iPSDEField) throws Throwable {
+	protected String onGetCreateColumnSQL(String strTableName, IPSDEField iPSDEField, DBObjNameCaseMode dbObjNameCaseMode) throws Throwable {
 		return null;
 	}
 	
@@ -729,6 +769,70 @@ public abstract class DBDialectBase implements IDBDialect {
 		}
 
 		return sb.toString();
+	}
+
+	@Override
+	public boolean doesTableExist(DataSource dataSource, String tableName) throws SQLException {
+		Connection connection = null;
+		DatabaseMetaData meta = null;
+		ResultSet tables = null;
+		try {
+			connection = dataSource.getConnection();
+			meta = connection.getMetaData();
+			tables = meta.getTables(null, null, tableName, new String[] { "TABLE" });
+			return tables.next();
+		} finally {
+			if (tables != null) {
+				tables.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+	}
+
+	@Override
+	public Map<String, Object> getTableColumns(DataSource dataSource, String tableName) throws SQLException {
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		Connection connection = null;
+		DatabaseMetaData meta = null;
+		ResultSet tables = null;
+		try {
+			connection = dataSource.getConnection();
+			meta = connection.getMetaData();
+			ResultSet columns = meta.getColumns(null, null, tableName, null);
+			while (columns.next()) {
+				String columnName = columns.getString("COLUMN_NAME");
+				String columnType = columns.getString("TYPE_NAME");
+				// int dataSize = columns.getInt("COLUMN_SIZE");
+				// String defaultValue = columns.getString("COLUMN_DEF");
+				// boolean isNullable = columns.getBoolean("NULLABLE");
+
+				map.put(columnName, columnType);
+			}
+
+			return map;
+		} finally {
+			if (tables != null) {
+				tables.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+	}
+	
+	
+	@Override
+	public boolean supportDataType(int stdDataType) {
+		switch(stdDataType) {
+		case DataTypes.VECTOR:
+		case DataTypes.TSVECTOR:
+			return false;
+		
+		default:
+			return true;
+		}
 	}
 	
 	

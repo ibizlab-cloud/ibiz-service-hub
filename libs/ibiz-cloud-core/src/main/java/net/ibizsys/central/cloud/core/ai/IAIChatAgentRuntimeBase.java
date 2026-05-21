@@ -78,6 +78,18 @@ public interface IAIChatAgentRuntimeBase extends IAIAgentRuntimeBase{
 	SseEmitter sseChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params) throws Throwable;
 	
 	
+	
+	/**
+	 * 取消异步聊天
+	 * @param dataOrKeys
+	 * @param asyncActionId
+	 * @param body
+	 * @throws Throwable
+	 */
+	void cancelChatCompletion(Object dataOrKeys, String asyncActionId, Object body) throws Throwable;
+	
+	
+	
 	/**
 	 * 同步聊天补全操作
 	 * @param dataOrKeys 键值或数据对象

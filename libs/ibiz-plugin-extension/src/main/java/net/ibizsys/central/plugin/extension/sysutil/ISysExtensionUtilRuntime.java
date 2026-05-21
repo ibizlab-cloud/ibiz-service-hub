@@ -1,5 +1,6 @@
 package net.ibizsys.central.plugin.extension.sysutil;
 
+import net.ibizsys.central.plugin.ai.sysutil.ISysMcpServerUtilRuntime;
 import net.ibizsys.runtime.util.IAction;
 
 public interface ISysExtensionUtilRuntime extends net.ibizsys.central.cloud.core.sysutil.ISysExtensionUtilRuntime {
@@ -26,4 +27,17 @@ public interface ISysExtensionUtilRuntime extends net.ibizsys.central.cloud.core
 	 * @return
 	 */
 	Object invokeDynaModelAPI(String strPModel, String strPKey, String strModel, String strMethod, String strKey, Object param, boolean bIgnoreCheckDataAccessAction);
+	
+	
+	/**
+	 * 获取系统Mcp服务工具运行时对象
+	 * @param strId
+	 * @param bTryMode
+	 * @return
+	 */
+	ISysMcpServerUtilRuntime getSysMcpServerUtilRuntime(String strId, boolean bTryMode);
+	
+	
+	
+	
 }

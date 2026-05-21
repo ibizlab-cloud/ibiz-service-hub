@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +45,6 @@ import net.ibizsys.central.cloud.core.util.error.InternalServerErrorException;
 import net.ibizsys.central.cloud.oss.core.IOSSUtilSystemRuntime;
 import net.ibizsys.central.cloud.oss.core.cloudutil.ISimpleFileStorageService;
 import net.ibizsys.central.cloud.oss.core.util.domain.DownloadTicketMode;
-import net.ibizsys.central.cloud.oss.core.util.domain.FileItem;
 import net.ibizsys.runtime.util.EntityBase;
 
 @RestController()
@@ -155,13 +155,13 @@ public class OSSRestController {
 //	private FileService fileService;
 //                                              
 	@PostMapping(value = "${ibiz.cloud.oss.uploadpath:/ibizutil/upload}")
-	public ResponseEntity<FileItem> upload(@RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview){
-//		String strPreview = null;
-//		String strQueryString = request.getQueryString();
-//		Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
-//		if (map != null) {
-//			strPreview = (String) map.get("preview");
-//		}
+	public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview, @RequestParam(value = "unzip", required = false, defaultValue="false") boolean unzip){
+		if(unzip) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put(ISimpleFileStorageService.UPLOADPARAM_UNZIP, true);
+			params.put(ISimpleFileStorageService.UPLOADPARAM_PREVIEW, preview);
+			return ResponseEntity.ok().body(getSimpleFileStorageService().uploadFile(null, multipartFile, params));
+		}
 		return ResponseEntity.ok().body(getSimpleFileStorageService().uploadFile(null, multipartFile, preview));
 	}
 
@@ -198,24 +198,35 @@ public class OSSRestController {
 			bApiUser = true;
 		}
 		
+		// 从请求中构建参数对象
+		String strQueryString = request.getQueryString();
+		Map<String, Object> map = RestUtils.queryString2Map(strQueryString, RestUtils.KeyNameCaseMode.LOWER);
+	
+		
 		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
 		case INCLUSION:
-			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, bApiUser);
+			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, map, bApiUser);
 			return;
 		case EXCLUSION:
-			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, bApiUser);
+			this.getSimpleFileStorageService().downloadTextByTicket(null, id, response, map, bApiUser);
 			return;
 		default:
 			break;
 		}
 		
-		this.getSimpleFileStorageService().downloadText(null, id, response);
+		this.getSimpleFileStorageService().downloadText(null, id, response, map);
 		
 	}
 	
 	
 	@PostMapping(value = "${ibiz.cloud.oss.uploadpath2:/ibizutil/upload/{cat}}")
-	public ResponseEntity<FileItem> upload(@PathVariable String cat, @RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview){
+	public ResponseEntity<Object> upload(@PathVariable String cat, @RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview, @RequestParam(value = "unzip", required = false, defaultValue="false") boolean unzip){
+		if(unzip) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put(ISimpleFileStorageService.UPLOADPARAM_UNZIP, true);
+			params.put(ISimpleFileStorageService.UPLOADPARAM_PREVIEW, preview);
+			return ResponseEntity.ok().body(getSimpleFileStorageService().uploadFile(null, multipartFile, params));
+		}
 		return ResponseEntity.ok().body(getSimpleFileStorageService().uploadFile(cat, multipartFile, preview));
 	}
 	
@@ -254,24 +265,27 @@ public class OSSRestController {
 		this.getSimpleFileStorageService().downloadFile(cat, id, response);
 	}
 	
-	@GetMapping(value = "${ibiz.cloud.oss.downloadtxt2:/ibizutil/downloadtxt/{cat}/{id}}")
+	@GetMapping(value = "${ibiz.cloud.oss.downloadpath5:/ibizutil/download/{cat}/**}")
 	@ResponseStatus(HttpStatus.OK)
-	public void downloadText(@PathVariable String cat, @PathVariable String id, HttpServletResponse response){
+	public void downloadByPath(@PathVariable String cat, HttpServletResponse response, HttpServletRequest request){
 		boolean bApiUser = false;
 		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
 			bApiUser = true;
 		}
 		
+		String strUri = request.getRequestURI();
+		String id = strUri.substring(20 + cat.length());
+		
 		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
 		case INCLUSION:
 			if(this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
-				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, bApiUser);
+				this.getSimpleFileStorageService().downloadFileByTicket(cat, id, response, bApiUser);
 				return;
 			}
 			break;
 		case EXCLUSION:
 			if(!this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
-				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, bApiUser);
+				this.getSimpleFileStorageService().downloadFileByTicket(cat, id, response, bApiUser);
 				return;
 			}
 			break;
@@ -279,7 +293,40 @@ public class OSSRestController {
 			break;
 		}
 		
-		this.getSimpleFileStorageService().downloadText(cat, id, response);
+		this.getSimpleFileStorageService().downloadFile(cat, id, response);
+	}
+	
+	@GetMapping(value = "${ibiz.cloud.oss.downloadtxt2:/ibizutil/downloadtxt/{cat}/{id}}")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadText(@PathVariable String cat, @PathVariable String id, HttpServletResponse response, HttpServletRequest request){
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
+		}
+		
+		// 从请求中构建参数对象
+		String strQueryString = request.getQueryString();
+		Map<String, Object> map = RestUtils.queryString2Map(strQueryString, RestUtils.KeyNameCaseMode.LOWER);
+		
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			if(this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, map, bApiUser);
+				return;
+			}
+			break;
+		case EXCLUSION:
+			if(!this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadTextByTicket(cat, id, response, map, bApiUser);
+				return;
+			}
+			break;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadText(cat, id, response, map);
 	}
 	
 	@GetMapping(value = "${ibiz.cloud.oss.createdownloadticketpath:/ibizutil/createdownloadticket/{id}}")

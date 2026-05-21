@@ -84,6 +84,30 @@ public class DELogicEntityListParamRuntime extends DELogicParamRuntimeBase {
 					throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]无法绑定非数据对象列表类型参数", getCodeName()));
 				}
 			}
+			else 
+			{	
+				//判断是否为对象
+				if(srcList.size()> 0 && !(srcList.get(0) instanceof IEntity)) {
+					List list = srcList;
+					srcList = null;
+					if (this.getDataEntityRuntime() == null) {
+						srcList = (List)EntityUtils.getValue(list, !this.getPSDELogicParam().isOriginEntity(), this.getSystemRuntime());
+					}
+					else {
+						srcList = this.getDataEntityRuntime().createEntityList();
+						for(Object item : list) {
+							Map map = null;
+							if(item instanceof Map) {
+								map = (Map)item;
+							}
+							else {
+								map = this.getSystemRuntime().deserialize(item, Map.class);
+							}
+							srcList.add(this.getDataEntityRuntime().createEntity(map));
+						}
+					}
+				}
+			}
 		}
 		super.bind(iDELogicSession, srcList);
 	}

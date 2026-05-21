@@ -6,9 +6,13 @@ public class PSDERawSqlAndLoopCallLogicImpl extends net.ibizsys.model.dataentity
 
 	public final static String ATTR_GETDSTPSDEACTION = "getDstPSDEAction";
 	public final static String ATTR_GETDSTPSDATAENTITY = "getDstPSDataEntity";
+	public final static String ATTR_GETJDBCPASSWORD = "jdbcPassword";
+	public final static String ATTR_GETJDBCURL = "jdbcUrl";
+	public final static String ATTR_GETJDBCUSERNAME = "jdbcUserName";
 	public final static String ATTR_GETPSSYSDBSCHEME = "getPSSysDBScheme";
 	public final static String ATTR_GETSQL = "sql";
 	public final static String ATTR_GETSRCPSDELOGICPARAM = "getSrcPSDELogicParam";
+	public final static String ATTR_USEJDBC = "useJdbc";
 	private net.ibizsys.model.dataentity.action.IPSDEAction dstpsdeaction;
 
 	public net.ibizsys.model.dataentity.action.IPSDEAction getDstPSDEAction(){
@@ -53,6 +57,30 @@ public class PSDERawSqlAndLoopCallLogicImpl extends net.ibizsys.model.dataentity
 		this.dstpsdataentity = dstpsdataentity;
 	}
 
+
+	public java.lang.String getJdbcPassword(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETJDBCPASSWORD);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getJdbcUrl(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETJDBCURL);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getJdbcUserName(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETJDBCUSERNAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.database.IPSSysDBScheme pssysdbscheme;
 
 	public net.ibizsys.model.database.IPSSysDBScheme getPSSysDBScheme(){
@@ -106,4 +134,12 @@ public class PSDERawSqlAndLoopCallLogicImpl extends net.ibizsys.model.dataentity
 		this.srcpsdelogicparam = srcpsdelogicparam;
 	}
 
+
+	public boolean useJdbc(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_USEJDBC);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
+	}
 }

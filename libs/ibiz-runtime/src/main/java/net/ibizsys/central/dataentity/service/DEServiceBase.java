@@ -111,6 +111,11 @@ public abstract class DEServiceBase<T extends IEntityDTO, F extends ISearchConte
 	public void wfStart(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable {
 		this.getDataEntityRuntime().wfStart(iEntityBase, iPSDEWF, true);
 	}
+	
+	@Override
+	public void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable {
+		this.getDataEntityRuntime().wfCancel(iEntityBase, iPSDEWF, true);
+	}
 
 	@Override
 	public T selectOne(F f, boolean bTryMode) throws Throwable{

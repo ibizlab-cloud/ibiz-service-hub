@@ -15,6 +15,7 @@ import net.ibizsys.runtime.util.IEntityBase;
 import net.ibizsys.runtime.util.IReadOnlyEntity;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 
 /**
  * 脚本系统值规则运行时对象
@@ -103,6 +104,7 @@ public class SysScriptValueRuleRuntime extends SysValueRuleRuntimeBase implement
 	public boolean test(final Object objValue, final IEntityBase iEntityBase, final IPSDEField iPSDEField, final IDataEntityRuntimeBase iDataEntityRuntimeBase) throws Throwable{
 		
 		try{
+			ScriptCodeHolder.push(this.getPSSysValueRule().getScriptCode());
 			scriptValueRuleContext.reset();
 			if(iDataEntityRuntimeBase != null && iEntityBase!=null && iDataEntityRuntimeBase instanceof IDataEntityRuntime) {
 				scriptValueRuleContext.setEntity(new IReadOnlyEntity() {
@@ -146,6 +148,9 @@ public class SysScriptValueRuleRuntime extends SysValueRuleRuntimeBase implement
 			log.error(ex);
 			this.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("系统值规则[%1$s]执行发生异常，%2%s", this.getName(), ex.getMessage()), ex);
 			throw new SystemRuntimeException(this.getSystemRuntimeBase(), String.format("系统值规则[%1$s]执行发生异常，%2%s",this.getName(),ex.getMessage()));
+		}
+		finally {
+			ScriptCodeHolder.poll();
 		}
 	}
 }

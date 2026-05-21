@@ -1,7 +1,11 @@
 package net.ibizsys.central.cloud.ai.core.addin;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.Assert;
@@ -22,10 +26,12 @@ import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.Document;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingRequest;
 import net.ibizsys.central.cloud.core.util.domain.EmbeddingResult;
+import net.ibizsys.central.cloud.core.util.domain.TextReRankDocument;
 import net.ibizsys.central.cloud.core.util.domain.TextReRankRequest;
 import net.ibizsys.central.cloud.core.util.domain.TextReRankResult;
 import net.ibizsys.central.service.RequestMethods;
 import net.ibizsys.central.service.client.IWebClient;
+import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
@@ -49,8 +55,12 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	private boolean bStarted = false;
 	private boolean bRunAuthTimer = false;
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
+	private ISysCacheUtilRuntime iSysCacheUtilRuntime = null;
 	private List<String> mcpServerList = null;
 	private final static ThreadLocal<Integer> loopCallThreadLocal = new ThreadLocal<Integer>();
+	private final static ThreadLocal<Integer> promptTokensThreadLocal = new ThreadLocal<Integer>();
+	private final static ThreadLocal<Integer> completionTokensThreadLocal = new ThreadLocal<Integer>();
+	private final static ThreadLocal<Integer> toolCallsThreadLocal = new ThreadLocal<Integer>();
 	
 	private int nToolMaxCalls = 4;
 	
@@ -338,18 +348,17 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	
 	@Override
 	public ChatCompletionResult chatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable{
-//		try {
-//			return this.onChatCompletion(chatCompletionRequest);
-//		} catch (Throwable ex) {
-//			log.error(String.format("AI应用[%1$s]交互补全发生异常，%2$s", getName(), ex.getMessage()), ex);
-//			this.getSystemRuntime().log(LogLevels.ERROR, LogCats.AI_AIACCESS, String.format("AI应用[%1$s]交互补全发生异常，%2$s", getName(), ex.getMessage()), ex);
-//			throw new SystemRuntimeException(this.getSystemRuntime(), this.getCloudAIUtilRuntime(), String.format("AI应用[%1$s]交互补全发生异常，%2$s", getName(), ex.getMessage()), ex);
-//		}
 		try {
 			loopCallThreadLocal.set(0);
+			promptTokensThreadLocal.set(0);
+			completionTokensThreadLocal.set(0);
+			toolCallsThreadLocal.set(0);
 			return this.onChatCompletion(chatCompletionRequest);
 		}
 		finally {
+			toolCallsThreadLocal.remove();
+			completionTokensThreadLocal.remove();
+			promptTokensThreadLocal.remove();
 			loopCallThreadLocal.remove();
 		}
 	}
@@ -374,6 +383,62 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 		}
 		return nValue;
 	}
+	
+	protected int increasePromptTokens(int nPromptTokens) {
+		Integer nValue = promptTokensThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		nValue += nPromptTokens;
+		promptTokensThreadLocal.set(nValue);
+		return nValue;
+	}
+	
+	protected int getTotalPromptTokens() {
+		Integer nValue = promptTokensThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		return nValue;
+	}
+	
+	
+	protected int increaseCompletionTokens(int nCompletionTokens) {
+		Integer nValue = completionTokensThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		nValue += nCompletionTokens;
+		completionTokensThreadLocal.set(nValue);
+		return nValue;
+	}
+	
+	protected int getTotalCompletionTokens() {
+		Integer nValue = completionTokensThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		return nValue;
+	}
+	
+	protected int increaseToolCalls(int nToolCalls) {
+		Integer nValue = toolCallsThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		nValue += nToolCalls;
+		toolCallsThreadLocal.set(nValue);
+		return nValue;
+	}
+	
+	protected int getTotalToolCalls() {
+		Integer nValue = toolCallsThreadLocal.get();
+		if(nValue == null) {
+			nValue = 0;
+		}
+		return nValue;
+	}
+	
 
 	protected ChatCompletionResult onChatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable{
 		throw new Exception("没有实现");
@@ -422,7 +487,40 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 			Document document = textReRankRequest.getDocuments().get(i);
 			Assert.hasLength(document.getContent(), String.format("文档[%1$s]未传入内容", i));		
 		}
-		return this.onTextReRank(textReRankRequest);
+		
+		//判断传入内容是否为list
+		Object query = textReRankRequest.getRawQuery();
+		if(query instanceof List) {
+			//循环调用
+			List queries = (List)query;
+			Map<Integer, TextReRankDocument> documentScoreMap = new LinkedHashMap<Integer, TextReRankDocument>();
+			for(Object item : queries) {
+				textReRankRequest.setQuery(item);
+				TextReRankResult textReRankResult = this.onTextReRank(textReRankRequest);
+				for(TextReRankDocument textReRankDocument : textReRankResult.getDocuments()) {
+					TextReRankDocument last = documentScoreMap.get(textReRankDocument.getIndex());
+					if(last == null || textReRankDocument.getRelevanceScore().doubleValue() > last.getRelevanceScore().doubleValue()) {
+						documentScoreMap.put(textReRankDocument.getIndex(), textReRankDocument);
+					}
+				}
+			}
+			
+			List<TextReRankDocument> textReRankDocumentList = new ArrayList<TextReRankDocument>(documentScoreMap.values());
+			Collections.sort(textReRankDocumentList, new Comparator<TextReRankDocument>() {
+
+				@Override
+				public int compare(TextReRankDocument arg0, TextReRankDocument arg1) {
+					//倒序
+					return arg1.getRelevanceScore().compareTo(arg0.getRelevanceScore());
+				}
+			});
+			
+			TextReRankResult textReRankResult = new TextReRankResult();
+			textReRankResult.setDocuments(textReRankDocumentList);
+			return textReRankResult;
+		}
+		else
+			return this.onTextReRank(textReRankRequest);
 	}
 	
 	protected TextReRankResult onTextReRank(TextReRankRequest textReRankRequest) throws Throwable {
@@ -440,7 +538,8 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 			strMethod = RequestMethods.POST;
 		}
 		
-		return iWebClient.execute(strMethod, chatFunction.getService().getUrl(), null, null, null, arg, null, String.class, null).getBody();
+		
+		return iWebClient.execute(strMethod, chatFunction.getService().getUrl(), null, chatFunction.getService().getHeader(), null, arg, null, String.class, null).getBody();
 	}
 	
 	protected ISysCloudClientUtilRuntime getSysCloudClientUtilRuntime() {
@@ -448,5 +547,12 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 			this.iSysCloudClientUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysCloudClientUtilRuntime.class, false);
 		}
 		return this.iSysCloudClientUtilRuntime;
+	}
+	
+	protected ISysCacheUtilRuntime getSysCacheUtilRuntime() {
+		if(this.iSysCacheUtilRuntime == null) {
+			this.iSysCacheUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysCacheUtilRuntime.class, false);
+		}
+		return this.iSysCacheUtilRuntime;
 	}
 }

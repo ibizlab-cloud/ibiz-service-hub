@@ -27,8 +27,8 @@ public class XlsxPOIOSSPreviewProvider extends POIOSSPreviewProviderBase {
 			String strPreviewInfo = getPreviewInfo(workbook);
 			fileItem.setPreviewType(FileItem.PREVIEWTYPE_EXCEL);
 			fileItem.setPreviewInfo(strPreviewInfo);
-		} catch (Exception ex) {
-			throw new Exception(String.format("解析导入Excel发生异常：%1$s", ex.getMessage()), ex);
+		} catch (Throwable ex) {
+			throw new Exception(String.format("解析Excel文件发生异常：%1$s", ex.getMessage()), ex);
 		}
 	}
 

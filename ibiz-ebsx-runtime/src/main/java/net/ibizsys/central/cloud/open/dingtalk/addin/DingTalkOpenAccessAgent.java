@@ -114,7 +114,13 @@ public class DingTalkOpenAccessAgent extends OpenAccessAgentBase {
 
                 ISearchContext subSearchContext = new SearchContextDTO();
                 subSearchContext.set("dept_id", item.getDeptId());
-                Collection<OpenDept> subDepts = this.selectOpenDepts(subSearchContext);
+                Collection<OpenDept> subDepts = null;
+                try {
+                    subDepts = this.selectOpenDepts(subSearchContext);
+                }catch (Exception ex) {
+                    subDepts = new ArrayList<>();
+                }
+
                 if (!ObjectUtils.isEmpty(subDepts)) {
                     openDeptList.addAll(subDepts);
                 }
@@ -139,7 +145,13 @@ public class DingTalkOpenAccessAgent extends OpenAccessAgentBase {
                 deptIdList.add(Long.parseLong(openDept.getRealId()));
             }
             for (Long nDeptId : deptIdList) {
-                Collection<OapiV2UserListResponse.ListUserResponse> list = this.getUsersByDeptId(nDeptId);
+                Collection<OapiV2UserListResponse.ListUserResponse> list = null;
+                try {
+                    list = this.getUsersByDeptId(nDeptId);
+                }catch (Exception ex) {
+                    list = new ArrayList<>();
+                }
+
                 if (!ObjectUtils.isEmpty(list)) {
                     for (OapiV2UserListResponse.ListUserResponse item : list) {
                         OpenUser openUser = new OpenUser();

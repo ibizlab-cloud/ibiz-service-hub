@@ -1,7 +1,6 @@
 package net.ibizsys.central.plugin.util.sysutil;
 
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.commons.logging.LogFactory;

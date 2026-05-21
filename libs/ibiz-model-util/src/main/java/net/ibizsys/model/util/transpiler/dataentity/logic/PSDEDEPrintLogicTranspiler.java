@@ -21,6 +21,7 @@ public class PSDEDEPrintLogicTranspiler extends net.ibizsys.model.util.transpile
 			
 		}
 		net.ibizsys.model.dataentity.logic.PSDEDEPrintLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDEDEPrintLogicImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "param7", realPSModelObject.getChatResourceOption(), realPSModelObject, "getChatResourceOption");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDELogicParam(), realPSModelObject, "getDstPSDELogicParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdeprintid", realPSModelObject.getDstPSDEPrint(), realPSModelObject, "getDstPSDEPrint");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdeid", realPSModelObject.getDstPSDataEntity(), realPSModelObject, "getDstPSDataEntity");
@@ -29,6 +30,7 @@ public class PSDEDEPrintLogicTranspiler extends net.ibizsys.model.util.transpile
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCHATRESOURCEOPTION, domain, "param7", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDELOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDELogicParam.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDEPRINT, domain, "dstpsdeprintid", net.ibizsys.model.dataentity.print.IPSDEPrint.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDATAENTITY, domain, "dstpsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);

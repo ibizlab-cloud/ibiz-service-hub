@@ -89,7 +89,7 @@ public class SysDBTableRuntime extends ModelRuntimeBase implements ISysDBTableRu
 	public String getStandardName() {
 		if(!StringUtils.hasLength(this.strStandardName)) {
 			try {
-				this.strStandardName = this.getSysDBSchemeRuntimeContext().getSysDBSchemeRuntime().getDBDialect().getDBObjStandardName(this.getName());
+				this.strStandardName = this.getSysDBSchemeRuntimeContext().getSysDBSchemeRuntime().getDBDialect().getDBObjStandardName(this.getName(), this.getSysDBSchemeRuntimeContext().getSysDBSchemeRuntime().getDBObjNameCaseMode());
 			} catch (Throwable ex) {
 				log.error(ex);
 				this.strStandardName = this.getName();

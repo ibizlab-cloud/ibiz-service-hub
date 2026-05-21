@@ -91,6 +91,17 @@ public interface ISystemRuntimeSetting extends net.ibizsys.runtime.ISystemRuntim
 	
 	
 	/**
+	 * 参数：默认数据库实例类型
+	 */
+	public final static String PARAM_DEFAULTDBINSTTYPE = "defaultdbinsttype";
+	
+	/**
+	 * 参数：默认数据库实例实际类型
+	 */
+	public final static String PARAM_DEFAULTDBINSTREALTYPE = "defaultdbinstrealtype";
+	
+	
+	/**
 	 * 参数：默认大数据库实例标记
 	 */
 	public final static String PARAM_DEFAULTBDINSTTAG = "defaultbdinsttag";

@@ -115,7 +115,7 @@ public class InternalMsgSender extends MsgSenderBase implements IInternalMsgSend
 				v2InternalMessage.setContent(msgSendQueue.getContent());
 				v2InternalMessage.setContentType(msgSendQueue.getContentType());
 				v2InternalMessage.setSystemTag((String)msgSendQueue.get("dcsystemid"));
-			//	v2InternalMessage.setMessageType(msgSendQueue.getContentType());
+				v2InternalMessage.setMessageType(msgSendQueue.getTemplateId());
 				v2InternalMessage.setOwnerType(V2InternalMessageOwnerType.PERSONAL.value);
 				v2InternalMessage.setOwnerId(strUserId);
 				v2InternalMessage.setReceiver(strUserId);

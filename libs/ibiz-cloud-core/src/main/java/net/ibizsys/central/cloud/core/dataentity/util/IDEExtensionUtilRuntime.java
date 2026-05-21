@@ -13,6 +13,7 @@ import net.ibizsys.model.app.view.IPSAppView;
 import net.ibizsys.model.control.IPSControl;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.runtime.util.IEntity;
 
 /**
@@ -29,7 +30,13 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	
 	public final static String EXTENSIONLOGIC_TIMERTASK = "TIMERTASK";
 	
+	public final static String EXTENSIONLOGIC_MANUALTASK = "MANUALTASK";
+	
 	public final static String EXTENSIONLOGIC_WEBHOOK = "WEBHOOK";
+	
+	public final static String EXTENSIONLOGIC_MCPTOOL = "MCPTOOL";
+
+	public final static String EXTENSIONLOGIC_AICHAT = "AICHAT";
 	
 	public final static String DELOGIC_EVENTHOOK_PARAM_EVENTNAME = "EVENTNAME";
 	
@@ -99,8 +106,16 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	 * @return
 	 */
 	IDELogicRuntime getDELogicRuntime(String strLogicTag, boolean bProxyMode, boolean bTryMode);
-	
-	
+
+	/**
+	 * 获取扩展的实体AI交谈逻辑运行时对象
+	 * @param strLogicTag
+	 * @param bProxyMode 是否代理模式
+	 * @param bTryMode 是否尝试模式
+	 * @return
+	 */
+	IDELogicRuntime getAIChatDELogicRuntime(String strLogicTag, boolean bProxyMode, boolean bTryMode);
+
 	/**
 	 * 获取扩展的实体主状态逻辑运行时对象
 	 * @param iDEMSLogicRuntime
@@ -163,9 +178,9 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	 * @return
 	 */
 	V2SystemExtensionLogic[] getExtensionLogics(String strLogicType);
+
 	
-	
-	
+
 	
 	/**
 	 * 执行传入扩展逻辑
@@ -174,9 +189,9 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	 * @return
 	 */
 	Object executeExtensionLogic(V2SystemExtensionLogic v2SystemExtensionLogic, Object objData);
+
 	
-	
-	
+
 	
 	
 	/**
@@ -246,6 +261,16 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	 * @return
 	 */
 	ObjectNode getJsonSchemaModel(Object param);
+	
+	
+	/**
+	 * 获取传入实体方法DTO对象的JsonSchema
+	 * @param iPSDEMethodDTO 实体方法DTO对象
+	 * @param param
+	 * @return
+	 */
+	ObjectNode getPSDEMethodDTOJsonSchemaModel(IPSDEMethodDTO iPSDEMethodDTO, Object param);
+	
 	
 	
 	/**

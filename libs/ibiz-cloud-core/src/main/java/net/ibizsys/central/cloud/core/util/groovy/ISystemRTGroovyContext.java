@@ -18,6 +18,12 @@ public interface ISystemRTGroovyContext extends net.ibizsys.central.util.groovy.
 	
 	
 	/**
+	 * 挂载的子系统运行时对象
+	 */
+	final static String MODELTYPE_SUBSYS = "subsys";
+	
+	
+	/**
 	 * 主系统Groovy上下文
 	 * @return
 	 */
@@ -31,5 +37,22 @@ public interface ISystemRTGroovyContext extends net.ibizsys.central.util.groovy.
 	 * @return
 	 */
 	ISysAIFactoryRuntime aifactory(String tag);
+	
+	
+	/**
+	 * 子系统运行时
+	 * @param tag
+	 * @return
+	 */
+	ISystemRTGroovyContext subsys(String tag);
+	
+	
+	/**
+	 * 子系统运行时
+	 * @param tag
+	 * @param tryMode
+	 * @return
+	 */
+	ISystemRTGroovyContext subsys(String tag, boolean tryMode);
 	
 }

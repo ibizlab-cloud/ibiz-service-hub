@@ -1,11 +1,19 @@
 # 示例：兼容spring boot默认配置，自动提取servicehub和devlopsystem，兼容spring datasource、redis、zk的配置
+system:
+  market: https://code.ibizlab.cn/api/v4
+  shop: plm_addons/public
 rtds:
   url: jdbc:mysql://${mysql.host:mysql}:${mysql.port:3306}/a_lab01_3f9ebc219?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=GMT%2B8&allowMultiQueries=true&useSSL=false
   username: a_lab01_3f9ebc219
   password: '9d@A178@'
   driver-class-name: com.mysql.jdbc.Driver
   defaultSchema: a_lab01_3f9ebc219
+zookeeper:
+  address: ${zookeeper.host:zoo1}
 spring:
+  redis:
+    host: ${redis.host:redis}
+    port: ${redis.port:6379}
   datasource:
     username: ${rtds.username}
     password: ${rtds.password:}
@@ -22,6 +30,10 @@ spring:
           driver-class-name: ${spring.datasource.driver-class-name}
 ibiz:
   tenant: true
+  cloud-oss:
+    libreoffice:
+      path: '/usr/bin/soffice'
+    filepath: /app/file/oss/file
   cloud-devops:
     #是否开启开发模式，开启后会同步系统指定的Git远程模型到本地并更新
     devmode: 'true'
@@ -61,9 +73,9 @@ ibiz:
           #系统插件配置
           hubextension:
             productmarket:
-              serviceurl: https://code.ibizlab.cn/api/v4
+              serviceurl: ${system.market}
               mode: V2
-              projectid: plm_addons/public
+              projectid: ${system.shop}
         sysdbscheme:
           #数据源default配置
           default:
@@ -118,8 +130,6 @@ ibiz:
         url: ${spring.datasource.dynamic.datasource.master.url}
         driver-class-name: ${spring.datasource.dynamic.datasource.master.driver-class-name}
     systemsettings:
-      cloudossutil:
-        filepath: /app/file/oss/file
       cloudclientutil:
         serviceurl: ${cloud.serviceurl:lb://ebsx-oldapi}
         accesstokenurl: ${cloud.accesstokenurl:lb://ibizcloud-uaa/v7/login}

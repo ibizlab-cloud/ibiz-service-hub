@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
@@ -462,7 +463,40 @@ public class PSCorePrdRTService extends net.ibizsys.psmodel.runtime.service.PSCo
 
 			Page<V2System> page = iExtensionPSModelRTServiceSession.getCloudExtensionClient().fetchSystems(searchContextDTO);
 			if (!ObjectUtils.isEmpty(page) && !ObjectUtils.isEmpty(page.getContent())) {
-				return page.getContent().get(0);
+				if(page.getContent().size()>1 && !StringUtils.hasLength(strSystemId)
+                        && iExtensionPSModelRTServiceSession.getSystemRuntime() instanceof IServiceSystemRuntime
+                        && psCorePrd.getId().equalsIgnoreCase(((IServiceSystemRuntime)iExtensionPSModelRTServiceSession.getSystemRuntime()).getV2DeploySystem().getSystemId())) {
+					//为传入systemid，但是system命中多条本productid的情况下，先拿system.system_id=psCorePrd.getId()的，拿不到再取system.id=psCorePrd.getId()的,都拿不到在哪get(0)
+					V2System targetSystem = null;
+
+					// 1. 先找 system.system_id = psCorePrd.getId() 的
+					for (V2System system : page.getContent()) {
+						if (system.getSystemId() != null && system.getSystemId().equals(psCorePrd.getId())) {
+							targetSystem = system;
+							break;
+						}
+					}
+					// 2. 如果没找到，再找 system.id = psCorePrd.getId() 的
+					if (targetSystem == null) {
+						for (V2System system : page.getContent()) {
+							if (system.getId() != null && system.getId().equals(psCorePrd.getId())) {
+								targetSystem = system;
+								break;
+							}
+						}
+					}
+					// 2. 如果没找到，再找 system.id = psCorePrd.getId() 的
+					if (targetSystem == null) {
+						try {
+							targetSystem = iExtensionPSModelRTServiceSession.getCloudExtensionClient().getSystem(psCorePrd.getId());
+						}catch (Exception ex) {}
+					}
+					if (targetSystem != null) {
+						return targetSystem;
+					}
+				}
+                else if (page.getContent().size()==1)
+				    return page.getContent().get(0);
 			}
 		}
 

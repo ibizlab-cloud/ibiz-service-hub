@@ -15,7 +15,9 @@ public enum PortalMessageSubType {
 	
 	 COMMAND_COLLABORATE("COLLABORATE","协同操作"),
 	
-	 COMMAND_ADDINCHANGED("ADDINCHANGED","系统插件变更");
+	 COMMAND_ADDINCHANGED("ADDINCHANGED","系统插件变更"),
+	
+	COMMAND_CHATMESSAGE("CHATMESSAGE","聊天消息");
 	
 
      private String value;

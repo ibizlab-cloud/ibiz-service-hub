@@ -72,10 +72,28 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 */
 	public final static String AIPLATFORM_QWEN = "QWEN";
 	
+	
+	/**
+	 * AI平台：DEEPSEEK
+	 */
+	public final static String AIPLATFORM_DEEPSEEK = "DEEPSEEK";
+	
+	
+	/**
+	 * AI平台：SILICONFLOW
+	 */
+	public final static String AIPLATFORM_SILICONFLOW = "SILICONFLOW";
+	
+	
 	/**
 	 * AI平台：RAGFLOW
 	 */
 	public final static String AIPLATFORM_RAGFLOW = "RAGFLOW";
+	
+	/**
+	 * AI平台：多应用代理
+	 */
+	public final static String AIPLATFORM_PROXY = "PROXY";
 	
 	/**
 	 * AI平台：默认，由Cloud平台默认AI引擎提供服务
@@ -121,6 +139,14 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 */
 	SseEmitter sseChatCompletion(String type, ChatCompletionRequest chatCompletionRequest);
 	
+	
+	/**
+	 * 取消异步聊天补全
+	 * @param type
+	 * @param portalAsyncActionId
+	 * @return
+	 */
+	void cancelChatCompletion(String type, String portalAsyncActionId);
 	
 	
 	/**
@@ -170,6 +196,9 @@ public interface ICloudAIUtilRuntime extends ICloudUtilRuntime{
 	 * @return
 	 */
 	TextReRankResult textReRank(String type, TextReRankRequest textReRankRequest);
+	
+	
+
 }
 
 

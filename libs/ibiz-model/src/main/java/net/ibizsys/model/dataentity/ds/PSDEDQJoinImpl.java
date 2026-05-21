@@ -7,6 +7,7 @@ public class PSDEDQJoinImpl extends net.ibizsys.model.PSObjectImpl implements ne
 	public final static String ATTR_GETALIAS = "alias";
 	public final static String ATTR_GETCHILDPSDEDQJOINS = "getChildPSDEDQJoins";
 	public final static String ATTR_GETDERPSDATAENTITY = "getDERPSDataEntity";
+	public final static String ATTR_GETJOINCOND = "joinCond";
 	public final static String ATTR_GETJOINPSDER = "getJoinPSDER";
 	public final static String ATTR_GETJOINPSDATAENTITY = "getJoinPSDataEntity";
 	public final static String ATTR_GETJOINTAG = "joinTag";
@@ -70,6 +71,14 @@ public class PSDEDQJoinImpl extends net.ibizsys.model.PSObjectImpl implements ne
 		this.derpsdataentity = derpsdataentity;
 	}
 
+
+	public java.lang.String getJoinCond(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETJOINCOND);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.dataentity.der.IPSDERBase joinpsder;
 
 	public net.ibizsys.model.dataentity.der.IPSDERBase getJoinPSDER(){

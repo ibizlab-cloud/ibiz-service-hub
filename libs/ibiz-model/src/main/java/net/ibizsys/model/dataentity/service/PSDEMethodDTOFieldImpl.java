@@ -15,6 +15,7 @@ public class PSDEMethodDTOFieldImpl extends net.ibizsys.model.dataentity.defield
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETPSDER = "getPSDER";
+	public final static String ATTR_GETPATTERN = "pattern";
 	public final static String ATTR_GETREFPSDEMETHODDTO = "getRefPSDEMethodDTO";
 	public final static String ATTR_GETREFPSDATAENTITY = "getRefPSDataEntity";
 	public final static String ATTR_GETRELATEDPSDEMETHODDTO = "getRelatedPSDEMethodDTO";
@@ -154,6 +155,14 @@ public class PSDEMethodDTOFieldImpl extends net.ibizsys.model.dataentity.defield
 		this.psder = psder;
 	}
 
+
+	public java.lang.String getPattern(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPATTERN);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.dataentity.service.IPSDEMethodDTO refpsdemethoddto;
 
 	public net.ibizsys.model.dataentity.service.IPSDEMethodDTO getRefPSDEMethodDTO(){

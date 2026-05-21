@@ -1102,6 +1102,14 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	
 	
 	/**
+	 * 取消流程
+	 * @param iEntityBase
+	 * @throws Throwable
+	 */
+	void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable;
+	
+	
+	/**
 	 * 获取实体类型
 	 * @return
 	 */
@@ -1126,6 +1134,7 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	 * @return
 	 */
 	List<IPSDEField> getUnionKeyValuePSDEFields();
+	
 	
 	
 	
@@ -1438,6 +1447,24 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
      * @return
      */
     String getDERParentType();
+    
+    
+    
+    /**
+	 * 获取主信息文本（如果有）
+	 * @param objEntity
+	 * @return
+	 */
+	String getMajorTextIf(IEntityBase iEntityBase);
+	
+	
+	 /**
+	 * 获取主信息文本（如果有）
+	 * @param objEntity
+	 * @param defaultValue 默认值
+	 * @return
+	 */
+	String getMajorTextIf(IEntityBase iEntityBase, String defaultValue);
 	
 //    /**
 //     * 是否启用父主状态控制

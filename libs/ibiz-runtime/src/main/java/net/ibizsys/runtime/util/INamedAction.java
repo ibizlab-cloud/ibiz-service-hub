@@ -1,5 +1,7 @@
 package net.ibizsys.runtime.util;
 
+import java.util.concurrent.Executor;
+
 public interface INamedAction extends IAction{
 
 	/**
@@ -7,4 +9,9 @@ public interface INamedAction extends IAction{
 	 * @return
 	 */
 	String getName();
+	
+	
+	default Executor getExecutor() {
+		return null;
+	}
 }

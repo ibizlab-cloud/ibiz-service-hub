@@ -75,4 +75,12 @@ public class SysBDSchemeRuntimeException extends RuntimeException implements ISy
 		return this.getSysBDSchemeRuntime();
 	}
 	
+	public static void rethrow(IModelRuntime iModelRuntime, Throwable ex) {
+		if(ex instanceof SysBDSchemeRuntimeException) {
+			SysBDSchemeRuntimeException sysBDSchemeRuntimeException = (SysBDSchemeRuntimeException)ex;
+			if(sysBDSchemeRuntimeException.getModelRuntime() == iModelRuntime) {
+				throw (SysBDSchemeRuntimeException)ex;
+			}
+		}
+	}
 }

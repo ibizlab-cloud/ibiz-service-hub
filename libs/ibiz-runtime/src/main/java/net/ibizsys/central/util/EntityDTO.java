@@ -1375,8 +1375,18 @@ public class EntityDTO extends EntityBase implements IEntityDTO {
 		set(strName, (Object)strValue);
 	}
 	
+	@Override
+	public void rawSet(String strName, Object objValue) {
+		this._set(strName, objValue);
+	}
+	
 	protected void _set(String strName, Object objValue) {
 		super.set(strName, objValue);
+	}
+	
+	@Override
+	public Object rawGet(String strName) {
+		return _get(strName);
 	}
 	
 	protected Object _get(String strName) {

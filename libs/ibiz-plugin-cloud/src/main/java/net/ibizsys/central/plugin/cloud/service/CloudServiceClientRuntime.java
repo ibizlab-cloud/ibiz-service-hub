@@ -124,19 +124,21 @@ public class CloudServiceClientRuntime extends SubSysServiceAPIRuntime {
 					&& StringUtils.hasLength(employeeContext.getUaauserid())
 					&& authenticationUser.getUserid().equals(employeeContext.getUaauserid())) {
 				String strTokenHeader = this.getSysUAAUtilRuntime().getTokenHeader();
-				if(StringUtils.hasLength(strTokenHeader)) {
-					String strTokenPrefix = this.getSysUAAUtilRuntime().getTokenPrefix();
-					if(StringUtils.hasLength(strTokenPrefix)) {
-						map.put(strTokenHeader, String.format("%1$s%2$s", strTokenPrefix, authenticationUser.getToken()));
+				if(authenticationUser.getToken().indexOf(this.getSysUAAUtilRuntime().getSecretKeyPrefix())!=0) {
+					if(StringUtils.hasLength(strTokenHeader)) {
+						String strTokenPrefix = this.getSysUAAUtilRuntime().getTokenPrefix();
+						if(StringUtils.hasLength(strTokenPrefix)) {
+							map.put(strTokenHeader, String.format("%1$s%2$s", strTokenPrefix, authenticationUser.getToken()));
+						}
+						else {
+							map.put(strTokenHeader, authenticationUser.getToken());
+						}
+						map.put(ISysUAAUtilRuntime.HEADER_SYSTEMID, employeeContext.getSystemid());
+						if(StringUtils.hasLength(employeeContext.getOrgid())) {
+							map.put(ISysUAAUtilRuntime.HEADER_ORGID, employeeContext.getOrgid());
+						}
+						return map;
 					}
-					else {
-						map.put(strTokenHeader, authenticationUser.getToken());
-					}
-					map.put(ISysUAAUtilRuntime.HEADER_SYSTEMID, employeeContext.getSystemid());
-					if(StringUtils.hasLength(employeeContext.getOrgid())) {
-						map.put(ISysUAAUtilRuntime.HEADER_ORGID, employeeContext.getOrgid());
-					}
-					return map;
 				}
 			}
 		}

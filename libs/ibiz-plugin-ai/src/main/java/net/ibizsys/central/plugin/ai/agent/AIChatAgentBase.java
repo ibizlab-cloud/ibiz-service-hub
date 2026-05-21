@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
+import net.ibizsys.central.cloud.core.util.UserCancelException;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
@@ -373,7 +374,7 @@ public abstract class AIChatAgentBase extends AIAgentBase implements IAIChatAgen
 
 		PortalAsyncAction portalAsyncAction = this.asyncChatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
 
-		long nTimeout = 300000;
+		long nTimeout = 3000000;
 
 		return (SseEmitter) this.getSystemRuntime().sseExecute(new IAction() {
 			@Override
@@ -399,6 +400,10 @@ public abstract class AIChatAgentBase extends AIAgentBase implements IAIChatAgen
 					if (nActionState == PortalAsyncActionState.FINISHED.getValue()) {
 						return last.getActionResult();
 					}
+					if (nActionState == PortalAsyncActionState.CANCELED.getValue()) {
+						throw new UserCancelException(last.getActionResult());
+					}
+
 					if (nActionState == PortalAsyncActionState.FAILED.getValue()) {
 						throw new Exception(last.getActionResult());
 					}
@@ -416,5 +421,18 @@ public abstract class AIChatAgentBase extends AIAgentBase implements IAIChatAgen
 			}
 		}, null, null, 0l);
 	}
+	
+	@Override
+	public void cancelChatCompletion(Object dataOrKeys, String asyncActionId, Object body) throws Throwable {
+		try {
+			this.onCancelChatCompletion(dataOrKeys, asyncActionId, body);
+		}
+		catch (Throwable ex) {
+			throw new SystemRuntimeException(this.getSystemRuntime(), this.getSysAIFactoryUtilRuntime(), String.format("取消聊天交互发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
 
+	protected void onCancelChatCompletion(Object dataOrKeys, String asyncActionId, Object body) throws Throwable {
+		this.getSysAIUtilRuntime().cancelChatCompletion(getAIPlatformType(), asyncActionId);
+	}
 }

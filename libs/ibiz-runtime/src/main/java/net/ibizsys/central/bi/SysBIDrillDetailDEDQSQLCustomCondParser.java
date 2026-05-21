@@ -29,6 +29,7 @@ import net.ibizsys.model.bi.IPSSysBICubeDimension;
 import net.ibizsys.model.bi.IPSSysBICubeMeasure;
 import net.ibizsys.model.bi.IPSSysBIHierarchy;
 import net.ibizsys.model.bi.IPSSysBILevel;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQueryCodeExp;
 import net.ibizsys.model.util.Conditions;
@@ -241,11 +242,13 @@ public class SysBIDrillDetailDEDQSQLCustomCondParser extends DEDQSQLCustomCondPa
 					throw new Exception(String.format("未支持的维度类型[%1$s]", iPSSysBICubeDimension.getDimensionType()));
 //			
 			IDataEntityRuntime biHierarchyDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(iPSSysBIHierarchy.getPSDataEntityMust().getId());
+			IPSDEDBConfig biHierarchyPSDEDBConfig = biHierarchyDataEntityRuntime.getPSDEDBConfig(iDBDialect.getDBType(), true);
 			
 			StringBuilder sb = new StringBuilder();
 			sb.append(String.format("SELECT 1 FROM %1$s %2$s WHERE (%3$s= %2$s.%4$s)", 
-					iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getTableName())
-					,iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase()), strKeyCode, iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getKeyPSDEField().getName())));
+					iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getTableName(), biHierarchyPSDEDBConfig)
+					,iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase(), iDataEntityRuntime.getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()), strKeyCode,
+					iDBDialect.getDBObjStandardName(biHierarchyDataEntityRuntime.getKeyPSDEField().getName(), biHierarchyPSDEDBConfig)));
 			//构建连接代码
 			for(IPSSysBILevel item : selectedPSSysBILevelList) {
 				if(item.getValuePSDEField() == null) {
@@ -256,7 +259,8 @@ public class SysBIDrillDetailDEDQSQLCustomCondParser extends DEDQSQLCustomCondPa
 				String strFullCodeName = String.format("%1$s__%2$s", iPSSysBICubeDimension.getCodeName(), item.getCodeName());
 				
 				String strLevelValue = conditions.get(strFullCodeName.toLowerCase());
-				String strExpression = String.format("%1$s.%2$s", iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase()), iDBDialect.getDBObjStandardName(item.getValuePSDEField().getName()));
+				String strExpression = String.format("%1$s.%2$s", iDBDialect.getDBObjStandardName(iPSSysBICubeDimension.getCodeName().toLowerCase(), iDataEntityRuntime.getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()), 
+						iDBDialect.getDBObjStandardName(item.getValuePSDEField().getName(), iDataEntityRuntime.getSysDBSchemeRuntimeMust().getDBObjNameCaseMode()));
 				
 				if(StringUtils.hasLength(strLevelValue)) {
 					sb.append(iDBDialect.getConditionSQL(strExpression, item.getValuePSDEField().getStdDataType(), Conditions.EQ, strLevelValue, false, null));

@@ -9,6 +9,7 @@ import net.ibizsys.central.ISystemModelRuntime;
 import net.ibizsys.central.ISystemRuntimeContext;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.util.ISearchContext;
+import net.ibizsys.model.PSModelEnums.DBObjNameCaseMode;
 import net.ibizsys.model.database.IPSSysDBScheme;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
@@ -309,6 +310,18 @@ public interface ISysDBSchemeRuntime extends ISystemModelRuntime, IModelRuntimeS
 	
 	
 	/**
+	 * 获取数据库对象名称转换模式
+	 * @return
+	 */
+	DBObjNameCaseMode getDBObjNameCaseMode();
+	
+	/**
+	 * 设置数据库对象名称转换模式
+	 * @param dbObjNameCaseMode
+	 */
+	void setDBObjNameCaseMode(DBObjNameCaseMode dbObjNameCaseMode);
+	
+	/**
 	 * 使用当前数据源
 	 */
 	void push();
@@ -351,4 +364,7 @@ public interface ISysDBSchemeRuntime extends ISystemModelRuntime, IModelRuntimeS
 	 * @return
 	 */
 	IDBDialect getDBDialect();
+	
+	
+	
 }

@@ -38,4 +38,13 @@ public interface ISysMcpServerUtilRuntimeContext extends ISysUtilRuntimeContext{
 	 * @return
 	 */
 	boolean isDefaultUserOnly();
+	
+	
+	
+	
+	/**
+	 * 获取实体方法返回最大词数
+	 * @return
+	 */
+	int getDEMethodMaxTokens();
 }

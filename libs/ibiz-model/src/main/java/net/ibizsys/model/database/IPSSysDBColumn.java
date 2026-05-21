@@ -53,6 +53,13 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取更多数据类型
+	 * @return
+	 */
+	com.fasterxml.jackson.databind.node.ObjectNode getDataTypes();
+	
+	
+	/**
 	 * 获取默认值
 	 * @return
 	 */

@@ -59,6 +59,7 @@ import net.ibizsys.model.PSModelEnums.AggMode;
 import net.ibizsys.model.PSModelEnums.DEDataSetUnionMode;
 import net.ibizsys.model.PSModelEnums.DEFDataType;
 import net.ibizsys.model.PSModelEnums.PredefinedFieldType;
+import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.defield.IPSDEFSearchMode;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -92,9 +93,9 @@ import net.ibizsys.runtime.util.ISearchGroupCond;
 import net.ibizsys.runtime.util.ISearchItemsCond;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.SearchCustomCond;
-import net.ibizsys.runtime.util.SearchItemsCond;
 import net.ibizsys.runtime.util.SearchFieldCond;
 import net.ibizsys.runtime.util.SearchGroupCond;
+import net.ibizsys.runtime.util.SearchItemsCond;
 import net.ibizsys.runtime.util.SearchPredefinedCond;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
@@ -850,16 +851,16 @@ public class MybatisSqlUtil {
 		if (sort != null && Sort.unsorted() != sort) {
 
 			IDBDialect iDBDialect = iDataEntityRuntime!=null?iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType):DBDialectUtils.getInstance().get(strDBType);
-
+			IPSDEDBConfig iPSDEDBConfig = iDataEntityRuntime!=null?iDataEntityRuntime.getPSDEDBConfig(strDBType, true):null;
 			List<Sort.Order> items = sort.toList();
 			for (Sort.Order order : items) {
 
 				IPSDEField iPSDEField = iDataEntityRuntime.getPSDEField(order.getProperty(), true);
 				if (iPSDEField != null) {
 					if (order.getDirection().isAscending()) {
-						page.addOrder(OrderItem.asc(iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+						page.addOrder(OrderItem.asc(iDBDialect.getDBObjStandardName(iPSDEField.getName(), iPSDEDBConfig)));
 					} else {
-						page.addOrder(OrderItem.desc(iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+						page.addOrder(OrderItem.desc(iDBDialect.getDBObjStandardName(iPSDEField.getName(), iPSDEDBConfig)));
 					}
 				} else {
 					if (order.getDirection().isAscending()) {
@@ -891,6 +892,7 @@ public class MybatisSqlUtil {
 			page.offset(pageable.getOffset());
 		}
 		IDBDialect iDBDialect = iDataEntityRuntime!=null?iDataEntityRuntime.getSystemRuntime().getDBDialect(strDBType):DBDialectUtils.getInstance().get(strDBType);
+		IPSDEDBConfig iPSDEDBConfig = iDataEntityRuntime!=null?iDataEntityRuntime.getPSDEDBConfig(strDBType, true):null;
 		Sort sort = iSearchContext.getPageSort();
 		if (sort != null && Sort.unsorted() != sort) {
 			List<Sort.Order> items = sort.toList();
@@ -910,9 +912,9 @@ public class MybatisSqlUtil {
 					IPSDEField iPSDEField = iDataEntityRuntime.getPSDEField(order.getProperty(), true);
 					if (iPSDEField != null) {
 						if (order.getDirection().isAscending()) {
-							page.addOrder(OrderItem.asc(iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+							page.addOrder(OrderItem.asc(iDBDialect.getDBObjStandardName(iPSDEField.getName(), iPSDEDBConfig)));
 						} else {
-							page.addOrder(OrderItem.desc(iDBDialect.getDBObjStandardName(iPSDEField.getName())));
+							page.addOrder(OrderItem.desc(iDBDialect.getDBObjStandardName(iPSDEField.getName(), iPSDEDBConfig)));
 						}
 					} else {
 						if (order.getDirection().isAscending()) {
@@ -1775,6 +1777,7 @@ public class MybatisSqlUtil {
 					}
 
 					IDEDataQueryCodeRuntime itemDEDataQueryCodeRuntime = itemDataEntityRuntime.getDEDataQueryCodeRuntime(psDEDataQueryList.get(0), iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getDBType(), false);
+					IPSDEDBConfig itemPSDEDBConfig = itemDataEntityRuntime.getPSDEDBConfig(iDEDataQueryCodeRuntime.getPSDEDataQueryCode().getDBType(), true);
 					String strSubQueryIdExp = itemDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(itemDataEntityRuntime.getKeyPSDEField().getName(), false).getExpression();
 
 					StringBuilder sb = new StringBuilder();
@@ -1903,7 +1906,7 @@ public class MybatisSqlUtil {
 
 					strKeyExpCode = iDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(joinPSDEField.getName(), false).getExpression();
 					try {
-						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName()), strKeyExpCode);
+						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName(), itemPSDEDBConfig), strKeyExpCode);
 					} catch (Throwable ex) {
 						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s ", sb.toString(), itemDataEntityRuntime.getKeyPSDEField().getName(), strKeyExpCode);
 					}
@@ -1927,8 +1930,9 @@ public class MybatisSqlUtil {
 					}
 					IDBDialect iDBDialect = iDEDataQueryCodeRuntime.getDBDialect();
 					IDataEntityRuntime minorDataEntityRuntime = iDataEntityRuntime.getSystemRuntime().getDataEntityRuntime(minorPSDataEntity.getId(), false);
+					IPSDEDBConfig minorPSDEDBConfig = minorDataEntityRuntime.getPSDEDBConfig(iDBDialect.getDBType(), true);
 					try {
-						strSql = String.format("SELECT 1 FROM %1$s WHERE %2$s = %1$s.%3$s", iDBDialect.getDBObjStandardName(minorDataEntityRuntime.getTableName()), strKeyExpCode, iDBDialect.getDBObjStandardName(pickupPSDEField.getName()));
+						strSql = String.format("SELECT 1 FROM %1$s WHERE %2$s = %1$s.%3$s", iDBDialect.getDBObjStandardName(minorDataEntityRuntime.getTableName(), minorPSDEDBConfig), strKeyExpCode, iDBDialect.getDBObjStandardName(pickupPSDEField.getName(), minorPSDEDBConfig));
 					} catch (Throwable ex) {
 						throw new RuntimeException(String.format("拼合从数据[%1$s]存在条件发生异常，%2$s", minorDataEntityRuntime.getName(), ex.getMessage()), ex);
 					}
@@ -2327,17 +2331,18 @@ public class MybatisSqlUtil {
 				if (bMinorMode) {
 
 					String strKeyExpCode = iDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(iDataEntityRuntime.getKeyPSDEField().getName(), false).getExpression();
+					IPSDEDBConfig itemPSDEDBConfig = itemDataEntityRuntime.getPSDEDBConfig(itemDEDataQueryCodeRuntime.getDBDialect().getDBType(), true);
 					try {
-						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName()), strKeyExpCode);
+						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName(), itemPSDEDBConfig), strKeyExpCode);
 					} catch (Throwable ex) {
 						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), joinPSDEField.getName(), strKeyExpCode);
 					}
 				} else {
 
 					String strKeyExpCode = iDEDataQueryCodeRuntime.getPSDEDataQueryCodeExp(joinPSDEField.getName(), false).getExpression();
-
+					IPSDEDBConfig itemPSDEDBConfig = itemDataEntityRuntime.getPSDEDBConfig(itemDEDataQueryCodeRuntime.getDBDialect().getDBType(), true);
 					try {
-						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName()), strKeyExpCode);
+						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName(), itemPSDEDBConfig), strKeyExpCode);
 					} catch (Throwable ex) {
 						strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDataEntityRuntime.getKeyPSDEField().getName(), strKeyExpCode);
 					}
@@ -2665,19 +2670,19 @@ public class MybatisSqlUtil {
 
 					String strSql;
 					if (bMinorMode) {
-
-						String strKeyExpCode = iDBDialect.getDBObjStandardName(iDataEntityRuntime.getKeyPSDEField().getName());
+						IPSDEDBConfig itemPSDEDBConfig = itemDataEntityRuntime.getPSDEDBConfig(itemDEDataQueryCodeRuntime.getDBDialect().getDBType(), true);
+						String strKeyExpCode = iDBDialect.getDBObjStandardName(iDataEntityRuntime.getKeyPSDEField().getName(), iDataEntityRuntime.getPSDEDBConfig(itemDEDataQueryCodeRuntime.getDBDialect().getDBType(), true));
 						try {
-							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName()), strKeyExpCode);
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(joinPSDEField.getName(), itemPSDEDBConfig), strKeyExpCode);
 						} catch (Throwable ex) {
 							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), joinPSDEField.getName(), strKeyExpCode);
 						}
 					} else {
-
-						String strKeyExpCode = iDBDialect.getDBObjStandardName(joinPSDEField.getName());
+						IPSDEDBConfig itemPSDEDBConfig = itemDataEntityRuntime.getPSDEDBConfig(itemDEDataQueryCodeRuntime.getDBDialect().getDBType(), true);
+						String strKeyExpCode = iDBDialect.getDBObjStandardName(joinPSDEField.getName(), itemPSDEDBConfig);
 
 						try {
-							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName()), strKeyExpCode);
+							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDEDataQueryCodeRuntime.getDBDialect().getDBObjStandardName(itemDataEntityRuntime.getKeyPSDEField().getName(), itemPSDEDBConfig), strKeyExpCode);
 						} catch (Throwable ex) {
 							strSql = String.format("select 1 from (%1$s) s where s.%2$s = %3$s", sb.toString(), itemDataEntityRuntime.getKeyPSDEField().getName(), strKeyExpCode);
 						}

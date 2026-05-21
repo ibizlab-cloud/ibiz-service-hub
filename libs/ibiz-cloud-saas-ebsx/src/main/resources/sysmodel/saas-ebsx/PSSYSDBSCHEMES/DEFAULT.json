@@ -1077,7 +1077,7 @@
   }, {
     "getAllPSSysDBColumns" : [ {
       "codeName" : "CFG",
-      "length" : 1048576,
+      "length" : 16777215,
       "logicName" : "配置内容",
       "name" : "CFG",
       "stdDataType" : 21,

@@ -44,7 +44,7 @@ public class POIDEDataExportRuntime extends DEDataExportRuntimeBase {
 	
 	@Override
 	public File exportFile(Object objData, String strMethodName, Object objBody, String strKey, Object objTag, boolean bTestPriv, IDataEntityRuntime parentDataEntityRuntime, String strParentKey) {
-		try (Workbook workbook = new XSSFWorkbook();) {
+		try (Workbook workbook = new XSSFWorkbook()) {
 			
 			List<IPSDEDataExportItem> exportItems = this.getPSDEDataExportItems();
 			if (ObjectUtils.isEmpty(exportItems)) {

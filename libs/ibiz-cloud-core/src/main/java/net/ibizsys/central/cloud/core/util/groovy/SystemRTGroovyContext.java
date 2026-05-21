@@ -1,5 +1,6 @@
 package net.ibizsys.central.cloud.core.util.groovy;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,13 +8,18 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import net.ibizsys.central.ISystemRuntime;
 import net.ibizsys.central.ISystemRuntimeContext;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.IProxyDEService;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
+import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
+import net.ibizsys.central.cloud.core.system.IExtensionSysRefRuntime;
+import net.ibizsys.central.cloud.core.util.domain.DeploySystem;
 import net.ibizsys.central.dataentity.service.IDEService;
+import net.ibizsys.model.IPSSystemService;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.runtime.security.IUserContext;
@@ -61,6 +67,34 @@ public class SystemRTGroovyContext extends net.ibizsys.central.util.groovy.Syste
 	@Override
 	public ISystemRTGroovyContext main() {
 		return ((IServiceSystemRuntime)this.getSystemRuntime()).getMainSystemRuntime(false).getSystemRTGroovyContext();
+	}
+
+	@Override
+	public ISystemRTGroovyContext subsys(String tag) {
+		return this.subsys(tag, false);
+	}
+	
+	@Override
+	public ISystemRTGroovyContext subsys(String tag, boolean tryMode) {
+		final Collection<IExtensionSysRefRuntime> last = ((IServiceSystemRuntime)this.getSystemRuntime()).getMainSystemRuntime(false).getExtensionSysRefRuntimes(false);
+		if(!ObjectUtils.isEmpty(last)) {
+			for(IExtensionSysRefRuntime iExtensionSysRefRuntime : last) {
+				DeploySystem deploySystem = iExtensionSysRefRuntime.getDeploySystem();
+				if(deploySystem == null) {
+					continue;
+				}
+				
+				IPSSystemService iPSSystemService = iExtensionSysRefRuntime.getPSSystemService();
+				if(tag.equalsIgnoreCase(iPSSystemService.getPSSystem().getCodeName())) {
+					ISystemRuntime loadedSystemRuntime = ServiceHub.getInstance().getLoadedSystemRuntime(deploySystem.getDeploySystemId());
+					return ((IServiceSystemRuntime)loadedSystemRuntime).getSystemRTGroovyContext();
+				}
+			}
+		}
+		if(tryMode) {
+			return null;
+		}
+		throw new RuntimeException(String.format("指定子系统[%1$s]不存在", tag));
 	}
 	
 	@Override
@@ -117,6 +151,11 @@ public class SystemRTGroovyContext extends net.ibizsys.central.util.groovy.Syste
 		if(MODELTYPE_AIFACTORY.equalsIgnoreCase(type)) {
 			return this.aifactory(tag);
 		}
+		
+		if(MODELTYPE_SUBSYS.equalsIgnoreCase(type)) {
+			return this.subsys(tag);
+		}
+		
 		return super.getModelRuntime(type, tag);
 	}
 }

@@ -1,7 +1,10 @@
 package net.ibizsys.central.dataentity.search;
 
+import org.springframework.data.domain.Page;
+
 import net.ibizsys.central.dataentity.IDataEntityModelRuntime;
 import net.ibizsys.central.search.ISysSearchSchemeRuntime;
+import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
 import net.ibizsys.model.dataentity.search.IPSDESearch;
 import net.ibizsys.runtime.dataentity.IDataEntityRuntimeContext;
 
@@ -51,4 +54,35 @@ public interface IDESearchRuntime extends IDataEntityModelRuntime{
 	 * @param arg0
 	 */
 	void syncEntity(int nEvent, Object arg0);
+	
+	
+	/**
+	 * 全文检索体系运行时是否启用
+	 * @return
+	 */
+	default boolean isEnabled() {
+		return true;
+	}
+	
+	
+	/**
+	 * 是否有效
+	 * @return
+	 */
+	default boolean isValid(IPSDEDataSet iPSDEDataSet, Object[] args) {
+		return false;
+	}
+	
+	
+	/**
+	 * 获取实体数据集
+	 * @param iPSDEDataSet
+	 * @param args
+	 * @param actionData
+	 * @return
+	 * @throws Throwable
+	 */
+	default Page<?> fetchDataSet(IPSDEDataSet iPSDEDataSet, Object[] args, Object actionData) throws Throwable {
+		throw new Exception("没有实现");
+	}
 }

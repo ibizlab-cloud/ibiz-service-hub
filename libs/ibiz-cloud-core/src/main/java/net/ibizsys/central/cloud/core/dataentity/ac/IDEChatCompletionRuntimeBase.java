@@ -49,6 +49,17 @@ public interface IDEChatCompletionRuntimeBase {
 	 */
 	final static String METHOD_CHATSUGGESTION = "CHATSUGGESTION";
 	
+	/**
+	 * 方法：取消聊天补全
+	 */
+	final static String METHOD_CANCELCHATCOMPLETION = "CANCELCHATCOMPLETION";
+	
+	
+	/**
+	 * 方法：摘要
+	 */
+	final static String METHOD_CHATDIGEST = "CHATDIGEST";
+	
 	
 	/**
 	 * 获取聊天资源内容
@@ -63,7 +74,6 @@ public interface IDEChatCompletionRuntimeBase {
 	 * 获取历史记录
 	 * @param dataOrKeys 键值或数据对象
 	 * @param body
-	 * @parma templParams 模板参数
 	 * @return
 	 * @throws Throwable
 	 */
@@ -121,4 +131,24 @@ public interface IDEChatCompletionRuntimeBase {
 	 * @throws Throwable
 	 */
 	SseEmitter sseChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest)  throws Throwable;
+	
+	/**
+	 * 取消聊天交互
+	 * @param dataOrKeys
+	 * @param strAsyncActionId
+	 * @param body
+	 * @throws Throwable
+	 */
+	void cancelChatCompletion(Object dataOrKeys, String strAsyncActionId, Object body)  throws Throwable;
+	
+	
+	/**
+	 * 获取建议
+	 * @param dataOrKeys 键值或数据对象
+	 * @param chatCompletionRequest
+	 * @return
+	 * @throws Throwable
+	 */
+	ChatCompletionResult chatDigest(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest) throws Throwable;
+	
 }

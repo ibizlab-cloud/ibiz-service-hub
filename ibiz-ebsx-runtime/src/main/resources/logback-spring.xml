@@ -2,7 +2,7 @@
 <configuration debug="false">
     <springProperty name="LOG_PATH" scope="context" source="logging.path" defaultValue="logs"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %-40.40logger{39} : %msg%n" />
-    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log],FROM `IBZMSGSENDQUEUE`,INSERT INTO `IBZLOG`,INSERT INTO `IBZPO`,INSERT INTO `IBZEVENT`,INSERT INTO `IBZAUDIT`,.0(Timestamp), 1000(Long)" />
+    <springProperty name="LOG_STOP_WORDS" scope="context" source="logging.stopWords" defaultValue="POST[/log],FROM `IBZMSGSENDQUEUE`,INSERT INTO `IBZLOG`,INSERT INTO `IBZPO`,INSERT INTO `IBZEVENT`,INSERT INTO `IBZAUDIT`,.0(Timestamp), 1000(Long),Total: 0,Total: 0,FROM `ibzasyncaction` t1,UPDATE `IBZASYNCACTION`,OpenAIAccessAgentBase,DefaultMcpServerAgentBase" />
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />

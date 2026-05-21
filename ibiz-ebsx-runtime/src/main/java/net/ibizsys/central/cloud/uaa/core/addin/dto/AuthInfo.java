@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.uaa.core.addin.dto;
 import java.util.*;
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,6 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author generator
  */
 @ApiModel("认证信息DTO")
+@JsonInclude(JsonInclude.Include.NON_NULL)   // 关键注解：忽略 null 字段
 public class AuthInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -122,6 +124,22 @@ public class AuthInfo implements Serializable {
     @JsonProperty("postal_address")
     @ApiModelProperty(value = "地址", position = 15)
     private String postalAddress;
+
+    /**
+     * 状态
+     */
+    @JsonProperty("status")
+    @ApiModelProperty(value = "状态", position = 16)
+    private String status;
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     /**
      * 隶属于

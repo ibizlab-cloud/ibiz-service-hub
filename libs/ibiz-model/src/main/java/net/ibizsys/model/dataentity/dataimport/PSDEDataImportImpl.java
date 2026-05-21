@@ -8,6 +8,7 @@ public class PSDEDataImportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 
 	public final static String ATTR_GETBATCHSIZE = "batchSize";
 	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETCONTENTTYPE = "contentType";
 	public final static String ATTR_GETCREATEDATAACCESSACTION = "createDataAccessAction";
 	public final static String ATTR_GETCREATEPSAPPDEACTION = "getCreatePSAppDEAction";
 	public final static String ATTR_GETCREATEPSDEACTION = "getCreatePSDEAction";
@@ -40,6 +41,14 @@ public class PSDEDataImportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getContentType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENTTYPE);
 		if(value == null){
 			return null;
 		}

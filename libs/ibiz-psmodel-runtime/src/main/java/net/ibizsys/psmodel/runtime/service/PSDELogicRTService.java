@@ -120,7 +120,8 @@ public class PSDELogicRTService extends PSModelRTServiceBase<PSDELogic, PSDELogi
     	String strLogicSubType = m.getLogicSubType();
     	if(StringUtils.hasLength(strLogicSubType)
     			&& (!LogicSubType.NONE.value.equals(strLogicSubType))
-    			&& (!LogicSubType.DEFIELD.value.equals(strLogicSubType))){
+    			&& (!LogicSubType.DEFIELD.value.equals(strLogicSubType))
+				&& (!LogicSubType.AICHAT.value.equals(strLogicSubType))){
     		m.resetCodeName();
     		m.setCodeName(String.format("ux%1$s%2$s", strLogicSubType.toLowerCase(), this.getRandom().nextInt(9999999)));
     	}

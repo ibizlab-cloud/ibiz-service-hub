@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.core.util.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
 
 public class EmbeddingRequest  extends EntityBase {
@@ -13,6 +14,9 @@ public class EmbeddingRequest  extends EntityBase {
 	
 	
 	public final static String FIELD_CONTENT = "content";
+	
+	
+	public final static String FIELD_DIMENSIONS = "dimensions";
 	
 	/**
 	 * 设置「内容」
@@ -131,6 +135,46 @@ public class EmbeddingRequest  extends EntityBase {
 	@JsonIgnore
 	public EmbeddingRequest resetContent() {
 		this.reset(FIELD_CONTENT);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「最大词量」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public EmbeddingRequest setDimensions(Integer val) {
+		this.set(FIELD_DIMENSIONS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「最大词量」值
+	 *
+	 */
+	@JsonIgnore
+	public Integer getDimensions() {
+		return DataTypeUtils.asInteger(this.get(FIELD_DIMENSIONS), null);
+	}
+
+	/**
+	 * 判断 「最大词量」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsDimensions() {
+		return this.contains(FIELD_DIMENSIONS);
+	}
+
+	/**
+	 * 重置 「最大词量」
+	 *
+	 */
+	@JsonIgnore
+	public EmbeddingRequest resetDimensions() {
+		this.reset(FIELD_DIMENSIONS);
 		return this;
 	}
 	

@@ -1,6 +1,12 @@
 package net.ibizsys.central.cloud.core.dataentity.logic;
 
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
+
+import net.ibizsys.central.cloud.core.ai.util.AIChatUtils;
+import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
+import net.ibizsys.central.cloud.core.util.domain.ChatCompletionUsage;
 import net.ibizsys.central.dataentity.logic.DELogicParamRuntimeBase;
 import net.ibizsys.central.dataentity.logic.IDELogicSession;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
@@ -13,6 +19,47 @@ import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
  */
 public class DELogicChatCompletionResultParamRuntime extends DELogicParamRuntimeBase {
 
+	/**
+	 * 参数：内容（返回结果的内容，移除THINK等）
+	 */
+	public final static String PARAM_CONTENT = "content";
+	
+	
+	/**
+	 * 参数：直接内容（直接返回结果的内容）
+	 */
+	public final static String PARAM_RAW = "raw";
+	
+	
+	/**
+	 * 参数：JSON内容
+	 */
+	public final static String PARAM_JSON = "json";
+	
+	
+	/**
+	 * 参数：附加直接内容（直接返回结果的内容）
+	 */
+	public final static String PARAM_APPEND = "append";
+	
+	
+	/**
+	 * 参数：输入词数
+	 */
+	public final static String PARAM_PROMPT_TOKENS = "prompt_tokens";
+	
+	
+	/**
+	 * 参数：输出词数
+	 */
+	public final static String PARAM_COMPLETION_TOKENS = "completion_tokens";
+	
+	/**
+	 * 参数：工具调用次数
+	 */
+	public final static String PARAM_TOOL_CALLS = "tool_calls";
+	
+	
 	@Override
 	public Object getScriptObject(IDELogicSession iDELogicSession) throws Throwable {
 //		Object objParam = getParamObject(iDELogicSession);
@@ -65,83 +112,110 @@ public class DELogicChatCompletionResultParamRuntime extends DELogicParamRuntime
 			chatCompletionResult = (ChatCompletionResult)param;
 		}
 		
-		if(chatCompletionResult == null || objValue == null) {
+		if(chatCompletionResult == null) {
 			super.set(iDELogicSession, strName, objValue);
 			return;
 		}
 		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_PAGE.equalsIgnoreCase(strName)) {
-//			int nPage = Integer.valueOf(objValue.toString());
-//			if (nPage < 0) {
-//				nPage = 0;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionResult.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionResult.setPageable(PageResult.of(nPage, SearchContextDTO.getMaxSize(), 0));
-//			}
-//			else {
-//				chatCompletionResult.setPageable(PageResult.of(nPage, lastPageable.getPageSize(), lastPageable.getOffset()));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_SIZE.equalsIgnoreCase(strName)) {
-//			int nSize = Integer.valueOf(objValue.toString());
-//			if (nSize <= 0) {
-//				nSize = ChatCompletionResult.DEFAULTPAGESIZE;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionResult.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionResult.setPageable(PageResult.of(ChatCompletionResult.STARTPAGE, nSize));
-//			}
-//			else {
-//				chatCompletionResult.setPageable(PageResult.of(lastPageable.getPageNumber(), nSize, lastPageable.getOffset()));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_OFFSET.equalsIgnoreCase(strName)) {
-//			int nOffset = Integer.valueOf(objValue.toString());
-//			if (nOffset < 0) {
-//				nOffset = 0;
-//			}
-//			
-//			Pageable lastPageable = chatCompletionResult.getPageable();
-//			if(lastPageable == null) {
-//				chatCompletionResult.setPageable(PageResult.of(ChatCompletionResult.STARTPAGE, ChatCompletionResult.DEFAULTPAGESIZE, nOffset));
-//			}
-//			else {
-//				chatCompletionResult.setPageable(PageResult.of(lastPageable.getPageNumber(), lastPageable.getPageSize(), nOffset));
-//			}
-//			return;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_SORT.equalsIgnoreCase(strName)) {
-//			String strSortInfo = (String) objValue;
-//			strSortInfo = strSortInfo.trim();
-//			chatCompletionResult.setPageSort(strSortInfo);
-//			return ;
-//		}
-//		
-//		if(net.ibizsys.central.util.ISearchContext.PARAM_QUERY.equalsIgnoreCase(strName)) {
-//			String strQuery = objValue.toString();
-//			strQuery = strQuery.trim();
-//			
-//			SearchContextDTO.addSearchQuickCond(chatCompletionResult, strQuery);
-//			return ;
-//		}
-//		
-//		if(chatCompletionResult.getDEMethodDTORuntime()!=null) {
-//			IPSDEMethodDTOField iPSDEMethodDTOField = chatCompletionResult.getDEMethodDTORuntime().getPSDEMethodDTOField(strName, true);
-//			if(iPSDEMethodDTOField!=null) {
-//				SearchContextDTO.addSearchFieldCond(chatCompletionResult, strName, objValue);
-//				return;
-//			}
-//		}
-//		
-//		chatCompletionResult.set(strName, objValue);
+		if(PARAM_CONTENT.equalsIgnoreCase(strName)
+				|| PARAM_RAW.equalsIgnoreCase(strName)
+				|| PARAM_JSON.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionResult.getChoices())) {
+				chatCompletionResult.setChoices(ChatMessagesBuilder.create().assistant(String.valueOf(objValue)).build());
+				return;
+			}
+			
+			chatCompletionResult.getChoices().get(0).setContent(String.valueOf(objValue));
+			return;
+		}
+		
+		if(PARAM_APPEND.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionResult.getChoices())) {
+				chatCompletionResult.setChoices(ChatMessagesBuilder.create().assistant(String.valueOf(objValue)).build());
+				return;
+			}
+			
+			String strContent = chatCompletionResult.getChoices().get(0).getContent();
+			if(StringUtils.hasLength(strContent)) {
+				strContent += "\r\n";
+			}
+			else {
+				strContent = "";
+			}
+			strContent += String.valueOf(objValue);
+			chatCompletionResult.getChoices().get(0).setContent(strContent);
+			return;
+		}
+	
+		chatCompletionResult.set(strName, objValue);
 		return;
 	}
+	
+	@Override
+	public Object get(IDELogicSession iDELogicSession, String strName) throws Throwable {
+		Object param = this.getParamObject(iDELogicSession);
+		ChatCompletionResult chatCompletionResult = null;
+		if(param instanceof ChatCompletionResult) {
+			chatCompletionResult = (ChatCompletionResult)param;
+		}
+		
+		if(chatCompletionResult == null) {
+			return super.get(iDELogicSession, strName);
+		}
+		
+		if(PARAM_CONTENT.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionResult.getChoices())) {
+				return null;
+			}
+			
+			String strContent = chatCompletionResult.getChoices().get(0).getContent();
+			return AIChatUtils.removeThinkingContent(strContent);
+		}
+		
+		if(PARAM_JSON.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionResult.getChoices())) {
+				return null;
+			}
+			
+			return AIChatUtils.getJsonContent(chatCompletionResult);
+		}
+		
+		if(PARAM_RAW.equalsIgnoreCase(strName)) {
+			if(ObjectUtils.isEmpty(chatCompletionResult.getChoices())) {
+				return null;
+			}
+			
+			return chatCompletionResult.getChoices().get(0).getContent();
+		}
+		
+		if(PARAM_PROMPT_TOKENS.equalsIgnoreCase(strName) || ChatCompletionUsage.FIELD_PROMPTTOKENS.equalsIgnoreCase(strName)) {
+			if(chatCompletionResult.getUsage() == null) {
+				return null;
+			}
+			return chatCompletionResult.getUsage().getPromptTokens();
+		}
+		
+		if(PARAM_COMPLETION_TOKENS.equalsIgnoreCase(strName) || ChatCompletionUsage.FIELD_COMPLETIONTOKENS.equalsIgnoreCase(strName)) {
+			if(chatCompletionResult.getUsage() == null) {
+				return null;
+			}
+			return chatCompletionResult.getUsage().getCompletionTokens();
+		}
+		
+		if(PARAM_TOOL_CALLS.equalsIgnoreCase(strName) || ChatCompletionUsage.FIELD_TOOLCALLS.equalsIgnoreCase(strName)) {
+			if(chatCompletionResult.getUsage() == null) {
+				return null;
+			}
+			return chatCompletionResult.getUsage().getToolCalls();
+		}
+		
+		
+		if(PARAM_APPEND.equalsIgnoreCase(strName)) {
+			throw new Exception(String.format("获取操作不支持[%1$s]",  strName));
+		}
+		
+		return super.get(iDELogicSession, strName);
+	}
+	
+	
 }

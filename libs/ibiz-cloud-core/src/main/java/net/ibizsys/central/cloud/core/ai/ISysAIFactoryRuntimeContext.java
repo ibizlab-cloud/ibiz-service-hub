@@ -1,5 +1,6 @@
 package net.ibizsys.central.cloud.core.ai;
 
+import java.io.File;
 import java.util.Map;
 
 import net.ibizsys.model.ai.IPSSysAIChatAgent;
@@ -100,11 +101,79 @@ public interface ISysAIFactoryRuntimeContext extends IModelRuntimeContext, IAIFa
 	String getAIPlatformType();
 	
 	
+	/**
+	 * 获取默认KB平台类型
+	 * @return
+	 */
+	String getKBPlatformType();
+	
+	
 	
 	/**
 	 * 建立AI聊天代理运行时对象
 	 * @param iPSSysAIChatAgent
 	 * @return
 	 */
-	ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent);
+	ISysAIChatAgentRuntime createSysAIChatAgentRuntime(IPSSysAIChatAgent iPSSysAIChatAgent) throws Exception;
+	
+	
+	
+	/**
+	 * 获取工作空间
+	 * @return
+	 */
+	File getWorkspace();
+
+
+	
+	
+	/**
+	 * 获取AI聊天代理组
+	 * @return
+	 */
+	ISysAIChatAgentGroup getAIChatAgentGroup(String groupTag) throws Exception;
+	
+	
+	
+	/**
+	 * 获取AI聊天记忆组件
+	 * @param tryMode
+	 * @return
+	 * @throws Exception
+	 */
+	IAIChatMemoryUtil getAIChatMemoryUtil(boolean tryMode) throws Exception;
+	
+	
+	/**
+	 * 获取AI聊天技能组件
+	 * @param tryMode
+	 * @return
+	 * @throws Exception
+	 */
+	IAIChatSkillUtil getAIChatSkillUtil(boolean tryMode) throws Exception; 
+	
+	
+	/**
+	 * 获取聊天资源最大词数
+	 * @return
+	 */
+	int getChatResourceMaxTokens();
+	
+	/**
+	 * 获取常规记忆最大词数
+	 * @return
+	 */
+	int getRegularMemoryMaxTokens();
+	
+	/**
+	 * 获取常驻记忆最大词数
+	 * @return
+	 */
+	int getResidentMemoryMaxTokens();
+	
+	/**
+	 * 获取当日记忆最大词数
+	 * @return
+	 */
+	int getDailyMemoryMaxTokens();
 }

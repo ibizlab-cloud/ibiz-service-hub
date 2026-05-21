@@ -122,6 +122,14 @@ public interface ICloudPortalUtilRuntime extends ICloudUtilRuntime{
 	 */
 	PortalAsyncAction errorAsyncAction(String strId, Map params);
 	
+	/**
+	 * 标记异步作业执行取消
+	 * @param strId
+	 * @param params
+	 * @return
+	 */
+	PortalAsyncAction cancelAsyncAction(String strId, Map params);
+	
 	
 	/**
 	 * 标记异步作业执行完成

@@ -79,6 +79,11 @@ public class DEPrintRuntime extends DataEntityModelRuntimeBase implements IDEPri
 	 * @return
 	 */
 	protected String getDefaultContentType() {
+		String strContentType = this.getPSDEPrint().getContentType();
+		return StringUtils.hasLength(strContentType)?strContentType:onGetDefaultContentType();
+	}
+	
+	protected String onGetDefaultContentType() {
 		return ReportContentType.PDF.value;
 	}
 	

@@ -13,6 +13,7 @@ public class PSDEDRItemImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 	public final static String ATTR_GETHEADERPSSYSPFPLUGIN = "getHeaderPSSysPFPlugin";
 	public final static String ATTR_GETITEMTYPE = "itemType";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
+	public final static String ATTR_GETPDTVIEWTAG = "pDTViewTag";
 	public final static String ATTR_GETPSNAVIGATECONTEXTS = "getPSNavigateContexts";
 	public final static String ATTR_GETPSNAVIGATEPARAMS = "getPSNavigateParams";
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
@@ -24,6 +25,7 @@ public class PSDEDRItemImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 	public final static String ATTR_GETVIEWCODENAME = "viewCodeName";
 	public final static String ATTR_GETVIEWPSDATAENTITY = "getViewPSDataEntity";
 	public final static String ATTR_GETVIEWPARAMJO = "viewParamJO";
+	public final static String ATTR_ISUSEPDTVIEW = "usePDTView";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes(){
@@ -116,6 +118,14 @@ public class PSDEDRItemImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public java.lang.String getPDTViewTag(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPDTVIEWTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
 	}
 
 	private java.util.List<net.ibizsys.model.control.IPSNavigateContext> psnavigatecontexts = null;
@@ -307,5 +317,13 @@ public class PSDEDRItemImpl extends net.ibizsys.model.dataentity.PSDataEntityObj
 			return null;
 		}
 		return (com.fasterxml.jackson.databind.node.ObjectNode)value;
+	}
+
+	public boolean isUsePDTView(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISUSEPDTVIEW);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
 	}
 }

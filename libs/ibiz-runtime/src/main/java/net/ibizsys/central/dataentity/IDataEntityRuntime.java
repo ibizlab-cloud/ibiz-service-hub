@@ -226,6 +226,16 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 * @return
 	 */
 	IPSDEDBConfig getDefaultPSDEDBConfig();
+	
+	
+
+	/**
+	 * 获取当前实体指定数据库配置
+	 * @param strDBType
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSDEDBConfig getPSDEDBConfig(String strDBType, boolean bTryMode);
 
 	/**
 	 * 获取默认的实体工作流运行时
@@ -502,6 +512,19 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 * @throws Throwable
 	 */
 	void wfStart(IEntityBase iEntityBase, IPSDEWF iPSDEWF, boolean bIgnoreDEService) throws Throwable;
+	
+	
+	/**
+	 * 取消流程
+	 * 
+	 * @param iEntityBase
+	 * @param 指定指定的实体工作流
+	 * @param bIgnoreDEService
+	 *            指定是否忽略指定的实体服务对象
+	 * @throws Throwable
+	 */
+	void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF, boolean bIgnoreDEService) throws Throwable;
+	
 
 	/**
 	 * 获取当前动态实例实体运行时
@@ -627,6 +650,16 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 */
 	IEntityDTO rawGet(Object key) throws Throwable;
 
+	
+	/**
+	 * 直接获取操作会话中的数据对象（没有则放入）
+	 * 
+	 * @param objKey
+	 * @return
+	 */
+	IEntityDTO rawGetSessionEntityIf(Object objKey) throws Throwable;
+	
+	
 	/**
 	 * 直接查询默认数据查询
 	 * 
@@ -1569,6 +1602,13 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 */
 	boolean rawSelect(IEntityDTO iEntityDTO, boolean bTryMode);
 	
+	
+	/**
+	 * 存在指定数据
+	 * @param keyOrData
+	 * @return
+	 */
+	boolean existsData(Object keyOrData);
 	
 	
 	/**

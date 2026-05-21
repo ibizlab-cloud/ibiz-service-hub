@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.saas.ebsx.spring.core.ou.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 
 @ApiModel("部门DTO")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SysDepartmentDTO  implements Serializable {
 
     private static final long serialVersionUID = 1L;

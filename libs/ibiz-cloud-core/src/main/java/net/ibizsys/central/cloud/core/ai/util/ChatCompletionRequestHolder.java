@@ -24,6 +24,14 @@ public class ChatCompletionRequestHolder {
         return LOOKUP_KEY_HOLDER.get().peek();
     }
 
+    public static ChatCompletionRequest peekMust() {
+    	ChatCompletionRequest request = peek();
+    	if(request != null) {
+    		return request;
+    	}
+    	throw new RuntimeException("交互补全请求对象无效");
+    }
+    
 
     public static void push(ChatCompletionRequest ds) {
         LOOKUP_KEY_HOLDER.get().push(ds);

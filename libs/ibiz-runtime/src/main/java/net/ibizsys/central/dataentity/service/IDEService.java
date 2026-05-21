@@ -184,7 +184,14 @@ public interface IDEService<T extends IEntityDTO, F extends ISearchContextDTO> {
 	void wfStart(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable;
 	
 	
-	
+	/**
+	 * 取消工作流
+	 * @param iDataEntityRuntime
+	 * @param iEntityBase
+	 * @param iPSDEWF
+	 * @throws Throwable
+	 */
+	void wfCancel(IEntityBase iEntityBase, IPSDEWF iPSDEWF) throws Throwable;
 	
 	/**
 	 * 查询满足条件的一行数据

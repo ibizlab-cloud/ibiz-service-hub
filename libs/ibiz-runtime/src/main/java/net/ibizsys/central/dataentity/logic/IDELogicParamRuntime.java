@@ -41,6 +41,11 @@ public interface IDELogicParamRuntime extends IModelRuntime{
 	public final String PARAM_URL = "url";
 	
 	
+	/**
+	 * 参数标识：内容
+	 */
+	public final String PARAM_CONTENT = "content";
+	
 	
 	/**
 	 * 初始化
@@ -100,7 +105,7 @@ public interface IDELogicParamRuntime extends IModelRuntime{
 	 * @return
 	 * @throws Throwable
 	 */
-	Object getScriptObject(IDELogicSession iDELogicSessione)throws Throwable ;
+	Object getScriptObject(IDELogicSession iDELogicSession)throws Throwable ;
 	
 	
 	

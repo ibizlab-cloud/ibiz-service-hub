@@ -171,8 +171,6 @@ public class AIAgentDESyncUtilRuntime extends SysCloudConfigDESyncUtilRuntimeBas
 			}
 		}
 		
-		
-		
 		if(!map.containsKey(AIAccess.FIELD_EXPIRESTIME)) {
 			IPSDEField expirationDatePSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_EXPIRATION_DATE, true);
 			if(expirationDatePSDEField != null) {

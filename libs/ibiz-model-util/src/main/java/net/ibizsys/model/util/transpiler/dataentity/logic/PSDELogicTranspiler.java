@@ -33,9 +33,11 @@ public class PSDELogicTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setDomainValue(iPSModelTranspileContext, domain, "logictag2", realPSModelObject.getLogicTag2(), realPSModelObject, "getLogicTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "logictag3", realPSModelObject.getLogicTag3(), realPSModelObject, "getLogicTag3");
 		this.setDomainValue(iPSModelTranspileContext, domain, "logictag4", realPSModelObject.getLogicTag4(), realPSModelObject, "getLogicTag4");
+		this.setDomainValue(iPSModelTranspileContext, domain, "mcpserverid", realPSModelObject.getMcpServerId(), realPSModelObject, "getMcpServerId");
 		this.setDomainValue(iPSModelTranspileContext, domain, "customcode", realPSModelObject.getScriptCode(), realPSModelObject, "getScriptCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "threadrunmode", realPSModelObject.getThreadMode(), realPSModelObject, "getThreadMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "timerpolicy", realPSModelObject.getTimerPolicy(), realPSModelObject, "getTimerPolicy");
+		this.setDomainValue(iPSModelTranspileContext, domain, "toolspecification", realPSModelObject.getToolSpecification(), realPSModelObject, "getToolSpecification");
 		this.setDomainValue(iPSModelTranspileContext, domain, "custommode", realPSModelObject.isCustomCode(), realPSModelObject, "isCustomCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "ignoreexception", realPSModelObject.isIgnoreException(), realPSModelObject, "isIgnoreException");
 		this.setDomainValue(iPSModelTranspileContext, domain, "templflag", realPSModelObject.isTemplate(), realPSModelObject, "isTemplate");
@@ -56,9 +58,11 @@ public class PSDELogicTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG2, domain, "logictag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG3, domain, "logictag3", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLOGICTAG4, domain, "logictag4", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMCPSERVERID, domain, "mcpserverid", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSCRIPTCODE, domain, "customcode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTHREADMODE, domain, "threadrunmode", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTIMERPOLICY, domain, "timerpolicy", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETTOOLSPECIFICATION, domain, "toolspecification", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCUSTOMCODE, domain, "custommode", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISIGNOREEXCEPTION, domain, "ignoreexception", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISTEMPLATE, domain, "templflag", boolean.class, new String[]{"false"});

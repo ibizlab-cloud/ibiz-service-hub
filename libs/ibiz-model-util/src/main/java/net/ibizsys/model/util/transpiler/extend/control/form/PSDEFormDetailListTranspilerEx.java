@@ -19,6 +19,7 @@ import net.ibizsys.model.PSModelEnums.EditorType;
 import net.ibizsys.model.PSModelEnums.FormDetailMDCtrlType;
 import net.ibizsys.model.PSModelEnums.FormDetailType;
 import net.ibizsys.model.PSModelUtils;
+import net.ibizsys.model.app.IPSAppPDTView;
 import net.ibizsys.model.app.control.IPSAppCounter;
 import net.ibizsys.model.app.control.PSAppCounterRefImpl;
 import net.ibizsys.model.app.view.IPSAppDEView;
@@ -636,7 +637,18 @@ public class PSDEFormDetailListTranspilerEx extends net.ibizsys.model.util.trans
 							}
 						}
 					}
-					
+					else
+						if(iPSDEDRItem.isUsePDTView() && StringUtils.hasLength(iPSDEDRItem.getPDTViewTag())) {
+							List<IPSAppPDTView> psAppPDTViewList = iPSModelTranspileContext.getPSApplication().getAllPSAppPDTViews();
+							if(!ObjectUtils.isEmpty(psAppPDTViewList)) {
+								for(IPSAppPDTView iPSAppPDTView : psAppPDTViewList) {
+									if(iPSDEDRItem.getPDTViewTag().equals(iPSAppPDTView.getCodeName())) {
+										relatedPSAppView = iPSAppPDTView.getPSAppViewMust();
+										break;
+									}
+								}
+							}
+						}
 					if(relatedPSAppView == null) {
 						throw new Exception(String.format("关系界面项[%1$s]无法获取指定实体应用视图[%2$s]", psDEFormDetail.getName(), iPSDEDRItem.getViewCodeName()));
 					}

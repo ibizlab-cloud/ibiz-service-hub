@@ -118,4 +118,8 @@ public class CloudCacheTagUtils {
 		return String.format("%1$s-portal-employee-%2$s", PREFIX, strEmployeeId);
 	}
 	
+	public static String getPortalAsyncActionCat(String strActionId) {
+		return String.format("%1$s-portal-asyncaction-%2$s", PREFIX, strActionId);
+	}
+	
 }

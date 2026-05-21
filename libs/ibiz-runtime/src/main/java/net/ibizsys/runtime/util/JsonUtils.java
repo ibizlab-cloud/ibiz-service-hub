@@ -1,10 +1,11 @@
 package net.ibizsys.runtime.util;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
 
 import org.springframework.util.StringUtils;
 
@@ -16,6 +17,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class JsonUtils {
 	
+	/**
+	 * public 是为了兼容早期代码
+	 */
 	public static ObjectMapper MAPPER = new ObjectMapper();
 	
 	public static ObjectMapper getMapper() {
@@ -56,6 +60,9 @@ public class JsonUtils {
 			if(obj instanceof File) {
 				return getMapper().readTree((File)obj);
 			}
+			if(obj instanceof InputStream) {
+				return getMapper().readTree((InputStream)obj);
+			}
 			return getMapper().convertValue(obj, JsonNode.class);
 		}
 		catch (Exception ex) {
@@ -70,6 +77,9 @@ public class JsonUtils {
 			}
 			if(obj instanceof File) {
 				return (ArrayNode)getMapper().readTree((File)obj);
+			}
+			if(obj instanceof InputStream) {
+				return (ArrayNode)getMapper().readTree((InputStream)obj);
 			}
 			
 			return getMapper().convertValue(obj, ArrayNode.class);
@@ -86,6 +96,9 @@ public class JsonUtils {
 			}
 			if(obj instanceof File) {
 				return (ObjectNode)getMapper().readTree((File)obj);
+			}
+			if(obj instanceof InputStream) {
+				return (ObjectNode)getMapper().readTree((InputStream)obj);
 			}
 			
 			return getMapper().convertValue(obj, ObjectNode.class);
@@ -117,6 +130,9 @@ public class JsonUtils {
 			if(obj instanceof File) {
 				return as(getMapper().readTree((File)obj), cls);
 			}
+			if(obj instanceof InputStream) {
+				return as(getMapper().readTree((InputStream)obj), cls);
+			}
 			return getMapper().convertValue(obj, cls);
 		}
 		catch (Exception ex) {
@@ -131,6 +147,9 @@ public class JsonUtils {
 			}
 			if(obj instanceof File) {
 				return as(getMapper().readTree((File)obj), cls);
+			}
+			if(obj instanceof InputStream) {
+				return as(getMapper().readTree((InputStream)obj), cls);
 			}
 			return getMapper().convertValue(obj, cls);
 		}

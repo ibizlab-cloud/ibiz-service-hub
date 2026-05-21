@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import net.ibizsys.runtime.util.*;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hc.client5.http.impl.async.HttpAsyncClientBuilder;
 import org.apache.hc.core5.http.Header;
@@ -33,10 +34,6 @@ import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.plugin.ai.addin.IHttpMcpServerTransportAgent;
 import net.ibizsys.central.plugin.ai.mcp.client.transport.HttpClientSseClientTransport;
 import net.ibizsys.central.plugin.ai.mcp.spec.McpSchema.CallToolRequest;
-import net.ibizsys.runtime.util.DataTypeUtils;
-import net.ibizsys.runtime.util.JsonUtils;
-import net.ibizsys.runtime.util.LogCats;
-import net.ibizsys.runtime.util.LogLevels;
 import reactor.core.publisher.Mono;
 
 public abstract class DefaultMcpServerAgentBase extends McpServerAgentBase {
@@ -121,6 +118,7 @@ public abstract class DefaultMcpServerAgentBase extends McpServerAgentBase {
 		} catch (Throwable ex) {
 			log.error("请求服务器发生异常", ex);
 			this.resetClient();
+			ExceptionUtils.rethrowRuntimeException(ex);
 		}
 //		finally {
 //			this.resetClient();

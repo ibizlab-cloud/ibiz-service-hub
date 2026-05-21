@@ -10,7 +10,7 @@
 
     <artifactId>ibiz-service-runner</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>8.1.0.574.3</version>
+    <version>8.1.0.578.170</version>
     <name>iBiz Service Runner</name>
     <description>iBiz Service Runner</description>
     <packaging>pom</packaging>
@@ -214,6 +214,18 @@
             <version>${ibiz.cloud.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-task</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-postgresql</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
         <!--达梦数据库-->
         <dependency>
             <groupId>com.dameng</groupId>
@@ -225,6 +237,18 @@
             <groupId>org.apache.ivy</groupId>
             <artifactId>ivy</artifactId>
             <version>2.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-task</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-plugin-postgresql</artifactId>
+            <version>${ibiz.cloud.version}</version>
         </dependency>
     </dependencies>
 

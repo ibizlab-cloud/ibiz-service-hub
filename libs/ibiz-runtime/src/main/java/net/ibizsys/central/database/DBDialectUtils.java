@@ -8,6 +8,7 @@ import org.springframework.util.Assert;
 import net.ibizsys.central.database.mssql.MSSQLDialect;
 import net.ibizsys.central.database.mysql.MySQL5Dialect;
 import net.ibizsys.central.database.oracle.OracleDialect;
+import net.ibizsys.central.database.postgresql.PostgreSQLDialect;
 import net.ibizsys.runtime.util.DBTypes;
 
 public class DBDialectUtils {
@@ -58,6 +59,9 @@ public class DBDialectUtils {
 		}
 		if(DBTypes.SQLSERVER.equals(strType)) {
 			return new MSSQLDialect();
+		}
+		if(DBTypes.POSTGRESQL.equals(strType)) {
+			return new PostgreSQLDialect();
 		}
 		return new SimpleDBDialect(strType);
 	}

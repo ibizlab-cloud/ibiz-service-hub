@@ -884,6 +884,7 @@ public class PSModelMergerFactory extends PSModelMergerFactoryBase {
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysLogicLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysLogicLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysSearchDocActionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysSearchDocActionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysUtilLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysUtilLogicMerger());
+		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDESysMsgTemplLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDESysMsgTemplLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEThrowExceptionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEThrowExceptionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIActionLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIActionLogicMerger());
 		registerPSModelMerger(net.ibizsys.model.dataentity.logic.PSDEUIAppendParamLogicImpl.class, new net.ibizsys.model.util.merger.dataentity.logic.PSDEUIAppendParamLogicMerger());

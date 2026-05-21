@@ -6,8 +6,8 @@ public class PSSysSampleValueImpl extends net.ibizsys.model.PSSystemObjectImpl i
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETPSSYSTEMMODULE = "getPSSystemModule";
-	public final static String ATTR_GETRANDOMVALUE = "randomValue";
 	public final static String ATTR_GETVALUE = "value";
+	public final static String ATTR_GETVALUES = "values";
 	public final static String ATTR_ISNULLVALUE = "nullValue";
 
 	public java.lang.String getCodeName(){
@@ -40,20 +40,27 @@ public class PSSysSampleValueImpl extends net.ibizsys.model.PSSystemObjectImpl i
 	}
 
 
-	public java.lang.String getRandomValue(){
-		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETRANDOMVALUE);
-		if(value == null){
-			return null;
-		}
-		return value.asText();
-	}
-
 	public java.lang.String getValue(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETVALUE);
 		if(value == null){
 			return null;
 		}
 		return value.asText();
+	}
+	private java.lang.String[] values = null;
+	public java.lang.String[] getValues(){
+		if(this.values == null){
+			com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETVALUES);
+			if(value == null){return null;}
+			com.fasterxml.jackson.databind.node.ArrayNode arrayNode = (com.fasterxml.jackson.databind.node.ArrayNode)value;
+			if(arrayNode.size() == 0){return null;}
+			java.lang.String[] array = new java.lang.String[arrayNode.size()];
+			for(int i = 0;i<arrayNode.size();i++) {
+				array[i] = arrayNode.get(i).asText();
+			}
+			this.values = array;
+		}
+		return this.values;
 	}
 
 	public boolean isNullValue(){

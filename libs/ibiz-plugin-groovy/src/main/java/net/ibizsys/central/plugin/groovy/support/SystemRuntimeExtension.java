@@ -2,7 +2,10 @@ package net.ibizsys.central.plugin.groovy.support;
 
 import groovy.lang.Closure;
 import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
+import net.ibizsys.central.cloud.core.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.central.database.ISysDBSchemeRuntime;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.eai.ISysEAIAgentRuntime;
@@ -208,6 +211,21 @@ public class SystemRuntimeExtension {
 		return iSystemRuntime.getSystemRTGroovyContext().page(obj, data, pageNo, size);
 	}
 	
+	public static ISystemRTGroovyContext subsys(IServiceSystemRuntime iServiceSystemRuntime, String tag) {
+		return subsys(iServiceSystemRuntime, tag, false);
+	}
+	
+	public static ISystemRTGroovyContext subsys(IServiceSystemRuntime iServiceSystemRuntime, String tag, boolean tryMode) {
+		return iServiceSystemRuntime.getSystemRTGroovyContext().subsys(tag, tryMode);
+	}
+	
+	public static ISysAIFactoryRuntime aifactory(IServiceSystemRuntime iServiceSystemRuntime, String tag) {
+		return iServiceSystemRuntime.getSystemRTGroovyContext().aifactory(tag);
+	}
+	
+	public static ISystemRTGroovyContext main(IServiceSystemRuntime iServiceSystemRuntime) {
+		return iServiceSystemRuntime.getSystemRTGroovyContext().main();
+	}
 	
 	
 	public static void threadRun(ISystemRuntime iSystemRuntime, Closure<?> closure) {

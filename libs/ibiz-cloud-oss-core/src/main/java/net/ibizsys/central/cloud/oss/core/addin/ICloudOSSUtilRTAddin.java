@@ -1,14 +1,14 @@
 package net.ibizsys.central.cloud.oss.core.addin;
 
+import net.ibizsys.central.cloud.core.addin.ICloudUtilRTAddin;
 import net.ibizsys.central.cloud.oss.core.cloudutil.ICloudOSSUtilRuntimeContext;
-import net.ibizsys.runtime.plugin.IModelRTAddin;
 
 /**
  * 云体系OSS功能插件对象接口
  * @author lionlau
  *
  */
-public interface ICloudOSSUtilRTAddin extends IModelRTAddin{
+public interface ICloudOSSUtilRTAddin extends ICloudUtilRTAddin{
 
 	/**
 	 * 初始化

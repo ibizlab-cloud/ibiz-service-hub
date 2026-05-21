@@ -3,6 +3,7 @@ package net.ibizsys.central.plugin.util.sysutil;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -156,6 +157,12 @@ public abstract class SysCloudConfigDESyncUtilRuntimeBase extends SysDEDataSyncO
 	protected String getCloudConfigId(IDataEntityRuntimeContext iDataEntityRuntimeContext, Map<String, Object> map, IEntityDTO iEntityDTO) throws Exception {
 		if(!map.containsKey(PARAM_SYSTEM)) {
 			map.put(PARAM_SYSTEM, this.getSystemRuntime().getDeploySystemId());
+			if(this.getSystemRuntime() instanceof IServiceSystemRuntime) {
+				IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime)this.getSystemRuntime();
+				if(StringUtils.hasLength(iServiceSystemRuntime.getMainSystemId())) {
+					map.put(PARAM_SYSTEM, iServiceSystemRuntime.getMainSystemId());
+				}
+			}
 		}
 		if(!map.containsKey(PARAM_KEY)) {
 			map.put(PARAM_KEY, iDataEntityRuntimeContext.getDataEntityRuntime().getKeyFieldValue(iEntityDTO));
@@ -179,4 +186,5 @@ public abstract class SysCloudConfigDESyncUtilRuntimeBase extends SysDEDataSyncO
 	
 	protected abstract String getDefaultCloudConfigIdFormat(IDataEntityRuntimeContext iDataEntityRuntimeContext) throws Exception;
 
+	
 }

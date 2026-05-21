@@ -3,6 +3,7 @@ package net.ibizsys.model.util.transpiler.extend.dataentity.logic;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.ibizsys.model.util.transpiler.IPSModelTranspiler;
 import org.springframework.util.ObjectUtils;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -103,6 +104,16 @@ public class PSDELogicNodeListTranspilerEx extends net.ibizsys.model.util.transp
 		SystemFieldMap.put("param12","");
 		SystemFieldMap.put("param13","");
 		SystemFieldMap.put("param14","");
+		SystemFieldMap.put("param15","");
+		SystemFieldMap.put("param16","");
+		SystemFieldMap.put("param17","");
+		SystemFieldMap.put("param18","");
+		SystemFieldMap.put("param19","");
+		SystemFieldMap.put("param20","");
+		SystemFieldMap.put("param21","");
+		SystemFieldMap.put("param22","");
+		SystemFieldMap.put("param23","");
+		SystemFieldMap.put("param24","");
 		SystemFieldMap.put("param2","");
 		SystemFieldMap.put("param3","");
 		SystemFieldMap.put("param4","");
@@ -216,9 +227,12 @@ public class PSDELogicNodeListTranspilerEx extends net.ibizsys.model.util.transp
 	
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
-		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 		
 		PSDELogicNode psDELogicNode = (PSDELogicNode)domain;
+		
+		super.onCompile(iPSModelTranspileContext, domain, objectNode);
+		
+		
 		if(!ObjectUtils.isEmpty(psDELogicNode.getPSDELNParams())) {
 			ArrayNode arrayNode = objectNode.putArray(PSDELogicNodeImpl.ATTR_GETPSDELOGICNODEPARAMS);
 			iPSModelTranspileContext.getPSModelListTranspiler(IPSDELogicNodeParam.class, false).compile(iPSModelTranspileContext, psDELogicNode.getPSDELNParams(), arrayNode);
@@ -252,5 +266,11 @@ public class PSDELogicNodeListTranspilerEx extends net.ibizsys.model.util.transp
 		}
 		
 		//objectNode.
+	}
+
+	protected IPSModelTranspiler getPSModelTranspiler(IPSModelTranspileContext iPSModelTranspileContext, Object type) throws Exception {
+		String strTypeValue = (type == null)?"":type.toString();
+		//识别扩展子类编译
+		return super.getPSModelTranspiler(iPSModelTranspileContext,strTypeValue.split("_")[0]);
 	}
 }

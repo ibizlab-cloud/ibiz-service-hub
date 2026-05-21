@@ -185,7 +185,30 @@ public interface IServiceHubSetting {
 	 */
 	int getWorkThreadBlockingQueueSize();
 	
+	/**
+	 * 获取工作线程批作业数量
+	 * @return
+	 */
+	int getWorkThreadBatchSize();
 	
+	
+	/**
+	 * 获取SSE线程核心池数量
+	 * @return
+	 */
+	int getSseThreadCorePoolSize();
+	
+	/**
+	 * 获取SSE线程池最大数量
+	 * @return
+	 */
+	int getSseThreadMaximumPoolSize();
+	
+	/**
+	 * 获取SSE线程池处理队列大小
+	 * @return
+	 */
+	int getSseThreadBlockingQueueSize();
 	
 	/**
 	 * 是否启用生产模式
@@ -236,4 +259,11 @@ public interface IServiceHubSetting {
 	 */
 	boolean isIgnoreLoadSystemError();
 	
+	
+	
+	/**
+	 * 是否更新数据库体系
+	 * @return
+	 */
+	boolean isUpdateDBSchema();
 }

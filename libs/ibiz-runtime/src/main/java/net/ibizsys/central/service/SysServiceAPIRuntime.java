@@ -14,6 +14,7 @@ import net.ibizsys.central.dataentity.service.DEServiceAPIRuntime;
 import net.ibizsys.central.dataentity.service.IDEServiceAPIRSRuntime;
 import net.ibizsys.central.dataentity.service.IDEServiceAPIRuntime;
 import net.ibizsys.model.IPSModelObject;
+import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPI;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIRS;
 import net.ibizsys.model.service.IPSSysServiceAPI;
@@ -44,9 +45,24 @@ public class SysServiceAPIRuntime extends SystemModelRuntimeBase implements ISys
 		this.iPSSysServiceAPI = iPSSysServiceAPI;
 		Assert.notNull(this.iPSSysServiceAPI, "传入系统服务接口模型对象无效");
 		
-		 
+		this.setConfigFolder("sysserviceapi." + PSModelUtils.calcUniqueTag(this.iPSSysServiceAPI.getPSSystemModule(), this.iPSSysServiceAPI.getCodeName()));
+		this.prepareDefaultSetting();	
 		this.onInit();
 	}
+	
+
+	/**
+	 * 准备默认设置
+	 * @throws Exception
+	 */
+	protected void prepareDefaultSetting() throws Exception{
+		this.onPrepareDefaultSetting();
+	}
+	
+	protected void onPrepareDefaultSetting() throws Exception{
+		
+	}
+	
 	
 	@Override
 	protected void onInit() throws Exception {

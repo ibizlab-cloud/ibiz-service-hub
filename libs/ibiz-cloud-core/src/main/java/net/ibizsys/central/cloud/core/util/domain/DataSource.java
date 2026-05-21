@@ -158,4 +158,28 @@ public class DataSource extends EntityBase{
 		return this.contains(FIELD_DBTYPE);
 	}
 	
+	
+	/**
+	 * 数据库实际类型
+	 */
+	public final static String FIELD_DBREALTYPE = "dbrealtype";
+
+	@JsonIgnore
+	public String getDBRealType() {
+		Object objValue = this.get(FIELD_DBREALTYPE);
+		if (objValue == null) {
+			return null;
+		}
+		return (String) objValue;
+	}
+
+	@JsonProperty(FIELD_DBREALTYPE)
+	public void setDBRealType(String value) {
+		this.set(FIELD_DBREALTYPE, value);
+	}
+
+	@JsonIgnore
+	public boolean isDBRealTypeDirty() {
+		return this.contains(FIELD_DBREALTYPE);
+	}
 }

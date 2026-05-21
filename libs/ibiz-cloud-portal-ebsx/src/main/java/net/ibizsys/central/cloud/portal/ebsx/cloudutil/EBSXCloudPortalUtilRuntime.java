@@ -3,6 +3,7 @@ package net.ibizsys.central.cloud.portal.ebsx.cloudutil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
@@ -11,7 +12,9 @@ import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
+import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
+import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionType;
 import net.ibizsys.central.cloud.portal.core.cloudutil.CloudPortalUtilRuntimeBase;
 import net.ibizsys.central.cloud.saas.ebsx.EBSXSystemRuntime;
 import net.ibizsys.central.cloud.saas.ebsx.spring.core.portal.dto.PTAsyncActionDTO;
@@ -27,6 +30,9 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 	
 	public final static String[] UTF8MB4_FIELDS = new String[] {PTAsyncActionDTO.FIELD_ACTIONRESULT, PTAsyncActionDTO.FIELD_FULLRESULT, PTAsyncActionDTO.FIELD_STEPINFO, PTAsyncActionDTO.FIELD_FULLSTEPINFO};
 	
+	public final static String ACTIONTYPE_ASYNCCHATCOMPLETION = "ASYNCCHATCOMPLETION"; 
+	
+	private final static Random random = new Random();
 	
 	@Override
 	protected PortalAsyncAction onCreateAsyncAction(Map params) throws Throwable {
@@ -62,12 +68,27 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 	
 	@Override
 	protected PortalAsyncAction onExecuteAsyncAction(String strId, Map params) throws Throwable {
-		
-		PTAsyncActionDTO lastPTAsyncActionDTO = EBSXSystemRuntime.getInstance().getPTAsyncActionService().get(strId);
-		int nActionState = DataTypeUtils.getIntegerValue(lastPTAsyncActionDTO.getActionState(), BackendActionState.CREATING.getValue());
-		if(nActionState == BackendActionState.CREATED.getValue() || nActionState == BackendActionState.FAILED.getValue()) {
-			throw new Exception("作业已结束");
+		int nActionState = BackendActionState.CREATING.getValue();
+		String strActionType = null;
+		PortalAsyncAction lastPortalAsyncAction = getSysCacheUtilRuntime().get(CloudCacheTagUtils.getPortalAsyncActionCat(strId), PortalAsyncAction.class);
+		if(lastPortalAsyncAction != null) {
+			nActionState = DataTypeUtils.getIntegerValue(lastPortalAsyncAction.getActionState(), BackendActionState.CREATING.getValue());
+			if(nActionState >= BackendActionState.CREATED.getValue() ) {
+				throw new Exception("作业已结束");
+			}
+			strActionType = lastPortalAsyncAction.getActionType();
 		}
+		else {
+			PTAsyncActionDTO lastPTAsyncActionDTO = EBSXSystemRuntime.getInstance().getPTAsyncActionService().get(strId);
+			nActionState = DataTypeUtils.getIntegerValue(lastPTAsyncActionDTO.getActionState(), BackendActionState.CREATING.getValue());
+			if(nActionState >= BackendActionState.CREATED.getValue() ) {
+				throw new Exception("作业已结束");
+			}
+			//要求执行保存，并返回完整数据至备份数据对象
+			//strActionType = lastPTAsyncActionDTO.getActionType();
+		}
+		
+		boolean bRandomSave = PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue().equals(strActionType);
 		
 		PTAsyncActionDTO paramPTAsyncActionDTO  = new PTAsyncActionDTO();
 		paramPTAsyncActionDTO.reload(params, true, true);
@@ -77,6 +98,7 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		if(nActionState != BackendActionState.CREATING.getValue()) {
 			ptAsyncActionDTO.setActionState(BackendActionState.CREATING.getValue());
 			ptAsyncActionDTO.setBeginTime(new java.sql.Timestamp(System.currentTimeMillis()));
+			bRandomSave = false;
 		}
 		
 		String strStepInfo = paramPTAsyncActionDTO.getStepInfo();
@@ -90,23 +112,38 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		ptAsyncActionDTO.setFullStepInfo(paramPTAsyncActionDTO.getFullStepInfo());
 		ptAsyncActionDTO.setCompletionRate(paramPTAsyncActionDTO.getCompletionRate());
 		
-		String strActionResult = paramPTAsyncActionDTO.getActionResult();
-		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>2000) {
-				ptAsyncActionDTO.setFullResult(strActionResult);
+		if(paramPTAsyncActionDTO.containsActionResult()) {
+			String strActionResult = paramPTAsyncActionDTO.getActionResult();
+			if(StringUtils.hasLength(strActionResult)) {
+				if(strActionResult.length()> 2000 || UnicodeUtils.has4ByteChars(strActionResult)) {
+					ptAsyncActionDTO.setFullResult(strActionResult);
+					ptAsyncActionDTO.setActionResult(null);
+				}
+				else {
+					ptAsyncActionDTO.setActionResult(strActionResult);
+					ptAsyncActionDTO.setFullResult(null);
+				}
 			}
 			else {
-				ptAsyncActionDTO.setActionResult(strActionResult);
+				ptAsyncActionDTO.setActionResult(null);
+				ptAsyncActionDTO.setFullResult(null);
 			}
 		}
+		else {
+			bRandomSave = false;
+		}
 		
-		UnicodeUtils.from4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
-		
-		EBSXSystemRuntime.getInstance().getPTAsyncActionService().update(ptAsyncActionDTO);
-		
-		UnicodeUtils.to4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
+		//if(!bRandomSave || (random.nextInt(1000)%150 == 0)) {
+		if(!bRandomSave) {
+			UnicodeUtils.from4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
+			EBSXSystemRuntime.getInstance().getPTAsyncActionService().update(ptAsyncActionDTO);
+			UnicodeUtils.to4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
+		}
 		
 		PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+		if(bRandomSave && lastPortalAsyncAction != null) {
+			lastPortalAsyncAction.copyTo(portalAsyncAction);
+		}
 		ptAsyncActionDTO.copyTo(portalAsyncAction, true);
 		
 		String strFullResult = ptAsyncActionDTO.getFullResult();
@@ -121,7 +158,8 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 	protected PortalAsyncAction onFinishAsyncAction(String strId, Map params) throws Throwable {
 		PTAsyncActionDTO lastPTAsyncActionDTO = EBSXSystemRuntime.getInstance().getPTAsyncActionService().get(strId);
 		int nActionState = DataTypeUtils.getIntegerValue(lastPTAsyncActionDTO.getActionState(), BackendActionState.CREATING.getValue());
-		if(nActionState == BackendActionState.CREATED.getValue() || nActionState == BackendActionState.FAILED.getValue()) {
+	//if(nActionState == BackendActionState.CREATED.getValue() || nActionState == BackendActionState.FAILED.getValue()) {
+		if(nActionState >= BackendActionState.CREATED.getValue() ) {
 			throw new Exception("作业已结束");
 		}
 		
@@ -136,15 +174,24 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		ptAsyncActionDTO.setCompletionRate(null);
 		ptAsyncActionDTO.setFullStepInfo(paramPTAsyncActionDTO.getFullStepInfo());
 		
-		String strActionResult = paramPTAsyncActionDTO.getActionResult();
-		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>2000) {
-				ptAsyncActionDTO.setFullResult(strActionResult);
+		if(paramPTAsyncActionDTO.containsActionResult()) {
+			String strActionResult = paramPTAsyncActionDTO.getActionResult();
+			if(StringUtils.hasLength(strActionResult)) {
+				if(strActionResult.length()>2000 || UnicodeUtils.has4ByteChars(strActionResult)) {
+					ptAsyncActionDTO.setFullResult(strActionResult);
+					ptAsyncActionDTO.setActionResult(null);
+				}
+				else {
+					ptAsyncActionDTO.setActionResult(strActionResult);
+					ptAsyncActionDTO.setFullResult(null);
+				}
 			}
 			else {
-				ptAsyncActionDTO.setActionResult(strActionResult);
+				ptAsyncActionDTO.setActionResult(null);
+				ptAsyncActionDTO.setFullResult(null);
 			}
 		}
+		
 		
 		ptAsyncActionDTO.setAsyncResultDownloadUrl(paramPTAsyncActionDTO.getAsyncResultDownloadUrl());
 		
@@ -171,7 +218,7 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 	protected PortalAsyncAction onErrorAsyncAction(String strId, Map params) throws Throwable {
 		PTAsyncActionDTO lastPTAsyncActionDTO = EBSXSystemRuntime.getInstance().getPTAsyncActionService().get(strId);
 		int nActionState = DataTypeUtils.getIntegerValue(lastPTAsyncActionDTO.getActionState(), BackendActionState.CREATING.getValue());
-		if(nActionState == BackendActionState.CREATED.getValue() || nActionState == BackendActionState.FAILED.getValue()) {
+		if(nActionState >= BackendActionState.CREATED.getValue()) {
 			throw new Exception("作业已结束");
 		}
 		
@@ -185,15 +232,24 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		ptAsyncActionDTO.setStepInfo(null);
 		ptAsyncActionDTO.setFullStepInfo(paramPTAsyncActionDTO.getFullStepInfo());
 		
-		String strActionResult = paramPTAsyncActionDTO.getActionResult();
-		if(StringUtils.hasLength(strActionResult)) {
-			if(strActionResult.length()>2000) {
-				ptAsyncActionDTO.setFullResult(strActionResult);
+		if(paramPTAsyncActionDTO.containsActionResult()) {
+			String strActionResult = paramPTAsyncActionDTO.getActionResult();
+			if(StringUtils.hasLength(strActionResult)) {
+				if(strActionResult.length()>2000 || UnicodeUtils.has4ByteChars(strActionResult)) {
+					ptAsyncActionDTO.setFullResult(strActionResult);
+					ptAsyncActionDTO.setActionResult(null);
+				}
+				else {
+					ptAsyncActionDTO.setActionResult(strActionResult);
+					ptAsyncActionDTO.setFullResult(null);
+				}
 			}
 			else {
-				ptAsyncActionDTO.setActionResult(strActionResult);
+				ptAsyncActionDTO.setActionResult(null);
+				ptAsyncActionDTO.setFullResult(null);
 			}
 		}
+		
 		
 		ptAsyncActionDTO.setAsyncResultDownloadUrl(paramPTAsyncActionDTO.getAsyncResultDownloadUrl());
 		
@@ -216,7 +272,63 @@ public class EBSXCloudPortalUtilRuntime extends CloudPortalUtilRuntimeBase {
 		return portalAsyncAction;
 	}
 	
-	
+	@Override
+	protected PortalAsyncAction onCancelAsyncAction(String strId, Map params) throws Throwable {
+		PTAsyncActionDTO lastPTAsyncActionDTO = EBSXSystemRuntime.getInstance().getPTAsyncActionService().get(strId);
+		int nActionState = DataTypeUtils.getIntegerValue(lastPTAsyncActionDTO.getActionState(), BackendActionState.CREATING.getValue());
+		if(nActionState >= BackendActionState.CREATED.getValue()) {
+			throw new Exception("作业已结束");
+		}
+		
+		PTAsyncActionDTO paramPTAsyncActionDTO  = new PTAsyncActionDTO();
+		paramPTAsyncActionDTO.reload(params, true, true);
+		
+		PTAsyncActionDTO ptAsyncActionDTO = new PTAsyncActionDTO();
+		ptAsyncActionDTO.setAsyncAcitonId(strId);
+		ptAsyncActionDTO.setActionState(BackendActionState.CANCELED.getValue());
+		ptAsyncActionDTO.setEndTime(new java.sql.Timestamp(System.currentTimeMillis()));
+		ptAsyncActionDTO.setStepInfo(null);
+		ptAsyncActionDTO.setFullStepInfo(paramPTAsyncActionDTO.getFullStepInfo());
+		
+		if(paramPTAsyncActionDTO.containsActionResult()) {
+			String strActionResult = paramPTAsyncActionDTO.getActionResult();
+			if(StringUtils.hasLength(strActionResult)) {
+				if(strActionResult.length()>2000 || UnicodeUtils.has4ByteChars(strActionResult)) {
+					ptAsyncActionDTO.setFullResult(strActionResult);
+					ptAsyncActionDTO.setActionResult(null);
+				}
+				else {
+					ptAsyncActionDTO.setActionResult(strActionResult);
+					ptAsyncActionDTO.setFullResult(null);
+				}
+			}
+			else {
+				ptAsyncActionDTO.setActionResult(null);
+				ptAsyncActionDTO.setFullResult(null);
+			}
+		}
+		
+		
+		ptAsyncActionDTO.setAsyncResultDownloadUrl(paramPTAsyncActionDTO.getAsyncResultDownloadUrl());
+		
+		UnicodeUtils.from4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
+		
+		EBSXSystemRuntime.getInstance().getPTAsyncActionService().update(ptAsyncActionDTO);
+		
+		UnicodeUtils.to4ByteChars(ptAsyncActionDTO, UTF8MB4_FIELDS);
+		
+		
+		PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+		ptAsyncActionDTO.copyTo(portalAsyncAction, true);
+		
+		String strFullResult = ptAsyncActionDTO.getFullResult();
+		if(StringUtils.hasLength(strFullResult)) {
+			portalAsyncAction.reset(PTAsyncActionDTO.FIELD_FULLRESULT);
+			portalAsyncAction.setActionResult(strFullResult);
+		}
+		
+		return portalAsyncAction;
+	}
 	
 	@Override
 	protected PortalAsyncAction onGetAsyncAction(String strId) throws Throwable {

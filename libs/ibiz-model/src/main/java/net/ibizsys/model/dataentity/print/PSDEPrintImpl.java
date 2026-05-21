@@ -8,24 +8,33 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCONTENTTYPE = "contentType";
+	public final static String ATTR_GETCONTENTTYPEPSDEFIELD = "getContentTypePSDEField";
 	public final static String ATTR_GETDATAACCESSACTION = "dataAccessAction";
 	public final static String ATTR_GETDETAILPSDE = "getDetailPSDE";
 	public final static String ATTR_GETDETAILPSDEDATASET = "getDetailPSDEDataSet";
 	public final static String ATTR_GETDYNAMODELFILEPATH = "dynaModelFilePath";
+	public final static String ATTR_GETDYNAMICMODE = "dynamicMode";
 	public final static String ATTR_GETEXTENDMODE = "extendMode";
 	public final static String ATTR_GETGETDATAPSDEACTION = "getGetDataPSDEAction";
 	public final static String ATTR_GETGETDATAPSDEOPPRIV = "getGetDataPSDEOPPriv";
+	public final static String ATTR_GETNAMEPSDEFIELD = "getNamePSDEField";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPOTIME = "pOTime";
 	public final static String ATTR_GETPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
+	public final static String ATTR_GETPRINTCONTEXTID = "printContextId";
 	public final static String ATTR_GETPRINTPARAMS = "printParams";
 	public final static String ATTR_GETPRINTTAG = "printTag";
 	public final static String ATTR_GETPRINTTAG2 = "printTag2";
 	public final static String ATTR_GETREPORTFILE = "reportFile";
 	public final static String ATTR_GETREPORTMODEL = "reportModel";
+	public final static String ATTR_GETREPORTMODELPSDEFIELD = "getReportModelPSDEField";
 	public final static String ATTR_GETREPORTTYPE = "reportType";
+	public final static String ATTR_GETREPORTTYPEPSDEFIELD = "getReportTypePSDEField";
 	public final static String ATTR_GETREPORTUIMODEL = "reportUIModel";
+	public final static String ATTR_GETSOURCEPSDEDATASET = "getSourcePSDEDataSet";
+	public final static String ATTR_GETSOURCEPSDATAENTITY = "getSourcePSDataEntity";
+	public final static String ATTR_GETUNIQUETAGPSDEFIELD = "getUniqueTagPSDEField";
 	public final static String ATTR_ISDEFAULTMODE = "defaultMode";
 	public final static String ATTR_ISENABLECOLPRIV = "enableColPriv";
 	public final static String ATTR_ISENABLELOG = "enableLog";
@@ -46,6 +55,28 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField contenttypepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getContentTypePSDEField(){
+		if(this.contenttypepsdefield != null) return this.contenttypepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENTTYPEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.contenttypepsdefield = this.getSourcePSDataEntityMust().getPSDEField(value, false);
+		return this.contenttypepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getContentTypePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getContentTypePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定内容类型值属性对象");}
+		return value;
+	}
+
+	public void setContentTypePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField contenttypepsdefield){
+		this.contenttypepsdefield = contenttypepsdefield;
+	}
+
 
 	public java.lang.String getDataAccessAction(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDATAACCESSACTION);
@@ -108,6 +139,14 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		return value.asText();
 	}
 
+	public int getDynamicMode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETDYNAMICMODE);
+		if(value == null){
+			return 0;
+		}
+		return value.asInt();
+	}
+
 	@Deprecated
 	public int getExtendMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXTENDMODE);
@@ -159,6 +198,28 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 
 	public void setGetDataPSDEOPPriv(net.ibizsys.model.dataentity.priv.IPSDEOPPriv getdatapsdeoppriv){
 		this.getdatapsdeoppriv = getdatapsdeoppriv;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEField(){
+		if(this.namepsdefield != null) return this.namepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETNAMEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.namepsdefield = this.getSourcePSDataEntityMust().getPSDEField(value, false);
+		return this.namepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getNamePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getNamePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定名称值属性对象");}
+		return value;
+	}
+
+	public void setNamePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField namepsdefield){
+		this.namepsdefield = namepsdefield;
 	}
 
 
@@ -223,6 +284,14 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 	}
 
 
+	public java.lang.String getPrintContextId(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRINTCONTEXTID);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
 	public com.fasterxml.jackson.databind.node.ObjectNode getPrintParams(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPRINTPARAMS);
 		if(value == null){
@@ -262,6 +331,28 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField reportmodelpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReportModelPSDEField(){
+		if(this.reportmodelpsdefield != null) return this.reportmodelpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREPORTMODELPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.reportmodelpsdefield = this.getSourcePSDataEntityMust().getPSDEField(value, false);
+		return this.reportmodelpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReportModelPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getReportModelPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定报表模型值属性对象");}
+		return value;
+	}
+
+	public void setReportModelPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField reportmodelpsdefield){
+		this.reportmodelpsdefield = reportmodelpsdefield;
+	}
+
 
 	public java.lang.String getReportType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREPORTTYPE);
@@ -270,6 +361,28 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField reporttypepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReportTypePSDEField(){
+		if(this.reporttypepsdefield != null) return this.reporttypepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREPORTTYPEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.reporttypepsdefield = this.getSourcePSDataEntityMust().getPSDEField(value, false);
+		return this.reporttypepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getReportTypePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getReportTypePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定报表类型值属性对象");}
+		return value;
+	}
+
+	public void setReportTypePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField reporttypepsdefield){
+		this.reporttypepsdefield = reporttypepsdefield;
+	}
+
 
 	public java.lang.String getReportUIModel(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETREPORTUIMODEL);
@@ -278,6 +391,72 @@ public class PSDEPrintImpl extends net.ibizsys.model.dataentity.PSDataEntityObje
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.dataentity.ds.IPSDEDataSet sourcepsdedataset;
+
+	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getSourcePSDEDataSet(){
+		if(this.sourcepsdedataset != null) return this.sourcepsdedataset;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSOURCEPSDEDATASET);
+		if(value == null){
+			return null;
+		}
+		this.sourcepsdedataset = this.getSourcePSDataEntityMust().getPSDEDataSet(value, false);
+		return this.sourcepsdedataset;
+	}
+
+	public net.ibizsys.model.dataentity.ds.IPSDEDataSet getSourcePSDEDataSetMust(){
+		net.ibizsys.model.dataentity.ds.IPSDEDataSet value = this.getSourcePSDEDataSet();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据源数据集对象");}
+		return value;
+	}
+
+	public void setSourcePSDEDataSet(net.ibizsys.model.dataentity.ds.IPSDEDataSet sourcepsdedataset){
+		this.sourcepsdedataset = sourcepsdedataset;
+	}
+
+	private net.ibizsys.model.dataentity.IPSDataEntity sourcepsdataentity;
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getSourcePSDataEntity(){
+		if(this.sourcepsdataentity != null) return this.sourcepsdataentity;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSOURCEPSDATAENTITY);
+		if(value == null){
+			return null;
+		}
+		this.sourcepsdataentity = getPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETSOURCEPSDATAENTITY);
+		return this.sourcepsdataentity;
+	}
+
+	public net.ibizsys.model.dataentity.IPSDataEntity getSourcePSDataEntityMust(){
+		net.ibizsys.model.dataentity.IPSDataEntity value = this.getSourcePSDataEntity();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定数据源实体对象");}
+		return value;
+	}
+
+	public void setSourcePSDataEntity(net.ibizsys.model.dataentity.IPSDataEntity sourcepsdataentity){
+		this.sourcepsdataentity = sourcepsdataentity;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField uniquetagpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getUniqueTagPSDEField(){
+		if(this.uniquetagpsdefield != null) return this.uniquetagpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETUNIQUETAGPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.uniquetagpsdefield = this.getSourcePSDataEntityMust().getPSDEField(value, false);
+		return this.uniquetagpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getUniqueTagPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getUniqueTagPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定唯一标记值属性对象");}
+		return value;
+	}
+
+	public void setUniqueTagPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField uniquetagpsdefield){
+		this.uniquetagpsdefield = uniquetagpsdefield;
+	}
+
 
 	public boolean isDefaultMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISDEFAULTMODE);

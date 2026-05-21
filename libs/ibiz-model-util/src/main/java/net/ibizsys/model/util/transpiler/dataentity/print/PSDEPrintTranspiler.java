@@ -22,11 +22,14 @@ public class PSDEPrintTranspiler extends net.ibizsys.model.util.transpiler.datae
 		}
 		net.ibizsys.model.dataentity.print.PSDEPrintImpl realPSModelObject = (net.ibizsys.model.dataentity.print.PSDEPrintImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "contenttype", realPSModelObject.getContentType(), realPSModelObject, "getContentType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "printtypepsdefid", realPSModelObject.getContentTypePSDEField(), realPSModelObject, "getContentTypePSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "readpsdeopprivid", realPSModelObject.getDataAccessAction(), realPSModelObject, "getDataAccessAction");
 		this.setDomainValue(iPSModelTranspileContext, domain, "refpsdeid", realPSModelObject.getDetailPSDE(), realPSModelObject, "getDetailPSDE");
 		this.setDomainValue(iPSModelTranspileContext, domain, "psdedatasetid", realPSModelObject.getDetailPSDEDataSet(), realPSModelObject, "getDetailPSDEDataSet");
+		this.setDomainValue(iPSModelTranspileContext, domain, "dynamicmode", realPSModelObject.getDynamicMode(), realPSModelObject, "getDynamicMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "getdatapsdeactionid", realPSModelObject.getGetDataPSDEAction(), realPSModelObject, "getGetDataPSDEAction");
 		this.setDomainValue(iPSModelTranspileContext, domain, "readpsdeopprivid", realPSModelObject.getGetDataPSDEOPPriv(), realPSModelObject, "getGetDataPSDEOPPriv");
+		this.setDomainValue(iPSModelTranspileContext, domain, "namepsdefid", realPSModelObject.getNamePSDEField(), realPSModelObject, "getNamePSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "potime", realPSModelObject.getPOTime(), realPSModelObject, "getPOTime");
 		this.setDomainValue(iPSModelTranspileContext, domain, "pssyspfpluginid", realPSModelObject.getPSSysPFPlugin(), realPSModelObject, "getPSSysPFPlugin");
 		this.setDomainValue(iPSModelTranspileContext, domain, "printparams", realPSModelObject.getPrintParams(), realPSModelObject, "getPrintParams");
@@ -34,8 +37,13 @@ public class PSDEPrintTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setDomainValue(iPSModelTranspileContext, domain, "printtag2", realPSModelObject.getPrintTag2(), realPSModelObject, "getPrintTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "reportfile", realPSModelObject.getReportFile(), realPSModelObject, "getReportFile");
 		this.setDomainValue(iPSModelTranspileContext, domain, "printmodel", realPSModelObject.getReportModel(), realPSModelObject, "getReportModel");
+		this.setDomainValue(iPSModelTranspileContext, domain, "printmodelpsdefid", realPSModelObject.getReportModelPSDEField(), realPSModelObject, "getReportModelPSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "reporttype", realPSModelObject.getReportType(), realPSModelObject, "getReportType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "reporttypepsdefid", realPSModelObject.getReportTypePSDEField(), realPSModelObject, "getReportTypePSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "printuimodel", realPSModelObject.getReportUIModel(), realPSModelObject, "getReportUIModel");
+		this.setDomainValue(iPSModelTranspileContext, domain, "sourcepsdedsid", realPSModelObject.getSourcePSDEDataSet(), realPSModelObject, "getSourcePSDEDataSet");
+		this.setDomainValue(iPSModelTranspileContext, domain, "sourcepsdeid", realPSModelObject.getSourcePSDataEntity(), realPSModelObject, "getSourcePSDataEntity");
+		this.setDomainValue(iPSModelTranspileContext, domain, "uniquetagpsdefid", realPSModelObject.getUniqueTagPSDEField(), realPSModelObject, "getUniqueTagPSDEField");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultmode", realPSModelObject.isDefaultMode(), realPSModelObject, "isDefaultMode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "enablecolpriv", realPSModelObject.isEnableColPriv(), realPSModelObject, "isEnableColPriv");
 		this.setDomainValue(iPSModelTranspileContext, domain, "enablelog", realPSModelObject.isEnableLog(), realPSModelObject, "isEnableLog");
@@ -45,11 +53,14 @@ public class PSDEPrintTranspiler extends net.ibizsys.model.util.transpiler.datae
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCONTENTTYPE, domain, "contenttype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCONTENTTYPEPSDEFIELD, domain, "printtypepsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATAACCESSACTION, domain, "readpsdeopprivid", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDETAILPSDE, domain, "refpsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDETAILPSDEDATASET, domain, "psdedatasetid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDYNAMICMODE, domain, "dynamicmode", int.class, new String[]{"0"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGETDATAPSDEACTION, domain, "getdatapsdeactionid", net.ibizsys.model.dataentity.action.IPSDEAction.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETGETDATAPSDEOPPRIV, domain, "readpsdeopprivid", net.ibizsys.model.dataentity.priv.IPSDEOPPriv.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETNAMEPSDEFIELD, domain, "namepsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPOTIME, domain, "potime", int.class, new String[]{"-1"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPSSYSPFPLUGIN, domain, "pssyspfpluginid", net.ibizsys.model.res.IPSSysPFPlugin.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRINTPARAMS, domain, "printparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
@@ -57,8 +68,13 @@ public class PSDEPrintTranspiler extends net.ibizsys.model.util.transpiler.datae
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPRINTTAG2, domain, "printtag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTFILE, domain, "reportfile", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTMODEL, domain, "printmodel", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTMODELPSDEFIELD, domain, "printmodelpsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTTYPE, domain, "reporttype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTTYPEPSDEFIELD, domain, "reporttypepsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETREPORTUIMODEL, domain, "printuimodel", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSOURCEPSDEDATASET, domain, "sourcepsdedsid", net.ibizsys.model.dataentity.ds.IPSDEDataSet.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSOURCEPSDATAENTITY, domain, "sourcepsdeid", net.ibizsys.model.dataentity.IPSDataEntity.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETUNIQUETAGPSDEFIELD, domain, "uniquetagpsdefid", net.ibizsys.model.dataentity.defield.IPSDEField.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISDEFAULTMODE, domain, "defaultmode", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLECOLPRIV, domain, "enablecolpriv", boolean.class, new String[]{"false"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISENABLELOG, domain, "enablelog", boolean.class, new String[]{"false"});

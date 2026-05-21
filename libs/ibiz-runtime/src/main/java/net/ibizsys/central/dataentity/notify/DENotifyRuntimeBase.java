@@ -198,20 +198,20 @@ public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity
 		}
 
 		Map<String,String> targetMap = new HashMap<String,String>();
-		if(getDETargets()!=null) {
-			for(java.util.Map.Entry<IPSDEField, IPSDEField> entry: getDETargets().entrySet()) {
-				String strTargetId = DataTypeUtils.getStringValue(this.getDataEntityRuntime().getFieldValue(iEntity, entry.getKey()), null);
-				if(!StringUtils.hasLength(strTargetId)) {
-					continue;
-				}
-				String strTargetType = null;
-				if(entry.getValue() != null) {
-					strTargetType  = DataTypeUtils.getStringValue(this.getDataEntityRuntime().getFieldValue(iEntity, entry.getValue()), null);
-				}
-				
-				targetMap.put(strTargetId, strTargetType);
-			}
-		}
+//		if(getDETargets()!=null) {
+//			for(java.util.Map.Entry<IPSDEField, IPSDEField> entry: getDETargets().entrySet()) {
+//				String strTargetId = DataTypeUtils.getStringValue(this.getDataEntityRuntime().getFieldValue(iEntity, entry.getKey()), null);
+//				if(!StringUtils.hasLength(strTargetId)) {
+//					continue;
+//				}
+//				String strTargetType = null;
+//				if(entry.getValue() != null) {
+//					strTargetType  = DataTypeUtils.getStringValue(this.getDataEntityRuntime().getFieldValue(iEntity, entry.getValue()), null);
+//				}
+//
+//				targetMap.put(strTargetId, strTargetType);
+//			}
+//		}
 		
 		if(this.getSysMsgTargetRuntimes() != null) {
 			for(ISysMsgTargetRuntime iSysMsgTargetRuntime : this.getSysMsgTargetRuntimes() ) {

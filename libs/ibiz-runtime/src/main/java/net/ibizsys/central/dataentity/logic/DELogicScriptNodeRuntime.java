@@ -18,6 +18,7 @@ import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
+import net.ibizsys.runtime.util.ScriptCodeHolder;
 import net.ibizsys.runtime.util.script.ScriptUtils;
 
 /**
@@ -130,6 +131,7 @@ public class DELogicScriptNodeRuntime extends ModelRuntimeBase implements IDELog
 	@Override
 	public Object execute(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSModelObject iPSModelObject) throws Throwable {
 		try {
+			ScriptCodeHolder.push(this.strScript);
 			if(ISystemUtilRuntime.SCRIPTENGINE_GROOVY.equals(this.getScriptEngine())) {
 				if(getMode().equals(IDELogicScriptNodeRuntime.MODE_EXPRESSION)) {
 					Object scriptObject = null;
@@ -210,6 +212,9 @@ public class DELogicScriptNodeRuntime extends ModelRuntimeBase implements IDELog
 			iDataEntityRuntime.getSystemRuntime().log(LogLevels.ERROR, LogCats.SCRIPT, String.format("执行实体逻辑脚本节点[%1$s][%2$s][%3$s]发生异常，%4$s", iDataEntityRuntime.getName(),
 					iDELogicRuntimeContext.getDELogicRuntime().getName(), iPSModelObject.getName(), ex.getMessage()), ex);
 			throw new DataEntityRuntimeException(iDataEntityRuntime, String.format("执行实体逻辑脚本节点[%1$s][%2$s]发生异常，%3$s", iDELogicRuntimeContext.getDELogicRuntime().getName(), iPSModelObject.getName(), ex.getMessage()), ex);
+		}
+		finally {
+			ScriptCodeHolder.poll();
 		}
 	}
 

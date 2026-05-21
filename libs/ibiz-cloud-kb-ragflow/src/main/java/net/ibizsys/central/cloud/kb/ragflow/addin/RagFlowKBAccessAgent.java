@@ -33,7 +33,6 @@ public class RagFlowKBAccessAgent extends KBAccessAgentBase {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(RagFlowKBAccessAgent.class);
 
-
 	private List<String> dataset_ids = null;
 
 	@Override
@@ -151,8 +150,5 @@ public class RagFlowKBAccessAgent extends KBAccessAgentBase {
 			}
 		}
 	}
-	
-	
-
 	
 }

@@ -659,6 +659,33 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 						}, MethodHandlerBase.getExecuteMethod());
 					}
 					
+					if (true) {
+						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/chatdigest"):null;
+						String strRequestPath2 = strPath2 + "/chatdigest";
+						String strRequestPath3 = StringUtils.hasLength(strPath)?(strPath + "/chatdigest/{key}"):null;
+						String strRequestPath4 = strPath2 + "/chatdigest/{key}";
+						RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2, strRequestPath3, strRequestPath4).methods(RequestMethod.POST).build();
+
+						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							@Override
+							protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+								
+								String strACTag = null;
+								
+								// 从请求中构建参数对象
+								String strQueryString = httpServletRequest.getQueryString();
+								Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+								if (map != null) {
+									strACTag = (String) map.get("srfactag");
+								}
+								
+								net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+								
+								return realSysServiceAPIRuntime.invokeDEChatCompletion(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_CHATDIGEST, requestData, key, null);
+							}
+						}, MethodHandlerBase.getExecuteMethod());
+					}
+					
 					
 					if (true) {
 						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion"):null;
@@ -758,6 +785,43 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
 								
 								return realSysServiceAPIRuntime.invokeDEChatCompletion(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_RESOURCES, requestData, key, null);
+							}
+						}, MethodHandlerBase.getExecuteMethod());
+					}
+					
+					if (true) {
+						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion/cancel"):null;
+						String strRequestPath2 = strPath2 + "/ssechatcompletion/cancel";
+						String strRequestPath3 = StringUtils.hasLength(strPath)?(strPath + "/chatcompletion/cancel"):null;
+						String strRequestPath4 = strPath2 + "/chatcompletion/cancel";
+						String strRequestPath5 = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion/cancel/{key}"):null;
+						String strRequestPath6 = strPath2 + "/ssechatcompletion/cancel/{key}";
+						String strRequestPath7 = StringUtils.hasLength(strPath)?(strPath + "/chatcompletion/cancel/{key}"):null;
+						String strRequestPath8 = strPath2 + "/chatcompletion/cancel/{key}";
+						
+						
+						RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(
+								strRequestPath, strRequestPath2, strRequestPath3, strRequestPath4
+								,strRequestPath5, strRequestPath6, strRequestPath7, strRequestPath8
+								
+								).methods(RequestMethod.POST).build();
+
+						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							@Override
+							protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+								
+								String strACTag = null;
+								
+								// 从请求中构建参数对象
+								String strQueryString = httpServletRequest.getQueryString();
+								Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+								if (map != null) {
+									strACTag = (String) map.get("srfactag");
+								}
+								
+								net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+								
+								return realSysServiceAPIRuntime.invokeDEChatCompletion(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_CANCELCHATCOMPLETION, requestData, key, null);
 							}
 						}, MethodHandlerBase.getExecuteMethod());
 					}
@@ -1312,6 +1376,31 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 			}, MethodHandlerBase.getExecuteMethod());
 		}
 		
+		if (true) {
+			String strRequestPath = strPath + "/chatdigest";
+			String strRequestPath2 = strPath + "/chatdigest/{key}";
+			RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2).methods(RequestMethod.POST).build();
+
+			this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+				@Override
+				protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+					
+					String strACTag = null;
+					
+					// 从请求中构建参数对象
+					String strQueryString = httpServletRequest.getQueryString();
+					Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+					if (map != null) {
+						strACTag = (String) map.get("srfactag");
+					}
+					
+					net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+					
+					return realSysServiceAPIRuntime.invokeDEChatCompletion(null, null, pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_CHATDIGEST, requestData, key, null);
+				}
+			}, MethodHandlerBase.getExecuteMethod());
+		}
+		
 		
 		if (true) {
 			String strRequestPath = strPath + "/ssechatcompletion";
@@ -1390,6 +1479,34 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 					net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
 					
 					return realSysServiceAPIRuntime.invokeDEChatCompletion(null, null, pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_RESOURCES, requestData, key, null);
+				}
+			}, MethodHandlerBase.getExecuteMethod());
+		}
+		
+		if (true) {
+			String strRequestPath = strPath + "/ssechatcompletion/cancel";
+			String strRequestPath2 = strPath + "/chatcompletion/cancel";
+			String strRequestPath3 = strPath + "/ssechatcompletion/cancel/{key}";
+			String strRequestPath4 = strPath + "/chatcompletion/cancel/{key}";
+			
+			RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2, strRequestPath3, strRequestPath4).methods(RequestMethod.POST).build();
+
+			this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+				@Override
+				protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+					
+					String strACTag = null;
+					
+					// 从请求中构建参数对象
+					String strQueryString = httpServletRequest.getQueryString();
+					Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+					if (map != null) {
+						strACTag = (String) map.get("srfactag");
+					}
+					
+					net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+					
+					return realSysServiceAPIRuntime.invokeDEChatCompletion(null, null, pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_CANCELCHATCOMPLETION, requestData, key, null);
 				}
 			}, MethodHandlerBase.getExecuteMethod());
 		}
