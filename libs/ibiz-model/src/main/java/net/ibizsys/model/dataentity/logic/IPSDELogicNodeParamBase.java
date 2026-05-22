@@ -45,7 +45,7 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	/**
 	 * 获取逻辑处理参数操作
 	 * <P>
-	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamType}
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicNodeParamType}
 	 * @return
 	 */
 	java.lang.String getParamAction();

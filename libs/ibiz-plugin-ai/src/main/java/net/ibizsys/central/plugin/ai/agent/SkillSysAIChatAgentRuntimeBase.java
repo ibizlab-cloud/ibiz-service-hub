@@ -70,6 +70,7 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 	
 	@Override
 	protected void onInit() throws Exception {
+		
 		if(ObjectUtils.isEmpty(this.getSkillDetectionPrompt())) {
 			this.setSkillDetectionPrompt(net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SkillSysAIChatAgentRuntimeBase.class, "SkillDetectionPrompt.en.md", false));
 		}
@@ -111,6 +112,8 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 		this.getPSModelObject().getObjectNode().put(PSSysAIChatAgentImpl.ATTR_GETENABLETOOLS, true);
 
 		super.onInit();
+		
+		this.prepareSkills();
 
 		this.strChatToolsTemplate = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SkillSysAIChatAgentRuntimeBase.class, "Tools.json", false);
 
@@ -135,9 +138,6 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 				throw new Exception(String.format("初始化技能读我发生异常，%1$s", ex.getMessage()), ex);
 			}
 		}
-		
-		
-		this.prepareSkills();
 		
 		
 	}
