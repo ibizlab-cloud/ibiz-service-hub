@@ -26,6 +26,13 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	
 	
 	/**
+	 * 获取运行时代理上下文数据
+	 * @return
+	 */
+	java.lang.String getAgentContextData();
+	
+	
+	/**
 	 * 获取运行时代理上下文标识
 	 * @return
 	 */

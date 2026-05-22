@@ -4,8 +4,26 @@ package net.ibizsys.model.dataentity.logic;
 
 public class PSDEUICopyParamLogicImpl extends net.ibizsys.model.dataentity.logic.PSDEUILogicNodeImpl implements net.ibizsys.model.dataentity.logic.IPSDEUICopyParamLogic{
 
+	public final static String ATTR_GETCOPYFIELDS = "copyFields";
 	public final static String ATTR_GETDSTPSDEUILOGICPARAM = "getDstPSDEUILogicParam";
 	public final static String ATTR_GETSRCPSDEUILOGICPARAM = "getSrcPSDEUILogicParam";
+	public final static String ATTR_ISCOPYIFNOTEXISTS = "copyIfNotExists";
+
+	private java.util.List<java.lang.String> copyfields = null;
+	public java.util.List<java.lang.String> getCopyFields(){
+		if(this.copyfields == null){
+			com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOPYFIELDS);
+			if(value == null){return null;}
+			com.fasterxml.jackson.databind.node.ArrayNode arrayNode = (com.fasterxml.jackson.databind.node.ArrayNode)value;
+			if(arrayNode.size() == 0){return null;}
+			java.util.List<java.lang.String> list = new java.util.ArrayList<java.lang.String>();
+			for(int i = 0;i<arrayNode.size();i++) {
+				list.add(arrayNode.get(i).asText());
+			}
+			this.copyfields = list;
+		}
+		return (this.copyfields.size() == 0)? null : this.copyfields;
+	}
 	private net.ibizsys.model.dataentity.logic.IPSDEUILogicParam dstpsdeuilogicparam;
 
 	public net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getDstPSDEUILogicParam(){
@@ -52,4 +70,12 @@ public class PSDEUICopyParamLogicImpl extends net.ibizsys.model.dataentity.logic
 		this.srcpsdeuilogicparam = srcpsdeuilogicparam;
 	}
 
+
+	public boolean isCopyIfNotExists(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISCOPYIFNOTEXISTS);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
+	}
 }

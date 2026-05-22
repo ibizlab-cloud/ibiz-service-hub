@@ -59,4 +59,8 @@ public interface ISysAIFactoryRuntime extends net.ibizsys.central.cloud.core.ai.
 	 * @return
 	 */
 	Object activeSkillRunner(Map<String, Object> params);
+	
+	
+	
+
 }

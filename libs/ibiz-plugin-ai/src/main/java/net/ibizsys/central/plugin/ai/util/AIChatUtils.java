@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
@@ -756,4 +758,64 @@ public class AIChatUtils extends net.ibizsys.central.cloud.core.ai.util.AIChatUt
 
 		return response;
 	}
+	
+	
+	/**
+     * 将输入字符串中的 {占位标识} 占位符按规则替换为 实际路径
+     *
+     * @param input 原始字符串（可能为 null）
+     * @return 替换后的字符串
+     */
+    public static String replacePlaceHolderPath(String input, String placeHolder, String filePath) {
+        if (input == null) {
+            return null;
+        }
+
+        // 不区分大小写匹配 {placeHolder}
+        Pattern pattern = Pattern.compile("\\{(?i)"+placeHolder+"\\}");
+        Matcher matcher = pattern.matcher(input);
+
+        StringBuilder result = new StringBuilder();
+        int lastEnd = 0; // 上一次处理结束的位置
+
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end(); // 占位符结束索引
+
+            // 添加占位符之前的普通文本
+            result.append(input, lastEnd, start);
+
+            // 决定替换内容和实际消耗的字符范围
+            String replacement;
+            int consumeEnd; // 本次实际要跳过的字符索引（包括可能被消耗的斜杠）
+
+            if (end < input.length()) {
+                char nextChar = input.charAt(end);
+                if (nextChar == '/') {
+                    // 场景1: {baseDir}/ → 替换为 /workfolder/ ，同时消耗掉这个斜杠
+                    replacement = filePath+ "/";
+                    consumeEnd = end + 1; // 跳过占位符和后面的斜杠
+                } else if (nextChar != ' ') {
+                    // 场景2: {baseDir} 后跟非空格、非斜杠、非结束 → 替换为 /workfolder/ ，不消耗后面的字符
+                    replacement =  filePath+ "/";
+                    consumeEnd = end; // 仅跳过占位符
+                } else {
+                    // 场景3: {baseDir} 后跟空格 → 替换为 /workfolder ，不消耗空格
+                    replacement = filePath;
+                    consumeEnd = end;
+                }
+            } else {
+                // 字符串结束：{baseDir} 在末尾 → 替换为 /workfolder
+                replacement = filePath;
+                consumeEnd = end;
+            }
+
+            result.append(replacement);
+            lastEnd = consumeEnd;
+        }
+
+        // 添加剩余未处理的文本
+        result.append(input, lastEnd, input.length());
+        return result.toString();
+    }
 }

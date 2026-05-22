@@ -971,8 +971,8 @@ public class Version {
 	public final static Integer MINOR = 1;
 	public final static Integer FUNC = 0;
 	public final static Integer FIX = 578;
-	public final static Integer BUILD = 169;
-	public final static Integer DATE = 260517;
+	public final static Integer BUILD = 184;
+	public final static Integer DATE = 260521;
 	
 	
 	/* (non-Javadoc)

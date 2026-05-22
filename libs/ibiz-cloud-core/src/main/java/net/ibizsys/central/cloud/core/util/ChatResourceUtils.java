@@ -343,7 +343,7 @@ public class ChatResourceUtils implements IChatResourceUtils {
 					}
 					strUserContent += String.format("`%1$s`", entityList.get(i).get("name"));
 				}
-				strUserContent += "。后续请严格基于这些资料交流。（注意：这些资料已被多模态识别为MD内容）\r\n";
+				strUserContent += "。后续请严格基于这些资料交流。（注意：这些资料已被多模态识别为MD内容，无法识别的资料将标注为`__未能识别__`）\r\n";
 				for (int i = 0; i < entityList.size(); i++) {
 					String strUrl = DataTypeUtils.asString(entityList.get(i).get("url"));
 					if(StringUtils.hasLength(strUrl)) {
@@ -352,7 +352,15 @@ public class ChatResourceUtils implements IChatResourceUtils {
 					else {
 						strUrl = "";
 					}
-					strUserContent += String.format("___\r\n`%1$s`BEGIN%3$s\r\n___\r\n%2$s\r\n___\r\n`%1$s`END\r\n___\r\n", entityList.get(i).get("name"), entityList.get(i).get("content"), strUrl);
+					
+					if(DataTypeUtils.asBoolean(entityList.get(i).get("error"), false)) {
+						strUserContent += String.format("___\r\n`%1$s`BEGIN%3$s\r\n___\r\n%2$s\r\n___\r\n`%1$s`END\r\n___\r\n", entityList.get(i).get("name"), "__未能识别__", strUrl);
+					}
+					else {
+						strUserContent += String.format("___\r\n`%1$s`BEGIN%3$s\r\n___\r\n%2$s\r\n___\r\n`%1$s`END\r\n___\r\n", entityList.get(i).get("name"), entityList.get(i).get("content"), strUrl);
+					}
+					
+					
 					//chatMessagesBuilder.user(String.format("`%1$s`内容如下：\n\n%2$s", entityList.get(i).get("name"), entityList.get(i).get("content"))).assistant("明白");
 				}
 				
@@ -594,15 +602,23 @@ public class ChatResourceUtils implements IChatResourceUtils {
 			if(fillContent) {
 				String strContent = null;
 				String strUrl = null;
-				ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
-				if (StringUtils.hasLength(fileFolder)) {
-					strContent = iCloudOSSClient.downloadText(fileFolder, fileId);
-					strUrl = String.format("lb://%1$s/ibizutil/download/%2$s/%3$s", ICloudUtilRuntime.CLOUDSERVICEURL_OSS, fileFolder, fileId);
-				} else {
-					strContent = iCloudOSSClient.downloadText(fileId);
-					strUrl = String.format("lb://%1$s/ibizutil/download/%2$s", ICloudUtilRuntime.CLOUDSERVICEURL_OSS, fileId);
+				try {
+					ICloudOSSClient iCloudOSSClient = this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDCONFIGID_OSS, ICloudOSSClient.class, true);
+					if (StringUtils.hasLength(fileFolder)) {
+						strUrl = String.format("lb://%1$s/ibizutil/download/%2$s/%3$s", ICloudUtilRuntime.CLOUDSERVICEURL_OSS, fileFolder, fileId);
+						strContent = iCloudOSSClient.downloadText(fileFolder, fileId);
+					} else {
+						strUrl = String.format("lb://%1$s/ibizutil/download/%2$s", ICloudUtilRuntime.CLOUDSERVICEURL_OSS, fileId);
+						strContent = iCloudOSSClient.downloadText(fileId);
+					}
+					entity.set("content", strContent);
 				}
-				entity.set("content", strContent);
+				catch (Throwable ex) {
+					log.error(String.format("下载OSS文件识别内容发生异常，%1$s", ex.getMessage()), ex);
+					entity.set("content", ex.getMessage());
+					entity.set("error", Entity.BOOLEAN_TRUE);
+				}
+				
 				entity.set("url", strUrl);
 			}
 			return entity;

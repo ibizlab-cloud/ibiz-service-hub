@@ -46,7 +46,7 @@ ${last_knowledge_bases}
 
 <#if skill_env?? && skill_env['downloadurl']??>
 ### Cloud Environment
-- Download url: OSS files uploaded via `upload_file` can be downloaded using the following URL:`${skill_env['downloadurl']}`
+- Download url: OSS files uploaded via `upload_file` and can be downloaded using the following URL:`${skill_env['downloadurl']}`
 </#if>
 
 ### Core Workflow

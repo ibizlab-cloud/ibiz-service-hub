@@ -6,6 +6,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public final static String ATTR_GETAIPLATFORMPSDEFIELD = "getAIPlatformPSDEField";
 	public final static String ATTR_GETAIPLATFORMTYPE = "aIPlatformType";
+	public final static String ATTR_GETAGENTCONTEXTDATA = "agentContextData";
 	public final static String ATTR_GETAGENTCONTEXTID = "agentContextId";
 	public final static String ATTR_GETAGENTGROUPTAGS = "agentGroupTags";
 	public final static String ATTR_GETAGENTGROUPTAGSPSDEFIELD = "getAgentGroupTagsPSDEField";
@@ -120,6 +121,14 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public java.lang.String getAIPlatformType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAIPLATFORMTYPE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getAgentContextData(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGENTCONTEXTDATA);
 		if(value == null){
 			return null;
 		}

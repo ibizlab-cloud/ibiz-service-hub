@@ -12,6 +12,7 @@ import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.Document;
+import net.ibizsys.model.PSModelEnums.MsgTemplEngine;
 import net.ibizsys.model.ai.IPSSysAIChatAgent;
 
 /**
@@ -234,4 +235,13 @@ public interface ISysAIChatAgentRuntime extends ISysAIAgentRuntime, IAIChatAgent
 	 * @throws Throwable
 	 */
 	void fillSkills(Map<String, Object> skills, Map<String, Object> params) throws Throwable;
+	
+	
+	
+	/**
+	 * 获取模板上下文对象
+	 * @param msgTemplEngine 模板
+	 * @return
+	 */
+	Object getTemplateContext(MsgTemplEngine msgTemplEngine);
 }

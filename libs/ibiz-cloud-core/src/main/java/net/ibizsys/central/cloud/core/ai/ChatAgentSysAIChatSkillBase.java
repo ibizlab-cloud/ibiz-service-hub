@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.util.ObjectUtils;
+
 public abstract class ChatAgentSysAIChatSkillBase extends SysAIChatSkillBase {
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(ChatAgentSysAIChatSkillBase.class);
@@ -41,37 +43,13 @@ public abstract class ChatAgentSysAIChatSkillBase extends SysAIChatSkillBase {
 	}
 	
 	protected void prepareSkillInfo()throws Exception {
-//		File skillFile = new File(this.getSkillFolder().getCanonicalPath() + File.separator + SKILLFILE);
-//		if(!skillFile.exists() || !skillFile.isFile()) {
-//			if(this.getInheritSkill() != null) {
-//				this.setName(this.getInheritSkill().getName());
-//				this.setDescription(this.getInheritSkill().getDescription());
-//				this.setPrompt(this.getInheritSkill().getPrompt());
-//				return;
-//			}
-//			throw new Exception("技能文件不存在");
-//		}
-//		
-//		String strOriginContent = FileUtils.readFileToString(skillFile, "UTF-8");
-//		String strSkillContent = strOriginContent;
-//		//找到第一个 ---
-//		int nPos = strSkillContent.indexOf("---");
-//		if(nPos == -1) {
-//			throw new Exception("无法定位第一个`---`");
-//		}
-//		
-//		strSkillContent = strSkillContent.substring(nPos + 3);
-//		nPos = strSkillContent.indexOf("---");
-//		if(nPos == -1) {
-//			throw new Exception("无法定位第二个`---`");
-//		}
-//		
-//		String strYamlContent = strSkillContent.substring(0, nPos);
-//		ConfigEntityEx configEntityEx = new ConfigEntityEx(strYamlContent, true);
 		this.setName(getSysAIChatAgentRuntime().getName());
-		this.setDescription(getSysAIChatAgentRuntime().getPSModelObject().getReadme());
-		//String strPrompt = strSkillContent.substring(nPos + 3);
-		this.setPrompt(getSysAIChatAgentRuntime().getPSModelObject().getSkillPrompt());
+		if(ObjectUtils.isEmpty(this.getDescription())) {
+			this.setDescription(getSysAIChatAgentRuntime().getPSModelObject().getReadme());
+		}
+		if(ObjectUtils.isEmpty(this.getPrompt())) {
+			this.setPrompt(getSysAIChatAgentRuntime().getPSModelObject().getSkillPrompt());
+		}
 	}
 	
 	public ISysAIChatAgentRuntime getSysAIChatAgentRuntime() {

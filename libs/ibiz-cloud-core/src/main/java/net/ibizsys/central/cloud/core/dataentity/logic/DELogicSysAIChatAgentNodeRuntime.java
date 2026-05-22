@@ -71,6 +71,7 @@ import net.ibizsys.central.util.script.IScriptEntity;
 import net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType;
 import net.ibizsys.model.PSModelEnums.DELogicSysAIChatCategoryMode;
 import net.ibizsys.model.PSModelEnums.DELogicSysAIChatRequestAppendMode;
+import net.ibizsys.model.PSModelEnums.MsgTemplEngine;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.logic.IPSDELogicLink;
@@ -108,6 +109,11 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 	public final static String CHAT_TRIMMING_SUMMARIZEOLDEST_PROMPT = "请为下面json代码块的定义的`对话历史`生成一个简洁、准确的摘要。\r\n" + "```json\r\n" + "${prompt_text}\r\n" + "```\r\n" + "**摘要要求**：\r\n" + "1.  **焦点**：摘要应聚焦于对话中出现的**核心事实、关键决策、用户表达的明确偏好和对话的主要目标**。\r\n" + "2.  **风格**：使用客观、中立的第三人称口吻（例如，“用户表示...”，“双方确认了...”），语言应简洁，避免直接引用原句。\r\n" + "3.  **排除**：忽略寒暄、重复尝试、未完成的句子以及其他非实质性内容。";
 
 	public final static String[] INTENT_FIELDS = new String[] {"intent", "question", "query", "content"};
+	
+	/**
+	 * 模板上下文参数：代理上下文对象
+	 */
+	public final static String TEMPLATE_PARAM_AGENT = "agent";
 	
 	@Override
 	protected void onExecute(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDELogicNode iPSDELogicNode) throws Throwable {
@@ -364,6 +370,10 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 			templParams.put("data", data);
 			ObjectNode promptNode = getChatCategoryPromptNode(iDELogicRuntimeContext, iDELogicSession, iPSDESysAIChatAgentLogic, data);
 			templParams.put("prompt_text", getChatCategoryPromptText(iDELogicRuntimeContext, iDELogicSession, iPSDESysAIChatAgentLogic, promptNode));
+			
+			if(iSysAIChatAgentRuntime != null) {
+				templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
 
 			String strMessage = iPSDESysAIChatAgentLogic.getMessage();
 			if (!StringUtils.hasLength(strMessage) && iPSDESysAIChatAgentLogic.getPSSysMsgTempl() != null) {
@@ -485,7 +495,11 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if(iSysAIChatAgentRuntime != null) {
+				templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 
 		ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
@@ -1200,6 +1214,16 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 	
 	
 	protected ChatCompletionRequest getChatCompletionRequest(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, String strDefaultMessage, Map<String, Object> params) throws Throwable {
+		
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
 		Object objParam = null;
 		IDELogicParamRuntime iDELogicParamRuntime = null;
 		if (iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
@@ -1220,6 +1244,10 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 			if(value instanceof Map) {
 				templParams.putAll((Map)value);
 			}
+		}
+		
+		if(iSysAIChatAgentRuntime != null) {
+			templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
 		}
 		
 		if (!StringUtils.hasLength(strMessage)) {
@@ -1261,6 +1289,16 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 	
 	protected List<ChatMessage> getChatMessages(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, String strDefaultMessage, Map<String, Object> params) throws Throwable {
 		
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
+		
 		String strMessage = iPSDESysAIChatAgentLogic.getMessage();
 		if (!StringUtils.hasLength(strMessage) && iPSDESysAIChatAgentLogic.getPSSysMsgTempl() != null) {
 			strMessage = iPSDESysAIChatAgentLogic.getPSSysMsgTempl().getContent();
@@ -1272,6 +1310,10 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 			if(value instanceof Map) {
 				templParams.putAll((Map)value);
 			}
+		}
+		
+		if(iSysAIChatAgentRuntime != null) {
+			templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
 		}
 		
 		if (!StringUtils.hasLength(strMessage)) {
@@ -1388,6 +1430,17 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 
 	protected void onExecuteChatInput(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
+		
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
+		
 		Object objParam = null;
 		IDELogicParamRuntime iDELogicParamRuntime = null;
 		if (iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
@@ -1402,7 +1455,11 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if(iSysAIChatAgentRuntime != null) {
+				templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 
 		if (objParam instanceof ChatCompletionResult) {
@@ -1435,6 +1492,17 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 	}
 	
 	protected void onExecuteChatDecision(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
+		
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
+		
 		Object objParam = null;
 		IDELogicParamRuntime iDELogicParamRuntime = null;
 		if (iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
@@ -1460,6 +1528,10 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 		Map prompt = JsonUtils.asMap(promptNode);
 		templParams.put("prompt", prompt);
 		templParams.put("prompt_text", strPromptText);
+		
+		if(iSysAIChatAgentRuntime != null) {
+			templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+		}
 
 		// 获取实际内容
 		if (!StringUtils.hasLength(strMessage)) {
@@ -1586,6 +1658,15 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 	protected void onExecuteChatStep(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
 
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
 		Object objParam = null;
 		IDELogicParamRuntime iDELogicParamRuntime = null;
 		if (iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
@@ -1600,12 +1681,17 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		String strTitle = iPSDESysAIChatAgentLogic.getTitle();
 
+		Map<String, Object> templParams = new HashMap<String, Object>();
+		if(iSysAIChatAgentRuntime != null) {
+			templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+		}
+		
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 		if (StringUtils.hasLength(strTitle)) {
-			strTitle = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strTitle, new HashMap<String, Object>());
+			strTitle = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strTitle, templParams);
 		}
 
 		ObjectNode jsonNode = JsonUtils.createObjectNode();
@@ -1648,6 +1734,15 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 	protected void onExecuteChatUIAction(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
 
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
 		Object objParam = null;
 		IDELogicParamRuntime iDELogicParamRuntime = null;
 		if (iPSDESysAIChatAgentLogic.getDstPSDELogicParam() != null) {
@@ -1662,12 +1757,17 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		String strTitle = iPSDESysAIChatAgentLogic.getTitle();
 
+		Map<String, Object> templParams = new HashMap<String, Object>();
+		if(iSysAIChatAgentRuntime != null) {
+			templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+		}
+		
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 		if (StringUtils.hasLength(strTitle)) {
-			strTitle = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strTitle, new HashMap<String, Object>());
+			strTitle = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strTitle, templParams);
 		}
 
 		ObjectNode jsonNode = JsonUtils.createObjectNode();
@@ -1858,6 +1958,9 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 			params.put("data", data);
 			ObjectNode promptNode = getChatKnowledgeBasesPromptNode(iDELogicRuntimeContext, iDELogicSession, iPSDESysAIChatAgentLogic, data, knowledgeBaseList);
 			params.put("prompt_text", promptNode.toPrettyString());
+			if(iSysAIChatAgentRuntime != null) {
+				params.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
 
 			String strMessage = iPSDESysAIChatAgentLogic.getMessage();
 			if (!StringUtils.hasLength(strMessage) && iPSDESysAIChatAgentLogic.getPSSysMsgTempl() != null) {
@@ -1970,6 +2073,15 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 	protected void onAppendChatRequest(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
 
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
 		IDELogicParamRuntime iDELogicParamRuntime = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDESysAIChatAgentLogic.getDstPSDELogicParamMust().getCodeName(), false);
 		Object objParam = iDELogicParamRuntime.getParamObject(iDELogicSession);
 
@@ -1980,7 +2092,11 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if(iSysAIChatAgentRuntime != null) {
+				templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 		ChatCompletionRequest chatCompletionRequest = null;
 		if (objParam instanceof ChatCompletionRequest) {
@@ -2035,6 +2151,16 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 	protected void onAppendChatResult(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDESysAIChatAgentLogic iPSDESysAIChatAgentLogic, Map<String, Object> params) throws Throwable {
 
+		IServiceSystemRuntime iServiceSystemRuntime = (IServiceSystemRuntime) iDELogicRuntimeContext.getSystemRuntime();
+		ISysAIFactoryRuntime iSysAIFactoryRuntime = null;
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime =null;
+
+		if(iPSDESysAIChatAgentLogic.getPSSysAIFactory() != null && iPSDESysAIChatAgentLogic.getPSSysAIChatAgent() != null) {
+			iSysAIFactoryRuntime = iServiceSystemRuntime.getSysAIFactoryRuntime(iPSDESysAIChatAgentLogic.getPSSysAIFactoryMust().getId(), false);
+			iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(iPSDESysAIChatAgentLogic.getPSSysAIChatAgentMust().getCodeName(), false);
+		}
+		
+		
 		IDELogicParamRuntime iDELogicParamRuntime = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDESysAIChatAgentLogic.getDstPSDELogicParamMust().getCodeName(), false);
 		Object objParam = iDELogicParamRuntime.getParamObject(iDELogicSession);
 
@@ -2045,7 +2171,11 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 
 		// 获取实际内容
 		if (StringUtils.hasLength(strMessage)) {
-			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, new HashMap<String, Object>());
+			Map<String, Object> templParams = new HashMap<String, Object>();
+			if(iSysAIChatAgentRuntime != null) {
+				templParams.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+			}
+			strMessage = this.getTemplateContent(iDELogicRuntimeContext, iDELogicSession, strMessage, templParams);
 		}
 		ChatCompletionResult chatCompletionResult = null;
 		if (objParam instanceof ChatCompletionResult) {
@@ -2204,6 +2334,7 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 		params.put("logic", iDELogicRuntimeContext.getDELogicRuntime());
 		params.put("param", iDELogicParamRuntime);
 		params.put("node", iPSDESysAIChatAgentLogic);
+		
 
 		ChatCompletionRequest data = new ChatCompletionRequest();
 		Object objParam = iDELogicParamRuntime.getParamObject(iDELogicSession);
@@ -2224,6 +2355,10 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 		params.put("data", data);
 		ObjectNode promptNode = getChatAggregationPromptNode(iDELogicRuntimeContext, iDELogicSession, iPSDESysAIChatAgentLogic, data, subPSDESysAIChatAgentLogicResultMap);
 		params.put("prompt_text", promptNode.toPrettyString());
+		
+		if(iSysAIChatAgentRuntime != null) {
+			params.put(TEMPLATE_PARAM_AGENT, iSysAIChatAgentRuntime.getTemplateContext(MsgTemplEngine.FREEMARKER));
+		}
 
 		String strMessage = iPSDESysAIChatAgentLogic.getMessage();
 		if (!StringUtils.hasLength(strMessage) && iPSDESysAIChatAgentLogic.getPSSysMsgTempl() != null) {

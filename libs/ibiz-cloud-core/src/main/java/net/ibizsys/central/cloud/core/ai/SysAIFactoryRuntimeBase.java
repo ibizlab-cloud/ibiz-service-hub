@@ -1652,6 +1652,8 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		return iSysChatSkillUtilRuntime.getAIChatSkillUtil();
 	}
 	
+
+	
 	@Override
 	public void shutdown() throws Exception {
 		onShutdown();

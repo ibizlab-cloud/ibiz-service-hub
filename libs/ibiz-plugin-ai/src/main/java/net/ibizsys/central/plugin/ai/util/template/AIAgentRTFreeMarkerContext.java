@@ -1,9 +1,11 @@
 package net.ibizsys.central.plugin.ai.util.template;
 
 import java.util.List;
+import java.util.Map;
 
 import net.ibizsys.central.cloud.core.ai.ISysAIAgentRuntimeContext;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
+import net.ibizsys.model.IPSModelObject;
 
 public class AIAgentRTFreeMarkerContext {
 
@@ -12,6 +14,23 @@ public class AIAgentRTFreeMarkerContext {
 	public AIAgentRTFreeMarkerContext(ISysAIAgentRuntimeContext iSysAIAgentRuntimeContext) {
 		this.iSysAIAgentRuntimeContext = iSysAIAgentRuntimeContext;
 	}
+	
+	/**
+	 * 获取Agent的上下文数据
+	 * @return
+	 */
+	public Map<String, Object> getData() {
+		return this.iSysAIAgentRuntimeContext.getData();
+	}
+	
+	/**
+	 * 获取Agent的模型数据
+	 * @return
+	 */
+	public IPSModelObject getModel() {
+		return this.iSysAIAgentRuntimeContext.getModelRuntime().getPSModelObject();
+	}
+	
 	/**
 	 * 获取本地知识片段
 	 * @param type

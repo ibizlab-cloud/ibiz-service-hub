@@ -154,6 +154,8 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	
 	private String strKBAgentConfigIdFormat = "";
 	
+	private Map<String, Object> data = Collections.EMPTY_MAP;
+	
 	
 	
 	protected void init(ISysAIFactoryRuntimeContext ctx) throws Exception {
@@ -261,6 +263,13 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 			public List<Chunk> rawFetchChunks(String strKBPlatformType, List<IChunkSearchContext> chunkSearchContextList) {
 				return getSelf().rawFetchChunks(strKBPlatformType, chunkSearchContextList);
 			}
+
+			@Override
+			public Map<String, Object> getData() {
+				return getAgentData();
+			}
+			
+			
 		};
 	}
 	
@@ -645,7 +654,7 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 			return this.doFetchChunks(type, chunkSearchContext);
 		}
 		if(ISysKBUtilRuntime.KBPLATFORM_DISABLED.equalsIgnoreCase(this.getKBPlatformType())) {
-			return new PageImpl<Chunk>(Collections.EMPTY_LIST, chunkSearchContext.getPageable(), 0);
+			return new PageImpl<Chunk>(Collections.EMPTY_LIST);
 		}
 		return this.doFetchChunks(this.getKBPlatformType(), chunkSearchContext);
 	}
@@ -863,6 +872,14 @@ public abstract class SysAIAgentRuntimeBase extends ModelRuntimeBase implements 
 	@Override
 	public String getAgentParam(String strName, String strDefault) {
 		return strDefault;
+	}
+	
+	public Map<String, Object> getAgentData() {
+		return this.data;
+	}
+	
+	protected void setAgentData(Map<String, Object> data) {
+		this.data = data;
 	}
 	
 	/**

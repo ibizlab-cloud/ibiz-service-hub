@@ -184,6 +184,4 @@ public interface ISysAIFactoryRuntime extends ISystemModelRuntime, IAIFactoryRun
 	List<ISysAIChatSkill> getAIChatSkills();
 	
 	
-
-	
 }

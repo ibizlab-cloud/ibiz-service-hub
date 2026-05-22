@@ -413,7 +413,7 @@ public abstract class SysAIChatResourceBase implements ISysAIChatResource {
 			return this.doFetchChunks(type, chunkSearchContext);
 		}
 		if(ISysKBUtilRuntime.KBPLATFORM_DISABLED.equalsIgnoreCase(this.getKBPlatformType())) {
-			return new PageImpl<Chunk>(Collections.EMPTY_LIST, chunkSearchContext.getPageable(), 0);
+			return new PageImpl<Chunk>(Collections.EMPTY_LIST);
 		}
 		return this.doFetchChunks(this.getKBPlatformType(), chunkSearchContext);
 	}

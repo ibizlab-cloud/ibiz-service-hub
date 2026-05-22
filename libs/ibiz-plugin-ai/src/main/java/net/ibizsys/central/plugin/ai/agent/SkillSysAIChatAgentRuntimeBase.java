@@ -65,6 +65,8 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 	private String strChatToolsTemplate = null;
 	private String strToolCallBaseUrl = null;
 	private List<String> preloadSkillIdList = new ArrayList<String>();
+	private String strSkillPrompt = null;
+	private String strReadme = null;
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -87,6 +89,24 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 				this.getPSModelObject().getObjectNode().put(PSSysAIChatAgentImpl.ATTR_GETSYSTEMPROMPT, strSystemPrompt);
 			}
 		}
+		
+		if (ObjectUtils.isEmpty(this.getPSModelObject().getSkillPrompt())) {
+			String strSkillPrompt = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SkillSysAIChatAgentRuntimeBase.class, "SkillPrompt.en.md", false);
+			if (!ObjectUtils.isEmpty(strSkillPrompt)) {
+				this.getPSModelObject().getObjectNode().put(PSSysAIChatAgentImpl.ATTR_GETSKILLPROMPT, strSkillPrompt);
+			}
+		}
+		else {
+			//判断是否有${original_prompt}
+			String strSkillPrompt = this.getPSModelObject().getSkillPrompt();
+			if(strSkillPrompt.indexOf("${original_prompt}") != -1) {
+				String strOriginalSkillPrompt = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SkillSysAIChatAgentRuntimeBase.class, "SkillPrompt.en.md", false);
+				strSkillPrompt = strSkillPrompt.replace("${original_prompt}", strOriginalSkillPrompt);
+				//写回
+				this.getPSModelObject().getObjectNode().put(PSSysAIChatAgentImpl.ATTR_GETSKILLPROMPT, strOriginalSkillPrompt);
+			}
+		}
+		
 
 		this.getPSModelObject().getObjectNode().put(PSSysAIChatAgentImpl.ATTR_GETENABLETOOLS, true);
 
@@ -98,12 +118,35 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 		String strChatTools = this.strChatToolsTemplate.replace("${toolcall_base_url}", this.strToolCallBaseUrl).replace("${srfscope}", "").replace("${srfchatsessionid}", "");
 		this.chatTools = JsonUtils.as(strChatTools, ChatToolListType);
 
+		if(StringUtils.hasLength(this.getPSModelObject().getSkillPrompt())) {
+			try {
+				this.setSkillPrompt(this.getRawContent(Collections.EMPTY_LIST, this.getPSModelObject().getSkillPrompt(), new HashMap<String, Object>()));
+			}
+			catch (Throwable ex) {
+				throw new Exception(String.format("初始化技能提示词发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		
+		if(StringUtils.hasLength(this.getPSModelObject().getReadme())) {
+			try {
+				this.setReadme(this.getRawContent(Collections.EMPTY_LIST, this.getPSModelObject().getReadme(), new HashMap<String, Object>()));
+			}
+			catch (Throwable ex) {
+				throw new Exception(String.format("初始化技能读我发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		
+		
 		this.prepareSkills();
+		
+		
 	}
+	
+	
 
 	protected List<ISysAIChatSkill> getLoadAIChatSkills() {
 		if(StringUtils.hasLength(this.getPSModelObject().getSkillLoadMode())) {
-			if(AISkillLoadMode.SPECIFIED.value.equalsIgnoreCase(this.getPSModelObject().getSkillLoadMode())) {
+			if(AISkillLoadMode.SPECIFIED.value.equalsIgnoreCase(this.getPSModelObject().getSkillLoadMode()) || AISkillLoadMode.SPECIFIED_PRELOAD.value.equalsIgnoreCase(this.getPSModelObject().getSkillLoadMode())) {
 				if(!StringUtils.hasLength(this.getPSModelObject().getSkillTags())) {
 					return Collections.EMPTY_LIST;
 				}
@@ -129,9 +172,15 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 					loadedSkillList.add(iSysAIChatSkill);
 				}
 				
-				if(loadedSkillList.size() == 1) {
-					preloadSkillIdList.add(loadedSkillList.get(0).getId());
+				if(AISkillLoadMode.SPECIFIED_PRELOAD.value.equalsIgnoreCase(this.getPSModelObject().getSkillLoadMode())) {
+					for(ISysAIChatSkill iSysAIChatSkill :loadedSkillList) {
+						preloadSkillIdList.add(iSysAIChatSkill.getId());
+					}
 				}
+				else
+					if(loadedSkillList.size() == 1) {
+						preloadSkillIdList.add(loadedSkillList.get(0).getId());
+					}
 				return loadedSkillList;
 			}
 		}
@@ -180,6 +229,12 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 	@Override
 	protected void fillStringTemplates(Set<String> set) {
 		set.add(this.getSkillDetectionPrompt());
+		if(StringUtils.hasLength(this.getPSModelObject().getSkillPrompt())) {
+			set.add(this.getPSModelObject().getSkillPrompt());
+		}
+		if(StringUtils.hasLength(this.getPSModelObject().getReadme())) {
+			set.add(this.getPSModelObject().getReadme());
+		}
 		super.fillStringTemplates(set);
 	}
 	
@@ -889,5 +944,24 @@ public abstract class SkillSysAIChatAgentRuntimeBase extends ProxySysAIChatAgent
 		}
 		return this.iSysCloudClientUtilRuntime;
 	}
+
+	@Override
+	public String getReadme() {
+		return this.strReadme;
+	}
+	
+	protected void setReadme(String strReadme) {
+		this.strReadme = strReadme;
+	}
+
+	@Override
+	public String getSkillPrompt() {
+		return this.strSkillPrompt;
+	}
+	
+	protected void setSkillPrompt(String strSkillPrompt) {
+		this.strSkillPrompt = strSkillPrompt;
+	}
+	
 
 }

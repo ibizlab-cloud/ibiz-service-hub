@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import net.ibizsys.central.cloud.core.ai.ChatAgentSysAIChatSkill;
 import net.ibizsys.central.cloud.core.ai.ISysAIAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatAgentGroup;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatAgentRuntime;
@@ -36,12 +35,15 @@ public abstract class HubSysAIChatAgentRuntimeBase extends SkillSysAIChatAgentRu
 	@Override
 	protected void onInit() throws Exception {
 		this.strSkillAndAgentDetectionPrompt = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(HubSysAIChatAgentRuntimeBase.class, "SkillDetectionPrompt.en.md", false);
-		super.onInit();
 		
 		if(this.getMasterAIChatAgentGroup(true) == null) {
 			this.prepareMasterAIChatAgentGroup();
 			this.getMasterAIChatAgentGroup(false);
 		}
+		
+		super.onInit();
+		
+		
 		
 	}
 	

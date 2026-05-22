@@ -126,6 +126,12 @@ public class SysAIAgentRuntimeContextProxy<M extends ISysAIAgentRuntime, C exten
 	}
 
 
+	@Override
+	public Map<String, Object> getData() {
+		return this.getProxyContext().getData();
+	}
+
+
 
 	
 }

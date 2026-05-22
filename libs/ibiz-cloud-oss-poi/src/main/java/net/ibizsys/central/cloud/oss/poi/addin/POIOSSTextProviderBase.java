@@ -120,7 +120,7 @@ public abstract class POIOSSTextProviderBase extends LibreOfficeOSSTextProviderB
 			}
 
 			// 判断是否有LibreOffice指令
-			if (StringUtils.hasLength(this.getLibreOfficeCommandPath())) {
+			if (StringUtils.hasLength(this.getLibreOfficeCommandPath()) && this.testLibreOfficeSupportedFormat(FilenameUtils.getExtension(file.getName()))) {
 				File command = new File(getLibreOfficeCommandPath());
 				// File workingDirectory = command.getParentFile();
 

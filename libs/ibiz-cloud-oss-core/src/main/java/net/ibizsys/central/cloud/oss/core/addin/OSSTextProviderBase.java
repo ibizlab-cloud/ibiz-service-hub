@@ -137,7 +137,9 @@ public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implem
 			return Base64.getEncoder().encodeToString(FileUtils.readFileToByteArray(file));
 		}
 		
-		throw new Exception("没有实现");
+		//log.warn(String.format("未支持获取文件类型[%1$s][%2$s]信息", FilenameUtils.getExtension(file.getName()), type));
+		//return "";
+		throw new Exception(String.format("未支持从文件类型[%1$s]获取[%2$s]内容", FilenameUtils.getExtension(file.getName()), type));
 	}
 	
 	protected String getPageIndexContent(String strMarkdown) throws Throwable {

@@ -18,6 +18,7 @@ import net.ibizsys.central.util.ExceptionEntity;
 import net.ibizsys.central.util.IExceptionEntity;
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.PSModelEnums.DEFLogicMode;
+import net.ibizsys.model.PSModelEnums.DELogicParamValueType;
 import net.ibizsys.model.PSModelEnums.LogicSubType;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.logic.IPSDEEndLogic;
@@ -793,6 +794,14 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 		if(DELogicPrepareParamValueTypes.SRCDLPARAM.equals(iPSDELogicNodeParam.getSrcValueType())) {
 			IDELogicParamRuntime srcDELogicParamRuntime = this.getDELogicParamRuntime(iPSDELogicNodeParam.getSrcPSDELogicParamMust().getCodeName(), false);
 			if(ObjectUtils.isEmpty(iPSDELogicNodeParam.getSrcFieldName())) {
+				return srcDELogicParamRuntime.getReal(iDELogicSession);
+			}
+			return srcDELogicParamRuntime.get(iDELogicSession, iPSDELogicNodeParam.getSrcFieldName().toLowerCase());
+		}
+		
+		if(DELogicParamValueType.LOGICPARAM.value.equals(iPSDELogicNodeParam.getSrcValueType()) || DELogicParamValueType.LOGICPARAMFIELD.value.equals(iPSDELogicNodeParam.getSrcValueType())) {
+			IDELogicParamRuntime srcDELogicParamRuntime = this.getDELogicParamRuntime(iPSDELogicNodeParam.getSrcPSDELogicParamMust().getCodeName(), false);
+			if(ObjectUtils.isEmpty(iPSDELogicNodeParam.getSrcFieldName()) || DELogicParamValueType.LOGICPARAM.value.equals(iPSDELogicNodeParam.getSrcValueType())) {
 				return srcDELogicParamRuntime.getReal(iDELogicSession);
 			}
 			return srcDELogicParamRuntime.get(iDELogicSession, iPSDELogicNodeParam.getSrcFieldName().toLowerCase());

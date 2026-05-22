@@ -31,6 +31,7 @@ import com.github.difflib.DiffUtils;
 import com.github.difflib.UnifiedDiffUtils;
 import com.github.difflib.patch.Patch;
 
+import net.ibizsys.central.cloud.core.ai.IAISkillAgentRuntimeBase;
 import net.ibizsys.central.cloud.core.ai.ISysAIAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatSkill;
@@ -43,6 +44,7 @@ import net.ibizsys.central.cloud.core.spring.configuration.NacosServiceHubSettin
 import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.util.domain.AccessToken;
 import net.ibizsys.central.eai.ISysEAIMsgListener;
+import net.ibizsys.central.plugin.ai.util.AIChatUtils;
 import net.ibizsys.central.plugin.ai.util.python.PythonAIChatUtils;
 import net.ibizsys.central.plugin.ai.util.python.PythonAIChatUtils.ExecuteResult;
 import net.ibizsys.central.service.ISubSysServiceAPIRuntimeBase;
@@ -68,7 +70,7 @@ import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.LogLevels;
 
-public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntimeBase implements ISysAIFactoryRuntime {
+public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntimeBase implements ISysAIFactoryRuntime ,IAISkillAgentRuntimeBase{
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DefaultSysAIFactoryRuntimeBase.class);
 
@@ -694,7 +696,9 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				File file = null;
 				String strFilePath = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_X_FILE_PATH));
 				if (!ObjectUtils.isEmpty(strFilePath)) {
-					strFilePath = strFilePath.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+					//strFilePath = strFilePath.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+					
+					strFilePath = AIChatUtils.replacePlaceHolderPath(strFilePath, "SKILLS_WORKSPACE", this.getSkillsWorkspace(true).getCanonicalPath());
 
 					String strContent = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_WRITE_FILE_CONTENT), "");
 					String strRealPath = PythonAIChatUtils.isAbsolutePath(strFilePath) ? strFilePath : PythonAIChatUtils.resolveToAbsolute(this.getSkillsWorkspace(true).getCanonicalPath(), strFilePath);
@@ -713,7 +717,8 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 					}
 				}
 
-				strCommand = strCommand.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+				//strCommand = strCommand.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+				strCommand = AIChatUtils.replacePlaceHolderPath(strCommand, "SKILLS_WORKSPACE", this.getSkillsWorkspace(true).getCanonicalPath());
 				try {
 					ExecuteResult executeResult = PythonAIChatUtils.executeCommand(strCommand, this.getSkillsWorkspace(true));
 					if (bFromTemplate) {
@@ -976,7 +981,8 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				File file = null;
 				String strFilePath = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_X_FILE_PATH));
 				if (!ObjectUtils.isEmpty(strFilePath)) {
-					strFilePath = strFilePath.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+					//strFilePath = strFilePath.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+					strFilePath = AIChatUtils.replacePlaceHolderPath(strFilePath, "SKILLS_WORKSPACE", this.getSkillsWorkspace(true).getCanonicalPath());
 
 					String strContent = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_WRITE_FILE_CONTENT), "");
 					String strRealPath = PythonAIChatUtils.isAbsolutePath(strFilePath) ? strFilePath : PythonAIChatUtils.resolveToAbsolute(this.getSkillsWorkspace(true).getCanonicalPath(), strFilePath);
@@ -995,8 +1001,14 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 					}
 				}
 
-				strCommand = strCommand.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
-				strCommand = strCommand.replace("{baseDir}", iSysAIChatSkill.getSkillFolder().getCanonicalPath());
+				//strCommand = strCommand.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
+				//strCommand = strCommand.replace("{baseDir}", iSysAIChatSkill.getSkillFolder().getCanonicalPath());
+				
+				strCommand  = AIChatUtils.replacePlaceHolderPath(strCommand, "SKILLS_WORKSPACE", this.getSkillsWorkspace(true).getCanonicalPath());
+				strCommand  = AIChatUtils.replacePlaceHolderPath(strCommand, "baseDir", iSysAIChatSkill.getSkillFolder().getCanonicalPath());
+				
+				String strError = "";
+				
 				try {
 					ExecuteResult executeResult = PythonAIChatUtils.executeCommand(strCommand, iSysAIChatSkill.getSkillFolder());
 					if (bFromTemplate) {
@@ -1008,9 +1020,24 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 					return String.format("执行命令成功，返回以下内容：\n%1$s", executeResult.standardOutput);
 				} catch (Throwable ex) {
 					if (ex instanceof ExecuteException) {
-						return String.format("执行命令发生错误，返回以下信息：\n%1$s", ((ExecuteException) ex).getMessage());
+						strError = String.format("执行命令发生错误，返回以下信息：\n%1$s", ((ExecuteException) ex).getMessage());
 					}
-					return String.format("执行命令发生错误，返回以下信息：\n%1$s", ex.getMessage());
+					strError = String.format("执行命令发生错误，返回以下信息：\n%1$s", ex.getMessage());
+				}
+
+				//重试全局路径
+				log.warn(String.format("执行命令发生错误，重试`SKILLS_WORKSPACE`执行"));
+				try {
+					ExecuteResult executeResult = PythonAIChatUtils.executeCommand(strCommand, this.getSkillsWorkspace(true));
+					if (bFromTemplate) {
+						return executeResult.standardOutput;
+					}
+					if (file != null) {
+						return String.format("写入文件[%1$s]成功\n", file.getCanonicalPath()) + String.format("执行命令成功，返回以下内容：\n%1$s", executeResult.standardOutput);
+					}
+					return String.format("执行命令成功，返回以下内容：\n%1$s", executeResult.standardOutput);
+				} catch (Throwable ex) {
+					return strError;
 				}
 			}
 
@@ -1344,6 +1371,22 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	protected String getSkillChatSessionCacheKey(String skillId, String chatSessionId) {
 		return String.format("%1$s%2$s-%3$s--skillsession--%4$s--%5$s", "ibiz-cloud-sysaifactory-", this.getSystemRuntime().getDeploySystemId(), this.getFullUniqueTag().replace(".", "-"), skillId, chatSessionId).toLowerCase();
 	}
+	
+	@Override
+	public Object toolCall(String command, Map<String, Object> args) {
+		try {
+			return this.onToolCall(command, args);
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SysAIFactoryRuntimeException.rethrow(this, ex);
+			throw new SysAIFactoryRuntimeException(this, String.format("工具调用发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Object onToolCall(String command, Map<String, Object> args) throws Throwable{
+		return this.toolCall(command, args, new HashMap<String, Object>());
+	}
+
 
 	@Override
 	protected void onUninstall() throws Throwable {

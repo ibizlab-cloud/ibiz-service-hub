@@ -204,8 +204,9 @@ public abstract class DefaultSysAIChatAgentRuntimeBase extends net.ibizsys.centr
 			String strContent = sw.toString();
 			return strContent;
 		} catch (Exception ex) {
-			log.error(String.format("获取模板内容发生异常，%1$s", ex.getMessage()), ex);
-			return ex.getMessage();
+			//log.error(String.format("获取模板内容发生异常，%1$s", ex.getMessage()), ex);
+			//return ex.getMessage();
+			throw new Exception(String.format("获取模板[%1$s]内容发生异常，%2$s", strTemplateId, ex.getMessage()), ex);
 		}
 	}
 	
@@ -233,5 +234,16 @@ public abstract class DefaultSysAIChatAgentRuntimeBase extends net.ibizsys.centr
 	 */
 	protected String getGroovyContent(Object data, Template template, Map<String, Object> params) throws Throwable {
 		return super.getContent(data, template, params);
+	}
+	
+	@Override
+	public Object getTemplateContext(MsgTemplEngine msgTemplEngine) {
+		if(msgTemplEngine == MsgTemplEngine.FREEMARKER) {
+			if(this.aiAgentRTFreeMarkerContext == null) {
+				this.aiAgentRTFreeMarkerContext = this.createAIAgentRTFreeMarkerContext();
+			}
+			return this.aiAgentRTFreeMarkerContext;
+		}
+		return super.getTemplateContext(msgTemplEngine);
 	}
 }

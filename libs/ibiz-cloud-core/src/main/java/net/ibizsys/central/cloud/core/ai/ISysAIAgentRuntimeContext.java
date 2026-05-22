@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.core.ai;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
@@ -126,4 +127,11 @@ public interface ISysAIAgentRuntimeContext extends IModelRuntimeContext, IAIAgen
 		return rawFetchChunks(null, chunkSearchContextList);
 	}
 
+	
+	
+	/**
+	 * 获取上下文数据
+	 * @return
+	 */
+	Map<String, Object> getData();
 }

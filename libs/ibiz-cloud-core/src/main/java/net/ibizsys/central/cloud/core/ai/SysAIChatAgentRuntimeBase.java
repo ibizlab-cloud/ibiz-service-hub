@@ -49,6 +49,7 @@ import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.model.PSModelEnums;
 import net.ibizsys.model.PSModelEnums.AIKBMode;
 import net.ibizsys.model.PSModelEnums.AITrimmingStrategy;
+import net.ibizsys.model.PSModelEnums.MsgTemplEngine;
 import net.ibizsys.model.ai.IPSSysAIChatAgent;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.runtime.plugin.IModelRTScript;
@@ -195,8 +196,14 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
             this.prepareMemoryTaskDataEntityRuntime();
         }
 
+        if(StringUtils.hasLength(this.getPSModelObject().getAgentContextData())) {
+        	this.setAgentData(JsonUtils.asMap(this.getPSModelObject().getAgentContextData()));
+        }
+        
 
         this.prepareAIChatAgentGroups();
+        
+        
 
 
         super.onInit();
@@ -1970,6 +1977,14 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
             }
         }
         return system_id;
+    }
+    
+    @Override
+    public Object getTemplateContext(MsgTemplEngine msgTemplEngine) {
+    	if(msgTemplEngine == MsgTemplEngine.GROOVY) {
+    		return this.getModelRuntimeContext();
+    	}
+    	return null;
     }
 
 }

@@ -13,6 +13,13 @@ public interface IPSDEUICopyParamLogic extends net.ibizsys.model.dataentity.logi
 	
 	
 	/**
+	 * 获取拷贝属性集合
+	 * @return
+	 */
+	java.util.List<java.lang.String> getCopyFields();
+	
+	
+	/**
 	 * 获取目标逻辑参数对象
 	 * @return
 	 */
@@ -38,4 +45,11 @@ public interface IPSDEUICopyParamLogic extends net.ibizsys.model.dataentity.logi
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.logic.IPSDEUILogicParam getSrcPSDEUILogicParamMust();
+	
+	
+	/**
+	 * 获取是否仅拷贝不存在属性
+	 * @return
+	 */
+	boolean isCopyIfNotExists();
 }

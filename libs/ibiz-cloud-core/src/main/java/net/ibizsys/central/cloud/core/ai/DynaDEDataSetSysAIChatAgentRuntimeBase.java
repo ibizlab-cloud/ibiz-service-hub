@@ -33,6 +33,7 @@ import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.logic.PSDELogicImpl;
 import net.ibizsys.runtime.plugin.IModelRTAddin2;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.JsonUtils;
 
 
 public abstract class DynaDEDataSetSysAIChatAgentRuntimeBase extends SysAIChatAgentRuntimeBase implements IDynaSysAIChatAgentFactoryRuntime {
@@ -129,6 +130,10 @@ public abstract class DynaDEDataSetSysAIChatAgentRuntimeBase extends SysAIChatAg
 					agentObjectNode.put(PSSysAIChatAgentImpl.ATTR_GETAGENTCONTEXTID, String.valueOf(key));
 				}
 			}
+			
+			//放入当前数据
+			agentObjectNode.put(PSSysAIChatAgentImpl.ATTR_GETAGENTCONTEXTDATA, JsonUtils.toString(agentEntityDTO));
+			
 			//移除插件
 			//agentObjectNode.remove(PSSysAIChatAgentImpl.ATTR_GETPSSYSSFPLUGIN);
 			if(namePSDEField != null) {

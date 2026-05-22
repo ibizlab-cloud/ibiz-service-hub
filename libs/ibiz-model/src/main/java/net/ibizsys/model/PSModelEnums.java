@@ -4496,6 +4496,151 @@ public class PSModelEnums {
     }
 
     /**
+     * 开发语言条件操作
+     * <P>
+     * <ul>
+     * <li>EQ
+     * <P>
+     * 等于(=)
+     * <li>NOTEQ
+     * <P>
+     * 不等于(<>)
+     * <li>GT
+     * <P>
+     * 大于(>)
+     * <li>GTANDEQ
+     * <P>
+     * 大于等于(>=)
+     * <li>LT
+     * <P>
+     * 小于(<)
+     * <li>LTANDEQ
+     * <P>
+     * 小于等于(<=)
+     * <li>ISNULL
+     * <P>
+     * 值为空(Nil)
+     * <li>ISNOTNULL
+     * <P>
+     * 值不为空(NotNil)
+     * <li>TESTNULL
+     * <P>
+     * 空值判断(TestNil)
+     * <li>LIKE
+     * <P>
+     * 文本包含(%)
+     * <li>LEFTLIKE
+     * <P>
+     * 文本左包含(%#)
+     * <li>RIGHTLIKE
+     * <P>
+     * 文本右包含(#%)
+     * <li>USERLIKE
+     * <P>
+     * 自定义文本包含(%)
+     * <li>IN
+     * <P>
+     * 值在范围中(In)
+     * <li>NOTIN
+     * <P>
+     * 值不在范围中(NotIn)
+     * <li>EXISTS
+     * <P>
+     * 存在引用数据(Exists)
+     * <li>EXISTSX
+     * <P>
+     * 存在引用数据(ExistsX)（条件）
+     * <li>BITAND
+     * <P>
+     * 位与操作（BitAnd）(仅限整数形）
+     * <li>CHILDOF
+     * <P>
+     * 子数据（递归）
+     * <li>CONTAINS
+     * <P>
+     * 包含属性(Contains)
+     * </ul>     
+     */
+    public static enum LangValueOP{
+        EQ("EQ", "等于(=)")
+        ,NOTEQ("NOTEQ", "不等于(<>)")
+        ,GT("GT", "大于(>)")
+        ,GTANDEQ("GTANDEQ", "大于等于(>=)")
+        ,LT("LT", "小于(<)")
+        ,LTANDEQ("LTANDEQ", "小于等于(<=)")
+        ,ISNULL("ISNULL", "值为空(Nil)")
+        ,ISNOTNULL("ISNOTNULL", "值不为空(NotNil)")
+        ,TESTNULL("TESTNULL", "空值判断(TestNil)")
+        ,LIKE("LIKE", "文本包含(%)")
+        ,LEFTLIKE("LEFTLIKE", "文本左包含(%#)")
+        ,RIGHTLIKE("RIGHTLIKE", "文本右包含(#%)")
+        ,USERLIKE("USERLIKE", "自定义文本包含(%)")
+        ,IN("IN", "值在范围中(In)")
+        ,NOTIN("NOTIN", "值不在范围中(NotIn)")
+        ,EXISTS("EXISTS", "存在引用数据(Exists)")
+        ,EXISTSX("EXISTSX", "存在引用数据(ExistsX)（条件）")
+        ,BITAND("BITAND", "位与操作（BitAnd）(仅限整数形）")
+        ,CHILDOF("CHILDOF", "子数据（递归）")
+        ,CONTAINS("CONTAINS", "包含属性(Contains)")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private LangValueOP(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static LangValueOP from(String value){
+            switch(value){
+                case "EQ":
+                    return EQ;
+                case "NOTEQ":
+                    return NOTEQ;
+                case "GT":
+                    return GT;
+                case "GTANDEQ":
+                    return GTANDEQ;
+                case "LT":
+                    return LT;
+                case "LTANDEQ":
+                    return LTANDEQ;
+                case "ISNULL":
+                    return ISNULL;
+                case "ISNOTNULL":
+                    return ISNOTNULL;
+                case "TESTNULL":
+                    return TESTNULL;
+                case "LIKE":
+                    return LIKE;
+                case "LEFTLIKE":
+                    return LEFTLIKE;
+                case "RIGHTLIKE":
+                    return RIGHTLIKE;
+                case "USERLIKE":
+                    return USERLIKE;
+                case "IN":
+                    return IN;
+                case "NOTIN":
+                    return NOTIN;
+                case "EXISTS":
+                    return EXISTS;
+                case "EXISTSX":
+                    return EXISTSX;
+                case "BITAND":
+                    return BITAND;
+                case "CHILDOF":
+                    return CHILDOF;
+                case "CONTAINS":
+                    return CONTAINS;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 实体处逻辑子类
      * <P>
      * <ul>
@@ -38113,11 +38258,15 @@ public class PSModelEnums {
      * <li>SPECIFIED&nbsp;(specified)
      * <P>
      * 指定，仅加载指定技能
+     * <li>SPECIFIED_PRELOAD&nbsp;(specified_preload)
+     * <P>
+     * 指定并预载，仅加载指定技能并全部预载
      * </ul>     
      */
     public static enum AISkillLoadMode{
         ALL("all", "全部")
         ,SPECIFIED("specified", "指定")
+        ,SPECIFIED_PRELOAD("specified_preload", "指定并预载")
 ;
            
         public final String text;
@@ -38134,6 +38283,8 @@ public class PSModelEnums {
                     return ALL;
                 case "specified":
                     return SPECIFIED;
+                case "specified_preload":
+                    return SPECIFIED_PRELOAD;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -40270,7 +40421,7 @@ public class PSModelEnums {
      * 源逻辑参数，指定源处理逻辑参数
      * <li>LOGICPARAM
      * <P>
-     * 逻辑参数对象
+     * 逻辑参数对象（兼容），同`源逻辑参数`
      * <li>LOGICPARAMFIELD
      * <P>
      * 逻辑参数属性
@@ -40320,7 +40471,7 @@ public class PSModelEnums {
      */
     public static enum DELogicParamValueType{
         SRCDLPARAM("SRCDLPARAM", "源逻辑参数")
-        ,LOGICPARAM("LOGICPARAM", "逻辑参数对象")
+        ,LOGICPARAM("LOGICPARAM", "逻辑参数对象（兼容）")
         ,LOGICPARAMFIELD("LOGICPARAMFIELD", "逻辑参数属性")
         ,WEBCONTEXT("WEBCONTEXT", "网页请求上下文")
         ,APPDATA("APPDATA", "当前应用数据")
