@@ -16,28 +16,28 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取别名
 	 * @return
 	 */
-	java.lang.String getAlias();
+	String getAlias();
 	
 	
 	/**
 	 * 获取分组代码
 	 * @return
 	 */
-	java.lang.String getGroupCode();
+	String getGroupCode();
 	
 	
 	/**
 	 * 获取分组连接代码
 	 * @return
 	 */
-	java.lang.String getGroupJoinCode();
+	String getGroupJoinCode();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	 * 获取选择代码
 	 * @return
 	 */
-	java.lang.String getSelectCode();
+	String getSelectCode();
 	
 	
 	/**
@@ -67,7 +67,7 @@ public interface IPSDEDataSetGroupParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getSortDir();
+	String getSortDir();
 	
 	
 	/**

@@ -16,14 +16,14 @@ public interface IPSDEUIEndLogic extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 获取返回参数属性
 	 * @return
 	 */
-	java.lang.String getDstFieldName();
+	String getDstFieldName();
 	
 	
 	/**
 	 * 获取返回直接值
 	 * @return
 	 */
-	java.lang.String getRawValue();
+	String getRawValue();
 	
 	
 	/**
@@ -55,5 +55,5 @@ public interface IPSDEUIEndLogic extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicReturnType}
 	 * @return
 	 */
-	java.lang.String getReturnType();
+	String getReturnType();
 }

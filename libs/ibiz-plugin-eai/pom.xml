@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.578.187</version>
+    <version>8.1.0.584.1</version>
   </parent>
   <artifactId>ibiz-plugin-eai</artifactId>
 	<name>ibiz-plugin-eai</name>
@@ -13,19 +13,31 @@
 	
 		<dependencies>
 		
-		<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
-		<dependency>
-		    <groupId>org.eclipse.paho</groupId>
-		    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-		    <version>1.2.5</version>
-		</dependency>
-			
-		
-		<dependency>
-			<groupId>cn.ibizlab.plugin</groupId>
-			<artifactId>ibiz-cloud-core</artifactId>
-			<version>${ibiz.cloud.version}</version>
-		</dependency>
+			<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+			<dependency>
+				<groupId>org.eclipse.paho</groupId>
+				<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+				<version>1.2.5</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>3.13.0</version>
+			</dependency>
+
+			<!-- Source: https://mvnrepository.com/artifact/eu.agno3.jcifs/jcifs-ng -->
+			<dependency>
+				<groupId>eu.agno3.jcifs</groupId>
+				<artifactId>jcifs-ng</artifactId>
+				<version>2.1.10</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>cn.ibizlab.plugin</groupId>
+				<artifactId>ibiz-cloud-core</artifactId>
+				<version>${ibiz.cloud.version}</version>
+			</dependency>
 
 
 	</dependencies>

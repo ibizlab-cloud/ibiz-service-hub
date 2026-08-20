@@ -16,7 +16,7 @@ public interface IPSList extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**

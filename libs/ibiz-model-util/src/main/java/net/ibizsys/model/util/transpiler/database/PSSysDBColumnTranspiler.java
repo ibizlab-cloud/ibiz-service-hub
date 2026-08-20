@@ -22,10 +22,12 @@ public class PSSysDBColumnTranspiler extends net.ibizsys.model.util.transpiler.P
 		}
 		net.ibizsys.model.database.PSSysDBColumnImpl realPSModelObject = (net.ibizsys.model.database.PSSysDBColumnImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "codename2", realPSModelObject.getCodeName2(), realPSModelObject, "getCodeName2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "columnparams", realPSModelObject.getColumnParams(), realPSModelObject, "getColumnParams");
 		this.setDomainValue(iPSModelTranspileContext, domain, "columntag", realPSModelObject.getColumnTag(), realPSModelObject, "getColumnTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "columntag2", realPSModelObject.getColumnTag2(), realPSModelObject, "getColumnTag2");
 		this.setDomainValue(iPSModelTranspileContext, domain, "createsql", realPSModelObject.getCreateSql(), realPSModelObject, "getCreateSql");
 		this.setDomainValue(iPSModelTranspileContext, domain, "datatype", realPSModelObject.getDataType(), realPSModelObject, "getDataType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "datatypes", realPSModelObject.getDataTypes(), realPSModelObject, "getDataTypes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "defaultvalue", realPSModelObject.getDefaultValue(), realPSModelObject, "getDefaultValue");
 		this.setDomainValue(iPSModelTranspileContext, domain, "dropsql", realPSModelObject.getDropSql(), realPSModelObject, "getDropSql");
 		this.setDomainValue(iPSModelTranspileContext, domain, "length", realPSModelObject.getLength(), realPSModelObject, "getLength");
@@ -42,10 +44,12 @@ public class PSSysDBColumnTranspiler extends net.ibizsys.model.util.transpiler.P
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCODENAME2, domain, "codename2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCOLUMNPARAMS, domain, "columnparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCOLUMNTAG, domain, "columntag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCOLUMNTAG2, domain, "columntag2", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCREATESQL, domain, "createsql", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATATYPE, domain, "datatype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDATATYPES, domain, "datatypes", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDEFAULTVALUE, domain, "defaultvalue", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDROPSQL, domain, "dropsql", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETLENGTH, domain, "length", int.class, new String[]{"-1","0"});

@@ -23,7 +23,9 @@ public class PSDEUIActionTranspiler extends net.ibizsys.model.util.transpiler.vi
 		net.ibizsys.model.dataentity.uiaction.PSDEUIActionImpl realPSModelObject = (net.ibizsys.model.dataentity.uiaction.PSDEUIActionImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "actionlevel", realPSModelObject.getActionLevel(), realPSModelObject, "getActionLevel");
 		this.setDomainValue(iPSModelTranspileContext, domain, "actiontarget", realPSModelObject.getActionTarget(), realPSModelObject, "getActionTarget");
+		this.setDomainValue(iPSModelTranspileContext, domain, "aftercode", realPSModelObject.getAfterCode(), realPSModelObject, "getAfterCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "noprivdm", realPSModelObject.getAppNoPrivDisplayMode(), realPSModelObject, "getAppNoPrivDisplayMode");
+		this.setDomainValue(iPSModelTranspileContext, domain, "beforecode", realPSModelObject.getBeforeCode(), realPSModelObject, "getBeforeCode");
 		this.setDomainValue(iPSModelTranspileContext, domain, "buttonstyle", realPSModelObject.getButtonStyle(), realPSModelObject, "getButtonStyle");
 		this.setDomainValue(iPSModelTranspileContext, domain, "cmpslanresid", realPSModelObject.getCMPSLanguageRes(), realPSModelObject, "getCMPSLanguageRes");
 		this.setDomainValue(iPSModelTranspileContext, domain, "cappslanresid", realPSModelObject.getCapPSLanguageRes(), realPSModelObject, "getCapPSLanguageRes");
@@ -77,7 +79,9 @@ public class PSDEUIActionTranspiler extends net.ibizsys.model.util.transpiler.vi
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACTIONLEVEL, domain, "actionlevel", int.class, new String[]{"100"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETACTIONTARGET, domain, "actiontarget", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAFTERCODE, domain, "aftercode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETAPPNOPRIVDISPLAYMODE, domain, "noprivdm", int.class, new String[]{"2"});
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBEFORECODE, domain, "beforecode", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETBUTTONSTYLE, domain, "buttonstyle", java.lang.String.class, new String[]{"100"});
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCMPSLANGUAGERES, domain, "cmpslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCAPPSLANGUAGERES, domain, "cappslanresid", net.ibizsys.model.res.IPSLanguageRes.class, false);

@@ -16,7 +16,7 @@ public interface IPSDEFDGroupLogic extends net.ibizsys.model.control.form.IPSDEF
 	 * 获取组逻辑
 	 * @return
 	 */
-	java.lang.String getGroupOP();
+	String getGroupOP();
 	
 	
 	/**

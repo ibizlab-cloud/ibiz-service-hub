@@ -176,4 +176,14 @@ public interface ISysAIFactoryRuntimeContext extends IModelRuntimeContext, IAIFa
 	 * @return
 	 */
 	int getDailyMemoryMaxTokens();
+	
+	
+	/**
+	 * 获取指定全局交谈技能
+	 * @param strSkillId
+	 * @param tryMode
+	 * @return
+	 * @throws Exception
+	 */
+	ISysAIChatSkill getAIChatSkill(String strSkillId, boolean tryMode) throws Exception; 
 }

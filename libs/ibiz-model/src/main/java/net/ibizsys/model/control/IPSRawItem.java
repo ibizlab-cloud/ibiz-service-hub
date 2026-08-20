@@ -18,14 +18,14 @@ public interface IPSRawItem extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RawItemContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
 	 * 获取Html内容
 	 * @return
 	 */
-	java.lang.String getHtmlContent();
+	String getHtmlContent();
 	
 	
 	/**
@@ -46,7 +46,7 @@ public interface IPSRawItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 	
 	
 	/**

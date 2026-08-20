@@ -15,35 +15,35 @@ public interface IPSPanelLogic extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取事件参数
 	 * @return
 	 */
-	java.lang.String getEventArg();
+	String getEventArg();
 	
 	
 	/**
 	 * 获取事件参数2
 	 * @return
 	 */
-	java.lang.String getEventArg2();
+	String getEventArg2();
 	
 	
 	/**
 	 * 获取事件名称
 	 * @return
 	 */
-	java.lang.String getEventNames();
+	String getEventNames();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -52,7 +52,7 @@ public interface IPSPanelLogic extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PanelLogicType}
 	 * @return
 	 */
-	java.lang.String getLogicTrigger();
+	String getLogicTrigger();
 	
 	
 	/**
@@ -61,7 +61,7 @@ public interface IPSPanelLogic extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ControlLogicType}
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 	
 	
 	/**

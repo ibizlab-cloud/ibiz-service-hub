@@ -15,49 +15,49 @@ public interface IPSSysMethodDTOField extends net.ibizsys.model.dataentity.defie
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
 	 * 获取默认值类型
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**
 	 * 获取Json格式化
 	 * @return
 	 */
-	java.lang.String getJsonFormat();
+	String getJsonFormat();
 	
 	
 	/**
 	 * 获取中文名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -108,7 +108,7 @@ public interface IPSSysMethodDTOField extends net.ibizsys.model.dataentity.defie
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOFieldSourceType}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 	
 	
 	/**
@@ -126,7 +126,7 @@ public interface IPSSysMethodDTOField extends net.ibizsys.model.dataentity.defie
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOFieldType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

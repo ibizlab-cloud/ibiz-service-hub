@@ -179,6 +179,8 @@ public abstract class ProxySysAIChatAgentRuntimeBase  extends DefaultSysAIChatAg
 	
 	protected ChatCompletionResult chatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories, String strAction) throws Throwable {
 		boolean pushSession = false;
+		Map<String, String> lastRunner = this.getSysAIFactoryRuntimeContext().getCurrentSkillRunnerData();
+		String strLastBusinessScope = this.getSysAIFactoryRuntimeContext().getCurrentBusinessScope();
 		try {
 			ChatCompletionSession chatCompletionSession = new ChatCompletionSession();
 			String strCacheKey = String.format("ibiz-cloud-sysaichat-%1$s--%2$s-%3$s-%4$s", this.getSystemRuntime().getServiceId(), this.getFullUniqueTag(), this.getPSModelObject().getAgentContextId(), chatCompletionRequest.getSessionId());
@@ -220,12 +222,22 @@ public abstract class ProxySysAIChatAgentRuntimeBase  extends DefaultSysAIChatAg
 				chatCompletionSession.setChatSessionId(chatCompletionRequest.getSessionId());
 			}
 			
+			this.getSysAIFactoryRuntimeContext().setCurrentBusinessScope(chatCompletionSession.getBusinessScope());
+			if(!ObjectUtils.isEmpty(chatCompletionSession.getBusinessScope())) {
+				Map<String, String> businessScopeData = this.getSysAIFactoryRuntimeContext().getSkillRunnerDataByBusinessScope(chatCompletionSession.getBusinessScope());
+				if(!ObjectUtils.isEmpty(businessScopeData)) {
+					this.getSysAIFactoryRuntimeContext().setCurrentSkillRunnerData(businessScopeData);
+				}
+			}
+			
 			ChatCompletionSessionHolder.push(chatCompletionSession);
 			pushSession = true;
 			ChatCompletionResult ret = super.chatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
 			return ret;
 		}
 		finally {
+			this.getSysAIFactoryRuntimeContext().setCurrentBusinessScope(strLastBusinessScope);
+			this.getSysAIFactoryRuntimeContext().setCurrentSkillRunnerData(lastRunner);
 			if(pushSession)
 				ChatCompletionSessionHolder.poll();
 		}
@@ -288,8 +300,16 @@ public abstract class ProxySysAIChatAgentRuntimeBase  extends DefaultSysAIChatAg
 				throw new UserCancelException("用户取消");
 			}
 	
-			PortalAsyncAction last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
-	
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+        	PortalAsyncAction last = null;
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
+			
 			double fCompletionRate = 0.0f;
 			if (last.getCompletionRate() != null) {
 				fCompletionRate = last.getCompletionRate().doubleValue();
@@ -736,5 +756,31 @@ public abstract class ProxySysAIChatAgentRuntimeBase  extends DefaultSysAIChatAg
 			realChatMessageList.add(chatMessage);
 		}
 		return realChatMessageList;
+	}
+	
+	@Override
+	protected List<ChatMessage> onGetHistories(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+		Map<String, String> lastRunner = this.getSysAIFactoryRuntimeContext().getCurrentSkillRunnerData();
+		String strLastBusinessScope = this.getSysAIFactoryRuntimeContext().getCurrentBusinessScope();
+		try {
+			String strBusinessScope = null;
+			if(body instanceof Map) {
+				strBusinessScope = (String)((Map)body).get(ISysAIAgentRuntime.SCOPE);
+			}
+			
+			this.getSysAIFactoryRuntimeContext().setCurrentBusinessScope(strBusinessScope);
+			if(!ObjectUtils.isEmpty(strBusinessScope)) {
+				Map<String, String> businessScopeData = this.getSysAIFactoryRuntimeContext().getSkillRunnerDataByBusinessScope(strBusinessScope);
+				if(!ObjectUtils.isEmpty(businessScopeData)) {
+					this.getSysAIFactoryRuntimeContext().setCurrentSkillRunnerData(businessScopeData);
+				}
+			}
+			return super.onGetHistories(dataOrKeys, body, params);
+		}
+		finally {
+			this.getSysAIFactoryRuntimeContext().setCurrentBusinessScope(strLastBusinessScope);
+			this.getSysAIFactoryRuntimeContext().setCurrentSkillRunnerData(lastRunner);
+		}
+		
 	}
 }

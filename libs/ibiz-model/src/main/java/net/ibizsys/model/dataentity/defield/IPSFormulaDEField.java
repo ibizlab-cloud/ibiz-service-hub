@@ -14,12 +14,12 @@ public interface IPSFormulaDEField extends net.ibizsys.model.dataentity.defield.
 	 * 获取公式列参数
 	 * @return
 	 */
-	java.lang.String getFormulaColumns();
+	String getFormulaColumns();
 	
 	
 	/**
 	 * 获取公式列格式
 	 * @return
 	 */
-	java.lang.String getFormulaFormat();
+	String getFormulaFormat();
 }

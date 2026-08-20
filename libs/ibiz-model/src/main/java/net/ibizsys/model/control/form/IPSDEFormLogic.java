@@ -14,5 +14,5 @@ public interface IPSDEFormLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取表单成员名称
 	 * @return
 	 */
-	java.lang.String getPSDEFormDetailName();
+	String getPSDEFormDetailName();
 }

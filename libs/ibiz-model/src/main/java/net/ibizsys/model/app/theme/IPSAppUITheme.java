@@ -14,14 +14,14 @@ public interface IPSAppUITheme extends net.ibizsys.model.app.IPSApplicationObjec
 	 * 获取主题样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取主题说明
 	 * @return
 	 */
-	java.lang.String getThemeDesc();
+	String getThemeDesc();
 	
 	
 	/**
@@ -35,12 +35,12 @@ public interface IPSAppUITheme extends net.ibizsys.model.app.IPSApplicationObjec
 	 * 获取主题标记
 	 * @return
 	 */
-	java.lang.String getThemeTag();
+	String getThemeTag();
 	
 	
 	/**
 	 * 获取主题远程路径
 	 * @return
 	 */
-	java.lang.String getThemeUrl();
+	String getThemeUrl();
 }

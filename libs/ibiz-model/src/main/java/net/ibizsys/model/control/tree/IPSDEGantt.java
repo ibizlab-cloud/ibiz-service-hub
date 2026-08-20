@@ -14,40 +14,40 @@ public interface IPSDEGantt extends net.ibizsys.model.control.tree.IPSDETreeGrid
 	 * 获取开始时间数据项
 	 * @return
 	 */
-	java.lang.String getBeginDataItemName();
+	String getBeginDataItemName();
 	
 	
 	/**
 	 * 获取结束时间数据项
 	 * @return
 	 */
-	java.lang.String getEndDataItemName();
+	String getEndDataItemName();
 	
 	
 	/**
 	 * 获取完成量数据项
 	 * @return
 	 */
-	java.lang.String getFinishDataItemName();
+	String getFinishDataItemName();
 	
 	
 	/**
 	 * 获取前置数据项
 	 * @return
 	 */
-	java.lang.String getPrevDataItemName();
+	String getPrevDataItemName();
 	
 	
 	/**
 	 * 获取编号数据项
 	 * @return
 	 */
-	java.lang.String getSNDataItemName();
+	String getSNDataItemName();
 	
 	
 	/**
 	 * 获取总量数据项
 	 * @return
 	 */
-	java.lang.String getTotalDataItemName();
+	String getTotalDataItemName();
 }

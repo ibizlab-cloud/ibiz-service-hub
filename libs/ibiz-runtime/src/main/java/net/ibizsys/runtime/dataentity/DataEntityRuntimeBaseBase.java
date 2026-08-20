@@ -83,9 +83,15 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 	
 	private Map<String, IDELogicRuntime> deLogicRuntimeMap = new ConcurrentHashMap<String,IDELogicRuntime>();
 	
+	private Map<String, IDELogicRuntime> dynaDELogicRuntimeMap = null;
+	
 	private Map<String, IDEDataImportRuntime> deDataImportRuntimeMap = null;
 	
+	private Map<String, IDEDataImportRuntime> dynaDEDataImportRuntimeMap = null;
+	
 	private Map<String, IDEDataExportRuntime> deDataExportRuntimeMap = null;
+	
+	private Map<String, IDEDataExportRuntime> dynaDEDataExportRuntimeMap = null;
 	
 	private Map<String, IDEDTSQueueRuntime> deDTSQueueRuntimeMap = null;
 	
@@ -477,29 +483,22 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 	
 	@Override
 	public IDEPrintRuntime getDEPrintRuntime(IPSDEPrint iPSDEPrint) {
-		prepare();
-		if(this.dePrintRuntimeMap != null) {
-			IDEPrintRuntime iDEPrintRuntime = this.dePrintRuntimeMap.get(iPSDEPrint.getId());
-			if(iDEPrintRuntime != null) {
-				return iDEPrintRuntime;
-			}
+		IDEPrintRuntime iDEPrintRuntime = this.getDEPrintRuntime(iPSDEPrint.getId(), true);
+		if(iDEPrintRuntime != null) {
+			return iDEPrintRuntime;
 		}
+		
 		throw new DataEntityRuntimeException(this, String.format("无法获取实体打印[%1$s]运行时对象",iPSDEPrint.getName()));
 	}
 	
 	@Override
 	public IDEReportRuntime getDEReportRuntime(IPSDEReport iPSDEReport) {
-		prepare();
-		if(this.deReportRuntimeMap != null) {
-			IDEReportRuntime iDEReportRuntime = this.deReportRuntimeMap.get(iPSDEReport.getId());
-			if(iDEReportRuntime != null) {
-				return iDEReportRuntime;
-			}
+		IDEReportRuntime iDEReportRuntime = this.getDEReportRuntime(iPSDEReport.getId(), true);
+		if(iDEReportRuntime != null) {
+			return iDEReportRuntime;
 		}
 		throw new DataEntityRuntimeException(this, String.format("无法获取实体报表[%1$s]运行时对象",iPSDEReport.getName()));
 	}
-	
-	
 
 	
 	@Override
@@ -621,6 +620,83 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		throw new DataEntityRuntimeException(this, String.format("无法获取实体处理逻辑[%1$s]运行时对象",strId));
 	}
 	
+	
+	@Override
+	public void registerDELogicRuntime(String tag, Class<?> deLogicRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入处理逻辑标记");
+		Assert.notNull(deLogicRuntimeClass, "传入实体处理逻辑运行时插件Class无效");
+		
+		IPSDELogic iPSDELogic = getPSDELogic(tag);
+		if(iPSDELogic == null) {
+			throw new DataEntityRuntimeException(this, String.format("无法获取实体处理逻辑[%1$s]运行时对象", tag));
+		}
+
+		String strAddinId = String.format("%1$s@%2$s", deLogicRuntimeClass.getTypeName(), Integer.toHexString(deLogicRuntimeClass.hashCode()));
+		if(this.dynaDELogicRuntimeMap == null) {
+			this.dynaDELogicRuntimeMap = new ConcurrentHashMap<String, IDELogicRuntime>();
+		}
+		else if(this.dynaDELogicRuntimeMap.containsKey(strAddinId)) {
+			throw new DataEntityRuntimeException(this, String.format("实体处理逻辑运行时对象[%1$s]已经注册，无法重复注册", strAddinId));
+		}
+		
+		IDELogicRuntime iDELogicRuntime = null;
+		try {
+			Object addin = deLogicRuntimeClass.newInstance();
+			if(!(addin instanceof IDELogicRuntime)){
+				throw new Exception(String.format("插件[%1$s]类型不正确", deLogicRuntimeClass.getName()));
+			}
+			iDELogicRuntime = (IDELogicRuntime)addin;
+		}
+		catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this, String.format("建立实体处理逻辑运行时插件发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		try {
+			this.getSystemRuntime().autowareObject(iDELogicRuntime);
+			iDELogicRuntime.init(this.getDataEntityRuntimeBaseContext(), iPSDELogic);
+			
+			this.dynaDELogicRuntimeMap.put(strAddinId, iDELogicRuntime);
+			
+			if(this.deLogicRuntimeMap == null) {
+				this.deLogicRuntimeMap = new ConcurrentHashMap<>();
+			}
+			IDELogicRuntime lastDELogicRuntime = this.deLogicRuntimeMap.put(iPSDELogic.getId(), iDELogicRuntime);
+			if(lastDELogicRuntime != null) {
+				ModelRuntimeUtils.shutdownModelRuntime(lastDELogicRuntime);
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("初始化实体处理逻辑运行时对象发生异常，%1$s",ex.getMessage()),ex);
+			throw new DataEntityRuntimeException(this, String.format("初始化实体处理逻辑运行时对象发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+	}
+	
+	
+	@Override
+	public boolean unregisterDELogicRuntime(String tag, Class<?> deLogicRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入处理逻辑标记");
+		Assert.notNull(deLogicRuntimeClass, "传入实体处理逻辑运行时插件Class无效");
+		
+		if(ObjectUtils.isEmpty(this.dynaDELogicRuntimeMap)) {
+			return false;
+		}
+		
+		String strAddinId = String.format("%1$s@%2$s", deLogicRuntimeClass.getTypeName(), Integer.toHexString(deLogicRuntimeClass.hashCode()));
+		IDELogicRuntime iDELogicRuntime = this.dynaDELogicRuntimeMap.remove(strAddinId);
+		if(iDELogicRuntime != null && this.deLogicRuntimeMap != null) {
+			if(this.deLogicRuntimeMap.remove(iDELogicRuntime.getPSModelObject().getId(), iDELogicRuntime)) {
+				ModelRuntimeUtils.shutdownModelRuntime(iDELogicRuntime);
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
 	@Override
 	public IDEMSLogicRuntime getDEMSLogicRuntime(IPSDEMSLogic iPSDEMSLogic) {
 		return getDEMSLogicRuntime(iPSDEMSLogic, false);
@@ -687,8 +763,16 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 	@Override
 	public IDEDataImportRuntime getDEDataImportRuntime(String strId) {
 		
+		IPSDEDataImport iPSDEDataImport = getPSDEDataImport(strId);
+		if(iPSDEDataImport != null) {
+			return getDEDataImportRuntime(iPSDEDataImport);
+		}
+		
+		throw new DataEntityRuntimeException(this, String.format("无法获取实体导入[%1$s]运行时对象",strId));
+	}
+	
+	public IPSDEDataImport getPSDEDataImport(String strId) {
 		prepare();
-		IPSDEDataImport iPSDEDataImport = null;
 		java.util.List<IPSDEDataImport> list;
 		try {
 			list = this.getPSDataEntity().getAllPSDEDataImports();
@@ -697,24 +781,17 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		}
 		if(list != null) {
 			for(IPSDEDataImport item : list) {
-				if(StringUtils.isEmpty(strId)) {
+				if(ObjectUtils.isEmpty(strId)) {
 					if(item.isDefaultMode()) {
-						iPSDEDataImport = item;
-						break;
+						return item;
 					}
 				}
 				else if(strId.equals(item.getId()) || strId.equalsIgnoreCase(item.getCodeName())) {
-					iPSDEDataImport = item;
-					break;
+					return item;
 				}
 			}
 		}
-		
-		if(iPSDEDataImport != null) {
-			return getDEDataImportRuntime(iPSDEDataImport);
-		}
-		
-		throw new DataEntityRuntimeException(this, String.format("无法获取实体导入[%1$s]运行时对象",strId));
+		return null;
 	}
 	
 	@Override
@@ -742,12 +819,94 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 	}
 	
 	@Override
+	public void registerDEDataImportRuntime(String tag, Class<?> deDataImportRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入数据导入标记");
+		Assert.notNull(deDataImportRuntimeClass, "传入实体数据导入运行时插件Class无效");
+		
+		IPSDEDataImport iPSDEDataImport = getPSDEDataImport(tag);
+		if(iPSDEDataImport == null) {
+			throw new DataEntityRuntimeException(this, String.format("无法获取实体数据导入[%1$s]运行时对象", tag));
+		}
+
+		String strAddinId = String.format("%1$s@%2$s", deDataImportRuntimeClass.getTypeName(), Integer.toHexString(deDataImportRuntimeClass.hashCode()));
+		if(this.dynaDEDataImportRuntimeMap == null) {
+			this.dynaDEDataImportRuntimeMap = new ConcurrentHashMap<String, IDEDataImportRuntime>();
+		}
+		else if(this.dynaDEDataImportRuntimeMap.containsKey(strAddinId)) {
+			throw new DataEntityRuntimeException(this, String.format("实体数据导入运行时对象[%1$s]已经注册，无法重复注册", strAddinId));
+		}
+		
+		IDEDataImportRuntime iDEDataImportRuntime = null;
+		try {
+			Object addin = deDataImportRuntimeClass.newInstance();
+			if(!(addin instanceof IDEDataImportRuntime)){
+				throw new Exception(String.format("插件[%1$s]类型不正确", deDataImportRuntimeClass.getName()));
+			}
+			iDEDataImportRuntime = (IDEDataImportRuntime)addin;
+		}
+		catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this, String.format("建立实体数据导入运行时插件发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		try {
+			this.getSystemRuntime().autowareObject(iDEDataImportRuntime);
+			iDEDataImportRuntime.init(this.getDataEntityRuntimeBaseContext(), iPSDEDataImport);
+			
+			this.dynaDEDataImportRuntimeMap.put(strAddinId, iDEDataImportRuntime);
+			
+			if(this.deDataImportRuntimeMap == null) {
+				this.deDataImportRuntimeMap = new ConcurrentHashMap<>();
+			}
+			IDEDataImportRuntime lastDEDataImportRuntime = this.deDataImportRuntimeMap.put(iPSDEDataImport.getId(), iDEDataImportRuntime);
+			if(lastDEDataImportRuntime != null) {
+				ModelRuntimeUtils.shutdownModelRuntime(lastDEDataImportRuntime);
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("初始化实体数据导入运行时对象发生异常，%1$s",ex.getMessage()),ex);
+			throw new DataEntityRuntimeException(this, String.format("初始化实体数据导入运行时对象发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+	}
+	
+	
+	@Override
+	public boolean unregisterDEDataImportRuntime(String tag, Class<?> deDataImportRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入数据导入标记");
+		Assert.notNull(deDataImportRuntimeClass, "传入实体数据导入运行时插件Class无效");
+		
+		if(ObjectUtils.isEmpty(this.dynaDEDataImportRuntimeMap)) {
+			return false;
+		}
+		
+		String strAddinId = String.format("%1$s@%2$s", deDataImportRuntimeClass.getTypeName(), Integer.toHexString(deDataImportRuntimeClass.hashCode()));
+		IDEDataImportRuntime iDEDataImportRuntime = this.dynaDEDataImportRuntimeMap.remove(strAddinId);
+		if(iDEDataImportRuntime != null && this.deDataImportRuntimeMap != null) {
+			if(this.deDataImportRuntimeMap.remove(iDEDataImportRuntime.getPSModelObject().getId(), iDEDataImportRuntime)) {
+				ModelRuntimeUtils.shutdownModelRuntime(iDEDataImportRuntime);
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
 	public IDEDataExportRuntime getDEDataExportRuntime(String strId) {
 		
 		Assert.hasLength(strId, "未指定实体数据导出标识");
 		
+		IPSDEDataExport iPSDEDataExport = getPSDEDataExport(strId);
+		if(iPSDEDataExport != null) {
+			return getDEDataExportRuntime(iPSDEDataExport);
+		}
+		
+		throw new DataEntityRuntimeException(this, String.format("无法获取实体导出[%1$s]运行时对象",strId));
+	}
+	
+	public IPSDEDataExport getPSDEDataExport(String strId) {
 		prepare();
-		IPSDEDataExport iPSDEDataExport = null;
 		java.util.List<IPSDEDataExport> list;
 		try {
 			list = this.getPSDataEntity().getAllPSDEDataExports();
@@ -757,18 +916,13 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		if(list != null) {
 			for(IPSDEDataExport item : list) {
 				if(strId.equals(item.getId()) || strId.equalsIgnoreCase(item.getCodeName())) {
-					iPSDEDataExport = item;
-					break;
+					return item;
 				}
 			}
 		}
-		
-		if(iPSDEDataExport != null) {
-			return getDEDataExportRuntime(iPSDEDataExport);
-		}
-		
-		throw new DataEntityRuntimeException(this, String.format("无法获取实体导出[%1$s]运行时对象",strId));
+		return null;
 	}
+	
 	
 	@Override
 	public IDEDataExportRuntime getDEDataExportRuntime(IPSDEDataExport iPSDEDataExport) {
@@ -794,7 +948,79 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		return iDEDataExportRuntime;
 	}
 	
+	@Override
+	public void registerDEDataExportRuntime(String tag, Class<?> deDataExportRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入数据导出标记");
+		Assert.notNull(deDataExportRuntimeClass, "传入实体数据导出运行时插件Class无效");
+		
+		IPSDEDataExport iPSDEDataExport = getPSDEDataExport(tag);
+		if(iPSDEDataExport == null) {
+			throw new DataEntityRuntimeException(this, String.format("无法获取实体数据导出[%1$s]运行时对象", tag));
+		}
+
+		String strAddinId = String.format("%1$s@%2$s", deDataExportRuntimeClass.getTypeName(), Integer.toHexString(deDataExportRuntimeClass.hashCode()));
+		if(this.dynaDEDataExportRuntimeMap == null) {
+			this.dynaDEDataExportRuntimeMap = new ConcurrentHashMap<String, IDEDataExportRuntime>();
+		}
+		else if(this.dynaDEDataExportRuntimeMap.containsKey(strAddinId)) {
+			throw new DataEntityRuntimeException(this, String.format("实体数据导出运行时对象[%1$s]已经注册，无法重复注册", strAddinId));
+		}
+		
+		IDEDataExportRuntime iDEDataExportRuntime = null;
+		try {
+			Object addin = deDataExportRuntimeClass.newInstance();
+			if(!(addin instanceof IDEDataExportRuntime)){
+				throw new Exception(String.format("插件[%1$s]类型不正确", deDataExportRuntimeClass.getName()));
+			}
+			iDEDataExportRuntime = (IDEDataExportRuntime)addin;
+		}
+		catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this, String.format("建立实体数据导出运行时插件发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		try {
+			this.getSystemRuntime().autowareObject(iDEDataExportRuntime);
+			iDEDataExportRuntime.init(this.getDataEntityRuntimeBaseContext(), iPSDEDataExport);
+			
+			this.dynaDEDataExportRuntimeMap.put(strAddinId, iDEDataExportRuntime);
+			
+			if(this.deDataExportRuntimeMap == null) {
+				this.deDataExportRuntimeMap = new ConcurrentHashMap<>();
+			}
+			IDEDataExportRuntime lastDEDataExportRuntime = this.deDataExportRuntimeMap.put(iPSDEDataExport.getId(), iDEDataExportRuntime);
+			if(lastDEDataExportRuntime != null) {
+				ModelRuntimeUtils.shutdownModelRuntime(lastDEDataExportRuntime);
+			}
+		}
+		catch (Throwable ex) {
+			log.error(String.format("初始化实体数据导出运行时对象发生异常，%1$s",ex.getMessage()),ex);
+			throw new DataEntityRuntimeException(this, String.format("初始化实体数据导出运行时对象发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+	}
 	
+	
+	@Override
+	public boolean unregisterDEDataExportRuntime(String tag, Class<?> deDataExportRuntimeClass) {
+		
+		Assert.hasLength(tag, "未传入数据导出标记");
+		Assert.notNull(deDataExportRuntimeClass, "传入实体数据导出运行时插件Class无效");
+		
+		if(ObjectUtils.isEmpty(this.dynaDEDataExportRuntimeMap)) {
+			return false;
+		}
+		
+		String strAddinId = String.format("%1$s@%2$s", deDataExportRuntimeClass.getTypeName(), Integer.toHexString(deDataExportRuntimeClass.hashCode()));
+		IDEDataExportRuntime iDEDataExportRuntime = this.dynaDEDataExportRuntimeMap.remove(strAddinId);
+		if(iDEDataExportRuntime != null && this.deDataExportRuntimeMap != null) {
+			if(this.deDataExportRuntimeMap.remove(iDEDataExportRuntime.getPSModelObject().getId(), iDEDataExportRuntime)) {
+				ModelRuntimeUtils.shutdownModelRuntime(iDEDataExportRuntime);
+			}
+			return true;
+		}
+		return false;
+	}
 	
 	@Override
 	public IDEDTSQueueRuntime getDEDTSQueueRuntime(IPSDEDTSQueue iPSDEDTSQueue) {
@@ -953,8 +1179,11 @@ public abstract class DataEntityRuntimeBaseBase extends net.ibizsys.runtime.Mode
 		ModelRuntimeUtils.shutdownModelRuntimes(this.dePrintRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deReportRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deLogicRuntimeMap);
+		ModelRuntimeUtils.shutdownModelRuntimes(this.dynaDELogicRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deDataImportRuntimeMap);
+		ModelRuntimeUtils.shutdownModelRuntimes(this.dynaDEDataImportRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deDataExportRuntimeMap);
+		ModelRuntimeUtils.shutdownModelRuntimes(this.dynaDEDataExportRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deDTSQueueRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deDataSyncOutRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.deMSLogicRuntimeMap);

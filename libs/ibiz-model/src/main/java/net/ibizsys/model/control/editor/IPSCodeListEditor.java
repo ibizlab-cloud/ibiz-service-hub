@@ -14,7 +14,7 @@ public interface IPSCodeListEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取全部项文本[ALLITEMSTEXT]
 	 * @return
 	 */
-	java.lang.String getAllItemsText();
+	String getAllItemsText();
 	
 	
 	/**

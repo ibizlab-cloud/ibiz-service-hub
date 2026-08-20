@@ -1859,7 +1859,7 @@
     </changeSet>
 
     <!--输出实体[PT_ASYNCACTION]数据结构 -->
-    <changeSet author="root" id="tab-pt_asyncaction-80-64">
+    <changeSet author="root" id="tab-pt_asyncaction-84-64">
         <createTable tableName="ibzasyncaction">
                 <column name="FULLTOPICTAG" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1869,17 +1869,17 @@
                 </column>
                 <column name="CREATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="ACTIONPARAM2" remarks="" type="VARCHAR(100)">
+                <column name="ACTIONPARAM2" remarks="" type="VARCHAR(500)">
                 </column>
-                <column name="ACTIONPARAM3" remarks="" type="VARCHAR(100)">
+                <column name="ACTIONPARAM3" remarks="" type="VARCHAR(500)">
                 </column>
-                <column name="ACTIONPARAM" remarks="" type="VARCHAR(100)">
+                <column name="ACTIONPARAM" remarks="" type="VARCHAR(500)">
                 </column>
                 <column name="UPDATEMAN" remarks="" type="VARCHAR(60)">
                 </column>
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
-                <column name="ACTIONPARAM4" remarks="" type="VARCHAR(100)">
+                <column name="ACTIONPARAM4" remarks="" type="VARCHAR(500)">
                 </column>
                 <column name="PUSHTYPE" remarks="" type="VARCHAR(60)">
                 </column>
@@ -3167,7 +3167,7 @@
     </changeSet>
 
     <!--输出实体[PT_ASYNCACTION]外键关系 -->
-    <changeSet author="root" id="fk-pt_asyncaction-80-113">
+    <changeSet author="root" id="fk-pt_asyncaction-84-113">
        <addForeignKeyConstraint baseColumnNames="PASYNCACITONID" baseTableName="ibzasyncaction" constraintName="FA4C11E8A1A3DDA7C1" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ASYNCACITONID" referencedTableName="ibzasyncaction" validate="true"/>
     </changeSet>
 

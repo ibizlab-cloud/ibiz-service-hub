@@ -30,7 +30,7 @@ public interface IPSDEMapAction extends net.ibizsys.model.dataentity.datamap.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMapObjectMapMode}
 	 * @return
 	 */
-	java.lang.String getMapMode();
+	String getMapMode();
 	
 	
 	/**

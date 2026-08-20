@@ -13,5 +13,5 @@ public interface IPSOpenAPI3License extends net.ibizsys.model.service.openapi.IP
 	 * 获取协议URL地址
 	 * @return
 	 */
-	java.lang.String getUrl();
+	String getUrl();
 }

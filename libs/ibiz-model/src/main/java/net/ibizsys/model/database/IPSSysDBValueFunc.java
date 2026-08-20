@@ -13,7 +13,7 @@ public interface IPSSysDBValueFunc extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface IPSSysDBValueFunc extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBValueFuncType}
 	 * @return
 	 */
-	java.lang.String getDBValueFuncType();
+	String getDBValueFuncType();
 	
 	
 	/**
@@ -47,7 +47,7 @@ public interface IPSSysDBValueFunc extends net.ibizsys.model.IPSModelObject{
 	 * 获取输出值格式化
 	 * @return
 	 */
-	java.lang.String getOutputValueFormat();
+	String getOutputValueFormat();
 	
 	
 	/**
@@ -82,12 +82,12 @@ public interface IPSSysDBValueFunc extends net.ibizsys.model.IPSModelObject{
 	 * 获取值函数标记
 	 * @return
 	 */
-	java.lang.String getValueFuncTag();
+	String getValueFuncTag();
 	
 	
 	/**
 	 * 获取值函数标记2
 	 * @return
 	 */
-	java.lang.String getValueFuncTag2();
+	String getValueFuncTag2();
 }

@@ -23,6 +23,7 @@ public class PSDEListItemImpl extends net.ibizsys.model.control.list.PSListItemI
 	public final static String ATTR_ISENABLEITEMPRIV = "enableItemPriv";
 	public final static String ATTR_ISENABLESORT = "enableSort";
 	public final static String ATTR_ISHIDDENDATAITEM = "hiddenDataItem";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAlign(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALIGN);
@@ -264,5 +265,9 @@ public class PSDEListItemImpl extends net.ibizsys.model.control.list.PSListItemI
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

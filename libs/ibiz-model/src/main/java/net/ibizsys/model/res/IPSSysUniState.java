@@ -14,7 +14,7 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 获取缓存分类
 	 * @return
 	 */
-	java.lang.String getCacheCat();
+	String getCacheCat();
 	
 	
 	/**
@@ -168,7 +168,7 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 获取监控器格式化
 	 * @return
 	 */
-	java.lang.String getMonitorFormat();
+	String getMonitorFormat();
 	
 	
 	/**
@@ -259,7 +259,7 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 获取目录格式化
 	 * @return
 	 */
-	java.lang.String getPathFormat();
+	String getPathFormat();
 	
 	
 	/**
@@ -387,7 +387,7 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UniStateMode}
 	 * @return
 	 */
-	java.lang.String getUniStateMode();
+	String getUniStateMode();
 	
 	
 	/**
@@ -401,14 +401,14 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 获取统一状态标记
 	 * @return
 	 */
-	java.lang.String getUniStateTag();
+	String getUniStateTag();
 	
 	
 	/**
 	 * 获取统一状态标记2
 	 * @return
 	 */
-	java.lang.String getUniStateTag2();
+	String getUniStateTag2();
 	
 	
 	/**
@@ -417,14 +417,14 @@ public interface IPSSysUniState extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UniStateType}
 	 * @return
 	 */
-	java.lang.String getUniStateType();
+	String getUniStateType();
 	
 	
 	/**
 	 * 获取唯一业务标识
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**

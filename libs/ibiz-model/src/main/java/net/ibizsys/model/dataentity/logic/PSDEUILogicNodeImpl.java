@@ -16,6 +16,7 @@ public class PSDEUILogicNodeImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETSRCPSDEUILOGICPARAM = "getSrcPSDEUILogicParam";
 	public final static String ATTR_GETTOPPOS = "topPos";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISPARALLELOUTPUT = "parallelOutput";
 
 	public java.lang.String getCodeName(){
@@ -178,6 +179,10 @@ public class PSDEUILogicNodeImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isParallelOutput(){

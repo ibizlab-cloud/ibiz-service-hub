@@ -14,12 +14,12 @@ public interface IPSAppViewEngine extends net.ibizsys.model.view.IPSUIEngine{
 	 * 获取引擎分类
 	 * @return
 	 */
-	java.lang.String getEngineCat();
+	String getEngineCat();
 	
 	
 	/**
 	 * 获取引擎类型
 	 * @return
 	 */
-	java.lang.String getEngineType();
+	String getEngineType();
 }

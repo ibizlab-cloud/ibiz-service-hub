@@ -15,14 +15,14 @@ public interface IPSAppUIStyle extends net.ibizsys.model.app.IPSApplicationObjec
 	 * 获取应用目录名称
 	 * @return
 	 */
-	java.lang.String getAppFolder();
+	String getAppFolder();
 	
 	
 	/**
 	 * 获取模式代码
 	 * @return
 	 */
-	java.lang.String getStyleCode();
+	String getStyleCode();
 	
 	
 	/**
@@ -31,5 +31,5 @@ public interface IPSAppUIStyle extends net.ibizsys.model.app.IPSApplicationObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUIStyle}
 	 * @return
 	 */
-	java.lang.String getUIStyle();
+	String getUIStyle();
 }

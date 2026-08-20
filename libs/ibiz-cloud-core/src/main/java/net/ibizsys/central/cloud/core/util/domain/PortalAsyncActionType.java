@@ -8,7 +8,8 @@ package net.ibizsys.central.cloud.core.util.domain;
  */
 public enum PortalAsyncActionType {
    
-	ASYNCCHATCOMPLETION("异步交互补全");
+	ASYNCCHATCOMPLETION("异步交互补全"),
+	CHATCOMPLETION("交互补全");
 
     private String text;
 

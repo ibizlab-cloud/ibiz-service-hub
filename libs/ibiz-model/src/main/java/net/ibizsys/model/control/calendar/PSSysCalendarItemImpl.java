@@ -59,6 +59,7 @@ public class PSSysCalendarItemImpl extends net.ibizsys.model.control.PSControlIt
 	public final static String ATTR_ISENABLESEARCH = "enableSearch";
 	public final static String ATTR_ISENABLEVIEWDATA = "enableViewData";
 	public final static String ATTR_ISLOADDEFAULT = "loadDefault";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISPICKUPMODE = "pickupMode";
 	public final static String ATTR_ISREADONLY = "readOnly";
 
@@ -963,6 +964,10 @@ public class PSSysCalendarItemImpl extends net.ibizsys.model.control.PSControlIt
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	@Deprecated

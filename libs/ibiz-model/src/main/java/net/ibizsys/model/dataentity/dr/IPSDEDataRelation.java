@@ -14,7 +14,7 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEDataRelation extends net.ibizsys.model.dataentity.IPSDataE
 	 * 获取编辑项标题
 	 * @return
 	 */
-	java.lang.String getFormCaption();
+	String getFormCaption();
 	
 	
 	/**

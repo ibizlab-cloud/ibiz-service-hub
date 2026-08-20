@@ -14,14 +14,14 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
@@ -42,28 +42,28 @@ public interface IPSDEFInputTip extends net.ibizsys.model.dataentity.defield.IPS
 	 * 获取Html内容
 	 * @return
 	 */
-	java.lang.String getHtmlContent();
+	String getHtmlContent();
 	
 	
 	/**
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 	
 	
 	/**
 	 * 获取提示模式
 	 * @return
 	 */
-	java.lang.String getTipMode();
+	String getTipMode();
 	
 	
 	/**
 	 * 获取唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**

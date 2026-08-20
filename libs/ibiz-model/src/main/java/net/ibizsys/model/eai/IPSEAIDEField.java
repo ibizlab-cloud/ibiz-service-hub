@@ -14,7 +14,7 @@ public interface IPSEAIDEField extends net.ibizsys.model.eai.IPSEAIDEObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -23,21 +23,21 @@ public interface IPSEAIDEField extends net.ibizsys.model.eai.IPSEAIDEObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EAIDEFieldMapType}
 	 * @return
 	 */
-	java.lang.String getDstType();
+	String getDstType();
 	
 	
 	/**
 	 * 获取实体属性映射标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取实体属性映射标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**

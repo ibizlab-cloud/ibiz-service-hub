@@ -18,5 +18,5 @@ public interface IPSAppDESideBarExplorerView extends net.ibizsys.model.app.view.
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ExpBarPos}
 	 * @return
 	 */
-	java.lang.String getSideBarLayout();
+	String getSideBarLayout();
 }

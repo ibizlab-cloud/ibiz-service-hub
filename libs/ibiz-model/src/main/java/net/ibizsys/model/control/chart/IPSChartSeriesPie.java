@@ -17,40 +17,40 @@ public interface IPSChartSeriesPie extends net.ibizsys.model.control.chart.IPSCh
 	 * 获取圆心
 	 * @return
 	 */
-	java.lang.Object getCenter();
+	Object getCenter();
 	
 	
 	/**
 	 * 获取最小扇区角度
 	 * @return
 	 */
-	java.lang.Integer getMinAngle();
+	Integer getMinAngle();
 	
 	
 	/**
 	 * 获取无标签扇区角度
 	 * @return
 	 */
-	java.lang.Integer getMinShowLabelAngle();
+	Integer getMinShowLabelAngle();
 	
 	
 	/**
 	 * 获取半径
 	 * @return
 	 */
-	java.lang.Object getRadius();
+	Object getRadius();
 	
 	
 	/**
 	 * 获取展示南丁格尔图
 	 * @return
 	 */
-	java.lang.Object getRoseType();
+	Object getRoseType();
 	
 	
 	/**
 	 * 获取起始角度
 	 * @return
 	 */
-	java.lang.Integer getStartAngle();
+	Integer getStartAngle();
 }

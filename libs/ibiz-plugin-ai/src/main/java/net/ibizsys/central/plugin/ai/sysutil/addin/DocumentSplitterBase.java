@@ -360,7 +360,7 @@ public abstract class DocumentSplitterBase extends SysKnowledgeBaseUtilRTAddinBa
 	protected String getChunkExtractionPrompt(ParserConfig parserConfig) {
 		String strChunkExtractionPrompt = parserConfig.getChunkExtractionPrompt();
 		if (!StringUtils.hasLength(strChunkExtractionPrompt)) {
-			strChunkExtractionPrompt = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(DocumentSplitterBase.class, "ChunkExtractionPrompt.md", false);
+			strChunkExtractionPrompt = this.getSystemRuntime().getResourceContent(DocumentSplitterBase.class, "ChunkExtractionPrompt.md", false);
 		}
 		return strChunkExtractionPrompt;
 	}
@@ -402,16 +402,18 @@ public abstract class DocumentSplitterBase extends SysKnowledgeBaseUtilRTAddinBa
 
 	@Override
 	public String getOriginalContent(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig) throws Throwable {
-		return this.getOriginalContent(documentId, ossFile, chunkMethod, parserConfig, null);
+		return this.getOriginalContent(documentId, ossFile, chunkMethod, parserConfig, null, null);
 	}
 
 	@Override
-	public String getOriginalContent(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, String type) throws Throwable {
-		return this.onGetOriginalContent(documentId, ossFile, chunkMethod, parserConfig, type);
+	public String getOriginalContent(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, String type, Map<String, Object> requestParams) throws Throwable {
+		return this.onGetOriginalContent(documentId, ossFile, chunkMethod, parserConfig, type, requestParams);
 	}
 
-	protected String onGetOriginalContent(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, String type) throws Throwable {
-		Map<String, Object> requestParams = new HashMap<String, Object>();
+	protected String onGetOriginalContent(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, String type, Map<String, Object> requestParams) throws Throwable {
+		if(requestParams == null) {
+			requestParams = new HashMap<String, Object>();
+		}
 		if(StringUtils.hasLength(type)) {
 			requestParams.put(ICloudOSSClient.DOWNLOAD_TEXT_PARAM__TYPE, type);
 		}
@@ -525,8 +527,11 @@ public abstract class DocumentSplitterBase extends SysKnowledgeBaseUtilRTAddinBa
 	}
 
 	@Override
-	public String getFullText(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig) throws Throwable {
-		return this.onGetFullText(documentId, ossFile, chunkMethod, parserConfig, new HashMap<String, Object>());
+	public String getFullText(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, Map<String, Object> requestParams) throws Throwable {
+		if(requestParams == null) {
+			requestParams = new HashMap<String, Object>();
+		}
+		return this.onGetFullText(documentId, ossFile, chunkMethod, parserConfig, requestParams);
 	}
 	
 	protected String onGetFullText(Object documentId, File ossFile, String chunkMethod, ParserConfig parserConfig, Map<String, Object> requestParams) throws Throwable {
@@ -539,8 +544,11 @@ public abstract class DocumentSplitterBase extends SysKnowledgeBaseUtilRTAddinBa
 	}
 	
 	@Override
-	public String getFullText(Object documentId, String text, String chunkMethod, ParserConfig parserConfig) throws Throwable {
-		return this.onGetFullText(documentId, text, chunkMethod, parserConfig, new HashMap<String, Object>());
+	public String getFullText(Object documentId, String text, String chunkMethod, ParserConfig parserConfig, Map<String, Object> requestParams) throws Throwable {
+		if(requestParams == null) {
+			requestParams = new HashMap<String, Object>();
+		}
+		return this.onGetFullText(documentId, text, chunkMethod, parserConfig, requestParams);
 	}
 	
 	protected String onGetFullText(Object documentId, String text, String chunkMethod, ParserConfig parserConfig, Map<String, Object> requestParams) throws Throwable {

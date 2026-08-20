@@ -14,7 +14,6 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 	public final static String ATTR_GETPORTLETTYPE = "portletType";
 	public final static String ATTR_GETTIMER = "timer";
 	public final static String ATTR_GETTITLE = "title";
-	public final static String ATTR_GETTITLEPSLANGUAGERES = "getTitlePSLanguageRes";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -167,26 +166,4 @@ public class PSDBSysPortletPartImpl extends net.ibizsys.model.control.dashboard.
 		}
 		return value.asText();
 	}
-	private net.ibizsys.model.res.IPSLanguageRes titlepslanguageres;
-
-	public net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes(){
-		if(this.titlepslanguageres != null) return this.titlepslanguageres;
-		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTITLEPSLANGUAGERES);
-		if(value == null){
-			return null;
-		}
-		this.titlepslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETTITLEPSLANGUAGERES);
-		return this.titlepslanguageres;
-	}
-
-	public net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageResMust(){
-		net.ibizsys.model.res.IPSLanguageRes value = this.getTitlePSLanguageRes();
-		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定抬头语言资源对象");}
-		return value;
-	}
-
-	public void setTitlePSLanguageRes(net.ibizsys.model.res.IPSLanguageRes titlepslanguageres){
-		this.titlepslanguageres = titlepslanguageres;
-	}
-
 }

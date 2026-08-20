@@ -6,6 +6,7 @@ public abstract class PSDELogicLinkCondImpl extends net.ibizsys.model.PSObjectIm
 		,net.ibizsys.model.app.dataentity.IPSAppDELogicLinkCond{
 
 	public final static String ATTR_GETLOGICTYPE = "logicType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getLogicType(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLOGICTYPE);
@@ -13,5 +14,9 @@ public abstract class PSDELogicLinkCondImpl extends net.ibizsys.model.PSObjectIm
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

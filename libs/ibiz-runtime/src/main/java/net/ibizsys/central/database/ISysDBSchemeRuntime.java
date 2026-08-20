@@ -20,7 +20,7 @@ import net.ibizsys.runtime.IModelRuntimeShutdownable;
  * @author lionlau
  *
  */
-public interface ISysDBSchemeRuntime extends ISystemModelRuntime, IModelRuntimeShutdownable{
+public interface ISysDBSchemeRuntime extends ISystemModelRuntime,ISQLSupportable,IModelRuntimeShutdownable{
 
 	
 	/**
@@ -217,26 +217,26 @@ public interface ISysDBSchemeRuntime extends ISystemModelRuntime, IModelRuntimeS
 	Page fetchDataSet(IDataEntityRuntime iDataEntityRuntime, IPSDEDataSet iPSDEDataSet, ISearchContext iSearchContext, String[] outputFields, Map<String, Object> extParamMap) throws Throwable;
 	
 	
-	/**
-	 * 直接执行查询SQL
-	 * @param strSQL
-	 * @param params
-	 * @return
-	 * @throws Throwable
-	 */
-	List executeSelectSQL(String strSQL, List<Object> params) throws Throwable;
-	
-	
-	
-	
-	/**
-	 * 直接执行SQL
-	 * @param strSQL
-	 * @param params
-	 * @return
-	 * @throws Throwable
-	 */
-	int executeSQL(String strSQL, List<Object> params) throws Throwable;
+//	/**
+//	 * 直接执行查询SQL
+//	 * @param strSQL
+//	 * @param params
+//	 * @return
+//	 * @throws Throwable
+//	 */
+//	List executeSelectSQL(String strSQL, List<Object> params) throws Throwable;
+//	
+//	
+//	
+//	
+//	/**
+//	 * 直接执行SQL
+//	 * @param strSQL
+//	 * @param params
+//	 * @return
+//	 * @throws Throwable
+//	 */
+//	int executeSQL(String strSQL, List<Object> params) throws Throwable;
 	
 	
 	/**

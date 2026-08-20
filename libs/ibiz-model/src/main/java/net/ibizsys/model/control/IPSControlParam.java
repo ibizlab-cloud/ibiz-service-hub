@@ -21,12 +21,12 @@ public interface IPSControlParam extends net.ibizsys.model.IPSModelObject{
 	 * 获取高度
 	 * @return
 	 */
-	java.lang.Double getHeight();
+	Double getHeight();
 	
 	
 	/**
 	 * 获取宽度
 	 * @return
 	 */
-	java.lang.Double getWidth();
+	Double getWidth();
 }

@@ -18,9 +18,8 @@ public class DELogicRollbackNodeRuntime extends DELogicNodeRuntimeBase{
 			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点[%1$s]模型类型不正确", iPSDELogicNode.getName()));
 		}
 		
-		
-		//iDELogicSession.setLastReturn(null);
-		
+		iDELogicSession.rollbackTrans();
+		iDELogicSession.setLastReturn(null);
 	}
 	
 }

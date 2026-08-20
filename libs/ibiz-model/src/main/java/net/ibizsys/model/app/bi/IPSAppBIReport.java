@@ -14,7 +14,7 @@ public interface IPSAppBIReport extends net.ibizsys.model.IPSModelObject{
 	 * 获取访问标识
 	 * @return
 	 */
-	java.lang.String getAccessKey();
+	String getAccessKey();
 	
 	
 	/**
@@ -105,19 +105,19 @@ public interface IPSAppBIReport extends net.ibizsys.model.IPSModelObject{
 	 * 获取报表标记
 	 * @return
 	 */
-	java.lang.String getReportTag();
+	String getReportTag();
 	
 	
 	/**
 	 * 获取报表标记2
 	 * @return
 	 */
-	java.lang.String getReportTag2();
+	String getReportTag2();
 	
 	
 	/**
 	 * 获取报表前端模型
 	 * @return
 	 */
-	java.lang.String getReportUIModel();
+	String getReportUIModel();
 }

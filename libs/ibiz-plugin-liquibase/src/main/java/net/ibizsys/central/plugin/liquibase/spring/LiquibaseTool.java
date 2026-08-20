@@ -317,6 +317,11 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 							DiffResult diffResult = new DiffResult(databaseSnapshot, databaseSnapshot, new CompareControl(null, strTypes2));
 
 							for (IPSSysDBTable iPSSysDBTable : psSysDBTableList) {
+								if (iPSSysDBTable.isExistingModel()) {
+									log.debug(String.format("表[%s]为现有模型，忽略同步",
+											iPSSysDBTable.getName()));
+									continue;
+								}
 
 								List<IPSSysDBColumn> psSysDBColumnList = iPSSysDBTable.getAllPSSysDBColumns();
 								if (ObjectUtils.isEmpty(psSysDBColumnList)) {
@@ -444,14 +449,15 @@ public class LiquibaseTool implements ISysDBSchemeSyncAdapter {
 									// 新建表
 									diffResult.addMissingObject(table);
 									// 补充主键
-									PrimaryKey primaryKey = new PrimaryKey();
-									primaryKey.setSnapshotId(SNAPSHOTID);
-									for (int i = 0; i < keyList.size(); i++) {
-										primaryKey.addColumn(i, keyList.get(i));
+									if(keyList.size()>0) {
+										PrimaryKey primaryKey = new PrimaryKey();
+										primaryKey.setSnapshotId(SNAPSHOTID);
+										for (int i = 0; i < keyList.size(); i++) {
+											primaryKey.addColumn(i, keyList.get(i));
+										}
+										primaryKey.setTable(table);
+										diffResult.addMissingObject(primaryKey);
 									}
-									primaryKey.setTable(table);
-									diffResult.addMissingObject(primaryKey);
-
 									tableMap.put(table.getName().toUpperCase(), table);
 
 									// 将表中所有的列都放入，匹配后续有其它操作file

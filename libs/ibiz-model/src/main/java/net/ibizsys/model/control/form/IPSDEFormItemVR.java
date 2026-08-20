@@ -44,7 +44,7 @@ public interface IPSDEFormItemVR extends net.ibizsys.model.IPSModelObject{
 	 * 获取表单项名称
 	 * @return
 	 */
-	java.lang.String getPSDEFormItemName();
+	String getPSDEFormItemName();
 	
 	
 	/**
@@ -67,5 +67,5 @@ public interface IPSDEFormItemVR extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TargetVRType}
 	 * @return
 	 */
-	java.lang.String getValueRuleType();
+	String getValueRuleType();
 }

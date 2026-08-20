@@ -16,19 +16,19 @@ public interface IPSDEFDSingleLogic extends net.ibizsys.model.control.form.IPSDE
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOP();
+	String getCondOP();
 	
 	
 	/**
 	 * 获取表单项名称
 	 * @return
 	 */
-	java.lang.String getDEFDName();
+	String getDEFDName();
 	
 	
 	/**
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 }

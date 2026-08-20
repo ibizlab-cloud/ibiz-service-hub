@@ -66,7 +66,7 @@ public interface ICodeListRuntime extends IModelRuntime{
 	/**
 	 * 获取指定值的代码项
 	 * @param strItemValue
-	 * @param bTryMode  产生模式
+	 * @param bTryMode 尝试模式
 	 * @return
 	 */
 	IPSCodeItem getPSCodeItem(String strItemValue, boolean bTryMode);

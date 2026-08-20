@@ -85,7 +85,7 @@ public interface IPSSysMapItem extends net.ibizsys.model.control.map.IPSMapItem
 	 * 获取附加查询条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**

@@ -14,14 +14,14 @@ public interface IPSControlItemParam extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取参数
 	 * @return
 	 */
-	java.lang.String getKey();
+	String getKey();
 	
 	
 	/**
@@ -56,12 +56,12 @@ public interface IPSControlItemParam extends net.ibizsys.model.IPSModelObject{
 	 * 获取提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 }

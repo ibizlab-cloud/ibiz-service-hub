@@ -534,6 +534,9 @@
     "getAllPSDEDataQueryCodes" : [ {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEDATAQUERIES/Simple/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/User/PSDEDATAQUERIES/Simple/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "Simple",
     "dEFGroupType" : "BASEFIELDS",

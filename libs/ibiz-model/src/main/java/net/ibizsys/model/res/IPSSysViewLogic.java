@@ -14,5 +14,5 @@ public interface IPSSysViewLogic extends net.ibizsys.model.view.IPSViewLogic{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 }

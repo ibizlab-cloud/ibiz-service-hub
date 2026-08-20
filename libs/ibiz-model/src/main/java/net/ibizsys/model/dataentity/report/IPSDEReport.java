@@ -14,7 +14,7 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ReportContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
@@ -198,14 +198,14 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取报表路径
 	 * @return
 	 */
-	java.lang.String getReportFile();
+	String getReportFile();
 	
 	
 	/**
 	 * 获取报表模型
 	 * @return
 	 */
-	java.lang.String getReportModel();
+	String getReportModel();
 	
 	
 	/**
@@ -219,35 +219,35 @@ public interface IPSDEReport extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取报表标记
 	 * @return
 	 */
-	java.lang.String getReportTag();
+	String getReportTag();
 	
 	
 	/**
 	 * 获取报表标记2
 	 * @return
 	 */
-	java.lang.String getReportTag2();
+	String getReportTag2();
 	
 	
 	/**
 	 * 获取报表类型
 	 * @return
 	 */
-	java.lang.String getReportType();
+	String getReportType();
 	
 	
 	/**
 	 * 获取报表界面模型
 	 * @return
 	 */
-	java.lang.String getReportUIModel();
+	String getReportUIModel();
 	
 	
 	/**
 	 * 获取系统统一资源代码，等同调用{@link #getPSSysUniRes}.getResCode()
 	 * @return
 	 */
-	java.lang.String getSysUniResCode();
+	String getSysUniResCode();
 	
 	
 	/**

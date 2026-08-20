@@ -35,6 +35,7 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETSHOWMOREMGRPSDEFORMDETAIL = "getShowMoreMgrPSDEFormDetail";
 	public final static String ATTR_GETSHOWMOREMODE = "showMoreMode";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISREPEATCONTENT = "repeatContent";
 	public final static String ATTR_ISSHOWCAPTION = "showCaption";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
@@ -468,6 +469,10 @@ public class PSDEFormDetailImpl extends net.ibizsys.model.PSObjectImpl implement
 			return 0.0;
 		}
 		return value.asDouble();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isRepeatContent(){

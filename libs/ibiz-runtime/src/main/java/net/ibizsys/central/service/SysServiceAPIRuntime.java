@@ -18,6 +18,7 @@ import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPI;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIRS;
 import net.ibizsys.model.service.IPSSysServiceAPI;
+import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.domain.File;
 
 public class SysServiceAPIRuntime extends SystemModelRuntimeBase implements ISysServiceAPIRuntime {
@@ -804,5 +805,9 @@ public class SysServiceAPIRuntime extends SystemModelRuntimeBase implements ISys
 		}
 		
 		return iDEServiceAPIRuntime.report(strScope, iDEServiceAPIRSRuntime, strParentKey, strReportTag, strReportType, objBody, objTag);
+	}
+	
+	protected String getLogCat() {
+		return LogCats.API;
 	}
 }

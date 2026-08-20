@@ -16,14 +16,14 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取目标属性名称
 	 * @return
 	 */
-	java.lang.String getDstField();
+	String getDstField();
 	
 	
 	/**
@@ -39,14 +39,14 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getDstSortDir();
+	String getDstSortDir();
 	
 	
 	/**
 	 * 获取表达式
 	 * @return
 	 */
-	java.lang.String getExpression();
+	String getExpression();
 	
 	
 	/**
@@ -55,7 +55,7 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowNodeParamType}
 	 * @return
 	 */
-	java.lang.String getNodeParamType();
+	String getNodeParamType();
 	
 	
 	/**
@@ -90,7 +90,7 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 获取源属性名称
 	 * @return
 	 */
-	java.lang.String getSrcField();
+	String getSrcField();
 	
 	
 	/**
@@ -111,7 +111,7 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 获取直接值
 	 * @return
 	 */
-	java.lang.String getSrcValue();
+	String getSrcValue();
 	
 	
 	/**
@@ -129,7 +129,7 @@ public interface IPSDEDataFlowNodeParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowParamValueType}
 	 * @return
 	 */
-	java.lang.String getSrcValueType();
+	String getSrcValueType();
 	
 	
 	/**

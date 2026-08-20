@@ -16,14 +16,14 @@ public interface IPSDETreeNodeDataItem extends net.ibizsys.model.data.IPSDataIte
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
-	java.lang.String getCLConvertMode();
+	String getCLConvertMode();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -72,7 +72,7 @@ public interface IPSDETreeNodeDataItem extends net.ibizsys.model.data.IPSDataIte
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -81,7 +81,7 @@ public interface IPSDETreeNodeDataItem extends net.ibizsys.model.data.IPSDataIte
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

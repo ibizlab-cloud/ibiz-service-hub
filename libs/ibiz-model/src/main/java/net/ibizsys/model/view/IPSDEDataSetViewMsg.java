@@ -9,7 +9,7 @@ package net.ibizsys.model.view;
 public interface IPSDEDataSetViewMsg extends net.ibizsys.model.view.IPSViewMsg{
 
 	
-	java.lang.String getCacheScope();
+	String getCacheScope();
 	
 	int getCacheTimeout();
 	

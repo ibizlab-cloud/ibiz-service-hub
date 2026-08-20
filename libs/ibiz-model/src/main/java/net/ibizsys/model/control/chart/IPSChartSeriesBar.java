@@ -16,42 +16,42 @@ public interface IPSChartSeriesBar extends net.ibizsys.model.control.chart.IPSCh
 	 * 获取同系列柱间距离
 	 * @return
 	 */
-	java.lang.Object getBarCategoryGap();
+	Object getBarCategoryGap();
 	
 	
 	/**
 	 * 获取不同系列柱间距离
 	 * @return
 	 */
-	java.lang.Object getBarGap();
+	Object getBarGap();
 	
 	
 	/**
 	 * 获取柱条最大宽度
 	 * @return
 	 */
-	java.lang.Object getBarMaxWidth();
+	Object getBarMaxWidth();
 	
 	
 	/**
 	 * 获取柱条最小高度
 	 * @return
 	 */
-	java.lang.Integer getBarMinHeight();
+	Integer getBarMinHeight();
 	
 	
 	/**
 	 * 获取柱条最小宽度
 	 * @return
 	 */
-	java.lang.Object getBarMinWidth();
+	Object getBarMinWidth();
 	
 	
 	/**
 	 * 获取柱条宽度
 	 * @return
 	 */
-	java.lang.Object getBarWidth();
+	Object getBarWidth();
 	
 	
 	/**

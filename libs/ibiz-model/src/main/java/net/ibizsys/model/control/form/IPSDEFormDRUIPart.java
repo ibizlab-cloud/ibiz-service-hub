@@ -17,14 +17,14 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	 * 获取实体关系项标记
 	 * @return
 	 */
-	java.lang.String getDRItemTag();
+	String getDRItemTag();
 	
 	
 	/**
 	 * 获取自定义遮罩信息
 	 * @return
 	 */
-	java.lang.String getMaskInfo();
+	String getMaskInfo();
 	
 	
 	/**
@@ -82,7 +82,7 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	 * 获取界面参数项名称
 	 * @return
 	 */
-	java.lang.String getParamItem();
+	String getParamItem();
 	
 	
 	/**
@@ -96,7 +96,7 @@ public interface IPSDEFormDRUIPart extends net.ibizsys.model.control.form.IPSDEF
 	 * 获取界面刷新触发表单项
 	 * @return
 	 */
-	java.lang.String getRefreshItems();
+	String getRefreshItems();
 	
 	
 	/**

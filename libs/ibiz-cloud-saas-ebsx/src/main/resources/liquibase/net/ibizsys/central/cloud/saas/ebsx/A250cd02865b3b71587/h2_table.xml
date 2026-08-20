@@ -4,13 +4,13 @@
     <!--输出实体[IBZASYNCACTION]数据结构 -->
     <changeSet author="root" id="IBZASYNCACTION">
         <createTable tableName="IBZASYNCACTION" remarks="门户异步操作">
-            <column name="ACTIONPARAM" remarks="操作参数" type="VARCHAR(100)">
+            <column name="ACTIONPARAM" remarks="操作参数" type="VARCHAR(500)">
             </column>
-            <column name="ACTIONPARAM2" remarks="操作参数2" type="VARCHAR(100)">
+            <column name="ACTIONPARAM2" remarks="操作参数2" type="VARCHAR(500)">
             </column>
-            <column name="ACTIONPARAM3" remarks="操作参数3" type="VARCHAR(100)">
+            <column name="ACTIONPARAM3" remarks="操作参数3" type="VARCHAR(500)">
             </column>
-            <column name="ACTIONPARAM4" remarks="操作参数4" type="VARCHAR(100)">
+            <column name="ACTIONPARAM4" remarks="操作参数4" type="VARCHAR(500)">
             </column>
             <column name="ACTIONRESULT" remarks="操作结果信息" type="VARCHAR(4000)">
             </column>

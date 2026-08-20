@@ -28,5 +28,5 @@ public interface IPSDEMultiEditViewPanel extends net.ibizsys.model.control.grid.
 	 * 获取面板样式
 	 * @return
 	 */
-	java.lang.String getPanelStyle();
+	String getPanelStyle();
 }

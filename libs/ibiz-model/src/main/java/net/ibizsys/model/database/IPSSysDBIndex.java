@@ -43,5 +43,5 @@ public interface IPSSysDBIndex extends net.ibizsys.model.database.IPSDBIndexBase
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBIndexSource}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 }

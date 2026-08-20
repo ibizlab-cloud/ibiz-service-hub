@@ -14,7 +14,7 @@ public interface IPSChartTitle extends net.ibizsys.model.control.chart.IPSChartO
 	 * 获取子标题
 	 * @return
 	 */
-	java.lang.String getSubTitle();
+	String getSubTitle();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSChartTitle extends net.ibizsys.model.control.chart.IPSChartO
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSChartTitle extends net.ibizsys.model.control.chart.IPSChartO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartTitlePos}
 	 * @return
 	 */
-	java.lang.String getTitlePos();
+	String getTitlePos();
 	
 	
 	/**

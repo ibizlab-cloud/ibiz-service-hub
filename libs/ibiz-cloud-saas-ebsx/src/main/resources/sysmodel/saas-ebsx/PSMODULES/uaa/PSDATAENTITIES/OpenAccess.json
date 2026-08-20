@@ -2294,6 +2294,7 @@
       "columnName" : "CALLBACK_TOKEN",
       "dBType" : "POSTGRESQL",
       "name" : "CALLBACK_TOKEN",
+      "queryCodeExp" : "t1.CALLBACK_TOKEN",
       "standardColumnName" : "CALLBACK_TOKEN"
     }, {
       "columnName" : "CALLBACK_TOKEN",
@@ -2391,6 +2392,7 @@
       "columnName" : "CALLBACK_PARAM",
       "dBType" : "POSTGRESQL",
       "name" : "CALLBACK_PARAM",
+      "queryCodeExp" : "t1.CALLBACK_PARAM",
       "standardColumnName" : "CALLBACK_PARAM"
     }, {
       "columnName" : "CALLBACK_PARAM",
@@ -2488,6 +2490,7 @@
       "columnName" : "CALLBACK_PARAM2",
       "dBType" : "POSTGRESQL",
       "name" : "CALLBACK_PARAM2",
+      "queryCodeExp" : "t1.CALLBACK_PARAM2",
       "standardColumnName" : "CALLBACK_PARAM2"
     }, {
       "columnName" : "CALLBACK_PARAM2",

@@ -2,7 +2,8 @@ package net.ibizsys.model.control.form;
 
 
 
-public class PSDESearchFormItemExImpl extends net.ibizsys.model.control.form.PSDESearchFormItemImpl implements net.ibizsys.model.control.form.IPSDEFormItemEx{
+public class PSDESearchFormItemExImpl extends net.ibizsys.model.control.form.PSDESearchFormItemImpl implements net.ibizsys.model.control.form.IPSDEFormItemEx
+		,net.ibizsys.model.control.IPSEditorContainerEx{
 
 	public final static String ATTR_GETPSDEFORMITEMS = "getPSDEFormItems";
 	public final static String ATTR_ISCOMPOSITEITEM = "compositeItem";

@@ -24,7 +24,7 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 获取访问标识，视图访问标识来自统一资源的资源代码{@link net.ibizsys.model.security.IPSSysUniRes#getResCode}
 	 * @return
 	 */
-	java.lang.String getAccessKey();
+	String getAccessKey();
 	
 	
 	/**
@@ -45,14 +45,14 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 获取视图标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -77,7 +77,7 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppIndexViewMenuAlign}
 	 * @return
 	 */
-	java.lang.String getMainMenuAlign();
+	String getMainMenuAlign();
 	
 	
 	/**
@@ -86,7 +86,7 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.OpenViewMode}
 	 * @return
 	 */
-	java.lang.String getOpenMode();
+	String getOpenMode();
 	
 	
 	/**
@@ -389,14 +389,14 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 获取视图子标题
 	 * @return
 	 */
-	java.lang.String getSubCaption();
+	String getSubCaption();
 	
 	
 	/**
 	 * 获取视图抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
@@ -419,7 +419,7 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUIStyle}
 	 * @return
 	 */
-	java.lang.String getViewStyle();
+	String getViewStyle();
 	
 	
 	/**
@@ -428,7 +428,7 @@ public interface IPSAppView extends net.ibizsys.model.app.view.IPSAppViewBase
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppViewType}
 	 * @return
 	 */
-	java.lang.String getViewType();
+	String getViewType();
 	
 	
 	/**

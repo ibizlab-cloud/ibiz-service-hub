@@ -14,19 +14,19 @@ public interface IPSDELogicBase extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认参数名称
 	 * @return
 	 */
-	java.lang.String getDefaultParamName();
+	String getDefaultParamName();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 }

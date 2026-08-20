@@ -18,19 +18,19 @@ public interface IPSPanelRawItem extends net.ibizsys.model.control.panel.IPSPane
 	 * 获取内容类型
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
 	 * 获取Html内容
 	 * @return
 	 */
-	java.lang.String getHtmlContent();
+	String getHtmlContent();
 	
 	
 	/**
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 }

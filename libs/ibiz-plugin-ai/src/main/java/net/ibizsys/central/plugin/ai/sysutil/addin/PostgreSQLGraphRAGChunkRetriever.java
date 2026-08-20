@@ -436,14 +436,14 @@ public class PostgreSQLGraphRAGChunkRetriever extends GraphRAGChunkRetrieverBase
 //	}
 
 	protected String getSubject2anySQL() {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Subject2any.sql", false);
+		return this.getSystemRuntime().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Subject2any.sql", false);
 	}
 
 	protected String getSubject2objectSQL() {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Subject2object.sql", false);
+		return this.getSystemRuntime().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Subject2object.sql", false);
 	}
 
 	protected String getObject2subjectSQL() {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Object2subject.sql", false);
+		return this.getSystemRuntime().getResourceContent(PostgreSQLGraphRAGChunkRetriever.class, "Object2subject.sql", false);
 	}
 }

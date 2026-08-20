@@ -7,7 +7,9 @@ public class PSDEUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 
 	public final static String ATTR_GETACTIONLEVEL = "actionLevel";
 	public final static String ATTR_GETACTIONTARGET = "actionTarget";
+	public final static String ATTR_GETAFTERCODE = "afterCode";
 	public final static String ATTR_GETAPPNOPRIVDISPLAYMODE = "noPrivDisplayMode";
+	public final static String ATTR_GETBEFORECODE = "beforeCode";
 	public final static String ATTR_GETBUTTONSTYLE = "buttonStyle";
 	public final static String ATTR_GETCMPSLANGUAGERES = "getCMPSLanguageRes";
 	public final static String ATTR_GETCAPPSLANGUAGERES = "getCapPSLanguageRes";
@@ -85,6 +87,14 @@ public class PSDEUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value.asText();
 	}
 
+	public java.lang.String getAfterCode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAFTERCODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
 	public int getAppNoPrivDisplayMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAPPNOPRIVDISPLAYMODE);
 		if(value == null){
@@ -93,10 +103,18 @@ public class PSDEUIActionImpl extends net.ibizsys.model.view.PSUIActionImpl impl
 		return value.asInt();
 	}
 
+	public java.lang.String getBeforeCode(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETBEFORECODE);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
 	public java.lang.String getButtonStyle(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETBUTTONSTYLE);
 		if(value == null){
-			return "100";
+			return "DEFAULT";
 		}
 		return value.asText();
 	}

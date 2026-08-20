@@ -15,7 +15,6 @@ import org.springframework.util.ObjectUtils;
 
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.util.IEntityDTO;
-import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.model.dataentity.dataexport.IPSDEDataExportItem;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.util.JsonUtils;
@@ -109,10 +108,9 @@ public class JsonDEDataExportRuntime extends DEDataExportRuntimeBase {
 		outputStram.write(JsonUtils.toString(rowList).getBytes("UTF-8"));
 	}
 
+	
 	@Override
-	protected ExportDataResult onExportStream2(Object objData, OutputStream outputStram) throws Throwable {
-		ExportDataResult exportDataResult = super.onExportStream2(objData, outputStram);
-		exportDataResult.setFileName("数据导出.json");
-		return exportDataResult;
+	protected String getDefaultFileName() {
+		return "数据导出.json";
 	}
 }

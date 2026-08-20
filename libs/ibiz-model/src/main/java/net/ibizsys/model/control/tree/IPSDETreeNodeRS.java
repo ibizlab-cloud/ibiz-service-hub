@@ -50,7 +50,7 @@ public interface IPSDETreeNodeRS extends net.ibizsys.model.IPSModelObject
 	 * 获取父值过滤项
 	 * @return
 	 */
-	java.lang.String getParentFilter();
+	String getParentFilter();
 	
 	
 	/**

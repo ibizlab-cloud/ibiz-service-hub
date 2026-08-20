@@ -16,7 +16,7 @@ public interface IPSDEDFJoinSingleCond extends net.ibizsys.model.dataentity.data
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getCondValue();
+	String getCondValue();
 	
 	
 	/**
@@ -25,14 +25,14 @@ public interface IPSDEDFJoinSingleCond extends net.ibizsys.model.dataentity.data
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowCondValueType}
 	 * @return
 	 */
-	java.lang.String getCondValueType();
+	String getCondValueType();
 	
 	
 	/**
 	 * 获取连接属性名称
 	 * @return
 	 */
-	java.lang.String getJoinField();
+	String getJoinField();
 	
 	
 	/**
@@ -41,7 +41,7 @@ public interface IPSDEDFJoinSingleCond extends net.ibizsys.model.dataentity.data
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowFieldScope}
 	 * @return
 	 */
-	java.lang.String getJoinFieldScope();
+	String getJoinFieldScope();
 	
 	
 	/**

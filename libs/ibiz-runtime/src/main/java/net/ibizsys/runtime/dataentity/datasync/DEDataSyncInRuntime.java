@@ -29,6 +29,7 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(DEDataSyncInRuntime.class);
 	private Invocable  invocable  = null;
+	private ISysDataSyncAgentRuntime iSysDataSyncAgentRuntime = null;
 	
 	@Override
 	protected void onInit() throws Exception {
@@ -36,8 +37,6 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 		if(this.getPSDEDataSync().getInPSSysDataSyncAgent() == null) {
 			throw new Exception("没有指定输入的数据同步代理");
 		}
-		
-		ISysDataSyncAgentRuntime iSysDataSyncAgentRuntime = null;
 		
 		if(this.getDynaInstRuntime()!=null) {
 			iSysDataSyncAgentRuntime = this.getDynaInstRuntime().getSysDataSyncAgentRuntime(this.getPSDEDataSync().getInPSSysDataSyncAgent());
@@ -63,6 +62,11 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 		iSysDataSyncAgentRuntime.registerDEDataSyncInRuntime(this);
 	}
 
+	public ISysDataSyncAgentRuntime getSysDataSyncAgentRuntime() {
+		return this.iSysDataSyncAgentRuntime;
+	}
+	
+	
 	@Override
 	public void recv(DataSyncIn[] dataSyncIns) {
 		for (DataSyncIn dataSyncIn : dataSyncIns) {
@@ -73,6 +77,7 @@ public class DEDataSyncInRuntime extends DEDataSyncRuntimeBase implements IDEDat
 				onRecv(dataSyncIn);
 			}
 			catch(Throwable ex) {
+				log.error(String.format("实体[%1$s]数据同步[%2$s]处理输入数据发生异常，%3$s", this.getDataEntityRuntime().getName(), this.getName(), ex.getMessage()), ex);
 				this.getSystemRuntime().log(LogLevels.ERROR, LogCats.EAI, String.format("实体[%1$s]数据同步[%2$s]处理输入数据发生异常，%3$s", this.getDataEntityRuntime().getName(), this.getName(), ex.getMessage()), null);
 			}
 		}

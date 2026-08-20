@@ -15,7 +15,7 @@ public interface IPSPickerEditor extends net.ibizsys.model.control.IPSEditor
 	 * 获取附加上下文Json字符串
 	 * @return
 	 */
-	java.lang.String getContextJOString();
+	String getContextJOString();
 	
 	
 	/**
@@ -29,7 +29,7 @@ public interface IPSPickerEditor extends net.ibizsys.model.control.IPSEditor
 	 * 获取附加参数Json字符串
 	 * @return
 	 */
-	java.lang.String getParamJOString();
+	String getParamJOString();
 	
 	
 	/**

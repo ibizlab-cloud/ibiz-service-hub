@@ -17,14 +17,14 @@ public interface IPSChart extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartCoordinateSystem}
 	 * @return
 	 */
-	java.lang.String getCoordinateSystem();
+	String getCoordinateSystem();
 	
 	
 	/**
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**

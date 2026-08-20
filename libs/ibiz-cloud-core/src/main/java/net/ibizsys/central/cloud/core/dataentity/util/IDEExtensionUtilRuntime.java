@@ -51,6 +51,7 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	
 	public final static String DELOGIC_DEFIELDHOOK_PARAM_LAST = "LAST";
 	
+	public final static String EXTENSIONLOG_PREDEFINEDFIELD_ID = "ID";
 	
 	public final static String EXTENSIONLOG_PREDEFINEDFIELD_OWNER_TYPE = "OWNER_TYPE";
 	
@@ -79,6 +80,7 @@ public interface IDEExtensionUtilRuntime extends IDEUtilRuntime {
 	public final static String EXTENSIONLOG_LEVEL_ERROR = "ERROR";
 	
 	
+	public final static String EXTENSIONLOG_STATE_IN_PROGRESS = "IN_PROGRESS";
 	public final static String EXTENSIONLOG_STATE_SUCCESS = "SUCCESS";
 	public final static String EXTENSIONLOG_STATE_FAILURE = "FAILURE";
 	

@@ -126,9 +126,9 @@ public abstract class McpServerToolProviderBase extends SysMcpServerUtilRTAddinB
 			employee.putAll(accessToken.getEmployee());
 			
 			Collection<? extends GrantedAuthority> authorities = null;
-			String strAuthorities = accessToken.getAuthorities();
-			if(StringUtils.hasLength(strAuthorities)) {
-				authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+			Object authoritiesValue = accessToken.getAuthorities();
+			if(!ObjectUtils.isEmpty(authoritiesValue)) {
+				authorities = JsonUtils.as(authoritiesValue, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 			}
 			EmployeeContext employeeContext = new EmployeeContext(employee, null, strSystemId, authorities);
 			UserContext.setCurrent(employeeContext);

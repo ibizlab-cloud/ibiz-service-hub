@@ -13,7 +13,7 @@ public interface IPSOpenAPI3Parameter extends net.ibizsys.model.service.openapi.
 	 * 获取输入方式
 	 * @return
 	 */
-	java.lang.String getIn();
+	String getIn();
 	
 	
 	/**

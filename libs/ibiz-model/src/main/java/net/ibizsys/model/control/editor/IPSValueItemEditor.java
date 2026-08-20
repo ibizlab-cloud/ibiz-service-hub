@@ -14,5 +14,5 @@ public interface IPSValueItemEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取值项名称
 	 * @return
 	 */
-	java.lang.String getValueItemName();
+	String getValueItemName();
 }

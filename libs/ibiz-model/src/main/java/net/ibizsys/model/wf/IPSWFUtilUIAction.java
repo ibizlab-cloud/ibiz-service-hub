@@ -14,14 +14,14 @@ public interface IPSWFUtilUIAction extends net.ibizsys.model.IPSModelObject{
 	 * 获取界面行为标识
 	 * @return
 	 */
-	java.lang.String getPSDEUIActionId();
+	String getPSDEUIActionId();
 	
 	
 	/**
 	 * 获取工作流标识
 	 * @return
 	 */
-	java.lang.String getPSWorkflowId();
+	String getPSWorkflowId();
 	
 	
 	/**
@@ -30,5 +30,5 @@ public interface IPSWFUtilUIAction extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFUtilUIActionType}
 	 * @return
 	 */
-	java.lang.String getUtilType();
+	String getUtilType();
 }

@@ -3,7 +3,7 @@
   <parent>
     <groupId>cn.ibizlab.plugin</groupId>
     <artifactId>ibiz-plugin</artifactId>
-    <version>8.1.0.578.187</version>
+    <version>8.1.0.584.1</version>
   </parent>
   <artifactId>ibiz-plugin-groovy</artifactId>
 	<name>ibiz-plugin-groovy</name>

@@ -28,14 +28,14 @@ public interface IPSControlAction extends net.ibizsys.model.IPSModelObject{
 	 * 获取行为描述
 	 * @return
 	 */
-	java.lang.String getActionDesc();
+	String getActionDesc();
 	
 	
 	/**
 	 * 获取目标行为名称
 	 * @return
 	 */
-	java.lang.String getActionName();
+	String getActionName();
 	
 	
 	/**

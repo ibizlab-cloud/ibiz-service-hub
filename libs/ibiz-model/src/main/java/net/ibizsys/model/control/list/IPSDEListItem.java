@@ -14,7 +14,7 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	 * 获取数据项名称
 	 * @return
 	 */
-	java.lang.String getDataItemName();
+	String getDataItemName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEListItem extends net.ibizsys.model.control.list.IPSListIte
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

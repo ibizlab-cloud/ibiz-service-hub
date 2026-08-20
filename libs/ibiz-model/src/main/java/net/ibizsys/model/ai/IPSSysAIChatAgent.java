@@ -29,21 +29,21 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取运行时代理上下文数据
 	 * @return
 	 */
-	java.lang.String getAgentContextData();
+	String getAgentContextData();
 	
 	
 	/**
 	 * 获取运行时代理上下文标识
 	 * @return
 	 */
-	java.lang.String getAgentContextId();
+	String getAgentContextId();
 	
 	
 	/**
 	 * 获取代理组标记集合
 	 * @return
 	 */
-	java.lang.String getAgentGroupTags();
+	String getAgentGroupTags();
 	
 	
 	/**
@@ -64,7 +64,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取代理域
 	 * @return
 	 */
-	java.lang.String getAgentScope();
+	String getAgentScope();
 	
 	
 	/**
@@ -99,7 +99,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取摘要提示词
 	 * @return
 	 */
-	java.lang.String getDigestPrompt();
+	String getDigestPrompt();
 	
 	
 	/**
@@ -115,7 +115,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取启用在线搜索
 	 * @return
 	 */
-	java.lang.Boolean getEnableSearching();
+	Boolean getEnableSearching();
 	
 	
 	/**
@@ -136,7 +136,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取启用问题建议
 	 * @return
 	 */
-	java.lang.Boolean getEnableSuggestedQuestions();
+	Boolean getEnableSuggestedQuestions();
 	
 	
 	/**
@@ -157,7 +157,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取启用思考链
 	 * @return
 	 */
-	java.lang.Boolean getEnableThinking();
+	Boolean getEnableThinking();
 	
 	
 	/**
@@ -178,7 +178,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取启用调用工具
 	 * @return
 	 */
-	java.lang.Boolean getEnableTools();
+	Boolean getEnableTools();
 	
 	
 	/**
@@ -196,12 +196,26 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	
 	
 	/**
+	 * 获取错误信息值属性
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getErrorPSDEField();
+
+
+	/**
+	 * 获取错误信息值属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getErrorPSDEFieldMust();
+	
+	
+	/**
 	 * 获取AI生成模式
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AIGenerationMode}
 	 * @return
 	 */
-	java.lang.String getGenerationMode();
+	String getGenerationMode();
 	
 	
 	/**
@@ -224,7 +238,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AIKBMode}
 	 * @return
 	 */
-	java.lang.String getKnowledgeBaseMode();
+	String getKnowledgeBaseMode();
 	
 	
 	/**
@@ -245,7 +259,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取知识库标记集合
 	 * @return
 	 */
-	java.lang.String getKnowledgeBaseTags();
+	String getKnowledgeBaseTags();
 	
 	
 	/**
@@ -266,7 +280,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取最大输入token数
 	 * @return
 	 */
-	java.lang.Integer getMaxInputTokens();
+	Integer getMaxInputTokens();
 	
 	
 	/**
@@ -287,7 +301,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取最大token数
 	 * @return
 	 */
-	java.lang.Integer getMaxTokens();
+	Integer getMaxTokens();
 	
 	
 	/**
@@ -308,7 +322,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取McpServer标记集合
 	 * @return
 	 */
-	java.lang.String getMcpServerTags();
+	String getMcpServerTags();
 	
 	
 	/**
@@ -329,7 +343,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取记忆文档标记集合
 	 * @return
 	 */
-	java.lang.String getMemoryDocTag();
+	String getMemoryDocTag();
 	
 	
 	/**
@@ -352,7 +366,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AIMemoryIsolationMode}
 	 * @return
 	 */
-	java.lang.String getMemoryIsolationMode();
+	String getMemoryIsolationMode();
 	
 	
 	/**
@@ -373,7 +387,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取记忆知识库标记
 	 * @return
 	 */
-	java.lang.String getMemoryKBTag();
+	String getMemoryKBTag();
 	
 	
 	/**
@@ -394,7 +408,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取记忆对话轮数
 	 * @return
 	 */
-	java.lang.Integer getMemoryMaxTurns();
+	Integer getMemoryMaxTurns();
 	
 	
 	/**
@@ -415,7 +429,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取记忆模式
 	 * @return
 	 */
-	java.lang.String getMemoryMode();
+	String getMemoryMode();
 	
 	
 	/**
@@ -433,14 +447,14 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	
 	
 	/**
-	 * 获取给予存储实体对象
+	 * 获取记忆存储实体对象
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getMemoryPSDataEntity();
 
 
 	/**
-	 * 获取给予存储实体对象，不存在时抛出异常
+	 * 获取记忆存储实体对象，不存在时抛出异常
 	 * @return
 	 */
 	net.ibizsys.model.dataentity.IPSDataEntity getMemoryPSDataEntityMust();
@@ -478,7 +492,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取OSS图片识别提示词
 	 * @return
 	 */
-	java.lang.String getOSSImageVLPrompt();
+	String getOSSImageVLPrompt();
 	
 	
 	/**
@@ -569,14 +583,14 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取优先级
 	 * @return
 	 */
-	java.lang.Integer getPriority();
+	Integer getPriority();
 	
 	
 	/**
 	 * 获取发布技能
 	 * @return
 	 */
-	java.lang.Integer getPublishSkill();
+	Integer getPublishSkill();
 	
 	
 	/**
@@ -597,7 +611,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取读我
 	 * @return
 	 */
-	java.lang.String getReadme();
+	String getReadme();
 	
 	
 	/**
@@ -618,7 +632,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -641,7 +655,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AISkillLoadMode}
 	 * @return
 	 */
-	java.lang.String getSkillLoadMode();
+	String getSkillLoadMode();
 	
 	
 	/**
@@ -662,7 +676,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取技能提示词
 	 * @return
 	 */
-	java.lang.String getSkillPrompt();
+	String getSkillPrompt();
 	
 	
 	/**
@@ -683,7 +697,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取加载技能标记集合
 	 * @return
 	 */
-	java.lang.String getSkillTags();
+	String getSkillTags();
 	
 	
 	/**
@@ -701,10 +715,24 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	
 	
 	/**
+	 * 获取状态值属性
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField();
+
+
+	/**
+	 * 获取状态值属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEFieldMust();
+	
+	
+	/**
 	 * 获取流模式
 	 * @return
 	 */
-	java.lang.Boolean getStream();
+	Boolean getStream();
 	
 	
 	/**
@@ -725,7 +753,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取建议提示词
 	 * @return
 	 */
-	java.lang.String getSuggestionPrompt();
+	String getSuggestionPrompt();
 	
 	
 	/**
@@ -746,7 +774,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取系统提示词
 	 * @return
 	 */
-	java.lang.String getSystemPrompt();
+	String getSystemPrompt();
 	
 	
 	/**
@@ -767,7 +795,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取随机性参数
 	 * @return
 	 */
-	java.lang.Double getTemperature();
+	Double getTemperature();
 	
 	
 	/**
@@ -790,14 +818,14 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgTemplEngine}
 	 * @return
 	 */
-	java.lang.String getTemplEngine();
+	String getTemplEngine();
 	
 	
 	/**
 	 * 获取工具调用超限提示语
 	 * @return
 	 */
-	java.lang.String getToolExceedMessage();
+	String getToolExceedMessage();
 	
 	
 	/**
@@ -818,7 +846,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取最大工具调用次数
 	 * @return
 	 */
-	java.lang.Integer getToolMaxCalls();
+	Integer getToolMaxCalls();
 	
 	
 	/**
@@ -839,7 +867,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取概率核采样
 	 * @return
 	 */
-	java.lang.Double getTopP();
+	Double getTopP();
 	
 	
 	/**
@@ -862,7 +890,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AITrimmingStrategy}
 	 * @return
 	 */
-	java.lang.String getTrimmingStrategy();
+	String getTrimmingStrategy();
 	
 	
 	/**
@@ -911,7 +939,7 @@ public interface IPSSysAIChatAgent extends net.ibizsys.model.ai.IPSSysAIFactoryO
 	 * 获取欢迎消息
 	 * @return
 	 */
-	java.lang.String getWelcomeMessage();
+	String getWelcomeMessage();
 	
 	
 	/**

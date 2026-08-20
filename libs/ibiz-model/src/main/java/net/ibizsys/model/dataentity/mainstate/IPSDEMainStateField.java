@@ -14,7 +14,7 @@ public interface IPSDEMainStateField extends net.ibizsys.model.IPSModelObject{
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSDEMainStateField extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**

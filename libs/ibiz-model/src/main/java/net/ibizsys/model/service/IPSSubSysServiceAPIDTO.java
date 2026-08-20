@@ -35,12 +35,12 @@ public interface IPSSubSysServiceAPIDTO extends net.ibizsys.model.service.IPSSer
 	 * 获取标记
 	 * @return
 	 */
-	java.lang.String getTag();
+	String getTag();
 	
 	
 	/**
 	 * 获取标记2
 	 * @return
 	 */
-	java.lang.String getTag2();
+	String getTag2();
 }

@@ -12,8 +12,15 @@ public abstract class SysAIChatSkillBase implements ISysAIChatSkill {
 	private String strName = null;
 	private String strDescription = null;
 	private String strPrompt = null;
+	private String strAccessUserMode = ACCESSUSERMODE_ALL;
+	private String strUserId = null;
+	private String strUniResId = null;
+	
 	private ISysAIChatSkill inheritSkill = null;
 	private boolean bExtended = false;
+	private boolean bRemote = false;
+	private String strVersion = null;
+	
 	@Override
 	public void init(ISysAIFactoryRuntimeContext iSysAIFactoryRuntimeContext, Object skillData, ISysAIChatSkill inheritSkill, boolean extended) throws Exception {
 		this.skillData = skillData;
@@ -98,6 +105,51 @@ public abstract class SysAIChatSkillBase implements ISysAIChatSkill {
 		return this.bExtended;
 	}
 
+	
+	@Override
+	public String getAccessUserMode() {
+		return this.strAccessUserMode;
+	}
+	
+	protected void setAccessUserMode(String strAccessUserMode) {
+		this.strAccessUserMode = strAccessUserMode;
+	}
+	
+	@Override
+	public String getUserId() {
+		return this.strUserId;
+	}
+	
+	protected void setUserId(String strUserId) {
+		this.strUserId = strUserId;
+	}
+	
+	@Override
+	public String getUniResId() {
+		return this.strUniResId;
+	}
+	
+	protected void setUniResId(String strUniResId) {
+		this.strUniResId = strUniResId;
+	}
+	
+	@Override
+	public boolean isRemote() {
+		return this.bRemote;
+	}
+	
+	protected void setRemote(boolean bRemote) {
+		this.bRemote = bRemote;
+	}
+	
+	@Override
+	public String getVersion() {
+		return this.strVersion;
+	}
+	
+	protected void setVersion(String strVersion) {
+		this.strVersion = strVersion;
+	}
 	
 //	@Override
 //	public void reload() {

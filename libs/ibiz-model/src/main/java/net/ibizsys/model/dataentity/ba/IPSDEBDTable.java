@@ -23,7 +23,7 @@ public interface IPSDEBDTable extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

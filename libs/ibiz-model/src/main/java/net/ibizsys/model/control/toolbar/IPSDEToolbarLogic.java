@@ -14,5 +14,5 @@ public interface IPSDEToolbarLogic extends net.ibizsys.model.dataentity.logic.IP
 	 * 获取工具栏项名称
 	 * @return
 	 */
-	java.lang.String getPSDEToolbarItemName();
+	String getPSDEToolbarItemName();
 }

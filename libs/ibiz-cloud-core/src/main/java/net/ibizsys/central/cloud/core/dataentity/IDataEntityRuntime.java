@@ -198,4 +198,34 @@ public interface IDataEntityRuntime extends net.ibizsys.central.dataentity.IData
 	 * @throws Throwable
 	 */
 	IDEChatPromptUtil getDEChatPromptUtil(boolean bTryMode) throws Throwable;
+	
+	
+	
+	/**
+	 * 获取业务数据范围
+	 * @param keyOrData
+	 * @return
+	 */
+	String getBusinessScope(Object keyOrData) throws Throwable;
+	
+	
+	/**
+	 * 注册实体运行时插件
+	 * @param dataEntityRTAddinClass
+	 * @return
+	 * @throws Throwable
+	 */
+	void registerDataEntityRTAddin(Class<?> dataEntityRTAddinClass);
+	
+	
+	/**
+	 * 注销实体运行时插件
+	 * @param dataEntityRTAddinClass
+	 * @return
+	 */
+	boolean unregisterDataEntityRTAddin(Class<?> dataEntityRTAddinClass);
+	
+	
+
+	
 }

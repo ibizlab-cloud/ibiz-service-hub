@@ -586,6 +586,10 @@ public abstract class SysTaskUtilRuntimeBase extends SysUtilRuntimeBase implemen
 		}
 	}
 	
+	@Override
+	public void registerTaskType(String strTaskTypeId, Map<String, Object> taskTypeParams, boolean bOverwrite) {
+		this.registerTaskType(strTaskTypeId, taskTypeParams, bOverwrite, false);
+	}
 	
 	
 	@Override
@@ -627,6 +631,11 @@ public abstract class SysTaskUtilRuntimeBase extends SysUtilRuntimeBase implemen
 		synchronized (this.taskTypeMap) {
 			return this.taskTypeMap.remove(strTaskTypeId) != null;
 		}
+	}
+	
+	@Override
+	public void addSchedule(String strScheduleId, Map<String, Object> scheduleParams, boolean bOverwrite) {
+		this.addSchedule(strScheduleId, scheduleParams, bOverwrite, false);
 	}
 	
 

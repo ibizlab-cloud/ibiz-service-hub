@@ -1,5 +1,6 @@
 package net.ibizsys.central.cloud.core.ai;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,9 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
+import net.ibizsys.central.cloud.core.util.domain.ChatSkill;
 import net.ibizsys.central.cloud.core.util.domain.ChatTool;
+import net.ibizsys.central.cloud.core.util.domain.KnowledgeBase;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 
 public interface IAIChatAgentRuntimeBase extends IAIAgentRuntimeBase{
@@ -128,4 +131,33 @@ public interface IAIChatAgentRuntimeBase extends IAIAgentRuntimeBase{
 	 * @throws Throwable
 	 */
 	SseEmitter sseChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable;
+	
+	
+	
+	
+	/**
+	 * 获取聊天技能
+	 * @param dataOrKeys 键值或数据对象
+	 * @param body
+	 * @param params 附加参数
+	 * @return
+	 * @throws Throwable
+	 */
+	default List<ChatSkill> getSkills(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable{
+		return Collections.EMPTY_LIST;
+	}
+	
+	
+	
+	/**
+	 * 获取知识库
+	 * @param dataOrKeys 键值或数据对象
+	 * @param body
+	 * @param params 附加参数
+	 * @return
+	 * @throws Throwable
+	 */
+	default List<KnowledgeBase> getKnowledgeBases(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable{
+		return Collections.EMPTY_LIST;
+	}
 }

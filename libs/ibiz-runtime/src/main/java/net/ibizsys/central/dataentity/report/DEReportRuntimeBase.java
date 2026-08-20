@@ -91,7 +91,9 @@ public abstract class DEReportRuntimeBase extends net.ibizsys.runtime.dataentity
 				if(StringUtils.hasLength(this.getReportModel())) {
 					return;
 				}
-				throw new Exception(String.format("指定报表文件不存在"));
+				//throw new Exception(String.format("指定报表文件不存在"));
+				log.error(String.format("实体报表[%1$s]指定报表文件[%2$s]不存在，忽略", this.getFullUniqueTag(), strReportFilePath));
+				return;
 			}
 			this.setReportFilePath(file.getCanonicalPath());
 		}
@@ -211,6 +213,9 @@ public abstract class DEReportRuntimeBase extends net.ibizsys.runtime.dataentity
 		switch(reportContentType) {
 		case DOCX:
 			servletResponse.setContentType(MIME_DOCX);
+			break;
+		case XLSX:
+			servletResponse.setContentType(MIME_XLSX);
 			break;
 		case PDF:
 			servletResponse.setContentType(MediaType.APPLICATION_PDF_VALUE);

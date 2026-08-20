@@ -22,6 +22,7 @@ public class PSDEDRDetailImpl extends net.ibizsys.model.PSObjectImpl implements 
 	public final static String ATTR_GETTESTPSDEOPPRIV = "getTestPSDEOPPriv";
 	public final static String ATTR_GETTESTPSSYSUNIRES = "getTestPSSysUniRes";
 	public final static String ATTR_GETTESTSCRIPTCODE = "testScriptCode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes(){
@@ -265,5 +266,9 @@ public class PSDEDRDetailImpl extends net.ibizsys.model.PSObjectImpl implements 
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

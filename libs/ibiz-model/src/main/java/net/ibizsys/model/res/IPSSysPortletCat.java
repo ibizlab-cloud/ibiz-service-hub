@@ -14,7 +14,7 @@ public interface IPSSysPortletCat extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -77,5 +77,5 @@ public interface IPSSysPortletCat extends net.ibizsys.model.IPSModelObject{
 	 * 获取唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

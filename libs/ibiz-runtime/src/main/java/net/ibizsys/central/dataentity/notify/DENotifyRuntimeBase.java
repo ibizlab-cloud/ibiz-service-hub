@@ -20,11 +20,11 @@ import net.ibizsys.central.msg.ISysMsgTemplRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.model.PSModelEnums.DENotifyTargetType;
 import net.ibizsys.model.PSModelUtils;
-import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.notify.IPSDENotifyTarget;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.msg.ISysMsgTargetRuntime;
 import net.ibizsys.runtime.msg.MsgTypes;
+import net.ibizsys.runtime.msg.SysMsgTemplRuntime;
 import net.ibizsys.runtime.util.ASFutureActionBase;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
@@ -32,6 +32,7 @@ import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.IEntityBase;
 import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.domain.File;
 import net.ibizsys.runtime.util.domain.MsgSendQueue;
 
 public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity.notify.DENotifyRuntime implements IDENotifyRuntime{
@@ -396,6 +397,38 @@ public abstract class DENotifyRuntimeBase extends net.ibizsys.runtime.dataentity
 			}
 		}
 		
+		String strAttachments = null;
+		if(iSysMsgTemplRuntime != null) {
+			strAttachments = iSysMsgTemplRuntime.getAttachments(data, params);
+		}
+		else {
+			strAttachments = getSysMsgTemplRuntime().getAttachments(data);
+		}
+		if(!ObjectUtils.isEmpty(strAttachments)) {
+			strAttachments = strAttachments.trim();
+			//判断是否是否为单项
+			if(strAttachments.indexOf("{") == 0) {
+				File file = JsonUtils.as(strAttachments, File.class);
+				msgSendQueue.setFileAT(JsonUtils.toString(file));
+			}
+			else {
+				List<File> fileList = JsonUtils.as(strAttachments, SysMsgTemplRuntime.FileListType);
+				if(!ObjectUtils.isEmpty(fileList)) {
+					if(fileList.size()>=1) {
+						msgSendQueue.setFileAT(JsonUtils.toString(fileList.get(0)));
+					}
+					if(fileList.size()>=2) {
+						msgSendQueue.setFileAT2(JsonUtils.toString(fileList.get(1)));
+					}
+					if(fileList.size()>=3) {
+						msgSendQueue.setFileAT3(JsonUtils.toString(fileList.get(2)));
+					}
+					if(fileList.size()>=4) {
+						msgSendQueue.setFileAT4(JsonUtils.toString(fileList.get(3)));
+					}
+				}
+			}
+		}
 		
 		return msgSendQueue;
 	}

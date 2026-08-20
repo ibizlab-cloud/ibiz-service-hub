@@ -16,7 +16,7 @@ public interface IPSDEFieldBase{
 	 * 获取最大值（字符串）
 	 * @return
 	 */
-	java.lang.String getMaxValueString();
+	String getMaxValueString();
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface IPSDEFieldBase{
 	 * 获取最小值（字符串）
 	 * @return
 	 */
-	java.lang.String getMinValueString();
+	String getMinValueString();
 	
 	
 	/**

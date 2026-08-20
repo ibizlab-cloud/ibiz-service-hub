@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -298,7 +299,16 @@ public class AIFactoryGatewayRestController {
 		ChatCompletionResult chatCompletionResult = null;
 		while (true) {
 	
-			PortalAsyncAction last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+        	PortalAsyncAction last = null;
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
+			
 			int nActionState = DataTypeUtils.getIntegerValue(last.getActionState(), PortalAsyncActionState.EXECUTING.getValue());
 			if (nActionState == PortalAsyncActionState.EXECUTING.getValue()) {
 				continue;
@@ -362,11 +372,20 @@ public class AIFactoryGatewayRestController {
 				EmployeeContext.setCurrent((IEmployeeContext)iSystemRuntime.createDefaultUserContext());
 			}
 			
-			if(body == null) {
-				body = new HashMap<String, Object>();
+			Map<String, Object> params = new HashMap<String, Object>();
+			if(body != null) {
+				//body = new HashMap<String, Object>();
+				params.putAll(body);
+			}
+			
+			//移除业务范围
+			params.remove(ISysAIFactoryRuntime.SKILLRUNNER_BUSINESS_SCOPE);
+			
+			if(!ObjectUtils.isEmpty(accessToken.getParams())) {
+				params.putAll(accessToken.getParams());
 			}
 					
-			return iSysAIFactoryRuntime.registerSkillRunner(body);
+			return iSysAIFactoryRuntime.registerSkillRunner(key, params);
 		}
 		catch (Throwable ex) {
 			logger.error(String.format("SkillRunner注册发生异常，%1$s", ex.getMessage()));
@@ -411,8 +430,21 @@ public class AIFactoryGatewayRestController {
 			else {
 				EmployeeContext.setCurrent((IEmployeeContext)iSystemRuntime.createDefaultUserContext());
 			}
+			
+			Map<String, Object> params = new HashMap<String, Object>();
+			if(body != null) {
+				//body = new HashMap<String, Object>();
+				params.putAll(body);
+			}
+			
+			//移除业务范围
+			params.remove(ISysAIFactoryRuntime.SKILLRUNNER_BUSINESS_SCOPE);
+			
+			if(!ObjectUtils.isEmpty(accessToken.getParams())) {
+				params.putAll(accessToken.getParams());
+			}
 					
-			return iSysAIFactoryRuntime.unregisterSkillRunner(body);
+			return iSysAIFactoryRuntime.unregisterSkillRunner(key, params);
 		}
 		catch (Throwable ex) {
 			logger.error(String.format("SkillRunner注销发生异常，%1$s", ex.getMessage()));
@@ -426,6 +458,38 @@ public class AIFactoryGatewayRestController {
 			EmployeeContext.setCurrent(lastEmployeeContext);
 		}
 	}
+	
+	@GetMapping(value = "/{id}/ai/factories/{factory_id}/skill_runners/get_config")
+	@ResponseStatus(HttpStatus.OK)
+	public Object getSkillRunnerConfig(@PathVariable("id") String id, @PathVariable("factory_id") String factory_id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		boolean bPushSystem = false;
+		IEmployeeContext lastEmployeeContext = EmployeeContext.getCurrent();
+		try {
+			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
+			SystemRuntimeHolder.push(iSystemRuntime);
+			bPushSystem = true;
+			
+			ISysAIFactoryRuntime iSysAIFactoryRuntime = (ISysAIFactoryRuntime)((IServiceSystemRuntime)iSystemRuntime).getSysAIFactoryRuntime(factory_id, true);
+			if(iSysAIFactoryRuntime == null) {
+				response.sendError(HttpStatus.NOT_FOUND.value(), String.format("指定AI工厂[%1$s]不存在", factory_id));
+				return null;
+			}
+			
+			return iSysAIFactoryRuntime.getSkillRunnerConfig();
+		}
+		catch (Throwable ex) {
+			logger.error(String.format("获取SkillRunner配置发生异常，%1$s", ex.getMessage()));
+			response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), String.format("获取SkillRunner配置发生异常，%1$s", ex.getMessage()));
+			return null;
+		}
+		finally {
+			if(bPushSystem) {
+				SystemRuntimeHolder.poll();
+			}
+			EmployeeContext.setCurrent(lastEmployeeContext);
+		}
+	}
+	
 	
 	@PostMapping(value = "/{id}/ai/factories/{factory_id}/skill_runners/{key}/active")
 	@ResponseStatus(HttpStatus.OK)
@@ -457,8 +521,21 @@ public class AIFactoryGatewayRestController {
 			else {
 				EmployeeContext.setCurrent((IEmployeeContext)iSystemRuntime.createDefaultUserContext());
 			}
+			
+			Map<String, Object> params = new HashMap<String, Object>();
+			if(body != null) {
+				//body = new HashMap<String, Object>();
+				params.putAll(body);
+			}
+			
+			//移除业务范围
+			params.remove(ISysAIFactoryRuntime.SKILLRUNNER_BUSINESS_SCOPE);
+			
+			if(!ObjectUtils.isEmpty(accessToken.getParams())) {
+				params.putAll(accessToken.getParams());
+			}
 					
-			return iSysAIFactoryRuntime.activeSkillRunner(body);
+			return iSysAIFactoryRuntime.activeSkillRunner(key, params);
 		}
 		catch (Throwable ex) {
 			logger.error(String.format("SkillRunner激活发生异常，%1$s", ex.getMessage()));
@@ -470,6 +547,74 @@ public class AIFactoryGatewayRestController {
 				SystemRuntimeHolder.poll();
 			}
 			EmployeeContext.setCurrent(lastEmployeeContext);
+		}
+	}
+	
+	
+	@PostMapping(value = "/{id}/ai/factories/{factory_id}/skill_runners/{key}/chats/{agent_id}/chatcompletion")
+	@ResponseStatus(HttpStatus.OK)
+	public ChatCompletionResult chatCompletion(@PathVariable("id") String id, @PathVariable("factory_id") String factory_id, @PathVariable("key") String key, @PathVariable("agent_id") String agent_id, HttpServletRequest request, HttpServletResponse response, @RequestBody ChatCompletionRequest chatCompletionRequest) throws IOException {
+		boolean bPushSystem = false;
+		try {
+			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
+			SystemRuntimeHolder.push(iSystemRuntime);
+			bPushSystem = true;
+			
+			ISysAIFactoryRuntime iSysAIFactoryRuntime = (ISysAIFactoryRuntime)((IServiceSystemRuntime)iSystemRuntime).getSysAIFactoryRuntime(factory_id, true);
+			if(iSysAIFactoryRuntime == null) {
+				response.sendError(HttpStatus.NOT_FOUND.value(), String.format("指定AI工厂[%1$s]不存在", factory_id));
+				return null;
+			}
+			
+			AccessToken accessToken = iSysAIFactoryRuntime.getWebhookAccessToken(key, true);
+			if(accessToken == null) {
+				logger.error(String.format("传入凭证[%1$s]无效", key));
+				response.sendError(HttpStatus.FORBIDDEN.value(), String.format("传入凭证[%1$s]无效", key));
+				return null;
+			}
+			
+			if(accessToken.getEmployee() != null) {
+				IEmployeeContext employeeContext = AccessTokenUtils.toEmployeeContext(accessToken, id);
+				UserContext.setCurrent(employeeContext);
+			}
+			else {
+				EmployeeContext.setCurrent((IEmployeeContext)iSystemRuntime.createDefaultUserContext());
+			}
+			
+			String[] items = agent_id.split("[@-]");
+			String strRealAgentId = (items.length == 1)?items[0]:items[1];
+			ISysAIChatAgentRuntime iSysAIChatAgentRuntime = iSysAIFactoryRuntime.getAIChatAgentRuntime(strRealAgentId, true);
+			if(iSysAIChatAgentRuntime == null) {
+				response.sendError(HttpStatus.NOT_FOUND.value(), String.format("指定AI交谈代理[%1$s]不存在", agent_id));
+				return null;
+			}
+			
+			if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+				if(!iSystemRuntime.getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+					logger.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+					response.sendError(HttpStatus.FORBIDDEN.value(), String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()));
+					return null;
+				}
+			}
+			
+			iSysAIFactoryRuntime.getChatResourceUtils().convert(chatCompletionRequest, true);
+			
+			if(items.length ==2) {
+				chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, items[0]);
+			}
+			chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE); 
+			
+			return iSysAIChatAgentRuntime.chatCompletion(new Entity(), chatCompletionRequest, null, true, false);
+		}
+		catch (Throwable ex) {
+			logger.error(String.format("交互补全发生异常，%1$s", ex.getMessage()));
+			response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), String.format("交互补全发生异常，%1$s", ex.getMessage()));
+			return null;
+		}
+		finally {
+			if(bPushSystem) {
+				SystemRuntimeHolder.poll();
+			}
 		}
 	}
 	
@@ -510,6 +655,7 @@ public class AIFactoryGatewayRestController {
 			if(items.length ==2) {
 				chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, items[0]);
 			}
+			chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE); 
 			
 			return iSysAIChatAgentRuntime.chatCompletion(new Entity(), chatCompletionRequest, null, true, false);
 		}
@@ -562,6 +708,7 @@ public class AIFactoryGatewayRestController {
 			if(items.length ==2) {
 				chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, items[0]);
 			}
+			chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE); 
 			
 			return iSysAIChatAgentRuntime.asyncChatCompletion(new Entity(), chatCompletionRequest, null, true, false);
 		}
@@ -616,6 +763,7 @@ public class AIFactoryGatewayRestController {
 			if(items.length ==2) {
 				body.put(ISysAIAgentRuntime.AIAGENTTAG, items[0]);
 			}
+			body.remove(ISysAIAgentRuntime.SCOPE); 
 			
 			iSysAIChatAgentRuntime.cancelChatCompletion(new Entity(), strAsyncActionId, body);
 			return;

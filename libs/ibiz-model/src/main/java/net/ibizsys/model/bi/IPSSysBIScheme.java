@@ -101,7 +101,7 @@ public interface IPSSysBIScheme extends net.ibizsys.model.bi.IPSBIScheme
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
-	java.lang.String getDBObjNameCase();
+	String getDBObjNameCase();
 	
 	
 	/**

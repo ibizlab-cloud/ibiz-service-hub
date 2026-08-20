@@ -39,6 +39,12 @@ public class DEReportTypes {
      *  JasperReport，注意：值为对象值，不能直接用于 == 比较
      */
     public final static String JR = "JR";
+    
+    /**
+     *  EasyExcel，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String EASYEXCEL = "EASYEXCEL";
+    
     /**
      *  HTML，注意：值为对象值，不能直接用于 == 比较
      */

@@ -19,7 +19,7 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getActionGroupExtractMode();
+	String getActionGroupExtractMode();
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDetailMDCtrlType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
@@ -65,7 +65,7 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	 * 获取绑定属性
 	 * @return
 	 */
-	java.lang.String getFieldName();
+	String getFieldName();
 	
 	
 	/**
@@ -114,7 +114,7 @@ public interface IPSDEFormMDCtrl extends net.ibizsys.model.control.form.IPSDEFor
 	 * 获取重置项名称
 	 * @return
 	 */
-	java.lang.String getResetItemName();
+	String getResetItemName();
 	
 	
 	/**

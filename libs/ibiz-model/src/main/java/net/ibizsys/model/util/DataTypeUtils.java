@@ -394,6 +394,7 @@ public class DataTypeUtils {
 
 		
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if(!StringUtils.hasLength(strValue))
 			return def;
 		
@@ -966,6 +967,7 @@ public class DataTypeUtils {
 		}
 		
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		strValue = strValue.replace(",", "");
 		return Integer.parseInt(strValue);
@@ -1013,6 +1015,7 @@ public class DataTypeUtils {
 		}
 		
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if(!StringUtils.hasLength(strValue))
 			return fDefault;
 		
@@ -1071,6 +1074,7 @@ public class DataTypeUtils {
 		else {
 			strValue = objValue.toString();
 		}
+		strValue = strValue.trim();
 		if(!StringUtils.hasLength(strValue))
 			return nDefault;
 		
@@ -1139,6 +1143,7 @@ public class DataTypeUtils {
 		
 
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		strValue = strValue.replace(",", "");
 		return Double.parseDouble(strValue);
@@ -1177,6 +1182,7 @@ public class DataTypeUtils {
 		}
 
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		strValue = strValue.replace(",", "");
 		return Float.parseFloat(strValue);
@@ -1215,6 +1221,7 @@ public class DataTypeUtils {
 		}
 
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		strValue = strValue.replace(",", "");
 		return Long.parseLong(strValue);
@@ -1254,6 +1261,7 @@ public class DataTypeUtils {
 		}
 
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		
 		return new java.sql.Timestamp(DateUtils.parse(strValue).getTime());
@@ -1281,6 +1289,7 @@ public class DataTypeUtils {
 		
 
 		String strValue = objValue.toString();
+		strValue = strValue.trim();
 		if (!StringUtils.hasLength(strValue)) return def;
 		
 		return strValue.equalsIgnoreCase("true") || strValue.equalsIgnoreCase("1");

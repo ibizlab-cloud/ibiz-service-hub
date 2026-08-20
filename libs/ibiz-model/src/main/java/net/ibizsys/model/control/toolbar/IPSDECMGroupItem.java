@@ -27,7 +27,7 @@ public interface IPSDECMGroupItem extends net.ibizsys.model.control.toolbar.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
-	java.lang.String getBorderStyle();
+	String getBorderStyle();
 	
 	
 	/**
@@ -36,7 +36,7 @@ public interface IPSDECMGroupItem extends net.ibizsys.model.control.toolbar.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**

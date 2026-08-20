@@ -10,6 +10,7 @@ public class PSDEActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl im
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDEACTION = "getPSDEAction";
 	public final static String ATTR_GETPSDEDATASET = "getPSDEDataSet";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -88,4 +89,8 @@ public class PSDEActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl im
 		this.psdedataset = psdedataset;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

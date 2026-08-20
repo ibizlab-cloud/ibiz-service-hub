@@ -13,21 +13,21 @@ public interface IPSEAIDataType extends net.ibizsys.model.eai.IPSSysEAISchemeObj
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取数据类型标记
 	 * @return
 	 */
-	java.lang.String getDataTypeTag();
+	String getDataTypeTag();
 	
 	
 	/**
 	 * 获取数据类型标记2
 	 * @return
 	 */
-	java.lang.String getDataTypeTag2();
+	String getDataTypeTag2();
 	
 	
 	/**
@@ -41,7 +41,7 @@ public interface IPSEAIDataType extends net.ibizsys.model.eai.IPSSysEAISchemeObj
 	 * 获取最大值（字符串）
 	 * @return
 	 */
-	java.lang.String getMaxValueString();
+	String getMaxValueString();
 	
 	
 	/**
@@ -55,14 +55,14 @@ public interface IPSEAIDataType extends net.ibizsys.model.eai.IPSSysEAISchemeObj
 	 * 获取最小值（字符串）
 	 * @return
 	 */
-	java.lang.String getMinValueString();
+	String getMinValueString();
 	
 	
 	/**
 	 * 获取内容模式
 	 * @return
 	 */
-	java.lang.String getPattern();
+	String getPattern();
 	
 	
 	/**

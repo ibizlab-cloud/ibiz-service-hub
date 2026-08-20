@@ -16,5 +16,5 @@ public interface IPSAppErrorView extends net.ibizsys.model.app.view.IPSAppUtilVi
 	 * 获取获取错误代码
 	 * @return
 	 */
-	java.lang.String getErrorCode();
+	String getErrorCode();
 }

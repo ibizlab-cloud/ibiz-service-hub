@@ -17,5 +17,5 @@ public interface IPSArray extends net.ibizsys.model.control.editor.IPSTextEditor
 	 * 获取数据类型[DATATYPE]{STRING|NUMBER|INTEGER|URL|IMAGE|MAIL}
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 }

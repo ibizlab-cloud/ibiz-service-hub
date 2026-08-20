@@ -14,21 +14,21 @@ public interface IPSBIAggColumn extends net.ibizsys.model.bi.IPSBIAggTableObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取聚合数据列标记
 	 * @return
 	 */
-	java.lang.String getColumnTag();
+	String getColumnTag();
 	
 	
 	/**
 	 * 获取聚合数据列标记2
 	 * @return
 	 */
-	java.lang.String getColumnTag2();
+	String getColumnTag2();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSBIAggColumn extends net.ibizsys.model.bi.IPSBIAggTableObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIAggColumnType}
 	 * @return
 	 */
-	java.lang.String getColumnType();
+	String getColumnType();
 	
 	
 	/**

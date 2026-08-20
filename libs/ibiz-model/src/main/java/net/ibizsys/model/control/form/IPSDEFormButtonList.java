@@ -18,7 +18,7 @@ public interface IPSDEFormButtonList extends net.ibizsys.model.control.form.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getActionGroupExtractMode();
+	String getActionGroupExtractMode();
 	
 	
 	/**
@@ -27,7 +27,7 @@ public interface IPSDEFormButtonList extends net.ibizsys.model.control.form.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonListType}
 	 * @return
 	 */
-	java.lang.String getButtonListType();
+	String getButtonListType();
 	
 	
 	/**

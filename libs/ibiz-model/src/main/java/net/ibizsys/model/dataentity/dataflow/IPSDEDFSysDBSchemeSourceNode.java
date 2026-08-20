@@ -83,7 +83,7 @@ public interface IPSDEDFSysDBSchemeSourceNode extends net.ibizsys.model.dataenti
 	 * 获取SQL代码
 	 * @return
 	 */
-	java.lang.String getSql();
+	String getSql();
 	
 	
 	/**
@@ -92,5 +92,5 @@ public interface IPSDEDFSysDBSchemeSourceNode extends net.ibizsys.model.dataenti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysDBSchemeSourceType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 }

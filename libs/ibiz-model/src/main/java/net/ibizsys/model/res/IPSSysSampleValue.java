@@ -14,7 +14,7 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSSysSampleValue extends net.ibizsys.model.IPSModelObject{
 	 * 获取示例值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 	
 	
 	/**

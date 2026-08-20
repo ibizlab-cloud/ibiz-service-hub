@@ -14,14 +14,14 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 获取维度公式
 	 * @return
 	 */
-	java.lang.String getDimensionFormula();
+	String getDimensionFormula();
 	
 	
 	/**
 	 * 获取维度名称
 	 * @return
 	 */
-	java.lang.String getDimensionName();
+	String getDimensionName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 获取维度标记
 	 * @return
 	 */
-	java.lang.String getDimensionTag();
+	String getDimensionTag();
 	
 	
 	/**
@@ -44,21 +44,21 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIDimensionType}
 	 * @return
 	 */
-	java.lang.String getDimensionType();
+	String getDimensionType();
 	
 	
 	/**
 	 * 获取报表项标记
 	 * @return
 	 */
-	java.lang.String getItemTag();
+	String getItemTag();
 	
 	
 	/**
 	 * 获取报表项标记2
 	 * @return
 	 */
-	java.lang.String getItemTag2();
+	String getItemTag2();
 	
 	
 	/**
@@ -109,7 +109,7 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlaceType}
 	 * @return
 	 */
-	java.lang.String getPlaceType();
+	String getPlaceType();
 	
 	
 	/**
@@ -118,7 +118,7 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlacement}
 	 * @return
 	 */
-	java.lang.String getPlacement();
+	String getPlacement();
 	
 	
 	/**
@@ -148,12 +148,12 @@ public interface IPSAppBIReportDimension extends net.ibizsys.model.IPSModelObjec
 	 * 获取文本绘制模板
 	 * @return
 	 */
-	java.lang.String getTextTemplate();
+	String getTextTemplate();
 	
 	
 	/**
 	 * 获取提示绘制模板
 	 * @return
 	 */
-	java.lang.String getTipTemplate();
+	String getTipTemplate();
 }

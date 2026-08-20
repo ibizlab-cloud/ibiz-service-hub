@@ -57,6 +57,7 @@ import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.security.UserContext;
+import net.ibizsys.runtime.util.AppContext;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.IAction;
@@ -310,11 +311,15 @@ public abstract class SysUAAUtilRuntimeBase extends SysUtilRuntimeBase implement
 						employee.putAll(accessToken.getEmployee());
 						
 						Collection<? extends GrantedAuthority> authorities = null;
-						String strAuthorities = accessToken.getAuthorities();
-						if(StringUtils.hasLength(strAuthorities)) {
-							authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+						Object authoritiesValue = accessToken.getAuthorities();
+						if(!ObjectUtils.isEmpty(authoritiesValue)) {
+							authorities = JsonUtils.as(authoritiesValue, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 						}
 						EmployeeContext employeeContext = new EmployeeContext(employee, null, srfsystemid, authorities);
+						
+						if(!ObjectUtils.isEmpty(accessToken.getAppContext())) {
+							employeeContext.setAppContext(new AppContext(accessToken.getAppContext()));
+						}
 						
 						AuthenticationUser authenticationUser = new AuthenticationUser();
 						authenticationUser.setToken(authToken);

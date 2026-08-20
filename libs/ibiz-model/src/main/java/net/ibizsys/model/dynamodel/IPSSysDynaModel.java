@@ -15,42 +15,42 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取模型内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
 	 * 获取模型标记
 	 * @return
 	 */
-	java.lang.String getModelTag();
+	String getModelTag();
 	
 	
 	/**
 	 * 获取模型标记2
 	 * @return
 	 */
-	java.lang.String getModelTag2();
+	String getModelTag2();
 	
 	
 	/**
 	 * 获取模型标记3
 	 * @return
 	 */
-	java.lang.String getModelTag3();
+	String getModelTag3();
 	
 	
 	/**
 	 * 获取模型标记4
 	 * @return
 	 */
-	java.lang.String getModelTag4();
+	String getModelTag4();
 	
 	
 	/**
@@ -59,5 +59,5 @@ public interface IPSSysDynaModel extends net.ibizsys.model.dynamodel.IPSDynaMode
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DynaModelUsage}
 	 * @return
 	 */
-	java.lang.String getUsage();
+	String getUsage();
 }

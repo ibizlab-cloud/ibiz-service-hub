@@ -16,7 +16,7 @@ public interface IPSAppDEMethodDTO extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -74,7 +74,7 @@ public interface IPSAppDEMethodDTO extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOSourceType}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 	
 	
 	/**
@@ -97,5 +97,5 @@ public interface IPSAppDEMethodDTO extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

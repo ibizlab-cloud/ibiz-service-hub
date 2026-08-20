@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.ibizlab.plugin</groupId>
+		<artifactId>ibiz-plugin</artifactId>
+		<version>8.1.0.584.1</version>
+	</parent>
+	<artifactId>ibiz-plugin-test</artifactId>
+	<name>ibiz-plugin-test</name>
+	<properties>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>cn.ibizlab.plugin</groupId>
+			<artifactId>ibiz-cloud-core</artifactId>
+			<version>8.1.0.584.1</version>
+		</dependency>
+			
+		<dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.junit.platform</groupId>
+	        <artifactId>junit-platform-launcher</artifactId>
+	   </dependency>
+
+		<dependency>
+		    <groupId>org.spockframework</groupId>
+		    <artifactId>spock-core</artifactId>
+		    <version>2.3-groovy-2.5</version>
+		</dependency>
+	</dependencies>
+</project>

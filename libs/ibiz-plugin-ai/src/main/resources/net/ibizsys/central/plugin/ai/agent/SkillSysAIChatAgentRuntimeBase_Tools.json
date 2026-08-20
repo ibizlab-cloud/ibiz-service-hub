@@ -3,7 +3,7 @@
 		"type": "function",
 		"function": {
 			"name": "execute_bash",
-			"description": "Executes a Shell command. This is your primary way to utilize the scripts defined in the skill definitions. If the command is not specific to a particular skill, use `SKILLS_WORKSPACE` as the skill_id. For commands that support file path parameters, you can optionally provide `file_path` and `content` if the specified file does not exist or needs to be rewritten, allowing you to pass inputs without pre-writing files.",
+			"description": "Executes a Shell command. This is your primary way to utilize the scripts defined in the skill definitions. If the command is not specific to a particular skill, use `SKILLS_WORKSPACE` as the skill_id. For commands that support file path parameters, you can optionally provide `file_path` and `content` if the specified file does not exist or needs to be rewritten, allowing you to pass inputs without pre-writing files. The 'profile' parameter specifies the environment variable configuration identifier for command execution. It must be explicitly provided by the user; do not assign it automatically.",
 			"parameters": {
 				"type": "object",
 				"properties": {
@@ -22,6 +22,10 @@
 					"content": {
 						"type": "string",
 						"description": "可选，命令支持文件参数时，指定要写入 file_path 的具体文本内容。需与 file_path 配合使用。"
+					},
+					"profile": {
+						"type": "string",
+						"description": "可选，指定命令执行环境变量配置标识，需要用户显式指定，禁止主动赋值"
 					}
 				},
 				"required": [
@@ -88,6 +92,11 @@
 	        "content": {
 	          "type": "string",
 	          "description": "The content to be written into the file."
+	        },
+	        "append": {
+	          "type": "boolean",
+	          "description": "If true, append content to the file; if false (default), overwrite the file.",
+	          "default": false
 	        }
 	      },
 	      "required": [
@@ -186,7 +195,7 @@
 	      "properties": {
 	        "skill_id": {
 	          "type": "string",
-	          "description": "The unique identifier of the skill to execute the command."
+	          "description": "The unique identifier of the skill to execute the command. the skill_id parameter must end with the suffix @agent (e.g., my-assistant@agent, support-bot@agent). Calling execute_chat with any other skill_id is forbidden and will be rejected."
 	        },
 	        "request": {
 	          "type": "object",
@@ -442,6 +451,36 @@
 	    },
 	    "service": {
 	      "url": "${toolcall_base_url}/toolcall/apply_patch",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "output_step",
+	    "description": "Outputs a step with content and reasoning content",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "content": {
+	          "type": "string",
+	          "description": "The content of the step"
+	        },
+	        "reasoning_content": {
+	          "type": "string",
+	          "description": "The reasoning content of the step"
+	        }
+	      },
+	      "required": [
+	        "content"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/output_step",
 	      "header": {
 	        "srfscope": "${srfscope}",
 	        "srfchatsessionid": "${srfchatsessionid}"

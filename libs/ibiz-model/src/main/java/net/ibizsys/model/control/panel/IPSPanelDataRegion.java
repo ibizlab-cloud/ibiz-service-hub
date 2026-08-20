@@ -14,7 +14,7 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	 * 获取数据对象名称
 	 * @return
 	 */
-	java.lang.String getDataName();
+	String getDataName();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataPanelMode}
 	 * @return
 	 */
-	java.lang.String getDataRegionType();
+	String getDataRegionType();
 	
 	
 	/**
@@ -32,7 +32,7 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataPanelSource}
 	 * @return
 	 */
-	java.lang.String getDataSourceType();
+	String getDataSourceType();
 	
 	
 	/**
@@ -88,7 +88,7 @@ public interface IPSPanelDataRegion extends net.ibizsys.model.control.IPSNavigat
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

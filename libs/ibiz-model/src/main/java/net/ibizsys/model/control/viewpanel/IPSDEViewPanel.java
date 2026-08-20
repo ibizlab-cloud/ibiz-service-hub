@@ -29,7 +29,7 @@ public interface IPSDEViewPanel extends net.ibizsys.model.control.IPSControl
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**

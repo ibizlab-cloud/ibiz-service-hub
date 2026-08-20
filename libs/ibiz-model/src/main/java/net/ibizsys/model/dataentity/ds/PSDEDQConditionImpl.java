@@ -7,6 +7,7 @@ public abstract class PSDEDQConditionImpl extends net.ibizsys.model.PSObjectImpl
 	public final static String ATTR_GETCONDTAG = "condTag";
 	public final static String ATTR_GETCONDTAG2 = "condTag2";
 	public final static String ATTR_GETCONDTYPE = "condType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCondTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONDTAG);
@@ -30,5 +31,9 @@ public abstract class PSDEDQConditionImpl extends net.ibizsys.model.PSObjectImpl
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

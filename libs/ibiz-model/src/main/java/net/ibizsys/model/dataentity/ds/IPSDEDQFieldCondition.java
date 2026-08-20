@@ -16,21 +16,21 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getCondValue();
+	String getCondValue();
 	
 	
 	/**
 	 * 获取属性名称，来源{@link #getPSDEField}.getName()
 	 * @return
 	 */
-	java.lang.String getFieldName();
+	String getFieldName();
 	
 	
 	/**
@@ -53,28 +53,28 @@ public interface IPSDEDQFieldCondition extends net.ibizsys.model.dataentity.ds.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDQVarType}
 	 * @return
 	 */
-	java.lang.String getPSVARTypeId();
+	String getPSVARTypeId();
 	
 	
 	/**
 	 * 获取值函数代码标识
 	 * @return
 	 */
-	java.lang.String getValueFunc();
+	String getValueFunc();
 	
 	
 	/**
 	 * 获取值函数标记
 	 * @return
 	 */
-	java.lang.String getValueFuncTag();
+	String getValueFuncTag();
 	
 	
 	/**
 	 * 获取值函数标记2
 	 * @return
 	 */
-	java.lang.String getValueFuncTag2();
+	String getValueFuncTag2();
 	
 	
 	/**

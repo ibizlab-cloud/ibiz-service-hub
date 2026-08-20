@@ -16,14 +16,14 @@ public interface IPSDEFVRQueryCountCondition extends net.ibizsys.model.dataentit
 	 * 获取最大值
 	 * @return
 	 */
-	java.lang.Integer getMaxValue();
+	Integer getMaxValue();
 	
 	
 	/**
 	 * 获取最小值
 	 * @return
 	 */
-	java.lang.Integer getMinValue();
+	Integer getMinValue();
 	
 	
 	/**

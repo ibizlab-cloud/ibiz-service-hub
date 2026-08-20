@@ -18,5 +18,5 @@ public interface IPSBorderLayoutPos extends net.ibizsys.model.control.layout.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderLayoutPos}
 	 * @return
 	 */
-	java.lang.String getLayoutPos();
+	String getLayoutPos();
 }

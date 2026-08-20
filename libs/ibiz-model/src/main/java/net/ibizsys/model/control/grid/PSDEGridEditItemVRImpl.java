@@ -9,6 +9,7 @@ public class PSDEGridEditItemVRImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETPSDEGRIDEDITITEMNAME = "getPSDEGridEditItemName";
 	public final static String ATTR_GETPSSYSVALUERULE = "getPSSysValueRule";
 	public final static String ATTR_GETVALUERULETYPE = "valueRuleType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public int getCheckMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCHECKMODE);
@@ -76,5 +77,9 @@ public class PSDEGridEditItemVRImpl extends net.ibizsys.model.PSObjectImpl imple
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

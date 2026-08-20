@@ -15,7 +15,7 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	 * 获取代码名称 
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -64,14 +64,14 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	 * 获取规则信息
 	 * @return
 	 */
-	java.lang.String getRuleInfo();
+	String getRuleInfo();
 	
 	
 	/**
 	 * 获取规则信息语言资源标记
 	 * @return
 	 */
-	java.lang.String getRuleInfoLanResTag();
+	String getRuleInfoLanResTag();
 	
 	
 	/**
@@ -92,21 +92,21 @@ public interface IPSDEFValueRule extends net.ibizsys.model.dataentity.defield.IP
 	 * 获取规则标记
 	 * @return
 	 */
-	java.lang.String getRuleTag();
+	String getRuleTag();
 	
 	
 	/**
 	 * 获取规则标记2
 	 * @return
 	 */
-	java.lang.String getRuleTag2();
+	String getRuleTag2();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

@@ -14,21 +14,21 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认内容
 	 * @return
 	 */
-	java.lang.String getDefaultContent();
+	String getDefaultContent();
 	
 	
 	/**
 	 * 获取语言资源标记
 	 * @return
 	 */
-	java.lang.String getLanResTag();
+	String getLanResTag();
 	
 	
 	/**
@@ -37,14 +37,14 @@ public interface IPSLanguageRes extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LanResType}
 	 * @return
 	 */
-	java.lang.String getLanResType();
+	String getLanResType();
 	
 	
 	/**
 	 * 获取名称
 	 * @return
 	 */
-	java.lang.String getName();
+	String getName();
 	
 	
 	/**

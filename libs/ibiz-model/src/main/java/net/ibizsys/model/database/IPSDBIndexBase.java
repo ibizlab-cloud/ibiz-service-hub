@@ -13,7 +13,7 @@ public interface IPSDBIndexBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface IPSDBIndexBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBIndexType}
 	 * @return
 	 */
-	java.lang.String getIndexType();
+	String getIndexType();
 	
 	
 	/**

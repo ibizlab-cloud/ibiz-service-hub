@@ -420,4 +420,19 @@ public interface IServiceSystemRuntime extends IServiceSystemRuntimeBase,ISystem
 	
 	
 
+	/**
+	 * 注册系统运行时插件
+	 * @param systemRTAddinClass
+	 * @return
+	 * @throws Throwable
+	 */
+	void registerSystemRTAddin(Class<?> systemRTAddinClass);
+	
+	
+	/**
+	 * 注销系统运行时插件
+	 * @param systemRTAddinClass
+	 * @return
+	 */
+	boolean unregisterSystemRTAddin(Class<?> systemRTAddinClass);
 }

@@ -1,5 +1,8 @@
 package net.ibizsys.central.cloud.core.spring.rt.util;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +32,16 @@ public class TransactionalUtil implements ITransactionalUtil, ApplicationContext
 	private final static DefaultTransactionDefinition TRANSACTIONDEFINITION_REQUIRED_NEW = new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 	private final static DefaultTransactionDefinition TRANSACTIONDEFINITION_SUPPORTS = new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_SUPPORTS);
 
-	// private Map<DataSource, PlatformTransactionManager>
-	// platformTransactionManagerMap = new ConcurrentHashMap<DataSource,
-	// PlatformTransactionManager>();
+	private static final ThreadLocal<Deque<TransactionContext>> transactionStack = new ThreadLocal<>();
+
+	private static class TransactionContext {
+	    final TransactionStatus status;
+	    final PlatformTransactionManager manager;
+	    TransactionContext(TransactionStatus status, PlatformTransactionManager manager) {
+	        this.status = status;
+	        this.manager = manager;
+	    }
+	}
 
 	@PostConstruct
 	public void postConstruct() {
@@ -49,147 +59,9 @@ public class TransactionalUtil implements ITransactionalUtil, ApplicationContext
 	}
 
 	protected PlatformTransactionManager getRealPlatformTransactionManager() {
-		// ISysDBSchemeRuntime iSysDBSchemeRuntime =
-		// SysDBSchemeRuntimeHolder.peek();
-		// if (iSysDBSchemeRuntime == null) {
-		// return this.platformTransactionManager;
-		// }
-		// Object dataSourceTag = iSysDBSchemeRuntime.getDataSourceTag();
-		// if (!ObjectUtils.isEmpty(dataSourceTag)) {
-		// if (this.getApplicationContext() != null) {
-		// String strBeanName = "dynadatasource_" + dataSourceTag;
-		// if (this.getApplicationContext().containsBean(strBeanName)) {
-		// Object objDataSource =
-		// this.getApplicationContext().getBean(strBeanName);
-		// if (objDataSource instanceof DataSource) {
-		// DataSource dataSource = (DataSource)objDataSource;
-		// PlatformTransactionManager platformTransactionManager =
-		// platformTransactionManagerMap.get(dataSource);
-		// if(platformTransactionManager == null) {
-		// platformTransactionManager = new JdbcTransactionManager(dataSource);
-		// this.platformTransactionManagerMap.put(dataSource,
-		// platformTransactionManager);
-		// }
-		// return platformTransactionManager;
-		// }
-		// }
-		// }
-		// }
 		return this.platformTransactionManager;
 	}
 
-//	@Override
-//	public Object mandatory(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_MANDATORY);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object nested(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_NESTED);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object never(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_NEVER);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object not_supported(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_NOT_SUPPORTED);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object required(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_REQUIRED);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object required_new(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_REQUIRED_NEW);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//
-//	@Override
-//	public Object supports(IAction iAction, Object[] args) throws Throwable {
-//		TransactionStatus transactionStatus = null;
-//		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-//		try {
-//			transactionStatus = platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_SUPPORTS);
-//			Object obj = iAction.execute(args);
-//			platformTransactionManager.commit(transactionStatus);
-//			return obj;
-//		} catch (Throwable e) {
-//			if (transactionStatus != null)
-//				platformTransactionManager.rollback(transactionStatus);
-//			throw e;
-//		}
-//	}
-//	
 	
 	@Override
 	public Object mandatory(IAction iAction, Object[] args) throws Throwable {
@@ -255,28 +127,33 @@ public class TransactionalUtil implements ITransactionalUtil, ApplicationContext
 		return execute(iAction, args, ITransactionalUtil.PROPAGATION_REQUIRES_NEW, isolation);
 	}
 
-//	@Override
-//	public Object supports(IAction iAction, Object[] args, int isolation) throws Throwable {
-//		return execute(iAction, args, ITransactionalUtil.PROPAGATION_SUPPORTS, isolation);
-//	}
+
 
 	@Override
 	public Object execute(IAction iAction, Object[] args, int propagation, int isolation) throws Throwable {
-		TransactionStatus transactionStatus = null;
-		PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
-		try {
-			TransactionDefinition transactionDefinition = this.getTransactionDefinition(propagation, isolation);
-			transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);
-			Object obj = iAction.execute(args);
-			platformTransactionManager.commit(transactionStatus);
-			return obj;
-		} catch (Throwable e) {
-			if (transactionStatus != null)
-				platformTransactionManager.rollback(transactionStatus);
-			throw e;
-		}
-
+	    // 检查是否存在手动事务
+	    Deque<TransactionContext> stack = transactionStack.get();
+	    if (stack != null && !stack.isEmpty()) {
+	        // 存在手动事务，忽略自动事务管理，直接执行
+	        return iAction.execute(args);
+	    }
+	    // 原有自动事务逻辑（无手动事务时）
+	    TransactionStatus transactionStatus = null;
+	    PlatformTransactionManager platformTransactionManager = this.getRealPlatformTransactionManager();
+	    try {
+	        TransactionDefinition transactionDefinition = this.getTransactionDefinition(propagation, isolation);
+	        transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);
+	        Object obj = iAction.execute(args);
+	        platformTransactionManager.commit(transactionStatus);
+	        return obj;
+	    } catch (Throwable e) {
+	        if (transactionStatus != null)
+	            platformTransactionManager.rollback(transactionStatus);
+	        throw e;
+	    }
 	}
+	
+	
 
 	protected TransactionDefinition getTransactionDefinition(int propagation, int isolation) throws Exception {
 		if(isolation == ITransactionalUtil.ISOLATION_DEFAULT) {
@@ -306,18 +183,60 @@ public class TransactionalUtil implements ITransactionalUtil, ApplicationContext
 		}
 	}
 	
+	@Override
+	public void begin(int propagation) throws Throwable {
+		this.begin(propagation, ITransactionalUtil.ISOLATION_DEFAULT);
+	}
 	
 	@Override
+	public void begin(int propagation, int isolation) throws Throwable {
+	    Deque<TransactionContext> stack = transactionStack.get();
+	    if (stack == null) {
+	        stack = new ArrayDeque<>();
+	        transactionStack.set(stack);
+	    }
+	    // 嵌套检查：只允许 NESTED 或 REQUIRES_NEW
+	    if (!stack.isEmpty()) {
+	        if (propagation != PROPAGATION_NESTED && propagation != PROPAGATION_REQUIRES_NEW) {
+	            throw new IllegalStateException(
+	                "当前线程已有事务，嵌套事务只允许使用 PROPAGATION_NESTED 或 PROPAGATION_REQUIRES_NEW");
+	        }
+	    }
+	    PlatformTransactionManager tm = getRealPlatformTransactionManager();
+	    TransactionDefinition def = getTransactionDefinition(propagation, isolation);
+	    TransactionStatus status = tm.getTransaction(def);
+	    stack.push(new TransactionContext(status, tm));
+	}
+
+	@Override
 	public void commit() throws Throwable {
-		// TransactionStatus transactionStatus =
-		// platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_REQUIRED);
-		// platformTransactionManager.commit(transactionStatus);
+	    Deque<TransactionContext> stack = transactionStack.get();
+	    if (stack == null || stack.isEmpty()) {
+	        throw new IllegalStateException("没有正在进行的事务");
+	    }
+	    TransactionContext ctx = stack.pop();
+	    try {
+	        ctx.manager.commit(ctx.status);
+	    } finally {
+	        if (stack.isEmpty()) {
+	            transactionStack.remove();
+	        }
+	    }
 	}
 
 	@Override
 	public void rollback() throws Throwable {
-		// TransactionStatus transactionStatus =
-		// platformTransactionManager.getTransaction(TRANSACTIONDEFINITION_REQUIRED);
-		// platformTransactionManager.rollback(transactionStatus);
+	    Deque<TransactionContext> stack = transactionStack.get();
+	    if (stack == null || stack.isEmpty()) {
+	        throw new IllegalStateException("没有正在进行的事务");
+	    }
+	    TransactionContext ctx = stack.pop();
+	    try {
+	        ctx.manager.rollback(ctx.status);
+	    } finally {
+	        if (stack.isEmpty()) {
+	            transactionStack.remove();
+	        }
+	    }
 	}
 }

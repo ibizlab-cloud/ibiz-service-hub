@@ -3019,9 +3019,9 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				employee.putAll(accessToken.getEmployee());
 				
 				Collection<? extends GrantedAuthority> authorities = null;
-				String strAuthorities = accessToken.getAuthorities();
-				if(StringUtils.hasLength(strAuthorities)) {
-					authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+				Object authoritiesValue = accessToken.getAuthorities();
+				if(!ObjectUtils.isEmpty(authoritiesValue)) {
+					authorities = JsonUtils.as(authoritiesValue, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 				}
 				EmployeeContext employeeContext = new EmployeeContext(employee, null, strDeploySystemId, authorities);
 				UserContext.setCurrent(employeeContext);
@@ -3114,10 +3114,11 @@ public abstract class SysExtensionUtilRuntimeBase extends CloudSysUtilRuntimeBas
 				employee.putAll(accessToken.getEmployee());
 				
 				Collection<? extends GrantedAuthority> authorities = null;
-				String strAuthorities = accessToken.getAuthorities();
-				if(StringUtils.hasLength(strAuthorities)) {
-					authorities = JsonUtils.as(strAuthorities, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
+				Object authoritiesValue = accessToken.getAuthorities();
+				if(!ObjectUtils.isEmpty(authoritiesValue)) {
+					authorities = JsonUtils.as(authoritiesValue, SysUAAUtilRuntimeBase.UAAGrantedAuthorityListType);
 				}
+				
 				EmployeeContext employeeContext = new EmployeeContext(employee, null, iSystemRuntime.getDeploySystemId(), authorities);
 				UserContext.setCurrent(employeeContext);
 			}

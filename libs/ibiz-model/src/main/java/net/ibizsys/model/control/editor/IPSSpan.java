@@ -32,14 +32,14 @@ public interface IPSSpan extends net.ibizsys.model.control.editor.IPSCodeListEdi
 	 * @return
 	 */
 	@Deprecated
-	java.lang.Integer getPrecision();
+	Integer getPrecision();
 	
 	
 	/**
 	 * 获取小数点位数[SCALE]
 	 * @return
 	 */
-	java.lang.Integer getScale();
+	Integer getScale();
 	
 	
 	/**

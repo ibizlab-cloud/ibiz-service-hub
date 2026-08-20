@@ -55,6 +55,14 @@ public interface ISysAIChatAgentRuntime extends ISysAIAgentRuntime, IAIChatAgent
 	public final static String MESSAGE_SENDER_TYPE_USER = "user";
 	
 	public final static String MESSAGE_SENDER_TYPE_AGENT = "agent";
+	
+	public final static String MESSAGE_PREDEFINEDFIELD_TOOL_CALLS = "TOOL_CALLS";
+	
+	public final static String MESSAGE_PREDEFINEDFIELD_TOTAL_TOKENS = "TOTAL_TOKENS";
+	
+	public final static String MESSAGE_PREDEFINEDFIELD_OUTPUT_TOKENS = "OUTPUT_TOKENS";
+	
+	public final static String MESSAGE_PREDEFINEDFIELD_INPUT_TOKENS = "INPUT_TOKENS";
 
 	public final static String MEMORYTASK_PREDEFINEDFIELD_NAME = "NAME";
 
@@ -88,6 +96,18 @@ public interface ISysAIChatAgentRuntime extends ISysAIAgentRuntime, IAIChatAgent
 	 * 聊天摘要模式：内容摘要
 	 */
 	public final static String CHATDIGESTMODE_CONTENT = "content";
+	
+	
+	/**
+	 * 消息状态：失败
+	 */
+	public final static String MESSAGE_STATUS_FAILED = "failed";
+	
+	/**
+	 * 消息状态：取消
+	 */
+	public final static String MESSAGE_STATUS_CANCELED = "canceled";
+    
 	
 	
 	/**

@@ -16,7 +16,7 @@ public interface IPSDEFDCatGroupLogic extends net.ibizsys.model.control.form.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailLogicCat}
 	 * @return
 	 */
-	java.lang.String getLogicCat();
+	String getLogicCat();
 	
 	
 	/**
@@ -30,5 +30,5 @@ public interface IPSDEFDCatGroupLogic extends net.ibizsys.model.control.form.IPS
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 }

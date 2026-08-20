@@ -13,14 +13,14 @@ public interface IPSSysPFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取插件代码
 	 * @return
 	 */
-	java.lang.String getPluginCode();
+	String getPluginCode();
 	
 	
 	/**
@@ -41,7 +41,7 @@ public interface IPSSysPFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取插件标记
 	 * @return
 	 */
-	java.lang.String getPluginTag();
+	String getPluginTag();
 	
 	
 	/**
@@ -50,14 +50,14 @@ public interface IPSSysPFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PFPluginType}
 	 * @return
 	 */
-	java.lang.String getPluginType();
+	String getPluginType();
 	
 	
 	/**
 	 * 获取运行时对象名称
 	 * @return
 	 */
-	java.lang.String getRTObjectName();
+	String getRTObjectName();
 	
 	
 	/**

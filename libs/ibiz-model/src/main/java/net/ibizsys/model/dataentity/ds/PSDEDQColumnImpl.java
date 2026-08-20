@@ -6,6 +6,7 @@ public class PSDEDQColumnImpl extends net.ibizsys.model.PSObjectImpl implements 
 
 	public final static String ATTR_GETALIAS = "alias";
 	public final static String ATTR_GETNAME = "name";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAlias(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALIAS);
@@ -21,5 +22,9 @@ public class PSDEDQColumnImpl extends net.ibizsys.model.PSObjectImpl implements 
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

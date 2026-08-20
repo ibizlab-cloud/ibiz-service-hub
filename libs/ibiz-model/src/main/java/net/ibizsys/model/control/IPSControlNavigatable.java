@@ -52,7 +52,7 @@ public interface IPSControlNavigatable extends net.ibizsys.model.control.IPSCont
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NavViewPos}
 	 * @return
 	 */
-	java.lang.String getNavViewPos();
+	String getNavViewPos();
 	
 	
 	/**

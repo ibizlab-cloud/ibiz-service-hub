@@ -85,5 +85,5 @@ public interface IPSDEDFSysBDSchemeSourceNode extends net.ibizsys.model.dataenti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysBDSchemeSourceType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 }

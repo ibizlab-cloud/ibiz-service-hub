@@ -970,6 +970,14 @@ public abstract class PSModelServiceImplBaseBase implements IPSModelService {
 		this.psModelObjectMap.put(strModelPath, iPSModelObject);
 	}
 	
+	@Override
+	public IPSModelObject getCachePSModelObject(String strPath, boolean bTryMode) {
+		IPSModelObject iPSModelObject = this.getCachePSModelObject(strPath);
+		if(iPSModelObject != null || bTryMode) {
+			return iPSModelObject;
+		}
+		throw new PSModelServiceException(this, String.format("无法获取指定模型对象[%1$s]", strPath));
+	}
 	
 	protected boolean isModelFromHttp() {
 		return this.bHttpMode;

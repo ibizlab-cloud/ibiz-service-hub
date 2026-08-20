@@ -21,21 +21,21 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	 * 获取背景颜色
 	 * @return
 	 */
-	java.lang.String getBKColor();
+	String getBKColor();
 	
 	
 	/**
 	 * 获取前景颜色
 	 * @return
 	 */
-	java.lang.String getColor();
+	String getColor();
 	
 	
 	/**
 	 * 获取样式表名称
 	 * @return
 	 */
-	java.lang.String getCssClass();
+	String getCssClass();
 	
 	
 	/**
@@ -105,7 +105,7 @@ public interface IPSDEMSLogicNode extends net.ibizsys.model.dataentity.logic.IPS
 	 * 获取状态值
 	 * @return
 	 */
-	java.lang.String getStateValue();
+	String getStateValue();
 	
 	
 	/**

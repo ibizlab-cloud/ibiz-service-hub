@@ -13,12 +13,12 @@ public interface IPSXmlNode extends net.ibizsys.model.dynamodel.IPSXmlNodeOwner{
 	 * 获取节点名称
 	 * @return
 	 */
-	java.lang.String getNodeName();
+	String getNodeName();
 	
 	
 	/**
 	 * 获取节点值
 	 * @return
 	 */
-	java.lang.String getNodeValue();
+	String getNodeValue();
 }

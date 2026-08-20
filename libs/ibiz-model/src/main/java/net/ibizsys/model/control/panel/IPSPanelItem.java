@@ -30,7 +30,7 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -67,14 +67,14 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	 * 获取项直接样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -90,28 +90,28 @@ public interface IPSPanelItem extends net.ibizsys.model.control.panel.IPSPanelOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
 	 */
-	java.lang.String getItemStyle();
+	String getItemStyle();
 	
 	
 	/**
 	 * 获取成员类型
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
 	 * 获取标签直接样式
 	 * @return
 	 */
-	java.lang.String getLabelCssStyle();
+	String getLabelCssStyle();
 	
 	
 	/**
 	 * 获取标签动态样式表
 	 * @return
 	 */
-	java.lang.String getLabelDynaClass();
+	String getLabelDynaClass();
 	
 	
 	/**

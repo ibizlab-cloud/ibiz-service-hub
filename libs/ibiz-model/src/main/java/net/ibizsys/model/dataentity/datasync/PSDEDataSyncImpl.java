@@ -7,6 +7,7 @@ public class PSDEDataSyncImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETEVENTTYPE = "eventType";
+	public final static String ATTR_GETFILTERMODEL = "filterModel";
 	public final static String ATTR_GETIMPORTPSDEACTION = "getImportPSDEAction";
 	public final static String ATTR_GETINPSDEDATASET = "getInPSDEDataSet";
 	public final static String ATTR_GETINPSSYSDATASYNCAGENT = "getInPSSysDataSyncAgent";
@@ -18,9 +19,12 @@ public class PSDEDataSyncImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 	public final static String ATTR_GETOUTSCRIPTCODE = "outScriptCode";
 	public final static String ATTR_GETOUTTESTPSDEACTION = "getOutTestPSDEAction";
 	public final static String ATTR_GETOUTPUTMODE = "outputMode";
+	public final static String ATTR_GETPSDEDATAEXPORT = "getPSDEDataExport";
+	public final static String ATTR_GETPSDEDATAIMPORT = "getPSDEDataImport";
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
 	public final static String ATTR_GETSYNCDIR = "syncDir";
 	public final static String ATTR_GETSYNCTAG = "syncTag";
+	public final static String ATTR_GETTIMERPOLICY = "timerPolicy";
 	public final static String ATTR_ISEXPORTFULL = "exportFull";
 	public final static String ATTR_ISINCUSTOMCODE = "inCustomCode";
 	public final static String ATTR_ISINMODE = "inMode";
@@ -41,6 +45,14 @@ public class PSDEDataSyncImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public java.lang.String getFilterModel(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETFILTERMODEL);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
 	}
 	private net.ibizsys.model.dataentity.action.IPSDEAction importpsdeaction;
 
@@ -234,6 +246,52 @@ public class PSDEDataSyncImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.dataentity.dataexport.IPSDEDataExport psdedataexport;
+
+	public net.ibizsys.model.dataentity.dataexport.IPSDEDataExport getPSDEDataExport(){
+		if(this.psdedataexport != null) return this.psdedataexport;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEDATAEXPORT);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
+		this.psdedataexport = ipsdataentity.getPSDEDataExport(value, false);
+		return this.psdedataexport;
+	}
+
+	public net.ibizsys.model.dataentity.dataexport.IPSDEDataExport getPSDEDataExportMust(){
+		net.ibizsys.model.dataentity.dataexport.IPSDEDataExport value = this.getPSDEDataExport();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体数据导出对象");}
+		return value;
+	}
+
+	public void setPSDEDataExport(net.ibizsys.model.dataentity.dataexport.IPSDEDataExport psdedataexport){
+		this.psdedataexport = psdedataexport;
+	}
+
+	private net.ibizsys.model.dataentity.dataimport.IPSDEDataImport psdedataimport;
+
+	public net.ibizsys.model.dataentity.dataimport.IPSDEDataImport getPSDEDataImport(){
+		if(this.psdedataimport != null) return this.psdedataimport;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPSDEDATAIMPORT);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = getParentPSModelObject(net.ibizsys.model.dataentity.IPSDataEntity.class);
+		this.psdedataimport = ipsdataentity.getPSDEDataImport(value, false);
+		return this.psdedataimport;
+	}
+
+	public net.ibizsys.model.dataentity.dataimport.IPSDEDataImport getPSDEDataImportMust(){
+		net.ibizsys.model.dataentity.dataimport.IPSDEDataImport value = this.getPSDEDataImport();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定实体数据导入对象");}
+		return value;
+	}
+
+	public void setPSDEDataImport(net.ibizsys.model.dataentity.dataimport.IPSDEDataImport psdedataimport){
+		this.psdedataimport = psdedataimport;
+	}
+
 	private net.ibizsys.model.res.IPSSysSFPlugin pssyssfplugin;
 
 	public net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin(){
@@ -267,6 +325,14 @@ public class PSDEDataSyncImpl extends net.ibizsys.model.dataentity.PSDataEntityO
 
 	public java.lang.String getSyncTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSYNCTAG);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getTimerPolicy(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETTIMERPOLICY);
 		if(value == null){
 			return null;
 		}

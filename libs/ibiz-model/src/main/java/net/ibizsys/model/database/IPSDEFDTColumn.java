@@ -13,42 +13,42 @@ public interface IPSDEFDTColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取列名称
 	 * @return
 	 */
-	java.lang.String getColumnName();
+	String getColumnName();
 	
 	
 	/**
 	 * 获取数据库类型
 	 * @return
 	 */
-	java.lang.String getDBType();
+	String getDBType();
 	
 	
 	/**
 	 * 获取公式列参数
 	 * @return
 	 */
-	java.lang.String getFormulaColumns();
+	String getFormulaColumns();
 	
 	
 	/**
 	 * 获取公式列格式
 	 * @return
 	 */
-	java.lang.String getFormulaFormat();
+	String getFormulaFormat();
 	
 	
 	/**
 	 * 获取查询代码表达式
 	 * @return
 	 */
-	java.lang.String getQueryCodeExp();
+	String getQueryCodeExp();
 	
 	
 	/**
 	 * 获取标准列名
 	 * @return
 	 */
-	java.lang.String getStandardColumnName();
+	String getStandardColumnName();
 	
 	
 	/**

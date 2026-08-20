@@ -71,7 +71,7 @@ public interface IPSDEDFSysBDSchemeSinkNode extends net.ibizsys.model.dataentity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysBDSchemeSinkType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 	
 	
 	/**
@@ -80,5 +80,5 @@ public interface IPSDEDFSysBDSchemeSinkNode extends net.ibizsys.model.dataentity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBTableAction}
 	 * @return
 	 */
-	java.lang.String getTableAction();
+	String getTableAction();
 }

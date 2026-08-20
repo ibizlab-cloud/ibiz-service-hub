@@ -19,14 +19,14 @@ public interface IPSCalendar extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CalendarStyle}
 	 * @return
 	 */
-	java.lang.String getCalendarStyle();
+	String getCalendarStyle();
 	
 	
 	/**
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**

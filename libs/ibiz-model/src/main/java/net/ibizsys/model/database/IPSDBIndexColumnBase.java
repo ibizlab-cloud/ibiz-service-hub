@@ -22,7 +22,7 @@ public interface IPSDBIndexColumnBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getSortDir();
+	String getSortDir();
 	
 	
 	/**

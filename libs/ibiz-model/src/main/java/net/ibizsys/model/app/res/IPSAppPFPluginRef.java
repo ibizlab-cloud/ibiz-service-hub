@@ -31,7 +31,7 @@ public interface IPSAppPFPluginRef extends net.ibizsys.model.app.IPSApplicationO
 	 * 获取插件代码
 	 * @return
 	 */
-	java.lang.String getPluginCode();
+	String getPluginCode();
 	
 	
 	/**
@@ -54,70 +54,70 @@ public interface IPSAppPFPluginRef extends net.ibizsys.model.app.IPSApplicationO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PFPluginType}
 	 * @return
 	 */
-	java.lang.String getPluginType();
+	String getPluginType();
 	
 	
 	/**
 	 * 获取运行时对象名称
 	 * @return
 	 */
-	java.lang.String getRTObjectName();
+	String getRTObjectName();
 	
 	
 	/**
 	 * 获取运行时对象仓库
 	 * @return
 	 */
-	java.lang.String getRTObjectRepo();
+	String getRTObjectRepo();
 	
 	
 	/**
 	 * 获取引用模式
 	 * @return
 	 */
-	java.lang.String getRefMode();
+	String getRefMode();
 	
 	
 	/**
 	 * 获取引用标记
 	 * @return
 	 */
-	java.lang.String getRefTag();
+	String getRefTag();
 	
 	
 	/**
 	 * 获取引用标记2
 	 * @return
 	 */
-	java.lang.String getRefTag2();
+	String getRefTag2();
 	
 	
 	/**
 	 * 获取运行时模板代码
 	 * @return
 	 */
-	java.lang.String getTemplCode();
+	String getTemplCode();
 	
 	
 	/**
 	 * 获取运行时模板代码2
 	 * @return
 	 */
-	java.lang.String getTemplCode2();
+	String getTemplCode2();
 	
 	
 	/**
 	 * 获取运行时模板代码3
 	 * @return
 	 */
-	java.lang.String getTemplCode3();
+	String getTemplCode3();
 	
 	
 	/**
 	 * 获取运行时模板代码4
 	 * @return
 	 */
-	java.lang.String getTemplCode4();
+	String getTemplCode4();
 	
 	
 	/**

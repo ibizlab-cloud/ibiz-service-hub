@@ -24,7 +24,6 @@ import org.springframework.util.ObjectUtils;
 import net.ibizsys.central.cloud.core.dataentity.dataexport.DEDataExportRuntimeBase;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.util.IEntityDTO;
-import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.model.dataentity.dataexport.IPSDEDataExportGroup;
 import net.ibizsys.model.dataentity.dataexport.IPSDEDataExportItem;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -200,32 +199,49 @@ public class POIDEDataExportRuntime extends DEDataExportRuntimeBase {
 	 * @throws Throwable
 	 */
 	protected void fillMergedCellMap(Map<String, List<Cell>> mergedCellMap, String strGroupTag, Cell cell, IPSDEDataExportItem iPSDEDataExportItem, IPSDEDataExportGroup iPSDEDataExportGroup) throws Throwable{
-		
+
 		List<Cell> list = mergedCellMap.get(strGroupTag);
 		if(list == null) {
 			list = new ArrayList<Cell>();
 			mergedCellMap.put(strGroupTag, list);
 		}
 		list.add(cell);
-		
+
 		int nRowIndex = cell.getRowIndex();
-		
+
 		nRowIndex --;
 		if(nRowIndex < 0) {
 			return;
 		}
-		
+
 		int nColumnIndex = cell.getColumnIndex();
-		
+
 		IPSDEDataExportGroup parentPSDEDataExportGroup = null;
 		if(iPSDEDataExportGroup != null) {
 			parentPSDEDataExportGroup = iPSDEDataExportGroup.getParentPSDEDataExportGroup();
 		}
 		else
-			if(iPSDEDataExportItem != null) {
-				parentPSDEDataExportGroup = iPSDEDataExportItem.getPSDEDataExportGroup();
+		if(iPSDEDataExportItem != null) {
+			parentPSDEDataExportGroup = iPSDEDataExportItem.getPSDEDataExportGroup();
+		}
+		//计算分组层数层与当前项层数是否匹配
+		if(parentPSDEDataExportGroup != null) {
+			IPSDEDataExportGroup loopParentPSDEDataExportGroup = parentPSDEDataExportGroup;
+			for (int i = 0; i <= nRowIndex; i++) {
+				loopParentPSDEDataExportGroup = loopParentPSDEDataExportGroup.getParentPSDEDataExportGroup();
+				if (loopParentPSDEDataExportGroup == null) {
+					//层数与分组不匹配时置空分组项
+					if (i != nRowIndex) {
+						parentPSDEDataExportGroup = null;
+					}else {
+						//层数与分组匹配时
+						iPSDEDataExportItem = null;
+					}
+					break;
+				}
+
 			}
-		
+		}
 		Cell groupCell = cell.getRow().getSheet().getRow(nRowIndex).createCell(nColumnIndex);
 		if(parentPSDEDataExportGroup != null) {
 			strGroupTag = parentPSDEDataExportGroup.getName();
@@ -234,8 +250,8 @@ public class POIDEDataExportRuntime extends DEDataExportRuntimeBase {
 		else {
 			groupCell.setCellValue(cell.getStringCellValue());
 		}
-		
-		this.fillMergedCellMap(mergedCellMap, strGroupTag, groupCell, null, parentPSDEDataExportGroup);
+
+		this.fillMergedCellMap(mergedCellMap, strGroupTag, groupCell, iPSDEDataExportItem, parentPSDEDataExportGroup);
 	}
 	
 	/**
@@ -343,11 +359,10 @@ public class POIDEDataExportRuntime extends DEDataExportRuntimeBase {
 		return String.valueOf(objValue);
 	}
 	
+	
 	@Override
-	protected ExportDataResult onExportStream2(Object objData, OutputStream outputStram) throws Throwable {
-		ExportDataResult exportDataResult = super.onExportStream2(objData, outputStram);
-		exportDataResult.setFileName("数据导出.xlsx");
-		return exportDataResult;
+	protected String getDefaultFileName() {
+		return "数据导出.xlsx";
 	}
 	
 	

@@ -29,5 +29,5 @@ public interface IPSDEDFSysDataSyncAgentSourceNode extends net.ibizsys.model.dat
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysDataSyncAgentSourceType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 }

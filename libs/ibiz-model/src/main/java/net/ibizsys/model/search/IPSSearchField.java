@@ -13,21 +13,21 @@ public interface IPSSearchField extends net.ibizsys.model.search.IPSSearchDocObj
 	 * 获取分析器
 	 * @return
 	 */
-	java.lang.String getAnalyzer();
+	String getAnalyzer();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取时间格式化
 	 * @return
 	 */
-	java.lang.String getDateFormat();
+	String getDateFormat();
 	
 	
 	/**
@@ -41,21 +41,21 @@ public interface IPSSearchField extends net.ibizsys.model.search.IPSSearchDocObj
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**
 	 * 获取属性类型
 	 * @return
 	 */
-	java.lang.String getFieldType();
+	String getFieldType();
 	
 	
 	/**
@@ -69,21 +69,21 @@ public interface IPSSearchField extends net.ibizsys.model.search.IPSSearchDocObj
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
 	 * 获取模式
 	 * @return
 	 */
-	java.lang.String getPattern();
+	String getPattern();
 	
 	
 	/**
 	 * 获取搜索分析器
 	 * @return
 	 */
-	java.lang.String getSearchAnalyzer();
+	String getSearchAnalyzer();
 	
 	
 	/**

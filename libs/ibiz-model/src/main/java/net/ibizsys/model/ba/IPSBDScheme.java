@@ -15,26 +15,26 @@ public interface IPSBDScheme extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BDType}
 	 * @return
 	 */
-	java.lang.String getBDType();
+	String getBDType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取体系标记
 	 * @return
 	 */
-	java.lang.String getSchemeTag();
+	String getSchemeTag();
 	
 	
 	/**
 	 * 获取体系标记2
 	 * @return
 	 */
-	java.lang.String getSchemeTag2();
+	String getSchemeTag2();
 }

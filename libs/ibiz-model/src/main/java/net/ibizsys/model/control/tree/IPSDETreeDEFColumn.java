@@ -14,5 +14,5 @@ public interface IPSDETreeDEFColumn extends net.ibizsys.model.control.tree.IPSDE
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 }

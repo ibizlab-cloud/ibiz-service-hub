@@ -14,21 +14,21 @@ public interface IPSAppBICubeHierarchy extends net.ibizsys.model.IPSModelObject{
 	 * 获取全部数据标题
 	 * @return
 	 */
-	java.lang.String getAllCaption();
+	String getAllCaption();
 	
 	
 	/**
 	 * 获取体系标记
 	 * @return
 	 */
-	java.lang.String getHierarchyTag();
+	String getHierarchyTag();
 	
 	
 	/**
 	 * 获取体系标记2
 	 * @return
 	 */
-	java.lang.String getHierarchyTag2();
+	String getHierarchyTag2();
 	
 	
 	/**

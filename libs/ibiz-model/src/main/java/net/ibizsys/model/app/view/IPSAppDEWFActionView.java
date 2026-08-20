@@ -16,7 +16,7 @@ public interface IPSAppDEWFActionView extends net.ibizsys.model.app.view.IPSAppD
 	 * 获取绑定流程步骤值
 	 * @return
 	 */
-	java.lang.String getWFStepValue();
+	String getWFStepValue();
 	
 	
 	/**
@@ -25,5 +25,5 @@ public interface IPSAppDEWFActionView extends net.ibizsys.model.app.view.IPSAppD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFUtilUIActionType}
 	 * @return
 	 */
-	java.lang.String getWFUtilType();
+	String getWFUtilType();
 }

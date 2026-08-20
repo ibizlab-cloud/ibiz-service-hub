@@ -10,7 +10,7 @@ public interface IPSTabExpPage extends net.ibizsys.model.control.IPSControl
 		,net.ibizsys.model.control.IPSNavigateParamContainer{
 
 	
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	net.ibizsys.model.dataentity.der.IPSDERBase getNavPSDER();
 

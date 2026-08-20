@@ -15,7 +15,7 @@ public interface IPSWFCallActivityProcess extends net.ibizsys.model.wf.IPSWFProc
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcMultiInstMode}
 	 * @return
 	 */
-	java.lang.String getMultiInstMode();
+	String getMultiInstMode();
 	
 	
 	/**

@@ -436,6 +436,10 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 			for (String strKey : conditionSqlParamMap.keySet()) {
 				sqlParamMap.remove(strKey);
 			}
+			
+			if(ObjectUtils.isEmpty(conditionSqlParamMap)) {
+				throw new Exception("未指定更新条件");
+			}
 
 			list.add(new SqlCommandParam(sqlParamMap.values(), conditionSqlParamMap.values()));
 		}
@@ -576,6 +580,10 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 				}
 			}
 		}
+		
+		if(ObjectUtils.isEmpty(conditionSqlParamMap)) {
+			throw new Exception("未指定更新条件");
+		}
 
 		for (String strKey : conditionSqlParamMap.keySet()) {
 			sqlParamMap.remove(strKey);
@@ -663,6 +671,11 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 					}
 				}
 			}
+		}
+		
+		
+		if(ObjectUtils.isEmpty(conditionSqlParamMap)) {
+			throw new Exception("未指定删除条件");
 		}
 
 		return this.getDBDataService().delete(this.getSysDBSchemeRuntimeContext(), iSysDBTableRuntime, new SqlCommandParam(null, conditionSqlParamMap.values()));
@@ -752,6 +765,10 @@ public abstract class SysDBSchemeRuntimeBase extends SystemModelRuntimeBase impl
 						}
 					}
 				}
+			}
+			
+			if(ObjectUtils.isEmpty(conditionSqlParamMap)) {
+				throw new Exception("未指定删除条件");
 			}
 
 			list.add(new SqlCommandParam(null, conditionSqlParamMap.values()));

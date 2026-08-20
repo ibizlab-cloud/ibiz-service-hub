@@ -439,6 +439,10 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			iPSDataEntity.getAllPSDEActions();
 			iPSDataEntity.getAllPSDEDataSets();
 			iPSDataEntity.getAllPSDEDataQueries();
+			iPSDataEntity.getAllPSDEDataExports();
+			iPSDataEntity.getAllPSDEDataImports();
+
+			
 			this.iPSDataEntity = iPSDataEntity;
 
 			// 设置实体配置目录
@@ -1430,6 +1434,8 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		return this.deActionRuntimeMap.get(iPSDEAction.getId());
 	}
 
+	
+	
 	protected String getFieldDataSetSortExp(IPSDEField iPSDEField) throws Exception {
 		if (!isConvertDataSetSortFieldExp()) {
 			return null;
@@ -4268,7 +4274,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 				Object objDataType = this.getSystemRuntime().convertValue(this.getDataTypePSDEField().getStdDataType(), actionSession.getUserContext().getDynainsttag2());
 				this.setSearchCondition(iSearchContext, this.getDataTypePSDEField(), Conditions.EQ, objDataType);
 			}
-			if (this.valueFuncPSDEFieldList != null) {
+			if (this.valueFuncPSDEFieldList != null && isEnableValueFuncConversion(strDataSetName, iPSDEDataSet, iSearchContext)) {
 				for (IPSDEField iPSDEField : this.valueFuncPSDEFieldList) {
 					List<IPSDEFSearchMode> psDESearchModes = iPSDEField.getAllPSDEFSearchModes();
 					if (psDESearchModes != null) {
@@ -4476,6 +4482,11 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		return ret;
 	}
 
+	protected boolean isEnableValueFuncConversion(String dataSetName, IPSDEDataSet dataSet, ISearchContext context) {
+	    // 自定义逻辑
+	    return true;
+	}
+	
 	protected Object onFetchDataSetReal(String strDataSetName, IPSDEDataSet iPSDEDataSet, Object[] args, Object actionData) throws Throwable {
 
 		IDEDataSetRuntime iDEDataSetRuntime = getDEDataSetRuntime(iPSDEDataSet);
@@ -4585,6 +4596,9 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 			this.pollDataSource();
 		}
 	}
+	
+	
+	
 
 	/**
 	 * 判断传入行为是否支持直接执行调用
@@ -4793,13 +4807,12 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 					}
 				}
 
-				if (ObjectUtils.isEmpty(this.getFieldValue(iEntityBase, this.getKeyPSDEField()))) {
-					if (fillEntityKeyValue(iEntityBase)) {
-						Object objKeyValue = this.getFieldValue(iEntityBase, this.getKeyPSDEField());
-						if (!ObjectUtils.isEmpty(objKeyValue)) {
-							if (this.checkKeyState(objKeyValue) != CheckKeyStates.OK) {
-								throw new DataEntityRuntimeException(this, Errors.getErrorInfo(Errors.DUPLICATEKEY), Errors.DUPLICATEKEY);
-							}
+				boolean isKeyEmpty = ObjectUtils.isEmpty(this.getFieldValue(iEntityBase, this.getKeyPSDEField()));
+				if (!isKeyEmpty || fillEntityKeyValue(iEntityBase)) {
+					Object objKeyValue = this.getFieldValue(iEntityBase, this.getKeyPSDEField());
+					if (!ObjectUtils.isEmpty(objKeyValue)) {
+						if (this.checkKeyState(objKeyValue) != CheckKeyStates.OK) {
+							throw new DataEntityRuntimeException(this, Errors.getErrorInfo(Errors.DUPLICATEKEY), Errors.DUPLICATEKEY);
 						}
 					}
 				}
@@ -5095,8 +5108,14 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 	}
 	
 	protected Object onExecuteActionUnknown(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
+		this.throwUnknownActionException(strActionName, iPSDEAction, args, actionData);
 		return null;
 	}
+	
+	protected void throwUnknownActionException(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
+		
+	}
+	
 
 	protected boolean isEnableExecutePredefinedAction() {
 		return true;
@@ -6723,7 +6742,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 				return ITransactionalUtil.PROPAGATION_NESTED;
 			}
 
-			if (TransactionModes.NONE.equalsIgnoreCase(strTSMode)) {
+			if (TransactionModes.NEVER.equalsIgnoreCase(strTSMode)) {
 				return ITransactionalUtil.PROPAGATION_NEVER;
 			}
 
@@ -6737,6 +6756,11 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 
 			if (TransactionModes.SUPPORTS.equalsIgnoreCase(strTSMode)) {
 				return ITransactionalUtil.PROPAGATION_SUPPORTS;
+			}
+			
+
+			if (TransactionModes.NONE.equalsIgnoreCase(strTSMode)) {
+				return ITransactionalUtil.PROPAGATION_UNKNOWN;
 			}
 
 			// 全局事务解释为当前无事务
@@ -7181,6 +7205,7 @@ public abstract class DataEntityRuntimeBase extends DataEntityUtilRuntimeBase im
 		set.remove(logic);
 		this.dataEntityOnChangeLogicSet = set;
 	}
+	
 	
 	@Override
 	protected void onShutdown() throws Exception {

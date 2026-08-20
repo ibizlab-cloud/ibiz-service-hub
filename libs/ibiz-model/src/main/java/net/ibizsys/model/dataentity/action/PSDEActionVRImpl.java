@@ -9,6 +9,7 @@ public class PSDEActionVRImpl extends net.ibizsys.model.PSObjectImpl implements 
 	public final static String ATTR_GETPSDEFVALUERULE = "getPSDEFValueRule";
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETVALUERULETYPE = "valueRuleType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -77,5 +78,9 @@ public class PSDEActionVRImpl extends net.ibizsys.model.PSObjectImpl implements 
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

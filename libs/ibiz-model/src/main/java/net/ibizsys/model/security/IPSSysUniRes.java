@@ -42,5 +42,5 @@ public interface IPSSysUniRes extends net.ibizsys.model.IPSModelObject{
 	 * 获取资源标识
 	 * @return
 	 */
-	java.lang.String getResCode();
+	String getResCode();
 }

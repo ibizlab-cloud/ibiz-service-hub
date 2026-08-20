@@ -25,14 +25,14 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormFuncMode}
 	 * @return
 	 */
-	java.lang.String getFormFuncMode();
+	String getFormFuncMode();
 	
 	
 	/**
 	 * 获取表单样式
 	 * @return
 	 */
-	java.lang.String getFormStyle();
+	String getFormStyle();
 	
 	
 	/**
@@ -146,7 +146,7 @@ public interface IPSDEForm extends net.ibizsys.model.control.IPSAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TabHeaderPos}
 	 * @return
 	 */
-	java.lang.String getTabHeaderPos();
+	String getTabHeaderPos();
 	
 	
 	/**

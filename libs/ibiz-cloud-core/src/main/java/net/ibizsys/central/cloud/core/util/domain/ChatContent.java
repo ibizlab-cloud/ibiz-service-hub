@@ -2,6 +2,7 @@ package net.ibizsys.central.cloud.core.util.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import groovy.lang.GString;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.EntityBase;
 
@@ -84,9 +85,25 @@ public class ChatContent extends EntityBase {
 	 */
 	@JsonIgnore
 	public ChatContent setText(Object val) {
+		if(val instanceof GString) {
+			val = ((GString)val).toString();
+		}
 		this.set(FIELD_TEXT, val);
 		return this;
 	}
+	
+	
+	/**
+	 * 设置「聊天内容」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatContent setText(String val) {
+		this.set(FIELD_TEXT, val);
+		return this;
+	}
+	
 
 	/**
 	 * 获取「聊天内容」值

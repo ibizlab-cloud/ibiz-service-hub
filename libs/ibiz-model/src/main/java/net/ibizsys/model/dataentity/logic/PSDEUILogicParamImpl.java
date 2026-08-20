@@ -29,6 +29,7 @@ public class PSDEUILogicParamImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_ISLASTRETURNPARAM = "lastReturnParam";
 	public final static String ATTR_ISNAVCONTEXTPARAM = "navContextParam";
 	public final static String ATTR_ISNAVVIEWPARAMPARAM = "navViewParamParam";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISROUTEVIEWSESSIONPARAM = "routeViewSessionParam";
 	public final static String ATTR_ISSESSIONPARAM = "sessionParam";
 	public final static String ATTR_ISSIMPLELISTPARAM = "simpleListParam";
@@ -226,6 +227,10 @@ public class PSDEUILogicParamImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isRouteViewSessionParam(){

@@ -18,7 +18,7 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -27,7 +27,7 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexLayoutDir}
 	 * @return
 	 */
-	java.lang.String getDir();
+	String getDir();
 	
 	
 	/**
@@ -36,5 +36,5 @@ public interface IPSFlexLayout extends net.ibizsys.model.control.layout.IPSLayou
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FlexVAlign}
 	 * @return
 	 */
-	java.lang.String getVAlign();
+	String getVAlign();
 }

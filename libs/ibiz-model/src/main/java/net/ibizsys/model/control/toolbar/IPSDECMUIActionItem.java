@@ -29,7 +29,7 @@ public interface IPSDECMUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getGroupExtractMode();
+	String getGroupExtractMode();
 	
 	
 	/**
@@ -52,7 +52,7 @@ public interface IPSDECMUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getUIActionTarget();
+	String getUIActionTarget();
 	
 	
 	/**

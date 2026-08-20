@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-import net.ibizsys.model.control.form.IPSDEForm;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -66,6 +65,7 @@ import net.ibizsys.model.app.view.PSAppViewImpl;
 import net.ibizsys.model.app.view.PSAppViewRefImpl;
 import net.ibizsys.model.codelist.IPSCodeItem;
 import net.ibizsys.model.control.IPSControl;
+import net.ibizsys.model.control.form.IPSDEForm;
 import net.ibizsys.model.control.form.PSDEFormImpl;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.action.IPSDEAction;
@@ -2128,6 +2128,27 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 
 	protected Object executeLogic(IDELogicRuntime iDELogicRuntime, Object[] args, Object tag) throws Throwable {
 		Date startAt = new Date();
+		//开始日志
+		boolean bUpdateLog = false;
+		
+		String strLogId = KeyValueUtils.genUniqueId();
+		try {
+			Map<String, Object> logParams = new LinkedHashMap<String, Object>();
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_ID, strLogId);
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_TYPE, this.getDataEntityTag());
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_SUBTYPE, PSModels.PSDELOGIC);
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_ID, PSModelUtils.calcFullUniqueTag2(iDELogicRuntime.getPSDELogic()));
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_START_AT, new java.sql.Timestamp(startAt.getTime()));
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_CATEGORY, iDELogicRuntime.getPSDELogic().getLogicSubType());
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_STATE, EXTENSIONLOG_STATE_IN_PROGRESS);
+			this.doLog(logParams);
+			
+			bUpdateLog = true;
+		}
+		catch (Throwable ex) {
+			log.error(String.format("建立扩展逻辑日志发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
 		Throwable error = null;
 		Object ret = null;
 		try {
@@ -2144,6 +2165,7 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 		} finally {
 			Date endAt = new Date();
 			Map<String, Object> logParams = new LinkedHashMap<String, Object>();
+			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_ID, strLogId);
 			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_TYPE, this.getDataEntityTag());
 			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_SUBTYPE, PSModels.PSDELOGIC);
 			logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_OWNER_ID, PSModelUtils.calcFullUniqueTag2(iDELogicRuntime.getPSDELogic()));
@@ -2167,11 +2189,15 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_STATE, EXTENSIONLOG_STATE_FAILURE);
 				logParams.put(EXTENSIONLOG_PREDEFINEDFIELD_INFO, error.getMessage());
 			}
-			this.doLog(logParams);
+			this.doLog(logParams, bUpdateLog);
 		}
 	}
 
 	protected void doLog(Map<String, Object> params) {
+		doLog(params, false);
+	}
+	
+	protected void doLog(Map<String, Object> params, boolean bUpdate) {
 		if (ObjectUtils.isEmpty(params)) {
 			return;
 		}
@@ -2189,12 +2215,27 @@ public abstract class DEExtensionUtilRuntimeBase extends DEUtilRuntimeBase imple
 					logEntity.set(iPSDEField.getName(), entry.getValue());
 				}
 			}
-
-			logDataEntityRuntime.fillEntityKeyValue(logEntity);
+			
+			Object id = params.get(EXTENSIONLOG_PREDEFINEDFIELD_ID);
+			if(ObjectUtils.isEmpty(id)) {
+				logDataEntityRuntime.fillEntityKeyValue(logEntity);
+			}
+			else {
+				//设置主键
+				logDataEntityRuntime.setFieldValue(logEntity, logDataEntityRuntime.getKeyPSDEField(), id);
+			}
+			
 			logDataEntityRuntime.execute(new IAction() {
 				@Override
 				public Object execute(Object[] args) throws Throwable {
-					logDataEntityRuntime.rawCreate(Arrays.asList(logEntity), false);
+					if(bUpdate) {
+						logDataEntityRuntime.rawUpdate(Arrays.asList(logEntity), false);
+					}
+					else {
+						logDataEntityRuntime.rawCreate(Arrays.asList(logEntity), false);
+					}
+					
+					
 					return null;
 				}
 			}, null, ITransactionalUtil.PROPAGATION_REQUIRES_NEW);

@@ -14,12 +14,12 @@ public interface IPSSysBDTableRS extends net.ibizsys.model.ba.IPSSysBDSchemeObje
 	 * 获取主关系代码名称
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取从关系代码名称
 	 * @return
 	 */
-	java.lang.String getMinorCodeName();
+	String getMinorCodeName();
 }

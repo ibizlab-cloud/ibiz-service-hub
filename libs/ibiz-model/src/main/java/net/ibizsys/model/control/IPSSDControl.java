@@ -14,7 +14,7 @@ public interface IPSSDControl extends net.ibizsys.model.control.IPSControl{
 	 * 获取当前数据属性
 	 * @return
 	 */
-	java.lang.String getActiveDataField();
+	String getActiveDataField();
 	
 	
 	/**

@@ -14,14 +14,14 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -98,7 +98,7 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	 * 获取关系项
 	 * @return
 	 */
-	java.lang.String getParentFilter();
+	String getParentFilter();
 	
 	
 	/**
@@ -119,7 +119,7 @@ public interface IPSDEServiceAPIRS extends net.ibizsys.model.IPSModelObject{
 	 * 获取父类型过滤项
 	 * @return
 	 */
-	java.lang.String getParentTypeFilter();
+	String getParentTypeFilter();
 	
 	
 	/**

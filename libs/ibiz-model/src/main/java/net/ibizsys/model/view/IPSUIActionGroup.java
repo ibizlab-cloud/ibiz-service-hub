@@ -14,28 +14,28 @@ public interface IPSUIActionGroup extends net.ibizsys.model.IPSModelObject{
 	 * 获取组标记
 	 * @return
 	 */
-	java.lang.String getGroupTag();
+	String getGroupTag();
 	
 	
 	/**
 	 * 获取组标记2
 	 * @return
 	 */
-	java.lang.String getGroupTag2();
+	String getGroupTag2();
 	
 	
 	/**
 	 * 获取组标记3
 	 * @return
 	 */
-	java.lang.String getGroupTag3();
+	String getGroupTag3();
 	
 	
 	/**
 	 * 获取组标记4
 	 * @return
 	 */
-	java.lang.String getGroupTag4();
+	String getGroupTag4();
 	
 	
 	/**

@@ -58,7 +58,7 @@ public interface IPSSysSearchScheme extends net.ibizsys.model.search.IPSSearchSc
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
-	java.lang.String getDBObjNameCase();
+	String getDBObjNameCase();
 	
 	
 	/**

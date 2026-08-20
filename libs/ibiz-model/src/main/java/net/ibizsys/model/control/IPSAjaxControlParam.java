@@ -21,5 +21,5 @@ public interface IPSAjaxControlParam extends net.ibizsys.model.control.IPSContro
 	 * 获取显示处理提示
 	 * @return
 	 */
-	java.lang.Boolean isShowBusyIndicator();
+	Boolean isShowBusyIndicator();
 }

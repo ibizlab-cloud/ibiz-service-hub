@@ -14,42 +14,49 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
+	
+	
+	/**
+	 * 获取数据列动态参数
+	 * @return
+	 */
+	com.fasterxml.jackson.databind.node.ObjectNode getColumnParams();
 	
 	
 	/**
 	 * 获取数据列标记
 	 * @return
 	 */
-	java.lang.String getColumnTag();
+	String getColumnTag();
 	
 	
 	/**
 	 * 获取数据列标记2
 	 * @return
 	 */
-	java.lang.String getColumnTag2();
+	String getColumnTag2();
 	
 	
 	/**
 	 * 获取建立SQL
 	 * @return
 	 */
-	java.lang.String getCreateSql();
+	String getCreateSql();
 	
 	
 	/**
 	 * 获取数据类型
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
@@ -63,14 +70,14 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
 	 * 获取移除SQL
 	 * @return
 	 */
-	java.lang.String getDropSql();
+	String getDropSql();
 	
 	
 	/**
@@ -84,7 +91,7 @@ public interface IPSSysDBColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

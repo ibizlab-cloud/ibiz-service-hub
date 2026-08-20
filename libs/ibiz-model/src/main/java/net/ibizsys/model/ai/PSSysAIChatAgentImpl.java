@@ -29,6 +29,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETENABLETHINKINGPSDEFIELD = "getEnableThinkingPSDEField";
 	public final static String ATTR_GETENABLETOOLS = "enableTools";
 	public final static String ATTR_GETENABLETOOLSPSDEFIELD = "getEnableToolsPSDEField";
+	public final static String ATTR_GETERRORPSDEFIELD = "getErrorPSDEField";
 	public final static String ATTR_GETGENERATIONMODE = "generationMode";
 	public final static String ATTR_GETGENERATIONMODEPSDEFIELD = "getGenerationModePSDEField";
 	public final static String ATTR_GETKNOWLEDGEBASEMODE = "knowledgeBaseMode";
@@ -74,6 +75,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 	public final static String ATTR_GETSKILLPROMPTPSDEFIELD = "getSkillPromptPSDEField";
 	public final static String ATTR_GETSKILLTAGS = "skillTags";
 	public final static String ATTR_GETSKILLTAGSPSDEFIELD = "getSkillTagsPSDEField";
+	public final static String ATTR_GETSTATEPSDEFIELD = "getStatePSDEField";
 	public final static String ATTR_GETSTREAM = "stream";
 	public final static String ATTR_GETSTREAMPSDEFIELD = "getStreamPSDEField";
 	public final static String ATTR_GETSUGGESTIONPROMPT = "suggestionPrompt";
@@ -413,6 +415,29 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setEnableToolsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField enabletoolspsdefield){
 		this.enabletoolspsdefield = enabletoolspsdefield;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField errorpsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getErrorPSDEField(){
+		if(this.errorpsdefield != null) return this.errorpsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETERRORPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.errorpsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.errorpsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getErrorPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getErrorPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定错误信息值属性");}
+		return value;
+	}
+
+	public void setErrorPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField errorpsdefield){
+		this.errorpsdefield = errorpsdefield;
 	}
 
 
@@ -770,7 +795,7 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public net.ibizsys.model.dataentity.IPSDataEntity getMemoryPSDataEntityMust(){
 		net.ibizsys.model.dataentity.IPSDataEntity value = this.getMemoryPSDataEntity();
-		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定给予存储实体对象");}
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定记忆存储实体对象");}
 		return value;
 	}
 
@@ -1157,6 +1182,29 @@ public class PSSysAIChatAgentImpl extends net.ibizsys.model.ai.PSSysAIFactoryObj
 
 	public void setSkillTagsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField skilltagspsdefield){
 		this.skilltagspsdefield = skilltagspsdefield;
+	}
+
+	private net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield;
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEField(){
+		if(this.statepsdefield != null) return this.statepsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETSTATEPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		net.ibizsys.model.dataentity.IPSDataEntity ipsdataentity = this.getPSDataEntityMust();
+		this.statepsdefield = ipsdataentity.getPSDEField(value, false);
+		return this.statepsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getStatePSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getStatePSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定状态值属性");}
+		return value;
+	}
+
+	public void setStatePSDEField(net.ibizsys.model.dataentity.defield.IPSDEField statepsdefield){
+		this.statepsdefield = statepsdefield;
 	}
 
 

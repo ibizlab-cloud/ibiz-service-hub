@@ -48,7 +48,7 @@ public abstract class ScriptSysAIChatAgentRuntimeBase extends ProxySysAIChatAgen
 		}else {
 			utilFile.getParentFile().mkdirs();
 		}
-		String moduleCode = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PythonAIChatUtils.class, "Module.py", false);
+		String moduleCode = this.getSystemRuntime().getResourceContent(PythonAIChatUtils.class, "Module.py", false);
 		if(!moduleCode.equals(last)) {
 			FileUtils.writeStringToFile(utilFile, moduleCode, "UTF-8");
 		}

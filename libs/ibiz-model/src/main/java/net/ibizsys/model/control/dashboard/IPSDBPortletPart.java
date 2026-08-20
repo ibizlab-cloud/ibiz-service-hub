@@ -21,7 +21,7 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getActionGroupExtractMode();
+	String getActionGroupExtractMode();
 	
 	
 	/**
@@ -42,7 +42,7 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -107,14 +107,14 @@ public interface IPSDBPortletPart extends net.ibizsys.model.control.IPSControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PortletType}
 	 * @return
 	 */
-	java.lang.String getPortletType();
+	String getPortletType();
 	
 	
 	/**
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**

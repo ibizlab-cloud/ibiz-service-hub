@@ -16,7 +16,7 @@ public interface IPSDEDataFlowFilterSingleCond extends net.ibizsys.model.dataent
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getCondValue();
+	String getCondValue();
 	
 	
 	/**
@@ -25,14 +25,14 @@ public interface IPSDEDataFlowFilterSingleCond extends net.ibizsys.model.dataent
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowCondValueType}
 	 * @return
 	 */
-	java.lang.String getCondValueType();
+	String getCondValueType();
 	
 	
 	/**
 	 * 获取过滤属性名称
 	 * @return
 	 */
-	java.lang.String getFilterField();
+	String getFilterField();
 	
 	
 	/**
@@ -41,7 +41,7 @@ public interface IPSDEDataFlowFilterSingleCond extends net.ibizsys.model.dataent
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowFieldScope}
 	 * @return
 	 */
-	java.lang.String getFilterFieldScope();
+	String getFilterFieldScope();
 	
 	
 	/**

@@ -14,40 +14,40 @@ public interface IPSAppPkg extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取版本参数
 	 * @return
 	 */
-	java.lang.String getVerParam();
+	String getVerParam();
 	
 	
 	/**
 	 * 获取版本参数2
 	 * @return
 	 */
-	java.lang.String getVerParam2();
+	String getVerParam2();
 	
 	
 	/**
 	 * 获取版本参数3
 	 * @return
 	 */
-	java.lang.String getVerParam3();
+	String getVerParam3();
 	
 	
 	/**
 	 * 获取版本参数4
 	 * @return
 	 */
-	java.lang.String getVerParam4();
+	String getVerParam4();
 	
 	
 	/**
 	 * 获取版本标记
 	 * @return
 	 */
-	java.lang.String getVerTag();
+	String getVerTag();
 	
 	
 	/**
 	 * 获取版本标记2
 	 * @return
 	 */
-	java.lang.String getVerTag2();
+	String getVerTag2();
 }

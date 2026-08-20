@@ -16,7 +16,7 @@ public interface IPSWFEmbedWFProcessBase extends net.ibizsys.model.wf.IPSWFProce
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcMultiInstMode}
 	 * @return
 	 */
-	java.lang.String getMultiInstMode();
+	String getMultiInstMode();
 	
 	
 	/**

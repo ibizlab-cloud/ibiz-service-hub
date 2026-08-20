@@ -89,6 +89,11 @@ public class AccessToken extends EntityBase {
 	 */
 	public final static String FIELD_APIUSER = "apiuser";
 	
+	/**
+	 * 参数
+	 */
+	public final static String FIELD_PARAMS = "params";
+	
 	
 	/**
 	 * 设置「凭证标识」
@@ -564,7 +569,7 @@ public class AccessToken extends EntityBase {
 	 * @param val
 	 */
 	@JsonIgnore
-	public AccessToken setAuthorities(String val) {
+	public AccessToken setAuthorities(Object val) {
 		this.set(FIELD_AUTHORITIES, val);
 		return this;
 	}
@@ -574,8 +579,8 @@ public class AccessToken extends EntityBase {
 	 *
 	 */
 	@JsonIgnore
-	public String getAuthorities() {
-		return (String)this.get(FIELD_AUTHORITIES);
+	public Object getAuthorities() {
+		return this.get(FIELD_AUTHORITIES);
 	}
 
 	/**
@@ -645,6 +650,58 @@ public class AccessToken extends EntityBase {
 	@JsonIgnore
 	public AccessToken resetSession() {
 		this.reset(FIELD_SESSION);
+		return this;
+	}
+	
+	
+	
+	/**
+	 * 设置「参数」
+	 *
+	 * @param val
+	 */
+	@JsonProperty(FIELD_PARAMS)
+	public AccessToken setParams(Map<String, Object> val) {
+		this.set(FIELD_PARAMS, val);
+		return this;
+	}
+
+	/**
+	 * 获取「参数」值
+	 *
+	 */
+	@JsonIgnore
+	public Map<String, Object> getParams() {
+		Object value = this.get(FIELD_PARAMS);
+		if(value == null) {
+			return null;
+		}
+		if(value instanceof Map) {
+			return (Map)value;
+		}
+		
+		Map map = JsonUtils.as(value, Map.class);
+		this.setParams(map);
+		
+		return map;
+	}
+
+	/**
+	 * 判断 「参数」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsParams() {
+		return this.contains(FIELD_PARAMS);
+	}
+
+	/**
+	 * 重置 「参数」
+	 *
+	 */
+	@JsonIgnore
+	public AccessToken resetParams() {
+		this.reset(FIELD_PARAMS);
 		return this;
 	}
 }

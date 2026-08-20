@@ -30,7 +30,7 @@ public interface IPSDEUICtrlInvokeLogic extends net.ibizsys.model.dataentity.log
 	 * 获取调用方法
 	 * @return
 	 */
-	java.lang.String getInvokeMethod();
+	String getInvokeMethod();
 	
 	
 	/**

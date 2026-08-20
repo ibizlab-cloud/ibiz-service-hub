@@ -39,7 +39,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -60,7 +60,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -83,7 +83,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**
@@ -104,7 +104,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -127,7 +127,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedFieldType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -148,7 +148,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取快速搜索占位提示信息，通过实体属性的默认搜索模式{@link net.ibizsys.model.dataentity.defield.IPSDEField#getDefaultPSDEFSearchMode()}计算
 	 * @return
 	 */
-	java.lang.String getQuickSearchPlaceHolder();
+	String getQuickSearchPlaceHolder();
 	
 	
 	/**
@@ -164,7 +164,7 @@ public interface IPSAppDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

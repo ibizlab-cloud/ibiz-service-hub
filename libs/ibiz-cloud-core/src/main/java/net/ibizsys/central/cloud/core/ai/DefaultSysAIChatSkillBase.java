@@ -48,16 +48,34 @@ public abstract class DefaultSysAIChatSkillBase extends SysAIChatSkillBase {
 	protected void onInit() throws Exception {
 		//获取SKILL文件
 		prepareSkillInfo();
-		prepareSkillFiles();
+		if(!this.isRemote()) {
+			prepareSkillFiles();
+		}
+		
 		super.onInit();
 	}
 	
 	protected void prepareSkillInfo()throws Exception {
+		
+		//判断是否存在元数据文件
+		File metadataFile = new File(this.getSkillFolder().getCanonicalPath() + File.separator + METADATAFILE);
+		if(metadataFile.exists()) {
+			String strYamlContent = FileUtils.readFileToString(metadataFile, "UTF-8");
+			ConfigEntityEx configEntityEx = new ConfigEntityEx(strYamlContent, true);
+			this.setName(configEntityEx.getString("name", null));
+			this.setDescription(configEntityEx.getString("description", null));
+			this.setVersion(configEntityEx.getString("version", this.getVersion()));
+			this.setRemote(true);
+			return;
+		}
+		
+		
 		File skillFile = new File(this.getSkillFolder().getCanonicalPath() + File.separator + SKILLFILE);
 		if(!skillFile.exists() || !skillFile.isFile()) {
 			if(this.getInheritSkill() != null) {
 				this.setName(this.getInheritSkill().getName());
 				this.setDescription(this.getInheritSkill().getDescription());
+				this.setVersion(this.getInheritSkill().getVersion());
 				this.setPrompt(this.getInheritSkill().getPrompt());
 				return;
 			}
@@ -82,6 +100,7 @@ public abstract class DefaultSysAIChatSkillBase extends SysAIChatSkillBase {
 		ConfigEntityEx configEntityEx = new ConfigEntityEx(strYamlContent, true);
 		this.setName(configEntityEx.getString("name", null));
 		this.setDescription(configEntityEx.getString("description", null));
+		this.setVersion(configEntityEx.getString("version", this.getVersion()));
 		
 		//String strPrompt = strSkillContent.substring(nPos + 3);
 		this.setPrompt(strOriginContent);
@@ -229,6 +248,23 @@ public abstract class DefaultSysAIChatSkillBase extends SysAIChatSkillBase {
 	@Override
 	public Map<String, String> getExtendedScripts() {
 		return extendedScripts;
+	}
+	
+	@Override
+	public String getPrompt() {
+		if(!StringUtils.hasLength(super.getPrompt()) && this.isRemote()) {
+			//提取
+			try {
+				File realFile = new File(this.getSkillFolder().getCanonicalPath() + File.separator + SKILLFILE);
+				String strOriginContent = FileUtils.readFileToString(realFile, "UTF-8");
+				this.setPrompt(strOriginContent);
+			}
+			catch (Exception ex) {
+				log.error(String.format("重新加载技能提示词发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		
+		return super.getPrompt();
 	}
 	
 }

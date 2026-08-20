@@ -13,7 +13,7 @@ public interface IPSAppWFDE extends net.ibizsys.model.IPSModelObject{
 	 * 获取流程状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFState();
+	String getEntityWFState();
 	
 	
 	/**

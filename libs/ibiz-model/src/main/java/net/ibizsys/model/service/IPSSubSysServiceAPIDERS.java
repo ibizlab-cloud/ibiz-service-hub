@@ -14,14 +14,14 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -63,21 +63,21 @@ public interface IPSSubSysServiceAPIDERS extends net.ibizsys.model.IPSModelObjec
 	 * 获取关系项
 	 * @return
 	 */
-	java.lang.String getParentFilter();
+	String getParentFilter();
 	
 	
 	/**
 	 * 获取关系标记
 	 * @return
 	 */
-	java.lang.String getRSTag();
+	String getRSTag();
 	
 	
 	/**
 	 * 获取关系标记
 	 * @return
 	 */
-	java.lang.String getRSTag2();
+	String getRSTag2();
 	
 	
 	/**

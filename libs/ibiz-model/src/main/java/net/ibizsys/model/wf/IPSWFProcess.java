@@ -15,7 +15,7 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -36,7 +36,7 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -134,7 +134,7 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 获取动态超时时长存放属性
 	 * @return
 	 */
-	java.lang.String getTimeoutField();
+	String getTimeoutField();
 	
 	
 	/**
@@ -143,7 +143,7 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFTimeoutType}
 	 * @return
 	 */
-	java.lang.String getTimeoutType();
+	String getTimeoutType();
 	
 	
 	/**
@@ -157,14 +157,14 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 获取处理数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取处理数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 	
 	
 	/**
@@ -173,14 +173,14 @@ public interface IPSWFProcess extends net.ibizsys.model.IPSObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcessType}
 	 * @return
 	 */
-	java.lang.String getWFProcessType();
+	String getWFProcessType();
 	
 	
 	/**
 	 * 获取流程步骤值
 	 * @return
 	 */
-	java.lang.String getWFStepValue();
+	String getWFStepValue();
 	
 	
 	/**

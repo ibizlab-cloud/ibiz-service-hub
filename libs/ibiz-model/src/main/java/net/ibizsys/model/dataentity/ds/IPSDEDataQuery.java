@@ -37,7 +37,7 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -46,35 +46,35 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFGroupType}
 	 * @return
 	 */
-	java.lang.String getDEFGroupType();
+	String getDEFGroupType();
 	
 	
 	/**
 	 * 获取数据查询标记
 	 * @return
 	 */
-	java.lang.String getDataQueryTag();
+	String getDataQueryTag();
 	
 	
 	/**
 	 * 获取数据查询标记2
 	 * @return
 	 */
-	java.lang.String getDataQueryTag2();
+	String getDataQueryTag2();
 	
 	
 	/**
 	 * 获取数据查询标记3
 	 * @return
 	 */
-	java.lang.String getDataQueryTag3();
+	String getDataQueryTag3();
 	
 	
 	/**
 	 * 获取数据查询标记4
 	 * @return
 	 */
-	java.lang.String getDataQueryTag4();
+	String getDataQueryTag4();
 	
 	
 	/**
@@ -90,7 +90,7 @@ public interface IPSDEDataQuery extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

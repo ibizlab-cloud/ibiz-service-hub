@@ -19,7 +19,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridAggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
@@ -100,7 +100,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -179,7 +179,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridStyle}
 	 * @return
 	 */
-	java.lang.String getGridStyle();
+	String getGridStyle();
 	
 	
 	/**
@@ -188,7 +188,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
@@ -239,7 +239,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
-	java.lang.String getGroupStyle();
+	String getGroupStyle();
 	
 	
 	/**
@@ -276,7 +276,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**
@@ -448,7 +448,7 @@ public interface IPSDEGrid extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortMode}
 	 * @return
 	 */
-	java.lang.String getSortMode();
+	String getSortMode();
 	
 	
 	/**

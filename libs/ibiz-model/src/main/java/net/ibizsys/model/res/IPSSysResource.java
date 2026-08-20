@@ -14,21 +14,21 @@ public interface IPSSysResource extends net.ibizsys.model.IPSModelObject{
 	 * 获取认证token路径
 	 * @return
 	 */
-	java.lang.String getAuthAccessTokenUrl();
+	String getAuthAccessTokenUrl();
 	
 	
 	/**
 	 * 获取认证客户端标识
 	 * @return
 	 */
-	java.lang.String getAuthClientId();
+	String getAuthClientId();
 	
 	
 	/**
 	 * 获取认证客户端密码
 	 * @return
 	 */
-	java.lang.String getAuthClientSecret();
+	String getAuthClientSecret();
 	
 	
 	/**
@@ -37,28 +37,28 @@ public interface IPSSysResource extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
 	 */
-	java.lang.String getAuthMode();
+	String getAuthMode();
 	
 	
 	/**
 	 * 获取认证参数
 	 * @return
 	 */
-	java.lang.String getAuthParam();
+	String getAuthParam();
 	
 	
 	/**
 	 * 获取认证参数2
 	 * @return
 	 */
-	java.lang.String getAuthParam2();
+	String getAuthParam2();
 	
 	
 	/**
 	 * 获取资源内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
@@ -177,7 +177,7 @@ public interface IPSSysResource extends net.ibizsys.model.IPSModelObject{
 	 * 获取资源标记
 	 * @return
 	 */
-	java.lang.String getResTag();
+	String getResTag();
 	
 	
 	/**
@@ -193,14 +193,14 @@ public interface IPSSysResource extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ResourceType}
 	 * @return
 	 */
-	java.lang.String getResourceType();
+	String getResourceType();
 	
 	
 	/**
 	 * 获取资源路径
 	 * @return
 	 */
-	java.lang.String getResourceUri();
+	String getResourceUri();
 	
 	
 	/**

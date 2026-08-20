@@ -29,6 +29,7 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 	public final static String ATTR_ISDISABLECLOSE = "disableClose";
 	public final static String ATTR_ISHIDDEN = "hidden";
 	public final static String ATTR_ISHIDESIDEBAR = "hideSideBar";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISOPENDEFAULT = "openDefault";
 	public final static String ATTR_ISSEPERATOR = "seperator";
 	public final static String ATTR_ISSPANMODE = "spanMode";
@@ -365,6 +366,10 @@ public class PSAppMenuItemImplBase extends net.ibizsys.model.control.menu.PSMenu
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isOpenDefault(){

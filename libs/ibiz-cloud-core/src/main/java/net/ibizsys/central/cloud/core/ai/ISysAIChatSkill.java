@@ -11,6 +11,12 @@ public interface ISysAIChatSkill extends IAIChatSkill {
 	public static String SKILLFILE = "SKILL.md";
 	
 	/**
+	 * 元数据文件
+	 */
+	public static String METADATAFILE = "METADATA.yaml";
+	
+	
+	/**
 	 * 参考资料
 	 */
 	public static String REFERENCEFILE_PREFIX = "references/";

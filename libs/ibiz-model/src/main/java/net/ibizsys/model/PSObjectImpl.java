@@ -1,6 +1,7 @@
 package net.ibizsys.model;
 
-
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 public abstract class PSObjectImpl extends net.ibizsys.model.PSObjectImplBase implements net.ibizsys.model.IPSObject
 		,net.ibizsys.model.IPSModelObject{
@@ -106,5 +107,41 @@ public abstract class PSObjectImpl extends net.ibizsys.model.PSObjectImplBase im
 			return null;
 		}
 		return value.asText();
+	}
+	
+	@Override
+	public boolean isNestedModel() {
+		if(this.getParentPSModelObject() != null) {
+			return this.getParentPSModelObject().isNestedModel();
+		}
+		return false;
+	}
+	
+	private String strUniqueId = null;
+	
+	@Override
+	public String getUniqueId() {
+		if(isNestedModel()) {
+			return this.getId();
+		}
+		else {
+			if(ObjectUtils.isEmpty(this.strUniqueId)) {
+				this.strUniqueId = PSModelUtils.calcFullUniqueTag(this, true);
+			}
+		}
+		return this.strUniqueId;
+	}
+	
+	private String strDslId = null;
+	public String getDslId() {
+		if(isNestedModel()) {
+			return null;
+		}
+		else {
+			if(ObjectUtils.isEmpty(this.strDslId)) {
+				this.strDslId = PSModelUtils.calcDSLId(this);
+			}
+		}
+		return this.strDslId;
 	}
 }

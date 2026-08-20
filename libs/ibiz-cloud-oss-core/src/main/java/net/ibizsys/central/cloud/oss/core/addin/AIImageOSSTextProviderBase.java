@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import net.ibizsys.central.cloud.core.spring.rt.ServiceHub;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatContent;
@@ -99,6 +100,49 @@ public abstract class AIImageOSSTextProviderBase extends OSSTextProviderBase{
 				"- 对于“图片”部分（包括图表、图形、照片、印章、签名等），**生成一段简洁、客观的描述性文字**，说明其内容、主题和功能。";
 	}
 	
+	
+	@Override
+	protected String onGetText(String cat, String fileId, File file, String type, Map<String, Object> params) throws Throwable {
+		String strPrompt = null;
+		File promptFile = null;
+		if(params!=null) {
+			String strPromptId = DataTypeUtils.asString(params.get(PARAM_PROMPTID));
+			if(StringUtils.hasLength(strPromptId)) {
+				String strCloudPrompt = this.getCloudVLPrompt(strPromptId);
+				if(StringUtils.hasLength(strCloudPrompt)) {
+					strPrompt = strCloudPrompt;
+				}
+			}
+			
+			strPrompt = DataTypeUtils.asString(params.get(PARAM_PROMPT), strPrompt);
+			if(StringUtils.hasLength(strPrompt)) {
+				//有指定提示词
+				File folder = this.getTextFolder(file,  type);
+				File textFile = new File(folder.getAbsolutePath() + File.separator + file.getName() + "." + type);
+				promptFile = new File(folder.getAbsolutePath() + File.separator + file.getName() + "." + type + ".prompt");
+				if(textFile.exists()) {
+					//存在提示词，判断内容是否一致
+					if(promptFile.exists()) {
+						String strLast = FileUtils.readFileToString(promptFile, "UTF-8");
+						if(!strPrompt.equals(strLast)) {
+							//提示词不一致，移除文件
+							textFile.delete();
+						}
+					}
+					else {
+						textFile.delete();
+					}
+				}
+			}
+		}
+		
+		String strRet = super.onGetText(cat, fileId, file, type, params);
+		if(promptFile != null && StringUtils.hasLength(strPrompt)) {
+			FileUtils.writeStringToFile(promptFile, strPrompt, "UTF-8");
+		}
+		
+		return strRet;
+	}
 	
 	
 	@Override
@@ -218,6 +262,13 @@ public abstract class AIImageOSSTextProviderBase extends OSSTextProviderBase{
 				chatContent2.setType(ChatContentType.TEXT.getValue());
 				String strPrompt = getOcrPrompt();
 				if(params!=null) {
+					String strPromptId = DataTypeUtils.asString(params.get(PARAM_PROMPTID));
+					if(StringUtils.hasLength(strPromptId)) {
+						String strCloudPrompt = this.getCloudVLPrompt(strPromptId);
+						if(StringUtils.hasLength(strCloudPrompt)) {
+							strPrompt = strCloudPrompt;
+						}
+					}
 					strPrompt = DataTypeUtils.asString(params.get(PARAM_PROMPT), strPrompt);
 				}
 				chatContent2.setText(strPrompt);
@@ -239,6 +290,13 @@ public abstract class AIImageOSSTextProviderBase extends OSSTextProviderBase{
 				chatContent2.setType(ChatContentType.TEXT.getValue());
 				String strPrompt = getPrompt();
 				if(params!=null) {
+					String strPromptId = DataTypeUtils.asString(params.get(PARAM_PROMPTID));
+					if(StringUtils.hasLength(strPromptId)) {
+						String strCloudPrompt = this.getCloudVLPrompt(strPromptId);
+						if(StringUtils.hasLength(strCloudPrompt)) {
+							strPrompt = strCloudPrompt;
+						}
+					}
 					strPrompt = DataTypeUtils.asString(params.get(PARAM_PROMPT), strPrompt);
 				}
 				chatContent2.setText(strPrompt);
@@ -256,5 +314,11 @@ public abstract class AIImageOSSTextProviderBase extends OSSTextProviderBase{
 	
 	protected boolean isEnableOcrAgent() {
 		return true;
+	}
+	
+	
+	protected String getCloudVLPrompt(String strPromptId) {
+		String strCloudConfigId = String.format("cloud-oss-vlprompt-%1$s", strPromptId).toLowerCase();
+		return ServiceHub.getInstance().getConfig(strCloudConfigId);
 	}
 }

@@ -14,7 +14,7 @@ public interface IPSDERIndexDEFieldMap extends net.ibizsys.model.dataentity.der.
 	 * 获取直接值
 	 * @return
 	 */
-	java.lang.String getSrcValue();
+	String getSrcValue();
 	
 	
 	/**
@@ -32,5 +32,5 @@ public interface IPSDERIndexDEFieldMap extends net.ibizsys.model.dataentity.der.
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamValueType}
 	 * @return
 	 */
-	java.lang.String getSrcValueType();
+	String getSrcValueType();
 }

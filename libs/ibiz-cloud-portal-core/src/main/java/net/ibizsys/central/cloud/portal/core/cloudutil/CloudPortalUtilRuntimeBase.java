@@ -38,6 +38,7 @@ import net.ibizsys.model.res.PSSysDataSyncAgentImpl;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.res.SysDataSyncAgentTypes;
 import net.ibizsys.runtime.util.DataTypeUtils;
+import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.ErrorException;
 import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.IAction;
@@ -414,7 +415,9 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 				}
 				
 				if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
-					throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+					if(AuthenticationUser.getCurrent() == null || AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+						throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+					}
 				}
 
 				return portalAsyncAction;
@@ -439,7 +442,9 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 				if(!ObjectUtils.isEmpty(list)) {
 					for(PortalAsyncAction portalAsyncAction : list) {
 						if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
-							throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							if(AuthenticationUser.getCurrent() == null || AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+								throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							}
 						}
 					}
 				}
@@ -468,7 +473,9 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 				if(!ObjectUtils.isEmpty(list)) {
 					for(PortalAsyncAction portalAsyncAction : list) {
 						if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
-							throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							if(AuthenticationUser.getCurrent() == null || AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+								throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							}
 						}
 					}
 				}
@@ -495,7 +502,9 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 				if(!ObjectUtils.isEmpty(list)) {
 					for(PortalAsyncAction portalAsyncAction : list) {
 						if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
-							throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							if(AuthenticationUser.getCurrent() == null || AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+								throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							}
 						}
 					}
 				}
@@ -522,7 +531,9 @@ public abstract class CloudPortalUtilRuntimeBase extends CloudUtilRuntimeBase im
 				if(!ObjectUtils.isEmpty(list)) {
 					for(PortalAsyncAction portalAsyncAction : list) {
 						if(DataTypeUtils.compare(iEmployeeContext.getUserid(), portalAsyncAction.getCreateMan()) != 0) {
-							throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							if(AuthenticationUser.getCurrent() == null || AuthenticationUser.getCurrentMust().getApiuser() != EntityBase.BOOLEAN_TRUE) {
+								throw new ErrorException(String.format("作业所有者不一致"), Errors.ACCESSDENY);
+							}
 						}
 					}
 				}

@@ -36,7 +36,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.app.IApplicationRuntime;
 import net.ibizsys.central.cloud.core.IServiceHub;
+import net.ibizsys.central.cloud.core.app.IHotAppRuntimeBase;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.security.IEmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.IHubSysExtensionUtilRuntime;
@@ -63,6 +65,7 @@ public class ExtensionGatewayRestController {
 	@PostConstruct
 	protected void postConstruct() {
 		iServiceHub.registerIgnoreAuthPattern("/*/extension/dynamodels/pssysapps/*/simple/**");
+		iServiceHub.registerIgnoreAuthPattern("/*/extension/dynamodels/pssysapps/*/ext/**");
 		iServiceHub.registerIgnoreAuthPattern("/*/extension/webhooks/**");
 	}
 
@@ -438,6 +441,101 @@ public class ExtensionGatewayRestController {
 		}
 	}
 
+	@GetMapping(value = "/{id}/extension/dynamodels/pssysapps/{app}/ext/**")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadAppExtModel(@PathVariable("id") String id, @PathVariable("app") String app, HttpServletRequest req, HttpServletResponse response) throws IOException {
+
+		String strUri = req.getRequestURI();
+		strUri = strUri.substring(32 + id.length());
+
+		strUri = strUri.substring(app.length() + 5);
+		
+
+		// 如指定查询内容则默认为缓存标记
+		String strCacheTag = req.getQueryString();
+
+		Object param = RestUtils.queryString2Map(req.getQueryString());
+		
+		boolean pushSystemRuntime = false;
+		try {
+			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
+			pushSystemRuntime = true;
+			SystemRuntimeHolder.push(iSystemRuntime);
+			
+			//获取应用运行时
+			IApplicationRuntime iApplicationRuntime = iSystemRuntime.getApplicationRuntime(app, true);
+			if(!(iApplicationRuntime instanceof IHotAppRuntimeBase)) {
+				response.sendError(HttpStatus.NOT_FOUND.value());
+				return;
+			}
+						
+			File configFile = ((IHotAppRuntimeBase)iApplicationRuntime).getFile(strUri, true);
+			if (configFile == null || !configFile.exists()) {
+				response.sendError(HttpStatus.NOT_FOUND.value());
+				return;
+			}
+
+			if (!StringUtils.hasLength(strCacheTag)) {
+				response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+				response.setHeader("Pragma", "no-cache");
+				response.setHeader("Expires", "0");
+			} else {
+				response.setHeader("Cache-Control", "max-age=2592000");
+			}
+	
+			String strAcceptEncoding = req.getHeader(HttpHeaders.ACCEPT_ENCODING);
+			boolean bGZip = false;
+			if (StringUtils.hasLength(strAcceptEncoding)) {
+				bGZip = strAcceptEncoding.indexOf("gzip") != -1;
+			}
+	
+			response.setHeader("charset", "utf-8");
+			response.setHeader("Content-Disposition", String.format("attachment;filename=%s;filename*=utf-8''%s", configFile.getName(), getFileName(configFile.getName())));
+			response.setContentType(req.getServletContext().getMimeType(configFile.getName()));
+			if (bGZip) {
+				response.setHeader(HttpHeaders.CONTENT_ENCODING, "gzip");
+			}
+			this.sendRespose(response, configFile, bGZip);
+		}
+		finally {
+			if(pushSystemRuntime)
+				SystemRuntimeHolder.poll();
+		}
+	}
+//	
+//	@PostMapping(value = "/{id}/extension/dynamodels/pssysapps/{app}/reload")
+//	@ResponseStatus(HttpStatus.OK)
+//	public void reloadAppDynaModel(@PathVariable("id") String id, @PathVariable("app") String app, HttpServletRequest req, HttpServletResponse response) throws IOException {
+//
+//		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
+//		boolean pushSystemRuntime = false;
+//		try {
+//			ISystemRuntime iSystemRuntime = iServiceHub.getLoadedSystemRuntime(id);
+//			pushSystemRuntime = true;
+//			SystemRuntimeHolder.push(iSystemRuntime);
+//			
+//			//获取应用运行时
+//			IApplicationRuntime iApplicationRuntime = iSystemRuntime.getApplicationRuntime(app, true);
+//			if(!(iApplicationRuntime instanceof IServletAppRuntime)) {
+//				response.sendError(HttpStatus.NOT_FOUND.value());
+//				return;
+//			}
+//			
+//			ISysFileResourceRuntime iSysFileResourceRuntime = ((IServletAppRuntime)iApplicationRuntime).getConfigSysFileResourceRuntime(true);
+//			if(iSysFileResourceRuntime == null) {
+//				response.sendError(HttpStatus.NOT_FOUND.value());
+//				return;
+//			}
+//			
+//			iSysFileResourceRuntime.reload();
+//		}
+//		finally {
+//			if(pushSystemRuntime)
+//				SystemRuntimeHolder.poll();
+//		}
+//	}
+//	
+	
 	@GetMapping(value = "/{id}/extension/dynamodels/pssysapps/{app}/subapps/{subapp}/**")
 	@ResponseStatus(HttpStatus.OK)
 	public void downloadHubSubAppModel(@PathVariable("id") String id, @PathVariable("app") String app, @PathVariable("subapp") String subapp, HttpServletRequest req, HttpServletResponse response) throws IOException {

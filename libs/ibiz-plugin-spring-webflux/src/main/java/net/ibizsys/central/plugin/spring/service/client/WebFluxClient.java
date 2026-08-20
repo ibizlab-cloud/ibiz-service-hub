@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -494,6 +495,7 @@ public class WebFluxClient extends WebClientBase {
 	        }
 
 	        // 2. 解析输出目标对象
+	        boolean bReturnTempFile = false;
 	        java.io.File file = null;
 	        java.io.OutputStream outputStream = null;
 	        // 使用 final 变量以便在 Lambda 中使用
@@ -509,7 +511,9 @@ public class WebFluxClient extends WebClientBase {
 	            httpServletResponse = (HttpServletResponse) objFile;
 	            outputStream = httpServletResponse.getOutputStream();
 	        } else {
-	            throw new Exception("无法识别的文件输出对象");
+	           //throw new Exception("无法识别的文件输出对象");
+	        	httpServletResponse = null;
+	        	bReturnTempFile = true;
 	        }
 
 	        // 3. 处理 file:// 协议
@@ -525,6 +529,12 @@ public class WebFluxClient extends WebClientBase {
 	                java.nio.file.Files.copy(sourcePath, file.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 	            } else if (outputStream != null) {
 	                java.nio.file.Files.copy(sourcePath, outputStream);
+	            }
+	            else {
+	            	net.ibizsys.runtime.util.domain.File fileItem = new net.ibizsys.runtime.util.domain.File();
+	            	fileItem.setLocalPath(sourcePath.toFile().getCanonicalPath());
+	            	fileItem.setFileName(sourcePath.getFileName().toString());
+	            	return new WebClientRep<net.ibizsys.runtime.util.domain.File>(fileItem, null);
 	            }
 	            return new WebClientRep<String>(sourcePath.getFileName().toString(), null);
 	        }
@@ -674,6 +684,18 @@ public class WebFluxClient extends WebClientBase {
 	        // 只有当 tempFilePathHolder 被赋值（即发生了实际下载），才执行拷贝
 	        if (tempFilePathHolder[0] != null) {
 	            File tempFile = tempFilePathHolder[0].toFile();
+	            if(bReturnTempFile) {
+	            	//建立目录
+	            	File folder = new File(tempFile.getParentFile(), FilenameUtils.getBaseName(tempFile.getName()));
+	            	folder.mkdirs();
+	            	File returnFile = new File(folder, strFileName);
+	            	FileUtils.moveFile(tempFile, returnFile);
+	            	net.ibizsys.runtime.util.domain.File fileItem = new net.ibizsys.runtime.util.domain.File();
+	            	fileItem.setLocalPath(returnFile.getCanonicalPath());
+	            	fileItem.setFileName(returnFile.getName());
+	            	return new WebClientRep<net.ibizsys.runtime.util.domain.File>(fileItem, null);
+	            }
+	            
 	            Resource resource = new FileSystemResource(tempFile);
 	            if (file != null) {
 	                FileUtils.copyInputStreamToFile(resource.getInputStream(), file);

@@ -14,7 +14,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ReportContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
@@ -44,7 +44,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取数据访问标识
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**
@@ -165,7 +165,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取运行时打印上下文标识
 	 * @return
 	 */
-	java.lang.String getPrintContextId();
+	String getPrintContextId();
 	
 	
 	/**
@@ -179,28 +179,28 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取打印标记
 	 * @return
 	 */
-	java.lang.String getPrintTag();
+	String getPrintTag();
 	
 	
 	/**
 	 * 获取打印标记2
 	 * @return
 	 */
-	java.lang.String getPrintTag2();
+	String getPrintTag2();
 	
 	
 	/**
 	 * 获取报表路径
 	 * @return
 	 */
-	java.lang.String getReportFile();
+	String getReportFile();
 	
 	
 	/**
 	 * 获取报表模型
 	 * @return
 	 */
-	java.lang.String getReportModel();
+	String getReportModel();
 	
 	
 	/**
@@ -223,7 +223,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PrintType}
 	 * @return
 	 */
-	java.lang.String getReportType();
+	String getReportType();
 	
 	
 	/**
@@ -244,7 +244,7 @@ public interface IPSDEPrint extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取报表界面模型
 	 * @return
 	 */
-	java.lang.String getReportUIModel();
+	String getReportUIModel();
 	
 	
 	/**

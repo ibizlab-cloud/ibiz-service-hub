@@ -14,7 +14,7 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	 * 获取后置内容
 	 * @return
 	 */
-	java.lang.String getAfterContent();
+	String getAfterContent();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UAGroupDetailAppendItemType}
 	 * @return
 	 */
-	java.lang.String getAfterItemType();
+	String getAfterItemType();
 	
 	
 	/**
@@ -44,7 +44,7 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	 * 获取前置内容
 	 * @return
 	 */
-	java.lang.String getBeforeContent();
+	String getBeforeContent();
 	
 	
 	/**
@@ -53,7 +53,7 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UAGroupDetailAppendItemType}
 	 * @return
 	 */
-	java.lang.String getBeforeItemType();
+	String getBeforeItemType();
 	
 	
 	/**
@@ -90,7 +90,7 @@ public interface IPSDEUIActionGroupDetail extends net.ibizsys.model.view.IPSUIAc
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UAGroupDetailType}
 	 * @return
 	 */
-	java.lang.String getDetailType();
+	String getDetailType();
 	
 	
 	/**

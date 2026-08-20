@@ -14,12 +14,12 @@ public interface IPSDETreeLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取树表格列名称
 	 * @return
 	 */
-	java.lang.String getPSDETreeColumnName();
+	String getPSDETreeColumnName();
 	
 	
 	/**
 	 * 获取树节点名称
 	 * @return
 	 */
-	java.lang.String getPSDETreeNodeName();
+	String getPSDETreeNodeName();
 }

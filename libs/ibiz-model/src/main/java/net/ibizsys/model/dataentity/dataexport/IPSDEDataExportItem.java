@@ -16,7 +16,7 @@ public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -37,21 +37,21 @@ public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.Object getDefaultValue();
+	Object getDefaultValue();
 	
 	
 	/**
 	 * 获取格式化
 	 * @return
 	 */
-	java.lang.String getFormat();
+	String getFormat();
 	
 	
 	/**
@@ -128,7 +128,7 @@ public interface IPSDEDataExportItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取权限标识
 	 * @return
 	 */
-	java.lang.String getPrivilegeId();
+	String getPrivilegeId();
 	
 	
 	/**

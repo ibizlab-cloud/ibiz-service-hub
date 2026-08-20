@@ -20,6 +20,7 @@ import net.ibizsys.central.cloud.core.util.domain.AIAccess;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatFunction;
+import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
 import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.CompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.CompletionResult;
@@ -43,6 +44,9 @@ public abstract class AIAccessAgentBase extends CloudAIUtilRTAddinBase implement
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(AIAccessAgentBase.class);
 	
 	public static final TypeReference<List<ChatTool>> ChatToolListType = new TypeReference<List<ChatTool>>() {
+	};
+	
+	public static final TypeReference<List<ChatMessage>> ChatMessageListType = new TypeReference<List<ChatMessage>>() {
 	};
 	
 

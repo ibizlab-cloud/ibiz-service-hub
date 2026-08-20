@@ -14,14 +14,14 @@ public interface IPSTextEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取最大长度[MAXLENGTH]
 	 * @return
 	 */
-	java.lang.Integer getMaxLength();
+	Integer getMaxLength();
 	
 	
 	/**
 	 * 获取最小长度[MINLENGTH]
 	 * @return
 	 */
-	java.lang.Integer getMinLength();
+	Integer getMinLength();
 	
 	
 	/**

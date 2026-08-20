@@ -14,7 +14,7 @@ public interface IPSDEMainStateRS extends net.ibizsys.model.dataentity.IPSDataEn
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

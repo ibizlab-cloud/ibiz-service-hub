@@ -777,7 +777,7 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 获取应用目录名称
 	 * @return
 	 */
-	java.lang.String getAppFolder();
+	String getAppFolder();
 	
 	
 	/**
@@ -786,70 +786,70 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppMode}
 	 * @return
 	 */
-	java.lang.String getAppMode();
+	String getAppMode();
 	
 	
 	/**
 	 * 获取应用标记
 	 * @return
 	 */
-	java.lang.String getAppTag();
+	String getAppTag();
 	
 	
 	/**
 	 * 获取应用标记2
 	 * @return
 	 */
-	java.lang.String getAppTag2();
+	String getAppTag2();
 	
 	
 	/**
 	 * 获取应用标记3
 	 * @return
 	 */
-	java.lang.String getAppTag3();
+	String getAppTag3();
 	
 	
 	/**
 	 * 获取应用标记4
 	 * @return
 	 */
-	java.lang.String getAppTag4();
+	String getAppTag4();
 	
 	
 	/**
 	 * 获取应用类型
 	 * @return
 	 */
-	java.lang.String getAppType();
+	String getAppType();
 	
 	
 	/**
 	 * 获取应用版本
 	 * @return
 	 */
-	java.lang.String getAppVersion();
+	String getAppVersion();
 	
 	
 	/**
 	 * 获取应用下方信息
 	 * @return
 	 */
-	java.lang.String getBottomInfo();
+	String getBottomInfo();
 	
 	
 	/**
 	 * 获取应用标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -863,7 +863,7 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 获取默认对象存储分类
 	 * @return
 	 */
-	java.lang.String getDefaultOSSCat();
+	String getDefaultOSSCat();
 	
 	
 	/**
@@ -900,28 +900,28 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 获取应用头部信息
 	 * @return
 	 */
-	java.lang.String getHeaderInfo();
+	String getHeaderInfo();
 	
 	
 	/**
 	 * 获取前端模板样式
 	 * @return
 	 */
-	java.lang.String getPFStyle();
+	String getPFStyle();
 	
 	
 	/**
 	 * 获取前端模板
 	 * @return
 	 */
-	java.lang.String getPFType();
+	String getPFType();
 	
 	
 	/**
 	 * 获取代码包名称
 	 * @return
 	 */
-	java.lang.String getPKGCodeName();
+	String getPKGCodeName();
 	
 	
 	/**
@@ -949,7 +949,7 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 获取开发系统标识
 	 * @return
 	 */
-	java.lang.String getPSDevSlnSysId();
+	String getPSDevSlnSysId();
 	
 	
 	/**
@@ -998,35 +998,35 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 获取服务代码名称
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 	
 	
 	/**
 	 * 获取子应用访问标识
 	 * @return
 	 */
-	java.lang.String getSubAppAccessKey();
+	String getSubAppAccessKey();
 	
 	
 	/**
 	 * 获取应用子标题
 	 * @return
 	 */
-	java.lang.String getSubCaption();
+	String getSubCaption();
 	
 	
 	/**
 	 * 获取系统代码标识
 	 * @return
 	 */
-	java.lang.String getSysCodeName();
+	String getSysCodeName();
 	
 	
 	/**
 	 * 获取应用抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
@@ -1035,7 +1035,7 @@ public interface IPSApplication extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return
 	 */
-	java.lang.String getViewCodeNameMode();
+	String getViewCodeNameMode();
 	
 	
 	/**

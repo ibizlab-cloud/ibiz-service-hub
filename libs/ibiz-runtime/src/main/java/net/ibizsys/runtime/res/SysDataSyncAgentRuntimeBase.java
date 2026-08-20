@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.util.Assert;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.model.IPSModelObject;
@@ -43,7 +42,7 @@ public abstract class SysDataSyncAgentRuntimeBase extends SystemModelRuntimeBase
 		if (SysDataSyncAgentDirs.IN.equals(iPSSysDataSyncAgent.getSyncDir()) || SysDataSyncAgentDirs.INOUT.equals(iPSSysDataSyncAgent.getSyncDir())) {
 			deDataSyncInRuntimeList = new ArrayList<IDEDataSyncInRuntime>();
 		}
-		this.setRawDataMode(this.getPSSysDataSyncAgent().isRawDataMode());
+		this.prepareDefaultSetting();
 		this.onInit();
 	}
 
@@ -53,6 +52,19 @@ public abstract class SysDataSyncAgentRuntimeBase extends SystemModelRuntimeBase
 		
 		
 		super.onInit();
+	}
+	
+	/**
+	 * 准备默认设置
+	 * @throws Exception
+	 */
+	protected void prepareDefaultSetting() throws Exception{
+		this.setRawDataMode(this.getPSSysDataSyncAgent().isRawDataMode());
+		this.onPrepareDefaultSetting();
+	}
+	
+	protected void onPrepareDefaultSetting() throws Exception{
+		
 	}
 	
 	@Override
@@ -228,14 +240,11 @@ public abstract class SysDataSyncAgentRuntimeBase extends SystemModelRuntimeBase
 	}
 	
 	
-	protected String getAgentParam(String strName, String strDefault) {
+	protected String getAgentParam(String strName, String defaultValue) {
 		if(this.getPSSysDataSyncAgent().getAgentParams() != null) {
-			JsonNode jsonNode = this.getPSSysDataSyncAgent().getAgentParams().get(strName);
-			if(jsonNode != null) {
-				return jsonNode.asText(strDefault);
-			}
+			return JsonUtils.getField(this.getPSSysDataSyncAgent().getAgentParams(), strName, true, defaultValue);
 		}
-		return strDefault;
+		return defaultValue;
 	}
 	 
 }

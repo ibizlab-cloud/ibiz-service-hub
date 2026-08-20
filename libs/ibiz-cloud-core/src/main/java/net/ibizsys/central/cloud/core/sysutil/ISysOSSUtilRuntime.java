@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.data.domain.Page;
 
 import net.ibizsys.central.util.ISearchContext;
+import net.ibizsys.runtime.util.domain.File;
 
 public interface ISysOSSUtilRuntime extends net.ibizsys.central.sysutil.ISysOSSUtilRuntime {
 
@@ -75,5 +76,17 @@ public interface ISysOSSUtilRuntime extends net.ibizsys.central.sysutil.ISysOSSU
 	 * @return
 	 */
 	Page fetchObjects(String strDBName, String strTableName, ISearchContext iSearchContext);
+	
+	
+	
+	
+	/**
+	 * 获取文件对象
+	 * @param strKey
+	 * @param bTryMode
+	 * @return
+	 * @throws Throwable
+	 */
+	File getOSSPdfFile(String strKey, String strCat, boolean bTryMode);
 	
 }

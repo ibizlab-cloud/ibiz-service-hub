@@ -13,7 +13,7 @@ public interface IPSDEDFMergeProcessNode extends net.ibizsys.model.dataentity.da
 	 * 获取数据源合并属性
 	 * @return
 	 */
-	java.lang.String getMergeField();
+	String getMergeField();
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface IPSDEDFMergeProcessNode extends net.ibizsys.model.dataentity.da
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowMergeType}
 	 * @return
 	 */
-	java.lang.String getMergeType();
+	String getMergeType();
 	
 	
 	/**

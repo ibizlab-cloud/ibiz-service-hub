@@ -21,28 +21,28 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取自填标记
 	 * @return
 	 */
-	java.lang.String getACTag();
+	String getACTag();
 	
 	
 	/**
 	 * 获取自填标记2
 	 * @return
 	 */
-	java.lang.String getACTag2();
+	String getACTag2();
 	
 	
 	/**
 	 * 获取自填标记3
 	 * @return
 	 */
-	java.lang.String getACTag3();
+	String getACTag3();
 	
 	
 	/**
 	 * 获取自填标记4
 	 * @return
 	 */
-	java.lang.String getACTag4();
+	String getACTag4();
 	
 	
 	/**
@@ -51,21 +51,21 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEACType}
 	 * @return
 	 */
-	java.lang.String getACType();
+	String getACType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -114,7 +114,7 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -123,7 +123,7 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**
@@ -237,7 +237,7 @@ public interface IPSDEACMode extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

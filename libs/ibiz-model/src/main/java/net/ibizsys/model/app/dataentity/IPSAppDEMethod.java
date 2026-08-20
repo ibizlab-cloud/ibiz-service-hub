@@ -15,14 +15,14 @@ public interface IPSAppDEMethod extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -31,7 +31,7 @@ public interface IPSAppDEMethod extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppDEMethodType}
 	 * @return
 	 */
-	java.lang.String getMethodType();
+	String getMethodType();
 	
 	
 	/**
@@ -94,7 +94,7 @@ public interface IPSAppDEMethod extends net.ibizsys.model.IPSModelObject
 	 * 获取请求属性
 	 * @return
 	 */
-	java.lang.String getRequestField();
+	String getRequestField();
 	
 	
 	/**
@@ -110,7 +110,7 @@ public interface IPSAppDEMethod extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RequestMethod}
 	 * @return
 	 */
-	java.lang.String getRequestMethod();
+	String getRequestMethod();
 	
 	
 	/**
@@ -119,14 +119,14 @@ public interface IPSAppDEMethod extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceReqParamType}
 	 * @return
 	 */
-	java.lang.String getRequestParamType();
+	String getRequestParamType();
 	
 	
 	/**
 	 * 获取请求路径
 	 * @return
 	 */
-	java.lang.String getRequestPath();
+	String getRequestPath();
 	
 	
 	/**

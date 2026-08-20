@@ -18,7 +18,7 @@ public interface IPSDEDQGroupCondition extends net.ibizsys.model.dataentity.ds.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**

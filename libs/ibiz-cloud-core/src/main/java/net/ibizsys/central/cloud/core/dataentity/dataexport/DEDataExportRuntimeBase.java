@@ -1,12 +1,16 @@
 package net.ibizsys.central.cloud.core.dataentity.dataexport;
 
 import java.io.OutputStream;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.dataentity.dataexport.DEDataExportRuntime;
 import net.ibizsys.central.util.domain.ExportDataResult;
+import net.ibizsys.central.util.expression.ExpressionUtils;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 
 public abstract class DEDataExportRuntimeBase extends DEDataExportRuntime implements IDEDataExportRuntime{
@@ -26,9 +30,26 @@ public abstract class DEDataExportRuntimeBase extends DEDataExportRuntime implem
 	
 	protected ExportDataResult onExportStream2(Object objData, OutputStream outputStram) throws Throwable{
 		ExportDataResult exportDataResult = new ExportDataResult();
-		this.onExportStream(objData, outputStram);		
+		
+		this.onExportStream(objData, outputStram);
+	
+		if(StringUtils.hasLength(this.getPSDEDataExport().getFileNameFormat())) {
+			Map<String, Object> map = new LinkedHashMap<String, Object>();
+			String strFileName = ExpressionUtils.getValue(this.getPSDEDataExport().getFileNameFormat(), map);
+			exportDataResult.setFileName(strFileName);
+		}
+		else {
+			exportDataResult.setFileName(getDefaultFileName());
+		}
+		
 		return exportDataResult;
 	}
+	
+	
+	protected String getDefaultFileName() {
+		return null;
+	}
+	
 	
 	
 }

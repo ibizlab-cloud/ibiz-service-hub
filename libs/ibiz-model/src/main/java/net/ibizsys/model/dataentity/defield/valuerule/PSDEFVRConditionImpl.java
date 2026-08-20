@@ -12,6 +12,7 @@ public class PSDEFVRConditionImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETRULEINFOLANRESTAG = "ruleInfoLanResTag";
 	public final static String ATTR_GETRULEINFOPSLANGUAGERES = "getRuleInfoPSLanguageRes";
 	public final static String ATTR_ISKEYCOND = "keyCond";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISNOTMODE = "notMode";
 	public final static String ATTR_ISTRYMODE = "tryMode";
 
@@ -92,6 +93,10 @@ public class PSDEFVRConditionImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isNotMode(){

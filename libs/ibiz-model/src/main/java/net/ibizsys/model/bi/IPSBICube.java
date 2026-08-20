@@ -13,7 +13,7 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSBISchemeObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -29,14 +29,14 @@ public interface IPSBICube extends net.ibizsys.model.bi.IPSBISchemeObject{
 	 * 获取立方体标记
 	 * @return
 	 */
-	java.lang.String getCubeTag();
+	String getCubeTag();
 	
 	
 	/**
 	 * 获取立方体标记2
 	 * @return
 	 */
-	java.lang.String getCubeTag2();
+	String getCubeTag2();
 	
 	
 	/**

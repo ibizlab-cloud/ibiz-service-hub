@@ -16,14 +16,14 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取目标属性名称
 	 * @return
 	 */
-	java.lang.String getDstFieldName();
+	String getDstFieldName();
 	
 	
 	/**
@@ -39,7 +39,7 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getDstSortDir();
+	String getDstSortDir();
 	
 	
 	/**
@@ -48,14 +48,14 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicNodeParamType}
 	 * @return
 	 */
-	java.lang.String getParamAction();
+	String getParamAction();
 	
 	
 	/**
 	 * 获取源属性名称
 	 * @return
 	 */
-	java.lang.String getSrcFieldName();
+	String getSrcFieldName();
 	
 	
 	/**
@@ -76,7 +76,7 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	 * 获取直接值
 	 * @return
 	 */
-	java.lang.String getSrcValue();
+	String getSrcValue();
 	
 	
 	/**
@@ -94,5 +94,5 @@ public interface IPSDELogicNodeParamBase extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamValueType}
 	 * @return
 	 */
-	java.lang.String getSrcValueType();
+	String getSrcValueType();
 }

@@ -22,14 +22,14 @@ public interface IPSAppDEView extends net.ibizsys.model.app.view.IPSAppView
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedViewType}
 	 * @return
 	 */
-	java.lang.String getFuncViewMode();
+	String getFuncViewMode();
 	
 	
 	/**
 	 * 获取功能视图参数
 	 * @return
 	 */
-	java.lang.String getFuncViewParam();
+	String getFuncViewParam();
 	
 	
 	/**
@@ -50,14 +50,14 @@ public interface IPSAppDEView extends net.ibizsys.model.app.view.IPSAppView
 	 * 获取实体视图代码名称
 	 * @return
 	 */
-	java.lang.String getPSDEViewCodeName();
+	String getPSDEViewCodeName();
 	
 	
 	/**
 	 * 获取实体视图标识
 	 * @return
 	 */
-	java.lang.String getPSDEViewId();
+	String getPSDEViewId();
 	
 	
 	/**

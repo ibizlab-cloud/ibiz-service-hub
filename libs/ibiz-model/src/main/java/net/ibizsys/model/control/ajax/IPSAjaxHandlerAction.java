@@ -16,14 +16,14 @@ public interface IPSAjaxHandlerAction extends net.ibizsys.model.IPSModelObject
 	 * 获取行为描述
 	 * @return
 	 */
-	java.lang.String getActionDesc();
+	String getActionDesc();
 	
 	
 	/**
 	 * 获取行为类型
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**

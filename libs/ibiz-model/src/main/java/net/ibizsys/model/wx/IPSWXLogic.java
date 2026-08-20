@@ -13,7 +13,7 @@ public interface IPSWXLogic extends net.ibizsys.model.wx.IPSWXAccountObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

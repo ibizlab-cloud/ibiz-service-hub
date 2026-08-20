@@ -22,9 +22,11 @@ public class PSDEDataExportTranspiler extends net.ibizsys.model.util.transpiler.
 		}
 		net.ibizsys.model.dataentity.dataexport.PSDEDataExportImpl realPSModelObject = (net.ibizsys.model.dataentity.dataexport.PSDEDataExportImpl)iPSModelObject;
 		this.setDomainValue(iPSModelTranspileContext, domain, "contenttype", realPSModelObject.getContentType(), realPSModelObject, "getContentType");
+		this.setDomainValue(iPSModelTranspileContext, domain, "expmodel", realPSModelObject.getExpModel(), realPSModelObject, "getExpModel");
 		this.setDomainValue(iPSModelTranspileContext, domain, "expparams", realPSModelObject.getExpParams(), realPSModelObject, "getExpParams");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exptag", realPSModelObject.getExpTag(), realPSModelObject, "getExpTag");
 		this.setDomainValue(iPSModelTranspileContext, domain, "exptag2", realPSModelObject.getExpTag2(), realPSModelObject, "getExpTag2");
+		this.setDomainValue(iPSModelTranspileContext, domain, "dataexptype", realPSModelObject.getExpType(), realPSModelObject, "getExpType");
 		this.setDomainValue(iPSModelTranspileContext, domain, "filenameformat", realPSModelObject.getFileNameFormat(), realPSModelObject, "getFileNameFormat");
 		this.setDomainValue(iPSModelTranspileContext, domain, "maxrowcnt", realPSModelObject.getMaxRowCount(), realPSModelObject, "getMaxRowCount");
 		this.setDomainValue(iPSModelTranspileContext, domain, "potime", realPSModelObject.getPOTime(), realPSModelObject, "getPOTime");
@@ -38,9 +40,11 @@ public class PSDEDataExportTranspiler extends net.ibizsys.model.util.transpiler.
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETCONTENTTYPE, domain, "contenttype", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPMODEL, domain, "expmodel", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPPARAMS, domain, "expparams", com.fasterxml.jackson.databind.node.ObjectNode.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPTAG, domain, "exptag", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPTAG2, domain, "exptag2", java.lang.String.class);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETEXPTYPE, domain, "dataexptype", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETFILENAMEFORMAT, domain, "filenameformat", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETMAXROWCOUNT, domain, "maxrowcnt", int.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETPOTIME, domain, "potime", int.class, new String[]{"-1"});

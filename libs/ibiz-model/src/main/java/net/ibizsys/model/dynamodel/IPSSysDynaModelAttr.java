@@ -21,7 +21,7 @@ public interface IPSSysDynaModelAttr extends net.ibizsys.model.dynamodel.IPSDyna
 	 * 获取属性值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface IPSSysDynaModelAttr extends net.ibizsys.model.dynamodel.IPSDyna
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DynaModelAttrValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

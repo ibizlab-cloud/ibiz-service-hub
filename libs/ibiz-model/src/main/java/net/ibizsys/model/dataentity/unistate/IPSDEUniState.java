@@ -14,7 +14,7 @@ public interface IPSDEUniState extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

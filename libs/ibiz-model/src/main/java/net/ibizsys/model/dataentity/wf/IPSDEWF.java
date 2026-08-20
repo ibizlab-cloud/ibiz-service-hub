@@ -14,7 +14,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,28 +35,28 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取流程取消状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFCancelState();
+	String getEntityWFCancelState();
 	
 	
 	/**
 	 * 获取流程错误状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFErrorState();
+	String getEntityWFErrorState();
 	
 	
 	/**
 	 * 获取流程结束状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFFinishState();
+	String getEntityWFFinishState();
 	
 	
 	/**
 	 * 获取流程状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFState();
+	String getEntityWFState();
 	
 	
 	/**
@@ -133,7 +133,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取我的数据标题
 	 * @return
 	 */
-	java.lang.String getMyWFDataCaption();
+	String getMyWFDataCaption();
 	
 	
 	/**
@@ -154,7 +154,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取我的工作标题
 	 * @return
 	 */
-	java.lang.String getMyWFWorkCaption();
+	String getMyWFWorkCaption();
 	
 	
 	/**
@@ -259,7 +259,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取流程分类代码
 	 * @return
 	 */
-	java.lang.String getWFCatCode();
+	String getWFCatCode();
 	
 	
 	/**
@@ -280,7 +280,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取流程模式
 	 * @return
 	 */
-	java.lang.String getWFMode();
+	String getWFMode();
 	
 	
 	/**
@@ -310,7 +310,7 @@ public interface IPSDEWF extends net.ibizsys.model.dataentity.IPSDataEntityObjec
 	 * 获取开始流程名称
 	 * @return
 	 */
-	java.lang.String getWFStartName();
+	String getWFStartName();
 	
 	
 	/**

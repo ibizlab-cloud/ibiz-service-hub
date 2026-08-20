@@ -15,6 +15,9 @@ public interface IAISkillAgentRuntimeBase {
 	public final static String COMMAND_FETCH_KB_CHUNKS = "fetch_kb_chunks";
 	
 	
+	/**
+	 * 调用子代理
+	 */
 	public final static String COMMAND_EXECUTE_CHAT = "execute_chat";
 	/**
 	 * 上传文件
@@ -28,6 +31,12 @@ public interface IAISkillAgentRuntimeBase {
 	 * 对文件应用补丁
 	 */
 	public final static String COMMAND_APPLY_PATCH = "apply_patch";
+	
+	/**
+	 * 输出步骤
+	 */
+	public final static String COMMAND_OUTPUT_STEP = "output_step";
+	
 	/**
 	 * 列出文件
 	 */
@@ -41,9 +50,13 @@ public interface IAISkillAgentRuntimeBase {
 	 */
 	public final static String COMMAND_PARAM_FROM_TEMPLATE = "from_template";
 	public final static String COMMAND_PARAM_EXECUTE_BASH_COMMAND = "command";
+	public final static String COMMAND_PARAM_EXECUTE_BASH_PROFILE = "profile";
+	public final static String COMMAND_PARAM_EXECUTE_BASH_ENV = "env";
+	public final static String COMMAND_PARAM_WORKSPACE = "workspace";
 	
 	public final static String COMMAND_PARAM_X_FILE_PATH = "file_path";
 	public final static String COMMAND_PARAM_WRITE_FILE_CONTENT = "content";
+	public final static String COMMAND_PARAM_WRITE_FILE_APPEND = "append";
 	public final static String COMMAND_PARAM_UPLOAD_FILE_FOLDER = "folder";
 	public final static String COMMAND_PARAM_DOWNLOAD_FILE_URL = "url";
 	
@@ -69,6 +82,25 @@ public interface IAISkillAgentRuntimeBase {
 	
 	public final static String COMMAND_PARAM_APPLY_PATCH_NEW_FILE_PATH = "new_file_path";
 	public final static String COMMAND_PARAM_APPLY_PATCH_UNIFIED_DIFF = "unified_diff";
+	
+	
+	/**
+	 * 内容
+	 */
+	public final static String COMMAND_PARAM_OUTPUT_STEP_CONTENT = "content";
+	
+	/**
+	 * 思维内容
+	 */
+	public final static String COMMAND_PARAM_OUTPUT_STEP_REASONING_CONTENT = "reasoning_content";
+	
+	/**
+	 * 来源通道
+	 */
+	public final static String COMMAND_PARAM_OUTPUT_STEP_SOURCE_CHANNEL = "source_channel";
+	
+	
+	
 	
 	/**
 	 * 工具调用

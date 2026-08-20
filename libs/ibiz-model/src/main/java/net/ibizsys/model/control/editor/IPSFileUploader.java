@@ -16,7 +16,7 @@ public interface IPSFileUploader extends net.ibizsys.model.control.editor.IPSVal
 	 * 获取文件后缀[FILEEXTS]
 	 * @return
 	 */
-	java.lang.String getFileExts();
+	String getFileExts();
 	
 	
 	/**
@@ -44,5 +44,5 @@ public interface IPSFileUploader extends net.ibizsys.model.control.editor.IPSVal
 	 * 获取对象存储分类[OSSCAT]
 	 * @return
 	 */
-	java.lang.String getOSSCat();
+	String getOSSCat();
 }

@@ -6,6 +6,7 @@ public class PSWFLinkRoleImpl extends net.ibizsys.model.PSObjectImpl implements 
 
 	public final static String ATTR_GETPSSYSMSGTEMPL = "getPSSysMsgTempl";
 	public final static String ATTR_GETPSWFPROCESSROLE = "getPSWFProcessRole";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl;
 
 	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl(){
@@ -51,4 +52,8 @@ public class PSWFLinkRoleImpl extends net.ibizsys.model.PSObjectImpl implements 
 		this.pswfprocessrole = pswfprocessrole;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

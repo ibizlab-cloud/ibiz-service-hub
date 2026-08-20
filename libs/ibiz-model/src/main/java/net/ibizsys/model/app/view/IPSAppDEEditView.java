@@ -20,7 +20,7 @@ public interface IPSAppDEEditView extends net.ibizsys.model.app.view.IPSAppDEVie
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */
-	java.lang.String getMarkOpenDataMode();
+	String getMarkOpenDataMode();
 	
 	
 	/**

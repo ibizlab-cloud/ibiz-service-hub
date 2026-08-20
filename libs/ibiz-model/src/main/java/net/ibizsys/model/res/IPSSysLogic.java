@@ -13,14 +13,14 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取自定义处理对象
 	 * @return
 	 */
-	java.lang.String getCustomObject();
+	String getCustomObject();
 	
 	
 	/**
@@ -55,7 +55,7 @@ public interface IPSSysLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

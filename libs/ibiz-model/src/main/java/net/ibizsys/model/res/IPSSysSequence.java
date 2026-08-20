@@ -14,7 +14,7 @@ public interface IPSSysSequence extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -98,7 +98,7 @@ public interface IPSSysSequence extends net.ibizsys.model.IPSModelObject{
 	 * 获取值序列格式化
 	 * @return
 	 */
-	java.lang.String getSequenceFormat();
+	String getSequenceFormat();
 	
 	
 	/**
@@ -112,14 +112,14 @@ public interface IPSSysSequence extends net.ibizsys.model.IPSModelObject{
 	 * 获取值序列标记
 	 * @return
 	 */
-	java.lang.String getSequenceTag();
+	String getSequenceTag();
 	
 	
 	/**
 	 * 获取值序列标记2
 	 * @return
 	 */
-	java.lang.String getSequenceTag2();
+	String getSequenceTag2();
 	
 	
 	/**
@@ -128,14 +128,14 @@ public interface IPSSysSequence extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SequenceType}
 	 * @return
 	 */
-	java.lang.String getSequenceType();
+	String getSequenceType();
 	
 	
 	/**
 	 * 获取时间格式化
 	 * @return
 	 */
-	java.lang.String getTimeFormat();
+	String getTimeFormat();
 	
 	
 	/**

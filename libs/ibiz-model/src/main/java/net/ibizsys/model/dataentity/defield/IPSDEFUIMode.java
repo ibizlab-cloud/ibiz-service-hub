@@ -14,7 +14,7 @@ public interface IPSDEFUIMode extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSDEFUIMode extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFUIMode}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

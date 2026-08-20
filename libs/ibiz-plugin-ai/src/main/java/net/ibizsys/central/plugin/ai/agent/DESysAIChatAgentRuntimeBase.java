@@ -59,10 +59,10 @@ public abstract class DESysAIChatAgentRuntimeBase extends net.ibizsys.central.cl
 		}
 
 		if (ObjectUtils.isEmpty(this.getLongTermMemoryPrompt())) {
-			this.setLongTermMemoryPrompt(net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(DefaultSysAIChatAgentRuntimeBase.class, "LongTermMemoryPrompt.en.md", false));
+			this.setLongTermMemoryPrompt(this.getSystemRuntime().getResourceContent(DefaultSysAIChatAgentRuntimeBase.class, "LongTermMemoryPrompt.en.md", false));
 		}
 		if (ObjectUtils.isEmpty(this.getDailyMemoryPrompt())) {
-			this.setDailyMemoryPrompt(net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(DefaultSysAIChatAgentRuntimeBase.class, "DailyMemoryPrompt.en.md", false));
+			this.setDailyMemoryPrompt(this.getSystemRuntime().getResourceContent(DefaultSysAIChatAgentRuntimeBase.class, "DailyMemoryPrompt.en.md", false));
 		}
 
 		Set<String> templateSet = new HashSet<String>();

@@ -18,14 +18,14 @@ public interface IPSPicker extends net.ibizsys.model.control.editor.IPSPickerEdi
 	 * 获取下拉视图高度[DROPDOWNVIEWHEIGHT]
 	 * @return
 	 */
-	java.lang.Integer getDropDownViewHeight();
+	Integer getDropDownViewHeight();
 	
 	
 	/**
 	 * 获取下拉视图宽度[DROPDOWNVIEWWIDTH]
 	 * @return
 	 */
-	java.lang.Integer getDropDownViewWidth();
+	Integer getDropDownViewWidth();
 	
 	
 	/**

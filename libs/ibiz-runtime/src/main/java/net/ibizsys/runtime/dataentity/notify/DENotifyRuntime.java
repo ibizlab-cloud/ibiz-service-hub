@@ -28,14 +28,15 @@ import net.ibizsys.runtime.msg.ISysMsgQueueRuntime;
 import net.ibizsys.runtime.msg.ISysMsgTargetRuntime;
 import net.ibizsys.runtime.msg.ISysMsgTemplRuntime;
 import net.ibizsys.runtime.msg.MsgTypes;
+import net.ibizsys.runtime.msg.SysMsgTemplRuntime;
 import net.ibizsys.runtime.res.ISysNotifyAgentRuntime;
 import net.ibizsys.runtime.util.Conditions;
-import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.IEntityBase;
 import net.ibizsys.runtime.util.ISearchContext;
 import net.ibizsys.runtime.util.ISearchContextBase;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
+import net.ibizsys.runtime.util.domain.File;
 import net.ibizsys.runtime.util.domain.MsgSendQueue;
 import net.ibizsys.runtime.util.script.IScriptEntity;
 
@@ -413,6 +414,33 @@ public class DENotifyRuntime extends DataEntityModelRuntimeBase implements IDENo
 		}
 
 		msgSendQueue.setDstUsers(array.toString());
+		
+		String strAttachments = getSysMsgTemplRuntime().getAttachments(iScriptEntity);
+		if(!ObjectUtils.isEmpty(strAttachments)) {
+			strAttachments = strAttachments.trim();
+			//判断是否是否为单项
+			if(strAttachments.indexOf("{") == 0) {
+				File file = JsonUtils.as(strAttachments, File.class);
+				msgSendQueue.setFileAT(JsonUtils.toString(file));
+			}
+			else {
+				List<File> fileList = JsonUtils.as(strAttachments, SysMsgTemplRuntime.FileListType);
+				if(!ObjectUtils.isEmpty(fileList)) {
+					if(fileList.size()>=1) {
+						msgSendQueue.setFileAT(JsonUtils.toString(fileList.get(0)));
+					}
+					if(fileList.size()>=2) {
+						msgSendQueue.setFileAT2(JsonUtils.toString(fileList.get(1)));
+					}
+					if(fileList.size()>=3) {
+						msgSendQueue.setFileAT3(JsonUtils.toString(fileList.get(2)));
+					}
+					if(fileList.size()>=4) {
+						msgSendQueue.setFileAT4(JsonUtils.toString(fileList.get(3)));
+					}
+				}
+			}
+		}
 
 		return msgSendQueue;
 	}

@@ -8,9 +8,11 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCONTENTTYPE = "contentType";
+	public final static String ATTR_GETEXPMODEL = "expModel";
 	public final static String ATTR_GETEXPPARAMS = "expParams";
 	public final static String ATTR_GETEXPTAG = "expTag";
 	public final static String ATTR_GETEXPTAG2 = "expTag2";
+	public final static String ATTR_GETEXPTYPE = "expType";
 	public final static String ATTR_GETFILENAMEFORMAT = "fileNameFormat";
 	public final static String ATTR_GETGROUPLEVEL = "groupLevel";
 	public final static String ATTR_GETMAXROWCOUNT = "maxRowCount";
@@ -43,6 +45,14 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 		return value.asText();
 	}
 
+	public java.lang.String getExpModel(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXPMODEL);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+
 	public com.fasterxml.jackson.databind.node.ObjectNode getExpParams(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXPPARAMS);
 		if(value == null){
@@ -63,6 +73,14 @@ public class PSDEDataExportImpl extends net.ibizsys.model.dataentity.PSDataEntit
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXPTAG2);
 		if(value == null){
 			return null;
+		}
+		return value.asText();
+	}
+
+	public java.lang.String getExpType(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETEXPTYPE);
+		if(value == null){
+			return "DEFAULT";
 		}
 		return value.asText();
 	}

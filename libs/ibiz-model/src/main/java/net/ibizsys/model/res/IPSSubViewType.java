@@ -13,7 +13,7 @@ public interface IPSSubViewType extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -22,14 +22,14 @@ public interface IPSSubViewType extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubViewTypeNameMode}
 	 * @return
 	 */
-	java.lang.String getNameMode();
+	String getNameMode();
 	
 	
 	/**
 	 * 获取类型代码
 	 * @return
 	 */
-	java.lang.String getTypeCode();
+	String getTypeCode();
 	
 	
 	/**
@@ -43,7 +43,7 @@ public interface IPSSubViewType extends net.ibizsys.model.IPSModelObject{
 	 * 获取标准视图类型
 	 * @return
 	 */
-	java.lang.String getViewType();
+	String getViewType();
 	
 	
 	/**

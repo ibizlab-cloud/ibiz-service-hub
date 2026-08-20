@@ -9,7 +9,7 @@
 
     <artifactId>ibiz-plugin</artifactId>
     <groupId>cn.ibizlab.plugin</groupId>
-    <version>8.1.0.578.187</version>
+    <version>8.1.0.584.1</version>
     <name>iBiz Plugin</name>
     <packaging>pom</packaging>
     <description>iBiz Plugin</description>
@@ -135,6 +135,7 @@
         <module>ibiz-cloud-notify-aliyun</module>
         <module>ibiz-plugin-postgresql</module>
         <module>ibiz-plugin-task</module>
+        <module>ibiz-plugin-test</module>
     </modules>
 
 	<properties>
@@ -142,7 +143,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
         <maven.test.skip>true</maven.test.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
-        <ibiz.cloud.version>8.1.0.578.187</ibiz.cloud.version>
+        <ibiz.cloud.version>8.1.0.584.1</ibiz.cloud.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <spring-boot.version>2.4.0</spring-boot.version>
@@ -197,6 +198,12 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>1.76</version>
             </dependency>
         </dependencies>
 

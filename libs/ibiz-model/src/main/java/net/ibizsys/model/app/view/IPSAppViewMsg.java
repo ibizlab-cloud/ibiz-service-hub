@@ -16,14 +16,28 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
+	
+	
+	/**
+	 * 获取内容多语言资源对象
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageRes();
+
+
+	/**
+	 * 获取内容多语言资源对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageResMust();
 	
 	
 	/**
 	 * 获取启用判断操作标识
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**
@@ -41,14 +55,14 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgEnableMode}
 	 * @return
 	 */
-	java.lang.String getEnableMode();
+	String getEnableMode();
 	
 	
 	/**
 	 * 获取显示消息
 	 * @return
 	 */
-	java.lang.String getMessage();
+	String getMessage();
 	
 	
 	/**
@@ -57,7 +71,7 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgType}
 	 * @return
 	 */
-	java.lang.String getMessageType();
+	String getMessageType();
 	
 	
 	/**
@@ -136,7 +150,7 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgPos}
 	 * @return
 	 */
-	java.lang.String getPosition();
+	String getPosition();
 	
 	
 	/**
@@ -180,21 +194,21 @@ public interface IPSAppViewMsg extends net.ibizsys.model.view.IPSViewMsg
 	 * 获取启用判断脚本
 	 * @return
 	 */
-	java.lang.String getTestScriptCode();
+	String getTestScriptCode();
 	
 	
 	/**
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
 	 * 获取抬头语言资源标记
 	 * @return
 	 */
-	java.lang.String getTitleLanResTag();
+	String getTitleLanResTag();
 	
 	
 	/**

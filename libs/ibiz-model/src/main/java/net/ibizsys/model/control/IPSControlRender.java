@@ -14,7 +14,7 @@ public interface IPSControlRender extends net.ibizsys.model.IPSModelObject{
 	 * 获取布局面板模型
 	 * @return
 	 */
-	java.lang.String getLayoutPanelModel();
+	String getLayoutPanelModel();
 	
 	
 	/**
@@ -49,7 +49,7 @@ public interface IPSControlRender extends net.ibizsys.model.IPSModelObject{
 	 * 获取绘制器名称
 	 * @return
 	 */
-	java.lang.String getRenderName();
+	String getRenderName();
 	
 	
 	/**
@@ -58,5 +58,5 @@ public interface IPSControlRender extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ControlRenderType}
 	 * @return
 	 */
-	java.lang.String getRenderType();
+	String getRenderType();
 }

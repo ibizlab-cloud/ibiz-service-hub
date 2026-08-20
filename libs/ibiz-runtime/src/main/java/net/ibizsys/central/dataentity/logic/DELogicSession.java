@@ -19,6 +19,7 @@ import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DateUtils;
 import net.ibizsys.runtime.util.IAppContext;
 import net.ibizsys.runtime.util.IEntity;
+import net.ibizsys.runtime.util.ITransactionalUtil;
 import net.ibizsys.runtime.util.IWebContext;
 import net.ibizsys.runtime.util.JsonUtils;
 
@@ -41,6 +42,8 @@ public class DELogicSession implements IDELogicSession, Cloneable {
 	//private IAppContext iAppContext = null;
 	
 	private ArrayNode debugArrayNode = null;
+	
+	private int transactionCount = 0;  // 事务计数
 	
 	public static IDELogicSession getCurrent() {
 		return current.get();
@@ -313,25 +316,65 @@ public class DELogicSession implements IDELogicSession, Cloneable {
 		
 	}
 
+	@Override
+    public void beginTrans(int propagation) throws Throwable {
+        ITransactionalUtil iTransactionalUtil = getTransactionalUtil();
+        iTransactionalUtil.begin(propagation);
+        transactionCount++;
+    }
 
-	
-	
+    @Override
+    public void commitTrans() throws Throwable {
+        if (transactionCount <= 0) {
+            throw new IllegalStateException("没有正在进行的事务");
+        }
+        ITransactionalUtil iTransactionalUtil = getTransactionalUtil();
+        iTransactionalUtil.commit();
+        transactionCount--;
+    }
 
-//	@Override
-//	public Object value(String strParam, String strField) throws Throwable {
-//		IDELogicParamRuntime iDELogicParamRuntime = this.getDELogicRuntimeContext().getDELogicRuntime().getDELogicParamRuntime(strParam, false);
-//		if(StringUtils.hasLength(strField)) {
-//			return iDELogicParamRuntime.get(strField);
-//		}
-//		else {
-//			return iDELogicParamRuntime.getReal();
-//		}
-//	}
-//
-//	@Override
-//	public Object value(String strParam) throws Throwable {
-//		return value(strParam, null);
-//	}
+    @Override
+    public void rollbackTrans() throws Throwable {
+        if (transactionCount <= 0) {
+            throw new IllegalStateException("没有正在进行的事务");
+        }
+        ITransactionalUtil iTransactionalUtil = getTransactionalUtil();
+        iTransactionalUtil.rollback();
+        transactionCount--;
+    }
+
+    @Override
+    public void close(boolean commit) {
+        while (transactionCount > 0) {
+            try {
+                ITransactionalUtil iTransactionalUtil = getTransactionalUtil();
+                if (commit) {
+                    iTransactionalUtil.commit();
+                } else {
+                    iTransactionalUtil.rollback();
+                }
+                transactionCount--;
+            } catch (Throwable e) {
+                log.error("关闭会话时处理事务失败，剩余事务数：" + transactionCount, e);
+                break;
+            }
+        }
+        this.onClose(commit);
+    }
+    
+   
+    
+    protected void onClose(boolean commit) {
+    	
+    }
+    
+    protected static ITransactionalUtil getTransactionalUtil() {
+        ITransactionalUtil util = ActionSessionManager.getTransactionalUtil();
+        if (util == null) {
+            throw new IllegalStateException("TransactionalUtil 未初始化或不可用，请检查事务管理器配置。");
+        }
+        return util;
+    }
 
 	
 }

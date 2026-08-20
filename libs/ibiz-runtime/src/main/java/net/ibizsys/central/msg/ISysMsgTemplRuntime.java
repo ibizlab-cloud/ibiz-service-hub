@@ -88,6 +88,12 @@ public interface ISysMsgTemplRuntime extends net.ibizsys.runtime.msg.ISysMsgTemp
 	 */
 	String getMobileUrl(Object data, Map<String, Object> params);
 	
-	
+	/**
+	 * 获取附件内容
+	 * @param data 当前数据
+	 * @param params 额外发布参数
+	 * @return
+	 */
+	String getAttachments(Object data, Map<String, Object> params);
 
 }

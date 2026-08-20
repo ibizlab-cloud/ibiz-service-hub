@@ -16,14 +16,14 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -58,35 +58,35 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	 * 获取Json值格式化
 	 * @return
 	 */
-	java.lang.String getJsonFormat();
+	String getJsonFormat();
 	
 	
 	/**
 	 * 获取指标公式
 	 * @return
 	 */
-	java.lang.String getMeasureFormula();
+	String getMeasureFormula();
 	
 	
 	/**
 	 * 获取指标组
 	 * @return
 	 */
-	java.lang.String getMeasureGroup();
+	String getMeasureGroup();
 	
 	
 	/**
 	 * 获取指标标记
 	 * @return
 	 */
-	java.lang.String getMeasureTag();
+	String getMeasureTag();
 	
 	
 	/**
 	 * 获取指标标记2
 	 * @return
 	 */
-	java.lang.String getMeasureTag2();
+	String getMeasureTag2();
 	
 	
 	/**
@@ -95,7 +95,7 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIMeasureType}
 	 * @return
 	 */
-	java.lang.String getMeasureType();
+	String getMeasureType();
 	
 	
 	/**
@@ -153,14 +153,14 @@ public interface IPSAppBICubeMeasure extends net.ibizsys.model.IPSModelObject{
 	 * 获取文本绘制模板
 	 * @return
 	 */
-	java.lang.String getTextTemplate();
+	String getTextTemplate();
 	
 	
 	/**
 	 * 获取提示绘制模板
 	 * @return
 	 */
-	java.lang.String getTipTemplate();
+	String getTipTemplate();
 	
 	
 	/**

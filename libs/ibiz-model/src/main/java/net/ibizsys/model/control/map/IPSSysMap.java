@@ -16,7 +16,7 @@ public interface IPSSysMap extends net.ibizsys.model.control.map.IPSMap{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LabelPos}
 	 * @return
 	 */
-	java.lang.String getLegendPos();
+	String getLegendPos();
 	
 	
 	/**

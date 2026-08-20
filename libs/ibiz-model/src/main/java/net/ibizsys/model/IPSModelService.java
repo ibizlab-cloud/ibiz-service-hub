@@ -25,4 +25,13 @@ public interface IPSModelService {
 	
 	<T> T getPSModelObject(IPSModelObjectRuntime relatedPSModelObject, Class<T> cls, boolean bTryMode);
 	
+	
+	/**
+	 * 获取缓存的模型对象
+	 * @param strPath
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSModelObject getCachePSModelObject(String strPath, boolean bTryMode);
+	
 }

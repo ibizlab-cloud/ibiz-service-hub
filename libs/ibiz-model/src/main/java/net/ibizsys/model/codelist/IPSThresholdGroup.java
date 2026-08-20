@@ -27,14 +27,14 @@ public interface IPSThresholdGroup extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
@@ -146,14 +146,14 @@ public interface IPSThresholdGroup extends net.ibizsys.model.IPSModelObject{
 	 * 获取阈值组标记
 	 * @return
 	 */
-	java.lang.String getThresholdGroupTag();
+	String getThresholdGroupTag();
 	
 	
 	/**
 	 * 获取阈值组标记2
 	 * @return
 	 */
-	java.lang.String getThresholdGroupTag2();
+	String getThresholdGroupTag2();
 	
 	
 	/**
@@ -162,5 +162,5 @@ public interface IPSThresholdGroup extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ThresholdGroupType}
 	 * @return
 	 */
-	java.lang.String getThresholdGroupType();
+	String getThresholdGroupType();
 }

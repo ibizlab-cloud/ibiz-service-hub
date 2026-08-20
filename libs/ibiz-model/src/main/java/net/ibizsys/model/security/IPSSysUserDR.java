@@ -14,5 +14,5 @@ public interface IPSSysUserDR extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义模式
 	 * @return
 	 */
-	java.lang.String getCustomMode();
+	String getCustomMode();
 }

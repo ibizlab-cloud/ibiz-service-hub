@@ -14,5 +14,5 @@ public interface IPSSysCounterItem extends net.ibizsys.model.IPSObject{
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 }

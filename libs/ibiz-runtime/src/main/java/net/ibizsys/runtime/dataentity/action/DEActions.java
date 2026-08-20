@@ -124,4 +124,12 @@ public class DEActions {
 	 * 获取AI数据信息
 	 */
 	public final static String GETAIFULLINFO = "getaifullinfo";
+	
+	
+	/**
+	 * 获取业务范围
+	 */
+	public final static String GETBUSINESSSCOPE = "getbusinessscope";
+	
+	
 }

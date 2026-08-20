@@ -26,42 +26,42 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
 	 * 获取项直接样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取项数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
 	 * 获取菜单项通知标记
 	 * @return
 	 */
-	java.lang.String getInformTag();
+	String getInformTag();
 	
 	
 	/**
 	 * 获取菜单项通知标记2
 	 * @return
 	 */
-	java.lang.String getInformTag2();
+	String getInformTag2();
 	
 	
 	/**
@@ -145,14 +145,14 @@ public interface IPSAppMenuItem extends net.ibizsys.model.control.menu.IPSMenuIt
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取预置类型参数
 	 * @return
 	 */
-	java.lang.String getPredefinedTypeParam();
+	String getPredefinedTypeParam();
 	
 	
 	/**

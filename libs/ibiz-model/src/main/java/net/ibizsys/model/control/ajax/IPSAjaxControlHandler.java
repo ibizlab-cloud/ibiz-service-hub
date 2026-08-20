@@ -31,14 +31,14 @@ public interface IPSAjaxControlHandler extends net.ibizsys.model.control.IPSCont
 	 * 获取统一状态监控属性
 	 * @return
 	 */
-	java.lang.String getUniStateField();
+	String getUniStateField();
 	
 	
 	/**
 	 * 获取缓存统一状态主键属性
 	 * @return
 	 */
-	java.lang.String getUniStateKeyValue();
+	String getUniStateKeyValue();
 	
 	
 	/**

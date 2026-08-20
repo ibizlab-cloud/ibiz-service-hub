@@ -327,7 +327,66 @@ public interface IDataEntityRuntimeBase extends IModelRuntime{
 	IDEDTSQueueRuntime getDEDTSQueueRuntime(String strId);
 	
 	
+	/**
+	 * 注册实体数据导出运行时插件
+	 * @param tag
+	 * @param deDataExportRuntimeClass
+	 * @return
+	 * @throws Throwable
+	 */
+	void registerDEDataExportRuntime(String tag, Class<?> deDataExportRuntimeClass);
 	
+	
+	/**
+	 * 注销实体数据导出运行时插件
+	 * @param tag
+	 * @param deDataExportRuntimeClass
+	 * @return
+	 */
+	boolean unregisterDEDataExportRuntime(String tag, Class<?> deDataExportRuntimeClass);
+	
+	
+	/**
+	 * 注册实体数据导入运行时插件
+	 * @param tag
+	 * @param deDataImportRuntimeClass
+	 * @return
+	 * @throws Throwable
+	 */
+	void registerDEDataImportRuntime(String tag, Class<?> deDataImportRuntimeClass);
+	
+	
+	/**
+	 * 注销实体数据导入运行时插件
+	 * @param tag
+	 * @param deDataImportRuntimeClass
+	 * @return
+	 */
+	boolean unregisterDEDataImportRuntime(String tag, Class<?> deDataImportRuntimeClass);
+	
+	
+	
+	/**
+	 * 注册实体处理逻辑运行时插件
+	 * @param tag
+	 * @param deLogicRuntimeClass
+	 * @return
+	 * @throws Throwable
+	 */
+	void registerDELogicRuntime(String tag, Class<?> deLogicRuntimeClass);
+	
+	
+	/**
+	 * 注销实体处理逻辑运行时插件
+	 * @param tag
+	 * @param deLogicRuntimeClass
+	 * @return
+	 */
+	boolean unregisterDELogicRuntime(String tag, Class<?> deLogicRuntimeClass);
+	
+	
+	
+
 	
 
 }

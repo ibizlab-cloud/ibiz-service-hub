@@ -13,35 +13,35 @@ public interface IPSSysReqItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
 	 * 获取项编号
 	 * @return
 	 */
-	java.lang.String getItemSN();
+	String getItemSN();
 	
 	
 	/**
 	 * 获取项标记
 	 * @return
 	 */
-	java.lang.String getItemTag();
+	String getItemTag();
 	
 	
 	/**
 	 * 获取项标记2
 	 * @return
 	 */
-	java.lang.String getItemTag2();
+	String getItemTag2();
 	
 	
 	/**

@@ -17,10 +17,8 @@ public class DELogicCommitNodeRuntime extends DELogicNodeRuntimeBase{
 		if(!(iPSDELogicNode instanceof IPSDECommitLogic)) {
 			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点[%1$s]模型类型不正确", iPSDELogicNode.getName()));
 		}
-		
-		
-		//iDELogicSession.setLastReturn(null);
-		
+		iDELogicSession.commitTrans();
+		iDELogicSession.setLastReturn(null);
 	}
 	
 }

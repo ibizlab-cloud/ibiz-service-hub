@@ -16,14 +16,14 @@ public interface IPSWFLinkSingleCond extends net.ibizsys.model.wf.IPSWFLinkCond{
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOP();
+	String getCondOP();
 	
 	
 	/**
 	 * 获取目标属性
 	 * @return
 	 */
-	java.lang.String getFieldName();
+	String getFieldName();
 	
 	
 	/**
@@ -32,12 +32,12 @@ public interface IPSWFLinkSingleCond extends net.ibizsys.model.wf.IPSWFLinkCond{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRParamType}
 	 * @return
 	 */
-	java.lang.String getParamType();
+	String getParamType();
 	
 	
 	/**
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getParamValue();
+	String getParamValue();
 }

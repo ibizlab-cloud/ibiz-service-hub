@@ -7,6 +7,7 @@ public class PSCtrlMsgItemImpl extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETCONTENT = "content";
 	public final static String ATTR_GETCONTENTPSLANGUAGERES = "getContentPSLanguageRes";
 	public final static String ATTR_GETTIMEOUT = "timeout";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getContent(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCONTENT);
@@ -44,5 +45,9 @@ public class PSCtrlMsgItemImpl extends net.ibizsys.model.PSObjectImpl implements
 			return -1;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

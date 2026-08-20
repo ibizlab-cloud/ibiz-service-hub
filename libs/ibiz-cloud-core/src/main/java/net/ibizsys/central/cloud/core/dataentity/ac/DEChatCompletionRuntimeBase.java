@@ -14,10 +14,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
+import net.ibizsys.central.cloud.core.ai.ISysAIAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIChatAgentRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.ai.SysAIFactoryRuntimeException;
 import net.ibizsys.central.cloud.core.ai.util.AIChatUtils;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
@@ -27,6 +29,8 @@ import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessageRole;
+import net.ibizsys.central.cloud.core.util.domain.ChatSkill;
+import net.ibizsys.central.cloud.core.util.domain.KnowledgeBase;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionState;
 import net.ibizsys.central.dataentity.ac.DEAutoCompleteRuntimeBase;
@@ -61,7 +65,8 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 	
 	private boolean calcHistorySysMsgTemplRuntime = false;
 	
-	public final static String AIAGENTTAG = "srfaiagenttag";
+	//public final static String AIAGENTTAG = "srfaiagenttag";
+	
 	public final static String AIAGENT = "srfaiagent";
 	
 	private String strAIAgentTag = null;
@@ -216,17 +221,27 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				Map map = (Map)body;
 				String strAIAgent = (String)map.remove(AIAGENT);
 				if(StringUtils.hasLength(strAIAgent)) {
-					((Map)body).put(AIAGENTTAG, strAIAgent);
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
 				}
 				else {
-					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
 				}
 			}
 			else 
 				if(body == null) {
 					body = new HashMap<String, Object>();
-					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
 				}
+			
+			//设置业务域
+			Object businessScope = this.getBusinessScope(iEntity);
+			if(!ObjectUtils.isEmpty(businessScope)) {
+				((Map)body).put(ISysAIAgentRuntime.SCOPE, businessScope);
+			}
+			else {
+				((Map)body).remove(ISysAIAgentRuntime.SCOPE);
+			}
+			
 			return iSysAIChatAgentRuntime.getHistories(iEntity, body, templParams);
 		}
 		
@@ -278,7 +293,17 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			else {
 				chatCompletionRequest.reset(AIAGENT);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			
+			//设置业务域
+			Object businessScope = this.getBusinessScope(iEntity);
+			if(!ObjectUtils.isEmpty(businessScope)) {
+				chatCompletionRequest.set(ISysAIAgentRuntime.SCOPE, businessScope);
+			}
+			else {
+				chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE);
+			}
+			
 			return iSysAIChatAgentRuntime.chatSuggestion(iEntity, chatCompletionRequest, null);
 		}
 		
@@ -323,7 +348,15 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			else {
 				chatCompletionRequest.reset(AIAGENT);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			//设置业务域
+			Object businessScope = this.getBusinessScope(iEntity);
+			if(!ObjectUtils.isEmpty(businessScope)) {
+				chatCompletionRequest.set(ISysAIAgentRuntime.SCOPE, businessScope);
+			}
+			else {
+				chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE);
+			}
 			return iSysAIChatAgentRuntime.chatDigest(iEntity, chatCompletionRequest, null);
 		}
 		
@@ -370,7 +403,16 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			else {
 				chatCompletionRequest.reset(AIAGENT);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			
+			//设置业务域
+			Object businessScope = this.getBusinessScope(iEntity);
+			if(!ObjectUtils.isEmpty(businessScope)) {
+				chatCompletionRequest.set(ISysAIAgentRuntime.SCOPE, businessScope);
+			}
+			else {
+				chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE);
+			}
 			
 			return iSysAIChatAgentRuntime.chatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
@@ -420,7 +462,15 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 			else {
 				chatCompletionRequest.reset(AIAGENT);
 			}
-			chatCompletionRequest.set(AIAGENTTAG, strAIAgent);
+			chatCompletionRequest.set(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			//设置业务域
+			Object businessScope = this.getBusinessScope(iEntity);
+			if(!ObjectUtils.isEmpty(businessScope)) {
+				chatCompletionRequest.set(ISysAIAgentRuntime.SCOPE, businessScope);
+			}
+			else {
+				chatCompletionRequest.reset(ISysAIAgentRuntime.SCOPE);
+			}
 			return iSysAIChatAgentRuntime.asyncChatCompletion(iEntity, chatCompletionRequest, null, true, false);
 		}
 		
@@ -462,16 +512,16 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				Map map = (Map)body;
 				String strAIAgent = (String)map.remove(AIAGENT);
 				if(StringUtils.hasLength(strAIAgent)) {
-					((Map)body).put(AIAGENTTAG, strAIAgent);
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
 				}
 				else {
-					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
 				}
 			}
 			else 
 				if(body == null) {
 					body = new HashMap<String, Object>();
-					((Map)body).put(AIAGENTTAG, this.getAIAgentTag());
+					((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
 				}
 			iSysAIChatAgentRuntime.cancelChatCompletion(iEntity, strAsyncActionId, body);
 			return;
@@ -527,7 +577,15 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 				actionSession.setActionParam(ActionSession.PARAM_ASYNCACTION_ID, portalAsyncAction.getAsyncAcitonId());
 				
 				while(true) {
-					PortalAsyncAction last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+					boolean bDisabled = EmployeeContext.isCurrentDisabled();
+                	PortalAsyncAction last = null;
+    				try {
+    					EmployeeContext.setCurrentDisabled(true);
+    					last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+    				}
+    				finally {
+    					EmployeeContext.setCurrentDisabled(bDisabled);
+    				}
 					
 					double fCompletionRate = 0.0f;
 					if(last.getCompletionRate()!=null) {
@@ -611,6 +669,133 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
 		}, null, null, 0l);
 	}
 	
+	@Override
+	public SseEmitter sseSubAgentOutput(Object dataOrKeys, String strAsyncActionId, Object body) throws Throwable {
+		try {
+			return this.onSseSubAgentOutput(dataOrKeys, strAsyncActionId, body);
+		}
+		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("SSE子代理输出发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected SseEmitter onSseSubAgentOutput(Object dataOrKeys, String strAsyncActionId, Object body) throws Throwable {
+		return (SseEmitter)this.getSystemRuntime().sseAsyncActionOutput(strAsyncActionId, 0l);
+	}
+	
+	
+	
+	
+	@Override
+	public List<ChatSkill> getSkills(Object dataOrKeys, Object body) throws Throwable {
+		try {
+			return this.onGetSkills(dataOrKeys, body);
+		}
+		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("获取技能集合发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected List<ChatSkill> onGetSkills(Object key, Object body) throws Throwable {
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
+		if(iSysAIChatAgentRuntime == null) {
+			return new ArrayList<ChatSkill>();
+		}
+		IEntity iEntity = null;
+		if(key instanceof IEntity) {
+			iEntity = (IEntity)key;
+		}
+		else {
+			iEntity = this.getDataEntityRuntime().get(key);
+		}
+		
+		if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+			if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+				log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+				throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+			}
+		}
+		
+		if(body instanceof Map) {
+			Map map = (Map)body;
+			String strAIAgent = (String)map.remove(AIAGENT);
+			if(StringUtils.hasLength(strAIAgent)) {
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			}
+			else {
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
+			}
+		}
+		else 
+			if(body == null) {
+				body = new HashMap<String, Object>();
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
+			}
+		return iSysAIChatAgentRuntime.getSkills(iEntity, body, new HashMap<String, Object>());
+	}
+
+
+	@Override
+	public List<KnowledgeBase> getKnowledgeBases(Object dataOrKeys, Object body) throws Throwable {
+		try {
+			return this.onGetKnowledgeBases(dataOrKeys, body);
+		}
+		catch (Throwable ex) {
+			if(ex instanceof SysAIFactoryRuntimeException) {
+				throw ex;
+			}
+			DataEntityRuntimeException.rethrow(this, ex);
+			throw new DataEntityRuntimeException(this.getDataEntityRuntimeBase(), this, String.format("获取知识库集合发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected List<KnowledgeBase> onGetKnowledgeBases(Object key, Object body) throws Throwable {
+		ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getSysAIChatAgentRuntime(true);
+		if(iSysAIChatAgentRuntime == null) {
+			return new ArrayList<KnowledgeBase>();
+		}
+		IEntity iEntity = null;
+		if(key instanceof IEntity) {
+			iEntity = (IEntity)key;
+		}
+		else {
+			iEntity = this.getDataEntityRuntime().get(key);
+		}
+		
+		if(StringUtils.hasLength(iSysAIChatAgentRuntime.getAccessKey())) {
+			if(!this.getSystemRuntime().getSystemAccessManager().testSysUniRes(UserContext.getCurrent(), iSysAIChatAgentRuntime.getAccessKey())) {
+				log.error(String.format("AI交互代理[%1$s]不具备访问控制资源[%2$s]", iSysAIChatAgentRuntime.getName(), iSysAIChatAgentRuntime.getAccessKey()));
+				throw new ErrorException(String.format("AI交互代理[%1$s]不具备访问能力", iSysAIChatAgentRuntime.getName()), Errors.ACCESSDENY);
+			}
+		}
+		
+		if(body instanceof Map) {
+			Map map = (Map)body;
+			String strAIAgent = (String)map.remove(AIAGENT);
+			if(StringUtils.hasLength(strAIAgent)) {
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, strAIAgent);
+			}
+			else {
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
+			}
+		}
+		else 
+			if(body == null) {
+				body = new HashMap<String, Object>();
+				((Map)body).put(ISysAIAgentRuntime.AIAGENTTAG, this.getAIAgentTag());
+			}
+		return iSysAIChatAgentRuntime.getKnowledgeBases(iEntity, body, new HashMap<String, Object>());
+	}
+
+
 	protected String getAIAgentTag() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (requestAttributes instanceof ServletRequestAttributes) {
@@ -619,6 +804,18 @@ public abstract class DEChatCompletionRuntimeBase extends DEAutoCompleteRuntimeB
                 return agent;
         }
 		return this.strAIAgentTag;
+	}
+	
+	
+	protected String getBusinessScope(IEntity iEntity) throws Throwable {
+		if(this.getDataEntityRuntime() instanceof net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime ) {
+			return ((net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime)this.getDataEntityRuntime()).getBusinessScope(iEntity);
+		}
+		Object realKey = this.getDataEntityRuntime().getKeyFieldValue(iEntity);
+		if(!ObjectUtils.isEmpty(realKey)) {
+			return String.format("%1$s=%2$s", this.getDataEntityRuntime().getName(), realKey);
+		}
+		return null;
 	}
 	
 }

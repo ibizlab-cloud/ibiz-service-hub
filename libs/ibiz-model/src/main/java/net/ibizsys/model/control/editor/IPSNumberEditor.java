@@ -16,14 +16,14 @@ public interface IPSNumberEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取最大值[MAXVALUE]
 	 * @return
 	 */
-	java.lang.Double getMaxValue();
+	Double getMaxValue();
 	
 	
 	/**
 	 * 获取最小值[MINVALUE]
 	 * @return
 	 */
-	java.lang.Double getMinValue();
+	Double getMinValue();
 	
 	
 	/**
@@ -45,12 +45,12 @@ public interface IPSNumberEditor extends net.ibizsys.model.control.IPSEditor{
 	 * @return
 	 */
 	@Deprecated
-	java.lang.Integer getPrecision();
+	Integer getPrecision();
 	
 	
 	/**
 	 * 获取小数点位数[SCALE]
 	 * @return
 	 */
-	java.lang.Integer getScale();
+	Integer getScale();
 }

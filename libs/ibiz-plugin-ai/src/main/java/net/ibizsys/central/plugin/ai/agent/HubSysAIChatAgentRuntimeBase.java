@@ -1,5 +1,6 @@
 package net.ibizsys.central.plugin.ai.agent;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -34,7 +35,7 @@ public abstract class HubSysAIChatAgentRuntimeBase extends SkillSysAIChatAgentRu
 	
 	@Override
 	protected void onInit() throws Exception {
-		this.strSkillAndAgentDetectionPrompt = net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(HubSysAIChatAgentRuntimeBase.class, "SkillDetectionPrompt.en.md", false);
+		this.strSkillAndAgentDetectionPrompt = this.getSystemRuntime().getResourceContent(HubSysAIChatAgentRuntimeBase.class, "SkillDetectionPrompt.en.md", false);
 		
 		if(this.getMasterAIChatAgentGroup(true) == null) {
 			this.prepareMasterAIChatAgentGroup();
@@ -81,7 +82,7 @@ public abstract class HubSysAIChatAgentRuntimeBase extends SkillSysAIChatAgentRu
 	protected synchronized void prepareChatAgentSysAIChatSkillMap() throws Exception{
 		if(this.chatAgentSysAIChatSkillMap == null) {
 			this.sysAIChatSkillDescMap.clear();
-			this.fillAIChatSkillDescMap(this.sysAIChatSkillDescMap);
+			//this.fillAIChatSkillDescMap(this.sysAIChatSkillDescMap);
 			this.chatAgentSysAIChatSkillMap = new LinkedHashMap<String, ISysAIChatSkill>();
 			List<ISysAIChatAgentRuntime> sysAIChatAgentRuntimeList = getMasterAIChatAgentGroup(false).getAIChatAgents();
 			if(!ObjectUtils.isEmpty(sysAIChatAgentRuntimeList)) {
@@ -106,13 +107,26 @@ public abstract class HubSysAIChatAgentRuntimeBase extends SkillSysAIChatAgentRu
 	}
 	
 	
+	
+	
 	@Override
-	protected String getContent(Object data, String strTemplateId, Map<String, Object> params, boolean bTryMode) throws Throwable {
-		if (!params.containsKey(TEMPLATE_PARAM_SKILLS)) {
+	protected Map<String, String> getAIChatSkillDescs(boolean includeRemote) {
+		
+		Map<String, String> map = super.getAIChatSkillDescs(includeRemote);
+		try {
 			prepareChatAgentSysAIChatSkillMap();
-			params.put(TEMPLATE_PARAM_SKILLS, JsonUtils.toString(this.sysAIChatSkillDescMap));
 		}
-		return super.getContent(data, strTemplateId, params, bTryMode);
+		catch (Exception ex) {
+			log.error(String.format("准备聊天子代理技能描述发生异常，%1$s", ex.getMessage()), ex);
+		}
+
+		if(ObjectUtils.isEmpty(this.sysAIChatSkillDescMap)) {
+			return map;
+		}
+		
+		Map<String, String> skillDescMap = new LinkedHashMap<String, String>(map);
+		skillDescMap.putAll(this.sysAIChatSkillDescMap);
+		return Collections.unmodifiableMap(skillDescMap);
 	}
 	
 	@Override
@@ -126,190 +140,6 @@ public abstract class HubSysAIChatAgentRuntimeBase extends SkillSysAIChatAgentRu
 	}
 	
 	
-//	@Override
-//	public ChatCompletionResult chatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable {
-//		// TODO Auto-generated method stub
-//		return super.chatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
-//	}
-//	
-//	@Override
-//	protected ChatCompletionResult onChatCompletion(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest, Map<String, Object> params, boolean bAppendSystemMessage, boolean bAppendHistories) throws Throwable {
-//		//进行决策
-//		List<ISysAIChatAgentRuntime> sysAIChatAgentRuntimeList = getMasterAIChatAgentGroup(false).getAIChatAgents();
-//		if(!ObjectUtils.isEmpty(sysAIChatAgentRuntimeList)) {
-//			
-//			Map<String, String> skillPromptMap = new LinkedHashMap<String, String>();
-//			Map<String, ISysAIChatAgentRuntime> sysAIChatAgentRuntimeMap = new LinkedHashMap<String, ISysAIChatAgentRuntime>();
-//			//进一步填充
-//			for(ISysAIChatAgentRuntime iSysAIChatAgentRuntime : sysAIChatAgentRuntimeList) {
-//				if(StringUtils.hasLength(iSysAIChatAgentRuntime.getPSModelObject().getReadme())) {
-//					skillPromptMap.put(String.format("%1$s@agent", iSysAIChatAgentRuntime.getUniqueTag()), iSysAIChatAgentRuntime.getPSModelObject().getReadme());
-//					sysAIChatAgentRuntimeMap.put(String.format("%1$s@agent", iSysAIChatAgentRuntime.getUniqueTag()), iSysAIChatAgentRuntime);
-//				}
-//			}
-//			
-//			if(!ObjectUtils.isEmpty(skillPromptMap)) {
-//				
-//				String strRedirectAgentId = (String)ChatCompletionSessionHolder.peekMust().resetParam(AIAGENTTAG);
-//				if(!StringUtils.hasLength(strRedirectAgentId)) {
-//
-//					Map<String, String> knowledgeBaseMap = new LinkedHashMap<String, String>();
-//					//判断是否传入知识库
-//					if(!ObjectUtils.isEmpty(chatCompletionRequest.getKnowledgeBases())) {
-//						int nIndex = 0;
-//						for(String strKBTag : chatCompletionRequest.getKnowledgeBases()) {
-//							String strRealKBConfigId = this.getKBAgentConfigId(strKBTag);
-//							try {
-//								String strKBInfo = this.getSysKBUtilRuntime().getGuidancePrompt(strRealKBConfigId);
-//								if(StringUtils.hasLength(strKBInfo)) {
-//									knowledgeBaseMap.put(String.format("kb%1$s", nIndex), strKBInfo);
-//									nIndex ++;
-//								}
-//							}
-//							catch (Throwable ex) {
-//								log.error(String.format("获取知识库[%1$s]引导信息发生异常，%2$s", strRealKBConfigId, ex.getMessage()), ex);
-//							}
-//						}
-//					}
-//					
-//					//进一步填充
-//					this.fillAIChatSkillPromptMap(skillPromptMap);
-//					
-//					
-//					try {
-//						List<String> list = detectSkillAndAgents(chatCompletionRequest, skillPromptMap, knowledgeBaseMap);
-//						if (!ObjectUtils.isEmpty(list)) {
-//							//判断列表
-//							for(String strSkillId : list) {
-//								if(strSkillId.indexOf("@agent") != -1) {
-//									strRedirectAgentId = strSkillId;
-//									break;
-//								}
-//							}
-//						}
-//						//填入已经做过的Skill清单，后续不要再做
-//						chatCompletionRequest.set("_skills", list);
-//					} catch (Throwable ex) {
-//						log.error(String.format("检测技能发生异常，%1$s", ex.getMessage()), ex);
-//					}
-//				}
-//				
-//				if(StringUtils.hasLength(strRedirectAgentId)) {
-//					ISysAIChatAgentRuntime iSysAIChatAgentRuntime = sysAIChatAgentRuntimeMap.get(strRedirectAgentId);
-//					if(iSysAIChatAgentRuntime == null) {
-//						log.error(String.format("返回的技能代理标识[%1$s]无效", strRedirectAgentId));
-//					}
-//					else {
-//						//直接中断
-//						if(IDEAIChatLogicRuntimeBase.DELOGIC_AICHAT_ACTION_CHATCOMPLETION.equals(ChatCompletionSessionHolder.peekMust().getAction())) {
-//							return iSysAIChatAgentRuntime.chatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
-//						}
-//						else {
-//							PortalAsyncAction portalAsyncAction = iSysAIChatAgentRuntime.asyncChatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
-//							try {
-//								ChatCompletionResult result = this.doExecuteChatPortalAsyncActionOutput(portalAsyncAction);
-//								//判断结果是否存在停止原因
-//								String strStopReason = DataTypeUtils.asString(result.get("srfstopreason"));
-//								if (DELogicSysAIChatAgentType.CHATINPUT.value.equals(strStopReason)) {
-//									ChatCompletionSessionHolder.peekMust().setParam(AIAGENTTAG, strRedirectAgentId);
-//								}
-//								return result;
-//							}
-//							catch (Throwable ex) {
-//								if(ex instanceof UserCancelException) {
-//									try {
-//										Map<String, Object> body = new HashMap<String, Object>();
-//										body.putAll(chatCompletionRequest.any());
-//										iSysAIChatAgentRuntime.cancelChatCompletion(new Entity(), portalAsyncAction.getAsyncAcitonId(), body);
-//									} catch (Throwable ex2) {
-//										log.error(ex2);
-//									}
-//								}
-//								throw ex;				
-//							}
-//						}
-//					}
-//				}
-//			}
-//		}
-//		return super.onChatCompletion(dataOrKeys, chatCompletionRequest, params, bAppendSystemMessage, bAppendHistories);
-//	}
-//	
-//	@Override
-//	protected List<String> detectSkills(ChatCompletionRequest request, Map<String, String> skillMap, Map<String, Object> templParams) throws Throwable {
-//		Object skillIds = request.get("_skills");
-//		if(skillIds instanceof List) {
-//			request.reset("_skills");
-//			return (List)skillIds;
-//		}
-//		return super.detectSkills(request, skillMap, templParams);
-//	}
-//	
-//	protected List<String> detectSkillAndAgents(ChatCompletionRequest request, Map<String, String> skillMap, Map<String, String> knowledgeBaseMap) throws Throwable {
-//		return this.detectSkillAndAgents(request, skillMap, knowledgeBaseMap, new HashMap<String, Object>());
-//	}
-//	
-//	protected List<String> detectSkillAndAgents(ChatCompletionRequest request, Map<String, String> skillMap, Map<String, String> knowledgeBaseMap, Map<String, Object> templParams) throws Throwable {
-//
-//		List<ChatMessage> historeis = this.getRealChatMessages(request);
-//		if (ObjectUtils.isEmpty(historeis)) {
-//			return Collections.EMPTY_LIST;
-//		}
-//
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		if(!ObjectUtils.isEmpty(templParams)) {
-//			params.putAll(templParams);
-//		}
-//		if(!params.containsKey(TEMPLATE_PARAM_REQUEST_MESSAGES)) {
-//			params.put(TEMPLATE_PARAM_REQUEST_MESSAGES, JsonUtils.toString(historeis));
-//		}
-//		if(!params.containsKey(TEMPLATE_PARAM_SKILLS)) {
-//			params.put(TEMPLATE_PARAM_SKILLS, JsonUtils.toString(skillMap));
-//		}
-//		if(!params.containsKey(TEMPLATE_PARAM_KNOWLEDGE_BASES)) {
-//			params.put(TEMPLATE_PARAM_KNOWLEDGE_BASES, JsonUtils.toString(knowledgeBaseMap));
-//		}
-//		
-//		String strContent = this.getRawContent(Collections.EMPTY_LIST, this.getSkillAndAgentDetectionPrompt(), params);
-//
-//		ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
-//
-//		List<ChatMessage> chatMessageList = ChatMessagesBuilder.create().xml(strContent).build();
-//		if (!ObjectUtils.isEmpty(chatMessageList)) {
-//			chatCompletionRequest.setMessages(chatMessageList);
-//		} else {
-//			chatCompletionRequest.setMessages(ChatMessagesBuilder.create().user(strContent).build());
-//		}
-//
-//		ChatCompletionResult result = this.rawChatCompletion(ISysAIUtilRuntime.AIPLATFORM_ANALYSIS, chatCompletionRequest);
-//		JsonNode jsonNode = net.ibizsys.central.plugin.ai.util.AIChatUtils.getJsonNode(result);
-//		if(jsonNode instanceof ArrayNode) {
-//			return JsonUtils.asList(jsonNode);
-//		}
-//		
-//		if(jsonNode instanceof ObjectNode) {
-//			ObjectNode objectNode = (ObjectNode)jsonNode;
-//			JsonNode user_intent = objectNode.path("user_intent");
-//			if(!user_intent.isMissingNode()) {
-//				if(ObjectUtils.isEmpty(request.getChunkQueries())) {
-//					if(user_intent.isArray()) {
-//						request.setChunkQueries(JsonUtils.asList(user_intent));
-//					}
-//					else {
-//						request.setChunkQueries(Arrays.asList(user_intent.asText()));	
-//					}
-//				}
-//			}
-//			
-//			JsonNode skill_list = objectNode.path("skill_list");
-//			if(!skill_list.isMissingNode() && skill_list.isArray()) {
-//				return JsonUtils.asList(skill_list);
-//			}
-//		}
-//		
-//		log.error(String.format("无法识别的结果对象：\r\n%1$s", jsonNode!=null?jsonNode.toPrettyString():null));
-//		throw new Exception("无法识别的结果对象");
-//	}
 	
 	
 	@Override

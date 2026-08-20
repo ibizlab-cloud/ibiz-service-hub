@@ -28,7 +28,7 @@ public interface IPSDEDRBarGroup extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**

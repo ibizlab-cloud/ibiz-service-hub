@@ -28,14 +28,14 @@ public interface IPSDEWizardStep extends net.ibizsys.model.IPSModelObject{
 	 * 获取步骤标识
 	 * @return
 	 */
-	java.lang.String getStepTag();
+	String getStepTag();
 	
 	
 	/**
 	 * 获取子抬头
 	 * @return
 	 */
-	java.lang.String getSubTitle();
+	String getSubTitle();
 	
 	
 	/**
@@ -56,7 +56,7 @@ public interface IPSDEWizardStep extends net.ibizsys.model.IPSModelObject{
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**

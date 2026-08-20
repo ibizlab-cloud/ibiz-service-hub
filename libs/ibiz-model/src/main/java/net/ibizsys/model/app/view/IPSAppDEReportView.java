@@ -19,5 +19,5 @@ public interface IPSAppDEReportView extends net.ibizsys.model.app.view.IPSAppDEV
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */
-	java.lang.String getMarkOpenDataMode();
+	String getMarkOpenDataMode();
 }

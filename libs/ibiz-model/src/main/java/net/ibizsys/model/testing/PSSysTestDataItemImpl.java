@@ -14,6 +14,7 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 	public final static String ATTR_GETVALUE = "value";
 	public final static String ATTR_GETVALUETYPE = "valueType";
 	public final static String ATTR_GETVALUES = "values";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISNULLVALUE = "nullValue";
 
 	public java.lang.String getMemo(){
@@ -172,6 +173,10 @@ public class PSSysTestDataItemImpl extends net.ibizsys.model.PSObjectImpl implem
 			this.values = array;
 		}
 		return this.values;
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isNullValue(){

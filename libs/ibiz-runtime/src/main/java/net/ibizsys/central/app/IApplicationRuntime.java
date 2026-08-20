@@ -6,13 +6,14 @@ import net.ibizsys.central.app.dataentity.IAppDataEntityRSRuntime;
 import net.ibizsys.central.app.dataentity.IAppDataEntityRuntime;
 import net.ibizsys.central.sysutil.ISysUtilRuntimeBase;
 import net.ibizsys.model.app.IPSApplication;
+import net.ibizsys.runtime.IModelRuntimeShutdownable;
 
 /**
  * 前端应用接口运行时
  * @author lionlau
  *
  */
-public interface IApplicationRuntime extends ISysUtilRuntimeBase, ISystemModelRuntime {
+public interface IApplicationRuntime extends ISysUtilRuntimeBase, ISystemModelRuntime ,IModelRuntimeShutdownable{
 
 	
 	/**

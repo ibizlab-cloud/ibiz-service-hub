@@ -37,7 +37,7 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	 * 获取目标参数合并属性
 	 * @return
 	 */
-	java.lang.String getDstParamMergeField();
+	String getDstParamMergeField();
 	
 	
 	/**
@@ -46,7 +46,7 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMergeParamMode}
 	 * @return
 	 */
-	java.lang.String getMergeMode();
+	String getMergeMode();
 	
 	
 	/**
@@ -81,7 +81,7 @@ public interface IPSDEMergeParamLogic extends net.ibizsys.model.dataentity.logic
 	 * 获取源参数合并属性
 	 * @return
 	 */
-	java.lang.String getSrcParamMergeField();
+	String getSrcParamMergeField();
 	
 	
 	/**

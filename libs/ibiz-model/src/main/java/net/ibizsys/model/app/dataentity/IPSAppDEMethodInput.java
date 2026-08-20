@@ -44,7 +44,7 @@ public interface IPSAppDEMethodInput extends net.ibizsys.model.dataentity.servic
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodInputType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

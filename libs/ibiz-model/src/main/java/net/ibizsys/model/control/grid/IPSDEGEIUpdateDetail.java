@@ -14,5 +14,5 @@ public interface IPSDEGEIUpdateDetail extends net.ibizsys.model.IPSModelObject{
 	 * 获取更新表格列
 	 * @return
 	 */
-	java.lang.String getName();
+	String getName();
 }

@@ -25,42 +25,42 @@ public interface IPSUIActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取成员标记
 	 * @return
 	 */
-	java.lang.String getDetailTag();
+	String getDetailTag();
 	
 	
 	/**
 	 * 获取成员标记2
 	 * @return
 	 */
-	java.lang.String getDetailTag2();
+	String getDetailTag2();
 	
 	
 	/**
 	 * 获取启用判断脚本代码
 	 * @return
 	 */
-	java.lang.String getEnableScriptCode();
+	String getEnableScriptCode();
 	
 	
 	/**
@@ -95,7 +95,7 @@ public interface IPSUIActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -109,7 +109,7 @@ public interface IPSUIActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取可见判断脚本代码
 	 * @return
 	 */
-	java.lang.String getVisibleScriptCode();
+	String getVisibleScriptCode();
 	
 	
 	/**

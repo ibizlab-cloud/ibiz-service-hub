@@ -16,7 +16,7 @@ public interface IPSDEDFJoinCond extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**
@@ -25,5 +25,5 @@ public interface IPSDEDFJoinCond extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicLinkCondType}
 	 * @return
 	 */
-	java.lang.String getCondType();
+	String getCondType();
 }

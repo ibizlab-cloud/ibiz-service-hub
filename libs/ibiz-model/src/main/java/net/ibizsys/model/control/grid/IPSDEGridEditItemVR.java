@@ -37,7 +37,7 @@ public interface IPSDEGridEditItemVR extends net.ibizsys.model.IPSModelObject{
 	 * 获取表格编辑项名称
 	 * @return
 	 */
-	java.lang.String getPSDEGridEditItemName();
+	String getPSDEGridEditItemName();
 	
 	
 	/**
@@ -60,5 +60,5 @@ public interface IPSDEGridEditItemVR extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TargetVRType}
 	 * @return
 	 */
-	java.lang.String getValueRuleType();
+	String getValueRuleType();
 }

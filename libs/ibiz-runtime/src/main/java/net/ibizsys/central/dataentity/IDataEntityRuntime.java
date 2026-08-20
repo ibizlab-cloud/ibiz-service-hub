@@ -50,6 +50,7 @@ import net.ibizsys.central.system.ISystemModuleUtilRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContext;
 import net.ibizsys.central.util.ISearchContextDTO;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.model.database.IPSDEDBConfig;
 import net.ibizsys.model.dataentity.IPSDataEntity;
@@ -502,6 +503,8 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 */
 	Object executeAction(String strActionName, IPSDEAction iPSDEAction, Object[] args, boolean bIgnoreDEService) throws Throwable;
 
+	
+	
 	/**
 	 * 启动流程
 	 * 
@@ -1308,6 +1311,17 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 */
 	Object execute(IAction iAction, Object[] args, String strInterProcessLock, String strSessionId, long time, TimeUnit unit, int nPropagation) throws Throwable;
 
+	
+	/**
+	 * 实体测试执行行为
+	 * 
+	 * @param iAction
+	 * @param args
+	 * @return
+	 * @throws Throwable
+	 */
+	Object testExecute(IAction iAction, Object[] args) throws Throwable;
+	
 	/**
 	 * 获取传入分页对象的EntityDTO分页对象
 	 * 
@@ -1824,5 +1838,16 @@ public interface IDataEntityRuntime extends net.ibizsys.runtime.dataentity.IData
 	 * @return
 	 */
 	List<IPSDEField> getAttachmentPSDEFields(boolean bExtension);
+	
+	
+	
+	/**
+	 * 导出数据2
+	 * @param strExportTag
+	 * @param objData
+	 * @param outputStream
+	 * @throws Throwable
+	 */
+	ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable;
 }	
 

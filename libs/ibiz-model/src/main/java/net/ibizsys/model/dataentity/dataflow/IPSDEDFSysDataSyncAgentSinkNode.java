@@ -52,5 +52,5 @@ public interface IPSDEDFSysDataSyncAgentSinkNode extends net.ibizsys.model.datae
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowSysDataSyncAgentSinkType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 }

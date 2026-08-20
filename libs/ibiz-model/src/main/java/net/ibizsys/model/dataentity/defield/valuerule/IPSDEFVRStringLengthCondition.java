@@ -16,14 +16,14 @@ public interface IPSDEFVRStringLengthCondition extends net.ibizsys.model.dataent
 	 * 获取最大值
 	 * @return
 	 */
-	java.lang.Integer getMaxValue();
+	Integer getMaxValue();
 	
 	
 	/**
 	 * 获取最小值
 	 * @return
 	 */
-	java.lang.Integer getMinValue();
+	Integer getMinValue();
 	
 	
 	/**

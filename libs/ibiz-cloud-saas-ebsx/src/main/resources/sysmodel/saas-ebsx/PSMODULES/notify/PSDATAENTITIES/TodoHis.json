@@ -419,6 +419,9 @@
     "getAllPSDEDataQueryCodes" : [ {
       "modelref" : true,
       "path" : "PSMODULES/notify/PSDATAENTITIES/TodoHis/PSDEDATAQUERIES/CurUserLast/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/notify/PSDATAENTITIES/TodoHis/PSDEDATAQUERIES/CurUserLast/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "CurUserLast",
     "logicName" : "当前用户数据",
@@ -4230,6 +4233,7 @@
       "columnName" : "LASTOPT",
       "dBType" : "POSTGRESQL",
       "name" : "LASTOPT",
+      "queryCodeExp" : "t1.LASTOPT",
       "standardColumnName" : "LASTOPT"
     }, {
       "columnName" : "LASTOPT",

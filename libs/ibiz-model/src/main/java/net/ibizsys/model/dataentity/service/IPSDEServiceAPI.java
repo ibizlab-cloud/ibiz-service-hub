@@ -23,14 +23,14 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码标识2（复数）
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -198,14 +198,14 @@ public interface IPSDEServiceAPI extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取服务参数
 	 * @return
 	 */
-	java.lang.String getServiceParam();
+	String getServiceParam();
 	
 	
 	/**
 	 * 获取服务参数2
 	 * @return
 	 */
-	java.lang.String getServiceParam2();
+	String getServiceParam2();
 	
 	
 	/**

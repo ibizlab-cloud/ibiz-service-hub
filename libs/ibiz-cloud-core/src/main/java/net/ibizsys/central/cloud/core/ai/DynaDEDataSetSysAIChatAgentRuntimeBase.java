@@ -21,6 +21,7 @@ import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
+import net.ibizsys.central.cloud.core.util.domain.ChatSkill;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.util.IEntityDTO;
@@ -789,6 +790,26 @@ public abstract class DynaDEDataSetSysAIChatAgentRuntimeBase extends SysAIChatAg
 	}
 
 
+	@Override
+	protected List<ChatSkill> onGetSkills(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+		if(body instanceof Map) {
+			String strAIAgentTag = (String)((Map)body).get(AIAGENTTAG);
+			if(StringUtils.hasLength(strAIAgentTag)) {
+				ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getRealSysAIChatAgentRuntime(strAIAgentTag, true);
+				if(iSysAIChatAgentRuntime != null) {
+					return iSysAIChatAgentRuntime.getSkills(dataOrKeys, body, params);
+				}
+			}
+			else {
+				ISysAIChatAgentRuntime iSysAIChatAgentRuntime = this.getDefaultSysAIChatAgentRuntime(true);
+				if(iSysAIChatAgentRuntime != null) {
+					return iSysAIChatAgentRuntime.getSkills(dataOrKeys, body, params);
+				}
+			}
+		}
+		
+		return super.onGetSkills(dataOrKeys, body, params);
+	}
 
 
 	@Override

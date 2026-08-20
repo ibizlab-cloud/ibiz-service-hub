@@ -15,7 +15,7 @@ public interface IPSBIReportMeasure extends net.ibizsys.model.bi.IPSBIReportItem
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
@@ -24,5 +24,5 @@ public interface IPSBIReportMeasure extends net.ibizsys.model.bi.IPSBIReportItem
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlaceType}
 	 * @return
 	 */
-	java.lang.String getPlaceType();
+	String getPlaceType();
 }

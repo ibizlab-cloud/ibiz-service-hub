@@ -9,6 +9,7 @@ public class PSSysPanelFieldImpl extends net.ibizsys.model.control.panel.PSSysPa
 	public final static String ATTR_GETLABELDYNACLASS = "labelDynaClass";
 	public final static String ATTR_GETLABELPSSYSCSS = "getLabelPSSysCss";
 	public final static String ATTR_GETOUTPUTCODELISTCONFIGMODE = "outputCodeListConfigMode";
+	public final static String ATTR_GETPHPSLANGUAGERES = "getPHPSLanguageRes";
 	public final static String ATTR_GETPSEDITOR = "getPSEditor";
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
 	public final static String ATTR_GETRESETITEMNAME = "resetItemName";
@@ -75,6 +76,29 @@ public class PSSysPanelFieldImpl extends net.ibizsys.model.control.panel.PSSysPa
 		}
 		return value.asInt();
 	}
+	private net.ibizsys.model.res.IPSLanguageRes phpslanguageres;
+
+	@Deprecated
+	public net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageRes(){
+		if(this.phpslanguageres != null) return this.phpslanguageres;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETPHPSLANGUAGERES);
+		if(value == null){
+			return null;
+		}
+		this.phpslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETPHPSLANGUAGERES);
+		return this.phpslanguageres;
+	}
+
+	public net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageResMust(){
+		net.ibizsys.model.res.IPSLanguageRes value = this.getPHPSLanguageRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getPHPSLanguageRes]返回空值");}
+		return value;
+	}
+
+	public void setPHPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes phpslanguageres){
+		this.phpslanguageres = phpslanguageres;
+	}
+
 	private net.ibizsys.model.control.IPSEditor pseditor;
 
 	public net.ibizsys.model.control.IPSEditor getPSEditor(){

@@ -14,5 +14,5 @@ public interface IPSAjaxEditor extends net.ibizsys.model.control.IPSEditor{
 	 * 获取处理器类型
 	 * @return
 	 */
-	java.lang.String getHandlerType();
+	String getHandlerType();
 }

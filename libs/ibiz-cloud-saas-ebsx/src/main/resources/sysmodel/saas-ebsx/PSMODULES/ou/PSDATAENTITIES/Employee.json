@@ -571,6 +571,9 @@
     "getAllPSDEDataQueryCodes" : [ {
       "modelref" : true,
       "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEDATAQUERIES/CurUser/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/ou/PSDATAENTITIES/Employee/PSDEDATAQUERIES/CurUser/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "CurUser",
     "logicName" : "当前用户",
@@ -7979,6 +7982,7 @@
       "columnName" : "FROMOPENUSERTAG",
       "dBType" : "POSTGRESQL",
       "name" : "FROMOPENUSERTAG",
+      "queryCodeExp" : "t1.FROMOPENUSERTAG",
       "standardColumnName" : "FROMOPENUSERTAG"
     }, {
       "columnName" : "FROMOPENUSERTAG",

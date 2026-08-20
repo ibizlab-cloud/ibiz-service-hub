@@ -16,19 +16,19 @@ public interface IPSPanelItemSingleLogic extends net.ibizsys.model.control.panel
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**
 	 * 获取模型属性名称
 	 * @return
 	 */
-	java.lang.String getDstModelField();
+	String getDstModelField();
 	
 	
 	/**
 	 * 获取条件值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 }

@@ -987,7 +987,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[ACTIONPARAM2][操作参数2]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1000,7 +1000,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[ACTIONPARAM2][操作参数2]",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1015,16 +1015,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "ACTIONPARAM2",
-          "maxValue" : 100,
+          "maxValue" : 500,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[500]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[500]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[500]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1034,7 +1034,7 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 500,
     "logicName" : "操作参数2",
     "name" : "ACTIONPARAM2",
     "orderValue" : 1000,
@@ -1047,7 +1047,7 @@
       "id" : "ACTIONPARAM2"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 500,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1085,7 +1085,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[ACTIONPARAM3][操作参数3]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1098,7 +1098,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[ACTIONPARAM3][操作参数3]",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1113,16 +1113,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "ACTIONPARAM3",
-          "maxValue" : 100,
+          "maxValue" : 500,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[500]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[500]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[500]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1132,7 +1132,7 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 500,
     "logicName" : "操作参数3",
     "name" : "ACTIONPARAM3",
     "orderValue" : 1000,
@@ -1145,7 +1145,7 @@
       "id" : "ACTIONPARAM3"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 500,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1183,7 +1183,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[ACTIONPARAM][操作参数]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1196,7 +1196,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[ACTIONPARAM][操作参数]",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1211,16 +1211,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "ACTIONPARAM",
-          "maxValue" : 100,
+          "maxValue" : 500,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[500]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[500]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[500]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1230,7 +1230,7 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 500,
     "logicName" : "操作参数",
     "name" : "ACTIONPARAM",
     "orderValue" : 1000,
@@ -1243,7 +1243,7 @@
       "id" : "ACTIONPARAM"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 500,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1480,7 +1480,7 @@
         "codeName" : "MobileDefault",
         "editorType" : "MOBTEXT",
         "name" : "[ACTIONPARAM4][操作参数4]移动端默认",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1493,7 +1493,7 @@
         "codeName" : "Default",
         "editorType" : "TEXTBOX",
         "name" : "[ACTIONPARAM4][操作参数4]",
-        "stringLength" : 100,
+        "stringLength" : 500,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1508,16 +1508,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "ACTIONPARAM4",
-          "maxValue" : 100,
+          "maxValue" : 500,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[500]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[500]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[500]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1527,7 +1527,7 @@
     "dEFType" : 1,
     "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 500,
     "logicName" : "操作参数4",
     "name" : "ACTIONPARAM4",
     "orderValue" : 1000,
@@ -1540,7 +1540,7 @@
       "id" : "ACTIONPARAM4"
     },
     "stdDataType" : 25,
-    "stringLength" : 100,
+    "stringLength" : 500,
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -3024,6 +3024,7 @@
       "columnName" : "PASYNCACITONID",
       "dBType" : "POSTGRESQL",
       "name" : "PASYNCACITONID",
+      "queryCodeExp" : "t1.PASYNCACITONID",
       "standardColumnName" : "PASYNCACITONID"
     }, {
       "columnName" : "PASYNCACITONID",
@@ -3155,6 +3156,7 @@
       "columnName" : "FULLSTEPINFO",
       "dBType" : "POSTGRESQL",
       "name" : "FULLSTEPINFO",
+      "queryCodeExp" : "t1.FULLSTEPINFO",
       "standardColumnName" : "FULLSTEPINFO"
     }, {
       "columnName" : "FULLSTEPINFO",
@@ -3253,7 +3255,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 500,
       "type" : "SIMPLE"
     }, {
       "logicName" : "操作参数2",
@@ -3264,7 +3266,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 500,
       "type" : "SIMPLE"
     }, {
       "logicName" : "操作参数4",
@@ -3275,7 +3277,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 500,
       "type" : "SIMPLE"
     }, {
       "logicName" : "操作参数3",
@@ -3286,7 +3288,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 500,
       "type" : "SIMPLE"
     }, {
       "logicName" : "操作结果信息",

@@ -7,7 +7,7 @@ import org.bouncycastle.crypto.digests.SM3Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
+import org.bouncycastle.pqc.legacy.math.linearalgebra.ByteUtils;
 
 public class SM3Utils {
 
@@ -46,7 +46,7 @@ public class SM3Utils {
         try {
             byte[] bytes = paramStr.getBytes();
             byte[] hash = hash(bytes);
-            resultJexString = ByteUtils.toHexString(hash);
+            resultJexString =  ByteUtils.toHexString(hash);
         } catch (Exception ex) {
         	throw new RuntimeException(String.format("SM3加密发生异常，%1$s", ex.getMessage()), ex);
         }

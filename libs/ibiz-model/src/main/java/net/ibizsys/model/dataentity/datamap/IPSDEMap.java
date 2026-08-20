@@ -14,7 +14,7 @@ public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObje
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEMap extends net.ibizsys.model.dataentity.IPSDataEntityObje
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

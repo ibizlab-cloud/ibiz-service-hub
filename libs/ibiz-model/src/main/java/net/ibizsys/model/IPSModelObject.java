@@ -84,4 +84,25 @@ public interface IPSModelObject extends net.ibizsys.model.IPSObject{
 	 * @return
 	 */
 	java.lang.String getUserTag4();
+	
+	
+	/**
+	 * 是否为嵌套成员模型
+	 * @return
+	 */
+	boolean isNestedModel();
+	
+	/**
+	 * 获取模型唯一标识
+	 * @return
+	 */
+	String getUniqueId();
+	
+	
+	
+	/**
+	 * 获取模型Dsl标识
+	 * @return
+	 */
+	String getDslId();
 }

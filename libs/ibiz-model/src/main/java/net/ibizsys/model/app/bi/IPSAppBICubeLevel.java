@@ -14,21 +14,21 @@ public interface IPSAppBICubeLevel extends net.ibizsys.model.IPSModelObject{
 	 * 获取聚合标题
 	 * @return
 	 */
-	java.lang.String getAggCaption();
+	String getAggCaption();
 	
 	
 	/**
 	 * 获取层级标记
 	 * @return
 	 */
-	java.lang.String getLevelTag();
+	String getLevelTag();
 	
 	
 	/**
 	 * 获取层级标记2
 	 * @return
 	 */
-	java.lang.String getLevelTag2();
+	String getLevelTag2();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSAppBICubeLevel extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BILevelType}
 	 * @return
 	 */
-	java.lang.String getLevelType();
+	String getLevelType();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSAppBICubeLevel extends net.ibizsys.model.IPSModelObject{
 	 * 获取文本项标识
 	 * @return
 	 */
-	java.lang.String getTextItemName();
+	String getTextItemName();
 	
 	
 	/**

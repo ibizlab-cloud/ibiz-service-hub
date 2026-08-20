@@ -203,7 +203,7 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 
 		this.workspace = new File(new StringBuilder(this.getSystemRuntime().getFileFolder())
 				.append(File.separator)
-				.append(this.getConfigFolder()).toString().toLowerCase());
+				.append(this.getConfigFolder().toLowerCase()).toString());
 		if(!this.workspace.exists()) {
 			this.workspace.mkdirs();
 		}
@@ -459,6 +459,11 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			@Override
 			public int getDailyMemoryMaxTokens() {
 				return SysAIFactoryRuntimeBase.this.getDailyMemoryMaxTokens();
+			}
+
+			@Override
+			public ISysAIChatSkill getAIChatSkill(String strSkillId, boolean tryMode) throws Exception {
+				return SysAIFactoryRuntimeBase.this.getAIChatSkill(strSkillId, tryMode);
 			}
 			
 			
@@ -1325,11 +1330,39 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 			}
 		}
 
-		this.realSysAIChatAgentRuntimeMap.clear();
 		this.aiFactoryRTScriptBase = null;
-		this.sysAIChatSkillMap.clear();
 		this.sysAIChatAgentGroupMap.clear();
 		
+		try {
+			this.reloadSkills(bFirst);
+		}
+		catch (Throwable ex) {
+			log.debug(String.format("重载技能[%1$s]发生异常，%2$s", bFirst, ex.getMessage()), ex);
+		}
+		
+		try {
+			this.reloadAgents(bFirst);
+		}
+		catch (Throwable ex) {
+			log.debug(String.format("重载代理[%1$s]发生异常，%2$s", bFirst, ex.getMessage()), ex);
+		}
+		
+		try {
+			publishSkills();
+		}
+		catch (Throwable ex) {
+			log.debug(String.format("发布技能发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected void reloadSkills(boolean bFirst) throws Throwable {
+		synchronized (this.sysAIChatSkillMap) {
+			this.sysAIChatSkillMap.clear();
+			this.onReloadSkills(bFirst);
+		}
+	}
+	
+	protected void onReloadSkills(boolean bFirst) throws Throwable {
 		Map<String, ISysAIChatSkill> aiChatSkillMap = new LinkedHashMap<String, ISysAIChatSkill>();
 		
 		ISysFileResourceRuntime iSysFileResourceRuntime =this.getConfigSysFileResourceRuntime(true);
@@ -1384,7 +1417,16 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 		else {
 			this.sysAIChatSkillList = Collections.unmodifiableList(new ArrayList(this.sysAIChatSkillMap.values()));
 		}
-		
+	}
+	
+	protected void reloadAgents(boolean bFirst) throws Throwable {
+		synchronized (this.realSysAIChatAgentRuntimeMap) {
+			this.realSysAIChatAgentRuntimeMap.clear();
+			this.onReloadAgents(bFirst);
+		}
+	}
+
+	protected void onReloadAgents(boolean bFirst) throws Throwable {
 		if(bFirst) {
 			java.util.List<IPSSysAIChatAgent> psSysAIChatAgentList = this.getPSSysAIFactory().getAllPSSysAIChatAgents();
 			if (!ObjectUtils.isEmpty(psSysAIChatAgentList)) {
@@ -1486,15 +1528,9 @@ public abstract class SysAIFactoryRuntimeBase extends SystemModelRuntimeBase imp
 				}
 			}
 		}
-		
-		try {
-			publishSkills();
-		}
-		catch (Throwable ex) {
-			log.debug(String.format("发布技能发生异常，%1$s", ex.getMessage()), ex);
-		}
 	}
-
+	
+	
 	protected void publishSkills() throws Throwable {
 		ISysUniStateUtilRuntime iSysUniStateUtilRuntime = this.tryGetSysUniStateUtilRuntime();
 		if(iSysUniStateUtilRuntime!=null) {

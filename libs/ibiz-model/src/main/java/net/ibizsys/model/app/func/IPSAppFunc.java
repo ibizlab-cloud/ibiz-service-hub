@@ -17,35 +17,35 @@ public interface IPSAppFunc extends net.ibizsys.model.app.IPSApplicationObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppFuncType}
 	 * @return
 	 */
-	java.lang.String getAppFuncType();
+	String getAppFuncType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取功能编号
 	 * @return
 	 */
-	java.lang.String getFuncSN();
+	String getFuncSN();
 	
 	
 	/**
 	 * 获取Html地址
 	 * @return
 	 */
-	java.lang.String getHtmlPageUrl();
+	String getHtmlPageUrl();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getJSCode();
+	String getJSCode();
 	
 	
 	/**
@@ -68,7 +68,7 @@ public interface IPSAppFunc extends net.ibizsys.model.app.IPSApplicationObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppFuncOpenMode}
 	 * @return
 	 */
-	java.lang.String getOpenMode();
+	String getOpenMode();
 	
 	
 	/**
@@ -124,7 +124,7 @@ public interface IPSAppFunc extends net.ibizsys.model.app.IPSApplicationObject
 	 * 获取预定义功能标识
 	 * @return
 	 */
-	java.lang.String getPSPDTAppFuncId();
+	String getPSPDTAppFuncId();
 	
 	
 	/**
@@ -145,21 +145,21 @@ public interface IPSAppFunc extends net.ibizsys.model.app.IPSApplicationObject
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取预置类型参数
 	 * @return
 	 */
-	java.lang.String getPredefinedTypeParam();
+	String getPredefinedTypeParam();
 	
 	
 	/**
 	 * 获取操作提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -180,14 +180,14 @@ public interface IPSAppFunc extends net.ibizsys.model.app.IPSApplicationObject
 	 * 获取用户数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取用户数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 	
 	
 	/**

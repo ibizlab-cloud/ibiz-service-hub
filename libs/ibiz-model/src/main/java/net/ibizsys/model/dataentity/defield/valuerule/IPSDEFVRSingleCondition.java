@@ -14,5 +14,5 @@ public interface IPSDEFVRSingleCondition extends net.ibizsys.model.dataentity.de
 	 * 获取属性名称
 	 * @return
 	 */
-	java.lang.String getDEFName();
+	String getDEFName();
 }

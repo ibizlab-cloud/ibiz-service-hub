@@ -14,5 +14,5 @@ public interface IPSDEToolbarParam extends net.ibizsys.model.control.IPSControlP
 	 * 获取工具栏所有者
 	 * @return
 	 */
-	java.lang.Object getOwner();
+	Object getOwner();
 }

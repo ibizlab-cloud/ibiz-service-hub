@@ -144,6 +144,46 @@ public class DataEntityRuntimeExtension {
 		}
 	}
 	
+	
+	/**
+	 * 执行逻辑
+	 * @param iDataEntityRuntime
+	 * @param logicTag
+	 * @param list
+	 * @return
+	 * @throws Throwable
+	 */
+	public static Object executeLogic(IDataEntityRuntime iDataEntityRuntime, String logicTag, List<Object> list) throws Throwable{
+		Object[] args = list.toArray(new Object[list.size()]);
+		return iDataEntityRuntime.executeLogic(logicTag, args);
+	}
+	
+	/**
+	 * 测试执行
+	 * @param iDataEntityRuntime
+	 * @param iAction
+	 * @param list
+	 * @return
+	 * @throws Throwable
+	 */
+	public static Object testExecute(IDataEntityRuntime iDataEntityRuntime, IAction iAction, List<Object> list) throws Throwable{
+		Object[] args = list.toArray(new Object[list.size()]);
+		return iDataEntityRuntime.testExecute(iAction, args);
+	}
+	
+	/**
+	 * 执行行为
+	 * @param iDataEntityRuntime
+	 * @param actionTag
+	 * @param list
+	 * @return
+	 * @throws Throwable
+	 */
+	public static Object execute(IDataEntityRuntime iDataEntityRuntime, String actionTag, List<Object> list) throws Throwable{
+		Object[] args = list.toArray(new Object[list.size()]);
+		return iDataEntityRuntime.executeAction(actionTag, args);
+	}
+	
 //	Object supports(IAction iAction, Object[] args) throws Throwable;
 	
 	/**

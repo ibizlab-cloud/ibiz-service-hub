@@ -8,7 +8,7 @@ package net.ibizsys.runtime.util;
 public interface ITransactionalUtil {
 
 	/**
-	 * 未知事务模式
+	 * 未知事务模式（不做控制）
 	 */
 	public final int PROPAGATION_UNKNOWN = -1;
 	
@@ -162,10 +162,24 @@ public interface ITransactionalUtil {
 	
 	
 	/**
+	 * 开始事务
+	 * @param propagation
+	 * @throws Throwable
+	 */
+	void begin(int propagation) throws Throwable;
+	
+	/**
+	 * 开始事务
+	 * @param propagation
+	 * @param isolation
+	 * @throws Throwable
+	 */
+	void begin(int propagation, int isolation) throws Throwable;
+	
+	/**
 	 * 提交当前事务
 	 * @throws Throwable
 	 */
-	@Deprecated
 	void commit()throws Throwable;
 	
 	
@@ -173,6 +187,5 @@ public interface ITransactionalUtil {
 	 * 回滚当前事务
 	 * @throws Throwable
 	 */
-	@Deprecated
 	void rollback()throws Throwable;
 }

@@ -21,7 +21,6 @@ import net.ibizsys.central.cloud.core.IServiceHub;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudOpenUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.security.AuthenticationUser;
-import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.util.domain.OpenQRCode;
 import net.ibizsys.central.cloud.core.util.domain.OpenQRCodeRequest;
 import net.ibizsys.central.cloud.core.util.domain.OpenUser;

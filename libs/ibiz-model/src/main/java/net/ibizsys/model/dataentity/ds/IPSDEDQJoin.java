@@ -14,7 +14,7 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	 * 获取别名
 	 * @return
 	 */
-	java.lang.String getAlias();
+	String getAlias();
 	
 	
 	/**
@@ -56,7 +56,7 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义连接条件
 	 * @return
 	 */
-	java.lang.String getJoinCond();
+	String getJoinCond();
 	
 	
 	/**
@@ -91,21 +91,21 @@ public interface IPSDEDQJoin extends net.ibizsys.model.IPSModelObject{
 	 * 获取连接标记
 	 * @return
 	 */
-	java.lang.String getJoinTag();
+	String getJoinTag();
 	
 	
 	/**
 	 * 获取连接标记2
 	 * @return
 	 */
-	java.lang.String getJoinTag2();
+	String getJoinTag2();
 	
 	
 	/**
 	 * 获取连接类型
 	 * @return
 	 */
-	java.lang.String getJoinType();
+	String getJoinType();
 	
 	
 	/**

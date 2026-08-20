@@ -45,21 +45,21 @@ public interface IPSAppSubViewTypeRef extends net.ibizsys.model.app.IPSApplicati
 	 * 获取插件代码
 	 * @return
 	 */
-	java.lang.String getPluginCode();
+	String getPluginCode();
 	
 	
 	/**
 	 * 获取引用标记
 	 * @return
 	 */
-	java.lang.String getRefTag();
+	String getRefTag();
 	
 	
 	/**
 	 * 获取类型代码
 	 * @return
 	 */
-	java.lang.String getTypeCode();
+	String getTypeCode();
 	
 	
 	/**
@@ -73,7 +73,7 @@ public interface IPSAppSubViewTypeRef extends net.ibizsys.model.app.IPSApplicati
 	 * 获取标准视图类型
 	 * @return
 	 */
-	java.lang.String getViewType();
+	String getViewType();
 	
 	
 	/**

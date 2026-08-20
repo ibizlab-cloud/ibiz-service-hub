@@ -23,42 +23,42 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2（复数）
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取实体标记
 	 * @return
 	 */
-	java.lang.String getDETag();
+	String getDETag();
 	
 	
 	/**
 	 * 获取实体标记2
 	 * @return
 	 */
-	java.lang.String getDETag2();
+	String getDETag2();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
 	 * 获取方法调用脚本代码
 	 * @return
 	 */
-	java.lang.String getMethodScriptCode();
+	String getMethodScriptCode();
 	
 	
 	/**
@@ -121,14 +121,14 @@ public interface IPSSubSysServiceAPIDE extends net.ibizsys.model.IPSModelObject{
 	 * 获取服务参数
 	 * @return
 	 */
-	java.lang.String getServiceParam();
+	String getServiceParam();
 	
 	
 	/**
 	 * 获取服务参数2
 	 * @return
 	 */
-	java.lang.String getServiceParam2();
+	String getServiceParam2();
 	
 	
 	/**

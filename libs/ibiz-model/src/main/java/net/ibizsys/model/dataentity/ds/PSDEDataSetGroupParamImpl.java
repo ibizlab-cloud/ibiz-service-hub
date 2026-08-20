@@ -14,6 +14,7 @@ public class PSDEDataSetGroupParamImpl extends net.ibizsys.model.PSObjectImpl im
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_ISENABLEGROUP = "enableGroup";
 	public final static String ATTR_ISENABLESORT = "enableSort";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAggMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGGMODE);
@@ -108,5 +109,9 @@ public class PSDEDataSetGroupParamImpl extends net.ibizsys.model.PSObjectImpl im
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

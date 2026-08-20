@@ -16,12 +16,12 @@ public interface IPSPanelItemLogic extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailLogicCat}
 	 * @return
 	 */
-	java.lang.String getLogicCat();
+	String getLogicCat();
 	
 	
 	/**
 	 * 获取逻辑类型
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 }

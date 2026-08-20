@@ -5,7 +5,7 @@ import net.ibizsys.central.plugin.ai.util.domain.ParserConfig;
 public abstract class GeneralChunkRetrieverBase extends ChunkRetrieverBase {
 
 	protected String getPageRetrieverPrompt(ParserConfig parserConfig) throws Throwable {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(GeneralChunkRetrieverBase.class, "PageRetrieverPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(GeneralChunkRetrieverBase.class, "PageRetrieverPrompt.md", false);
 //		return "作为助理，请根据用户提供的页面目录（JSON格式）和查询内容（文本），思考并召回相关文档的页面编号。页面目录包含文档信息（如document_id、page_range）和索引数组，索引中每个章节有标题、摘要和位置（location，指定起始和结束页码）。查询内容是用户的问题或需求。\r\n"
 //				+ "\r\n"
 //				+ "请按以下步骤处理：\r\n"
@@ -33,7 +33,7 @@ public abstract class GeneralChunkRetrieverBase extends ChunkRetrieverBase {
 	
 	
 	protected String getTranslationPrompt(ParserConfig parserConfig) throws Throwable {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(GeneralChunkRetrieverBase.class, "TranslationPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(GeneralChunkRetrieverBase.class, "TranslationPrompt.md", false);
 	}
 	
 	

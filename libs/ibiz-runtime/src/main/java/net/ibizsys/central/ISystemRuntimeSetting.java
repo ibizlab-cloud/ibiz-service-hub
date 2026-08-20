@@ -63,6 +63,11 @@ public interface ISystemRuntimeSetting extends net.ibizsys.runtime.ISystemRuntim
 	 */
 	final static String CONFIGFOLDER_SYSUNISTATE = "sysunistate";
 	
+	/**
+	 * 配置目录：测试项目
+	 */
+	final static String CONFIGFOLDER_SYSTESTPRJ = "systestprj";
+	
 	
 	/**
 	 * 配置目录：微信账户

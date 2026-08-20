@@ -226,6 +226,10 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	Object serializeEntities(IEntityBase[] list); 
 	
 	
+	default Object executeAction(String strActionName, Object[] args) throws Throwable {
+		return executeAction(strActionName, null, args); 
+	}
+	
 	
 	/**
 	 * 执行实体行为
@@ -238,7 +242,16 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	Object executeAction(String strActionName, IPSDEAction iPSDEAction, Object[] args) throws Throwable;
 	
 	
-	
+	/**
+	 * 查询实体数据集
+	 * @param strDataSetName
+	 * @param args
+	 * @return
+	 * @throws Throwable
+	 */
+	default Object fetchDataSet(String strDataSetName, Object[] args) throws Throwable{
+		return fetchDataSet(strDataSetName, null, args);
+	}
 	
 	/**
 	 * 查询实体数据集
@@ -1465,6 +1478,7 @@ public interface IDataEntityRuntime extends IDataEntityRuntimeBase,IDataEntityUt
 	 * @return
 	 */
 	String getMajorTextIf(IEntityBase iEntityBase, String defaultValue);
+	
 	
 //    /**
 //     * 是否启用父主状态控制

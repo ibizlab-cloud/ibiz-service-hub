@@ -9,5 +9,5 @@ package net.ibizsys.model.view;
 public interface IPSViewMsgGroupDetail extends net.ibizsys.model.IPSModelObject{
 
 	
-	java.lang.String getPosition();
+	String getPosition();
 }

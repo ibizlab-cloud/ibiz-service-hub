@@ -13,14 +13,14 @@ public interface IPSSysUseCaseRS extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
@@ -57,7 +57,7 @@ public interface IPSSysUseCaseRS extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UseCaseRSMode}
 	 * @return
 	 */
-	java.lang.String getRSMode();
+	String getRSMode();
 	
 	
 	/**
@@ -66,7 +66,7 @@ public interface IPSSysUseCaseRS extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UseCaseRSType}
 	 * @return
 	 */
-	java.lang.String getRSType();
+	String getRSType();
 	
 	
 	/**

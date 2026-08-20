@@ -16,7 +16,7 @@ public interface IPSDEFormTabPanel extends net.ibizsys.model.control.form.IPSDEF
 	 * 获取实体数据关系标记
 	 * @return
 	 */
-	java.lang.String getDataRelationTag();
+	String getDataRelationTag();
 	
 	
 	/**

@@ -529,6 +529,55 @@ public class PSModelEnums {
     }
 
     /**
+     * 语言资源访问用户
+     * <P>
+     * <ul>
+     * <li>UNKNOWN&nbsp;(0)
+     * <P>
+     * 未指定
+     * <li>UNLOGINUSER&nbsp;(1)
+     * <P>
+     * 未登录用户，匿名用户
+     * <li>LOGINUSER&nbsp;(2)
+     * <P>
+     * 登录用户，访问用户必须已经登录，具备用户身份
+     * <li>ALLUSER&nbsp;(3)
+     * <P>
+     * 未登录用户及登录用户，全部用户
+     * </ul>     
+     */
+    public static enum LanResAccessUserMode{
+        UNKNOWN("0", "未指定")
+        ,UNLOGINUSER("1", "未登录用户")
+        ,LOGINUSER("2", "登录用户")
+        ,ALLUSER("3", "未登录用户及登录用户")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private LanResAccessUserMode(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static LanResAccessUserMode from(String value){
+            switch(value){
+                case "0":
+                    return UNKNOWN;
+                case "1":
+                    return UNLOGINUSER;
+                case "2":
+                    return LOGINUSER;
+                case "3":
+                    return ALLUSER;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
      * 系统服务接口模式，数值项
      * <P>
      * <ul>
@@ -1415,12 +1464,12 @@ public class PSModelEnums {
      * 常规
      * <li>AIAGENT
      * <P>
-     * AI代理
+     * AI作业，分配给AIAGENT的作业项
      * </ul>     
      */
     public static enum SysReqItemType{
         NORMAL("NORMAL", "常规")
-        ,AIAGENT("AIAGENT", "AI代理")
+        ,AIAGENT("AIAGENT", "AI作业")
 ;
            
         public final String text;
@@ -2048,7 +2097,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台流程编辑视图类型
+     * 流程编辑视图类型
      * <P>
      * <ul>
      * <li>DEWFEDITVIEW
@@ -3192,7 +3241,7 @@ public class PSModelEnums {
     }
 
     /**
-     * 云平台移动端流程编辑视图类型
+     * 移动端流程编辑视图类型
      * <P>
      * <ul>
      * <li>DEMOBWFEDITVIEW
@@ -3636,12 +3685,12 @@ public class PSModelEnums {
      * 常规
      * <li>AIAGENT
      * <P>
-     * AI代理
+     * AI作业
      * </ul>     
      */
     public static enum SysReqModuleType{
         NORMAL("NORMAL", "常规")
-        ,AIAGENT("AIAGENT", "AI代理")
+        ,AIAGENT("AIAGENT", "AI作业")
 ;
            
         public final String text;
@@ -4525,7 +4574,7 @@ public class PSModelEnums {
      * 值不为空(NotNil)
      * <li>TESTNULL
      * <P>
-     * 空值判断(TestNil)
+     * 空值判断(TestNil)，空值返回`1`，非空返回`0`
      * <li>LIKE
      * <P>
      * 文本包含(%)
@@ -4558,7 +4607,7 @@ public class PSModelEnums {
      * 子数据（递归）
      * <li>CONTAINS
      * <P>
-     * 包含属性(Contains)
+     * 包含属性(Contains)，判断指定目标属性是否存在
      * </ul>     
      */
     public static enum LangValueOP{
@@ -5065,17 +5114,41 @@ public class PSModelEnums {
      * 实体逻辑节点事务运行模式，数值项
      * <P>
      * <ul>
+     * <li>NONE&nbsp;(-1)
+     * <P>
+     * 无事务控制
      * <li>REQUIRED&nbsp;(0)
      * <P>
-     * 开启
-     * <li>REQUIREDNEW&nbsp;(3)
+     * 需要事务（没有新建）
+     * <li>SUPPORTS&nbsp;(1)
      * <P>
-     * 开启新事务
+     * 支持事务（没有无事务）
+     * <li>MANDATORY&nbsp;(2)
+     * <P>
+     * 需要事务（没有异常）
+     * <li>REQUIRES_NEW&nbsp;(3)
+     * <P>
+     * 挂起当前事务（没有新建）
+     * <li>NOT_SUPPORTED&nbsp;(4)
+     * <P>
+     * 无事务（存在则挂起）
+     * <li>NEVER&nbsp;(5)
+     * <P>
+     * 无事务（存在异常），强制要求不在事务中运行，如果当前存在一个事务，则抛出异常
+     * <li>NESTED&nbsp;(6)
+     * <P>
+     * 嵌套事务（没有新建）
      * </ul>     
      */
     public static enum DELogicNodeTSMode{
-        REQUIRED(0, "开启")
-        ,REQUIREDNEW(3, "开启新事务")
+        NONE(-1, "无事务控制")
+        ,REQUIRED(0, "需要事务（没有新建）")
+        ,SUPPORTS(1, "支持事务（没有无事务）")
+        ,MANDATORY(2, "需要事务（没有异常）")
+        ,REQUIRES_NEW(3, "挂起当前事务（没有新建）")
+        ,NOT_SUPPORTED(4, "无事务（存在则挂起）")
+        ,NEVER(5, "无事务（存在异常）")
+        ,NESTED(6, "嵌套事务（没有新建）")
 ;
            
         public final String text;
@@ -5088,10 +5161,22 @@ public class PSModelEnums {
 
         public static DELogicNodeTSMode from(int value){
             switch(value){
+                case -1:
+                    return NONE;
                 case 0:
                     return REQUIRED;
+                case 1:
+                    return SUPPORTS;
+                case 2:
+                    return MANDATORY;
                 case 3:
-                    return REQUIREDNEW;
+                    return REQUIRES_NEW;
+                case 4:
+                    return NOT_SUPPORTED;
+                case 5:
+                    return NEVER;
+                case 6:
+                    return NESTED;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -7520,7 +7605,7 @@ public class PSModelEnums {
      * 选项已反馈
      * <li>CHOICESCONFIRMED&nbsp;(12)
      * <P>
-     * 选项已确认
+     * 选项已确认，指定用户已经确认反馈选项，作业结束
      * <li>CHOICESFAILED&nbsp;(13)
      * <P>
      * 选项已失败
@@ -7538,7 +7623,7 @@ public class PSModelEnums {
      * 模型已失败
      * <li>AGENTREQUESTING&nbsp;(30)
      * <P>
-     * Agent请求中
+     * Agent请求中，AGENT作业过程中
      * <li>AGENTRESPONDED&nbsp;(31)
      * <P>
      * Agent已反馈
@@ -9814,19 +9899,19 @@ public class PSModelEnums {
      * <ul>
      * <li>ENTITYFIELD
      * <P>
-     * 目标逻辑参数属性，值来自当前数据对象的指定属性
+     * 目标逻辑参数属性，值来自目标逻辑参数`dstpsdlparamid`的属性`condvalue`
      * <li>SRCENTITYFIELD
      * <P>
-     * 源逻辑参数属性，值来自源对象的指定属性
+     * 源逻辑参数属性，值来自源对象`srcpsdlparamid`的指定属性`condvalue`
      * <li>SRCDLPARAM
      * <P>
-     * 源逻辑参数
+     * 源逻辑参数，值来自源逻辑参数`srcpsdlparamid`
      * <li>CURTIME
      * <P>
      * 当前时间，值为当前时间
      * <li>LASTRETURN
      * <P>
-     * 上一次调用返回
+     * 上一次调用返回，值来自最后一次调用的结果
      * </ul>     
      */
     public static enum DELLCondParamType{
@@ -20230,6 +20315,9 @@ public class PSModelEnums {
      * <li>TRACE
      * <P>
      * TRACE
+     * <li>DOWNLOAD
+     * <P>
+     * DOWNLOAD
      * </ul>     
      */
     public static enum RequestMethod{
@@ -20241,6 +20329,7 @@ public class PSModelEnums {
         ,DELETE("DELETE", "DELETE")
         ,OPTIONS("OPTIONS", "OPTIONS")
         ,TRACE("TRACE", "TRACE")
+        ,DOWNLOAD("DOWNLOAD", "DOWNLOAD")
 ;
            
         public final String text;
@@ -20269,6 +20358,8 @@ public class PSModelEnums {
                     return OPTIONS;
                 case "TRACE":
                     return TRACE;
+                case "DOWNLOAD":
+                    return DOWNLOAD;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -22936,6 +23027,9 @@ public class PSModelEnums {
      * <li>JR
      * <P>
      * JasperReport
+     * <li>EASYEXCEL
+     * <P>
+     * EasyExcel
      * <li>HTML
      * <P>
      * HTML
@@ -22986,6 +23080,7 @@ public class PSModelEnums {
         ,GRAFANA("GRAFANA", "Grafana")
         ,DATAEASE("DATAEASE", "DataEase")
         ,JR("JR", "JasperReport")
+        ,EASYEXCEL("EASYEXCEL", "EasyExcel")
         ,HTML("HTML", "HTML")
         ,MARKDOWN("MARKDOWN", "Markdown")
         ,SYSBICUBE("SYSBICUBE", "系统智能报表立方体")
@@ -23027,6 +23122,8 @@ public class PSModelEnums {
                     return DATAEASE;
                 case "JR":
                     return JR;
+                case "EASYEXCEL":
+                    return EASYEXCEL;
                 case "HTML":
                     return HTML;
                 case "MARKDOWN":
@@ -23390,6 +23487,67 @@ public class PSModelEnums {
                     return LLM;
                 case "MIXED":
                     return MIXED;
+                default:
+                    throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
+            }
+        }
+    }
+
+    /**
+     * 数据导出类型
+     * <P>
+     * <ul>
+     * <li>DEFAULT
+     * <P>
+     * 默认
+     * <li>EASYEXCEL
+     * <P>
+     * EasyExcel
+     * <li>USER
+     * <P>
+     * 用户自定义
+     * <li>USER2
+     * <P>
+     * 用户自定义2
+     * <li>USER3
+     * <P>
+     * 用户自定义3
+     * <li>USER4
+     * <P>
+     * 用户自定义4
+     * </ul>     
+     */
+    public static enum DataExportType{
+        DEFAULT("DEFAULT", "默认")
+        ,EASYEXCEL("EASYEXCEL", "EasyExcel")
+        ,USER("USER", "用户自定义")
+        ,USER2("USER2", "用户自定义2")
+        ,USER3("USER3", "用户自定义3")
+        ,USER4("USER4", "用户自定义4")
+;
+           
+        public final String text;
+        public final String value;
+        
+        private DataExportType(String value, String text){
+            this.value = value;
+            this.text = text;
+        }
+
+        public static DataExportType from(String value){
+            switch(value){
+                case "DEFAULT":
+                    return DEFAULT;
+                case "EASYEXCEL":
+                    return EASYEXCEL;
+                case "USER":
+                    return USER;
+                case "USER2":
+                    return USER2;
+                case "USER3":
+                    return USER3;
+                case "USER4":
+                    return USER4;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }
@@ -23994,9 +24152,12 @@ public class PSModelEnums {
      * <li>SUPPORTS
      * <P>
      * 支持事务（没有无事务）
+     * <li>NEVER
+     * <P>
+     * 无事务（存在异常），强制要求不在事务中运行，如果当前存在一个事务，则抛出异常
      * <li>NONE
      * <P>
-     * 无事务
+     * 无事务控制
      * <li>GLOBAL
      * <P>
      * 分布式事务
@@ -24016,7 +24177,8 @@ public class PSModelEnums {
         ,REQUIRES_NEW("REQUIRES_NEW", "挂起当前事务（没有新建）")
         ,NOT_SUPPORTED("NOT_SUPPORTED", "无事务（存在则挂起）")
         ,SUPPORTS("SUPPORTS", "支持事务（没有无事务）")
-        ,NONE("NONE", "无事务")
+        ,NEVER("NEVER", "无事务（存在异常）")
+        ,NONE("NONE", "无事务控制")
         ,GLOBAL("GLOBAL", "分布式事务")
         ,USER("USER", "自定义")
         ,USER2("USER2", "自定义2")
@@ -24046,6 +24208,8 @@ public class PSModelEnums {
                     return NOT_SUPPORTED;
                 case "SUPPORTS":
                     return SUPPORTS;
+                case "NEVER":
+                    return NEVER;
                 case "NONE":
                     return NONE;
                 case "GLOBAL":
@@ -24578,6 +24742,9 @@ public class PSModelEnums {
      * <li>KNOWLEDGEBASE
      * <P>
      * 知识库
+     * <li>TASK
+     * <P>
+     * 任务调度
      * <li>SAASADMIN
      * <P>
      * SaaS应用管理
@@ -24616,6 +24783,7 @@ public class PSModelEnums {
         ,APPCUSTOMIZE("APPCUSTOMIZE", "应用自定义")
         ,EXTENSION("EXTENSION", "系统扩展")
         ,KNOWLEDGEBASE("KNOWLEDGEBASE", "知识库")
+        ,TASK("TASK", "任务调度")
         ,SAASADMIN("SAASADMIN", "SaaS应用管理")
         ,SAASUSERAUTH("SAASUSERAUTH", "SaaS用户授权（内置）")
         ,SAASUSERAUTHSERVICE("SAASUSERAUTHSERVICE", "SaaS用户授权服务（对外）")
@@ -24648,6 +24816,8 @@ public class PSModelEnums {
                     return EXTENSION;
                 case "KNOWLEDGEBASE":
                     return KNOWLEDGEBASE;
+                case "TASK":
+                    return TASK;
                 case "SAASADMIN":
                     return SAASADMIN;
                 case "SAASUSERAUTH":
@@ -26452,7 +26622,7 @@ public class PSModelEnums {
      * 直接SQL并循环调用，直接SQL查询并对数据集逐项调用行为
      * <li>RAWWEBCALL
      * <P>
-     * 直接Web调用
+     * 直接Web调用，定义逻辑节点参数类型``WEBURIPARAM`及`WEBHEADERPARAM`指定url及header参数
      * <li>STARTWF
      * <P>
      * 启动流程
@@ -26507,6 +26677,9 @@ public class PSModelEnums {
      * <li>DELOGIC
      * <P>
      * 实体逻辑，调用目标逻辑
+     * <li>BEGINTRANS
+     * <P>
+     * 开启事务
      * <li>COMMIT
      * <P>
      * 提交事务
@@ -26614,6 +26787,7 @@ public class PSModelEnums {
         ,DEDATASET("DEDATASET", "实体数据集")
         ,DENOTIFY("DENOTIFY", "实体通知")
         ,DELOGIC("DELOGIC", "实体逻辑")
+        ,BEGINTRANS("BEGINTRANS", "开启事务")
         ,COMMIT("COMMIT", "提交事务")
         ,ROLLBACK("ROLLBACK", "回滚事务")
         ,DEBUGPARAM("DEBUGPARAM", "调试逻辑参数")
@@ -26719,6 +26893,8 @@ public class PSModelEnums {
                     return DENOTIFY;
                 case "DELOGIC":
                     return DELOGIC;
+                case "BEGINTRANS":
+                    return BEGINTRANS;
                 case "COMMIT":
                     return COMMIT;
                 case "ROLLBACK":
@@ -33803,28 +33979,28 @@ public class PSModelEnums {
      * 拷贝变量，将源参数对象拷贝至目标参数对象
      * <li>SQLPARAM
      * <P>
-     * 数据库调用参数，将源参数指定值作为数据库调用参数
+     * 数据库调用参数，将源参数指定值作为数据库调用`RAWSQLCALL`及`RAWSQLANDLOOPCALL`参数
      * <li>SFPLUGINPARAM
      * <P>
-     * 后台服务插件参数，将源参数指定值作为后台模板插件调用参数
+     * 后台服务插件参数，将源参数指定值作为后台模板插件调用`SFPLUGIN`参数
      * <li>BINDPARAM
      * <P>
-     * 绑定参数，处理逻辑变量绑定指定变量
+     * 绑定参数，将值绑定指定变量
      * <li>APPENDPARAM
      * <P>
-     * 附加到数组变量
+     * 附加到数组变量，附加源参数或源参数属性至目标数组参数
      * <li>SORTPARAM
      * <P>
-     * 排序数组变量
+     * 排序数组变量，对目标数组参数进行排序
      * <li>RENEWPARAM
      * <P>
      * 重新建立变量
      * <li>WEBURIPARAM
      * <P>
-     * 请求Uri参数
+     * 请求Uri参数，直接WEB调用`RAWWEBCALL`指定请求路径中的动态参数
      * <li>WEBHEADERPARAM
      * <P>
-     * 请求Header参数
+     * 请求Header参数，直接WEB调用`RAWWEBCALL`指定请求头参数
      * <li>MERGEMAPPARAM
      * <P>
      * 合并映射参数，指定源参数和目标参数合并的映射参数，配置源项属性与目标项属性
@@ -34935,6 +35111,18 @@ public class PSModelEnums {
      * <li>INTERNAL
      * <P>
      * 内部通讯，指定用于系统内部通讯的代理
+     * <li>FILE
+     * <P>
+     * 本地文件，通过本地文件进行数据交换
+     * <li>FTP
+     * <P>
+     * FTP/FTPS，通过FTP/FTPS进行数据交换
+     * <li>SFTP
+     * <P>
+     * SFTP，通过SFTP进行数据交换
+     * <li>SMB
+     * <P>
+     * SMB，通过SMB进行数据交换
      * <li>USER
      * <P>
      * 用户自定义
@@ -34958,6 +35146,10 @@ public class PSModelEnums {
         ,STOMP("STOMP", "STOMP")
         ,WS("WS", "WebSocket")
         ,INTERNAL("INTERNAL", "内部通讯")
+        ,FILE("FILE", "本地文件")
+        ,FTP("FTP", "FTP/FTPS")
+        ,SFTP("SFTP", "SFTP")
+        ,SMB("SMB", "SMB")
         ,USER("USER", "用户自定义")
         ,USER2("USER2", "用户自定义2")
         ,USER3("USER3", "用户自定义3")
@@ -34990,6 +35182,14 @@ public class PSModelEnums {
                     return WS;
                 case "INTERNAL":
                     return INTERNAL;
+                case "FILE":
+                    return FILE;
+                case "FTP":
+                    return FTP;
+                case "SFTP":
+                    return SFTP;
+                case "SMB":
+                    return SMB;
                 case "USER":
                     return USER;
                 case "USER2":
@@ -36706,7 +36906,7 @@ public class PSModelEnums {
      * 登录用户，访问用户必须已经登录，具备用户身份
      * <li>ALLUSER&nbsp;(3)
      * <P>
-     * 未登录用户及登录用户，全部用户
+     * 匿名用户及登录用户，全部用户
      * <li>LOGINUSERWITHKEY&nbsp;(4)
      * <P>
      * 登录用户且拥有指定资源能力，访问用户必须已经登录，且对指定的系统统一资源具备能力
@@ -36716,7 +36916,7 @@ public class PSModelEnums {
         UNKNOWN("0", "未指定")
         ,UNLOGINUSER("1", "未登录用户")
         ,LOGINUSER("2", "登录用户")
-        ,ALLUSER("3", "未登录用户及登录用户")
+        ,ALLUSER("3", "匿名用户及登录用户")
         ,LOGINUSERWITHKEY("4", "登录用户且拥有指定资源能力")
 ;
            
@@ -38662,11 +38862,19 @@ public class PSModelEnums {
      * <li>JSON
      * <P>
      * JSON
+     * <li>CSV
+     * <P>
+     * CSV
+     * <li>TSV
+     * <P>
+     * TSV
      * </ul>     
      */
     public static enum DEDataImpExpContentType{
         XLSX("XLSX", "XLSX")
         ,JSON("JSON", "JSON")
+        ,CSV("CSV", "CSV")
+        ,TSV("TSV", "TSV")
 ;
            
         public final String text;
@@ -38683,6 +38891,10 @@ public class PSModelEnums {
                     return XLSX;
                 case "JSON":
                     return JSON;
+                case "CSV":
+                    return CSV;
+                case "TSV":
+                    return TSV;
                 default:
                     throw new RuntimeException(String.format("无法识别的值[%1$s]",value));
             }

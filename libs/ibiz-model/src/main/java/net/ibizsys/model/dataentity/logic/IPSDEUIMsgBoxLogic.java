@@ -18,14 +18,14 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxButtonsType}
 	 * @return
 	 */
-	java.lang.String getButtonsType();
+	String getButtonsType();
 	
 	
 	/**
 	 * 获取消息内容
 	 * @return
 	 */
-	java.lang.String getMessage();
+	String getMessage();
 	
 	
 	/**
@@ -48,7 +48,7 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxType}
 	 * @return
 	 */
-	java.lang.String getMsgBoxType();
+	String getMsgBoxType();
 	
 	
 	/**
@@ -57,12 +57,12 @@ public interface IPSDEUIMsgBoxLogic extends net.ibizsys.model.dataentity.logic.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELNMsgBoxShowMode}
 	 * @return
 	 */
-	java.lang.String getShowMode();
+	String getShowMode();
 	
 	
 	/**
 	 * 获取消息抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 }

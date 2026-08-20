@@ -14,14 +14,14 @@ public interface IPSWFProcessParam extends net.ibizsys.model.IPSModelObject{
 	 * 获取目标属性
 	 * @return
 	 */
-	java.lang.String getDstField();
+	String getDstField();
 	
 	
 	/**
 	 * 获取源值
 	 * @return
 	 */
-	java.lang.String getSrcValue();
+	String getSrcValue();
 	
 	
 	/**
@@ -30,19 +30,19 @@ public interface IPSWFProcessParam extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcParamValueType}
 	 * @return
 	 */
-	java.lang.String getSrcValueType();
+	String getSrcValueType();
 	
 	
 	/**
 	 * 获取处理角色数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取处理角色数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 }

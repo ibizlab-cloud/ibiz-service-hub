@@ -47,7 +47,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -70,28 +70,28 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 获取数据集标记
 	 * @return
 	 */
-	java.lang.String getDataSetTag();
+	String getDataSetTag();
 	
 	
 	/**
 	 * 获取数据集标记2
 	 * @return
 	 */
-	java.lang.String getDataSetTag2();
+	String getDataSetTag2();
 	
 	
 	/**
 	 * 获取数据集标记3
 	 * @return
 	 */
-	java.lang.String getDataSetTag3();
+	String getDataSetTag3();
 	
 	
 	/**
 	 * 获取数据集标记4
 	 * @return
 	 */
-	java.lang.String getDataSetTag4();
+	String getDataSetTag4();
 	
 	
 	/**
@@ -100,7 +100,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetType}
 	 * @return
 	 */
-	java.lang.String getDataSetType();
+	String getDataSetType();
 	
 	
 	/**
@@ -125,7 +125,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -134,7 +134,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMajorSortDir();
+	String getMajorSortDir();
 	
 	
 	/**
@@ -164,7 +164,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**
@@ -455,14 +455,14 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetPredefinedType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -471,7 +471,7 @@ public interface IPSDEDataSet extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetUnionMode}
 	 * @return
 	 */
-	java.lang.String getUnionMode();
+	String getUnionMode();
 	
 	
 	/**

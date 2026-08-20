@@ -14,49 +14,49 @@ public interface IPSSysContent extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
 	 * 获取内容路径
 	 * @return
 	 */
-	java.lang.String getContentPath();
+	String getContentPath();
 	
 	
 	/**
 	 * 获取内容标记
 	 * @return
 	 */
-	java.lang.String getContentTag();
+	String getContentTag();
 	
 	
 	/**
 	 * 获取内容标记2
 	 * @return
 	 */
-	java.lang.String getContentTag2();
+	String getContentTag2();
 	
 	
 	/**
 	 * 获取内容标记3
 	 * @return
 	 */
-	java.lang.String getContentTag3();
+	String getContentTag3();
 	
 	
 	/**
 	 * 获取内容标记4
 	 * @return
 	 */
-	java.lang.String getContentTag4();
+	String getContentTag4();
 	
 	
 	/**
@@ -65,12 +65,12 @@ public interface IPSSysContent extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getSubject();
+	String getSubject();
 }

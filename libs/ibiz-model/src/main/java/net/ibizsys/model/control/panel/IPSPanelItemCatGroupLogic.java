@@ -16,7 +16,7 @@ public interface IPSPanelItemCatGroupLogic extends net.ibizsys.model.control.pan
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailLogicCat}
 	 * @return
 	 */
-	java.lang.String getLogicCat();
+	String getLogicCat();
 	
 	
 	/**

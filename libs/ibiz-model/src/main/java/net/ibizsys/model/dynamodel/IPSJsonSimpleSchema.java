@@ -13,7 +13,7 @@ public interface IPSJsonSimpleSchema extends net.ibizsys.model.dynamodel.IPSJson
 	 * 获取格式
 	 * @return
 	 */
-	java.lang.String getFormat();
+	String getFormat();
 	
 	
 	/**

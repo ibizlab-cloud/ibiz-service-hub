@@ -18,7 +18,7 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
-	java.lang.String getCLConvertMode();
+	String getCLConvertMode();
 	
 	
 	/**
@@ -39,7 +39,7 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 获取数据分组项
 	 * @return
 	 */
-	java.lang.String getGroupItem();
+	String getGroupItem();
 	
 	
 	/**
@@ -60,28 +60,28 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 获取链接值项
 	 * @return
 	 */
-	java.lang.String getLinkValueItem();
+	String getLinkValueItem();
 	
 	
 	/**
 	 * 获取对象标识属性[OBJECTIDFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectIdField();
+	String getObjectIdField();
 	
 	
 	/**
 	 * 获取对象名称属性[OBJECTNAMEFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectNameField();
+	String getObjectNameField();
 	
 	
 	/**
 	 * 获取对象值属性[OBJECTVALUEFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectValueField();
+	String getObjectValueField();
 	
 	
 	/**
@@ -144,7 +144,7 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 获取多项文本分隔符[TEXTSEPARATOR]
 	 * @return
 	 */
-	java.lang.String getTextSeparator();
+	String getTextSeparator();
 	
 	
 	/**
@@ -160,7 +160,7 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 获取单位名称
 	 * @return
 	 */
-	java.lang.String getUnitName();
+	String getUnitName();
 	
 	
 	/**
@@ -174,14 +174,14 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**
 	 * 获取多项值分隔符[VALUESEPARATOR]
 	 * @return
 	 */
-	java.lang.String getValueSeparator();
+	String getValueSeparator();
 	
 	
 	/**
@@ -190,7 +190,7 @@ public interface IPSDEGridFieldColumn extends net.ibizsys.model.control.grid.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

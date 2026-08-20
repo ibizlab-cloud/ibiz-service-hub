@@ -77,7 +77,7 @@ public interface IPSAppUILogic extends net.ibizsys.model.res.IPSSysViewLogic{
 	 * 获取界面逻辑类型
 	 * @return
 	 */
-	java.lang.String getViewLogicType();
+	String getViewLogicType();
 	
 	
 	/**

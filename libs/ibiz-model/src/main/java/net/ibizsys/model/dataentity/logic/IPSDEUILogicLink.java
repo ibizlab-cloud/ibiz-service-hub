@@ -28,7 +28,7 @@ public interface IPSDEUILogicLink extends net.ibizsys.model.dataentity.logic.IPS
 	 * 获取连接条件
 	 * @return
 	 */
-	java.lang.String getLinkCond();
+	String getLinkCond();
 	
 	
 	/**

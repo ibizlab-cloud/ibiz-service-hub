@@ -14,7 +14,7 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -28,14 +28,14 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	 * 获取报表项标记
 	 * @return
 	 */
-	java.lang.String getItemTag();
+	String getItemTag();
 	
 	
 	/**
 	 * 获取报表项标记2
 	 * @return
 	 */
-	java.lang.String getItemTag2();
+	String getItemTag2();
 	
 	
 	/**
@@ -44,5 +44,5 @@ public interface IPSBIReportItem extends net.ibizsys.model.bi.IPSBIReportObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 }

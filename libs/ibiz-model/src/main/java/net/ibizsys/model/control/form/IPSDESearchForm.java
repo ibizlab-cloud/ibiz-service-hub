@@ -16,7 +16,7 @@ public interface IPSDESearchForm extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchFormButtonPos}
 	 * @return
 	 */
-	java.lang.String getSearchButtonPos();
+	String getSearchButtonPos();
 	
 	
 	/**
@@ -25,7 +25,7 @@ public interface IPSDESearchForm extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchFormButtonStyle}
 	 * @return
 	 */
-	java.lang.String getSearchButtonStyle();
+	String getSearchButtonStyle();
 	
 	
 	/**

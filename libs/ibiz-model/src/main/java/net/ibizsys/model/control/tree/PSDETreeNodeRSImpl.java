@@ -14,6 +14,7 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETPARENTPSDETREENODE = "getParentPSDETreeNode";
 	public final static String ATTR_GETPARENTVALUELEVEL = "parentValueLevel";
 	public final static String ATTR_GETSEARCHMODE = "searchMode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.control.tree.IPSDETreeNode childpsdetreenode;
 
 	public net.ibizsys.model.control.tree.IPSDETreeNode getChildPSDETreeNode(){
@@ -199,5 +200,9 @@ public class PSDETreeNodeRSImpl extends net.ibizsys.model.PSObjectImpl implement
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

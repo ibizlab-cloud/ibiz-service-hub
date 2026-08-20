@@ -14,7 +14,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取全部显示文本
 	 * @return
 	 */
-	java.lang.String getAllText();
+	String getAllText();
 	
 	
 	/**
@@ -84,7 +84,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码表标记
 	 * @return
 	 */
-	java.lang.String getCodeListTag();
+	String getCodeListTag();
 	
 	
 	/**
@@ -93,14 +93,14 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListType}
 	 * @return
 	 */
-	java.lang.String getCodeListType();
+	String getCodeListType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -121,7 +121,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
@@ -165,14 +165,14 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取动态实例标记
 	 * @return
 	 */
-	java.lang.String getDynaInstTag();
+	String getDynaInstTag();
 	
 	
 	/**
 	 * 获取动态实例标记2
 	 * @return
 	 */
-	java.lang.String getDynaInstTag2();
+	String getDynaInstTag2();
 	
 	
 	/**
@@ -188,7 +188,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取空白显示文本
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -285,7 +285,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**
@@ -308,7 +308,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DesignCodeListOrMode}
 	 * @return
 	 */
-	java.lang.String getOrMode();
+	String getOrMode();
 	
 	
 	/**
@@ -336,7 +336,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取平台代码表标识
 	 * @return
 	 */
-	java.lang.String getPSCodeListTemplId();
+	String getPSCodeListTemplId();
 	
 	
 	/**
@@ -443,7 +443,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedCodeListType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -457,7 +457,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取所属系统标识
 	 * @return
 	 */
-	java.lang.String getSystemTag();
+	String getSystemTag();
 	
 	
 	/**
@@ -478,7 +478,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取文本分隔符
 	 * @return
 	 */
-	java.lang.String getTextSeparator();
+	String getTextSeparator();
 	
 	
 	/**
@@ -499,7 +499,7 @@ public interface IPSCodeList extends net.ibizsys.model.IPSModelObject{
 	 * 获取值分隔符
 	 * @return
 	 */
-	java.lang.String getValueSeparator();
+	String getValueSeparator();
 	
 	
 	/**

@@ -14,7 +14,7 @@ public interface IPSChartCoordinateSystem extends net.ibizsys.model.IPSModelObje
 	 * 获取ECharts坐标系类型
 	 * @return
 	 */
-	java.lang.String getEChartsType();
+	String getEChartsType();
 	
 	
 	/**
@@ -44,5 +44,5 @@ public interface IPSChartCoordinateSystem extends net.ibizsys.model.IPSModelObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartCoordinateSystem}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

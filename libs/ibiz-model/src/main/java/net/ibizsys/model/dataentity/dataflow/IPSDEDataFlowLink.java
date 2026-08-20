@@ -30,7 +30,7 @@ public interface IPSDEDataFlowLink extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowLinkType}
 	 * @return
 	 */
-	java.lang.String getLinkType();
+	String getLinkType();
 	
 	
 	/**

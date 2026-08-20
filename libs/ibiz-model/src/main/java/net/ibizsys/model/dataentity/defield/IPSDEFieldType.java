@@ -14,21 +14,21 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	 * 获取编辑器高度
 	 * @return
 	 */
-	java.lang.Integer getEditorHeight();
+	Integer getEditorHeight();
 	
 	
 	/**
 	 * 获取编辑器类型
 	 * @return
 	 */
-	java.lang.String getEditorType();
+	String getEditorType();
 	
 	
 	/**
 	 * 获取编辑器宽度
 	 * @return
 	 */
-	java.lang.Integer getEditorWidth();
+	Integer getEditorWidth();
 	
 	
 	/**
@@ -37,14 +37,14 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getGridColumnAlign();
+	String getGridColumnAlign();
 	
 	
 	/**
 	 * 获取最大值（字符串）
 	 * @return
 	 */
-	java.lang.String getMaxValueString();
+	String getMaxValueString();
 	
 	
 	/**
@@ -58,28 +58,28 @@ public interface IPSDEFieldType extends net.ibizsys.model.IPSObject{
 	 * 获取最小值（字符串）
 	 * @return
 	 */
-	java.lang.String getMinValueString();
+	String getMinValueString();
 	
 	
 	/**
 	 * 获取搜索编辑器高度
 	 * @return
 	 */
-	java.lang.Integer getSearchEditorHeight();
+	Integer getSearchEditorHeight();
 	
 	
 	/**
 	 * 获取搜索编辑器类型
 	 * @return
 	 */
-	java.lang.String getSearchEditorType();
+	String getSearchEditorType();
 	
 	
 	/**
 	 * 获取搜索编辑器宽度
 	 * @return
 	 */
-	java.lang.Integer getSearchEditorWidth();
+	Integer getSearchEditorWidth();
 	
 	
 	/**

@@ -14,14 +14,14 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取容器标记
 	 * @return
 	 */
-	java.lang.String getContainerTag();
+	String getContainerTag();
 	
 	
 	/**
@@ -100,7 +100,7 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedBackendTaskType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -109,14 +109,14 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BackendTaskContainer}
 	 * @return
 	 */
-	java.lang.String getServiceContainer();
+	String getServiceContainer();
 	
 	
 	/**
 	 * 获取服务处理对象
 	 * @return
 	 */
-	java.lang.String getServiceHandler();
+	String getServiceHandler();
 	
 	
 	/**
@@ -130,35 +130,35 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 获取服务参数
 	 * @return
 	 */
-	java.lang.String getServiceParams();
+	String getServiceParams();
 	
 	
 	/**
 	 * 获取服务策略
 	 * @return
 	 */
-	java.lang.String getServicePolicy();
+	String getServicePolicy();
 	
 	
 	/**
 	 * 获取服务策略2
 	 * @return
 	 */
-	java.lang.String getServicePolicy2();
+	String getServicePolicy2();
 	
 	
 	/**
 	 * 获取服务标记
 	 * @return
 	 */
-	java.lang.String getServiceTag();
+	String getServiceTag();
 	
 	
 	/**
 	 * 获取服务标记2
 	 * @return
 	 */
-	java.lang.String getServiceTag2();
+	String getServiceTag2();
 	
 	
 	/**
@@ -167,7 +167,7 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BackendTaskStartMode}
 	 * @return
 	 */
-	java.lang.String getStartMode();
+	String getStartMode();
 	
 	
 	/**
@@ -176,14 +176,14 @@ public interface IPSSysBackService extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BackendTaskType}
 	 * @return
 	 */
-	java.lang.String getTaskType();
+	String getTaskType();
 	
 	
 	/**
 	 * 获取定时触发策略
 	 * @return
 	 */
-	java.lang.String getTimerPolicy();
+	String getTimerPolicy();
 	
 	
 	/**

@@ -21,6 +21,7 @@ public class PSAppMenuLogicImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
 	public final static String ATTR_GETTIMER = "timer";
 	public final static String ATTR_GETTRIGGERTYPE = "triggerType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAttrName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETATTRNAME);
@@ -192,5 +193,9 @@ public class PSAppMenuLogicImpl extends net.ibizsys.model.PSObjectImpl implement
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

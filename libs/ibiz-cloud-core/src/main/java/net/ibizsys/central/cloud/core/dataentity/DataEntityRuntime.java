@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,8 +29,8 @@ import net.ibizsys.central.cloud.core.dataentity.defield.IAIInfoDEFGroupRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicRuntime;
 import net.ibizsys.central.cloud.core.dataentity.search.DESearchRuntime;
 import net.ibizsys.central.cloud.core.dataentity.service.DEServiceInvocationHandler;
-import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtil;
+import net.ibizsys.central.cloud.core.dataentity.util.IDEChatPromptUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.util.IDEExtensionUtilRuntime;
 import net.ibizsys.central.cloud.core.dataentity.wf.IDEWFRuntime;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
@@ -53,7 +54,6 @@ import net.ibizsys.central.dataentity.service.IDEService;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISearchContextDTO;
 import net.ibizsys.central.util.SearchContextDTO;
-import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.model.IPSModelObjectRuntime;
 import net.ibizsys.model.PSModelEnums.DEFGroupLogicMode;
@@ -83,7 +83,6 @@ import net.ibizsys.runtime.codelist.ICodeListRuntime;
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 import net.ibizsys.runtime.dataentity.IDynaInstDataEntityRuntime;
 import net.ibizsys.runtime.dataentity.action.DEActions;
-import net.ibizsys.runtime.dataentity.dataexport.IDEDataExportRuntime;
 import net.ibizsys.runtime.dataentity.dataimport.IDEDataImportRuntime;
 import net.ibizsys.runtime.dataentity.defield.DEFDataTypes;
 import net.ibizsys.runtime.dataentity.logic.IDELogicRuntime;
@@ -96,12 +95,13 @@ import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionBackup;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DataTypeUtils;
-import net.ibizsys.runtime.util.EntityBase;
+import net.ibizsys.runtime.util.DateUtils;
 import net.ibizsys.runtime.util.EntityError;
 import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.IActionSessionLog;
 import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.IEntityBase;
+import net.ibizsys.runtime.util.INamedAction;
 import net.ibizsys.runtime.util.ISearchContextBase;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
@@ -128,6 +128,7 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	private IPSDEFGroup aiInfoPSDEFGroup = null;
 	private IPSDEFGroup aiFullInfoPSDEFGroup = null;
 	private IDEChatPromptUtil iDEChatPromptUtil = null;
+	private Map<String, IDataEntityRTAddin> dataEntityRTAddinMap = null;
 	
 
 	@Override
@@ -730,72 +731,6 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	}
 
 
-	@Override
-	public ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
-		prepare();
-
-		ActionSession actionSession = ActionSessionManager.getCurrentSession();
-		boolean bOpenActionSession = (actionSession == null);
-		if (bOpenActionSession) {
-			actionSession = ActionSessionManager.openSession();
-			actionSession.setName(this.getName());
-			actionSession.setUserContext(this.getUserContext());
-		}
-
-		try {
-			this.pushDataSource();
-
-			// 备份会话的动态实例运行时
-			ActionSessionBackup backup = actionSession.backup();
-			actionSession.setSessionId(KeyValueUtils.genGuidEx());
-
-			actionSession.beginLog(this.getName(), String.format("导出数据[%1$s]", strExportTag));
-
-			ExportDataResult ret = this.onExportData2(strExportTag, objData, outputStream);
-
-			// 恢复会话的动态实例运行时
-			actionSession.restore(backup);
-			IActionSessionLog iActionSessionLog = actionSession.endLog(null);
-
-			if (bOpenActionSession) {
-				if (iActionSessionLog != null) {
-					if (iActionSessionLog.getTime() >= ActionSessionManager.getExportDataLogPOTime()) {
-						this.getSystemRuntime().logPO(ISystemRuntime.LOGLEVEL_WARN, LogCats.PO_DEDATAEXP, iActionSessionLog.toString(true), this.getName(), String.format("导出数据[%1$s]", strExportTag), iActionSessionLog.getTime(), iActionSessionLog);
-					}
-				}
-				ActionSessionManager.closeSession(true);
-			}
-
-			return ret;
-
-		} catch (Throwable ex) {
-			ex = ExceptionUtils.unwrapThrowable(ex);
-			actionSession.setDynaInstRuntime(null);
-			actionSession.setChildDynaInstRuntime(null);
-			if (bOpenActionSession) {
-				IActionSessionLog iActionSessionLog = actionSession.endLog(ex.getMessage(), true, ex);
-				if (iActionSessionLog != null) {
-					String strInfo = String.format("实体[%1$s]数据导出[%2$s]发生异常，%3$s\r\n%4$s", this.getName(), strExportTag, ex.getMessage(), iActionSessionLog.toObjectNode().toString());
-					this.getSystemRuntime().log(LogLevels.ERROR, LogCats.DEDATAEXP, strInfo, ex);
-				}
-
-				ActionSessionManager.closeSession(false);
-			}
-			throw ex;
-		} finally {
-			this.pollDataSource();
-		}
-	}
-
-
-	protected ExportDataResult onExportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
-		IDEDataExportRuntime iDEDataExportRuntime = this.getDEDataExportRuntime(strExportTag);
-		if (iDEDataExportRuntime instanceof net.ibizsys.central.cloud.core.dataentity.dataexport.IDEDataExportRuntime) {
-			return ((net.ibizsys.central.cloud.core.dataentity.dataexport.IDEDataExportRuntime) iDEDataExportRuntime).exportStream2(objData, outputStream);
-		}
-
-		throw new Exception(String.format("对象[%1$s]未支持增强导出数据", iDEDataExportRuntime));
-	}
 
 
 	@Override
@@ -1295,6 +1230,18 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 	}
 	
 	@Override
+	public String getBusinessScope(Object keyOrData) throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(keyOrData instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)keyOrData;
+		}
+		else
+			iEntityDTO = this.get(keyOrData);
+		
+		return (String)this.executeAction(DEActions.GETBUSINESSSCOPE, null, new Object[] { iEntityDTO });
+	}
+	
+	@Override
 	protected Object onExecuteActionUnknown(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
 		if (DEActions.GETAIINFO.equalsIgnoreCase(strActionName)) {
 			return doGetAIInfo(args);
@@ -1302,6 +1249,10 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		
 		if (DEActions.GETAIFULLINFO.equalsIgnoreCase(strActionName)) {
 			return doGetAIFullInfo(args);
+		}
+		
+		if (DEActions.GETBUSINESSSCOPE.equalsIgnoreCase(strActionName)) {
+			return doGetBusinessScope(args);
 		}
 		
 		return super.onExecuteActionUnknown(strActionName, iPSDEAction, args, actionData);
@@ -1323,6 +1274,19 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		Assert.notNull(iEntityDTO, "未传入数据对象");
 		return this.doGetAIInfo(iEntityDTO, this.getAIFullInfoPSDEFGroup(true), args);
+	}
+	
+	protected String doGetBusinessScope(Object[] args)throws Throwable {
+		IEntityDTO iEntityDTO = null;
+		if(args != null && args.length != 0 && args[0] instanceof IEntityDTO) {
+			iEntityDTO = (IEntityDTO)args[0];
+		}
+		Assert.notNull(iEntityDTO, "未传入数据对象");
+		Object realKey = this.getKeyFieldValue(iEntityDTO);
+		if(!ObjectUtils.isEmpty(realKey)) {
+			return String.format("%1$s=%2$s", this.getName(), realKey);
+		}
+		return null;
 	}
 	
 	
@@ -1451,6 +1415,155 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		return this.iDEChatPromptUtil;
 	}
 
+	
+	@Override
+	protected Object doExecuteAsyncAction(String strActionName, IPSDEAction iPSDEAction, IPSDEAction realPSDEAction, Object[] args, Object actionData, Object asyncTag) throws Throwable {
+	
+		//获取行为入参标记
+		String strLockKey = null;
+		if (args != null && args.length > 0 ) {
+			List realKeyList = new ArrayList<>();
+			if (args[0] instanceof List) {
+				List list = (List) args[0];
+				boolean bConvert = false;
+				for (Object item : list) {
+					if (item instanceof IEntityDTO) {
+						bConvert = true;
+						break;
+					}
+				}
+				if (bConvert) {
+					for (Object item : list) {
+						IEntityDTO iEntityDTO = (IEntityDTO) item;
+						Object objKey = this.getFieldValue(iEntityDTO, this.getKeyPSDEField());
+						if(!ObjectUtils.isEmpty(objKey))
+							realKeyList.add(objKey);
+					}
+				}
+				else {
+					if(!ObjectUtils.isEmpty(list))
+						realKeyList.addAll(list);
+				}
+				
+			} else {
+				Object arg0 = args[0];
+				if(arg0 instanceof IEntityDTO) {
+					IEntityDTO iEntityDTO = (IEntityDTO) arg0;
+					Object objKey = this.getFieldValue(iEntityDTO, this.getKeyPSDEField());
+					if(!ObjectUtils.isEmpty(objKey))
+						realKeyList.add(objKey);
+				}
+				else {
+					if(!ObjectUtils.isEmpty(arg0))
+						realKeyList.add(arg0);
+				}
+			}
+			
+			if(!ObjectUtils.isEmpty(realKeyList)) {
+				StringBuilder sb = new StringBuilder();
+				for(Object item : realKeyList) {
+					sb.append(String.valueOf(item));
+					sb.append("|");
+				}
+				strLockKey = getAsyncActionLockKey(KeyValueUtils.genUniqueId(sb.toString()));
+			}
+		}
+		
+		if(StringUtils.hasLength(strLockKey)) {
+			//获取键值数据
+			String strLockData = this.getSystemRuntime().getSysCacheUtilRuntime(false).get(strLockKey);
+			if(StringUtils.hasLength(strLockData)) {
+				throw new Exception("作业正在执行中");
+			}
+			
+			final String strFinalLockKey = strLockKey;
+			return this.getSystemRuntime().asyncExecute(new INamedAction() {
+				@Override
+				public Object execute(Object[] args) throws Throwable {
+					try {
+						getSystemRuntime().getSysCacheUtilRuntime(false).set(strFinalLockKey, DateUtils.getCurTimeString(), 300);
+						return executeAction(realPSDEAction.getName(), realPSDEAction, args);
+					}
+					finally {
+						getSystemRuntime().getSysCacheUtilRuntime(false).reset(strFinalLockKey);
+					}
+				}
+
+				@Override
+				public String getName() {
+					if (StringUtils.hasLength(realPSDEAction.getLogicName())) {
+						return realPSDEAction.getLogicName();
+					}
+					return realPSDEAction.getName();
+				}
+			}, args, asyncTag);
+			
+		}
+		else
+			return super.doExecuteAsyncAction(strActionName, iPSDEAction, realPSDEAction, args, actionData, asyncTag);
+	}
+	
+	protected String getAsyncActionLockKey(Object key) {
+		return String.format("%1$s%2$s-%3$s--lockkey--%4$s", "ibiz-cloud-asyncaction-", this.getSystemRuntime().getDeploySystemId(), this.getFullUniqueTag().replace(".", "-"), key).toLowerCase();
+	}
+	
+	
+	@Override
+	public synchronized void registerDataEntityRTAddin(Class<?> dataEntityRTAddinClass) {
+		Assert.notNull(dataEntityRTAddinClass, "传入实体运行时插件Class无效");
+
+		IDataEntityRTAddin iDataEntityRTAddin = null;
+		try {
+			Object addin = dataEntityRTAddinClass.newInstance();
+			if(!(addin instanceof IDataEntityRTAddin)){
+				throw new Exception(String.format("插件[%1$s]类型不正确", dataEntityRTAddinClass.getName()));
+			}
+
+			iDataEntityRTAddin = (IDataEntityRTAddin)addin;
+		}
+		catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this, String.format("建立实体运行时插件发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		String strAddinId = String.format("%1$s@%2$s", dataEntityRTAddinClass.getTypeName(), Integer.toHexString(dataEntityRTAddinClass.hashCode()));
+		try {
+			this.getSystemRuntime().autowareObject(iDataEntityRTAddin);
+			iDataEntityRTAddin.init(this.getDataEntityRuntimeContext(), strAddinId, new HashMap<String, Object>());
+			iDataEntityRTAddin.install();
+			
+			if(this.dataEntityRTAddinMap == null) {
+				this.dataEntityRTAddinMap = new LinkedHashMap<String, IDataEntityRTAddin>();
+			}
+			this.dataEntityRTAddinMap.put(strAddinId, iDataEntityRTAddin);
+		}
+		catch (Throwable ex) {
+			throw new DataEntityRuntimeException(this, String.format("安装实体运行时插件[%1$s]发生异常，%2$s", iDataEntityRTAddin, ex.getMessage()), ex);
+		}
+	}
+
+	@Override
+	public synchronized boolean unregisterDataEntityRTAddin(Class<?> dataEntityRTAddinClass) {
+		Assert.notNull(dataEntityRTAddinClass, "传入实体运行时插件Class无效");
+		
+		String strAddinId = String.format("%1$s@%2$s", dataEntityRTAddinClass.getTypeName(), Integer.toHexString(dataEntityRTAddinClass.hashCode()));
+		IDataEntityRTAddin iDataEntityRTAddin = null;
+		if(this.dataEntityRTAddinMap != null) {
+			iDataEntityRTAddin = this.dataEntityRTAddinMap.remove(strAddinId);
+		}
+		
+		if(iDataEntityRTAddin == null) {
+			return false;
+		}
+		try {
+			iDataEntityRTAddin.uninstall();
+			
+		}
+		catch (Throwable ex) {
+			log.error(String.format("卸载实体运行时插件[%1$s]发生异常，%2$s", iDataEntityRTAddin, ex.getMessage()), ex);
+		}
+		return true;
+	}
+
 	@Override
 	protected void onShutdown() throws Exception {
 		if(!ObjectUtils.isEmpty(this.proxyDEServiceMap)) {
@@ -1458,6 +1571,17 @@ public class DataEntityRuntime extends net.ibizsys.central.dataentity.DataEntity
 		}
 		if(!ObjectUtils.isEmpty(this.rtObjectNameMap)) {
 			this.rtObjectNameMap.clear();
+		}
+		if(!ObjectUtils.isEmpty(this.dataEntityRTAddinMap)) {
+			for(IDataEntityRTAddin iDataEntityRTAddin : this.dataEntityRTAddinMap.values()) {
+				try {
+					iDataEntityRTAddin.uninstall();
+				}
+				catch (Throwable ex) {
+					log.error(String.format("卸载实体运行时[%1$s]插件发生异常， %2$s", iDataEntityRTAddin, ex.getMessage()), ex);
+				}
+			}
+			this.dataEntityRTAddinMap.clear();
 		}
 		this.proxyDEService = null;
 		this.iDEExtensionUtilRuntime = null;

@@ -14,5 +14,5 @@ public interface IPSSysSearchBarLogic extends net.ibizsys.model.dataentity.logic
 	 * 获取搜索栏项名称
 	 * @return
 	 */
-	java.lang.String getPSSysSearchBarItemName();
+	String getPSSysSearchBarItemName();
 }

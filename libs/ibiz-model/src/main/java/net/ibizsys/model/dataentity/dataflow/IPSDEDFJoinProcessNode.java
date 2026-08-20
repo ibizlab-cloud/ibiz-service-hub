@@ -15,7 +15,7 @@ public interface IPSDEDFJoinProcessNode extends net.ibizsys.model.dataentity.dat
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowJoinType}
 	 * @return
 	 */
-	java.lang.String getJoinType();
+	String getJoinType();
 	
 	
 	/**

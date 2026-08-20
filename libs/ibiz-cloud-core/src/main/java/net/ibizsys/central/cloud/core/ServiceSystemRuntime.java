@@ -18,11 +18,14 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.yaml.snakeyaml.Yaml;
 
+import net.ibizsys.central.app.IApplicationRuntime;
 import net.ibizsys.central.ba.ISysBDSchemeRuntime;
 import net.ibizsys.central.ba.SysBDSchemeRuntime;
 import net.ibizsys.central.bi.ISysBISchemeRuntime;
+import net.ibizsys.central.cloud.core.addin.ISystemRTAddin;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.ai.SysAIFactoryRuntime;
+import net.ibizsys.central.cloud.core.app.IServletAppRuntime;
 import net.ibizsys.central.cloud.core.ba.CloudOSSBDSchemeRuntime;
 import net.ibizsys.central.cloud.core.bi.SysBISchemeRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
@@ -65,8 +68,10 @@ import net.ibizsys.central.service.SysServiceAPILevels;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.central.system.ISystemModuleUtilRuntime;
 import net.ibizsys.central.sysutil.ISysOSSUtilRuntime;
+import net.ibizsys.central.testing.ISysTestPrjRuntime;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.ai.IPSSysAIFactory;
+import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.res.IPSSysContent;
@@ -74,6 +79,7 @@ import net.ibizsys.model.res.IPSSysContentCat;
 import net.ibizsys.model.res.IPSSysDataSyncAgent;
 import net.ibizsys.model.service.IPSSysServiceAPI;
 import net.ibizsys.model.system.IPSSysRef;
+import net.ibizsys.model.testing.IPSSysTestPrj;
 import net.ibizsys.runtime.ISystemEventListener;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.plugin.ModelRTScriptBase;
@@ -147,6 +153,8 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	private Map<Class<? extends IProxyDEService>, IProxyDEService> proxyDEServiceMap = new ConcurrentHashMap<Class<? extends IProxyDEService>, IProxyDEService>();
 	
 	private ISysServiceAPIRuntime defaultSysServiceAPIRuntime = null;
+	
+	private Map<String, ISystemRTAddin> systemRTAddinMap = null;
 	
 	private IConfigListener systemExtensionConfigListener = new IConfigListener() {
 
@@ -360,6 +368,21 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 		//启动系统，含功能模块
 		super.onStart();
 		
+		// 启动应用
+		java.util.List<IPSApplication> psApplications = this.getPSSystem().getAllPSApps();
+		if (psApplications != null) {
+			for (IPSApplication iPSApplication : psApplications) {
+				IApplicationRuntime iApplicationRuntime = this.getApplicationRuntime(iPSApplication.getCodeName(), true);
+				if(iApplicationRuntime instanceof IServletAppRuntime) {
+					try {
+						((IServletAppRuntime)iApplicationRuntime).install();
+					} catch (Throwable ex) {
+						throw new Exception(String.format("安装应用[%1$s]发生异常，%2$s", iApplicationRuntime.getName(), ex.getMessage()), ex);
+					}
+				}
+			}
+		}
+		
 		// 启动AI工厂
 		java.util.List<IPSSysAIFactory> psSysAIFactories = this.getPSSystem().getAllPSSysAIFactories();
 		if (psSysAIFactories != null) {
@@ -369,6 +392,21 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 					iSysAIFactoryRuntime.install();
 				} catch (Throwable ex) {
 					throw new Exception(String.format("安装系统AI工厂[%1$s]发生异常，%2$s", iSysAIFactoryRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+		
+		// 启动测试项目
+		java.util.List<IPSSysTestPrj> psSysTestPrjs = this.getPSSystem().getAllPSSysTestPrjs();
+		if (psSysTestPrjs != null) {
+			for (IPSSysTestPrj iPSSysTestPrj : psSysTestPrjs) {
+				ISysTestPrjRuntime iSysTestPrjRuntime = this.getSysTestPrjRuntime(iPSSysTestPrj);
+				if(iSysTestPrjRuntime instanceof net.ibizsys.central.cloud.core.testing.ISysTestPrjRuntime) {
+					try {
+						((net.ibizsys.central.cloud.core.testing.ISysTestPrjRuntime)iSysTestPrjRuntime).install();
+					} catch (Throwable ex) {
+						throw new Exception(String.format("安装系统测试项目[%1$s]发生异常，%2$s", iSysTestPrjRuntime.getName(), ex.getMessage()), ex);
+					}
 				}
 			}
 		}
@@ -625,6 +663,22 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 	@Override
 	protected void onShutdown() throws Exception{
 		
+		// 卸载测试项目
+		java.util.List<IPSSysTestPrj> psSysTestPrjs = this.getPSSystem().getAllPSSysTestPrjs();
+		if (psSysTestPrjs != null) {
+			for (IPSSysTestPrj iPSSysTestPrj : psSysTestPrjs) {
+				ISysTestPrjRuntime iSysTestPrjRuntime = this.getSysTestPrjRuntime(iPSSysTestPrj);
+				if(iSysTestPrjRuntime instanceof net.ibizsys.central.cloud.core.testing.ISysTestPrjRuntime) {
+					try {
+						((net.ibizsys.central.cloud.core.testing.ISysTestPrjRuntime)iSysTestPrjRuntime).uninstall();
+					} catch (Throwable ex) {
+						throw new Exception(String.format("卸载系统测试项目[%1$s]发生异常，%2$s", iSysTestPrjRuntime.getName(), ex.getMessage()), ex);
+					}
+				}
+				
+			}
+		}
+				
 		// 卸载AI工厂
 		java.util.List<IPSSysAIFactory> psSysAIFactories = this.getPSSystem().getAllPSSysAIFactories();
 		if (psSysAIFactories != null) {
@@ -634,6 +688,21 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 					iSysAIFactoryRuntime.uninstall();
 				} catch (Throwable ex) {
 					throw new Exception(String.format("卸载系统AI工厂[%1$s]发生异常，%2$s", iSysAIFactoryRuntime.getName(), ex.getMessage()), ex);
+				}
+			}
+		}
+		
+		// 卸载应用
+		java.util.List<IPSApplication> psApplications = this.getPSSystem().getAllPSApps();
+		if (psApplications != null) {
+			for (IPSApplication iPSApplication : psApplications) {
+				IApplicationRuntime iApplicationRuntime = this.getApplicationRuntime(iPSApplication.getCodeName(), true);
+				if(iApplicationRuntime instanceof IServletAppRuntime) {
+					try {
+						((IServletAppRuntime)iApplicationRuntime).uninstall();
+					} catch (Throwable ex) {
+						throw new Exception(String.format("卸载应用[%1$s]发生异常，%2$s", iApplicationRuntime.getName(), ex.getMessage()), ex);
+					}
 				}
 			}
 		}
@@ -1339,6 +1408,61 @@ public class ServiceSystemRuntime extends ServiceSystemRuntimeBase implements IS
 			return new DELogicDEPrintNodeRuntime();
 		}
 		return super.onCreateDELogicNodeRuntime(strLogicNodeType);
+	}
+	
+	@Override
+	public synchronized void registerSystemRTAddin(Class<?> systemRTAddinClass) {
+		Assert.notNull(systemRTAddinClass, "传入系统运行时插件Class无效");
+
+		ISystemRTAddin iSystemRTAddin = null;
+		try {
+			Object addin = systemRTAddinClass.newInstance();
+			if(!(addin instanceof ISystemRTAddin)){
+				throw new Exception(String.format("插件[%1$s]类型不正确", systemRTAddinClass.getName()));
+			}
+
+			iSystemRTAddin = (ISystemRTAddin)addin;
+		}
+		catch (Throwable ex) {
+			throw new SystemRuntimeException(this, String.format("建立系统运行时插件发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		String strAddinId = String.format("%1$s@%2$s", systemRTAddinClass.getTypeName(), Integer.toHexString(systemRTAddinClass.hashCode()));
+		try {
+			this.autowareObject(iSystemRTAddin);
+			iSystemRTAddin.init(this.getSystemRuntimeContext(), strAddinId, new HashMap<String, Object>());
+			iSystemRTAddin.install();
+			
+			if(this.systemRTAddinMap == null) {
+				this.systemRTAddinMap = new LinkedHashMap<String, ISystemRTAddin>();
+			}
+			this.systemRTAddinMap.put(strAddinId, iSystemRTAddin);
+		}
+		catch (Throwable ex) {
+			throw new SystemRuntimeException(this, String.format("安装系统运行时插件[%1$s]发生异常，%2$s", iSystemRTAddin, ex.getMessage()), ex);
+		}
+	}
+
+	@Override
+	public synchronized boolean unregisterSystemRTAddin(Class<?> systemRTAddinClass) {
+		Assert.notNull(systemRTAddinClass, "传入系统运行时插件Class无效");
+		
+		String strAddinId = String.format("%1$s@%2$s", systemRTAddinClass.getTypeName(), Integer.toHexString(systemRTAddinClass.hashCode()));
+		ISystemRTAddin iSystemRTAddin = null;
+		if(this.systemRTAddinMap != null) {
+			iSystemRTAddin = this.systemRTAddinMap.remove(strAddinId);
+		}
+		
+		if(iSystemRTAddin == null) {
+			return false;
+		}
+		try {
+			iSystemRTAddin.uninstall();
+		}
+		catch (Throwable ex) {
+			log.error(String.format("卸载系统运行时插件[%1$s]发生异常，%2$s", iSystemRTAddin, ex.getMessage()), ex);
+		}
+		return true;
 	}
 
 }

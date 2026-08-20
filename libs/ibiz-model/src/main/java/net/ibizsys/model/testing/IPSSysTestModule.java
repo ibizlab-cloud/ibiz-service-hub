@@ -14,21 +14,21 @@ public interface IPSSysTestModule extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取模块标记
 	 * @return
 	 */
-	java.lang.String getModuleTag();
+	String getModuleTag();
 	
 	
 	/**
 	 * 获取模块标记2
 	 * @return
 	 */
-	java.lang.String getModuleTag2();
+	String getModuleTag2();
 	
 	
 	/**

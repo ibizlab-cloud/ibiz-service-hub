@@ -16,7 +16,7 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -139,7 +139,7 @@ public interface IPSDETree extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeStyle}
 	 * @return
 	 */
-	java.lang.String getTreeStyle();
+	String getTreeStyle();
 	
 	
 	/**

@@ -16,7 +16,7 @@ public interface IPSMap extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -39,5 +39,5 @@ public interface IPSMap extends net.ibizsys.model.control.IPSMDAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MapViewStyle}
 	 * @return
 	 */
-	java.lang.String getMapStyle();
+	String getMapStyle();
 }

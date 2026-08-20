@@ -8,6 +8,8 @@ import org.springframework.util.ObjectUtils;
 import liquibase.change.core.CreateIndexChange;
 import liquibase.change.core.DropIndexChange;
 import liquibase.change.core.ModifyDataTypeChange;
+import liquibase.change.core.SetColumnRemarksChange;
+import liquibase.change.core.SetTableRemarksChange;
 import liquibase.changelog.ChangeSet;
 import liquibase.diff.DiffResult;
 import liquibase.diff.output.DiffOutputControl;
@@ -49,6 +51,18 @@ public class DiffToChangeLogEx extends DiffToChangeLog {
         			}
         			
         			if(changetSet.getChanges().get(0) instanceof ModifyDataTypeChange) {
+        				changetSet.setFailOnError(false);
+        				list2.add(changetSet);
+        				continue;
+        			}
+        			
+        			if(changetSet.getChanges().get(0) instanceof SetColumnRemarksChange) {
+        				changetSet.setFailOnError(false);
+        				list2.add(changetSet);
+        				continue;
+        			}
+        			
+        			if(changetSet.getChanges().get(0) instanceof SetTableRemarksChange) {
         				changetSet.setFailOnError(false);
         				list2.add(changetSet);
         				continue;

@@ -17,21 +17,21 @@ public interface IPSAppEditorStyleRef extends net.ibizsys.model.app.IPSApplicati
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取容器类型
 	 * @return
 	 */
-	java.lang.String getContainerType();
+	String getContainerType();
 	
 	
 	/**
 	 * 获取编辑器类型
 	 * @return
 	 */
-	java.lang.String getEditorType();
+	String getEditorType();
 	
 	
 	/**
@@ -52,21 +52,21 @@ public interface IPSAppEditorStyleRef extends net.ibizsys.model.app.IPSApplicati
 	 * 获取插件代码
 	 * @return
 	 */
-	java.lang.String getPluginCode();
+	String getPluginCode();
 	
 	
 	/**
 	 * 获取引用标记
 	 * @return
 	 */
-	java.lang.String getRefTag();
+	String getRefTag();
 	
 	
 	/**
 	 * 获取样式代码
 	 * @return
 	 */
-	java.lang.String getStyleCode();
+	String getStyleCode();
 	
 	
 	/**

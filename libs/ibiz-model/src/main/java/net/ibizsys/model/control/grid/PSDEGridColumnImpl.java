@@ -30,6 +30,7 @@ public class PSDEGridColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_ISENABLESORT = "enableSort";
 	public final static String ATTR_ISHIDDENDATAITEM = "hiddenDataItem";
 	public final static String ATTR_ISHIDEDEFAULT = "hideDefault";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAggField(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETAGGFIELD);
@@ -358,5 +359,9 @@ public class PSDEGridColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

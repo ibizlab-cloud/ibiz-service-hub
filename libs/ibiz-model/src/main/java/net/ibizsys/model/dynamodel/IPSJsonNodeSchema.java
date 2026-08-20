@@ -13,14 +13,14 @@ public interface IPSJsonNodeSchema extends net.ibizsys.model.dynamodel.IPSJsonNo
 	 * 获取描述信息
 	 * @return
 	 */
-	java.lang.String getDescription();
+	String getDescription();
 	
 	
 	/**
 	 * 获取引用模型标识
 	 * @return
 	 */
-	java.lang.String getRefSchemaId();
+	String getRefSchemaId();
 	
 	
 	/**
@@ -29,7 +29,7 @@ public interface IPSJsonNodeSchema extends net.ibizsys.model.dynamodel.IPSJsonNo
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.JsonNodeType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

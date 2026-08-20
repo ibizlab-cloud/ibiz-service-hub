@@ -16,40 +16,40 @@ public interface IPSWFStartProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	 * 获取操作表单标记
 	 * @return
 	 */
-	java.lang.String getFormCodeName();
+	String getFormCodeName();
 	
 	
 	/**
 	 * 获取移动端操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobFormCodeName();
+	String getMobFormCodeName();
 	
 	
 	/**
 	 * 获取移动端启动视图代码标识
 	 * @return
 	 */
-	java.lang.String getMobStartViewCodeName();
+	String getMobStartViewCodeName();
 	
 	
 	/**
 	 * 获取移动端启动视图名称
 	 * @return
 	 */
-	java.lang.String getMobStartViewName();
+	String getMobStartViewName();
 	
 	
 	/**
 	 * 获取启动视图代码标识
 	 * @return
 	 */
-	java.lang.String getStartViewCodeName();
+	String getStartViewCodeName();
 	
 	
 	/**
 	 * 获取启动视图名称
 	 * @return
 	 */
-	java.lang.String getStartViewName();
+	String getStartViewName();
 }

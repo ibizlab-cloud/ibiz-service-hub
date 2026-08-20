@@ -49,7 +49,7 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	 * 获取重置项名称
 	 * @return
 	 */
-	java.lang.String getResetItemName();
+	String getResetItemName();
 	
 	
 	/**
@@ -63,14 +63,14 @@ public interface IPSPanelField extends net.ibizsys.model.control.panel.IPSPanelI
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**
 	 * 获取视图模型属性名称
 	 * @return
 	 */
-	java.lang.String getViewFieldName();
+	String getViewFieldName();
 	
 	
 	/**

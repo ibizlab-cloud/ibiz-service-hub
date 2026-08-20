@@ -29,7 +29,7 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
-	java.lang.String getBorderStyle();
+	String getBorderStyle();
 	
 	
 	/**
@@ -38,7 +38,7 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**
@@ -47,7 +47,7 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getGroupExtractMode();
+	String getGroupExtractMode();
 	
 	
 	/**
@@ -100,7 +100,7 @@ public interface IPSDETBUIActionItem extends net.ibizsys.model.control.toolbar.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getUIActionTarget();
+	String getUIActionTarget();
 	
 	
 	/**

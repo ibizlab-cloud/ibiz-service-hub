@@ -16,5 +16,5 @@ public interface IPSDEMethodInput extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodInputType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

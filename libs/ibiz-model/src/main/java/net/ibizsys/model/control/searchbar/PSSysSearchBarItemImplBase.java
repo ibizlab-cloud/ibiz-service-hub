@@ -22,6 +22,7 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 	public final static String ATTR_GETPSCONTROLRENDERS = "getPSControlRenders";
 	public final static String ATTR_GETPSSYSCSS = "getPSSysCss";
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes(){
@@ -300,4 +301,8 @@ public class PSSysSearchBarItemImplBase extends net.ibizsys.model.control.search
 		this.pssysimage = pssysimage;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

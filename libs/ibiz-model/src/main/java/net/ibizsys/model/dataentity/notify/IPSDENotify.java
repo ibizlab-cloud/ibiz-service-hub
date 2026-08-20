@@ -35,14 +35,14 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
@@ -63,28 +63,28 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取监控事件模型
 	 * @return
 	 */
-	java.lang.String getEventModel();
+	String getEventModel();
 	
 	
 	/**
 	 * 获取监控事件集
 	 * @return
 	 */
-	java.lang.String getEvents();
+	String getEvents();
 	
 	
 	/**
 	 * 获取监控变化属性集
 	 * @return
 	 */
-	java.lang.String getFields();
+	String getFields();
 	
 	
 	/**
 	 * 获取过滤器模型
 	 * @return
 	 */
-	java.lang.String getFilterModel();
+	String getFilterModel();
 	
 	
 	/**
@@ -130,21 +130,21 @@ public interface IPSDENotify extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NotifySubType}
 	 * @return
 	 */
-	java.lang.String getNotifySubType();
+	String getNotifySubType();
 	
 	
 	/**
 	 * 获取通知标记
 	 * @return
 	 */
-	java.lang.String getNotifyTag();
+	String getNotifyTag();
 	
 	
 	/**
 	 * 获取通知标记2
 	 * @return
 	 */
-	java.lang.String getNotifyTag2();
+	String getNotifyTag2();
 	
 	
 	/**

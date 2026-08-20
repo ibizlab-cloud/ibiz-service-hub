@@ -24,6 +24,9 @@ import net.ibizsys.model.codelist.IPSCodeList;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.IPSSysDEGroup;
 import net.ibizsys.model.dataentity.PSDataEntityImpl;
+import net.ibizsys.model.dataentity.action.IPSDEAction;
+import net.ibizsys.model.dataentity.dataexport.IPSDEDataExport;
+import net.ibizsys.model.dataentity.dataimport.IPSDEDataImport;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.defield.PSDEFieldImpl;
 import net.ibizsys.model.dataentity.defield.PSFormulaDEFieldImpl;
@@ -43,7 +46,12 @@ import net.ibizsys.model.dataentity.der.IPSDERBase;
 import net.ibizsys.model.dataentity.der.IPSDERIndexDEFieldMap;
 import net.ibizsys.model.dataentity.der.PSDERCustomImpl;
 import net.ibizsys.model.dataentity.ds.IPSDEDQCondition;
+import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
+import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
+import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.print.IPSDEPrint;
+import net.ibizsys.model.dataentity.report.IPSDEReport;
+import net.ibizsys.model.dataentity.service.IPSDEMethodDTO;
 import net.ibizsys.model.msg.IPSSysMsgQueue;
 import net.ibizsys.model.msg.IPSSysMsgTarget;
 import net.ibizsys.model.msg.IPSSysMsgTempl;
@@ -63,6 +71,7 @@ import net.ibizsys.model.res.IPSSysLogic;
 import net.ibizsys.model.res.IPSSysSequence;
 import net.ibizsys.model.res.IPSSysTranslator;
 import net.ibizsys.model.service.IPSSubSysServiceAPI;
+import net.ibizsys.model.service.IPSSysMethodDTO;
 import net.ibizsys.model.service.IPSSysServiceAPI;
 import net.ibizsys.model.system.IPSSystemModule;
 import net.ibizsys.model.system.PSSystemModuleImpl;
@@ -1466,12 +1475,12 @@ public class PSModelServiceImpl extends PSModelServiceImplBase implements IPSDyn
 	@Override
 	public IPSModelObject getPSModelObject(String strPSModelType, String strPSModelId, boolean bTryMode) {
 		Assert.hasLength(strPSModelType,"传入模型类型无效");
-		if(PSSYSTEM.equals(strPSModelType)) {
+		if(PSModels.PSSYSTEM.equals(strPSModelType)) {
 			return this.getPSSystem();
 		}
 		
 		Assert.hasLength(strPSModelId,"传入模型标记无效");
-		if(PSDATAENTITY.equals(strPSModelType)) {
+		if(PSModels.PSDATAENTITY.equals(strPSModelType)) {
 			java.util.List<IPSDataEntity> psDataEntityList = this.getPSSystem().getAllPSDataEntities();
 			if(!ObjectUtils.isEmpty(psDataEntityList)) {
 				for(IPSDataEntity iPSDataEntity : psDataEntityList) {
@@ -1489,5 +1498,246 @@ public class PSModelServiceImpl extends PSModelServiceImplBase implements IPSDyn
 		}
 		throw new PSModelServiceException(this, String.format("无法获取指定模型对象[%1$s][%2$s]", strPSModelType, strPSModelId));
 	}
+
+	@Override
+	public IPSModelObject getPSModelObjectByDslId(String strPSModelType, String strPSModelDslId, boolean bTryMode) {
+		Assert.hasLength(strPSModelType,"传入模型类型无效");
+		if(PSModels.PSSYSTEM.equals(strPSModelType)) {
+			return this.getPSSystem();
+		}
+		
+		Assert.hasLength(strPSModelDslId,"传入模型标记无效");
+		IPSModelObject iPSModelObject = onGetPSModelObjectByDslId(strPSModelType, strPSModelDslId);
+		if(iPSModelObject != null) {
+			return iPSModelObject;
+		}
+		
+		if(bTryMode) {
+			return null;
+		}
+		throw new PSModelServiceException(this, String.format("无法获取指定模型对象[%1$s][%2$s]", strPSModelType, strPSModelDslId));
+	}
+	
+	protected IPSModelObject onGetPSModelObjectByDslId(String strPSModelType, String strPSModelDslId) {
+		if(PSModels.PSDATAENTITY.equals(strPSModelType)) {
+			java.util.List<IPSDataEntity> psDataEntityList = this.getPSSystem().getAllPSDataEntities();
+			if(!ObjectUtils.isEmpty(psDataEntityList)) {
+				for(IPSDataEntity iPSDataEntity : psDataEntityList) {
+					String strDslId = iPSDataEntity.getDslId();
+					if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+						return iPSDataEntity;
+					}
+					if(strPSModelDslId.equalsIgnoreCase(iPSDataEntity.getId())) {
+						return iPSDataEntity;
+					}
+				}
+			}
+			return null;
+		}
+		
+		if(PSModels.PSMODULE.equals(strPSModelType)) {
+			java.util.List<IPSSystemModule> psModuleList = this.getPSSystem().getAllPSSystemModules();
+			if(!ObjectUtils.isEmpty(psModuleList)) {
+				for(IPSSystemModule iPSModule : psModuleList) {
+					String strDslId = iPSModule.getDslId();
+					if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+						return iPSModule;
+					}
+					if(strPSModelDslId.equalsIgnoreCase(iPSModule.getId())) {
+						return iPSModule;
+					}
+				}
+			}
+			return null;
+		}
+		
+		if(PSModels.PSSYSSERVICEAPI.equals(strPSModelType)) {
+			java.util.List<IPSSysServiceAPI> psSysServiceAPIList = this.getPSSystem().getAllPSSysServiceAPIs();
+			if(!ObjectUtils.isEmpty(psSysServiceAPIList)) {
+				for(IPSSysServiceAPI iPSSysServiceAPI : psSysServiceAPIList) {
+					String strDslId = iPSSysServiceAPI.getDslId();
+					if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+						return iPSSysServiceAPI;
+					}
+					if(strPSModelDslId.equalsIgnoreCase(iPSSysServiceAPI.getId())) {
+						return iPSSysServiceAPI;
+					}
+				}
+			}
+			return null;
+		}
+		
+		if(PSModels.PSSYSAPP.equals(strPSModelType)) {
+			java.util.List<IPSApplication> psApplicationList = this.getPSSystem().getAllPSApps();
+			if(!ObjectUtils.isEmpty(psApplicationList)) {
+				for(IPSApplication iPSApplication : psApplicationList) {
+					String strDslId = iPSApplication.getDslId();
+					if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+						return iPSApplication;
+					}
+					if(strPSModelDslId.equalsIgnoreCase(iPSApplication.getId())) {
+						return iPSApplication;
+					}
+				}
+			}
+			return null;
+		}
+		
+		if(PSModels.PSSYSMETHODDTO.equals(strPSModelType)) {
+			java.util.List<IPSSysMethodDTO> psSysMethodDTOList = this.getPSSystem().getAllPSSysMethodDTOs();
+			if(!ObjectUtils.isEmpty(psSysMethodDTOList)) {
+				for(IPSSysMethodDTO iPSSysMethodDTO : psSysMethodDTOList) {
+					String strDslId = iPSSysMethodDTO.getDslId();
+					if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+						return iPSSysMethodDTO;
+					}
+					if(strPSModelDslId.equalsIgnoreCase(iPSSysMethodDTO.getId())) {
+						return iPSSysMethodDTO;
+					}
+				}
+			}
+			return null;
+		}
+		
+		
+		if(PSModels.PSDELOGIC.equals(strPSModelType)
+				|| PSModels.PSDEFIELD.equals(strPSModelType)
+				|| PSModels.PSDEACTION.equals(strPSModelType)
+				|| PSModels.PSDEDATAQUERY.equals(strPSModelType)  
+				|| PSModels.PSDEDATASET.equals(strPSModelType)
+				|| PSModels.PSDEDATAIMP.equals(strPSModelType)
+				|| PSModels.PSDEDATAEXP.equals(strPSModelType)
+				|| PSModels.PSDEREPORT.equals(strPSModelType)
+				|| PSModels.PSDEPRINT.equals(strPSModelType)
+				|| PSModels.PSDEMETHODDTO.equals(strPSModelType)
+				) {
+			IPSDataEntity iPSDataEntity = (IPSDataEntity)this.getPSModelObjectByDslId(PSModels.PSDATAENTITY, PSModelUtils.getParentId(strPSModelDslId), false);
+			if(PSModels.PSDELOGIC.equals(strPSModelType)) {
+				List<IPSDELogic> psDELogicList = iPSDataEntity.getAllPSDELogics();
+				if(!ObjectUtils.isEmpty(psDELogicList)) {
+					for(IPSDELogic iPSDELogic : psDELogicList) {
+						String strDslId = iPSDELogic.getDslId();
+						if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+							return iPSDELogic;
+						}
+					}
+				}
+				return null;
+			}
+			if(PSModels.PSDEFIELD.equals(strPSModelType)) {
+				List<IPSDEField> psDEFieldList = iPSDataEntity.getAllPSDEFields();
+				if(!ObjectUtils.isEmpty(psDEFieldList)) {
+					for(IPSDEField iPSDEField : psDEFieldList) {
+						String strDslId = iPSDEField.getDslId();
+						if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+							return iPSDEField;
+						}
+					}
+				}
+				return null;
+			}
+			if(PSModels.PSDEACTION.equals(strPSModelType)) {
+				List<IPSDEAction> psDEActionList = iPSDataEntity.getAllPSDEActions();
+				if(!ObjectUtils.isEmpty(psDEActionList)) {
+					for(IPSDEAction iPSDEAction : psDEActionList) {
+						String strDslId = iPSDEAction.getDslId();
+						if(strPSModelDslId.equalsIgnoreCase(strDslId)) {
+							return iPSDEAction;
+						}
+					}
+				}
+				return null;
+			}
+			
+			// 处理 PSDEDATAQUERY
+			if (PSModels.PSDEDATAQUERY.equals(strPSModelType)) {
+			    List<IPSDEDataQuery> list = iPSDataEntity.getAllPSDEDataQueries();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEDataQuery item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			// 处理 PSDEDATASET
+			if (PSModels.PSDEDATASET.equals(strPSModelType)) {
+			    List<IPSDEDataSet> list = iPSDataEntity.getAllPSDEDataSets();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEDataSet item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			// 处理 PSDEDATAIMP
+			if (PSModels.PSDEDATAIMP.equals(strPSModelType)) {
+			    List<IPSDEDataImport> list = iPSDataEntity.getAllPSDEDataImports();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEDataImport item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			}
+			// 处理 PSDEDATAEXP
+			if (PSModels.PSDEDATAEXP.equals(strPSModelType)) {
+			    List<IPSDEDataExport> list = iPSDataEntity.getAllPSDEDataExports();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEDataExport item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			// 处理 PSDEREPORT
+			if (PSModels.PSDEREPORT.equals(strPSModelType)) {
+			    List<IPSDEReport> list = iPSDataEntity.getAllPSDEReports();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEReport item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			// 处理 PSDEPRINT
+			if (PSModels.PSDEPRINT.equals(strPSModelType)) {
+			    List<IPSDEPrint> list = iPSDataEntity.getAllPSDEPrints();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEPrint item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			// 处理 PSDEMETHODDTO
+			if (PSModels.PSDEMETHODDTO.equals(strPSModelType)) {
+			    List<IPSDEMethodDTO> list = iPSDataEntity.getAllPSDEMethodDTOs();
+			    if (!ObjectUtils.isEmpty(list)) {
+			        for (IPSDEMethodDTO item : list) {
+			            if (strPSModelDslId.equalsIgnoreCase(item.getDslId())) {
+			                return item;
+			            }
+			        }
+			    }
+			    return null;
+			}
+			
+			
+		}
+		return null;
+	}
+	
+	
 	
 }

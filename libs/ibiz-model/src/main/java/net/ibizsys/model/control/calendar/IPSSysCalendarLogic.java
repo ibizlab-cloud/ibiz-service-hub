@@ -14,5 +14,5 @@ public interface IPSSysCalendarLogic extends net.ibizsys.model.dataentity.logic.
 	 * 获取日历项名称
 	 * @return
 	 */
-	java.lang.String getPSSysCalendarItemName();
+	String getPSSysCalendarItemName();
 }

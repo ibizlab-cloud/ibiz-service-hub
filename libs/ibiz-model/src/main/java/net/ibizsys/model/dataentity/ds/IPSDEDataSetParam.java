@@ -43,21 +43,21 @@ public interface IPSDEDataSetParam extends net.ibizsys.model.IPSModelObject
 	 * 获取参数描述
 	 * @return
 	 */
-	java.lang.String getParamDesc();
+	String getParamDesc();
 	
 	
 	/**
 	 * 获取参数标记
 	 * @return
 	 */
-	java.lang.String getParamTag();
+	String getParamTag();
 	
 	
 	/**
 	 * 获取参数标记2
 	 * @return
 	 */
-	java.lang.String getParamTag2();
+	String getParamTag2();
 	
 	
 	/**
@@ -73,7 +73,7 @@ public interface IPSDEDataSetParam extends net.ibizsys.model.IPSModelObject
 	 * 获取值或属性
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 	
 	
 	/**
@@ -82,7 +82,7 @@ public interface IPSDEDataSetParam extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionParamValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

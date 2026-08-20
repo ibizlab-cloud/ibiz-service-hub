@@ -14,7 +14,7 @@ public interface IPSChartDataSetField extends net.ibizsys.model.control.chart.IP
 	 * 获取分组模式
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**

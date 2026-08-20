@@ -11,6 +11,7 @@ public class PSDERGroupDetailImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETDETAILTAG2 = "detailTag2";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
 	public final static String ATTR_GETPSDER = "getPSDER";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -81,4 +82,8 @@ public class PSDERGroupDetailImpl extends net.ibizsys.model.PSObjectImpl impleme
 		this.psder = psder;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

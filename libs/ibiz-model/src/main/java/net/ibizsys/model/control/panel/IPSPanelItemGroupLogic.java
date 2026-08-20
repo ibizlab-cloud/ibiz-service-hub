@@ -16,7 +16,7 @@ public interface IPSPanelItemGroupLogic extends net.ibizsys.model.control.panel.
 	 * 获取组逻辑
 	 * @return
 	 */
-	java.lang.String getGroupOP();
+	String getGroupOP();
 	
 	
 	/**

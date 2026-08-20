@@ -30,6 +30,7 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETPSSYSIMAGE = "getPSSysImage";
 	public final static String ATTR_GETPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSHOWCAPTION = "showCaption";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
@@ -417,6 +418,10 @@ public class PSSysPanelItemImpl extends net.ibizsys.model.PSObjectImpl implement
 			return 0.0;
 		}
 		return value.asDouble();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isShowCaption(){

@@ -16,7 +16,7 @@ public interface IPSChartDataGrid extends net.ibizsys.model.control.chart.IPSCha
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartTitlePos}
 	 * @return
 	 */
-	java.lang.String getDataGridPos();
+	String getDataGridPos();
 	
 	
 	/**

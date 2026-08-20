@@ -626,44 +626,5 @@ public class SysSFPluginRuntime extends SystemModelRuntimeBase implements ISysSF
 	}
 
 	
-//	protected Object getRealValue(Class<?> type, Object objValue) throws Exception {
-//		
-//		if (type.equals(String.class)) {
-//			return objValue.toString();
-//		}
-//		
-//		if (type.equals(BigInteger.class)) {
-//			return DataTypeUtils.getBigIntegerValue(objValue, null);
-//		}
-//		
-//		if (type.equals(BigDecimal.class)) {
-//			return DataTypeUtils.getBigDecimalValue(objValue, null);
-//		}
-//		
-//		if (type.equals(int.class) || type.equals(Integer.class)) {
-//			return DataTypeUtils.getIntegerValue(objValue, null);
-//		}
-//		if (type.equals(long.class) || type.equals(Long.class)) {
-//			return DataTypeUtils.getLongValue(objValue, null);
-//		}
-//		
-//		if (type.equals(double.class) || type.equals(Double.class)) {
-//			return DataTypeUtils.getDoubleValue(objValue, null);
-//		}
-//		
-//		if (type.isAssignableFrom(java.sql.Timestamp.class)) {
-//			return DataTypeUtils.getDateTimeValue(objValue, null);
-//		}
-//		
-//		if (type.equals(boolean.class) || type.isAssignableFrom(Boolean.class)) {
-//			String strValue = objValue.toString();
-//			return strValue.equalsIgnoreCase("1") || strValue.equalsIgnoreCase("true");
-//		}
-//		
-//
-//		return objValue;
-//
-//	}
-//	
 
 }

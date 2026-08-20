@@ -26,4 +26,23 @@ public interface IDataEntityRTAddin {
 	 * @return
 	 */
 	String getId();
+	
+	
+	/**
+	 * 安装功能
+	 * @throws Throwable
+	 */
+	void install() throws Exception;
+
+	
+	/**
+	 * 是否已经安装
+	 * @return
+	 */
+	boolean isInstalled();
+	
+	/**
+	 * 卸载功能
+	 */
+	void uninstall();
 }

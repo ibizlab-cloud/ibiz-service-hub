@@ -30,14 +30,14 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -53,7 +53,7 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	 * 获取启用判断数据访问标识
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRDetailEnableMode}
 	 * @return
 	 */
-	java.lang.String getEnableMode();
+	String getEnableMode();
 	
 	
 	/**
@@ -83,14 +83,14 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	 * 获取项标记
 	 * @return
 	 */
-	java.lang.String getItemTag();
+	String getItemTag();
 	
 	
 	/**
 	 * 获取项标记2
 	 * @return
 	 */
-	java.lang.String getItemTag2();
+	String getItemTag2();
 	
 	
 	/**
@@ -139,5 +139,5 @@ public interface IPSDEDRCtrlItem extends net.ibizsys.model.IPSModelObject
 	 * 获取启用判断脚本
 	 * @return
 	 */
-	java.lang.String getTestScriptCode();
+	String getTestScriptCode();
 }

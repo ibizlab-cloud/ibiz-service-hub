@@ -14,7 +14,7 @@ public interface IPSDEMapField extends net.ibizsys.model.dataentity.datamap.IPSD
 	 * 获取目标属性名称
 	 * @return
 	 */
-	java.lang.String getDstFieldName();
+	String getDstFieldName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEMapField extends net.ibizsys.model.dataentity.datamap.IPSD
 	 * 获取表达式
 	 * @return
 	 */
-	java.lang.String getExpression();
+	String getExpression();
 	
 	
 	/**
@@ -44,7 +44,7 @@ public interface IPSDEMapField extends net.ibizsys.model.dataentity.datamap.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMapFieldSrcType}
 	 * @return
 	 */
-	java.lang.String getMapType();
+	String getMapType();
 	
 	
 	/**
@@ -65,14 +65,14 @@ public interface IPSDEMapField extends net.ibizsys.model.dataentity.datamap.IPSD
 	 * 获取直接值
 	 * @return
 	 */
-	java.lang.String getRawValue();
+	String getRawValue();
 	
 	
 	/**
 	 * 获取源属性名称
 	 * @return
 	 */
-	java.lang.String getSrcFieldName();
+	String getSrcFieldName();
 	
 	
 	/**

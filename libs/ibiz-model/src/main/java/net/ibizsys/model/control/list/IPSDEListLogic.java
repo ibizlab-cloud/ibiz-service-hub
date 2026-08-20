@@ -14,5 +14,5 @@ public interface IPSDEListLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取列表项名称
 	 * @return
 	 */
-	java.lang.String getPSDEListItemName();
+	String getPSDEListItemName();
 }

@@ -16,7 +16,7 @@ public interface IPSCode extends net.ibizsys.model.control.editor.IPSTextArea{
 	 * 获取代码类型[CODETYPE]
 	 * @return
 	 */
-	java.lang.String getCodeType();
+	String getCodeType();
 	
 	
 	/**

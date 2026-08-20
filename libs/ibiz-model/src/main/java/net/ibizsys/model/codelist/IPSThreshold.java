@@ -13,42 +13,42 @@ public interface IPSThreshold extends net.ibizsys.model.IPSModelObject{
 	 * 获取背景颜色
 	 * @return
 	 */
-	java.lang.String getBKColor();
+	String getBKColor();
 	
 	
 	/**
 	 * 获取开始值
 	 * @return
 	 */
-	java.lang.Double getBeginValue();
+	Double getBeginValue();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取文本颜色
 	 * @return
 	 */
-	java.lang.String getColor();
+	String getColor();
 	
 	
 	/**
 	 * 获取数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取结束值
 	 * @return
 	 */
-	java.lang.Double getEndValue();
+	Double getEndValue();
 	
 	
 	/**
@@ -83,7 +83,7 @@ public interface IPSThreshold extends net.ibizsys.model.IPSModelObject{
 	 * 获取文本
 	 * @return
 	 */
-	java.lang.String getText();
+	String getText();
 	
 	
 	/**
@@ -104,21 +104,21 @@ public interface IPSThreshold extends net.ibizsys.model.IPSModelObject{
 	 * 获取阈值项标记
 	 * @return
 	 */
-	java.lang.String getThresholdTag();
+	String getThresholdTag();
 	
 	
 	/**
 	 * 获取阈值项标记2
 	 * @return
 	 */
-	java.lang.String getThresholdTag2();
+	String getThresholdTag2();
 	
 	
 	/**
 	 * 获取提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**

@@ -29,7 +29,7 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionMode}
 	 * @return
 	 */
-	java.lang.String getActionMode();
+	String getActionMode();
 	
 	
 	/**
@@ -43,28 +43,28 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取行为标记
 	 * @return
 	 */
-	java.lang.String getActionTag();
+	String getActionTag();
 	
 	
 	/**
 	 * 获取行为标记2
 	 * @return
 	 */
-	java.lang.String getActionTag2();
+	String getActionTag2();
 	
 	
 	/**
 	 * 获取行为标记3
 	 * @return
 	 */
-	java.lang.String getActionTag3();
+	String getActionTag3();
 	
 	
 	/**
 	 * 获取行为标记4
 	 * @return
 	 */
-	java.lang.String getActionTag4();
+	String getActionTag4();
 	
 	
 	/**
@@ -73,7 +73,7 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionType}
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**
@@ -159,14 +159,14 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取数据访问标识
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**
@@ -182,7 +182,7 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -359,14 +359,14 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取预定义类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取预定义类型参数
 	 * @return
 	 */
-	java.lang.String getPredefinedTypeParam();
+	String getPredefinedTypeParam();
 	
 	
 	/**
@@ -453,7 +453,7 @@ public interface IPSDEAction extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionTSMode}
 	 * @return
 	 */
-	java.lang.String getTransactionMode();
+	String getTransactionMode();
 	
 	
 	/**

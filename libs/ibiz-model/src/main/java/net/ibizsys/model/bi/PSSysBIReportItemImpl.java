@@ -9,6 +9,7 @@ public abstract class PSSysBIReportItemImpl extends net.ibizsys.model.bi.PSSysBI
 	public final static String ATTR_GETITEMTAG = "itemTag";
 	public final static String ATTR_GETITEMTAG2 = "itemTag2";
 	public final static String ATTR_GETITEMTYPE = "itemType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -48,5 +49,9 @@ public abstract class PSSysBIReportItemImpl extends net.ibizsys.model.bi.PSSysBI
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

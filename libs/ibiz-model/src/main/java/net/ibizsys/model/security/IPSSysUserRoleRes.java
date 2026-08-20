@@ -28,5 +28,5 @@ public interface IPSSysUserRoleRes extends net.ibizsys.model.IPSModelObject{
 	 * 获取系统统一资源代码，来自{@link #getPSSysUniRes}.{@link net.ibizsys.model.security.IPSSysUniRes#getResCode}
 	 * @return
 	 */
-	java.lang.String getSysUniResCode();
+	String getSysUniResCode();
 }

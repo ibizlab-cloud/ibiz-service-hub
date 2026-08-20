@@ -14,21 +14,21 @@ public interface IPSAjaxHandler extends net.ibizsys.model.IPSModelObject{
 	 * 获取处理对象基类
 	 * @return
 	 */
-	java.lang.String getHandlerObj();
+	String getHandlerObj();
 	
 	
 	/**
 	 * 获取处理对象标记
 	 * @return
 	 */
-	java.lang.String getHandlerTag();
+	String getHandlerTag();
 	
 	
 	/**
 	 * 获取处理对象标记2
 	 * @return
 	 */
-	java.lang.String getHandlerTag2();
+	String getHandlerTag2();
 	
 	
 	/**

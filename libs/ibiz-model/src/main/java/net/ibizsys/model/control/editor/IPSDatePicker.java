@@ -16,5 +16,5 @@ public interface IPSDatePicker extends net.ibizsys.model.control.IPSEditor{
 	 * 获取日期时间格式
 	 * @return
 	 */
-	java.lang.String getDateTimeFormat();
+	String getDateTimeFormat();
 }

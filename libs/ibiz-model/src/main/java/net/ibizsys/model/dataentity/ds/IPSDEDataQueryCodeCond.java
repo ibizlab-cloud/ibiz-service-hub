@@ -14,19 +14,19 @@ public interface IPSDEDataQueryCodeCond extends net.ibizsys.model.IPSModelObject
 	 * 获取条件类型，恒为自定义(CUSTOM)
 	 * @return
 	 */
-	java.lang.String getCondType();
+	String getCondType();
 	
 	
 	/**
 	 * 获取查询条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
 	 * 获取自定义类型
 	 * @return
 	 */
-	java.lang.String getCustomType();
+	String getCustomType();
 }

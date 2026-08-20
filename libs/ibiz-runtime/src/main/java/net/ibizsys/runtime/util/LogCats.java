@@ -111,6 +111,24 @@ public class LogCats {
 	public final static String AIFACTORY = "AIFACTORY";
 	
 	/**
+	 * 日志分类：测试项目
+	 */
+	public final static String TESTPRJ = "TESTPRJ";
+	
+	
+	/**
+	 * 日志分类：前端应用
+	 */
+	public final static String APP = "APP";
+	
+	/**
+	 * 日志分类：服务接口
+	 */
+	public final static String API = "API";
+	
+	
+	
+	/**
 	 * 日志分类：Web客户端
 	 */
 	public final static String WEBCLIENT = "WEBCLIENT";

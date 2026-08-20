@@ -24,6 +24,7 @@ public class PSWFProcessImpl extends net.ibizsys.model.PSObjectImpl implements n
 	public final static String ATTR_GETWIDTH = "width";
 	public final static String ATTR_ISASYNCHRONOUSPROCESS = "asynchronousProcess";
 	public final static String ATTR_ISENABLETIMEOUT = "enableTimeout";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSTARTPROCESS = "startProcess";
 	public final static String ATTR_ISTERMINALPROCESS = "terminalProcess";
 
@@ -259,6 +260,10 @@ public class PSWFProcessImpl extends net.ibizsys.model.PSObjectImpl implements n
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	@Deprecated

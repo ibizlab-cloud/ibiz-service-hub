@@ -13,6 +13,7 @@ public class PSDEUILogicLinkImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_ISCATCHLINK = "catchLink";
 	public final static String ATTR_ISDEFAULTLINK = "defaultLink";
 	public final static String ATTR_ISFULFILLEDLINK = "fulfilledLink";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISREJECTEDLINK = "rejectedLink";
 	public final static String ATTR_ISSUBCALLLINK = "subCallLink";
 	private net.ibizsys.model.dataentity.logic.IPSDEUILogicNode dstpsdeuilogicnode;
@@ -122,6 +123,10 @@ public class PSDEUILogicLinkImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isRejectedLink(){

@@ -14,7 +14,7 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,70 +35,70 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取功能实体10名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE10Name();
+	String getUtilPSDE10Name();
 	
 	
 	/**
 	 * 获取功能实体2名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE2Name();
+	String getUtilPSDE2Name();
 	
 	
 	/**
 	 * 获取功能实体3名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE3Name();
+	String getUtilPSDE3Name();
 	
 	
 	/**
 	 * 获取功能实体4名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE4Name();
+	String getUtilPSDE4Name();
 	
 	
 	/**
 	 * 获取功能实体5名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE5Name();
+	String getUtilPSDE5Name();
 	
 	
 	/**
 	 * 获取功能实体6名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE6Name();
+	String getUtilPSDE6Name();
 	
 	
 	/**
 	 * 获取功能实体7名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE7Name();
+	String getUtilPSDE7Name();
 	
 	
 	/**
 	 * 获取功能实体8名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE8Name();
+	String getUtilPSDE8Name();
 	
 	
 	/**
 	 * 获取功能实体9名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE9Name();
+	String getUtilPSDE9Name();
 	
 	
 	/**
 	 * 获取功能实体名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDEName();
+	String getUtilPSDEName();
 	
 	
 	/**
@@ -112,7 +112,7 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取功能标记
 	 * @return
 	 */
-	java.lang.String getUtilTag();
+	String getUtilTag();
 	
 	
 	/**
@@ -121,5 +121,5 @@ public interface IPSAppUtil extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUtilType}
 	 * @return
 	 */
-	java.lang.String getUtilType();
+	String getUtilType();
 }

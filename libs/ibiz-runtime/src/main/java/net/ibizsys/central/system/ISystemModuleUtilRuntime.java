@@ -16,6 +16,7 @@ import net.ibizsys.central.service.ISubSysServiceAPIRuntime;
 import net.ibizsys.central.sysutil.ISysUtilRuntimeBase;
 import net.ibizsys.central.testing.ISysTestCaseRuntime;
 import net.ibizsys.central.testing.ISysTestDataRuntime;
+import net.ibizsys.central.testing.ISysTestPrjRuntime;
 import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.bi.IPSSysBIScheme;
 import net.ibizsys.model.dataentity.IPSDataEntity;
@@ -37,6 +38,7 @@ import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.model.system.IPSSystemModule;
 import net.ibizsys.model.testing.IPSSysTestCase;
 import net.ibizsys.model.testing.IPSSysTestData;
+import net.ibizsys.model.testing.IPSSysTestPrj;
 import net.ibizsys.runtime.dataentity.action.IDEActionRuntime;
 import net.ibizsys.runtime.dataentity.dataexport.IDEDataExportRuntime;
 import net.ibizsys.runtime.dataentity.dataimport.IDEDataImportRuntime;
@@ -314,6 +316,16 @@ public interface ISystemModuleUtilRuntime extends ISysUtilRuntimeBase, ISystemMo
 	 * @return
 	 */
 	default IDEDataQueryCodeRuntime createDEDataQueryCodeRuntime(IPSDEDataQueryCode iPSDEDataQueryCode){
+		return null;
+	}
+	
+	
+	/**
+	 * 建立系统测试项目运行时对象
+	 * @param iPSSysTestPrj
+	 * @return
+	 */
+	default ISysTestPrjRuntime createSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj){
 		return null;
 	}
 }

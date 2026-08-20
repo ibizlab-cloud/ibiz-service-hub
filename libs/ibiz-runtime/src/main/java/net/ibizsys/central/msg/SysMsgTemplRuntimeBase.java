@@ -234,6 +234,18 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 		return super.getMobileUrl();
 	}
 	
+	@Override
+	protected String getAttachments() {
+		if(this.deMsgTemplMap != null && this.getPSSysMsgTempl().getAttachmentsPSDEField() != null) {
+			String strContent = this.getDEMsgTemplContent(this.getPSSysMsgTempl().getAttachmentsPSDEField().getLowerCaseName());
+			if(StringUtils.hasLength(strContent)) {
+				return strContent;
+			}
+		}
+		return super.getAttachments();
+	}
+	
+	
 	
 	protected String getDEMsgTemplContent(String fieldName){
 		//判断语言
@@ -314,6 +326,16 @@ public abstract class SysMsgTemplRuntimeBase extends net.ibizsys.runtime.msg.Sys
 		return getTemplContent(TEMPL_MOBILEURL, data, params);
 	}
 
+	
+	@Override
+	public String getAttachments(Object data, Map<String, Object> params) {
+		if(!StringUtils.hasLength(this.getAttachments())) {
+			return null;
+		}
+		return getTemplContent(TEMPL_ATTACHMENTS, data, params);
+	}
+	
+	
 	
 	@Override
 	protected void onFillTemplParams(String strType, Object data, Map<String, Object> params) {

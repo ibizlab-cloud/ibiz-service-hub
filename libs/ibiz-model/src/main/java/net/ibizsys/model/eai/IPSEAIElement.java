@@ -13,21 +13,21 @@ public interface IPSEAIElement extends net.ibizsys.model.eai.IPSSysEAISchemeObje
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取元素标记
 	 * @return
 	 */
-	java.lang.String getElementTag();
+	String getElementTag();
 	
 	
 	/**
 	 * 获取元素标记2
 	 * @return
 	 */
-	java.lang.String getElementTag2();
+	String getElementTag2();
 	
 	
 	/**
@@ -36,7 +36,7 @@ public interface IPSEAIElement extends net.ibizsys.model.eai.IPSSysEAISchemeObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EAIElementType}
 	 * @return
 	 */
-	java.lang.String getElementType();
+	String getElementType();
 	
 	
 	/**
@@ -45,5 +45,5 @@ public interface IPSEAIElement extends net.ibizsys.model.eai.IPSSysEAISchemeObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EAIElementREOrderMode}
 	 * @return
 	 */
-	java.lang.String getOrderMode();
+	String getOrderMode();
 }

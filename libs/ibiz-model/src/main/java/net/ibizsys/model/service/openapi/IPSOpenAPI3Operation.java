@@ -13,12 +13,12 @@ public interface IPSOpenAPI3Operation extends net.ibizsys.model.service.openapi.
 	 * 获取操作标识
 	 * @return
 	 */
-	java.lang.String getOperationId();
+	String getOperationId();
 	
 	
 	/**
 	 * 获取操作摘要
 	 * @return
 	 */
-	java.lang.String getSummary();
+	String getSummary();
 }

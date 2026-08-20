@@ -13,7 +13,7 @@ public interface IPSPanelModel extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface IPSPanelModel extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlModelDataType}
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
@@ -31,7 +31,7 @@ public interface IPSPanelModel extends net.ibizsys.model.control.panel.IPSPanelO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PanelModelType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

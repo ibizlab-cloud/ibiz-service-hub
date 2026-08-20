@@ -121,6 +121,13 @@ public interface ISysMsgTemplRuntime extends ISystemModelRuntime {
 	
 	
 	
+	/**
+	 * 获取附件
+	 * @param iEntityBase
+	 * @return
+	 */
+	String getAttachments(IEntityBase iEntityBase);
+	
 	
 	/**
 	 * 重置消息模板

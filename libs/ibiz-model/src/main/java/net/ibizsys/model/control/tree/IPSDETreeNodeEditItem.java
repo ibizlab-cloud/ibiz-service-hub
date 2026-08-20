@@ -16,7 +16,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 获取建立默认值
 	 * @return
 	 */
-	java.lang.String getCreateDV();
+	String getCreateDV();
 	
 	
 	/**
@@ -25,7 +25,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getCreateDVT();
+	String getCreateDVT();
 	
 	
 	
@@ -89,7 +89,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 获取重置项名称
 	 * @return
 	 */
-	java.lang.String getResetItemName();
+	String getResetItemName();
 	
 	
 	/**
@@ -103,7 +103,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 获取单位名称
 	 * @return
 	 */
-	java.lang.String getUnitName();
+	String getUnitName();
 	
 	
 	/**
@@ -117,7 +117,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 获取更新默认值
 	 * @return
 	 */
-	java.lang.String getUpdateDV();
+	String getUpdateDV();
 	
 	
 	/**
@@ -126,7 +126,7 @@ public interface IPSDETreeNodeEditItem extends net.ibizsys.model.IPSObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getUpdateDVT();
+	String getUpdateDVT();
 	
 	
 	/**

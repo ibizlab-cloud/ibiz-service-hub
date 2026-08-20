@@ -8,6 +8,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
+import net.ibizsys.central.cloud.core.util.domain.ChatSkill;
+import net.ibizsys.central.cloud.core.util.domain.KnowledgeBase;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 
 /**
@@ -59,6 +61,24 @@ public interface IDEChatCompletionRuntimeBase {
 	 * 方法：摘要
 	 */
 	final static String METHOD_CHATDIGEST = "CHATDIGEST";
+	
+	
+	/**
+	 * 方法：SSE子代理输出
+	 */
+	final static String METHOD_SSESUBAGENTOUTPUT = "SSESUBAGENTOUTPUT";
+	
+	
+	/**
+	 * 方法：获取技能
+	 */
+	final static String METHOD_SKILLS = "SKILLS";
+	
+	
+	/**
+	 * 方法：获取知识库
+	 */
+	final static String METHOD_KNOWLEDGEBASES = "KNOWLEDGEBASES";
 	
 	
 	/**
@@ -151,4 +171,34 @@ public interface IDEChatCompletionRuntimeBase {
 	 */
 	ChatCompletionResult chatDigest(Object dataOrKeys, ChatCompletionRequest chatCompletionRequest) throws Throwable;
 	
+	/**
+	 * SSE子代理输出
+	 * @param dataOrKeys
+	 * @param strAsyncActionId
+	 * @param body
+	 * @return
+	 * @throws Throwable
+	 */
+	SseEmitter sseSubAgentOutput(Object dataOrKeys, String strAsyncActionId, Object body)  throws Throwable;
+	
+	
+	
+	/**
+	 * 获取交谈技能集合
+	 * @param dataOrKeys 键值或数据对象
+	 * @param body
+	 * @return
+	 * @throws Throwable
+	 */
+	List<ChatSkill> getSkills(Object dataOrKeys, Object body) throws Throwable;
+	
+	
+	/**
+	 * 获取交谈知识库集合
+	 * @param dataOrKeys 键值或数据对象
+	 * @param body
+	 * @return
+	 * @throws Throwable
+	 */
+	List<KnowledgeBase> getKnowledgeBases(Object dataOrKeys, Object body) throws Throwable;
 }

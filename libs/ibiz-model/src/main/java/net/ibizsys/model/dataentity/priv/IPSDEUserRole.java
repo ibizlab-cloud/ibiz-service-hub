@@ -15,7 +15,7 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
@@ -85,7 +85,7 @@ public interface IPSDEUserRole extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取角色标记
 	 * @return
 	 */
-	java.lang.String getRoleTag();
+	String getRoleTag();
 	
 	
 	/**

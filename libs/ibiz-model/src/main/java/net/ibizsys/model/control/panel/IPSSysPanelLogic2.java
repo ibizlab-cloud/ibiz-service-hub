@@ -14,5 +14,5 @@ public interface IPSSysPanelLogic2 extends net.ibizsys.model.dataentity.logic.IP
 	 * 获取系统看板部件名称
 	 * @return
 	 */
-	java.lang.String getPSSysPanelItemName();
+	String getPSSysPanelItemName();
 }

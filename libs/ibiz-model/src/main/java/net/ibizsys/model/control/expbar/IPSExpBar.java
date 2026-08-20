@@ -43,7 +43,7 @@ public interface IPSExpBar extends net.ibizsys.model.control.IPSAjaxControl
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
@@ -64,7 +64,7 @@ public interface IPSExpBar extends net.ibizsys.model.control.IPSAjaxControl
 	 * 获取导航栏数据部件名称
 	 * @return
 	 */
-	java.lang.String getXDataControlName();
+	String getXDataControlName();
 	
 	
 	/**

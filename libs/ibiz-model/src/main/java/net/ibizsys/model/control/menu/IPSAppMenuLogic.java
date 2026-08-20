@@ -14,5 +14,5 @@ public interface IPSAppMenuLogic extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 获取菜单项名称
 	 * @return
 	 */
-	java.lang.String getPSAppMenuItemName();
+	String getPSAppMenuItemName();
 }

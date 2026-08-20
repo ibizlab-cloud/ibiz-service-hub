@@ -36,5 +36,5 @@ public interface IPSAppLan extends net.ibizsys.model.app.IPSApplicationObject
 	 * 获取语言
 	 * @return
 	 */
-	java.lang.String getLanguage();
+	String getLanguage();
 }

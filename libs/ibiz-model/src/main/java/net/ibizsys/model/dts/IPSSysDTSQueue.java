@@ -34,7 +34,7 @@ public interface IPSSysDTSQueue extends net.ibizsys.model.IPSModelObject{
 	 * 获取已取消状态值
 	 * @return
 	 */
-	java.lang.String getCancelledState();
+	String getCancelledState();
 	
 	
 	/**
@@ -55,7 +55,7 @@ public interface IPSSysDTSQueue extends net.ibizsys.model.IPSModelObject{
 	 * 获取已建立状态值
 	 * @return
 	 */
-	java.lang.String getCreatedState();
+	String getCreatedState();
 	
 	
 	/**
@@ -76,14 +76,14 @@ public interface IPSSysDTSQueue extends net.ibizsys.model.IPSModelObject{
 	 * 获取处理失败状态值
 	 * @return
 	 */
-	java.lang.String getFailedState();
+	String getFailedState();
 	
 	
 	/**
 	 * 获取已完成状态值
 	 * @return
 	 */
-	java.lang.String getFinishedState();
+	String getFinishedState();
 	
 	
 	/**
@@ -132,7 +132,7 @@ public interface IPSSysDTSQueue extends net.ibizsys.model.IPSModelObject{
 	 * 获取处理中状态值
 	 * @return
 	 */
-	java.lang.String getProcessingState();
+	String getProcessingState();
 	
 	
 	/**

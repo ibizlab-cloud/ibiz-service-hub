@@ -14,7 +14,7 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -30,35 +30,35 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	 * 获取实体流程取消状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFCancelState();
+	String getEntityWFCancelState();
 	
 	
 	/**
 	 * 获取实体流程错误状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFErrorState();
+	String getEntityWFErrorState();
 	
 	
 	/**
 	 * 获取实体流程结束状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFFinishState();
+	String getEntityWFFinishState();
 	
 	
 	/**
 	 * 获取实体流程中状态值
 	 * @return
 	 */
-	java.lang.String getEntityWFState();
+	String getEntityWFState();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -149,28 +149,28 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	 * 获取工作流唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**
 	 * 获取流程分类代码
 	 * @return
 	 */
-	java.lang.String getWFCatCode();
+	String getWFCatCode();
 	
 	
 	/**
 	 * 获取流程引擎类别
 	 * @return
 	 */
-	java.lang.String getWFEngineCat();
+	String getWFEngineCat();
 	
 	
 	/**
 	 * 获取流程引擎类型
 	 * @return
 	 */
-	java.lang.String getWFEngineType();
+	String getWFEngineType();
 	
 	
 	/**
@@ -186,7 +186,7 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	 * 获取工作流编号
 	 * @return
 	 */
-	java.lang.String getWFSN();
+	String getWFSN();
 	
 	
 	/**
@@ -195,7 +195,7 @@ public interface IPSWorkflow extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFType}
 	 * @return
 	 */
-	java.lang.String getWFType();
+	String getWFType();
 	
 	
 	/**

@@ -18,14 +18,14 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -34,7 +34,7 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	
@@ -43,28 +43,28 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**
 	 * 获取Json格式化
 	 * @return
 	 */
-	java.lang.String getJsonFormat();
+	String getJsonFormat();
 	
 	
 	/**
 	 * 获取中文名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -99,7 +99,7 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 获取正则式模式
 	 * @return
 	 */
-	java.lang.String getPattern();
+	String getPattern();
 	
 	
 	/**
@@ -178,7 +178,7 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOFieldSourceType}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 	
 	
 	/**
@@ -196,7 +196,7 @@ public interface IPSDEMethodDTOField extends net.ibizsys.model.dataentity.defiel
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOFieldType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 	
 	
 	/**

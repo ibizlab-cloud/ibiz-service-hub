@@ -16,7 +16,7 @@ public interface IPSChartLegend extends net.ibizsys.model.control.chart.IPSChart
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartTitlePos}
 	 * @return
 	 */
-	java.lang.String getLegendPos();
+	String getLegendPos();
 	
 	
 	/**

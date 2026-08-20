@@ -15,14 +15,14 @@ public interface IPSAppUILogicRefViewBase extends net.ibizsys.model.control.IPSN
 	 * 获取视图打开模式
 	 * @return
 	 */
-	java.lang.String getOpenMode();
+	String getOpenMode();
 	
 	
 	/**
 	 * 获取引用模式
 	 * @return
 	 */
-	java.lang.String getRefMode();
+	String getRefMode();
 	
 	
 	/**

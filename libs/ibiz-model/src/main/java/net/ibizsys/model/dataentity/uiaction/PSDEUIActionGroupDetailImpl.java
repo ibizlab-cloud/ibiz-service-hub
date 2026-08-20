@@ -32,6 +32,7 @@ public class PSDEUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 	public final static String ATTR_GETUIACTIONPARAMJO = "uIActionParamJO";
 	public final static String ATTR_GETVISIBLESCRIPTCODE = "visibleScriptCode";
 	public final static String ATTR_ISADDSEPARATOR = "addSeparator";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSHOWCAPTION = "showCaption";
 	public final static String ATTR_ISSHOWICON = "showIcon";
 
@@ -403,6 +404,10 @@ public class PSDEUIActionGroupDetailImpl extends net.ibizsys.model.PSObjectImpl 
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isShowCaption(){

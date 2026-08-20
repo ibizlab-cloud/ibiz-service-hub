@@ -392,42 +392,42 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取实体服务接口代码标识
 	 * @return
 	 */
-	java.lang.String getDEAPICodeName();
+	String getDEAPICodeName();
 	
 	
 	/**
 	 * 获取实体服务接口代码标识2（复数）
 	 * @return
 	 */
-	java.lang.String getDEAPICodeName2();
+	String getDEAPICodeName2();
 	
 	
 	/**
 	 * 获取实体服务接口标记
 	 * @return
 	 */
-	java.lang.String getDEAPITag();
+	String getDEAPITag();
 	
 	
 	/**
 	 * 获取实体代码标识
 	 * @return
 	 */
-	java.lang.String getDECodeName();
+	String getDECodeName();
 	
 	
 	/**
@@ -436,21 +436,21 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SADEDEFGroupMode}
 	 * @return
 	 */
-	java.lang.String getDEFGroupMode();
+	String getDEFGroupMode();
 	
 	
 	/**
 	 * 获取实体完全标识
 	 * @return
 	 */
-	java.lang.String getDEFullTag();
+	String getDEFullTag();
 	
 	
 	/**
 	 * 获取实体标识
 	 * @return
 	 */
-	java.lang.String getDEName();
+	String getDEName();
 	
 	
 	/**
@@ -531,7 +531,7 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 获取动态实例标记
 	 * @return
 	 */
-	java.lang.String getDynaInstTag();
+	String getDynaInstTag();
 	
 	
 	/**
@@ -612,7 +612,7 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -703,7 +703,7 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 获取实体名称
 	 * @return
 	 */
-	java.lang.String getPSDEName();
+	String getPSDEName();
 	
 	
 	/**
@@ -831,7 +831,7 @@ public interface IPSAppDataEntity extends net.ibizsys.model.app.mob.IPSAppLocalD
 	 * 获取系统服务接口标记
 	 * @return
 	 */
-	java.lang.String getSysAPITag();
+	String getSysAPITag();
 	
 	
 	/**

@@ -20,6 +20,7 @@ import net.ibizsys.central.service.client.IWebClient;
 import net.ibizsys.central.system.ISysRefRuntime;
 import net.ibizsys.central.testing.ISysTestCaseRuntime;
 import net.ibizsys.central.testing.ISysTestDataRuntime;
+import net.ibizsys.central.testing.ISysTestPrjRuntime;
 import net.ibizsys.central.util.ISystemRuntimeContextAction;
 import net.ibizsys.central.util.IWebResponse;
 import net.ibizsys.central.util.script.IScriptEntity;
@@ -39,6 +40,7 @@ import net.ibizsys.model.service.IPSSysServiceAPI;
 import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.model.testing.IPSSysTestCase;
 import net.ibizsys.model.testing.IPSSysTestData;
+import net.ibizsys.model.testing.IPSSysTestPrj;
 import net.ibizsys.runtime.util.IEntity;
 
 public interface ISystemUtilRuntime extends net.ibizsys.runtime.ISystemUtilRuntime{
@@ -122,6 +124,15 @@ public interface ISystemUtilRuntime extends net.ibizsys.runtime.ISystemUtilRunti
 	 * @return
 	 */
 	ISysTestDataRuntime createSysTestDataRuntime(IPSSysTestData iPSSysTestData);
+	
+	
+	
+	/**
+	 * 获取系统测试项目运行时对象接口
+	 * @param iPSSysTestPrj
+	 * @return
+	 */
+	ISysTestPrjRuntime createSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj);
 	
 	
 	

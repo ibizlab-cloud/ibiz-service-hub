@@ -28,14 +28,14 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取建立默认值
 	 * @return
 	 */
-	java.lang.String getCreateDV();
+	String getCreateDV();
 	
 	
 	/**
@@ -44,7 +44,7 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getCreateDVT();
+	String getCreateDVT();
 	
 	
 	/**
@@ -74,7 +74,7 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 获取标签直接样式
 	 * @return
 	 */
-	java.lang.String getLabelCssStyle();
+	String getLabelCssStyle();
 	
 	
 	/**
@@ -83,7 +83,7 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LabelPos}
 	 * @return
 	 */
-	java.lang.String getLabelPos();
+	String getLabelPos();
 	
 	
 	/**
@@ -162,7 +162,7 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 获取重置项名称
 	 * @return
 	 */
-	java.lang.String getResetItemName();
+	String getResetItemName();
 	
 	
 	/**
@@ -176,7 +176,7 @@ public interface IPSSearchBarFilter extends net.ibizsys.model.control.searchbar.
 	 * 获取单位名称
 	 * @return
 	 */
-	java.lang.String getUnitName();
+	String getUnitName();
 	
 	
 	/**

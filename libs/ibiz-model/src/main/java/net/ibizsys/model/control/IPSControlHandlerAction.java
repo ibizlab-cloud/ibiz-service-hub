@@ -14,28 +14,28 @@ public interface IPSControlHandlerAction extends net.ibizsys.model.control.IPSCo
 	 * 获取目标行为名称
 	 * @return
 	 */
-	java.lang.String getActionName();
+	String getActionName();
 	
 	
 	/**
 	 * 获取行为类型
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**
 	 * 获取结果集附加条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
 	 * 获取数据访问行为
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**

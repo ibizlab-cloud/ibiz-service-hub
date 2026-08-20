@@ -30,6 +30,7 @@ public class PSCodeItemImpl extends net.ibizsys.model.PSObjectImpl implements ne
 	public final static String ATTR_ISDISABLESELECT = "disableSelect";
 	public final static String ATTR_ISINCLUDEBEGINVALUE = "includeBeginValue";
 	public final static String ATTR_ISINCLUDEENDVALUE = "includeEndValue";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSHOWASEMTPY = "showAsEmtpy";
 
 	public java.lang.String getBKColor(){
@@ -311,6 +312,10 @@ public class PSCodeItemImpl extends net.ibizsys.model.PSObjectImpl implements ne
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isShowAsEmtpy(){

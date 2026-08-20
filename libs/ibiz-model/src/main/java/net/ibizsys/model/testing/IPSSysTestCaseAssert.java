@@ -14,28 +14,28 @@ public interface IPSSysTestCaseAssert extends net.ibizsys.model.IPSModelObject{
 	 * 获取断言标记
 	 * @return
 	 */
-	java.lang.String getAssertTag();
+	String getAssertTag();
 	
 	
 	/**
 	 * 获取断言标记2
 	 * @return
 	 */
-	java.lang.String getAssertTag2();
+	String getAssertTag2();
 	
 	
 	/**
 	 * 获取断言标记3
 	 * @return
 	 */
-	java.lang.String getAssertTag3();
+	String getAssertTag3();
 	
 	
 	/**
 	 * 获取断言标记4
 	 * @return
 	 */
-	java.lang.String getAssertTag4();
+	String getAssertTag4();
 	
 	
 	/**
@@ -44,35 +44,35 @@ public interface IPSSysTestCaseAssert extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestCaseAssertType}
 	 * @return
 	 */
-	java.lang.String getAssertType();
+	String getAssertType();
 	
 	
 	/**
 	 * 获取断言值
 	 * @return
 	 */
-	java.lang.String getAssertValue();
+	String getAssertValue();
 	
 	
 	/**
 	 * 获取异常名称
 	 * @return
 	 */
-	java.lang.String getExceptionName();
+	String getExceptionName();
 	
 	
 	/**
 	 * 获取异常标记
 	 * @return
 	 */
-	java.lang.String getExceptionTag();
+	String getExceptionTag();
 	
 	
 	/**
 	 * 获取异常标记2
 	 * @return
 	 */
-	java.lang.String getExceptionTag2();
+	String getExceptionTag2();
 	
 	
 	/**
@@ -107,5 +107,5 @@ public interface IPSSysTestCaseAssert extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 }

@@ -13,7 +13,7 @@ public interface IPSBIAggTable extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -48,12 +48,12 @@ public interface IPSBIAggTable extends net.ibizsys.model.IPSModelObject{
 	 * 获取聚合数据表标记
 	 * @return
 	 */
-	java.lang.String getTableTag();
+	String getTableTag();
 	
 	
 	/**
 	 * 获取聚合数据表标记2
 	 * @return
 	 */
-	java.lang.String getTableTag2();
+	String getTableTag2();
 }

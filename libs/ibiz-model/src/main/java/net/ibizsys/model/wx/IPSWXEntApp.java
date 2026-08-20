@@ -14,14 +14,14 @@ public interface IPSWXEntApp extends net.ibizsys.model.wx.IPSWXAccountObject
 	 * 获取应用路径
 	 * @return
 	 */
-	java.lang.String getAppURL();
+	String getAppURL();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

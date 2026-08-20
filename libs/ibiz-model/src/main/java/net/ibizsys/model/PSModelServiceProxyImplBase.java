@@ -52,6 +52,11 @@ public abstract class PSModelServiceProxyImplBase implements IPSModelServiceProx
 		return this.getRealPSModelService().getPSModelObject(relatedPSModelObject, cls, bTryMode);
 	}
 
+	@Override
+	public IPSModelObject getCachePSModelObject(String strPath, boolean bTryMode) {
+		return this.getRealPSModelService().getCachePSModelObject(strPath, bTryMode);
+	}
+
 	
 	
 }

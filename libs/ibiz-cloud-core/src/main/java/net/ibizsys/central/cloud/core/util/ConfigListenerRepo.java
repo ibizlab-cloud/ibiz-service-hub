@@ -36,7 +36,7 @@ public class ConfigListenerRepo implements IConfigListenerRepo, IModelRuntimeShu
 		this.bUnregisterWhenShutdown = bUnregisterWhenShutdown;
 		this.onInit();
 		if(this.bUnregisterWhenShutdown) {
-			this.iSystemRuntime.unregisterModelRuntimeShutdownable(this);
+			this.iSystemRuntime.registerModelRuntimeShutdownable(this);
 		}
 	}
 	

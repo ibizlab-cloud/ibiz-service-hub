@@ -14,35 +14,35 @@ public interface IPSDEUILogicParam extends net.ibizsys.model.dataentity.logic.IP
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
 	 * 获取默认值类型
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**
 	 * 获取参数属性名称
 	 * @return
 	 */
-	java.lang.String getParamFieldName();
+	String getParamFieldName();
 	
 	
 	/**
 	 * 获取参数标记
 	 * @return
 	 */
-	java.lang.String getParamTag();
+	String getParamTag();
 	
 	
 	/**
 	 * 获取参数标记2
 	 * @return
 	 */
-	java.lang.String getParamTag2();
+	String getParamTag2();
 	
 	
 	/**

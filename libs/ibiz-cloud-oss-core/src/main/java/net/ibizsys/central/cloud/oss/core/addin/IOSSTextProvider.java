@@ -68,6 +68,11 @@ public interface IOSSTextProvider extends ICloudOSSUtilRTAddin{
 	
 	
 	/**
+	 * 参数：提示词标识
+	 */
+	public final static String PARAM_PROMPTID = "promptid";
+	
+	/**
 	 * 获取传入文件的文本
 	 * @param file
 	 * @param type 类型

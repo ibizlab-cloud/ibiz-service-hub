@@ -14,14 +14,14 @@ public interface IPSDERAggDataDEFieldMap extends net.ibizsys.model.dataentity.de
 	 * 获取钻取条件格式
 	 * @return
 	 */
-	java.lang.String getDrillDownCondFormat();
+	String getDrillDownCondFormat();
 	
 	
 	/**
 	 * 获取聚合公式格式
 	 * @return
 	 */
-	java.lang.String getFormulaFormat();
+	String getFormulaFormat();
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface IPSDERAggDataDEFieldMap extends net.ibizsys.model.dataentity.de
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERAggDataDEFMapType}
 	 * @return
 	 */
-	java.lang.String getMapType();
+	String getMapType();
 	
 	
 	/**

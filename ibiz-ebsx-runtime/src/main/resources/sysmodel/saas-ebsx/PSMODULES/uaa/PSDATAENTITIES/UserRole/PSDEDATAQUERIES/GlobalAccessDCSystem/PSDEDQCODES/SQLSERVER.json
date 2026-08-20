@@ -1,0 +1,82 @@
+{
+  "dBType" : "SQLSERVER",
+  "name" : "SqlServer",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( ( t11.[USERMODE] = 'ACCESSUSER'  OR  t11.[USERMODE] = 'ACCESSADMIN' )  AND  t11.[GLOBALFLAG] = 1 )",
+    "name" : "查询条件"
+  }, {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.[ISVALID] = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.[CREATEDATE]",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.[CREATEMAN]",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.[CREATEMANNAME]",
+    "name" : "CREATEMANNAME"
+  }, {
+    "expression" : "t11.[DCSYSTEMID]",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t31.[DCSYSTEMNAME]",
+    "name" : "DCSYSTEMNAME"
+  }, {
+    "expression" : "t11.[GLOBALFLAG]",
+    "name" : "GLOBALFLAG"
+  }, {
+    "expression" : "t1.[ISVALID]",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t21.[LOGINNAME]",
+    "name" : "LOGINNAME"
+  }, {
+    "expression" : "t21.[MDEPTID]",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t21.[MDEPTNAME]",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t21.[ORGID]",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t21.[ORGNAME]",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t21.[PERSONNAME]",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t11.[ROLETAG]",
+    "name" : "ROLETAG"
+  }, {
+    "expression" : "t1.[SYS_ROLEID]",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t11.[SYS_ROLENAME]",
+    "name" : "SYS_ROLENAME"
+  }, {
+    "expression" : "t1.[SYS_USER_ROLEID]",
+    "name" : "SYS_USER_ROLEID"
+  }, {
+    "expression" : "t1.[UPDATEDATE]",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.[UPDATEMAN]",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.[UPDATEMANNAME]",
+    "name" : "UPDATEMANNAME"
+  }, {
+    "expression" : "t1.[USERID]",
+    "name" : "USERID"
+  }, {
+    "expression" : "t11.[USERMODE]",
+    "name" : "USERMODE"
+  } ],
+  "queryCode" : "SELECT      t1.CREATEDATE,      t1.CREATEMAN,      t1.CREATEMANNAME,      t11.DCSYSTEMID,      t31.DCSYSTEMNAME,      t11.GLOBALFLAG,      t1.ISVALID,      t21.LOGINNAME,      t21.MDEPTID,      t21.MDEPTNAME,      t21.ORGID,      t21.ORGNAME,      t21.PERSONNAME,      t11.ROLETAG,      t21.SHOWORDER,      t1.SYS_ROLEID,      t11.SYS_ROLENAME,      t1.SYS_USER_ROLEID,      t1.UPDATEDATE,      t1.UPDATEMAN,      t1.UPDATEMANNAME,      t1.USERID,      t11.USERMODE  FROM (select CREATE_TIME as  CREATEDATE,               CREATOR as CREATEMAN,               CREATOR as CREATEMANNAME,ROLE_ID as SYS_ROLEID, ID as SYS_USER_ROLEID,               UPDATE_TIME as  UPDATEDATE,               UPDATER as UPDATEMAN,               UPDATER as UPDATEMANNAME,               MEMBER_UID as USERID,1 as  ISVALID,MEMBER_UID,MEMBER_TYPE,ROLE_ID from sys_role_member ) t1           LEFT JOIN IBZROLE t11 ON t1.ROLE_ID = t11.SYS_ROLEID           LEFT JOIN (select  id,UID as LOGINNAME,                              MDEPARTMENT_ID as MDEPTID,                              MDEPARTMENT_ID as MDEPTNAME,                              ORGANIZATION_ID as ORGID,                              ORGANIZATION_ID as  ORGNAME,0 as  SHOWORDER,                              DISPLAY_NAME as PERSONNAME from sys_person ) t21 ON t1.MEMBER_UID = t21.id and t1.MEMBER_TYPE='inetOrgPerson'           LEFT JOIN IBZDCSYSTEM t31 ON t11.DCSYSTEMID = t31.DCSYSTEMID   ",
+  "id" : "PSMODULES/uaa/PSDATAENTITIES/UserRole/PSDEDATAQUERIES/GlobalAccessDCSystem/PSDEDQCODES/SQLSERVER.json"
+}

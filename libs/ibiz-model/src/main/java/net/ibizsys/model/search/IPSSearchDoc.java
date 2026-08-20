@@ -13,7 +13,7 @@ public interface IPSSearchDoc extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -27,21 +27,21 @@ public interface IPSSearchDoc extends net.ibizsys.model.IPSModelObject{
 	 * 获取文档标记
 	 * @return
 	 */
-	java.lang.String getDocTag();
+	String getDocTag();
 	
 	
 	/**
 	 * 获取文档标记2
 	 * @return
 	 */
-	java.lang.String getDocTag2();
+	String getDocTag2();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

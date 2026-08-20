@@ -2,28 +2,28 @@
   "getAllPSSysDBTables" : [ {
     "getAllPSSysDBColumns" : [ {
       "codeName" : "ACTIONPARAM",
-      "length" : 100,
+      "length" : 500,
       "logicName" : "操作参数",
       "name" : "ACTIONPARAM",
       "stdDataType" : 25,
       "nullable" : true
     }, {
       "codeName" : "ACTIONPARAM2",
-      "length" : 100,
+      "length" : 500,
       "logicName" : "操作参数2",
       "name" : "ACTIONPARAM2",
       "stdDataType" : 25,
       "nullable" : true
     }, {
       "codeName" : "ACTIONPARAM3",
-      "length" : 100,
+      "length" : 500,
       "logicName" : "操作参数3",
       "name" : "ACTIONPARAM3",
       "stdDataType" : 25,
       "nullable" : true
     }, {
       "codeName" : "ACTIONPARAM4",
-      "length" : 100,
+      "length" : 500,
       "logicName" : "操作参数4",
       "name" : "ACTIONPARAM4",
       "stdDataType" : 25,

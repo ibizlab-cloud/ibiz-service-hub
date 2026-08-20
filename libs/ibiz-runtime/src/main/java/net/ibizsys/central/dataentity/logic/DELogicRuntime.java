@@ -408,11 +408,13 @@ public class DELogicRuntime extends DataEntityModelRuntimeBase implements IDELog
 			this.onExecute(iDELogicSession, args);
 			this.endSession(iDELogicSession);
 			this.outputDebugInfo(iDELogicSession, null);
+			iDELogicSession.close(true);
 			DELogicSession.setCurrent(lastDELogicSession);
 		}
 		catch(Throwable ex) {
 			this.endSession(iDELogicSession);
 			outputDebugInfo(iDELogicSession, ex);
+			iDELogicSession.close(false);
 			DELogicSession.setCurrent(lastDELogicSession);
 			throw ex;
 		}

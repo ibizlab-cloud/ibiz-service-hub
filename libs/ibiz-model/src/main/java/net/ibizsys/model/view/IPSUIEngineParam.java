@@ -9,7 +9,7 @@ package net.ibizsys.model.view;
 public interface IPSUIEngineParam extends net.ibizsys.model.IPSModelObject{
 
 	
-	java.lang.String getParamType();
+	String getParamType();
 	
-	java.lang.Object getValue();
+	Object getValue();
 }

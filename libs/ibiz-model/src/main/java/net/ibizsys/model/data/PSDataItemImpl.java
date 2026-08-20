@@ -18,6 +18,7 @@ public class PSDataItemImpl extends net.ibizsys.model.PSObjectImpl implements ne
 	public final static String ATTR_GETUSERTAG3 = "userTag3";
 	public final static String ATTR_GETUSERTAG4 = "userTag4";
 	public final static String ATTR_ISCONVERTTOCODEITEMTEXT = "convertToCodeItemText";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	@Deprecated
 	public java.lang.String getCodeName(){
@@ -162,6 +163,15 @@ public class PSDataItemImpl extends net.ibizsys.model.PSObjectImpl implements ne
 
 	public boolean isConvertToCodeItemText(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISCONVERTTOCODEITEMTEXT);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
+	}
+
+	@Deprecated
+	public boolean isNestedModel(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISNESTEDMODEL);
 		if(value == null){
 			return false;
 		}

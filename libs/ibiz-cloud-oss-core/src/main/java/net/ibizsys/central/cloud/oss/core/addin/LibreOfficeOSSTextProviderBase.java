@@ -1,11 +1,14 @@
 package net.ibizsys.central.cloud.oss.core.addin;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.StringUtils;
 
@@ -140,6 +143,60 @@ public abstract class LibreOfficeOSSTextProviderBase extends PandocOSSTextProvid
 			return libreOfficeSupportedFormats.containsKey(ext.toLowerCase());
 		}
 		return false;
+	}
+	
+	
+	@Override
+	protected Object doGetFile(String cat, String fileId, File file, String type, Map<String, Object> params, File realFile) throws Throwable {
+		if (type.equals(FILETYPE_PDF)) {
+			//判断当前文件是否未PDF
+			File pdfDir = new File(file.getParentFile().getAbsolutePath() + File.separator + ".pdf");
+			if (!pdfDir.exists()) {
+				pdfDir.mkdirs();
+			}
+						
+			File pdfFile = null; 
+			int nIndex = 0;
+			while(pdfFile == null) {
+				File command = new File(getLibreOfficeCommandPath());
+				String[] commandArray = {
+						command.getCanonicalPath(),
+						"--headless",
+						"--invisible",
+						"--convert-to", "pdf",
+						"--outdir", pdfDir.getCanonicalPath(),
+						file.getCanonicalPath()  // 自动处理空格
+				};
+				ExecuteResult result = executeCommandArray(commandArray, null, COMMAND_TIMEOUT);
+				File[] files = pdfDir.listFiles();
+				if(files != null && files.length > 0) {
+					for(File item : files) {
+						String strExt = FilenameUtils.getExtension(item.getName());
+						if("pdf".equalsIgnoreCase(strExt)) {
+							pdfFile = item;
+							break;
+						}
+					}
+				}
+				
+				if(pdfFile == null) {
+					log.error(String.format("生成PDF文件发生异常，exit_code[%1$s]\r\ninfo: %2$s\r\nerror: %3$s", result.exitValue, result.standardOutput, result.errorOutput));
+					nIndex ++;
+					if(nIndex == 5) {
+						throw new Exception("生成PDF文件发生异常，请稍后重试");
+					}
+					Thread.sleep(200);
+				}
+				else {
+					break;
+				}
+			}
+			
+			FileUtils.moveFile(pdfFile, realFile);
+
+			return realFile;
+		}
+		return super.doGetFile(cat, fileId, file, type, params, realFile);
 	}
 	
 }

@@ -28,14 +28,14 @@ public interface IPSSearchBarItem extends net.ibizsys.model.control.searchbar.IP
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -51,21 +51,21 @@ public interface IPSSearchBarItem extends net.ibizsys.model.control.searchbar.IP
 	 * 获取项直接样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取项数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -74,21 +74,21 @@ public interface IPSSearchBarItem extends net.ibizsys.model.control.searchbar.IP
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchBarItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
 	 * 获取标签直接样式
 	 * @return
 	 */
-	java.lang.String getLabelCssStyle();
+	String getLabelCssStyle();
 	
 	
 	/**
 	 * 获取标签动态样式表
 	 * @return
 	 */
-	java.lang.String getLabelDynaClass();
+	String getLabelDynaClass();
 	
 	
 	/**

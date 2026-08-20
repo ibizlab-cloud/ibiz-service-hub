@@ -16,7 +16,7 @@ public interface IPSDEBeginLogic extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 获取消息内容
 	 * @return
 	 */
-	java.lang.String getMessage();
+	String getMessage();
 	
 	
 	/**

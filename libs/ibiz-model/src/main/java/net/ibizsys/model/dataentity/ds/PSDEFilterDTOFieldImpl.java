@@ -7,6 +7,7 @@ public class PSDEFilterDTOFieldImpl extends net.ibizsys.model.dataentity.service
 
 	public final static String ATTR_GETPSDEFSEARCHMODE = "getPSDEFSearchMode";
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.dataentity.defield.IPSDEFSearchMode psdefsearchmode;
 
 	public net.ibizsys.model.dataentity.defield.IPSDEFSearchMode getPSDEFSearchMode(){
@@ -53,4 +54,8 @@ public class PSDEFilterDTOFieldImpl extends net.ibizsys.model.dataentity.service
 		this.psdefield = psdefield;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

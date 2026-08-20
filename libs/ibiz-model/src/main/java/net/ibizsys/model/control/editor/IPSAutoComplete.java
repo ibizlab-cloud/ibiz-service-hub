@@ -24,7 +24,7 @@ public interface IPSAutoComplete extends net.ibizsys.model.control.IPSAjaxEditor
 	 * 获取附加上下文Json字符串
 	 * @return
 	 */
-	java.lang.String getContextJOString();
+	String getContextJOString();
 	
 	
 	/**
@@ -94,7 +94,7 @@ public interface IPSAutoComplete extends net.ibizsys.model.control.IPSAjaxEditor
 	 * 获取附加参数Json字符串
 	 * @return
 	 */
-	java.lang.String getParamJOString();
+	String getParamJOString();
 	
 	
 	/**

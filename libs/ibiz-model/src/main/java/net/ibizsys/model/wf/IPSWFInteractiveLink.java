@@ -16,14 +16,14 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	 * 获取操作表单标记
 	 * @return
 	 */
-	java.lang.String getFormCodeName();
+	String getFormCodeName();
 	
 	
 	/**
 	 * 获取操作表单名称
 	 * @return
 	 */
-	java.lang.String getFormName();
+	String getFormName();
 	
 	
 	/**
@@ -44,28 +44,28 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	 * 获取移动端操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobFormCodeName();
+	String getMobFormCodeName();
 	
 	
 	/**
 	 * 获取移动端操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobFormName();
+	String getMobFormName();
 	
 	
 	/**
 	 * 获取移动端操作视图标记
 	 * @return
 	 */
-	java.lang.String getMobViewCodeName();
+	String getMobViewCodeName();
 	
 	
 	/**
 	 * 获取移动端操作视图名称
 	 * @return
 	 */
-	java.lang.String getMobViewName();
+	String getMobViewName();
 	
 	
 	/**
@@ -93,12 +93,12 @@ public interface IPSWFInteractiveLink extends net.ibizsys.model.wf.IPSWFLink{
 	 * 获取操作视图标记
 	 * @return
 	 */
-	java.lang.String getViewCodeName();
+	String getViewCodeName();
 	
 	
 	/**
 	 * 获取操作视图名称
 	 * @return
 	 */
-	java.lang.String getViewName();
+	String getViewName();
 }

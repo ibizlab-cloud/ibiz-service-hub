@@ -16,7 +16,7 @@ public interface IPSChartAxes extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartAxisPos}
 	 * @return
 	 */
-	java.lang.String getAxesPos();
+	String getAxesPos();
 	
 	
 	/**
@@ -25,7 +25,7 @@ public interface IPSChartAxes extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartAxisType}
 	 * @return
 	 */
-	java.lang.String getAxesType();
+	String getAxesType();
 	
 	
 	/**
@@ -46,7 +46,7 @@ public interface IPSChartAxes extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -69,14 +69,14 @@ public interface IPSChartAxes extends net.ibizsys.model.IPSModelObject{
 	 * 获取最大值
 	 * @return
 	 */
-	java.lang.Double getMaxValue();
+	Double getMaxValue();
 	
 	
 	/**
 	 * 获取最小值
 	 * @return
 	 */
-	java.lang.Double getMinValue();
+	Double getMinValue();
 	
 	
 	/**

@@ -14,21 +14,21 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
 	 * 获取映射实体名称，等同{@link #getMapPSDER}.getMajorDEName()
 	 * @return
 	 */
-	java.lang.String getMapPSDEName();
+	String getMapPSDEName();
 	
 	
 	/**
 	 * 获取映射实体操作标识
 	 * @return
 	 */
-	java.lang.String getMapPSDEOPPrivName();
+	String getMapPSDEOPPrivName();
 	
 	
 	/**
@@ -77,7 +77,7 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取统一资源代码，等同{@link #getMapPSSysUniRes}.getResCode()
 	 * @return
 	 */
-	java.lang.String getMapSysUniResCode();
+	String getMapSysUniResCode();
 	
 	
 	/**
@@ -86,7 +86,7 @@ public interface IPSDEOPPriv extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEOPPrivType}
 	 * @return
 	 */
-	java.lang.String getOPPrivType();
+	String getOPPrivType();
 	
 	
 	/**

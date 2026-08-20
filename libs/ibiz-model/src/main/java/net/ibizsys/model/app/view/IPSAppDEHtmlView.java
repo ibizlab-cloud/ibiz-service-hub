@@ -16,7 +16,7 @@ public interface IPSAppDEHtmlView extends net.ibizsys.model.app.view.IPSAppDEVie
 	 * 获取Html路径
 	 * @return
 	 */
-	java.lang.String getHtmlUrl();
+	String getHtmlUrl();
 	
 	
 	/**

@@ -14,21 +14,21 @@ public interface IPSDEDQCondition extends net.ibizsys.model.IPSModelObject{
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**
 	 * 获取条件标记
 	 * @return
 	 */
-	java.lang.String getCondTag();
+	String getCondTag();
 	
 	
 	/**
 	 * 获取条件标记2
 	 * @return
 	 */
-	java.lang.String getCondTag2();
+	String getCondTag2();
 	
 	
 	/**
@@ -37,5 +37,5 @@ public interface IPSDEDQCondition extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CondType}
 	 * @return
 	 */
-	java.lang.String getCondType();
+	String getCondType();
 }

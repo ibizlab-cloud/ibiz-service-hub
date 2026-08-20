@@ -37,7 +37,7 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -53,7 +53,7 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	 * 获取数据对象名称
 	 * @return
 	 */
-	java.lang.String getDataName();
+	String getDataName();
 	
 	
 	/**
@@ -83,14 +83,14 @@ public interface IPSPanel extends net.ibizsys.model.control.IPSControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LayoutMode}
 	 * @return
 	 */
-	java.lang.String getLayoutMode();
+	String getLayoutMode();
 	
 	
 	/**
 	 * 获取面板样式
 	 * @return
 	 */
-	java.lang.String getPanelStyle();
+	String getPanelStyle();
 	
 	
 	/**

@@ -17,6 +17,7 @@ public class PSDEDataImportItemImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETUPDATEDV = "updateDV";
 	public final static String ATTR_GETUPDATEDVT = "updateDVT";
 	public final static String ATTR_ISHIDDENDATAITEM = "hiddenDataItem";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISUNIQUEITEM = "uniqueItem";
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
@@ -185,6 +186,10 @@ public class PSDEDataImportItemImpl extends net.ibizsys.model.PSObjectImpl imple
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isUniqueItem(){

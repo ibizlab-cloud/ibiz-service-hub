@@ -14,28 +14,28 @@ public interface IPSDEUILogic extends net.ibizsys.model.dataentity.logic.IPSDELo
 	 * 获取逻辑标记
 	 * @return
 	 */
-	java.lang.String getLogicTag();
+	String getLogicTag();
 	
 	
 	/**
 	 * 获取逻辑标记2
 	 * @return
 	 */
-	java.lang.String getLogicTag2();
+	String getLogicTag2();
 	
 	
 	/**
 	 * 获取逻辑标记3
 	 * @return
 	 */
-	java.lang.String getLogicTag3();
+	String getLogicTag3();
 	
 	
 	/**
 	 * 获取逻辑标记4
 	 * @return
 	 */
-	java.lang.String getLogicTag4();
+	String getLogicTag4();
 	
 	
 	/**

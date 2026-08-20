@@ -23,7 +23,7 @@ public interface IPSSysUCMapNode extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UCMapNodeType}
 	 * @return
 	 */
-	java.lang.String getNodeType();
+	String getNodeType();
 	
 	
 	/**

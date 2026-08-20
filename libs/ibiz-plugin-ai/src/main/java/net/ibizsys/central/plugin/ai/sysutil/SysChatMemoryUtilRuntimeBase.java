@@ -62,7 +62,6 @@ import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.ITransactionalUtil;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
-import net.ibizsys.runtime.util.ResourcesUtils;
 
 public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase implements ISysChatMemoryUtilRuntime {
 
@@ -127,6 +126,8 @@ public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase im
 
             }
         }
+        
+        this.memoryExtractTaskType = String.format("%1$s.%2$s", this.getConfigFolder(), "memoryExtract");
         super.onInit();
     }
 
@@ -396,16 +397,18 @@ public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase im
     protected void startJob(IEntityDTO memoryTaskDTO) throws Throwable {
         if (this.getSysTaskUtilRuntime(true) == null) {
             log.warn("未指定系统任务功能组件，忽略执行");
+            return;
         }
 
-        this.getSysTaskUtilRuntime(true).addSchedule((String) memoryTaskDTO.get(memoryTaskDERuntime.getKeyPSDEField().getLowerCaseName()), memoryTaskToScheduleParams(memoryTaskDTO), true, false);
+        this.getSysTaskUtilRuntime(false).addSchedule((String) memoryTaskDTO.get(memoryTaskDERuntime.getKeyPSDEField().getLowerCaseName()), memoryTaskToScheduleParams(memoryTaskDTO), true, false);
     }
 
     protected void stopJob(IEntityDTO memoryTaskDTO) throws Throwable {
         if (this.getSysTaskUtilRuntime(true) == null) {
             log.warn("未指定系统任务功能组件，忽略执行");
+            return;
         }
-        this.getSysTaskUtilRuntime(true).removeSchedule((String) memoryTaskDTO.get(memoryTaskDERuntime.getKeyPSDEField().getLowerCaseName()));
+        this.getSysTaskUtilRuntime(false).removeSchedule((String) memoryTaskDTO.get(memoryTaskDERuntime.getKeyPSDEField().getLowerCaseName()));
     }
 
     protected Map memoryTaskToScheduleParams(IEntityDTO memoryTaskDTO) {
@@ -415,7 +418,7 @@ public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase im
         schedule.put(ISysTaskUtilRuntime.SCHEDULEPARAM_TASK_TYPE, this.getMemoryExtractTaskType());
         schedule.put(ISysTaskUtilRuntime.SCHEDULEPARAM_SCHEDULE_TYPE, "CRON");
         if (memoryTaskDTO.get("scheduled_at") != null) {
-            String strTimerPolicy = this.convertTimeToOnceCron((Timestamp) memoryTaskDTO.get("scheduled_at"));
+            String strTimerPolicy = convertTimeToOnceCron((Timestamp) memoryTaskDTO.get("scheduled_at"));
             schedule.put(ISysTaskUtilRuntime.SCHEDULEPARAM_TIMER_POLICY, strTimerPolicy);
         }
         schedule.put(ISysTaskUtilRuntime.SCHEDULEPARAM_PAYLOAD, memoryTaskDTO.get(memoryTaskDERuntime.getKeyPSDEField().getLowerCaseName()));
@@ -431,7 +434,7 @@ public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase im
         taskTypeParams.put(ISysTaskUtilRuntime.TASKTYPEPARAM_EXECUTOR_TYPE, "DEFAULT");
         taskTypeParams.put(ISysTaskUtilRuntime.TASKTYPEPARAM_RETRYABLE, false);
 
-        this.getSysTaskUtilRuntime(true).registerTaskType(getMemoryExtractTaskType(), taskTypeParams, true, false);
+        this.getSysTaskUtilRuntime(false).registerTaskType(getMemoryExtractTaskType(), taskTypeParams, true, false);
     }
 
     protected String getMemoryExtractTaskType() {
@@ -1521,11 +1524,11 @@ public abstract class SysChatMemoryUtilRuntimeBase extends SysUtilRuntimeBase im
     }
 
     protected String getMemoryExtractPrompt() {
-        return ResourcesUtils.getInstance().getResourceContent(SysChatMemoryUtilRuntimeBase.class, "MemoryExtractPrompt.en.md", false);
+        return this.getSystemRuntime().getResourceContent(SysChatMemoryUtilRuntimeBase.class, "MemoryExtractPrompt.en.md", false);
     }
 
     protected String getMemoryVerificationPrompt() {
-        return ResourcesUtils.getInstance().getResourceContent(SysChatMemoryUtilRuntimeBase.class, "MemoryVerificationPrompt.en.md", false);
+        return this.getSystemRuntime().getResourceContent(SysChatMemoryUtilRuntimeBase.class, "MemoryVerificationPrompt.en.md", false);
     }
 
     protected void scheduleMemoryTask(IEntityDTO memoryTask) throws Throwable {

@@ -29,14 +29,14 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -45,7 +45,7 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getColumnAlign();
+	String getColumnAlign();
 	
 	
 	/**
@@ -66,7 +66,7 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -82,7 +82,7 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取成员直接样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
@@ -91,7 +91,7 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
 	 */
-	java.lang.String getDetailStyle();
+	String getDetailStyle();
 	
 	
 	/**
@@ -100,14 +100,14 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormDetailType}
 	 * @return
 	 */
-	java.lang.String getDetailType();
+	String getDetailType();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -121,14 +121,14 @@ public interface IPSDEFormDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取标签直接样式
 	 * @return
 	 */
-	java.lang.String getLabelCssStyle();
+	String getLabelCssStyle();
 	
 	
 	/**
 	 * 获取标签动态样式表
 	 * @return
 	 */
-	java.lang.String getLabelDynaClass();
+	String getLabelDynaClass();
 	
 	
 	/**

@@ -32,112 +32,112 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	 * 获取操作表单标记
 	 * @return
 	 */
-	java.lang.String getFormCodeName();
+	String getFormCodeName();
 	
 	
 	/**
 	 * 获取操作表单名称
 	 * @return
 	 */
-	java.lang.String getFormName();
+	String getFormName();
 	
 	
 	/**
 	 * 获取处理意见字段
 	 * @return
 	 */
-	java.lang.String getMemoField();
+	String getMemoField();
 	
 	
 	/**
 	 * 获取移动端操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobFormCodeName();
+	String getMobFormCodeName();
 	
 	
 	/**
 	 * 获取移动端操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobFormName();
+	String getMobFormName();
 	
 	
 	/**
 	 * 获取移动端附加界面行为组标记
 	 * @return
 	 */
-	java.lang.String getMobUAGroupCodeName();
+	String getMobUAGroupCodeName();
 	
 	
 	/**
 	 * 获取移动端功能2操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobUtil2FormCodeName();
+	String getMobUtil2FormCodeName();
 	
 	
 	/**
 	 * 获取移动端功能2操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobUtil2FormName();
+	String getMobUtil2FormName();
 	
 	
 	/**
 	 * 获取移动端功能3操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobUtil3FormCodeName();
+	String getMobUtil3FormCodeName();
 	
 	
 	/**
 	 * 获取移动端功能3操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobUtil3FormName();
+	String getMobUtil3FormName();
 	
 	
 	/**
 	 * 获取移动端功能4操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobUtil4FormCodeName();
+	String getMobUtil4FormCodeName();
 	
 	
 	/**
 	 * 获取移动端功能4操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobUtil4FormName();
+	String getMobUtil4FormName();
 	
 	
 	/**
 	 * 获取移动端功能5操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobUtil5FormCodeName();
+	String getMobUtil5FormCodeName();
 	
 	
 	/**
 	 * 获取移动端功能5操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobUtil5FormName();
+	String getMobUtil5FormName();
 	
 	
 	/**
 	 * 获取移动端功能操作表单标记
 	 * @return
 	 */
-	java.lang.String getMobUtilFormCodeName();
+	String getMobUtilFormCodeName();
 	
 	
 	/**
 	 * 获取移动端功能操作表单名称
 	 * @return
 	 */
-	java.lang.String getMobUtilFormName();
+	String getMobUtilFormName();
 	
 	
 	/**
@@ -155,7 +155,7 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcMultiInstMode}
 	 * @return
 	 */
-	java.lang.String getMultiInstMode();
+	String getMultiInstMode();
 	
 	
 	/**
@@ -204,77 +204,77 @@ public interface IPSWFInteractiveProcess extends net.ibizsys.model.wf.IPSWFProce
 	 * 获取附加界面行为组标记
 	 * @return
 	 */
-	java.lang.String getUAGroupCodeName();
+	String getUAGroupCodeName();
 	
 	
 	/**
 	 * 获取功能2操作表单标记
 	 * @return
 	 */
-	java.lang.String getUtil2FormCodeName();
+	String getUtil2FormCodeName();
 	
 	
 	/**
 	 * 获取功能2操作表单名称
 	 * @return
 	 */
-	java.lang.String getUtil2FormName();
+	String getUtil2FormName();
 	
 	
 	/**
 	 * 获取功能3操作表单标记
 	 * @return
 	 */
-	java.lang.String getUtil3FormCodeName();
+	String getUtil3FormCodeName();
 	
 	
 	/**
 	 * 获取功能3操作表单名称
 	 * @return
 	 */
-	java.lang.String getUtil3FormName();
+	String getUtil3FormName();
 	
 	
 	/**
 	 * 获取功能4操作表单标记
 	 * @return
 	 */
-	java.lang.String getUtil4FormCodeName();
+	String getUtil4FormCodeName();
 	
 	
 	/**
 	 * 获取功能4操作表单名称
 	 * @return
 	 */
-	java.lang.String getUtil4FormName();
+	String getUtil4FormName();
 	
 	
 	/**
 	 * 获取功能5操作表单标记
 	 * @return
 	 */
-	java.lang.String getUtil5FormCodeName();
+	String getUtil5FormCodeName();
 	
 	
 	/**
 	 * 获取功能5操作表单名称
 	 * @return
 	 */
-	java.lang.String getUtil5FormName();
+	String getUtil5FormName();
 	
 	
 	/**
 	 * 获取功能操作表单标记
 	 * @return
 	 */
-	java.lang.String getUtilFormCodeName();
+	String getUtilFormCodeName();
 	
 	
 	/**
 	 * 获取功能操作表单名称
 	 * @return
 	 */
-	java.lang.String getUtilFormName();
+	String getUtilFormName();
 	
 	
 	/**

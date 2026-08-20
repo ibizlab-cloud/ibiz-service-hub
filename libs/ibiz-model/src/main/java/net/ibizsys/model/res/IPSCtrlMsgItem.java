@@ -14,7 +14,7 @@ public interface IPSCtrlMsgItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**

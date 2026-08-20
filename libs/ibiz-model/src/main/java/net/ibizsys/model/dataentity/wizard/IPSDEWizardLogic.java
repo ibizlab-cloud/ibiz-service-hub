@@ -14,40 +14,40 @@ public interface IPSDEWizardLogic extends net.ibizsys.model.dataentity.logic.IPS
 	 * 获取向导表单标识
 	 * @return
 	 */
-	java.lang.String getPSDEWizardFormId();
+	String getPSDEWizardFormId();
 	
 	
 	/**
 	 * 获取向导表单名称
 	 * @return
 	 */
-	java.lang.String getPSDEWizardFormName();
+	String getPSDEWizardFormName();
 	
 	
 	/**
 	 * 获取向导表单标记
 	 * @return
 	 */
-	java.lang.String getPSDEWizardFormTag();
+	String getPSDEWizardFormTag();
 	
 	
 	/**
 	 * 获取向导步骤标识
 	 * @return
 	 */
-	java.lang.String getPSDEWizardStepId();
+	String getPSDEWizardStepId();
 	
 	
 	/**
 	 * 获取向导步骤名称
 	 * @return
 	 */
-	java.lang.String getPSDEWizardStepName();
+	String getPSDEWizardStepName();
 	
 	
 	/**
 	 * 获取向导步骤标记
 	 * @return
 	 */
-	java.lang.String getPSDEWizardStepTag();
+	String getPSDEWizardStepTag();
 }

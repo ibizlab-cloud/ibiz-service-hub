@@ -37,7 +37,7 @@ import net.ibizsys.central.cloud.oss.core.cloudutil.SimpleCloudOSSUtilRuntime;
 import net.ibizsys.runtime.util.DataTypeUtils;
 import net.ibizsys.runtime.util.JsonUtils;
 
-public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implements IOSSTextProvider {
+public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implements IOSSTextProvider, IOSSPdfProvider {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(OSSTextProviderBase.class);
 	
@@ -65,6 +65,11 @@ public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implem
 		Utf8BomTypeMap.put("json", "");
 		Utf8BomTypeMap.put("csv", "");
 	}
+	
+	/**
+	 * 文件类型：pdf
+	 */
+	public final static String FILETYPE_PDF  = "pdf";
 	
 	@Override
 	public String getText(String cat, String fileId, File file, String type, Map<String, Object> params) throws Throwable{
@@ -97,6 +102,32 @@ public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implem
 		return this.onGetText(cat, fileId, file, textType, params);
 	}
 	
+	
+	@Override
+	public File getPdfFile(String cat, String fileId, File file, Map<String, Object> params) throws Throwable {
+		String strExt = FilenameUtils.getExtension(file.getName());
+		if(StringUtils.hasLength(strExt) && "pdf".equalsIgnoreCase(strExt)) {
+			return file;
+		}
+		if(StringUtils.hasLength(strExt) && Utf8BomTypeMap.containsKey(strExt.toLowerCase())) {
+			File bomFile = null;
+			if(!hasUtf8Bom(file)) {
+				File folder = this.getTextFolder(file, "utf-bom");
+				bomFile = new File(folder.getAbsolutePath() + File.separator + file.getName());
+				if(!bomFile.exists()) {
+					try {
+						convertToUtf8WithBom(file.getCanonicalPath(), bomFile.getCanonicalPath());
+					}
+					catch (Throwable ex) {
+						log.error(String.format("转化Utf8WithBom文档发生异常，%1$s", ex.getMessage()), ex);
+					}
+				}
+				file = bomFile;
+			}
+		}
+		return this.onGetFile(cat, fileId, file, FILETYPE_PDF, params);
+	}
+
 	protected String getFileTextType(File file) {
 		String strCurExt = SimpleCloudOSSUtilRuntime.getFileExt(file.getName());
 		return FileExtTypeMap.get(strCurExt.toLowerCase());
@@ -178,6 +209,44 @@ public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implem
 		return folder;
 	}
 	
+	
+	protected File onGetFile(String cat, String fileId, File file, String type, Map<String, Object> params) throws Throwable {
+		boolean rebuild = false;
+		if(params != null) {
+			rebuild = DataTypeUtils.asBoolean(params.get(PARAM_REBUILD), rebuild);
+		}
+		
+		//判断文本文件是否已经存在
+		File folder = this.getTextFolder(file, type);
+		File textFile = new File(folder.getAbsolutePath() + File.separator + file.getName() + "." + type);
+		if(rebuild && textFile.exists()) {
+			textFile.delete();
+		}
+		if(!textFile.exists()) {
+			Object text = this.doGetFile(cat, fileId, file, type, params, textFile);
+			if(text instanceof File) {
+				return (File)text;
+			}
+		}
+		
+		return textFile;
+	}
+	
+	protected Object doGetFile(String cat, String fileId, File file, String type, Map<String, Object> params, File realFile) throws Throwable {
+		
+		Object text = this.doGetText(cat, fileId, file, type, params, realFile);
+		if(text instanceof String) {
+			String strText = (String)text;
+			FileUtils.writeStringToFile(realFile, strText, "utf-8");
+			return realFile;
+		}
+		
+		return realFile;
+		
+		//throw new Exception(String.format("未支持从文件类型[%1$s]转化[%2$s]文件", FilenameUtils.getExtension(file.getName()), type));
+	}
+	
+	
 	 public static void convertToUtf8WithBom(String sourcePath, String destPath) throws IOException {
 		 convertToUtf8WithBom(sourcePath, destPath, null);
 	 }
@@ -257,6 +326,11 @@ public abstract class OSSTextProviderBase extends CloudOSSUtilRTAddinBase implem
             }
             return false;
         }
+    }
+    
+    
+    public static boolean convertUtf8Bom(String strExt) {
+    	return Utf8BomTypeMap.containsKey(strExt.toLowerCase());
     }
 
 }

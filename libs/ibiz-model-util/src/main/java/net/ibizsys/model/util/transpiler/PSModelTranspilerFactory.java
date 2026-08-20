@@ -828,6 +828,7 @@ public class PSModelTranspilerFactory extends PSModelTranspilerFactoryBase {
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEAggregateParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEAggregateParamLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEAppendParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEAppendParamLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBeginLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEBeginLogicTranspiler.class);
+		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBeginTransLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEBeginTransLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBindParamLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDEBindParamLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDECancelWFLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDECancelWFLogicTranspiler.class);
 		registerPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDECommitLogicImpl.class, net.ibizsys.model.util.transpiler.dataentity.logic.PSDECommitLogicTranspiler.class);

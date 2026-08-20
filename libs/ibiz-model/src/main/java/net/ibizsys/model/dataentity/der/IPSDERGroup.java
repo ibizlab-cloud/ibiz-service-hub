@@ -15,28 +15,28 @@ public interface IPSDERGroup extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取分组标记
 	 * @return
 	 */
-	java.lang.String getGroupTag();
+	String getGroupTag();
 	
 	
 	/**
 	 * 获取分组标记2
 	 * @return
 	 */
-	java.lang.String getGroupTag2();
+	String getGroupTag2();
 	
 	
 	/**

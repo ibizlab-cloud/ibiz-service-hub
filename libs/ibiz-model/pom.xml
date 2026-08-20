@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.578.187</version>
+        <version>8.1.0.584.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>

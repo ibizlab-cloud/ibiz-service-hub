@@ -30,5 +30,5 @@ public interface IPSAppViewMsgGroupDetail extends net.ibizsys.model.view.IPSView
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgPos}
 	 * @return
 	 */
-	java.lang.String getPosition();
+	String getPosition();
 }

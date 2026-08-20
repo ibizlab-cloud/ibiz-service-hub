@@ -1,0 +1,483 @@
+[
+	{
+		"type": "function",
+		"function": {
+			"name": "execute_bash",
+			"description": "Executes a Shell command. This is your primary way to utilize the scripts defined in the skill definitions. If the command is not specific to a particular skill, use `SKILLS_WORKSPACE` as the skill_id. For commands that support file path parameters, you can optionally provide `file_path` and `content` if the specified file does not exist or needs to be rewritten, allowing you to pass inputs without pre-writing files.",
+			"parameters": {
+				"type": "object",
+				"properties": {
+					"skill_id": {
+						"type": "string",
+						"description": "技能标识，执行该命令的技能标识"
+					},
+					"command": {
+						"type": "string",
+						"description": "执行的命令"
+					},
+					"file_path": {
+						"type": "string",
+						"description": "可选，命令支持文件参数时，指定要创建或写入的文件名称（如 temp_input.txt）。路径必须在Agent工作目录`{SKILLS_WORKSPACE}`里面。可直接指定相对路径或使用{SKILLS_WORKSPACE}占位"
+					},
+					"content": {
+						"type": "string",
+						"description": "可选，命令支持文件参数时，指定要写入 file_path 的具体文本内容。需与 file_path 配合使用。"
+					}
+				},
+				"required": [
+					"skill_id",
+					"command"
+				]
+			},
+			"service": {
+				"url": "${toolcall_base_url}/toolcall/execute_bash",
+				"header": {
+					"srfscope": "${srfscope}",
+					"srfchatsessionid": "${srfchatsessionid}"
+				}
+			}
+		}
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "read_file",
+	    "description": "Reads the content of a file within the Skill's directory structure.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "skill_id": {
+	          "type": "string",
+	          "description": "The unique identifier of the skill executing the command."
+	        },
+	        "file_path": {
+	          "type": "string",
+	          "description": "The path of the file to read, relative to the Skill's working directory."
+	        }
+	      },
+	      "required": [
+	        "skill_id",
+	        "file_path"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/read_file",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "write_file",
+	    "description": "Writes content to a file within the Skill's directory structure.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "skill_id": {
+	          "type": "string",
+	          "description": "The unique identifier of the skill executing the command."
+	        },
+	        "file_path": {
+	          "type": "string",
+	          "description": "The path of the file to write to, relative to the Skill's working directory."
+	        },
+	        "content": {
+	          "type": "string",
+	          "description": "The content to be written into the file."
+	        }
+	      },
+	      "required": [
+	        "skill_id",
+	        "file_path",
+	        "content"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/write_file",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "delete_file",
+	    "description": "Deletes a file within the Skill's directory structure.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "skill_id": {
+	          "type": "string",
+	          "description": "The unique identifier of the skill executing the command."
+	        },
+	        "file_path": {
+	          "type": "string",
+	          "description": "The path of the file to delete, relative to the Skill's working directory."
+	        }
+	      },
+	      "required": [
+	        "skill_id",
+	        "file_path"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/delete_file",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+		"type": "function",
+		"function": {
+			"name": "execute_cloud",
+			"description": "Internal Cloud service invocation. Used to call internal microservices via a load-balanced address.",
+			"parameters": {
+				"type": "object",
+				"properties": {
+					"skill_id": {
+						"type": "string",
+						"description": "技能标识，执行该命令的技能标识"
+					},
+					"url": {
+						"type": "string",
+						"description": "Service address. Must start with the 'lb://' prefix (e.g., lb://ibiz-cloud)."
+					},
+					"method": {
+						"type": "string",
+						"description": "HTTP request method (e.g., GET, POST, PUT, DELETE)."
+					},
+					"body": {
+						"type": "object",
+						"description": "The request message body."
+					}
+				},
+				"required": [
+					"skill_id",
+					"url",
+					"method"
+				]
+			},
+			"service": {
+				"url": "${toolcall_base_url}/toolcall/execute_cloud",
+				"header": {
+					"srfscope": "${srfscope}",
+					"srfchatsessionid": "${srfchatsessionid}"
+				}
+			}
+		}
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "execute_chat",
+	    "description": "Invokes an **AI Agent** to generate intelligent responses. This method generate a response based on the provided conversation history and parameters.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "skill_id": {
+	          "type": "string",
+	          "description": "The unique identifier of the skill to execute the command."
+	        },
+	        "request": {
+	          "type": "object",
+	          "description": "The request payload formatted to be compatible with the OpenAI ChatCompletion API standard.",
+	          "properties": {
+	            "messages": {
+	              "type": "array",
+	              "description": "A list of messages comprising the conversation so far, including roles (user, assistant) and content.",
+	              "items": {
+	                "type": "object"
+	              }
+	            }
+	          },
+	          "required": [
+	            "messages"
+	          ]
+	        },
+	        "data": {
+	          "type": "object",
+	          "description": "Contextual data for the chat, used to maintain conversation state or pass additional metadata."
+	        },
+	        "kb_query": {
+	          "type": "object",
+	          "description": "Knowledge base query parameters for retrieving relevant context to augment the generation.",
+	          "properties": {
+	            "kb_tags": {
+	              "type": "array",
+	              "items": {
+	                "type": "string"
+	              },
+	              "description": "List of knowledge base tags (e.g., ['kb01', 'kb02'])."
+	            },
+	            "queries": {
+	              "type": "array",
+	              "items": {
+	                "type": "string"
+	              },
+	              "description": "List of search queries (e.g., ['Query 1', 'Query 2'])."
+	            }
+	          },
+	          "required": [
+	            "kb_tags",
+	            "queries"
+	          ]
+	        },
+	        "output_mode": {
+	          "type": "string",
+	          "description": "Determines the execution mode. 'tool' indicates the result is returned to the LLM for further processing (intermediate step). 'chat' indicates the result is the final response returned directly to the user.",
+	          "enum": [
+	            "tool",
+	            "chat"
+	          ],
+	          "default": "chat"
+	        }
+	      },
+	      "required": [
+	        "skill_id",
+	        "request"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/execute_chat",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "upload_file",
+	    "description": "Uploads a file to OSS (Object Storage Service) based on the specified folder and local path. Returns a JSON object containing the id, name, folder, and size.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	      	"folder": {
+	          "type": "string",
+	          "description": "The target folder path in OSS where the file will be stored."
+	        },
+	        "file_path": {
+	          "type": "string",
+	          "description": "The local file system path of the file to be uploaded, relative to the agent's working directory."
+	        }
+	      },
+	      "required": [
+	        "folder",
+	        "file_path"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/upload_file",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "download_file",
+	    "description": "Downloads a file from a specified URL or internal microservice path(lb://) and saves it to a local path relative to the agent's working directory.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "url": {
+	          "type": "string",
+	          "description": "The URL of the file to be downloaded."
+	        },
+	        "header": {
+	          "type": "object",
+	          "description": "The HTTP headers to include in the request."
+	        },
+	        "file_path": {
+	          "type": "string",
+	          "description": "The local path to save the file, relative to the agent's working directory. If ending with '/', saves to the specified folder. Otherwise, treats as a direct file path."
+	        }
+	      },
+	      "required": [
+	        "url"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/download_file",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+    "type": "function",
+    "function": {
+      "name": "fetch_kbs",
+      "description": "Searches for available Cloud Knowledge Bases based on keywords and retrieves their identifiers (id) and names. This serves as the entry point for subsequent retrieval operations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of full-text search keywords used to search for knowledge bases. Priority is given to those matching more keywords."
+          },
+          "size": {
+            "type": "integer",
+            "description": "Page size, default is 20.",
+            "default": 20
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      },
+      "service": {
+        "url": "${toolcall_base_url}/toolcall/fetch_kbs",
+        "header": {
+          "srfscope": "${srfscope}",
+          "srfchatsessionid": "${srfchatsessionid}"
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "fetch_kb_chunks",
+      "description": "Performs high-precision content retrieval within a specified Cloud Knowledge Base. The returned data chunks include the following detailed structure:\n- **id**: Data chunk identifier\n- **pid**: Parent data chunk identifier\n- **name**: Data chunk name\n- **type**: Data chunk type\n- **content**: Data chunk content (core information)\n- **similarity**: Similarity score\n- **original**: Original similarity score\n- **docid**: Associated document identifier\n- **docname**: Document name\n- **dockeyword**: Document keywords\n- **question**: Related questions for the material\n- **keyword**: Material keywords\n- **tag**: Material tags\n- **kbid**: Knowledge Base identifier\n- **kbname**: Knowledge Base name\n- **sequence**: Sequence number\n- **metadata**: Additional metadata",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "kb_tag": {
+            "type": "string",
+            "description": "The Knowledge Base tag (i.e., Knowledge Base ID), which must be obtained via fetch_kbs."
+          },
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of search queries."
+          },
+          "similarity": {
+            "type": "number",
+            "description": "Similarity threshold, default is 0.4.",
+            "default": 0.4
+          },
+          "rerank": {
+            "type": "integer",
+            "description": "Text re-ranking mode: 0-Disable, 1-Enable, 2-Auto (default).",
+            "default": 2
+          },
+          "raptor": {
+            "type": "integer",
+            "description": "Recursive Abstractive Processing for Tree-Organized Retrieval mode: 0-Disable, 2-Enable.",
+            "default": 2
+          },
+          "doctopk": {
+            "type": "integer",
+            "description": "Maximum number of chunks to return per document. If not specified, there is no limit."
+          },
+          "size": {
+            "type": "integer",
+            "description": "Page size, default is 20.",
+            "default": 20
+          }
+        },
+        "required": [
+          "kb_tag",
+          "queries"
+        ]
+      },
+      "service": {
+        "url": "${toolcall_base_url}/toolcall/fetch_kb_chunks",
+        "header": {
+          "srfscope": "${srfscope}",
+          "srfchatsessionid": "${srfchatsessionid}"
+        }
+      }
+    }
+  },
+  {
+	  "type": "function",
+	  "function": {
+	    "name": "apply_patch",
+	    "description": "Applies a Unified Diff patch to a target file",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "file_path": {
+	          "type": "string",
+	          "description": "The local path of the target file to apply the patch to (relative to the agent's working directory). Must exist before patching."
+	        },
+	        "new_file_path": {
+	          "type": "string",
+	          "description": "The local path where the patched result will be saved (relative to the agent's working directory)."
+	        },
+	        "unified_diff": {
+	          "type": "string",
+	          "description": "Unified Diff format content (e.g., generated by git diff). Must follow standard format with '---', '+++', and '@@' markers."
+	        }
+	      },
+	      "required": [
+	        "file_path",
+	        "new_file_path",
+	        "unified_diff"
+	      ]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/apply_patch",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+	    "name": "ask_user_question",
+	    "description": "Asks the user a question and waits for a response. Useful for gathering input, clarification, or decisions from the user.",
+	    "parameters": {
+	      "type": "object",
+	      "properties": {
+	        "question": {
+	          "type": "string",
+	          "description": "The question to ask the user. Should be clear and concise."
+	        },
+	        "choices": {
+	          "type": "array",
+	          "items": {
+	            "type": "string"
+	          },
+	          "description": "Optional list of predefined answer choices. If provided, the user must select one."
+	        }
+	      },
+	      "required": ["question"]
+	    },
+	    "service": {
+	      "url": "${toolcall_base_url}/toolcall/ask_user_question",
+	      "header": {
+	        "srfscope": "${srfscope}",
+	        "srfchatsessionid": "${srfchatsessionid}"
+	      }
+	    }
+	  }
+	}
+]

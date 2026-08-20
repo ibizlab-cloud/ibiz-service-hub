@@ -30,7 +30,7 @@ public interface IPSDEBindParamLogic extends net.ibizsys.model.dataentity.logic.
 	 * 获取源属性名称
 	 * @return
 	 */
-	java.lang.String getSrcFieldName();
+	String getSrcFieldName();
 	
 	
 	/**

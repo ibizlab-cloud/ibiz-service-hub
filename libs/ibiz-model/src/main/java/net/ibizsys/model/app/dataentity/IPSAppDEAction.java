@@ -16,21 +16,21 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionMode}
 	 * @return
 	 */
-	java.lang.String getActionMode();
+	String getActionMode();
 	
 	
 	/**
 	 * 获取行为标识
 	 * @return
 	 */
-	java.lang.String getActionName();
+	String getActionName();
 	
 	
 	/**
 	 * 获取行为标识
 	 * @return
 	 */
-	java.lang.String getActionTag();
+	String getActionTag();
 	
 	
 	/**
@@ -39,14 +39,14 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionType}
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**
 	 * 获取执行之后代码
 	 * @return
 	 */
-	java.lang.String getAfterCode();
+	String getAfterCode();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	 * 获取执行之前代码
 	 * @return
 	 */
-	java.lang.String getBeforeCode();
+	String getBeforeCode();
 	
 	
 	/**
@@ -111,7 +111,7 @@ public interface IPSAppDEAction extends net.ibizsys.model.app.dataentity.IPSAppD
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

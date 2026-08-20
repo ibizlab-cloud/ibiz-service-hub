@@ -38,12 +38,12 @@ public interface IPSTabExpPanel extends net.ibizsys.model.control.IPSControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TabViewTabPos}
 	 * @return
 	 */
-	java.lang.String getTabLayout();
+	String getTabLayout();
 	
 	
 	/**
 	 * 获取全局唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

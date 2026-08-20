@@ -135,4 +135,17 @@ public interface ICloudOSSClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadtxt/{id}")
 	String downloadText(@PathVariable("id") String id, @RequestParam Map<String, Object> params);
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadpdf/{cat}/{id}")
+	String downloadPdf(@PathVariable("cat") String cat, @PathVariable("id") String id);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadpdf/{id}")
+	String downloadPdf(@PathVariable("id") String id);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadpdf/{cat}/{id}")
+	String downloadPdf(@PathVariable("cat") String cat, @PathVariable("id") String id, @RequestParam Map<String, Object> params);
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ibizutil/downloadpdf/{id}")
+	String downloadPdf(@PathVariable("id") String id, @RequestParam Map<String, Object> params);
 }

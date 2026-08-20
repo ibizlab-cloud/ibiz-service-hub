@@ -22,19 +22,19 @@ public interface IPSBDTable extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取继承类型值
 	 * @return
 	 */
-	java.lang.String getInheritTypeValue();
+	String getInheritTypeValue();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 }

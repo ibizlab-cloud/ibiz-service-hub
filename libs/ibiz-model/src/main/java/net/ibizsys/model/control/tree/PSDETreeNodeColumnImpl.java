@@ -16,6 +16,7 @@ public class PSDETreeNodeColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETPSDETREECOLUMN = "getPSDETreeColumn";
 	public final static String ATTR_GETRENDERPSSYSPFPLUGIN = "getPSSysPFPlugin";
 	public final static String ATTR_ISENABLEROWEDIT = "enableRowEdit";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.res.IPSSysCss cellpssyscss;
 
 	public net.ibizsys.model.res.IPSSysCss getCellPSSysCss(){
@@ -204,5 +205,9 @@ public class PSDETreeNodeColumnImpl extends net.ibizsys.model.PSObjectImpl imple
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

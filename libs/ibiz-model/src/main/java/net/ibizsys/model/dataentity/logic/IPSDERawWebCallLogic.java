@@ -18,7 +18,7 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceReqContentType}
 	 * @return
 	 */
-	java.lang.String getBodyContentType();
+	String getBodyContentType();
 	
 	
 	/**
@@ -55,14 +55,14 @@ public interface IPSDERawWebCallLogic extends net.ibizsys.model.dataentity.logic
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.RequestMethod}
 	 * @return
 	 */
-	java.lang.String getRequestMethod();
+	String getRequestMethod();
 	
 	
 	/**
 	 * 获取请求路径
 	 * @return
 	 */
-	java.lang.String getRequestPath();
+	String getRequestPath();
 	
 	
 	/**

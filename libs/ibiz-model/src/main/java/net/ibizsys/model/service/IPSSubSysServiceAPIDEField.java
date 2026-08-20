@@ -14,14 +14,14 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -30,21 +30,21 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDataType}
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**
@@ -53,7 +53,7 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysSADEFieldType}
 	 * @return
 	 */
-	java.lang.String getFieldType();
+	String getFieldType();
 	
 	
 	/**
@@ -67,7 +67,7 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -98,7 +98,7 @@ public interface IPSSubSysServiceAPIDEField extends net.ibizsys.model.IPSModelOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysSADEFieldPredefinedType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**

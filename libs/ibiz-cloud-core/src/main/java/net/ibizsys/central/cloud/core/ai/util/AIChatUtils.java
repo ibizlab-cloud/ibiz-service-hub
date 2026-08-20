@@ -647,4 +647,65 @@ public class AIChatUtils {
 		return list;
 	}
 	
+	
+	public static String extractCommands(String message, Map<String, String> commandMap) {
+	    if (message == null) {
+	        return "";
+	    }
+	    if (commandMap == null) {
+	        throw new IllegalArgumentException("commandMap cannot be null");
+	    }
+
+	    String trimmedMsg = message.trim();
+	    if (trimmedMsg.isEmpty() || trimmedMsg.charAt(0) != '/') {
+	        return message;
+	    }
+
+	    String[] lines = message.split("\n", -1);
+	    if (lines.length == 0) {
+	        return message;
+	    }
+
+	    String firstLine = lines[0].trim();
+	    if (firstLine.isEmpty() || firstLine.charAt(0) != '/') {
+	        return message;
+	    }
+
+	    // 清空原有命令
+	    commandMap.clear();
+
+	    // 分离命令和参数（第一个空格之后即为参数）
+	    int spaceIdx = firstLine.indexOf(' ');
+	    String cmdPart, argPart;
+	    if (spaceIdx == -1) {
+	        cmdPart = firstLine;
+	        argPart = "";
+	    } else {
+	        cmdPart = firstLine.substring(0, spaceIdx);
+	        argPart = firstLine.substring(spaceIdx + 1); // 去掉命令后的第一个空格，保留其余空格
+	    }
+
+	    // 校验并提取命令名
+	    if (cmdPart.startsWith("/") && cmdPart.length() > 1) {
+	        String cmd = cmdPart.substring(1).toLowerCase();
+	        if (cmd.matches("^[a-z0-9_-]+$")) {
+	            commandMap.put(cmdPart.substring(1), argPart);
+	        }
+	        // 若命令无效，则不放入 map（但参数仍会保留在剩余内容中）
+	    }
+
+	    // 构建剩余内容：参数部分 + 后续行
+	    StringBuilder remaining = new StringBuilder();
+	    if (!argPart.isEmpty()) {
+	        remaining.append(argPart);
+	    }
+	    for (int i = 1; i < lines.length; i++) {
+	        if (remaining.length() > 0) {
+	            remaining.append("\n");
+	        }
+	        remaining.append(lines[i]);
+	    }
+	    return remaining.toString();
+	}
+	
 }

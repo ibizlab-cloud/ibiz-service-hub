@@ -20,7 +20,7 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormButtonActionType}
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**
@@ -29,7 +29,7 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
-	java.lang.String getBorderStyle();
+	String getBorderStyle();
 	
 	
 	/**
@@ -38,14 +38,14 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**
 	 * 获取动态标题绑定值项
 	 * @return
 	 */
-	java.lang.String getCaptionItemName();
+	String getCaptionItemName();
 	
 	
 	/**
@@ -54,7 +54,7 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonIconAlign}
 	 * @return
 	 */
-	java.lang.String getIconAlign();
+	String getIconAlign();
 	
 	
 	/**
@@ -124,7 +124,7 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 获取操作提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -147,5 +147,5 @@ public interface IPSDEFormButton extends net.ibizsys.model.control.form.IPSDEFor
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getUIActionTarget();
+	String getUIActionTarget();
 }

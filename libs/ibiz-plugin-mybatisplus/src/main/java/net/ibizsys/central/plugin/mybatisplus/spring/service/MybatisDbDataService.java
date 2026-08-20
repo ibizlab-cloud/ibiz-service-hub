@@ -73,6 +73,9 @@ public class MybatisDbDataService implements IDBDataService {
 	@Value("${ibiz.db.updatebatchmode:}")
 	private String updateBatchMode;
 
+	@Value("${ibiz.db.mainAlias:t1}")
+	private String mainAlias;
+
 	@Autowired
 	SqlSession sqlSession;
 
@@ -373,6 +376,9 @@ public class MybatisDbDataService implements IDBDataService {
 							alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
 						}
 					});
+					if(!alias.containsKey("MAIN")) {
+						alias.put("MAIN", mainAlias);
+					}
 				}
 			}
 
@@ -424,6 +430,9 @@ public class MybatisDbDataService implements IDBDataService {
 						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
 					}
 				});
+				if(!alias.containsKey("MAIN")) {
+					alias.put("MAIN", mainAlias);
+				}
 			}
 		}
 		Page<?> page = MybatisSqlUtil.composePage(iDataEntityRuntime, iPSDEDataSet, iSysDBSchemeRuntimeContext.getSysDBSchemeRuntime().getDBType(), iSearchContext);
@@ -481,6 +490,9 @@ public class MybatisDbDataService implements IDBDataService {
 						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
 					}
 				});
+				if(!alias.containsKey("MAIN")) {
+					alias.put("MAIN", mainAlias);
+				}
 			}
 			//将动态sql解析成普通sql
 			sql= MybatisSqlUtil.convertSQL(sql, data, sqlSession);
@@ -540,6 +552,9 @@ public class MybatisDbDataService implements IDBDataService {
 						alias.put(aliasName, iPSDEDataQueryCodeExp.getExpression());
 					}
 				});
+				if(!alias.containsKey("MAIN")) {
+					alias.put("MAIN", mainAlias);
+				}
 			}
 			//将动态sql解析成普通sql
 			sql= MybatisSqlUtil.convertSQL(sql, data, sqlSession);

@@ -9,18 +9,18 @@ package net.ibizsys.model.view;
 public interface IPSViewMsgGroup extends net.ibizsys.model.IPSModelObject{
 
 	
-	java.lang.String getBodyStyle();
+	String getBodyStyle();
 	
-	java.lang.String getBottomStyle();
+	String getBottomStyle();
 	
-	java.lang.String getCodeName();
+	String getCodeName();
 	
-	java.lang.String getTopStyle();
+	String getTopStyle();
 	
 	
 	/**
 	 * 获取消息组唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

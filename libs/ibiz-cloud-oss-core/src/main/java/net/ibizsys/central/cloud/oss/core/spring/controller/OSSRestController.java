@@ -67,6 +67,7 @@ public class OSSRestController {
 		if(this.ignoreAuth) {
 			iServiceHub.registerIgnoreAuthPattern("/ibizutil/download/**");
 			iServiceHub.registerIgnoreAuthPattern("/ibizutil/downloadtxt/**");
+			iServiceHub.registerIgnoreAuthPattern("/ibizutil/downloadpdf/**");
 		}
 		
 		iServiceHub.registerNamingService(ICloudUtilRuntime.CLOUDSERVICEURL_OSS);
@@ -218,6 +219,36 @@ public class OSSRestController {
 		
 	}
 	
+	@GetMapping(value = "${ibiz.cloud.oss.downloadpdf:/ibizutil/downloadpdf/{id}}")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadPdf(@PathVariable String id, HttpServletResponse response, HttpServletRequest request){
+		
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
+		}
+		
+		// 从请求中构建参数对象
+		String strQueryString = request.getQueryString();
+		Map<String, Object> map = RestUtils.queryString2Map(strQueryString, RestUtils.KeyNameCaseMode.LOWER);
+	
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			this.getSimpleFileStorageService().downloadPdfByTicket(null, id, response, map, bApiUser);
+			return;
+		case EXCLUSION:
+			this.getSimpleFileStorageService().downloadPdfByTicket(null, id, response, map, bApiUser);
+			return;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadPdf(null, id, response, map);
+		
+	}
+	
+	
 	
 	@PostMapping(value = "${ibiz.cloud.oss.uploadpath2:/ibizutil/upload/{cat}}")
 	public ResponseEntity<Object> upload(@PathVariable String cat, @RequestParam("file") MultipartFile multipartFile, @RequestParam(value = "preview", required = false, defaultValue="false") boolean preview, @RequestParam(value = "unzip", required = false, defaultValue="false") boolean unzip){
@@ -328,6 +359,40 @@ public class OSSRestController {
 		
 		this.getSimpleFileStorageService().downloadText(cat, id, response, map);
 	}
+	
+	@GetMapping(value = "${ibiz.cloud.oss.downloadpdf2:/ibizutil/downloadpdf/{cat}/{id}}")
+	@ResponseStatus(HttpStatus.OK)
+	public void downloadPdf(@PathVariable String cat, @PathVariable String id, HttpServletResponse response, HttpServletRequest request){
+		boolean bApiUser = false;
+		if(AuthenticationUser.getCurrent() != null && AuthenticationUser.getCurrentMust().getApiuser() == EntityBase.BOOLEAN_TRUE) {
+			bApiUser = true;
+		}
+		
+		// 从请求中构建参数对象
+		String strQueryString = request.getQueryString();
+		Map<String, Object> map = RestUtils.queryString2Map(strQueryString, RestUtils.KeyNameCaseMode.LOWER);
+		
+		
+		switch(this.getSimpleFileStorageService().getDownloadTicketMode()) {
+		case INCLUSION:
+			if(this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadPdfByTicket(cat, id, response, map, bApiUser);
+				return;
+			}
+			break;
+		case EXCLUSION:
+			if(!this.getSimpleFileStorageService().containsDownloadTicketFolder(cat)) {
+				this.getSimpleFileStorageService().downloadPdfByTicket(cat, id, response, map, bApiUser);
+				return;
+			}
+			break;
+		default:
+			break;
+		}
+		
+		this.getSimpleFileStorageService().downloadPdf(cat, id, response, map);
+	}
+	
 	
 	@GetMapping(value = "${ibiz.cloud.oss.createdownloadticketpath:/ibizutil/createdownloadticket/{id}}")
 	@ResponseStatus(HttpStatus.OK)

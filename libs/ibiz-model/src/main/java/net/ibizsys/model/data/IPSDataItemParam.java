@@ -14,5 +14,5 @@ public interface IPSDataItemParam extends net.ibizsys.model.IPSModelObject{
 	 * 获取格式化
 	 * @return
 	 */
-	java.lang.String getFormat();
+	String getFormat();
 }

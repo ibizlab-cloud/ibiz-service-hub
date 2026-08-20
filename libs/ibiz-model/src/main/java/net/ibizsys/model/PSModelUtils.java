@@ -14,6 +14,7 @@ import net.ibizsys.model.dataentity.defield.IPSDEField;
 import net.ibizsys.model.dataentity.der.IPSDERBase;
 import net.ibizsys.model.dataentity.ds.IPSDEDataQuery;
 import net.ibizsys.model.dataentity.ds.IPSDEDataSet;
+import net.ibizsys.model.dataentity.logic.IPSDELogic;
 import net.ibizsys.model.dataentity.print.IPSDEPrint;
 import net.ibizsys.model.dataentity.report.IPSDEReport;
 import net.ibizsys.model.service.IPSSubSysServiceAPIDE;
@@ -329,26 +330,24 @@ public class PSModelUtils {
 			return calcDSLId(iPSDataEntity.getPSSystemModuleMust()) + "." + iPSModelObject.getName();
 		}
 			
-			
 		if(iPSModelObject instanceof IPSDEField || iPSModelObject instanceof IPSDEAction || iPSModelObject instanceof IPSDEDataSet || iPSModelObject instanceof IPSDEDataQuery || iPSModelObject instanceof IPSDEReport || iPSModelObject instanceof IPSDEPrint) {
-			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
 			return calcDSLId(iPSModelObject.getParentPSModelObject(IPSDataEntity.class)) + "." + iPSModelObject.getName();
 		}
 		
+		if(iPSModelObject instanceof IPSDELogic) {
+			return calcDSLId(iPSModelObject.getParentPSModelObject(IPSDataEntity.class)) + "." + iPSModelObject.getCodeName();
+		}
+		
 		if(iPSModelObject instanceof IPSDERBase) {
-			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
 			IPSDERBase iPSDERBase = (IPSDERBase)iPSModelObject;
 			return calcDSLId(iPSDERBase.getMinorPSDataEntityMust()) + "." + iPSDERBase.getCodeName();
 		}
 		
 		if(iPSModelObject instanceof IPSSubSysServiceAPIDE) {
-			//IPSDataEntityObject iPSDataEntityObject = (IPSDataEntityObject)iPSModelObject;
-			//IPSSubSysServiceAPIDE iPSSubSysServiceAPIDE = (IPSSubSysServiceAPIDE)iPSModelObject;
-			
 			return calcDSLId(iPSModelObject.getParentPSModelObject()) + "." + iPSModelObject.getName();
 		}
 		
-		return calcFullUniqueTag(iPSModelObject, true);
+		return calcFullUniqueTag2(iPSModelObject, true);
 	}
 
 }

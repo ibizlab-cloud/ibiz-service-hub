@@ -60,5 +60,5 @@ public interface IPSDESysSearchDocActionLogic extends net.ibizsys.model.dataenti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBTableAction}
 	 * @return
 	 */
-	java.lang.String getSearchDocAction();
+	String getSearchDocAction();
 }

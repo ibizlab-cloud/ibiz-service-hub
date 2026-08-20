@@ -20,14 +20,14 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PanelButtonActionType}
 	 * @return
 	 */
-	java.lang.String getActionType();
+	String getActionType();
 	
 	
 	/**
 	 * 获取动态标题绑定值项
 	 * @return
 	 */
-	java.lang.String getCaptionItemName();
+	String getCaptionItemName();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	 * 获取操作提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -71,5 +71,5 @@ public interface IPSPanelButton extends net.ibizsys.model.control.panel.IPSPanel
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getUIActionTarget();
+	String getUIActionTarget();
 }

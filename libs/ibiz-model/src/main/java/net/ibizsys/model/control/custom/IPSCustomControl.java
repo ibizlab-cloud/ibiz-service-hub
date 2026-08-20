@@ -14,14 +14,14 @@ public interface IPSCustomControl extends net.ibizsys.model.control.IPSAjaxContr
 	 * 获取自定义标记
 	 * @return
 	 */
-	java.lang.String getCustomTag();
+	String getCustomTag();
 	
 	
 	/**
 	 * 获取自定义标记2
 	 * @return
 	 */
-	java.lang.String getCustomTag2();
+	String getCustomTag2();
 	
 	
 	/**
@@ -42,5 +42,5 @@ public interface IPSCustomControl extends net.ibizsys.model.control.IPSAjaxContr
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 }

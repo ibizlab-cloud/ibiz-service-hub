@@ -7,7 +7,6 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import net.ibizsys.central.ISystemGatewayContext;
-import net.ibizsys.central.cloud.core.app.IServiceAppRuntime;
 import net.ibizsys.central.service.ISysServiceAPIRuntime;
 
 public interface ISysServiceAPIRequestMappingAdapter {
@@ -40,18 +39,18 @@ public interface ISysServiceAPIRequestMappingAdapter {
 	
 	/**
 	 * 登记映射
-	 * @param iServiceAppRuntime
+	 * @param iSysServiceAPIRuntimeBase
 	 * @throws Exception
 	 */
-	void registerMapping(IServiceAppRuntime iServiceAppRuntime) throws Exception;
+	void registerMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase) throws Exception;
 	
 	
 	/**
 	 * 注销登记映射
-	 * @param iServiceAppRuntime
+	 * @param iSysServiceAPIRuntimeBase
 	 * @throws Exception
 	 */
-	void unregisterMapping(IServiceAppRuntime iServiceAppRuntime);
+	void unregisterMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase);
 	
 
 	/**
@@ -91,38 +90,12 @@ public interface ISysServiceAPIRequestMappingAdapter {
 	
 	/**
 	 * 注册前端应用请求映射
-	 * @param iServiceAppRuntime
+	 * @param iSysServiceAPIRuntimeBase
 	 * @param mapping
 	 * @param handler
 	 * @param method
 	 */
-	void registerMapping(IServiceAppRuntime iServiceAppRuntime, RequestMappingInfo mapping, Object handler, Method method);
-	
-	
-//	void unregisterMapping(ISysServiceAPIRuntime iSysServiceAPIRuntime, RequestMappingInfo mapping);
-//	
-//	
-//	void unregisterMapping(IApplicationRuntime iApplicationRuntime, RequestMappingInfo mapping);
-	
-	/**
-	 * 直接注册映射处理
-	 * @param iSysServiceAPIRuntime
-	 * @param uris
-	 * @param methods
-	 * @param handler
-	 * @param method
-	 */
-	//RequestMappingInfo registerMapping(ISysServiceAPIRuntime iSysServiceAPIRuntime, String[] uris, RequestMethod[] methods, Object handler, Method method);
-	
-	
-	/**
-	 * 直接注册映射处理
-	 * @param iSysServiceAPIRuntime
-	 * @param mapping
-	 * @param handler
-	 * @param method
-	 */
-	//void registerMapping(ISysServiceAPIRuntime iSysServiceAPIRuntime, RequestMappingInfo mapping, Object handler, Method method);
+	void registerMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase, RequestMappingInfo mapping, Object handler, Method method);
 	
 	
 

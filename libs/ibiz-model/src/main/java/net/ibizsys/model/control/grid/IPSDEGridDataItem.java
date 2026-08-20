@@ -14,7 +14,7 @@ public interface IPSDEGridDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 获取参数1格式化
 	 * @return
 	 */
-	java.lang.String getDataItemParam0Format();
+	String getDataItemParam0Format();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEGridDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -44,7 +44,7 @@ public interface IPSDEGridDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

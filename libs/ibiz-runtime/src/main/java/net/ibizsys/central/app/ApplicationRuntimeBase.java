@@ -13,7 +13,6 @@ import net.ibizsys.central.app.dataentity.AppDataEntityRSRuntime;
 import net.ibizsys.central.app.dataentity.AppDataEntityRuntime;
 import net.ibizsys.central.app.dataentity.IAppDataEntityRSRuntime;
 import net.ibizsys.central.app.dataentity.IAppDataEntityRuntime;
-import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.PSModelUtils;
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.app.dataentity.IPSAppDERS;
@@ -22,6 +21,7 @@ import net.ibizsys.runtime.IModelRuntimeContext;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.plugin.IModelRTAddin;
 import net.ibizsys.runtime.plugin.ModelRTAddinRepo;
+import net.ibizsys.runtime.util.LogCats;
 import net.ibizsys.runtime.util.LogLevels;
 import net.ibizsys.runtime.util.domain.File;
 
@@ -97,7 +97,7 @@ public abstract class ApplicationRuntimeBase extends SystemModelRuntimeBase impl
 	}
 
 	@Override
-	public IPSModelObject getPSModelObject() {
+	public IPSApplication getPSModelObject() {
 		return this.getPSApplication();
 	}
 
@@ -385,6 +385,19 @@ public abstract class ApplicationRuntimeBase extends SystemModelRuntimeBase impl
 			iAppDataEntityRSRuntime = this.getAppDataEntityRSRuntime(String.format("%1$s|%2$s", strParentDEName, iAppDataEntityRuntime.getName()).toUpperCase(), false);
 		}
 		return iAppDataEntityRuntime.downloadFile(strScope, iAppDataEntityRSRuntime, strParentKey, strKey, strStorageField, file, objBody, objTag);
+	}
+	
+	@Override
+	public void shutdown() throws Exception {
+		onShutdown();
+	}
+
+	protected void onShutdown() throws Exception {
+
+	}
+	
+	protected String getLogCat() {
+		return LogCats.APP;
 	}
 	
 }

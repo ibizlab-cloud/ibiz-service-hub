@@ -17,7 +17,7 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -26,7 +26,7 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
-	java.lang.String getCLConvertMode();
+	String getCLConvertMode();
 	
 	
 	/**
@@ -47,21 +47,21 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取数据分组项
 	 * @return
 	 */
-	java.lang.String getGroupItem();
+	String getGroupItem();
 	
 	
 	/**
 	 * 获取项权限标识
 	 * @return
 	 */
-	java.lang.String getItemPrivId();
+	String getItemPrivId();
 	
 	
 	/**
@@ -70,7 +70,7 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ListItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
@@ -91,7 +91,7 @@ public interface IPSListItem extends net.ibizsys.model.IPSModelObject
 	 * 获取宽度串
 	 * @return
 	 */
-	java.lang.String getWidthString();
+	String getWidthString();
 	
 	
 	/**

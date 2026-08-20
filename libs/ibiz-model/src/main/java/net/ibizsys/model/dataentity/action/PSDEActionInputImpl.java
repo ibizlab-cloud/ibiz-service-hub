@@ -9,6 +9,7 @@ public class PSDEActionInputImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETPSDEACTIONPARAMS = "getPSDEActionParams";
 	public final static String ATTR_GETPSDEMETHODDTO = "getPSDEMethodDTO";
 	public final static String ATTR_GETTYPE = "type";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISOUTPUT = "output";
 
 	public java.lang.String getCodeName(){
@@ -95,6 +96,10 @@ public class PSDEActionInputImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isOutput(){

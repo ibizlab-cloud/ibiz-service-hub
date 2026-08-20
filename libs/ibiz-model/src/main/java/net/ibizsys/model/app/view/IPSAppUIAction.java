@@ -15,14 +15,14 @@ public interface IPSAppUIAction extends net.ibizsys.model.view.IPSUIAction
 	 * 获取行为附加上下文Json字符串
 	 * @return
 	 */
-	java.lang.String getContextJOString();
+	String getContextJOString();
 	
 	
 	/**
 	 * 获取计数项标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**

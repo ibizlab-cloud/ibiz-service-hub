@@ -17,21 +17,21 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取标题，非空白标题时返回配置的标题内容
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取动态标题绑定值项
 	 * @return
 	 */
-	java.lang.String getCaptionItemName();
+	String getCaptionItemName();
 	
 	
 	/**
 	 * 获取建立默认值
 	 * @return
 	 */
-	java.lang.String getCreateDV();
+	String getCreateDV();
 	
 	
 	/**
@@ -40,7 +40,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getCreateDVT();
+	String getCreateDVT();
 	
 	
 	/**
@@ -65,7 +65,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取绑定属性
 	 * @return
 	 */
-	java.lang.String getFieldName();
+	String getFieldName();
 	
 	
 	/**
@@ -79,28 +79,28 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取输入提示信息
 	 * @return
 	 */
-	java.lang.String getInputTip();
+	String getInputTip();
 	
 	
 	/**
 	 * 获取输入提示信息语言标记
 	 * @return
 	 */
-	java.lang.String getInputTipLanResTag();
+	String getInputTipLanResTag();
 	
 	
 	/**
 	 * 获取输入提示全局标记
 	 * @return
 	 */
-	java.lang.String getInputTipUniqueTag();
+	String getInputTipUniqueTag();
 	
 	
 	/**
 	 * 获取输入提示链接
 	 * @return
 	 */
-	java.lang.String getInputTipUrl();
+	String getInputTipUrl();
 	
 	
 	/**
@@ -121,14 +121,14 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取标签直接样式
 	 * @return
 	 */
-	java.lang.String getLabelCssStyle();
+	String getLabelCssStyle();
 	
 	
 	/**
 	 * 获取标签动态样式表
 	 * @return
 	 */
-	java.lang.String getLabelDynaClass();
+	String getLabelDynaClass();
 	
 	
 	/**
@@ -137,7 +137,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LabelPos}
 	 * @return
 	 */
-	java.lang.String getLabelPos();
+	String getLabelPos();
 	
 	
 	/**
@@ -225,7 +225,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取重置项名称
 	 * @return
 	 */
-	java.lang.String getResetItemName();
+	String getResetItemName();
 	
 	
 	/**
@@ -239,7 +239,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取单位名称
 	 * @return
 	 */
-	java.lang.String getUnitName();
+	String getUnitName();
 	
 	
 	/**
@@ -253,7 +253,7 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 获取更新默认值
 	 * @return
 	 */
-	java.lang.String getUpdateDV();
+	String getUpdateDV();
 	
 	
 	/**
@@ -262,14 +262,14 @@ public interface IPSDEFormItem extends net.ibizsys.model.control.form.IPSDEFormD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getUpdateDVT();
+	String getUpdateDVT();
 	
 	
 	/**
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

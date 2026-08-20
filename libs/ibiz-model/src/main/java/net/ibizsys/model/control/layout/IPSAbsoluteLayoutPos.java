@@ -25,7 +25,7 @@ public interface IPSAbsoluteLayoutPos extends net.ibizsys.model.control.layout.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AbsoluteLayoutPos}
 	 * @return
 	 */
-	java.lang.String getLayoutPos();
+	String getLayoutPos();
 	
 	
 	/**

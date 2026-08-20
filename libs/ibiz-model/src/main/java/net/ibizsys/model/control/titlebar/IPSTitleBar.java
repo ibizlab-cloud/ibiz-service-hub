@@ -28,7 +28,7 @@ public interface IPSTitleBar extends net.ibizsys.model.control.IPSControl{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -51,12 +51,12 @@ public interface IPSTitleBar extends net.ibizsys.model.control.IPSControl{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TitleBarStyle}
 	 * @return
 	 */
-	java.lang.String getTitleBarStyle();
+	String getTitleBarStyle();
 	
 	
 	/**
 	 * 获取标题栏类型
 	 * @return
 	 */
-	java.lang.String getTitleBarType();
+	String getTitleBarType();
 }

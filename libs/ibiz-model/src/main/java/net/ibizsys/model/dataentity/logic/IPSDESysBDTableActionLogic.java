@@ -18,7 +18,7 @@ public interface IPSDESysBDTableActionLogic extends net.ibizsys.model.dataentity
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBTableAction}
 	 * @return
 	 */
-	java.lang.String getBDTableAction();
+	String getBDTableAction();
 	
 	
 	/**

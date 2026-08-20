@@ -52,6 +52,7 @@ import net.ibizsys.central.dataentity.action.IDEActionInputDTORuntime;
 import net.ibizsys.central.dataentity.action.IDEActionLogicRuntimeBase;
 import net.ibizsys.central.dataentity.action.IDEActionPluginRuntime2;
 import net.ibizsys.central.dataentity.dataexport.DEDataExportRuntime;
+import net.ibizsys.central.dataentity.dataexport.IDEDataExportRuntime2;
 import net.ibizsys.central.dataentity.dataflow.DEDataFlowRuntime;
 import net.ibizsys.central.dataentity.dataflow.IDEDataFlowRuntime;
 import net.ibizsys.central.dataentity.dataimport.DEDataImportRuntime;
@@ -114,6 +115,7 @@ import net.ibizsys.central.util.ISearchGroupCond;
 import net.ibizsys.central.util.SearchContextDTO;
 import net.ibizsys.central.util.annotation.DEAction;
 import net.ibizsys.central.util.annotation.DEDataSet;
+import net.ibizsys.central.util.domain.ExportDataResult;
 import net.ibizsys.central.util.domain.ImportDataResult;
 import net.ibizsys.central.util.script.ScriptEntity;
 import net.ibizsys.central.util.script.ScriptSearchContext;
@@ -135,6 +137,7 @@ import net.ibizsys.model.PSModelEnums.DER1NMasterRS;
 import net.ibizsys.model.PSModelEnums.DERSubType;
 import net.ibizsys.model.PSModelEnums.DEType;
 import net.ibizsys.model.PSModelEnums.DEUtilType;
+import net.ibizsys.model.PSModelEnums.DataExportType;
 import net.ibizsys.model.PSModelEnums.LogicSubType;
 import net.ibizsys.model.PSModelEnums.PredefinedFieldType;
 import net.ibizsys.model.PSModelEnums.SortDir;
@@ -4190,6 +4193,7 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 		return fetchDataSet(strDataSetName, iPSDEDataSet, args, false);
 	}
 
+	
 	@Override
 	public Object executeAction(String strActionName, IPSDEAction iPSDEAction, Object[] args) throws Throwable {
 		return executeAction(strActionName, iPSDEAction, args, false);
@@ -6535,6 +6539,14 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 		if (this.getSystemModuleUtilRuntime() != null) {
 			iDEDataExportRuntime = this.getSystemModuleUtilRuntime().createDEDataExportRuntime(iPSDEDataExport);
+			if (iDEDataExportRuntime != null) {
+				return iDEDataExportRuntime;
+			}
+		}
+		
+		if(StringUtils.hasLength(iPSDEDataExport.getExpType()) && !DataExportType.DEFAULT.value.equalsIgnoreCase(iPSDEDataExport.getExpType())) {
+			String strTag = String.format("%1$s:%2$s", iPSDEDataExport.getExpType(), iPSDEDataExport.getContentType()).toUpperCase();
+			iDEDataExportRuntime = this.getSystemRuntime().getRuntimeObject(IDEDataExportRuntime.class, strTag);
 			if (iDEDataExportRuntime != null) {
 				return iDEDataExportRuntime;
 			}
@@ -10410,6 +10422,66 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 			return ActionSessionManager.execute(iAction, args, nPropagation);
 		}
 	}
+	
+	@Override
+	public Object testExecute(IAction iAction, Object[] args) throws Throwable {
+		prepare();
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		boolean bOpenActionSession = (actionSession == null);
+		if (bOpenActionSession) {
+			actionSession = ActionSessionManager.openSession();
+			actionSession.setName(this.getName());
+			actionSession.setDEName(this.getName());
+			actionSession.setUserContext(this.getUserContext());
+		}
+
+		try {
+			this.pushDataSource();
+			ActionSessionManager.beginTrans();
+			// 备份会话的动态实例运行时
+			ActionSessionBackup backup = actionSession.backup();
+			actionSession.setSessionId(KeyValueUtils.genGuidEx());
+
+			String strActionName = null;
+			if (iAction instanceof INamedAction) {
+				strActionName = ((INamedAction) iAction).getName();
+			} else {
+				strActionName = "未知行为";
+			}
+
+			actionSession.beginLog(this.getName(), strActionName);
+
+			Object objRet = this.onExecute(iAction, args, null, null, -1, null, ITransactionalUtil.PROPAGATION_UNKNOWN);
+
+			// 恢复会话的动态实例运行时
+			actionSession.restore(backup);
+			actionSession.endLog(null);
+			if (bOpenActionSession) {
+				ActionSessionManager.closeSession(false);
+			}
+
+			return objRet;
+
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			actionSession.setDynaInstRuntime(null);
+			actionSession.setChildDynaInstRuntime(null);
+			if (bOpenActionSession) {
+				actionSession.endLog(ex.getMessage(), true, ex);
+				ActionSessionManager.closeSession(false);
+			}
+			throw ex;
+		} finally {
+			try {
+				ActionSessionManager.rollbackTrans();
+			}
+			catch(Throwable ex) {
+				log.error(ex);
+			}
+			this.pollDataSource();
+		}
+	}
 
 	@Override
 	public boolean isEnableDEMapping() {
@@ -11147,6 +11219,79 @@ public class DataEntityRuntime extends DataEntityRuntimeBase implements IDataEnt
 
 			}
 		}
+	}
+	
+	
+	@Override
+	public ExportDataResult exportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
+		prepare();
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		boolean bOpenActionSession = (actionSession == null);
+		if (bOpenActionSession) {
+			actionSession = ActionSessionManager.openSession();
+			actionSession.setName(this.getName());
+			actionSession.setUserContext(this.getUserContext());
+		}
+
+		try {
+			this.pushDataSource();
+
+			// 备份会话的动态实例运行时
+			ActionSessionBackup backup = actionSession.backup();
+			actionSession.setSessionId(KeyValueUtils.genGuidEx());
+
+			actionSession.beginLog(this.getName(), String.format("导出数据[%1$s]", strExportTag));
+
+			ExportDataResult ret = this.onExportData2(strExportTag, objData, outputStream);
+
+			// 恢复会话的动态实例运行时
+			actionSession.restore(backup);
+			IActionSessionLog iActionSessionLog = actionSession.endLog(null);
+
+			if (bOpenActionSession) {
+				if (iActionSessionLog != null) {
+					if (iActionSessionLog.getTime() >= ActionSessionManager.getExportDataLogPOTime()) {
+						this.getSystemRuntime().logPO(ISystemRuntime.LOGLEVEL_WARN, LogCats.PO_DEDATAEXP, iActionSessionLog.toString(true), this.getName(), String.format("导出数据[%1$s]", strExportTag), iActionSessionLog.getTime(), iActionSessionLog);
+					}
+				}
+				ActionSessionManager.closeSession(true);
+			}
+
+			return ret;
+
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			actionSession.setDynaInstRuntime(null);
+			actionSession.setChildDynaInstRuntime(null);
+			if (bOpenActionSession) {
+				IActionSessionLog iActionSessionLog = actionSession.endLog(ex.getMessage(), true, ex);
+				if (iActionSessionLog != null) {
+					String strInfo = String.format("实体[%1$s]数据导出[%2$s]发生异常，%3$s\r\n%4$s", this.getName(), strExportTag, ex.getMessage(), iActionSessionLog.toObjectNode().toString());
+					this.getSystemRuntime().log(LogLevels.ERROR, LogCats.DEDATAEXP, strInfo, ex);
+				}
+
+				ActionSessionManager.closeSession(false);
+			}
+			throw ex;
+		} finally {
+			this.pollDataSource();
+		}
+	}
+
+
+	protected ExportDataResult onExportData2(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
+		IDEDataExportRuntime iDEDataExportRuntime = this.getDEDataExportRuntime(strExportTag);
+		if (iDEDataExportRuntime instanceof IDEDataExportRuntime2) {
+			return ((IDEDataExportRuntime2) iDEDataExportRuntime).exportStream2(objData, outputStream);
+		}
+
+		throw new Exception(String.format("对象[%1$s]未支持增强导出数据", iDEDataExportRuntime));
+	}
+	
+	@Override
+	protected boolean isEnableValueFuncConversion(String dataSetName, IPSDEDataSet dataSet, net.ibizsys.runtime.util.ISearchContext context) {
+		return false;
 	}
 
 	@Override

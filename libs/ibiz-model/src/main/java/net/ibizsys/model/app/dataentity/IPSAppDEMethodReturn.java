@@ -39,5 +39,5 @@ public interface IPSAppDEMethodReturn extends net.ibizsys.model.dataentity.servi
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodReturnType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

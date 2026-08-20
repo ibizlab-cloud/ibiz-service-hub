@@ -11,6 +11,7 @@ public class PSSysBIAggColumnImpl extends net.ibizsys.model.bi.PSSysBIAggTableOb
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETPSSYSBICUBEDIMENSION = "getPSSysBICubeDimension";
 	public final static String ATTR_GETPSSYSBICUBEMEASURE = "getPSSysBICubeMeasure";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -112,4 +113,8 @@ public class PSSysBIAggColumnImpl extends net.ibizsys.model.bi.PSSysBIAggTableOb
 		this.pssysbicubemeasure = pssysbicubemeasure;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

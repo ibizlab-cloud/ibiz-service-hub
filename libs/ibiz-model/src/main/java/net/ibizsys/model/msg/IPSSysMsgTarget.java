@@ -21,14 +21,14 @@ public interface IPSSysMsgTarget extends net.ibizsys.model.IPSModelObject{
 	 * 获取消息目标标记
 	 * @return
 	 */
-	java.lang.String getMsgTargetTag();
+	String getMsgTargetTag();
 	
 	
 	/**
 	 * 获取消息目标标记2
 	 * @return
 	 */
-	java.lang.String getMsgTargetTag2();
+	String getMsgTargetTag2();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSSysMsgTarget extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgTargetType}
 	 * @return
 	 */
-	java.lang.String getMsgTargetType();
+	String getMsgTargetType();
 	
 	
 	/**

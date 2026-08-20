@@ -16,5 +16,5 @@ public interface IPSDEMethodReturn extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodReturnType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

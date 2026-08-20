@@ -14,14 +14,14 @@ public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface IPSDEActionGroupDetail extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodGroupDetailType}
 	 * @return
 	 */
-	java.lang.String getDetailType();
+	String getDetailType();
 	
 	
 	/**

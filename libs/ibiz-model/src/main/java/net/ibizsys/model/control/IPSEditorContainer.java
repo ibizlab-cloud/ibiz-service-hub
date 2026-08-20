@@ -9,6 +9,10 @@ package net.ibizsys.model.control;
 public interface IPSEditorContainer extends net.ibizsys.model.IPSModelObject{
 
 	
+	net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageRes();
+
+net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageResMust();
+	
 	
 	/**
 	 * 获取编辑器对象
@@ -28,5 +32,5 @@ public interface IPSEditorContainer extends net.ibizsys.model.IPSModelObject{
 	 * 获取值项名称
 	 * @return
 	 */
-	java.lang.String getValueItemName();
+	String getValueItemName();
 }

@@ -15,5 +15,5 @@ public interface IPSDEFormFormPart extends net.ibizsys.model.control.form.IPSDEF
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.FormPartType}
 	 * @return
 	 */
-	java.lang.String getFormPartType();
+	String getFormPartType();
 }

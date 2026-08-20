@@ -55,6 +55,7 @@ public class PSDETreeNodeImplBase extends net.ibizsys.model.control.PSControlIte
 	public final static String ATTR_ISEXPANDFIRSTONLY = "expandFirstOnly";
 	public final static String ATTR_ISEXPANDED = "expanded";
 	public final static String ATTR_ISLOADDEFAULT = "loadDefault";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISPICKUPMODE = "pickupMode";
 	public final static String ATTR_ISREADONLY = "readOnly";
 	public final static String ATTR_ISROOTNODE = "rootNode";
@@ -702,6 +703,10 @@ public class PSDETreeNodeImplBase extends net.ibizsys.model.control.PSControlIte
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	@Deprecated

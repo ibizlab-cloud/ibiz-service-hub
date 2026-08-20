@@ -56,5 +56,5 @@ public interface IPSAppBIScheme extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取智能报表唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

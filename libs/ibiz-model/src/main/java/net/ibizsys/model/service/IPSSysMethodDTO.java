@@ -36,21 +36,21 @@ public interface IPSSysMethodDTO extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOSourceType}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 	
 	
 	/**
 	 * 获取标记
 	 * @return
 	 */
-	java.lang.String getTag();
+	String getTag();
 	
 	
 	/**
 	 * 获取标记2
 	 * @return
 	 */
-	java.lang.String getTag2();
+	String getTag2();
 	
 	
 	/**
@@ -59,5 +59,5 @@ public interface IPSSysMethodDTO extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMethodDTOType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

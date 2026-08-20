@@ -14,42 +14,42 @@ public interface IPSApplicationLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取事件参数
 	 * @return
 	 */
-	java.lang.String getEventArg();
+	String getEventArg();
 	
 	
 	/**
 	 * 获取事件参数2
 	 * @return
 	 */
-	java.lang.String getEventArg2();
+	String getEventArg2();
 	
 	
 	/**
 	 * 获取事件名称
 	 * @return
 	 */
-	java.lang.String getEventNames();
+	String getEventNames();
 	
 	
 	/**
 	 * 获取逻辑标记
 	 * @return
 	 */
-	java.lang.String getLogicTag();
+	String getLogicTag();
 	
 	
 	/**
 	 * 获取触发逻辑类型
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getName();
+	String getName();
 	
 	
 	/**
@@ -84,7 +84,7 @@ public interface IPSApplicationLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -100,5 +100,5 @@ public interface IPSApplicationLogic extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UILogicTriggerType}
 	 * @return
 	 */
-	java.lang.String getTriggerType();
+	String getTriggerType();
 }

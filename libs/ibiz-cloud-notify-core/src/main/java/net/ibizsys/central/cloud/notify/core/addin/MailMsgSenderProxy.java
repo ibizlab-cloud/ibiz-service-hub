@@ -3,9 +3,12 @@ package net.ibizsys.central.cloud.notify.core.addin;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -14,6 +17,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
 
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.ObjectUtils;
@@ -24,19 +28,22 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import net.ibizsys.central.cloud.core.util.domain.Employee;
 import net.ibizsys.central.cloud.core.util.domain.MsgTemplateType;
 import net.ibizsys.central.cloud.core.util.domain.OpenAccess;
+import net.ibizsys.runtime.sysutil.ISysFileUtilRuntime;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
+import net.ibizsys.runtime.util.domain.File;
 import net.ibizsys.runtime.util.domain.MsgSendQueue;
 
 /**
  * 电子邮件消息发送者
+ * 
  * @author lionlau
  *
  */
-public class MailMsgSenderProxy extends MsgSenderBase{
+public class MailMsgSenderProxy extends MsgSenderBase {
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(MailMsgSenderProxy.class);
-	
+
 	public class SmtpAuthenticator extends Authenticator {
 		private PasswordAuthentication password_auth;
 
@@ -48,39 +55,38 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 			return password_auth;
 		}
 	}
-	
+
 	@Override
 	protected String onSend(MsgSendQueue msgSendQueue) throws Throwable {
-		
-		String strDCId = (String)msgSendQueue.get("srfdcid");
-		if(!StringUtils.hasLength(strDCId)) {
+
+		String strDCId = (String) msgSendQueue.get("srfdcid");
+		if (!StringUtils.hasLength(strDCId)) {
 			throw new Exception("消息未指定机构");
 		}
-		
+
 		String strDefaultAccessId = KeyValueUtils.genUniqueId(strDCId, "MAIL");
-		
+
 		OpenAccess openAccess = null;
 		try {
 			openAccess = this.getContext().getOpenAccess(strDefaultAccessId, true);
-			if(openAccess == null) {
+			if (openAccess == null) {
 				return "无法获取机构邮件配置";
 			}
-		}
-		catch (Throwable ex) {
+		} catch (Throwable ex) {
 			log.error(String.format("无法获取机构[%1$s]邮件配置，%2$s", strDCId, ex.getMessage()), ex);
 			return "无法获取机构邮件配置";
 		}
-		
+
 		return this.doSend(openAccess, msgSendQueue);
-		
+
 	}
-	
+
 	protected String doSend(OpenAccess openAccess, MsgSendQueue msgSendQueue) throws Throwable {
-		
-		if(!StringUtils.hasLength(openAccess.getNotifyUrl())) {
+
+		if (!StringUtils.hasLength(openAccess.getNotifyUrl())) {
 			return "未指定邮件服务器地址";
 		}
-		
+
 		Session session = null;
 		String strSMTPServer = "";
 
@@ -88,9 +94,10 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 
 		String strSMTPPort = "25";
 
-		String strSMTPUser = openAccess.getAccessKey();// this.getServiceParam("SMTPUSER", "");
-		String strSMTPPassword = openAccess.getAccessToken();// this.getServiceParam("SMTPPASSWORD", "");
-		
+		String strSMTPUser = openAccess.getAccessKey();// this.getServiceParam("SMTPUSER",
+														// "");
+		String strSMTPPassword = openAccess.getAccessToken();// this.getServiceParam("SMTPPASSWORD",
+																// "");
 
 		String strMailFrom = "";
 
@@ -99,19 +106,22 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 		boolean bSMTPAuth = true;
 
 		int nSendTimer = 30000;
-		
+
 		try {
-			
+
 			URL url = new URL(openAccess.getNotifyUrl());
-			
-			strSMTPServer =  url.getHost();
-			nSMTPPort =  url.getPort();// Integer.parseInt(this.getServiceParam("SMTPPORT", "25"));
-			strSMTPPort = String.format("%1$s",  nSMTPPort);
-			
-			strMailFrom = strSMTPUser;// this.getServiceParam("MAILFROM", strSMTPUser);
+
+			strSMTPServer = url.getHost();
+			nSMTPPort = url.getPort();// Integer.parseInt(this.getServiceParam("SMTPPORT",
+										// "25"));
+			strSMTPPort = String.format("%1$s", nSMTPPort);
+
+			strMailFrom = strSMTPUser;// this.getServiceParam("MAILFROM",
+										// strSMTPUser);
 			bSMTPAuth = true;
 			nSendTimer = 30000;
-			if("smtps".equalsIgnoreCase(url.getProtocol())) {
+			//URL不支持smtp构造改为https传递SSL控制
+			if ("https".equalsIgnoreCase(url.getProtocol())) {
 				bSSL = true;
 			}
 
@@ -140,11 +150,11 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 					return new PasswordAuthentication(strSMTPUser, strSMTPPassword);
 				}
 			});
-			
+
 		} catch (Exception ex) {
 			throw new Exception(String.format("登录邮件服务器发生错误，%1$s", ex.getMessage()), ex);
 		}
-		
+
 		msgSendQueue.setProcessTime(new java.sql.Timestamp(new Date().getTime()));
 		MimeMessage mimemessage = new MimeMessage(session);
 		mimemessage.setFrom(new InternetAddress(strMailFrom));
@@ -152,56 +162,101 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 		// set SUBJECT
 
 		// 标题转码
-		// String strSubject= MimeUtility.encodeText(msgSendQueue.getSubject(), "GBK", "B");
+		// String strSubject= MimeUtility.encodeText(msgSendQueue.getSubject(),
+		// "GBK", "B");
 
-		//mimemessage.setSubject(msgSendQueue.getSubject(), "GBK");
+		// mimemessage.setSubject(msgSendQueue.getSubject(), "GBK");
 		mimemessage.setSubject(msgSendQueue.getSubject(), "UTF-8");
 
 		List<InternetAddress> addressList = new ArrayList<InternetAddress>();
+		List<InternetAddress> ccAddressList = new ArrayList<>();
+		List<InternetAddress> bccAddressList = new ArrayList<>();
 
-		String strDstUsers = msgSendQueue.getDstUsers();
-		if (ObjectUtils.isEmpty(strDstUsers)) {
-			throw new Exception("未指定目标用户");
-		}
+		String strDstAddresses = msgSendQueue.getDstAddresses();
+		if(StringUtils.hasLength(strDstAddresses)) {
+			String[] dstAddresses = strDstAddresses.split("[,]");
+			for (String strEmail : dstAddresses) {
+				String trimmedEmail = strEmail.trim();
+				if (!StringUtils.hasLength(trimmedEmail)) continue;
 
-		if (strDstUsers.indexOf("[") == 0) {
-			ArrayNode arrayNode = JsonUtils.toArrayNode(strDstUsers);
-			for (int i = 0; i < arrayNode.size(); i++) {
 				try {
-					Employee employee = this.getContext().getEmployee(arrayNode.get(i).asText());
-					if(StringUtils.hasLength(employee.getEmail())) {
-						addressList.add(new InternetAddress(employee.getEmail()));
+					// 判断前缀并进行分类处理
+					if (trimmedEmail.toUpperCase().startsWith("CC:")) {
+						String realEmail = trimmedEmail.substring(3).trim();
+						if (StringUtils.hasLength(realEmail)) {
+							ccAddressList.add(new InternetAddress(realEmail));
+						}
+					} else if (trimmedEmail.toUpperCase().startsWith("BCC:")) {
+						String realEmail = trimmedEmail.substring(4).trim();
+						if (StringUtils.hasLength(realEmail)) {
+							bccAddressList.add(new InternetAddress(realEmail));
+						}
+					} else {
+						addressList.add(new InternetAddress(trimmedEmail));
 					}
-					else {
-						log.warn(String.format("机构用户[%1$s]未指定邮件信息", employee.getUAAUserName()));
-					}
-				}
-				catch (Throwable ex) {
-					throw new Exception(String.format("无法获取指定机构用户信息[%1$s]", arrayNode.get(i).asText()));
-				}
-			}
-		} else {
-			String[] userIds = strDstUsers.split("[,]");
-			for (String strUserId : userIds) {
-				try {
-					Employee employee = this.getContext().getEmployee(strUserId);
-					if(StringUtils.hasLength(employee.getEmail())) {
-						addressList.add(new InternetAddress(employee.getEmail()));
-					}
-					else {
-						log.warn(String.format("机构用户[%1$s]未指定邮件信息", employee.getUAAUserName()));
-					}
-				}
-				catch (Throwable ex) {
-					throw new Exception(String.format("无法获取指定机构用户信息[%1$s]", strUserId));
+				} catch (Exception e) {
+					log.warn("解析邮件地址失败，已跳过: " + trimmedEmail, e);
 				}
 			}
 		}
 		
+		
+		String strDstUsers = msgSendQueue.getDstUsers();
+		if (!ObjectUtils.isEmpty(strDstUsers)) {
+			if (strDstUsers.indexOf("[") == 0) {
+				ArrayNode arrayNode = JsonUtils.toArrayNode(strDstUsers);
+				for (int i = 0; i < arrayNode.size(); i++) {
+					try {
+						Employee employee = this.getContext().getEmployee(arrayNode.get(i).asText());
+						if (StringUtils.hasLength(employee.getEmail())) {
+							addressList.add(new InternetAddress(employee.getEmail()));
+						} else {
+							log.warn(String.format("机构用户[%1$s]未指定邮件信息", employee.getUAAUserName()));
+						}
+					} catch (Throwable ex) {
+						throw new Exception(String.format("无法获取指定机构用户信息[%1$s]", arrayNode.get(i).asText()));
+					}
+				}
+			} else {
+				String[] userIds = strDstUsers.split("[,]");
+				for (String strUserId : userIds) {
+					try {
+						Employee employee = this.getContext().getEmployee(strUserId);
+						if (StringUtils.hasLength(employee.getEmail())) {
+							addressList.add(new InternetAddress(employee.getEmail()));
+						} else {
+							log.warn(String.format("机构用户[%1$s]未指定邮件信息", employee.getUAAUserName()));
+						}
+					} catch (Throwable ex) {
+						throw new Exception(String.format("无法获取指定机构用户信息[%1$s]", strUserId));
+					}
+				}
+			}
+			
+		}
+
+		if(addressList.size() == 0) {
+			throw new Exception("未指定目标用户");	
+		}
+		
+
 		InternetAddress[] iaddrs = new InternetAddress[addressList.size()];
 		addressList.toArray(iaddrs);
 		mimemessage.setRecipients(javax.mail.Message.RecipientType.TO, iaddrs);
-		
+
+		// 设置抄送人 (CC)
+		if (!ccAddressList.isEmpty()) {
+			InternetAddress[] ccAddrs = new InternetAddress[ccAddressList.size()];
+			ccAddressList.toArray(ccAddrs);
+			mimemessage.setRecipients(javax.mail.Message.RecipientType.CC, ccAddrs);
+		}
+
+		// 设置密送人 (BCC)
+		if (!bccAddressList.isEmpty()) {
+			InternetAddress[] bccAddrs = new InternetAddress[bccAddressList.size()];
+			bccAddressList.toArray(bccAddrs);
+			mimemessage.setRecipients(javax.mail.Message.RecipientType.BCC, bccAddrs);
+		}
 
 		String strEncode = "text/html;charset=UTF-8";
 		if ("HTML".equalsIgnoreCase(msgSendQueue.getContentType())) {
@@ -210,53 +265,69 @@ public class MailMsgSenderProxy extends MsgSenderBase{
 
 		// set message BODY
 		MimeBodyPart mimebodypart = new MimeBodyPart();
-		
-		//mimebodypart.setContent( msgSendQueue.getContent(), strEncode);
+
+		// mimebodypart.setContent( msgSendQueue.getContent(), strEncode);
 		mimebodypart.setContent(this.getRealContent(openAccess.getId(), msgSendQueue, MsgTemplateType.EMAIL.getValue()), strEncode);
 
 		// attach message BODY
 		MimeMultipart mimemultipart = new MimeMultipart();
 		mimemultipart.addBodyPart(mimebodypart);
 
-//		ArrayList attachedFileList = new ArrayList();
-//		if (!StringHelper.isNullOrEmpty(msgSendQueue.getFileAT())) {
-//			attachedFileList.add(msgSendQueue.getFileAT());
-//		}
-//		if (!StringHelper.isNullOrEmpty(msgSendQueue.getFileAT2())) {
-//			attachedFileList.add(msgSendQueue.getFileAT2());
-//		}
-//		if (!StringHelper.isNullOrEmpty(msgSendQueue.getFileAT3())) {
-//			attachedFileList.add(msgSendQueue.getFileAT3());
-//		}
-//		if (!StringHelper.isNullOrEmpty(msgSendQueue.getFileAT4())) {
-//			attachedFileList.add(msgSendQueue.getFileAT4());
-//		}
-//
-//		if (attachedFileList.size() > 0) {
-//			for (Iterator e = attachedFileList.iterator(); e.hasNext();) {
-//				FileDataSource ds = new FileDataSource((String) e.next());
-//
-//				mimebodypart = new MimeBodyPart();
-//				try {
-//					mimebodypart.setDataHandler(new DataHandler(ds));
-//				} catch (Exception exception3) {
-//					throw exception3;
-//				}
-//				mimebodypart.setFileName(MimeUtility.encodeText(ds.getName())); // set
-//																				// FILENAME
-//				mimemultipart.addBodyPart(mimebodypart);
-//			}
-//		}
+		List<File> attachedFileList = new ArrayList<>();
+		if (!ObjectUtils.isEmpty(msgSendQueue.getFileAT())) {
+			File file = JsonUtils.as(msgSendQueue.getFileAT(), File.class);
+			attachedFileList.add(file);
+		}
+		if (!ObjectUtils.isEmpty(msgSendQueue.getFileAT2())) {
+			File file = JsonUtils.as(msgSendQueue.getFileAT2(), File.class);
+			attachedFileList.add(file);
+		}
+		if (!ObjectUtils.isEmpty(msgSendQueue.getFileAT3())) {
+			File file = JsonUtils.as(msgSendQueue.getFileAT3(), File.class);
+			attachedFileList.add(file);
+		}
+		if (!ObjectUtils.isEmpty(msgSendQueue.getFileAT4())) {
+			File file = JsonUtils.as(msgSendQueue.getFileAT4(), File.class);
+			attachedFileList.add(file);
+		}
+
+		if (attachedFileList.size() > 0) {
+			ISysFileUtilRuntime iSysFileUtilRuntime = this.getSystemRuntime().getSysFileUtilRuntime(false);
+
+			for (Iterator<File> e = attachedFileList.iterator(); e.hasNext();) {
+				File file = e.next();
+				File realFile = null;
+				try {
+					realFile = iSysFileUtilRuntime.getOSSFile(file.getFileId(), file.getFolder(), false);
+				}
+				catch (Throwable ex) {
+					throw new Exception(String.format("下载OSS文件[%1$s]发生异常，%2$s", file.getFileId(), ex.getMessage()), ex);
+				} 
+
+				FileDataSource ds = new FileDataSource((String) realFile.getLocalPath());
+				mimebodypart = new MimeBodyPart();
+				try {
+					mimebodypart.setDataHandler(new DataHandler(ds));
+				} catch (Exception exception3) {
+					throw exception3;
+				}
+				if (StringUtils.hasLength(file.getFileName())) {
+					mimebodypart.setFileName(MimeUtility.encodeText(file.getFileName()));
+				} else {
+					mimebodypart.setFileName(MimeUtility.encodeText(ds.getName()));
+				}
+				mimemultipart.addBodyPart(mimebodypart);
+			}
+		}
 
 		mimemessage.setContent(mimemultipart);
 		// mimemessage.setSubject(msgSendQueue.getSubject(),"GBK");
 		mimemessage.saveChanges();
-		
+
 		Transport.send(mimemessage);
-		
+
 		return null;
 	}
-	
 
 	@Override
 	public String getName() {

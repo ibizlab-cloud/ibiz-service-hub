@@ -36,7 +36,7 @@ public interface IPSDEEditForm extends net.ibizsys.model.control.form.IPSDEForm
 	 * 获取表单数据类型
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
@@ -101,14 +101,14 @@ public interface IPSDEEditForm extends net.ibizsys.model.control.form.IPSDEForm
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NavBarPos}
 	 * @return
 	 */
-	java.lang.String getNavBarPos();
+	String getNavBarPos();
 	
 	
 	/**
 	 * 获取导航栏样式
 	 * @return
 	 */
-	java.lang.String getNavBarStyle();
+	String getNavBarStyle();
 	
 	
 	/**

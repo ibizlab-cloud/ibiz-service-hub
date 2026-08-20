@@ -14,7 +14,7 @@ public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 获取参数1格式化
 	 * @return
 	 */
-	java.lang.String getDataItemParam0Format();
+	String getDataItemParam0Format();
 	
 	
 	/**
@@ -49,7 +49,7 @@ public interface IPSDEACModeDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

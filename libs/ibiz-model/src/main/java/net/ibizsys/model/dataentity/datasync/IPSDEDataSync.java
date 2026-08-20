@@ -15,7 +15,7 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -25,6 +25,13 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * @return
 	 */
 	int getEventType();
+	
+	
+	/**
+	 * 获取过滤器模型
+	 * @return
+	 */
+	String getFilterModel();
 	
 	
 	/**
@@ -73,7 +80,7 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取输入调用脚本代码
 	 * @return
 	 */
-	java.lang.String getInScriptCode();
+	String getInScriptCode();
 	
 	
 	/**
@@ -122,7 +129,7 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取输出调用脚本代码
 	 * @return
 	 */
-	java.lang.String getOutScriptCode();
+	String getOutScriptCode();
 	
 	
 	/**
@@ -149,12 +156,47 @@ public interface IPSDEDataSync extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	
 	/**
+	 * 获取实体数据导出对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.dataexport.IPSDEDataExport getPSDEDataExport();
+
+
+	/**
+	 * 获取实体数据导出对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.dataexport.IPSDEDataExport getPSDEDataExportMust();
+	
+	
+	/**
+	 * 获取实体数据导入对象
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.dataimport.IPSDEDataImport getPSDEDataImport();
+
+
+	/**
+	 * 获取实体数据导入对象，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.dataimport.IPSDEDataImport getPSDEDataImportMust();
+	
+	
+	/**
 	 * 获取同步方向
 	 * <P>
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncDir}
 	 * @return
 	 */
-	java.lang.String getSyncDir();
+	String getSyncDir();
+	
+	
+	/**
+	 * 获取定时触发策略
+	 * @return
+	 */
+	String getTimerPolicy();
 	
 	
 	/**

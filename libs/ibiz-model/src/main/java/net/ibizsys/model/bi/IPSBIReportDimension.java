@@ -15,7 +15,7 @@ public interface IPSBIReportDimension extends net.ibizsys.model.bi.IPSBIReportIt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlaceType}
 	 * @return
 	 */
-	java.lang.String getPlaceType();
+	String getPlaceType();
 	
 	
 	/**
@@ -24,5 +24,5 @@ public interface IPSBIReportDimension extends net.ibizsys.model.bi.IPSBIReportIt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIReportItemPlacement}
 	 * @return
 	 */
-	java.lang.String getPlacement();
+	String getPlacement();
 }

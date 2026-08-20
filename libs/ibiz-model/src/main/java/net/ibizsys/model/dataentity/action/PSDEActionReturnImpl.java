@@ -9,6 +9,7 @@ public class PSDEActionReturnImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETPSDEMETHODDTO = "getPSDEMethodDTO";
 	public final static String ATTR_GETSTDDATATYPE = "stdDataType";
 	public final static String ATTR_GETTYPE = "type";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -78,5 +79,9 @@ public class PSDEActionReturnImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

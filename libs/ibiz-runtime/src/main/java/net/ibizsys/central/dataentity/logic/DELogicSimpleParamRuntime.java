@@ -1,5 +1,7 @@
 package net.ibizsys.central.dataentity.logic;
 
+import org.springframework.util.ObjectUtils;
+
 import net.ibizsys.runtime.dataentity.DataEntityRuntimeException;
 
 /**
@@ -30,5 +32,14 @@ public class DELogicSimpleParamRuntime extends DELogicParamRuntimeBase{
 	@Override
 	public Object getParamObject(IDELogicSession iDELogicSession) throws Throwable {
 		return iDELogicSession.getParamObject(this.getCodeName(), true);
+	}
+	
+	
+	@Override
+	public void set(IDELogicSession iDELogicSession, String strName, Object objValue) throws Throwable {
+		if(!ObjectUtils.isEmpty(strName)) {
+			throw new DataEntityRuntimeException(this.getDELogicRuntimeContext().getDataEntityRuntime(), getDELogicRuntimeContext().getDELogicRuntime(), String.format("逻辑参数[%1$s]set操作不能指定属性", getCodeName()));
+		}
+		this.bind(iDELogicSession, objValue);
 	}
 }

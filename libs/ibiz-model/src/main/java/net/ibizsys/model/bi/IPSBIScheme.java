@@ -15,33 +15,33 @@ public interface IPSBIScheme extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIEngineType}
 	 * @return
 	 */
-	java.lang.String getBIEngineType();
+	String getBIEngineType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取体系标记
 	 * @return
 	 */
-	java.lang.String getSchemeTag();
+	String getSchemeTag();
 	
 	
 	/**
 	 * 获取体系标记2
 	 * @return
 	 */
-	java.lang.String getSchemeTag2();
+	String getSchemeTag2();
 	
 	
 	/**
 	 * 获取智能报表体系唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

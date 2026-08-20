@@ -16,7 +16,7 @@ public interface IPSPicture extends net.ibizsys.model.control.editor.IPSValueIte
 	 * 获取对象存储分类[OSSCAT]
 	 * @return
 	 */
-	java.lang.String getOSSCat();
+	String getOSSCat();
 	
 	
 	/**

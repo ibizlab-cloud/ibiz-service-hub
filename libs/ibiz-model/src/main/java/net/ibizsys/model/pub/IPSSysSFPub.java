@@ -13,7 +13,7 @@ public interface IPSSysSFPub extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface IPSSysSFPub extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SFPubContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
@@ -36,21 +36,21 @@ public interface IPSSysSFPub extends net.ibizsys.model.IPSModelObject{
 	 * 获取Groovy源代码目录
 	 * @return
 	 */
-	java.lang.String getGroovySourceFolder();
+	String getGroovySourceFolder();
 	
 	
 	/**
 	 * 获取模型目录
 	 * @return
 	 */
-	java.lang.String getModelFolder();
+	String getModelFolder();
 	
 	
 	/**
 	 * 获取代码包名
 	 * @return
 	 */
-	java.lang.String getPKGCodeName();
+	String getPKGCodeName();
 	
 	
 	/**
@@ -78,7 +78,7 @@ public interface IPSSysSFPub extends net.ibizsys.model.IPSModelObject{
 	 * 获取组件版本
 	 * @return
 	 */
-	java.lang.String getVersionString();
+	String getVersionString();
 	
 	
 	/**

@@ -32,6 +32,7 @@ import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.ai.util.AIChatUtils;
 import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.freemarker.TemplateDELogicParam;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysAIUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
@@ -1385,8 +1386,16 @@ public class DELogicSysAIChatAgentNodeRuntime extends DELogicNodeRuntimeBase {
 				// 外侧用户已经取消，取消实际聊天
 				throw new UserCancelException("用户取消");
 			}
-	
-			PortalAsyncAction last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+        	PortalAsyncAction last = null;
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
 	
 			double fCompletionRate = 0.0f;
 			if (last.getCompletionRate() != null) {

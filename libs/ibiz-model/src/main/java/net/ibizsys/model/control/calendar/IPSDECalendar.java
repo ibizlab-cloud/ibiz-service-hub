@@ -23,7 +23,7 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupLayout}
 	 * @return
 	 */
-	java.lang.String getGroupLayout();
+	String getGroupLayout();
 	
 	
 	/**
@@ -32,7 +32,7 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
@@ -132,7 +132,7 @@ public interface IPSDECalendar extends net.ibizsys.model.control.calendar.IPSCal
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LabelPos}
 	 * @return
 	 */
-	java.lang.String getLegendPos();
+	String getLegendPos();
 	
 	
 	/**

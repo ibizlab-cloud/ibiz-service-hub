@@ -61,12 +61,16 @@ public class DEMethodPluginRuntimeRepo implements IModelRuntimeShutdownable{
 	private boolean bUnregisterWhenShutdown = false;
 	
 	public void init(ISystemRuntime iSystemRuntime, boolean bUnregisterWhenShutdown) throws Exception {
+		this.init(iSystemRuntime, bUnregisterWhenShutdown, bUnregisterWhenShutdown);
+	}
+	
+	public void init(ISystemRuntime iSystemRuntime, boolean bUnregisterWhenShutdown, boolean bRegisterModelRuntimeShutdownable) throws Exception {
 		Assert.notNull(iSystemRuntime, "传入系统运行时对象无效");
 		this.iSystemRuntime = iSystemRuntime;
 		this.bUnregisterWhenShutdown = bUnregisterWhenShutdown;
 		this.onInit();
-		if(this.bUnregisterWhenShutdown) {
-			this.iSystemRuntime.unregisterModelRuntimeShutdownable(this);
+		if(this.bUnregisterWhenShutdown && bRegisterModelRuntimeShutdownable) {
+			this.iSystemRuntime.registerModelRuntimeShutdownable(this);
 		}
 	}
 	

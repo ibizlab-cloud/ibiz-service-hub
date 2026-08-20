@@ -1993,6 +1993,7 @@
       "columnName" : "PARAM",
       "dBType" : "POSTGRESQL",
       "name" : "PARAM",
+      "queryCodeExp" : "t1.PARAM",
       "standardColumnName" : "PARAM"
     }, {
       "columnName" : "PARAM",
@@ -2089,6 +2090,7 @@
       "columnName" : "PARAM2",
       "dBType" : "POSTGRESQL",
       "name" : "PARAM2",
+      "queryCodeExp" : "t1.PARAM2",
       "standardColumnName" : "PARAM2"
     }, {
       "columnName" : "PARAM2",

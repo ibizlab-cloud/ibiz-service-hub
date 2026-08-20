@@ -13,14 +13,14 @@ public interface IPSBICubeLevel extends net.ibizsys.model.bi.IPSBICubeDimensionO
 	 * 获取层级标记
 	 * @return
 	 */
-	java.lang.String getLevelTag();
+	String getLevelTag();
 	
 	
 	/**
 	 * 获取层级标记2
 	 * @return
 	 */
-	java.lang.String getLevelTag2();
+	String getLevelTag2();
 	
 	
 	/**

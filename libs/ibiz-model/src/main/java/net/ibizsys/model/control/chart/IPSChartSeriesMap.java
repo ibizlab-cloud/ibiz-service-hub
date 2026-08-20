@@ -16,5 +16,5 @@ public interface IPSChartSeriesMap extends net.ibizsys.model.control.chart.IPSCh
 	 * 获取地图类型
 	 * @return
 	 */
-	java.lang.String getMapType();
+	String getMapType();
 }

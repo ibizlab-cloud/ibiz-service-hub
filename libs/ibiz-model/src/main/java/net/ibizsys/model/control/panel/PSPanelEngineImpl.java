@@ -8,6 +8,7 @@ public class PSPanelEngineImpl extends net.ibizsys.model.app.view.PSAppViewEngin
 	public final static String ATTR_GETENGINECAT = "engineCat";
 	public final static String ATTR_GETENGINETYPE = "engineType";
 	public final static String ATTR_GETORDERVALUE = "orderValue";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	@Deprecated
 	public java.lang.String getCodeName(){
@@ -40,5 +41,9 @@ public class PSPanelEngineImpl extends net.ibizsys.model.app.view.PSAppViewEngin
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

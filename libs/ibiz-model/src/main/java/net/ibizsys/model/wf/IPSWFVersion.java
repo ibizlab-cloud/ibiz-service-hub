@@ -15,7 +15,7 @@ public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -92,7 +92,7 @@ public interface IPSWFVersion extends net.ibizsys.model.wf.IPSWorkflowObject
 	 * 获取工作流代码标识
 	 * @return
 	 */
-	java.lang.String getWFCodeName();
+	String getWFCodeName();
 	
 	
 	/**

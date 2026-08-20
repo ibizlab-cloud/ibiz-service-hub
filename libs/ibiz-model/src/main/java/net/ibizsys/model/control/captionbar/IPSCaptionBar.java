@@ -28,7 +28,7 @@ public interface IPSCaptionBar extends net.ibizsys.model.control.IPSControl{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -63,5 +63,5 @@ public interface IPSCaptionBar extends net.ibizsys.model.control.IPSControl{
 	 * 获取视图子标题
 	 * @return
 	 */
-	java.lang.String getSubCaption();
+	String getSubCaption();
 }

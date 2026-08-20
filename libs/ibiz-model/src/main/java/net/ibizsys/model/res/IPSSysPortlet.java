@@ -16,21 +16,21 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getActionGroupExtractMode();
+	String getActionGroupExtractMode();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取空白显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -123,7 +123,7 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
 	 */
-	java.lang.String getPortletStyle();
+	String getPortletStyle();
 	
 	
 	/**
@@ -132,7 +132,7 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PortletType}
 	 * @return
 	 */
-	java.lang.String getPortletType();
+	String getPortletType();
 	
 	
 	/**
@@ -146,14 +146,14 @@ public interface IPSSysPortlet extends net.ibizsys.model.IPSModelObject{
 	 * 获取模板引擎
 	 * @return
 	 */
-	java.lang.String getTemplEngine();
+	String getTemplEngine();
 	
 	
 	/**
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**

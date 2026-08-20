@@ -14,14 +14,14 @@ public interface IPSAIWorkerAgent extends net.ibizsys.model.ai.IPSAIFactoryObjec
 	 * 获取AI平台类型
 	 * @return
 	 */
-	java.lang.String getAIPlatformType();
+	String getAIPlatformType();
 	
 	
 	/**
 	 * 获取代理信息
 	 * @return
 	 */
-	java.lang.String getAgentInfo();
+	String getAgentInfo();
 	
 	
 	/**
@@ -35,14 +35,14 @@ public interface IPSAIWorkerAgent extends net.ibizsys.model.ai.IPSAIFactoryObjec
 	 * 获取AI工作者标记
 	 * @return
 	 */
-	java.lang.String getAgentTag();
+	String getAgentTag();
 	
 	
 	/**
 	 * 获取AI工作者标记2
 	 * @return
 	 */
-	java.lang.String getAgentTag2();
+	String getAgentTag2();
 	
 	
 	/**
@@ -51,12 +51,12 @@ public interface IPSAIWorkerAgent extends net.ibizsys.model.ai.IPSAIFactoryObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AIWorkerAgentType}
 	 * @return
 	 */
-	java.lang.String getAgentType();
+	String getAgentType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 }

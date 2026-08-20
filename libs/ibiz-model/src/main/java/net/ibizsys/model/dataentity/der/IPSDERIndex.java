@@ -37,7 +37,7 @@ public interface IPSDERIndex extends net.ibizsys.model.dataentity.der.IPSDERBase
 	 * 获取索引类型识别值
 	 * @return
 	 */
-	java.lang.String getTypeValue();
+	String getTypeValue();
 	
 	
 	/**

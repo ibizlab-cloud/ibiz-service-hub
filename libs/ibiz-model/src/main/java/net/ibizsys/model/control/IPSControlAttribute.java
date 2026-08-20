@@ -14,12 +14,12 @@ public interface IPSControlAttribute extends net.ibizsys.model.IPSModelObject{
 	 * 获取注入属性名称
 	 * @return
 	 */
-	java.lang.String getAttrName();
+	String getAttrName();
 	
 	
 	/**
 	 * 获取注入属性值
 	 * @return
 	 */
-	java.lang.String getAttrValue();
+	String getAttrValue();
 }

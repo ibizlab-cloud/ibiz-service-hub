@@ -10,6 +10,24 @@ import java.io.IOException;
 public interface IAIChatSkill {
 
 	/**
+	 * 访问用户模式：全部
+	 */
+	public final static String ACCESSUSERMODE_ALL = "ALL";
+	
+	
+	/**
+	 * 访问用户模式：指定用户
+	 */
+	public final static String ACCESSUSERMODE_USER = "USER";
+	
+	
+	/**
+	 * 访问用户模式：具备统一资源
+	 */
+	public final static String ACCESSUSERMODE_UNIRES = "UNIRES";
+	
+	
+	/**
 	 * 获取标识
 	 * @return
 	 */
@@ -52,4 +70,42 @@ public interface IAIChatSkill {
 	 */
 	boolean containsFile(String filePath);
 	
+	
+	
+	/**
+	 * 获取访问用户模式
+	 * @return
+	 */
+	String getAccessUserMode();
+	
+	
+	/**
+	 * 获取用户标识
+	 * @return
+	 */
+	String getUserId();
+	
+	
+	/**
+	 * 获取统一资源标识
+	 * @return
+	 */
+	String getUniResId();
+	
+	
+	
+	
+	/**
+	 * 是否为远程技能
+	 * @return
+	 */
+	boolean isRemote();
+	
+	
+	
+	/**
+	 * 获取版本
+	 * @return
+	 */
+	String getVersion();
 }

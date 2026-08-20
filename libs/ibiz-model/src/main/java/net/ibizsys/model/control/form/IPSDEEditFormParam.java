@@ -15,5 +15,5 @@ public interface IPSDEEditFormParam extends net.ibizsys.model.control.form.IPSDE
 	 * 获取自动保存
 	 * @return
 	 */
-	java.lang.Boolean isEnableAutoSave();
+	Boolean isEnableAutoSave();
 }

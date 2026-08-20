@@ -34,5 +34,5 @@ public interface IPSSysLan extends net.ibizsys.model.IPSModelObject{
 	 * 获取语言
 	 * @return
 	 */
-	java.lang.String getLanguage();
+	String getLanguage();
 }

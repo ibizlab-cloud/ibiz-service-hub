@@ -44,6 +44,7 @@ import io.jsonwebtoken.lang.Assert;
 import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.domain.DownloadTicket;
 import net.ibizsys.central.cloud.core.util.error.NotFoundException;
+import net.ibizsys.central.cloud.oss.core.addin.IOSSPdfProvider;
 import net.ibizsys.central.cloud.oss.core.addin.IOSSPreviewProvider;
 import net.ibizsys.central.cloud.oss.core.addin.IOSSTextProvider;
 import net.ibizsys.central.cloud.oss.core.addin.PandocOSSTextProviderBase;
@@ -305,6 +306,48 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 
 	@Override
 	public File getFile(String strCat, String strFileId) {
+		File file = this.doGetFile(strCat, strFileId);
+		if(file != null) {
+			return file;
+		}
+		
+		if (!ObjectUtils.isEmpty(strCat) && !strCat.equalsIgnoreCase(CAT_DEFAULT)) {
+			file = this.doGetFile(CAT_DEFAULT, strFileId);
+			if(file != null) {
+				return file;
+			}
+		}
+		
+		//尝试获取临时文件夹
+		if(!CAT_TEMP.equalsIgnoreCase(strCat)) {
+			file = this.doGetFile(CAT_TEMP, strFileId);
+			if(file != null) {
+				//
+				String strSrcFolder = getFileRootFolder() + File.separator + CAT_TEMP + File.separator + strFileId;
+				String strDstFolder = null;
+				if (ObjectUtils.isEmpty(strCat) || strCat.equalsIgnoreCase(CAT_DEFAULT)) {
+					strDstFolder = getFileRootFolder() + File.separator + strFileId;
+				} else {
+					strCat = strCat.toLowerCase();
+					strDstFolder = getFileRootFolder() + File.separator + strCat + File.separator + strFileId;
+				}
+				
+				try {
+					FileUtils.copyDirectory(new File(strSrcFolder), new File(strDstFolder));
+				} catch (IOException ex) {
+					//拷贝
+					log.error(String.format("拷贝临时文件夹至目标文件夹发生异常，%1$s", ex.getMessage()), ex);
+				}
+				
+				return file;
+			}
+		}
+		
+		
+		throw new NotFoundException(String.format("文件[%1$s]未找到", strFileId));
+	}
+	
+	protected File doGetFile(String strCat, String strFileId) {
 		String dirpath = null;
 		if (ObjectUtils.isEmpty(strCat) || strCat.equalsIgnoreCase(CAT_DEFAULT)) {
 			dirpath = getFileRootFolder() + File.separator + strFileId;
@@ -348,7 +391,7 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 			return parent;
 		}
 		
-		throw new NotFoundException(String.format("文件[%1$s]未找到", strFileId));
+		return null;
 	}
 
 	@Override
@@ -543,6 +586,8 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 		response.setHeader("Content-Disposition", String.format("attachment;filename=\"%1$s\"", getFileName(file.getName())));
 		this.sendResponse(response, file);
 	}
+	
+	
 
 	@Override
 	public String getText(String strCat, String strFileId, Map<String, Object> params) {
@@ -570,6 +615,50 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 			throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("直接获取文本信息发生异常，%1$s", ex.getMessage()), ex);
 		}
 	}
+	
+
+	@Override
+	public void downloadPdf(String strCat, String strFileId, HttpServletResponse response, Map<String, Object> params) {
+		File file = getFile(strCat, strFileId);
+		boolean tryMode = true;
+		String ext = getFileExt(file.getName());
+		String engine = ext;
+		if (params != null && params.containsKey(IOSSTextProvider.PARAM_ENGINE)) {
+			String engine2 = DataTypeUtils.asString(params.get(IOSSTextProvider.PARAM_ENGINE));
+			if (StringUtils.hasLength(engine2)) {
+				tryMode = false;
+				engine = String.format("engine.%1$s", engine2);
+			}
+		}
+		if (StringUtils.hasLength(ext)) {
+			//判断是否支持文件下载
+			if(this.getDownloadTextMode() == DownloadTextMode.DISABLED || (this.getDownloadTextMode() == DownloadTextMode.INCLUSION && !this.containsDownloadTextExt(ext)) || (this.getDownloadTextMode() == DownloadTextMode.EXCLUSION && this.containsDownloadTextExt(ext))) {
+				log.warn(String.format("不支持文件后缀[%1$s]下载PDF"));
+				return;
+			}
+			
+			try {
+				IOSSTextProvider iOSSTextProvider = this.getOSSTextProvider(engine, tryMode);
+				if (iOSSTextProvider == null || !iOSSTextProvider.isEnabled()) {
+					iOSSTextProvider = this.getOSSTextProvider("*", true);
+				}
+				if (iOSSTextProvider != null && iOSSTextProvider.isEnabled() && iOSSTextProvider instanceof IOSSPdfProvider) {
+					response.setHeader("Content-Disposition", String.format("attachment;filename=\"%1$s\"", getFileName(file.getName() + "." + "pdf")));
+					File pdfFile = ((IOSSPdfProvider)iOSSTextProvider).getPdfFile(strCat, strFileId, file, params);
+					if (pdfFile!=null) {
+						this.sendResponse(response, pdfFile);
+					}
+					return;
+				}
+			} catch (Throwable ex) {
+				throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("生成PDF文件发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		response.setHeader("Content-Disposition", String.format("attachment;filename=\"%1$s\"", getFileName(file.getName())));
+		this.sendResponse(response, file);
+	}
+	
+	
 
 	@Override
 	public DownloadTicket createDownloadTicket(String strCat, String strFileId, int nSeconds) {
@@ -698,6 +787,64 @@ public class SimpleCloudOSSUtilRuntime extends CloudOSSUtilRuntimeBase implement
 		this.sendResponse(response, file);
 	}
 
+	@Override
+	public void downloadPdfByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, Map<String, Object> params, boolean bTryFileId) {
+		String strRealCat = null;
+		String strFileId = null;
+		String strCacheTag = this.getDownloadTicketCacheTag(strDownloadTicket);
+		Map<String, String> map = this.getSysCacheUtilRuntime(false).get(strCacheTag, Map.class);
+		if (ObjectUtils.isEmpty(map)) {
+			if (bTryFileId) {
+				strRealCat = strCat;
+				strFileId = strDownloadTicket;
+			} else {
+				throw new NotFoundException(String.format("文件[%1$s]未找到", strDownloadTicket));
+			}
+		} else {
+			strRealCat = DataTypeUtils.asString(map.get("cat"));
+			strFileId = DataTypeUtils.asString(map.get("id"));
+		}
+
+		File file = getFile(strRealCat, strFileId);
+		String ext = getFileExt(file.getName());
+		boolean tryMode = true;
+		String engine = ext;
+		if (params != null && params.containsKey(IOSSTextProvider.PARAM_ENGINE)) {
+			String engine2 = DataTypeUtils.asString(params.get(IOSSTextProvider.PARAM_ENGINE));
+			if (StringUtils.hasLength(engine2)) {
+				tryMode = false;
+				engine = String.format("engine.%1$s", engine2);
+			}
+		}
+		if (StringUtils.hasLength(ext)) {
+			//判断是否支持文件下载
+			if(this.getDownloadTextMode() == DownloadTextMode.DISABLED || (this.getDownloadTextMode() == DownloadTextMode.INCLUSION && !this.containsDownloadTextExt(ext)) || (this.getDownloadTextMode() == DownloadTextMode.EXCLUSION && this.containsDownloadTextExt(ext))) {
+				log.warn(String.format("不支持文件后缀[%1$s]下载PDF"));
+				return;
+			}
+			
+			try {
+				IOSSTextProvider iOSSTextProvider = this.getOSSTextProvider(engine, tryMode);
+				if (iOSSTextProvider == null || !iOSSTextProvider.isEnabled()) {
+					iOSSTextProvider = this.getOSSTextProvider("*", true);
+				}
+				if (iOSSTextProvider != null && iOSSTextProvider.isEnabled()  && iOSSTextProvider instanceof IOSSPdfProvider) {
+					
+					response.setHeader("Content-Disposition", String.format("attachment;filename=\"%1$s\"", getFileName(file.getName() + "." + "pdf")));
+					File pdfFile = ((IOSSPdfProvider)iOSSTextProvider).getPdfFile(strRealCat, strFileId, file, params);
+					if (pdfFile!=null) {
+						this.sendResponse(response, pdfFile);
+					}
+					return;
+				}
+			} catch (Throwable ex) {
+				throw new SystemRuntimeException(this.getSystemRuntime(), this, String.format("生成PDF文件发生异常，%1$s", ex.getMessage()), ex);
+			}
+		}
+		response.setHeader("Content-Disposition", String.format("attachment;filename=\"%1$s\"", getFileName(file.getName())));
+		this.sendResponse(response, file);
+	}
+	
 	protected String getDownloadTicketCacheTag(String strRandomKey) {
 		return String.format("%1$s-oss-downloadticket-%2$s", CloudCacheTagUtils.PREFIX, strRandomKey);
 	}

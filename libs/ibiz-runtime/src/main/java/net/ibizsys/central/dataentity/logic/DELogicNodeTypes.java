@@ -96,6 +96,10 @@ public class DELogicNodeTypes {
      */
     public final static String DELOGIC = "DELOGIC";
     /**
+     *  开启事务，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String BEGINTRANS = "BEGINTRANS";
+    /**
      *  提交事务，注意：值为对象值，不能直接用于 == 比较
      */
     public final static String COMMIT = "COMMIT";

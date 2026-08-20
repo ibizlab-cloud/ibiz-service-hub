@@ -25,7 +25,7 @@ public interface IPSDEActionLogic extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionLogicAttachMode}
 	 * @return
 	 */
-	java.lang.String getAttachMode();
+	String getAttachMode();
 	
 	
 	/**
@@ -104,7 +104,7 @@ public interface IPSDEActionLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取错误信息
 	 * @return
 	 */
-	java.lang.String getErrorInfo();
+	String getErrorInfo();
 	
 	
 	/**
@@ -125,7 +125,7 @@ public interface IPSDEActionLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取异常对象
 	 * @return
 	 */
-	java.lang.String getExceptionObj();
+	String getExceptionObj();
 	
 	
 	/**
@@ -302,7 +302,7 @@ public interface IPSDEActionLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

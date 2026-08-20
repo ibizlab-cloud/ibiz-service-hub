@@ -15,7 +15,7 @@ public interface IPSSysBIHierarchy extends net.ibizsys.model.bi.IPSBIHierarchy
 	 * 获取全部数据标题
 	 * @return
 	 */
-	java.lang.String getAllCaption();
+	String getAllCaption();
 	
 	
 	/**

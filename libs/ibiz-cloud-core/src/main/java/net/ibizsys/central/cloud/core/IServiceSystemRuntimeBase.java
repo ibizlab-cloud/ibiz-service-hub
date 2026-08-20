@@ -78,4 +78,9 @@ public interface IServiceSystemRuntimeBase extends ISystemRuntime, ISystemUtilRu
 	Executor getSseExecutor();
 	
 	
+	/**
+	 * 设置快速模型文件夹路径
+	 * @param strPSModelFolderPath
+	 */
+	void setQuickPSModelFolderPath(String strPSModelFolderPath);
 }

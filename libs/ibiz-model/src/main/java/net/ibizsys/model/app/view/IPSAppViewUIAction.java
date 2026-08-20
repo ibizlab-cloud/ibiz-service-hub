@@ -51,14 +51,14 @@ public interface IPSAppViewUIAction extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getUIActionTarget();
+	String getUIActionTarget();
 	
 	
 	/**
 	 * 获取界面行为数据部件名称
 	 * @return
 	 */
-	java.lang.String getXDataControlName();
+	String getXDataControlName();
 	
 	
 	/**

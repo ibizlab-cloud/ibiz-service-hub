@@ -29,14 +29,14 @@ public interface IPSDEDataImportItem extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取建立默认值
 	 * @return
 	 */
-	java.lang.String getCreateDV();
+	String getCreateDV();
 	
 	
 	/**
@@ -45,7 +45,7 @@ public interface IPSDEDataImportItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getCreateDVT();
+	String getCreateDVT();
 	
 	
 	/**
@@ -94,7 +94,7 @@ public interface IPSDEDataImportItem extends net.ibizsys.model.IPSModelObject
 	 * 获取更新默认值
 	 * @return
 	 */
-	java.lang.String getUpdateDV();
+	String getUpdateDV();
 	
 	
 	/**
@@ -103,7 +103,7 @@ public interface IPSDEDataImportItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CreateDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getUpdateDVT();
+	String getUpdateDVT();
 	
 	
 	/**

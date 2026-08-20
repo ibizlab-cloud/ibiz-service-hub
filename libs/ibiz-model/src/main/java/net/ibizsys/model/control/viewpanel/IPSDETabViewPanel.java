@@ -15,14 +15,14 @@ public interface IPSDETabViewPanel extends net.ibizsys.model.control.viewpanel.I
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
 	 * 获取导航过滤项
 	 * @return
 	 */
-	java.lang.String getNavFilter();
+	String getNavFilter();
 	
 	
 	/**

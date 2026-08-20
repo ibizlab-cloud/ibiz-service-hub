@@ -13,19 +13,19 @@ public interface IPSBIDimension extends net.ibizsys.model.bi.IPSBISchemeObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取维度标记
 	 * @return
 	 */
-	java.lang.String getDimensionTag();
+	String getDimensionTag();
 	
 	
 	/**
 	 * 获取维度标记2
 	 * @return
 	 */
-	java.lang.String getDimensionTag2();
+	String getDimensionTag2();
 }

@@ -14,7 +14,7 @@ public interface IPSWFRole extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -49,28 +49,28 @@ public interface IPSWFRole extends net.ibizsys.model.IPSModelObject{
 	 * 获取角色唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**
 	 * 获取工作流角色数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取工作流角色数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 	
 	
 	/**
 	 * 获取工作流角色编号
 	 * @return
 	 */
-	java.lang.String getWFRoleSN();
+	String getWFRoleSN();
 	
 	
 	/**
@@ -79,5 +79,5 @@ public interface IPSWFRole extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFRoleType}
 	 * @return
 	 */
-	java.lang.String getWFRoleType();
+	String getWFRoleType();
 }

@@ -14,14 +14,14 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取完成标题语言资源标识
 	 * @return
 	 */
-	java.lang.String getFinishCapLanResTag();
+	String getFinishCapLanResTag();
 	
 	
 	/**
@@ -42,7 +42,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取完成标题
 	 * @return
 	 */
-	java.lang.String getFinishCaption();
+	String getFinishCaption();
 	
 	
 	/**
@@ -63,7 +63,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取下一步标题语言资源标识
 	 * @return
 	 */
-	java.lang.String getNextCapLanResTag();
+	String getNextCapLanResTag();
 	
 	
 	/**
@@ -84,7 +84,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取下一步标题
 	 * @return
 	 */
-	java.lang.String getNextCaption();
+	String getNextCaption();
 	
 	
 	/**
@@ -133,7 +133,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取上一步标题语言资源标识
 	 * @return
 	 */
-	java.lang.String getPrevCapLanResTag();
+	String getPrevCapLanResTag();
 	
 	
 	/**
@@ -154,7 +154,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取上一步标题
 	 * @return
 	 */
-	java.lang.String getPrevCaption();
+	String getPrevCaption();
 	
 	
 	/**
@@ -163,7 +163,7 @@ public interface IPSDEWizard extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WizardStyle}
 	 * @return
 	 */
-	java.lang.String getWizardStyle();
+	String getWizardStyle();
 	
 	
 	/**

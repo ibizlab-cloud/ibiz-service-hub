@@ -16,5 +16,5 @@ public interface IPSDEUIRawCodeLogic extends net.ibizsys.model.dataentity.logic.
 	 * 获取直接代码
 	 * @return
 	 */
-	java.lang.String getCode();
+	String getCode();
 }

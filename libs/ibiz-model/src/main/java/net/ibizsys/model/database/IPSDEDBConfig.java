@@ -15,7 +15,7 @@ public interface IPSDEDBConfig extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBType}
 	 * @return
 	 */
-	java.lang.String getDBType();
+	String getDBType();
 	
 	
 	/**
@@ -24,49 +24,49 @@ public interface IPSDEDBConfig extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
-	java.lang.String getObjNameCase();
+	String getObjNameCase();
 	
 	
 	/**
 	 * 获取标准表名
 	 * @return
 	 */
-	java.lang.String getStandardTableName();
+	String getStandardTableName();
 	
 	
 	/**
 	 * 获取表名称
 	 * @return
 	 */
-	java.lang.String getTableName();
+	String getTableName();
 	
 	
 	/**
 	 * 获取视图2名称
 	 * @return
 	 */
-	java.lang.String getView2Name();
+	String getView2Name();
 	
 	
 	/**
 	 * 获取视图3名称
 	 * @return
 	 */
-	java.lang.String getView3Name();
+	String getView3Name();
 	
 	
 	/**
 	 * 获取视图4名称
 	 * @return
 	 */
-	java.lang.String getView4Name();
+	String getView4Name();
 	
 	
 	/**
 	 * 获取视图名称
 	 * @return
 	 */
-	java.lang.String getViewName();
+	String getViewName();
 	
 	
 	/**

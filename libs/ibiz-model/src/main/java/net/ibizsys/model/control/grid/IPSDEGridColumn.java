@@ -15,7 +15,7 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取聚合值存储属性
 	 * @return
 	 */
-	java.lang.String getAggField();
+	String getAggField();
 	
 	
 	/**
@@ -24,14 +24,14 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取聚合值格式化
 	 * @return
 	 */
-	java.lang.String getAggValueFormat();
+	String getAggValueFormat();
 	
 	
 	/**
@@ -40,7 +40,7 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -61,7 +61,7 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -82,14 +82,14 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取表格列样式
 	 * @return
 	 */
-	java.lang.String getColumnStyle();
+	String getColumnStyle();
 	
 	
 	/**
@@ -98,21 +98,21 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColType}
 	 * @return
 	 */
-	java.lang.String getColumnType();
+	String getColumnType();
 	
 	
 	/**
 	 * 获取列数据项名称
 	 * @return
 	 */
-	java.lang.String getDataItemName();
+	String getDataItemName();
 	
 	
 	/**
 	 * 获取Excel导出标题
 	 * @return
 	 */
-	java.lang.String getExcelCaption();
+	String getExcelCaption();
 	
 	
 	/**
@@ -186,7 +186,7 @@ public interface IPSDEGridColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColWidthUnitType}
 	 * @return
 	 */
-	java.lang.String getWidthUnit();
+	String getWidthUnit();
 	
 	
 	/**

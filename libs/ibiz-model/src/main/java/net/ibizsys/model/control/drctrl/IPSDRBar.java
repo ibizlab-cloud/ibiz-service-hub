@@ -15,7 +15,7 @@ public interface IPSDRBar extends net.ibizsys.model.control.drctrl.IPSDRCtrl
 	 * 获取抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**

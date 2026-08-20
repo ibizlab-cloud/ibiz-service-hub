@@ -15,7 +15,21 @@ public interface IPSSearchBar extends net.ibizsys.model.control.IPSControlContai
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
+	
+	
+	/**
+	 * 获取更多分组显示文本语言资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getGMTPSLanguageRes();
+
+
+	/**
+	 * 获取更多分组显示文本语言资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getGMTPSLanguageResMust();
 	
 	
 	/**
@@ -24,14 +38,14 @@ public interface IPSSearchBar extends net.ibizsys.model.control.IPSControlContai
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchBarGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
 	 * 获取更多分组显示文本
 	 * @return
 	 */
-	java.lang.String getGroupMoreText();
+	String getGroupMoreText();
 	
 	
 	/**
@@ -140,7 +154,7 @@ public interface IPSSearchBar extends net.ibizsys.model.control.IPSControlContai
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchBarStyle}
 	 * @return
 	 */
-	java.lang.String getSearchBarStyle();
+	String getSearchBarStyle();
 	
 	
 	/**

@@ -14,12 +14,12 @@ public interface IPSDEDQColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取列别名
 	 * @return
 	 */
-	java.lang.String getAlias();
+	String getAlias();
 	
 	
 	/**
 	 * 获取列名称
 	 * @return
 	 */
-	java.lang.String getName();
+	String getName();
 }

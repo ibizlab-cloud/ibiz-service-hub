@@ -16,14 +16,14 @@ public interface IPSDELogicLinkSingleCondBase extends net.ibizsys.model.dataenti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LangValueOP}
 	 * @return
 	 */
-	java.lang.String getCondOP();
+	String getCondOP();
 	
 	
 	/**
 	 * 获取目标属性名称
 	 * @return
 	 */
-	java.lang.String getDstFieldName();
+	String getDstFieldName();
 	
 	net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParam();
 
@@ -36,14 +36,14 @@ net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParamMust();
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELLCondParamType}
 	 * @return
 	 */
-	java.lang.String getParamType();
+	String getParamType();
 	
 	
 	/**
 	 * 获取参数值
 	 * @return
 	 */
-	java.lang.String getParamValue();
+	String getParamValue();
 	
 	
 	/**
@@ -64,5 +64,5 @@ net.ibizsys.model.dataentity.logic.IPSDELogicParamBase getDstLogicParamMust();
 	 * 获取值（旧）
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 }

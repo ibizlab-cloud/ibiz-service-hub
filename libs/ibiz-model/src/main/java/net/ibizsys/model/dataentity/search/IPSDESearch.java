@@ -13,14 +13,14 @@ public interface IPSDESearch extends net.ibizsys.model.dataentity.IPSDataEntityO
 	 * 获取实体标记
 	 * @return
 	 */
-	java.lang.String getDETag();
+	String getDETag();
 	
 	
 	/**
 	 * 获取实体标记2
 	 * @return
 	 */
-	java.lang.String getDETag2();
+	String getDETag2();
 	
 	
 	/**

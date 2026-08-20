@@ -14,14 +14,14 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取行为拒绝消息
 	 * @return
 	 */
-	java.lang.String getActionDenyMsg();
+	String getActionDenyMsg();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -44,21 +44,21 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMSEnterMode}
 	 * @return
 	 */
-	java.lang.String getEnterStateMode();
+	String getEnterStateMode();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
 	 * 获取主状态标记
 	 * @return
 	 */
-	java.lang.String getMSTag();
+	String getMSTag();
 	
 	
 	/**
@@ -74,7 +74,7 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取操作标识拒绝消息
 	 * @return
 	 */
-	java.lang.String getOPPrivDenyMsg();
+	String getOPPrivDenyMsg();
 	
 	
 	/**
@@ -172,21 +172,21 @@ public interface IPSDEMainState extends net.ibizsys.model.dataentity.IPSDataEnti
 	 * 获取状态2值
 	 * @return
 	 */
-	java.lang.String getState2Value();
+	String getState2Value();
 	
 	
 	/**
 	 * 获取状态3值
 	 * @return
 	 */
-	java.lang.String getState3Value();
+	String getState3Value();
 	
 	
 	/**
 	 * 获取状态值
 	 * @return
 	 */
-	java.lang.String getStateValue();
+	String getStateValue();
 	
 	
 	/**

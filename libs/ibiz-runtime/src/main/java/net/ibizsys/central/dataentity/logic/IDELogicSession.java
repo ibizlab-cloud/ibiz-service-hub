@@ -250,4 +250,31 @@ public interface IDELogicSession {
 	 */
 	IDELogicSession clone();
 	
+	
+	/**
+	 * 开始事务
+	 * @param propagation
+	 * @throws Throwable
+	 */
+	void beginTrans(int propagation) throws Throwable;
+	
+	/**
+	 * 提交当前事务
+	 * @throws Throwable
+	 */
+	void commitTrans() throws Throwable;
+	
+	
+	/**
+	 * 回滚当前事务
+	 * @throws Throwable
+	 */
+	void rollbackTrans() throws Throwable;
+
+	
+	/**
+	 * 关闭
+	 * @param commit 是否提交
+	 */
+	void close(boolean commit);
 }

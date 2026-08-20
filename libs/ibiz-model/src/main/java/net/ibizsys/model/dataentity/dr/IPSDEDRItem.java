@@ -29,14 +29,14 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取计数项标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -54,7 +54,7 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRDetailEnableMode}
 	 * @return
 	 */
-	java.lang.String getEnableMode();
+	String getEnableMode();
 	
 	
 	/**
@@ -77,14 +77,14 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
 	 * 获取预置视图标记
 	 * @return
 	 */
-	java.lang.String getPDTViewTag();
+	String getPDTViewTag();
 	
 	
 	/**
@@ -154,14 +154,14 @@ public interface IPSDEDRItem extends net.ibizsys.model.IPSModelObject
 	 * 获取启用判断脚本
 	 * @return
 	 */
-	java.lang.String getTestScriptCode();
+	String getTestScriptCode();
 	
 	
 	/**
 	 * 获取视图代码标识
 	 * @return
 	 */
-	java.lang.String getViewCodeName();
+	String getViewCodeName();
 	
 	
 	/**

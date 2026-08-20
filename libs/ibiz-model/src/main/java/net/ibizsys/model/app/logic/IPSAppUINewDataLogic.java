@@ -16,7 +16,7 @@ public interface IPSAppUINewDataLogic extends net.ibizsys.model.app.logic.IPSApp
 	 * 获取向导添加后操作
 	 * @return
 	 */
-	java.lang.String getActionAfterWizard();
+	String getActionAfterWizard();
 	
 	
 	/**

@@ -16,12 +16,12 @@ public interface IPSChartSeriesCSNoneEncode extends net.ibizsys.model.control.ch
 	 * 获取分类属性
 	 * @return
 	 */
-	java.lang.String getCategory();
+	String getCategory();
 	
 	
 	/**
 	 * 获取值属性
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 }

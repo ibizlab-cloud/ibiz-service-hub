@@ -151,16 +151,16 @@ public class DELogicPrepareParamNodeRuntime extends DELogicNodeRuntimeBase{
 	protected void onSetParamValue(IDELogicRuntimeContext iDELogicRuntimeContext, IDELogicSession iDELogicSession, IPSDELogicNodeParam iPSDELogicNodeParam) throws Throwable {
 		IDELogicParamRuntime dstDELogicParamRuntime = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDELogicNodeParam.getDstPSDELogicParamMust().getCodeName(), false);
 		
-		if(!StringUtils.hasLength(iPSDELogicNodeParam.getDstFieldName())) {
+		if(!StringUtils.hasLength(iPSDELogicNodeParam.getDstFieldName()) && !iPSDELogicNodeParam.getDstPSDELogicParam().isSimpleParam()) {
 			throw new DataEntityRuntimeException(iDELogicRuntimeContext.getDataEntityRuntime(), iDELogicRuntimeContext.getDELogicRuntime(), String.format("处理节点参数[%1$s]未指定设置目标属性", iPSDELogicNodeParam.getName()));
 		}
-		
-		
+		String dstFieldName = StringUtils.hasLength(iPSDELogicNodeParam.getDstFieldName())?iPSDELogicNodeParam.getDstFieldName():"";
+		String dstFieldNameLC = dstFieldName.toLowerCase();
 		if(DELogicPrepareParamValueTypes.NONEVALUE.equals(iPSDELogicNodeParam.getSrcValueType())) {			
 		//	dstEntity.reset(iPSDELogicNodeParam.getDstFieldName().toLowerCase());
-			dstDELogicParamRuntime.reset(iDELogicSession, iPSDELogicNodeParam.getDstFieldName().toLowerCase());
+			dstDELogicParamRuntime.reset(iDELogicSession, dstFieldNameLC);
 			if(iDELogicRuntimeContext.getDELogicRuntime().isOutputDebugInfo()) {
-				iDELogicSession.debugInfo(String.format("重置参数[%1$s]属性[%2$s]", dstDELogicParamRuntime.getCodeName(), iPSDELogicNodeParam.getDstFieldName()));
+				iDELogicSession.debugInfo(String.format("重置参数[%1$s]属性[%2$s]", dstDELogicParamRuntime.getCodeName(), dstFieldName));
 			}
 			return ;
 		}
@@ -180,10 +180,14 @@ public class DELogicPrepareParamNodeRuntime extends DELogicNodeRuntimeBase{
 				iDELogicSession.debugInfo(String.format("转换器[%1$s]值输入转换 ==> %2$s", iSysTranslatorRuntime.getName(), objValue));
 			}
 		}
-		dstDELogicParamRuntime.set(iDELogicSession, iPSDELogicNodeParam.getDstFieldName().toLowerCase(), objValue);
+		dstDELogicParamRuntime.set(iDELogicSession, dstFieldNameLC, objValue);
 		
 		if(iDELogicRuntimeContext.getDELogicRuntime().isOutputDebugInfo()) {
-			iDELogicSession.debugInfo(String.format("设置参数[%1$s]属性[%2$s] <== %3$s", dstDELogicParamRuntime.getCodeName(), iPSDELogicNodeParam.getDstFieldName(), objValue));
+			if(StringUtils.hasLength(dstFieldName)) {
+				iDELogicSession.debugInfo(String.format("设置参数[%1$s]属性[%2$s] <== %3$s", dstDELogicParamRuntime.getCodeName(), dstFieldName, objValue));
+			}else {
+				iDELogicSession.debugInfo(String.format("设置参数[%1$s] <== %2$s", dstDELogicParamRuntime.getCodeName(), objValue));
+			}
 		}
 		return ;
 	}

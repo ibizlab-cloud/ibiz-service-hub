@@ -292,4 +292,15 @@ public interface IPSSystemService extends IPSModelService{
 	 * @return
 	 */
 	IPSModelObject getPSModelObject(String strPSModelType, String strPSModelId, boolean bTryMode);
+	
+	
+	
+	/**
+	 * 获取模型对象（通过DslId)
+	 * @param strPSModelType
+	 * @param strPSModelId
+	 * @param bTryMode
+	 * @return
+	 */
+	IPSModelObject getPSModelObjectByDslId(String strPSModelType, String strPSModelId, boolean bTryMode);
 }

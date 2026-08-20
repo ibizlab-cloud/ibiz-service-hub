@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class File extends net.ibizsys.runtime.util.EntityBase {
+public class File extends net.ibizsys.runtime.util.EntityBase implements IFile{
 
 	/**
 	 * 建立时间
@@ -92,30 +92,6 @@ public class File extends net.ibizsys.runtime.util.EntityBase {
 		return this.contains(FIELD_DIGESTCODE);
 	}
 
-	// /**
-	// * 逻辑有效标志
-	// */
-	// //private Integer enable;
-	// public final static String FIELD_ENABLE = "enable";
-	//
-	// @JsonIgnore
-	// public Integer getEnable(){
-	// Object objValue = this.get(FIELD_ENABLE);
-	// if(objValue==null){
-	// return null;
-	// }
-	// return (Integer)objValue;
-	// }
-	//
-	// @JsonProperty(FIELD_ENABLE)
-	// public void setEnable(Integer enable){
-	// this.set(FIELD_ENABLE, enable);
-	// }
-	//
-	// @JsonIgnore
-	// public boolean isEnableDirty(){
-	// return this.contains(FIELD_ENABLE);
-	// }
 
 	/**
 	 * 原始文件名称

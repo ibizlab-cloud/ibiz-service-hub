@@ -59,7 +59,7 @@ net.ibizsys.model.dataentity.defield.IPSDEField getPickupPSDEFieldMust();
 	 * 获取删除拒绝消息语言标记
 	 * @return
 	 */
-	java.lang.String getRRMLanResTag();
+	String getRRMLanResTag();
 	
 	
 	/**
@@ -114,5 +114,5 @@ net.ibizsys.model.dataentity.ds.IPSDEDataSet getRefPSDEDataSetMust();
 	 * 获取删除拒绝消息
 	 * @return
 	 */
-	java.lang.String getRemoveRejectMsg();
+	String getRemoveRejectMsg();
 }

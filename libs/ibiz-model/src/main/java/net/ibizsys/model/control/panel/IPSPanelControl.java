@@ -30,5 +30,5 @@ public interface IPSPanelControl extends net.ibizsys.model.control.panel.IPSPane
 	 * 获取视图模型属性名称
 	 * @return
 	 */
-	java.lang.String getViewFieldName();
+	String getViewFieldName();
 }

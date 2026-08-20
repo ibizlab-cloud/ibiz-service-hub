@@ -16,7 +16,7 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return
 	 */
-	java.lang.String getAPICodeNameMode();
+	String getAPICodeNameMode();
 	
 	
 	/**
@@ -41,14 +41,14 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 获取接口标记
 	 * @return
 	 */
-	java.lang.String getAPITag();
+	String getAPITag();
 	
 	
 	/**
 	 * 获取接口标记2
 	 * @return
 	 */
-	java.lang.String getAPITag2();
+	String getAPITag2();
 	
 	
 	/**
@@ -57,7 +57,7 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPIType}
 	 * @return
 	 */
-	java.lang.String getAPIType();
+	String getAPIType();
 	
 	
 	/**
@@ -71,21 +71,21 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 获取认证token路径
 	 * @return
 	 */
-	java.lang.String getAuthCheckTokenUrl();
+	String getAuthCheckTokenUrl();
 	
 	
 	/**
 	 * 获取认证客户端标识
 	 * @return
 	 */
-	java.lang.String getAuthClientId();
+	String getAuthClientId();
 	
 	
 	/**
 	 * 获取认证客户端密码
 	 * @return
 	 */
-	java.lang.String getAuthClientSecret();
+	String getAuthClientSecret();
 	
 	
 	/**
@@ -94,42 +94,42 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
 	 */
-	java.lang.String getAuthMode();
+	String getAuthMode();
 	
 	
 	/**
 	 * 获取认证参数
 	 * @return
 	 */
-	java.lang.String getAuthParam();
+	String getAuthParam();
 	
 	
 	/**
 	 * 获取认证参数2
 	 * @return
 	 */
-	java.lang.String getAuthParam2();
+	String getAuthParam2();
 	
 	
 	/**
 	 * 获取认证参数3
 	 * @return
 	 */
-	java.lang.String getAuthParam3();
+	String getAuthParam3();
 	
 	
 	/**
 	 * 获取认证参数4
 	 * @return
 	 */
-	java.lang.String getAuthParam4();
+	String getAuthParam4();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -143,7 +143,7 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 获取处理对象
 	 * @return
 	 */
-	java.lang.String getHandler();
+	String getHandler();
 	
 	
 	/**
@@ -164,7 +164,7 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 获取命名服务
 	 * @return
 	 */
-	java.lang.String getNamingService();
+	String getNamingService();
 	
 	
 	/**
@@ -292,42 +292,42 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceAPIPredefinedType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取服务代码名称
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 	
 	
 	/**
 	 * 获取服务参数
 	 * @return
 	 */
-	java.lang.String getServiceParam();
+	String getServiceParam();
 	
 	
 	/**
 	 * 获取服务参数2
 	 * @return
 	 */
-	java.lang.String getServiceParam2();
+	String getServiceParam2();
 	
 	
 	/**
 	 * 获取服务参数3
 	 * @return
 	 */
-	java.lang.String getServiceParam3();
+	String getServiceParam3();
 	
 	
 	/**
 	 * 获取服务参数4
 	 * @return
 	 */
-	java.lang.String getServiceParam4();
+	String getServiceParam4();
 	
 	
 	/**
@@ -336,7 +336,7 @@ public interface IPSSysServiceAPI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceType}
 	 * @return
 	 */
-	java.lang.String getServiceType();
+	String getServiceType();
 	
 	
 	/**

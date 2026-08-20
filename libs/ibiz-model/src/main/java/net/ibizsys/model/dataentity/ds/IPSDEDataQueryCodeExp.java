@@ -14,5 +14,5 @@ public interface IPSDEDataQueryCodeExp extends net.ibizsys.model.IPSModelObject{
 	 * 获取表达式
 	 * @return
 	 */
-	java.lang.String getExpression();
+	String getExpression();
 }

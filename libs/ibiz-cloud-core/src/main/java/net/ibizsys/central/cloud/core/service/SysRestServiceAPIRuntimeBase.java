@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
+import net.ibizsys.central.ISystemRuntime;
+import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.service.SysServiceAPIRuntimeException;
 
 /**
@@ -59,6 +61,11 @@ public class SysRestServiceAPIRuntimeBase extends SysServiceAPIRuntime{
 	
 	private SysRestServiceAPIRuntimeBase getSelf() {
 		return this;
+	}
+	
+	@Override
+	public IServiceSystemRuntime getSystemRuntime() {
+		return (IServiceSystemRuntime)super.getSystemRuntime();
 	}
 	
 	protected SysRestServiceAPIRuntimeBase getProxyObject() {
@@ -138,6 +145,11 @@ public class SysRestServiceAPIRuntimeBase extends SysServiceAPIRuntime{
 		}
 	}
 
-	
+	@Override
+	protected void onUnregisterMapping(ISysServiceAPIRequestMappingAdapter iSysServiceAPIRequestMappingAdapter) throws Exception {
+		super.onUnregisterMapping(iSysServiceAPIRequestMappingAdapter);
+		this.requestMappingInfoMap.clear();
+		this.setProxyObject(null);
+	}
 
 }

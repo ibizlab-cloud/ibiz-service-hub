@@ -187,14 +187,17 @@ public class PortalAsyncAction extends EntityBase {
 	 * @see ibizmos:/psmodules/portal/psdataentities/PT_ASYNCACTION/psdefields/ENDTIME/.ibizmodel.index
 	 */
 	public final static String FIELD_ENDTIME = "endtime";
-	
-	  /**.
-	   * 完整步骤信息
-	   *
-	   * @see ibizmos:/psmodules/portal/psdataentities/PT_ASYNCACTION/psdefields/FULLSTEPINFO/.ibizmodel.index
-	   */
-	  public final static String FIELD_FULLSTEPINFO = "fullstepinfo";
 
+	/**
+	 * . 完整步骤信息
+	 *
+	 * @see ibizmos:/psmodules/portal/psdataentities/PT_ASYNCACTION/psdefields/FULLSTEPINFO/.ibizmodel.index
+	 */
+	public final static String FIELD_FULLSTEPINFO = "fullstepinfo";
+
+	
+	private transient Object realResult = null;
+	
 	/**
 	 * 设置「操作参数」
 	 *
@@ -1158,44 +1161,64 @@ public class PortalAsyncAction extends EntityBase {
 		this.reset(FIELD_ENDTIME);
 		return this;
 	}
-	
 
-    /**
-     * 设置「完整步骤信息」
-     *
-     * @param val
-    */
-    @JsonIgnore
-    public PortalAsyncAction setFullStepInfo(String val) {
-        this.set(FIELD_FULLSTEPINFO, val);
-        return this;
-    }
+	/**
+	 * 设置「完整步骤信息」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public PortalAsyncAction setFullStepInfo(String val) {
+		this.set(FIELD_FULLSTEPINFO, val);
+		return this;
+	}
 
-    /**
-     * 获取「完整步骤信息」值
-     *
-    */
-    @JsonIgnore
-    public String getFullStepInfo() {
-        return (String) this.get(FIELD_FULLSTEPINFO);
-    }
+	/**
+	 * 获取「完整步骤信息」值
+	 *
+	 */
+	@JsonIgnore
+	public String getFullStepInfo() {
+		return (String) this.get(FIELD_FULLSTEPINFO);
+	}
 
-    /**
-     * 判断 「完整步骤信息」是否有值
-     *
-    */
-    @JsonIgnore
-    public boolean containsFullStepInfo() {
-        return this.contains(FIELD_FULLSTEPINFO);
-    }
+	/**
+	 * 判断 「完整步骤信息」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsFullStepInfo() {
+		return this.contains(FIELD_FULLSTEPINFO);
+	}
 
-    /**
-     * 重置 「完整步骤信息」
-     *
-    */
-    @JsonIgnore
-    public PortalAsyncAction resetFullStepInfo() {
-        this.reset(FIELD_FULLSTEPINFO);
-        return this;
-    }
+	/**
+	 * 重置 「完整步骤信息」
+	 *
+	 */
+	@JsonIgnore
+	public PortalAsyncAction resetFullStepInfo() {
+		this.reset(FIELD_FULLSTEPINFO);
+		return this;
+	}
+
+	/**
+	 * 设置「实际结果」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public PortalAsyncAction setRealResult(Object val) {
+		this.realResult = val;
+		return this;
+	}
+
+	/**
+	 * 获取「实际结果」值
+	 *
+	 */
+	@JsonIgnore
+	public Object getRealResult() {
+		return this.realResult;
+	}
+
 }

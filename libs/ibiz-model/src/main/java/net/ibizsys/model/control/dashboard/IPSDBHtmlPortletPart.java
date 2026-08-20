@@ -16,12 +16,12 @@ public interface IPSDBHtmlPortletPart extends net.ibizsys.model.control.dashboar
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PortletHtmlShowMode}
 	 * @return
 	 */
-	java.lang.String getHtmlShowMode();
+	String getHtmlShowMode();
 	
 	
 	/**
 	 * 获取网页地址
 	 * @return
 	 */
-	java.lang.String getPageUrl();
+	String getPageUrl();
 }

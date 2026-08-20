@@ -42,21 +42,21 @@ public interface IPSWFProcessRole extends net.ibizsys.model.IPSModelObject{
 	 * 获取数据对象属性名称
 	 * @return
 	 */
-	java.lang.String getUDField();
+	String getUDField();
 	
 	
 	/**
 	 * 获取处理角色数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取处理角色数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 	
 	
 	/**
@@ -65,7 +65,7 @@ public interface IPSWFProcessRole extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFProcRoleType}
 	 * @return
 	 */
-	java.lang.String getWFProcessRoleType();
+	String getWFProcessRoleType();
 	
 	
 	/**

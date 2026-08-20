@@ -16,7 +16,7 @@ public interface IPSAppPortletCat extends net.ibizsys.model.res.IPSSysPortletCat
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

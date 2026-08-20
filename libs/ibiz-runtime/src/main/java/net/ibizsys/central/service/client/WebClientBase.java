@@ -692,6 +692,10 @@ public abstract class WebClientBase implements IWebClient {
 			return this.delete(strUri, uriParams, headers, queries, cls, objTag);
 		}
 		
+		if (RequestMethods.DOWNLOAD.equalsIgnoreCase(strMethod)) {
+			return (IWebClientRep)this.download(strUri, uriParams, headers, queries, null, objTag);
+		}
+		
 //		if (RequestMethods.TRACE.equalsIgnoreCase(strMethod)) {
 //			return this.trace(strUri, uriParams, headers, objData, cls, objTag);
 //		}

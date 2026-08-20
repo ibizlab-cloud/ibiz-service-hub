@@ -15,5 +15,5 @@ public interface IPSWizardPanel extends net.ibizsys.model.control.IPSAjaxControl
 	 * 获取内置式样
 	 * @return
 	 */
-	java.lang.String getWizardStyle();
+	String getWizardStyle();
 }

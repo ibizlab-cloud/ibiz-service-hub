@@ -14,7 +14,7 @@ public interface IPSDEToolbar extends net.ibizsys.model.control.IPSControl{
 	 * 获取工具栏所有者
 	 * @return
 	 */
-	java.lang.Object getOwner();
+	Object getOwner();
 	
 	
 	/**
@@ -42,12 +42,12 @@ public interface IPSDEToolbar extends net.ibizsys.model.control.IPSControl{
 	 * 获取工具栏样式
 	 * @return
 	 */
-	java.lang.String getToolbarStyle();
+	String getToolbarStyle();
 	
 	
 	/**
 	 * 获取界面行为数据部件名称
 	 * @return
 	 */
-	java.lang.String getXDataControlName();
+	String getXDataControlName();
 }

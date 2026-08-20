@@ -26,6 +26,8 @@ public class PSDELogicNodeListTranspiler extends net.ibizsys.model.util.transpil
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEAppendParamLogicImpl.class, false);
 			case "BEGIN":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBeginLogicImpl.class, false);
+			case "BEGINTRANS":
+				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBeginTransLogicImpl.class, false);
 			case "BINDPARAM":
 				return iPSModelTranspileContext.getPSModelTranspiler(net.ibizsys.model.dataentity.logic.PSDEBindParamLogicImpl.class, false);
 			case "CANCELWF":

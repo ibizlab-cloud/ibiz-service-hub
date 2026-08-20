@@ -15,7 +15,7 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -57,7 +57,7 @@ public interface IPSDEGridEditItemUpdate extends net.ibizsys.model.IPSObject
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

@@ -14,56 +14,56 @@ public interface IPSDEUILogicGroupDetail extends net.ibizsys.model.IPSModelObjec
 	 * 获取注入属性名称
 	 * @return
 	 */
-	java.lang.String getAttrName();
+	String getAttrName();
 	
 	
 	/**
 	 * 获取部件名称
 	 * @return
 	 */
-	java.lang.String getCtrlName();
+	String getCtrlName();
 	
 	
 	/**
 	 * 获取事件参数
 	 * @return
 	 */
-	java.lang.String getEventArg();
+	String getEventArg();
 	
 	
 	/**
 	 * 获取事件参数2
 	 * @return
 	 */
-	java.lang.String getEventArg2();
+	String getEventArg2();
 	
 	
 	/**
 	 * 获取事件名称
 	 * @return
 	 */
-	java.lang.String getEventNames();
+	String getEventNames();
 	
 	
 	/**
 	 * 获取子项名称
 	 * @return
 	 */
-	java.lang.String getItemName();
+	String getItemName();
 	
 	
 	/**
 	 * 获取逻辑标记
 	 * @return
 	 */
-	java.lang.String getLogicTag();
+	String getLogicTag();
 	
 	
 	/**
 	 * 获取逻辑标记2
 	 * @return
 	 */
-	java.lang.String getLogicTag2();
+	String getLogicTag2();
 	
 	
 	/**
@@ -72,14 +72,14 @@ public interface IPSDEUILogicGroupDetail extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TargetUILogic}
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -95,5 +95,5 @@ public interface IPSDEUILogicGroupDetail extends net.ibizsys.model.IPSModelObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UILogicTriggerType}
 	 * @return
 	 */
-	java.lang.String getTriggerType();
+	String getTriggerType();
 }

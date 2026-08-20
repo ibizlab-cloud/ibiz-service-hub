@@ -14,21 +14,21 @@ public interface IPSDERBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取关系标记
 	 * @return
 	 */
-	java.lang.String getDERTag();
+	String getDERTag();
 	
 	
 	/**
 	 * 获取关系标记2
 	 * @return
 	 */
-	java.lang.String getDERTag2();
+	String getDERTag2();
 	
 	
 	/**
@@ -37,14 +37,14 @@ public interface IPSDERBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERType}
 	 * @return
 	 */
-	java.lang.String getDERType();
+	String getDERType();
 	
 	
 	/**
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -65,14 +65,14 @@ public interface IPSDERBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取关系数据代码标识
 	 * @return
 	 */
-	java.lang.String getMinorCodeName();
+	String getMinorCodeName();
 	
 	
 	/**
 	 * 获取从逻辑名称
 	 * @return
 	 */
-	java.lang.String getMinorLogicName();
+	String getMinorLogicName();
 	
 	
 	/**
@@ -93,7 +93,7 @@ public interface IPSDERBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取关系数据服务代码标识
 	 * @return
 	 */
-	java.lang.String getMinorServiceCodeName();
+	String getMinorServiceCodeName();
 	
 	
 	/**
@@ -121,5 +121,5 @@ public interface IPSDERBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取服务代码标识
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 }

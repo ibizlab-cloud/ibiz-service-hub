@@ -18,7 +18,7 @@ public interface IPSDEFLogic extends net.ibizsys.model.dataentity.logic.IPSDELog
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFLogicMode}
 	 * @return
 	 */
-	java.lang.String getDEFLogicMode();
+	String getDEFLogicMode();
 	
 	
 	/**

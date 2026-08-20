@@ -35,21 +35,21 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取数据库实例标记
 	 * @return
 	 */
-	java.lang.String getDBInstTag();
+	String getDBInstTag();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
-	java.lang.String getDBObjNameCase();
+	String getDBObjNameCase();
 	
 	
 	/**
@@ -67,7 +67,7 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
-	java.lang.String getDSLink();
+	String getDSLink();
 	
 	
 	/**
@@ -116,28 +116,28 @@ public interface IPSSysDBScheme extends net.ibizsys.model.service.IPSSubSysServi
 	 * 获取SaaS数据租户列
 	 * @return
 	 */
-	java.lang.String getSaaSDCIdColumnName();
+	String getSaaSDCIdColumnName();
 	
 	
 	/**
 	 * 获取SaaS数据主键列
 	 * @return
 	 */
-	java.lang.String getSaaSDataIdColumnName();
+	String getSaaSDataIdColumnName();
 	
 	
 	/**
 	 * 获取体系标记
 	 * @return
 	 */
-	java.lang.String getSchemeTag();
+	String getSchemeTag();
 	
 	
 	/**
 	 * 获取体系标记2
 	 * @return
 	 */
-	java.lang.String getSchemeTag2();
+	String getSchemeTag2();
 	
 	
 	/**

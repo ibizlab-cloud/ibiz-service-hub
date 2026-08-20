@@ -19,21 +19,21 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取默认背景颜色
 	 * @return
 	 */
-	java.lang.String getBKColor();
+	String getBKColor();
 	
 	
 	/**
 	 * 获取默认文本颜色
 	 * @return
 	 */
-	java.lang.String getColor();
+	String getColor();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -42,14 +42,14 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlDetailStyle}
 	 * @return
 	 */
-	java.lang.String getItemStyle();
+	String getItemStyle();
 	
 	
 	/**
 	 * 获取项标识
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
@@ -63,7 +63,7 @@ public interface IPSCalendarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取代码模型对象
 	 * @return
 	 */
-	java.lang.String getModelObj();
+	String getModelObj();
 	
 	
 	/**

@@ -13,5 +13,5 @@ public interface IPSJsonSchema extends net.ibizsys.model.dynamodel.IPSJsonObject
 	 * 获取JsonSchema标识
 	 * @return
 	 */
-	java.lang.String getSchemaId();
+	String getSchemaId();
 }

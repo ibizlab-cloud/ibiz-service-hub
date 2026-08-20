@@ -14,7 +14,7 @@ public interface IPSNavigatable extends net.ibizsys.model.control.IPSNavigatePar
 	 * 获取导航视图过滤项
 	 * @return
 	 */
-	java.lang.String getNavFilter();
+	String getNavFilter();
 	
 	
 	/**

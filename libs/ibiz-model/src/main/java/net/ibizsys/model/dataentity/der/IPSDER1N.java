@@ -54,7 +54,7 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	 * 获取外键名称
 	 * @return
 	 */
-	java.lang.String getFKeyName();
+	String getFKeyName();
 	
 	
 	/**
@@ -182,14 +182,14 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	 * 获取关系属性名称
 	 * @return
 	 */
-	java.lang.String getPickupDEFName();
+	String getPickupDEFName();
 	
 	
 	/**
 	 * 获取删除拒绝消息语言标记
 	 * @return
 	 */
-	java.lang.String getRRMLanResTag();
+	String getRRMLanResTag();
 	
 	
 	/**
@@ -240,7 +240,7 @@ public interface IPSDER1N extends net.ibizsys.model.dataentity.der.IPSDERBase
 	 * 获取删除拒绝消息
 	 * @return
 	 */
-	java.lang.String getRemoveRejectMsg();
+	String getRemoveRejectMsg();
 	
 	
 	/**

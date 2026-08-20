@@ -1,6 +1,7 @@
 package net.ibizsys.central.plugin.ai.addin;
 
 import java.util.List;
+import java.util.Map;
 
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.plugin.ai.util.domain.ParserConfig;
@@ -140,7 +141,7 @@ public interface IDocumentSplitter extends IModelRTAddin2 {
 	 * @return
 	 * @throws Throwable
 	 */
-	String getOriginalContent(Object documentId, net.ibizsys.runtime.util.domain.File ossFile, String chunkMethod, ParserConfig parserConfig, String type) throws Throwable;
+	String getOriginalContent(Object documentId, net.ibizsys.runtime.util.domain.File ossFile, String chunkMethod, ParserConfig parserConfig, String type, Map<String, Object> requestParams) throws Throwable;
 	
 	
 	/**
@@ -172,7 +173,7 @@ public interface IDocumentSplitter extends IModelRTAddin2 {
 	 * @return
 	 * @throws Throwable
 	 */
-	String getFullText(Object documentId, String text, String chunkMethod, ParserConfig parserConfig) throws Throwable;
+	String getFullText(Object documentId, String text, String chunkMethod, ParserConfig parserConfig, Map<String, Object> params) throws Throwable;
 	
 	
 	/**
@@ -183,6 +184,6 @@ public interface IDocumentSplitter extends IModelRTAddin2 {
 	 * @return
 	 * @throws Throwable
 	 */
-	String getFullText(Object documentId, net.ibizsys.runtime.util.domain.File ossFile, String chunkMethod, ParserConfig parserConfig) throws Throwable;
+	String getFullText(Object documentId, net.ibizsys.runtime.util.domain.File ossFile, String chunkMethod, ParserConfig parserConfig, Map<String, Object> params) throws Throwable;
 	
 }

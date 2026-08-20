@@ -16,7 +16,7 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -25,7 +25,14 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataImpExpContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
+	
+	
+	/**
+	 * 获取导出模型
+	 * @return
+	 */
+	String getExpModel();
 	
 	
 	/**
@@ -39,21 +46,30 @@ public interface IPSDEDataExport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取导入标记
 	 * @return
 	 */
-	java.lang.String getExpTag();
+	String getExpTag();
 	
 	
 	/**
 	 * 获取导入标记2
 	 * @return
 	 */
-	java.lang.String getExpTag2();
+	String getExpTag2();
+	
+	
+	/**
+	 * 获取导出类型
+	 * <P>
+	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataExportType}
+	 * @return
+	 */
+	String getExpType();
 	
 	
 	/**
 	 * 获取文件名称格式化
 	 * @return
 	 */
-	java.lang.String getFileNameFormat();
+	String getFileNameFormat();
 	
 	
 	/**

@@ -14,14 +14,14 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
 	 * 获取目标端点
 	 * @return
 	 */
-	java.lang.String getDstEndPoint();
+	String getDstEndPoint();
 	
 	
 	/**
@@ -56,7 +56,7 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -77,7 +77,7 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	 * 获取源端点
 	 * @return
 	 */
-	java.lang.String getSrcEndPoint();
+	String getSrcEndPoint();
 	
 	
 	/**
@@ -100,7 +100,7 @@ public interface IPSWFLink extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFLinkType}
 	 * @return
 	 */
-	java.lang.String getWFLinkType();
+	String getWFLinkType();
 	
 	
 	/**

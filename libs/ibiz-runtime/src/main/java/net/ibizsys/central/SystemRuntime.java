@@ -51,6 +51,7 @@ import net.ibizsys.central.dataentity.ds.IDEDQSQLSelectParser;
 import net.ibizsys.central.dataentity.logic.DELogicAppContextParamRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicAppGlobalParamRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicAppendParamNodeRuntime;
+import net.ibizsys.central.dataentity.logic.DELogicBeginTransNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicBindParamNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicCancelWFNodeRuntime;
 import net.ibizsys.central.dataentity.logic.DELogicCommitNodeRuntime;
@@ -110,6 +111,7 @@ import net.ibizsys.central.dataentity.testing.DEActionTestCaseRuntime;
 import net.ibizsys.central.eai.SysEAIAgentRuntimeBase;
 import net.ibizsys.central.msg.ISysMsgTemplRuntime;
 import net.ibizsys.central.msg.SysRTMsgQueueRuntime;
+import net.ibizsys.central.res.DefaultSysValueFuncRuntime;
 import net.ibizsys.central.res.ISysResourceRuntime;
 import net.ibizsys.central.res.ISysUniStateRuntime;
 import net.ibizsys.central.res.SysContentCatResourceRuntime;
@@ -142,7 +144,9 @@ import net.ibizsys.central.sysutil.ISysUniStateUtilRuntime;
 import net.ibizsys.central.sysutil.SysLogListenerUtilRuntime;
 import net.ibizsys.central.testing.ISysTestCaseRuntime;
 import net.ibizsys.central.testing.ISysTestDataRuntime;
+import net.ibizsys.central.testing.ISysTestPrjRuntime;
 import net.ibizsys.central.testing.SysTestDataRuntime;
+import net.ibizsys.central.testing.SysTestPrjRuntime;
 import net.ibizsys.central.testing.TestCaseTargetTypes;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.central.util.ISystemRuntimeContextAction;
@@ -176,6 +180,7 @@ import net.ibizsys.model.ba.IPSSysBDScheme;
 import net.ibizsys.model.backservice.IPSSysBackService;
 import net.ibizsys.model.bi.IPSSysBIScheme;
 import net.ibizsys.model.database.IPSSysDBScheme;
+import net.ibizsys.model.database.IPSSysDBValueFunc;
 import net.ibizsys.model.dataentity.IPSDEGroup;
 import net.ibizsys.model.dataentity.IPSDataEntity;
 import net.ibizsys.model.dataentity.IPSSysDEGroup;
@@ -197,6 +202,7 @@ import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.model.system.IPSSystemModule;
 import net.ibizsys.model.testing.IPSSysTestCase;
 import net.ibizsys.model.testing.IPSSysTestData;
+import net.ibizsys.model.testing.IPSSysTestPrj;
 import net.ibizsys.runtime.SystemRuntimeBase;
 import net.ibizsys.runtime.SystemRuntimeException;
 import net.ibizsys.runtime.addin.ISystemRTAddin;
@@ -204,7 +210,6 @@ import net.ibizsys.runtime.backend.SysBackendTaskPredefinedTypes;
 import net.ibizsys.runtime.backend.SysBackendTaskTypes;
 import net.ibizsys.runtime.codelist.ICodeListRuntime;
 import net.ibizsys.runtime.dataentity.DESaaSModes;
-import net.ibizsys.runtime.dataentity.datasync.DEDataSyncDirs;
 import net.ibizsys.runtime.dataentity.datasync.IDEDataSyncInRuntime;
 import net.ibizsys.runtime.dataentity.datasync.IDEDataSyncOutRuntime;
 import net.ibizsys.runtime.dataentity.print.IDEPrintRuntime;
@@ -215,6 +220,7 @@ import net.ibizsys.runtime.msg.SysMsgQueueTypes;
 import net.ibizsys.runtime.res.ISysDataSyncAgentRuntime;
 import net.ibizsys.runtime.res.ISysSequenceRuntime;
 import net.ibizsys.runtime.res.ISysUtilRuntime;
+import net.ibizsys.runtime.res.ISysValueFuncRuntime;
 import net.ibizsys.runtime.res.SysDataSyncAgentDirs;
 import net.ibizsys.runtime.res.SysDataSyncAgentTypes;
 import net.ibizsys.runtime.res.SysUtilTypes;
@@ -225,6 +231,7 @@ import net.ibizsys.runtime.util.IEntity;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 import net.ibizsys.runtime.util.ModelRuntimeUtils;
+import net.ibizsys.runtime.util.ResourcesUtils;
 import net.ibizsys.runtime.util.SystemRuntimeHolder;
 import net.ibizsys.runtime.util.script.ISystemRTScriptContext;
 
@@ -252,12 +259,14 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		registerRuntimeObjectIf(ISystemModuleUtilRuntime.class, SystemModuleUtilTypes.BI, "net.ibizsys.centralutil.bi.system.druid.DruidBISystemModuleUtilRuntime");
 
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.INTERNAL, "net.ibizsys.central.eai.InternalDataSyncAgentRuntime");
+		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.FILE, "net.ibizsys.central.eai.LocalFileSyncAgentRuntime");
 
 		registerRuntimeObjectIf(ISysUtilRuntime.class, SysUtilTypes.LOGLISTENER, SysLogListenerUtilRuntime.class.getCanonicalName());
 		registerRuntimeObjectIf(ISysUtilRuntime.class, SysUtilTypes.FILE, DefaultSysFileUtilRuntime.class.getCanonicalName());
 
 		registerRuntimeObjectIf(IDEPrintRuntime.class, DEReportTypes.POI_TL, "net.ibizsys.central.plugin.poi.dataentity.print.POIDEPrintRuntime");
 		registerRuntimeObjectIf(IDEPrintRuntime.class, DEReportTypes.JR, "net.ibizsys.central.plugin.jr.dataentity.print.JRDEPrintRuntime");
+		registerRuntimeObjectIf(IDEPrintRuntime.class, DEReportTypes.EASYEXCEL, "net.ibizsys.central.plugin.poi.dataentity.print.EasyExcelDEPrintRuntime");
 		registerRuntimeObjectIf(IDEReportRuntime.class, DEReportTypes.JR, "net.ibizsys.central.plugin.jr.dataentity.report.JRDEReportRuntime");
 
 		registerRuntimeObjectIf(IDEReportRuntime.class, ReportType.SYSBICUBE.value, "net.ibizsys.central.dataentity.report.DEBIReportRuntime");
@@ -336,6 +345,8 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 	private Map<String, IDBDialect> dbDialectMap = new ConcurrentHashMap<String, IDBDialect>();
 
 	private Map<String, ISysTestDataRuntime> sysTestDataRuntimeMap = null;
+	
+	private Map<String, ISysTestPrjRuntime> sysTestPrjRuntimeMap = null;
 
 	private ISystemPersistentAdapter iSystemPersistentAdapter = null;
 
@@ -748,7 +759,14 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 				this.registerPSSysBackService(iPSSysBackService);
 			}
 		}
-
+		
+		// 准备测试项目
+		java.util.List<IPSSysTestPrj> psSysTestPrjs = this.getPSSystem().getAllPSSysTestPrjs();
+		if (psSysTestPrjs != null) {
+			for (IPSSysTestPrj iPSSysTestPrj : psSysTestPrjs) {
+				this.registerPSSysTestPrj(iPSSysTestPrj);
+			}
+		}
 	}
 
 	protected boolean isEnableAppGateway() {
@@ -1153,6 +1171,11 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		return null;
 	}
 
+	@Override
+	public String getPSModelFolderPath() {
+		return this.getPSSystemService().getPSModelFolderPath();
+	}
+	
 	/**
 	 * 建立实体运行时对象
 	 * 
@@ -1190,11 +1213,6 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 			}
 		}
 
-		iDataEntityRuntime = this.getRuntimeObject(GLOBALPLUGIN_DATAENTITYRUNTIME, IDataEntityRuntime.class, true, true);
-		if (iDataEntityRuntime != null) {
-			return iDataEntityRuntime;
-		}
-
 		return createDefaultDataEntityRuntime(iPSDataEntity);
 	}
 
@@ -1205,6 +1223,12 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 	 * @return
 	 */
 	protected IDataEntityRuntime createDefaultDataEntityRuntime(IPSDataEntity iPSDataEntity) {
+		
+		IDataEntityRuntime iDataEntityRuntime = this.getRuntimeObject(GLOBALPLUGIN_DATAENTITYRUNTIME, IDataEntityRuntime.class, true, true);
+		if (iDataEntityRuntime != null) {
+			return iDataEntityRuntime;
+		}
+		
 		return this.createDefaultDataEntityRuntime();
 	}
 
@@ -2861,6 +2885,9 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		if (DELogicNodeTypes.DENOTIFY.equals(strLogicNodeType)) {
 			return new DELogicDENotifyNodeRuntime();
 		}
+		if (DELogicNodeTypes.BEGINTRANS.equals(strLogicNodeType)) {
+			return new DELogicBeginTransNodeRuntime();
+		}
 		if (DELogicNodeTypes.COMMIT.equals(strLogicNodeType)) {
 			return new DELogicCommitNodeRuntime();
 		}
@@ -3001,6 +3028,17 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 
 		//return new DELogicParamRuntime();
 		return new DELogicEntityParamRuntime();
+	}
+	
+	protected ISysValueFuncRuntime onCreateSysValueFuncRuntime(IPSSysDBValueFunc iPSSysDBValueFunc) {
+		Assert.notNull(iPSSysDBValueFunc.getCodeName(), "系统值函数模型对象代码标识无效");
+
+		if (ISysValueFuncRuntime.PREDEFINED_DATEDIFFNOW.equalsIgnoreCase(iPSSysDBValueFunc.getCodeName()) || ISysValueFuncRuntime.PREDEFINED_DATEDIFFNOW2.equalsIgnoreCase(iPSSysDBValueFunc.getCodeName()) || ISysValueFuncRuntime.PREDEFINED_STRLEN.equalsIgnoreCase(iPSSysDBValueFunc.getCodeName())) {
+			return new DefaultSysValueFuncRuntime();
+		}
+
+		// 未定义时使用默认值函数对象
+		return super.onCreateSysValueFuncRuntime(iPSSysDBValueFunc);
 	}
 
 	@Override
@@ -3497,9 +3535,10 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 				if (!iPSDEDataSync.isValid()) {
 					continue;
 				}
-				if (DEDataSyncDirs.IN.equals(iPSDEDataSync.getSyncDir())) {
-					return true;
-				}
+//				if (DEDataSyncDirs.IN.equals(iPSDEDataSync.getSyncDir())) {
+//					return true;
+//				}
+				return true;
 			}
 		}
 
@@ -3595,7 +3634,103 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		this.sysTestDataRuntimeMap.put(iPSSysTestData.getId(), iSysTestDataRuntime);
 		return iSysTestDataRuntime;
 	}
+	
+	@Override
+	public ISysTestPrjRuntime getSysTestPrjRuntime(String strTag, boolean bTryMode) {
+		Assert.hasLength(strTag, "传入测试项目模型标记无效");
+		ISysTestPrjRuntime iSysTestPrjRuntime = null;
+		if (this.sysTestPrjRuntimeMap != null) {
+			iSysTestPrjRuntime = this.sysTestPrjRuntimeMap.get(strTag);
+			if (iSysTestPrjRuntime == null) {
+				iSysTestPrjRuntime = this.sysTestPrjRuntimeMap.get(strTag.toLowerCase());
+			}
+		}
+		if (iSysTestPrjRuntime == null && !bTryMode) {
+			throw new SystemRuntimeException(this, String.format("无法获取指定测试项目[%1$s]运行时对象", strTag));
+		}
+		return iSysTestPrjRuntime;
+	}
+	
 
+	@Override
+	public ISysTestPrjRuntime getSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj) {
+		Assert.notNull(iPSSysTestPrj, "传入测试数据模型对象无效");
+		return this.registerPSSysTestPrj(iPSSysTestPrj);
+	}
+
+	protected ISysTestPrjRuntime registerPSSysTestPrj(IPSSysTestPrj iPSSysTestPrj) {
+		if (this.sysTestPrjRuntimeMap != null) {
+			ISysTestPrjRuntime iSysTestPrjRuntime = this.sysTestPrjRuntimeMap.get(iPSSysTestPrj.getId());
+			if (iSysTestPrjRuntime != null) {
+				return iSysTestPrjRuntime;
+			}
+		}
+
+		ISysTestPrjRuntime iSysTestPrjRuntime = this.createSysTestPrjRuntime(iPSSysTestPrj);
+		if (iSysTestPrjRuntime == null) {
+			return null;
+		}
+		try {
+			iSysTestPrjRuntime.init(this.getSystemRuntimeContext(), iPSSysTestPrj);
+		} catch (Exception ex) {
+			throw new SystemRuntimeException(this, String.format("初始化系统测试项目[%1$s]运行时对象发生异常，%2$s", iPSSysTestPrj.getName(), ex.getMessage()), ex);
+		}
+		if (this.sysTestPrjRuntimeMap == null) {
+			this.sysTestPrjRuntimeMap = new HashMap<>();
+		}
+
+		this.sysTestPrjRuntimeMap.put(iPSSysTestPrj.getId(), iSysTestPrjRuntime);
+		if(StringUtils.hasLength(iPSSysTestPrj.getCodeName())) {
+			this.sysTestPrjRuntimeMap.put(iPSSysTestPrj.getCodeName().toLowerCase(), iSysTestPrjRuntime);
+		}
+		return iSysTestPrjRuntime;
+	}
+	
+	@Override
+	public ISysTestPrjRuntime createSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj) {
+		Assert.notNull(iPSSysTestPrj, "传入预置资源模型对象无效");
+		ISysTestPrjRuntime iSysTestPrjRuntime = this.getRuntimeObject(iPSSysTestPrj.getPSSysSFPlugin(), ISysTestPrjRuntime.class, true);
+		if (iSysTestPrjRuntime != null) {
+			return iSysTestPrjRuntime;
+		}
+		
+		if(iPSSysTestPrj.getPSSystemModule()!=null) {
+			ISystemModuleUtilRuntime iSystemModuleUtilRuntime = this.getSystemModuleUtilRuntime(iPSSysTestPrj.getPSSystemModuleMust().getId(), true);
+			if(iSystemModuleUtilRuntime != null) {
+				iSysTestPrjRuntime = iSystemModuleUtilRuntime.createSysTestPrjRuntime(iPSSysTestPrj);
+				if (iSysTestPrjRuntime != null) {
+					return iSysTestPrjRuntime;
+				}
+			}
+		}
+		
+		return this.onCreateSysTestPrjRuntime(iPSSysTestPrj);
+	}
+	
+	protected ISysTestPrjRuntime onCreateSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj) {
+		// 判断测试工具
+		ISysTestPrjRuntime iSysTestPrjRuntime = this.getRuntimeObject(ISysTestPrjRuntime.class, iPSSysTestPrj.getPrjType());
+		if (iSysTestPrjRuntime != null) {
+			return iSysTestPrjRuntime;
+		}
+
+		iSysTestPrjRuntime = this.getRuntimeObject(ISysTestPrjRuntime.class, null);
+		if (iSysTestPrjRuntime != null) {
+			return iSysTestPrjRuntime;
+		}
+		
+		return createDefaultSysTestPrjRuntime(iPSSysTestPrj);
+	}
+
+	protected ISysTestPrjRuntime createDefaultSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj) {
+		return this.createDefaultSysTestPrjRuntime();
+	}
+
+	protected ISysTestPrjRuntime createDefaultSysTestPrjRuntime() {
+		return new SysTestPrjRuntime();
+	}
+	
+	
 	@Override
 	public String getDeploySessionId() {
 		return this.strDeploySessionId;
@@ -3872,8 +4007,42 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		if (iPSSysContent != null && StringUtils.hasLength(iPSSysContent.getContent())) {
 			return iPSSysContent.getContent();
 		}
+		
+		if(strPath.indexOf("/") == 0) {
+			String strContent =  ResourcesUtils.getInstance().getResourceContent(strPath, true);
+			if(StringUtils.hasLength(strContent)) {
+				return strContent;
+			}
+		}
+		
 		return strDefault;
 	}
+	
+	
+	@Override
+	public String getResourceContent(Class<?> clazz, String resourcePath, boolean tryMode) {
+		String strPath = String.format("/%1$s_%2$s", clazz.getName().replace(".", "/"), resourcePath);
+		IPSSysContent iPSSysContent = this.getResourcePSSysContent(strPath, true);
+		if (iPSSysContent != null && StringUtils.hasLength(iPSSysContent.getContent())) {
+			return iPSSysContent.getContent();
+		}
+		return ResourcesUtils.getInstance().getResourceContent(strPath, tryMode);
+	}
+	
+	@Override
+	public String getResourceContent(Class<?> clazz, String resourcePath, String strDefault) {
+		String strPath = String.format("/%1$s_%2$s", clazz.getName().replace(".", "/"), resourcePath);
+		IPSSysContent iPSSysContent = this.getResourcePSSysContent(strPath, true);
+		if (iPSSysContent != null && StringUtils.hasLength(iPSSysContent.getContent())) {
+			return iPSSysContent.getContent();
+		}
+		String strContent =  ResourcesUtils.getInstance().getResourceContent(strPath, true);
+		if(StringUtils.hasLength(strContent)) {
+			return strContent;
+		}
+		return strDefault;
+	}
+	
 	
 	@Override
 	public Object execute(ISystemRuntimeContextAction iSystemRuntimeContextAction, Object[] args) throws Throwable {
@@ -4016,6 +4185,7 @@ public class SystemRuntime extends SystemRuntimeBase implements ISystemRuntime {
 		ModelRuntimeUtils.shutdownModelRuntimes(this.sysBackendTaskRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.subSysServiceAPIRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.sysTestDataRuntimeMap);
+		ModelRuntimeUtils.shutdownModelRuntimes(this.sysTestPrjRuntimeMap);
 		ModelRuntimeUtils.shutdownModelRuntimes(this.sysUniStateRuntimeMap);
 
 		super.onShutdown();

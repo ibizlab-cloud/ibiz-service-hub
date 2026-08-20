@@ -42,7 +42,7 @@ public interface IPSDEDataViewDataItem extends net.ibizsys.model.data.IPSDataIte
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

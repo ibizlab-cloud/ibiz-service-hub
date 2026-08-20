@@ -16,14 +16,14 @@ public interface IPSAppIndexView extends net.ibizsys.model.app.view.IPSAppView{
 	 * 获取图标路径
 	 * @return
 	 */
-	java.lang.String getAppIconPath();
+	String getAppIconPath();
 	
 	
 	/**
 	 * 获取图标路径2
 	 * @return
 	 */
-	java.lang.String getAppIconPath2();
+	String getAppIconPath2();
 	
 	
 	/**
@@ -39,7 +39,7 @@ public interface IPSAppIndexView extends net.ibizsys.model.app.view.IPSAppView{
 	 * 获取下方信息，默认首页视图使用前端应用的下方信息定义{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_BOTTOMINFO}
 	 * @return
 	 */
-	java.lang.String getBottomInfo();
+	String getBottomInfo();
 	
 	
 	/**
@@ -60,7 +60,7 @@ public interface IPSAppIndexView extends net.ibizsys.model.app.view.IPSAppView{
 	 * 获取头部信息，默认首页视图使用前端应用的头部信息定义{@link net.ibizsys.centralstudio.dto.PSSysAppDTO#FIELD_HEADERINFO}
 	 * @return
 	 */
-	java.lang.String getHeaderInfo();
+	String getHeaderInfo();
 	
 	
 	/**
@@ -69,7 +69,7 @@ public interface IPSAppIndexView extends net.ibizsys.model.app.view.IPSAppView{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppIndexViewMenuAlign}
 	 * @return
 	 */
-	java.lang.String getMainMenuAlign();
+	String getMainMenuAlign();
 	
 	
 	/**

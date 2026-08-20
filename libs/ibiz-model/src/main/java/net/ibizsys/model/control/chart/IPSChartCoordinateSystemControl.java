@@ -14,7 +14,7 @@ public interface IPSChartCoordinateSystemControl extends net.ibizsys.model.contr
 	 * 获取基础配置Json内容
 	 * @return
 	 */
-	java.lang.String getBaseOptionJOString();
+	String getBaseOptionJOString();
 	
 	
 	/**
@@ -35,5 +35,5 @@ public interface IPSChartCoordinateSystemControl extends net.ibizsys.model.contr
 	 * 获取部件类型
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

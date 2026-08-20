@@ -16,14 +16,14 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TextAlign}
 	 * @return
 	 */
-	java.lang.String getHAlignSelf();
+	String getHAlignSelf();
 	
 	
 	/**
 	 * 获取布局高度
 	 * @return
 	 */
-	java.lang.Integer getHeight();
+	Integer getHeight();
 	
 	
 	/**
@@ -32,14 +32,14 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.HeightMode}
 	 * @return
 	 */
-	java.lang.String getHeightMode();
+	String getHeightMode();
 	
 	
 	/**
 	 * 获取布局模式
 	 * @return
 	 */
-	java.lang.String getLayout();
+	String getLayout();
 	
 	
 	/**
@@ -48,7 +48,7 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SpacingMode}
 	 * @return
 	 */
-	java.lang.String getSpacingBottom();
+	String getSpacingBottom();
 	
 	
 	/**
@@ -57,7 +57,7 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SpacingMode}
 	 * @return
 	 */
-	java.lang.String getSpacingLeft();
+	String getSpacingLeft();
 	
 	
 	/**
@@ -66,7 +66,7 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SpacingMode}
 	 * @return
 	 */
-	java.lang.String getSpacingRight();
+	String getSpacingRight();
 	
 	
 	/**
@@ -75,7 +75,7 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SpacingMode}
 	 * @return
 	 */
-	java.lang.String getSpacingTop();
+	String getSpacingTop();
 	
 	
 	/**
@@ -84,14 +84,14 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TextVAlign}
 	 * @return
 	 */
-	java.lang.String getVAlignSelf();
+	String getVAlignSelf();
 	
 	
 	/**
 	 * 获取布局宽度
 	 * @return
 	 */
-	java.lang.Integer getWidth();
+	Integer getWidth();
 	
 	
 	/**
@@ -100,5 +100,5 @@ public interface IPSLayoutPos extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WidthMode}
 	 * @return
 	 */
-	java.lang.String getWidthMode();
+	String getWidthMode();
 }

@@ -43,8 +43,8 @@ public class DELogicDELogicNodeRuntime extends DELogicNodeRuntimeBase{
 		
 		
 		List list = DELogicParamRuntime.asList(objParam);
+		Object objRet =null;
 		if(list != null) {
-			Object objRet = null;
 			for(Object item : list) {
 				objRet =dstDELogicRuntime.execute(new Object[] {item});
 				
@@ -60,13 +60,22 @@ public class DELogicDELogicNodeRuntime extends DELogicNodeRuntimeBase{
 			iDELogicSession.setLastReturn(objRet);
 		}
 		else {
-			Object objRet = dstDELogicRuntime.execute(new Object[] {objParam});
+			objRet = dstDELogicRuntime.execute(new Object[] {objParam});
 			
 			if(iDELogicRuntimeContext.getDELogicRuntime().isOutputDebugInfo()) {
 				iDELogicSession.debugInfo(String.format("调用逻辑[%1$s] ==> %2$s", dstPSDELogic.getName(), objRet));
 			}
 			
 			iDELogicSession.setLastReturn(objRet);
+		}
+
+		if(iPSDEDELogicLogic.getRetPSDELogicParam() != null) {
+			IDELogicParamRuntime retDELogicParamRuntime = iDELogicRuntimeContext.getDELogicRuntime().getDELogicParamRuntime(iPSDEDELogicLogic.getRetPSDELogicParam().getCodeName(), false);
+			retDELogicParamRuntime.bind(iDELogicSession, objRet);
+
+			if(iDELogicRuntimeContext.getDELogicRuntime().isOutputDebugInfo()) {
+				iDELogicSession.debugInfo(String.format("绑定返回值[%1$s] <== %2$s", retDELogicParamRuntime.getCodeName(), objRet));
+			}
 		}
 	}
 	

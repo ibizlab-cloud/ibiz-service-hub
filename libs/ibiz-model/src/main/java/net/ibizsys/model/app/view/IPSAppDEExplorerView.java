@@ -17,7 +17,7 @@ public interface IPSAppDEExplorerView extends net.ibizsys.model.app.view.IPSAppE
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditViewMarkOpenDataMode}
 	 * @return
 	 */
-	java.lang.String getMarkOpenDataMode();
+	String getMarkOpenDataMode();
 	
 	
 	/**

@@ -1,6 +1,9 @@
 package net.ibizsys.runtime.dataentity.datasync;
 
 import org.springframework.util.Assert;
+import org.springframework.util.ObjectUtils;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.ibizsys.model.IPSModelObject;
 import net.ibizsys.model.dataentity.datasync.IPSDEDataSync;
@@ -10,6 +13,8 @@ import net.ibizsys.runtime.ModelRuntimeBase;
 import net.ibizsys.runtime.dataentity.IDataEntityRuntime;
 import net.ibizsys.runtime.dataentity.IDataEntityRuntimeBase;
 import net.ibizsys.runtime.dataentity.IDynaInstDataEntityRuntime;
+import net.ibizsys.runtime.util.JsonUtils;
+import net.ibizsys.runtime.util.YamlUtils;
 
 /**
  * 实体数据同步运行时对象接口
@@ -25,6 +30,7 @@ public abstract class DEDataSyncRuntimeBase extends ModelRuntimeBase implements 
 	private IDataEntityRuntime iDataEntityRuntime = null;
 	private IDynaInstDataEntityRuntime iDynaInstDataEntityRuntime = null;
 	private int nEventType = DEDataSyncEvents.NONE;
+	private ObjectNode filterModel = null;
 
 	@Override
 	public void init(IDataEntityRuntimeBase iDataEntityRuntimeBase, IPSDEDataSync iPSDEDataSync) throws Exception {
@@ -44,6 +50,23 @@ public abstract class DEDataSyncRuntimeBase extends ModelRuntimeBase implements 
 
 		this.iPSDEDataSync = iPSDEDataSync;
 		this.nEventType = this.getPSDEDataSync().getEventType();
+		
+		if(!ObjectUtils.isEmpty(this.getPSDEDataSync().getFilterModel())) {
+			try {
+				this.filterModel = JsonUtils.toObjectNode(this.getPSDEDataSync().getFilterModel());
+			}
+			catch (Throwable ex) {
+				
+			}
+			
+			if(this.filterModel == null) {
+				this.filterModel = JsonUtils.toObjectNode(YamlUtils.asMap(this.getPSDEDataSync().getFilterModel()));
+			}
+		}
+		else {
+			this.filterModel = JsonUtils.createObjectNode();
+		}
+		
 		this.onInit();
 	}
 
@@ -88,5 +111,13 @@ public abstract class DEDataSyncRuntimeBase extends ModelRuntimeBase implements 
 
 	public int getEventType() {
 		return this.nEventType;
+	}
+	
+	/**
+	 * 获取过滤器模型
+	 * @return
+	 */
+	protected ObjectNode getFilterModel() {
+		return this.filterModel;
 	}
 }

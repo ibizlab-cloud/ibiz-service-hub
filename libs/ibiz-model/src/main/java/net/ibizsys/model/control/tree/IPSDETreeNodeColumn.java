@@ -29,14 +29,14 @@ public interface IPSDETreeNodeColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取表格列样式
 	 * @return
 	 */
-	java.lang.String getColumnStyle();
+	String getColumnStyle();
 	
 	
 	/**
@@ -45,14 +45,14 @@ public interface IPSDETreeNodeColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColType}
 	 * @return
 	 */
-	java.lang.String getColumnType();
+	String getColumnType();
 	
 	
 	/**
 	 * 获取列数据项名称
 	 * @return
 	 */
-	java.lang.String getDataItemName();
+	String getDataItemName();
 	
 	
 	/**

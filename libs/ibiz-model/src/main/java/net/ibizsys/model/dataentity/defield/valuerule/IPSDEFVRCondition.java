@@ -14,14 +14,14 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	 * 获取条件标记
 	 * @return
 	 */
-	java.lang.String getCondTag();
+	String getCondTag();
 	
 	
 	/**
 	 * 获取条件标记2
 	 * @return
 	 */
-	java.lang.String getCondTag2();
+	String getCondTag2();
 	
 	
 	/**
@@ -30,21 +30,21 @@ public interface IPSDEFVRCondition extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRType}
 	 * @return
 	 */
-	java.lang.String getCondType();
+	String getCondType();
 	
 	
 	/**
 	 * 获取规则信息
 	 * @return
 	 */
-	java.lang.String getRuleInfo();
+	String getRuleInfo();
 	
 	
 	/**
 	 * 获取规则信息语言资源标记
 	 * @return
 	 */
-	java.lang.String getRuleInfoLanResTag();
+	String getRuleInfoLanResTag();
 	
 	
 	/**

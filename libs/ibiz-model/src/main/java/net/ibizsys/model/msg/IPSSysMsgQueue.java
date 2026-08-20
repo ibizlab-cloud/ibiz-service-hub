@@ -91,14 +91,14 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	 * 获取消息队列标记
 	 * @return
 	 */
-	java.lang.String getMsgQueueTag();
+	String getMsgQueueTag();
 	
 	
 	/**
 	 * 获取消息队列标记2
 	 * @return
 	 */
-	java.lang.String getMsgQueueTag2();
+	String getMsgQueueTag2();
 	
 	
 	/**
@@ -107,7 +107,7 @@ public interface IPSSysMsgQueue extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgQueueType}
 	 * @return
 	 */
-	java.lang.String getMsgQueueType();
+	String getMsgQueueType();
 	
 	
 	/**

@@ -78,6 +78,11 @@ public class SubSysServiceAPIRTScriptContext implements ISubSysServiceAPIRTScrip
 			throw new SubSysServiceAPIRuntimeException(getSubSysServiceAPIRuntime(), String.format("无法识别的请求头数据"));
 		return this;
 	}
+	
+	@Override
+	public Map getHeaders() {
+		return this.getSubSysServiceAPIRuntime().getHeaders();
+	}
 
 	
 	@Override

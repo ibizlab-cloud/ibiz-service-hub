@@ -15,6 +15,7 @@ public class PSDataItemParamImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETUSERTAG2 = "userTag2";
 	public final static String ATTR_GETUSERTAG3 = "userTag3";
 	public final static String ATTR_GETUSERTAG4 = "userTag4";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	@Deprecated
 	public java.lang.String getCodeName(){
@@ -125,5 +126,14 @@ public class PSDataItemParamImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return null;
 		}
 		return value.asText();
+	}
+
+	@Deprecated
+	public boolean isNestedModel(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_ISNESTEDMODEL);
+		if(value == null){
+			return false;
+		}
+		return value.asBoolean();
 	}
 }

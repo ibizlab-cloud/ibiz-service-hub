@@ -14,7 +14,7 @@ public interface IPSAppBICube extends net.ibizsys.model.IPSModelObject{
 	 * 获取访问标识
 	 * @return
 	 */
-	java.lang.String getAccessKey();
+	String getAccessKey();
 	
 	
 	/**

@@ -10,6 +10,7 @@ public class PSDEFormItemVRImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETPSDEFORMITEMNAME = "getPSDEFormItemName";
 	public final static String ATTR_GETPSSYSVALUERULE = "getPSSysValueRule";
 	public final static String ATTR_GETVALUERULETYPE = "valueRuleType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public int getCheckMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCHECKMODE);
@@ -85,5 +86,9 @@ public class PSDEFormItemVRImpl extends net.ibizsys.model.PSObjectImpl implement
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

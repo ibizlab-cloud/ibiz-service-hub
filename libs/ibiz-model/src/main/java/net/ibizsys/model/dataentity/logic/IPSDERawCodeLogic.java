@@ -16,14 +16,14 @@ public interface IPSDERawCodeLogic extends net.ibizsys.model.dataentity.logic.IP
 	 * 获取直接代码
 	 * @return
 	 */
-	java.lang.String getCode();
+	String getCode();
 	
 	
 	/**
 	 * 获取代码类型
 	 * @return
 	 */
-	java.lang.String getCodeType();
+	String getCodeType();
 	
 	
 	/**

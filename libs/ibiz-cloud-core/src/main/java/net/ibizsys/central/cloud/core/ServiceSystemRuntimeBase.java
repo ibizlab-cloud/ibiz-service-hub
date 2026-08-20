@@ -28,13 +28,15 @@ import net.ibizsys.central.backend.ISysBackendTaskRuntime;
 import net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntime;
 import net.ibizsys.central.cloud.core.app.IServiceAppRuntime;
 import net.ibizsys.central.cloud.core.app.IServletAppRuntime;
+import net.ibizsys.central.cloud.core.app.ServletAppRuntime;
 import net.ibizsys.central.cloud.core.ba.CloudOSSBDSchemeRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudPortalClient;
 import net.ibizsys.central.cloud.core.dataentity.ac.DEChatCompletionRuntime;
+import net.ibizsys.central.cloud.core.dataentity.dataexport.CsvDEDataExportRuntime;
 import net.ibizsys.central.cloud.core.dataentity.dataexport.JsonDEDataExportRuntime;
+import net.ibizsys.central.cloud.core.dataentity.dataexport.TsvDEDataExportRuntime;
 import net.ibizsys.central.cloud.core.dataentity.dataflow.DEDataFlowRuntime;
-import net.ibizsys.central.cloud.core.dataentity.dataimport.JsonDEDataImportRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionRequestParamRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicChatCompletionResultParamRuntime;
 import net.ibizsys.central.cloud.core.dataentity.logic.DELogicSysAIChatAgentNodeRuntime;
@@ -56,6 +58,7 @@ import net.ibizsys.central.cloud.core.sysutil.ISysCloudLogUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysKBUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysUAAUtilRuntime;
+import net.ibizsys.central.cloud.core.testing.ISysTestPrjRuntime;
 import net.ibizsys.central.cloud.core.util.IPortalAsyncAction;
 import net.ibizsys.central.cloud.core.util.UserCancelException;
 import net.ibizsys.central.cloud.core.util.domain.Employee;
@@ -87,6 +90,7 @@ import net.ibizsys.model.PSModelEnums.DEUtilType;
 import net.ibizsys.model.PSModelEnums.ModuleUtilType;
 import net.ibizsys.model.PSModelEnums.PrintType;
 import net.ibizsys.model.PSModelEnums.SysRefType;
+import net.ibizsys.model.PSModelEnums.SysUtilType;
 import net.ibizsys.model.ai.IPSSysAIFactory;
 import net.ibizsys.model.app.IPSApplication;
 import net.ibizsys.model.dataentity.logic.IPSDELogicParam;
@@ -138,6 +142,9 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.ACTIVEMQ, "net.ibizsys.central.plugin.activemq.eai.ActiveMQEAIAgentRuntime");
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.ROCKETMQ, "net.ibizsys.central.plugin.rocketmq.eai.RocketMQEAIAgentRuntime");
 		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.MQTT, "net.ibizsys.central.plugin.eai.MqttEAIAgentRuntime");
+		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.FTP, "net.ibizsys.central.plugin.eai.FTPFileSyncAgentRuntime");
+		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.SMB, "net.ibizsys.central.plugin.eai.SMBFileSyncAgentRuntime");
+		registerRuntimeObjectIf(ISysDataSyncAgentRuntime.class, SysDataSyncAgentTypes.SFTP, "net.ibizsys.central.plugin.jsch.eai.JSchSFTPSysFileSyncAgentRuntime");
 
 		registerRuntimeObjectIf(ISubSysServiceAPIRuntime.class, null, "net.ibizsys.central.plugin.cloud.service.CloudServiceClientRuntime");
 		registerRuntimeObjectIf(IWebClient.class, null, "net.ibizsys.central.plugin.spring.service.client.WebFluxClient");
@@ -157,6 +164,9 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:DATAFLOW", "net.ibizsys.central.plugin.cloud.sysutil.SysDataFlowUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:KB", "net.ibizsys.central.plugin.cloud.sysutil.SysKBUtilRuntime");
 		registerRuntimeObjectIf(ISysUtilRuntime.class, "USER:CHATPROMPT", "net.ibizsys.central.plugin.ai.sysutil.SysChatPromptUtilRuntime");
+		
+		registerRuntimeObjectIf(ISysUtilRuntime.class, SysUtilType.TASK.value, "net.ibizsys.central.plugin.task.sysutil.DefaultSysTaskUtilRuntime");
+		registerRuntimeObjectIf(ISysUtilRuntime.class, SysUtilType.KNOWLEDGEBASE.value, "net.ibizsys.central.plugin.ai.sysutil.SysKnowledgeBaseUtilRuntime");
 
 		// registerRuntimeObjectIf(ISysUtilRuntime.class,
 		// "USER:DEBIREPORTPROXY",
@@ -179,6 +189,10 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.XLSX.value, "net.ibizsys.central.plugin.poi.dataentity.dataexport.POIDEDataExportRuntime");
 		registerRuntimeObjectIf(IDEDataImportRuntime.class, DEDataImpExpContentType.JSON.value, "net.ibizsys.central.plugin.poi.dataentity.dataimport.JsonDEDataImportRuntime");
 		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.JSON.value, JsonDEDataExportRuntime.class.getCanonicalName());
+		registerRuntimeObjectIf(IDEDataImportRuntime.class, DEDataImpExpContentType.CSV.value, "net.ibizsys.central.plugin.poi.dataentity.dataimport.CsvDEDataImportRuntime");
+		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.CSV.value, CsvDEDataExportRuntime.class.getCanonicalName());
+		registerRuntimeObjectIf(IDEDataImportRuntime.class, DEDataImpExpContentType.TSV.value, "net.ibizsys.central.plugin.poi.dataentity.dataimport.TsvDEDataImportRuntime");
+		registerRuntimeObjectIf(IDEDataExportRuntime.class, DEDataImpExpContentType.TSV.value, TsvDEDataExportRuntime.class.getCanonicalName());
 		
 		registerRuntimeObjectIf(IDEPrintRuntime.class, PrintType.FREEMARKER.value, FreeMarkerDEPrintRuntime.class.getCanonicalName());
 		registerRuntimeObjectIf(IDEPrintRuntime.class, PrintType.CHATRESOURCE.value, "net.ibizsys.central.plugin.ai.dataentity.print.DEChatResourceRuntime");
@@ -196,6 +210,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		registerRuntimeObjectIf(IDEFGroupRuntime.class, "LOGICMODE:AIFULLINFO", "net.ibizsys.central.plugin.ai.dataentity.defield.AIInfoDEFGroupRuntime");
 		
 		registerRuntimeObjectIf(ISysAIFactoryRuntime.class, "DEFAULT", "net.ibizsys.central.plugin.ai.agent.DefaultSysAIFactoryRuntime");
+		registerRuntimeObjectIf(ISysTestPrjRuntime.class, "net.ibizsys.central.plugin.test.testing.SysTestPrjRuntime");
 		
 		GroovySystem.getMetaClassRegistry().setMetaClassCreationHandle(new MetaClassCreationHandle());
 	}
@@ -209,6 +224,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	private ISysChatPromptUtilRuntime iSysChatPromptUtilRuntime = null;
 	private ISysCacheUtilRuntime iSysCacheUtilRuntime = null;
 	private ISysPortalUtilRuntime iSysPortalUtilRuntime = null;
+	private String strPSModelFolderPath = null;
 
 	protected static void setGlobalWorkThreadPoolExecutor(ThreadPoolExecutor globalWorkThreadPoolExecutor) {
 		ServiceSystemRuntimeBase.globalWorkThreadPoolExecutor = globalWorkThreadPoolExecutor;
@@ -420,24 +436,35 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 	@Override
 	protected IApplicationRuntime createApplicationRuntime(IPSApplication iPSApplication) {
 		if (!super.isEnableAppGateway()) {
-			if (iPSApplication.getPSSysSFPlugin() == null) {
-				return null;
-			}
-			IApplicationRuntime iApplicationRuntime = super.createApplicationRuntime(iPSApplication);
-			if (this.isEnableServletApp()) {
-				if (iApplicationRuntime instanceof IServletAppRuntime) {
-					return iApplicationRuntime;
+			if (iPSApplication.getPSSysSFPlugin() != null) {
+				IApplicationRuntime iApplicationRuntime = super.createApplicationRuntime(iPSApplication);
+				if (this.isEnableServletApp()) {
+					if (iApplicationRuntime instanceof IServletAppRuntime) {
+						return iApplicationRuntime;
+					}
+				}
+				if (this.isEnableServiceApp()) {
+					if (iApplicationRuntime instanceof IServiceAppRuntime) {
+						return iApplicationRuntime;
+					}
 				}
 			}
-			if (this.isEnableServiceApp()) {
-				if (iApplicationRuntime instanceof IServiceAppRuntime) {
-					return iApplicationRuntime;
-				}
+			
+			if(iPSApplication.getPSSysResource() != null) {
+				return new ServletAppRuntime();
 			}
 			return null;
 		}
 
 		return super.createApplicationRuntime(iPSApplication);
+	}
+	
+	@Override
+	protected IApplicationRuntime createDefaultApplicationRuntime(IPSApplication iPSApplication) {
+		if(iPSApplication.getPSSysResource() != null) {
+			return new ServletAppRuntime();
+		}
+		return super.createDefaultApplicationRuntime(iPSApplication);
 	}
 
 	@Override
@@ -557,11 +584,15 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 						portalAsyncAction.setStepInfo(strLastActionStep);
 						portalAsyncAction.set("completionrate", fLastCompletionRate);
 						// portalAsyncAction.setFullStepInfo(strLastActionFullStep);
-
+						boolean bDisabled = EmployeeContext.isCurrentDisabled();
 						try {
+							EmployeeContext.setCurrentDisabled(true);
 							portalAsyncAction = iCloudPortalClient.executeAsyncAction(strAsyncActionId, portalAsyncAction);
 						} catch (Throwable ex) {
 							log.error(String.format("执行门户异步作业发生异常，%1$s", ex.getMessage()), ex);
+						}
+						finally {
+							EmployeeContext.setCurrentDisabled(bDisabled);
 						}
 					}
 
@@ -613,11 +644,16 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 			portalAsyncAction.setFullStepInfo(actionSession.getActionFullStep());
 
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
 			try {
+				EmployeeContext.setCurrentDisabled(true);
 				iCloudPortalClient.finishAsyncAction(strAsyncActionId, portalAsyncAction);
 			} catch (Throwable ex) {
 				ex = ExceptionUtils.unwrapThrowable(ex);
 				throw new Exception(String.format("完成门户异步作业发生异常，%1$s", ex.getMessage()), ex);
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
 			}
 
 			if (bOpenActionSession) {
@@ -637,7 +673,9 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			portalAsyncAction.setAsyncAcitonId(strAsyncActionId);
 			portalAsyncAction.setActionResult(ex.getMessage());
 			portalAsyncAction.setFullStepInfo(actionSession.getActionFullStep());
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
 			try {
+				EmployeeContext.setCurrentDisabled(true);
 				if(ex instanceof UserCancelException) {
 					iCloudPortalClient.cancelAsyncAction(strAsyncActionId, portalAsyncAction);
 				}
@@ -645,6 +683,9 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					iCloudPortalClient.errorAsyncAction(strAsyncActionId, portalAsyncAction);
 			} catch (Throwable ex2) {
 				log.error(String.format("执行门户异步作业发生异常，%1$s", ex2.getMessage()), ex2);
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
 			}
 
 			throw ex;
@@ -747,7 +788,7 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 					String strActionResult = actionSession.getActionResult();
 					String strActionStep = actionSession.getActionStep();
 					double fCompletionRate = actionSession.getCompletionRate();
-					String strActionFullStep = actionSession.getActionFullStep();
+					//String strActionFullStep = actionSession.getActionFullStep();
 					String strAsyncAcitonId = (String)actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_ID);
 					if(StringUtils.hasLength(strAsyncAcitonId)) {
 						portalAsyncAction.setAsyncAcitonId(strAsyncAcitonId);
@@ -804,7 +845,6 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 
 			portalAsyncAction.setActionState(PortalAsyncActionState.EXECUTING.getValue());
 			portalAsyncAction.setBeginTime(new java.sql.Timestamp(System.currentTimeMillis()));
-			// portalAsyncAction.set
 			try {
 				sseEmitter.send(portalAsyncAction);
 			} catch (IOException ex) {
@@ -887,6 +927,422 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 			}
 
 			sseEmitter.completeWithError(ex);
+
+			throw ex;
+		} finally {
+
+		}
+	}
+	
+	
+	
+	@Override
+	public Object sseAsyncActionOutput(String strAsyncActionId, long nTimeout) throws Throwable {
+
+		final SseEmitter sseEmitter = (nTimeout == -1) ? new SseEmitter() : new SseEmitter(nTimeout);
+
+		this.threadRun(new INamedRunnable() {
+			@Override
+			public void run() {
+				try {
+					onSseAsyncActionOutput(strAsyncActionId, sseEmitter);
+				} catch (Throwable ex) {
+					log.error(ex);
+				}
+			}
+			
+			@Override
+			public Executor getExecutor() {
+				return getGlobalSseThreadPoolExecutor();
+			}
+		});
+
+		return sseEmitter;
+	}
+	
+	protected void onSseAsyncActionOutput(String strAsyncActionId, SseEmitter sseEmitter) throws Throwable {
+		// 开启会话
+		boolean bOpenActionSession = (ActionSessionManager.getCurrentSession() == null);
+		if (bOpenActionSession) {
+			ActionSessionManager.openSession();
+			ActionSessionManager.getCurrentSession().setUserContext(EmployeeContext.getCurrent());
+		}
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		String strWorkTag = KeyValueUtils.genUniqueId();
+		String strLastResultTag = KeyValueUtils.genUniqueId();
+
+		PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+		portalAsyncAction.setActionState(PortalAsyncActionState.NOTSTARTED.getValue());
+		portalAsyncAction.setAsyncAcitonId(strAsyncActionId);
+
+		try {
+			sseEmitter.send(portalAsyncAction);
+		} catch (IOException ex) {
+			log.error(ex);
+		}
+
+		actionSession.setActionParam(strWorkTag, "1");
+
+		// 空闲超时
+		int nTimeout = 20 * 60 * 1000;
+		threadRun(new INamedRunnable() {
+			@Override
+			public void run() {
+
+				String strLastActionStep = actionSession.getActionStep();
+				double fLastCompletionRate = actionSession.getCompletionRate();
+				String strLastActionResult = actionSession.getActionResult();
+				
+				long nLastActive = System.currentTimeMillis();
+
+				while (true) {
+					Object objValue = actionSession.getActionParam(strWorkTag);
+					if (ObjectUtils.isEmpty(objValue)) {
+						break;
+					}
+
+					String strActionResult = actionSession.getActionResult();
+					String strActionStep = actionSession.getActionStep();
+					double fCompletionRate = actionSession.getCompletionRate();
+					//String strActionFullStep = actionSession.getActionFullStep();
+					String strAsyncAcitonId = (String)actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+					if(StringUtils.hasLength(strAsyncAcitonId)) {
+						portalAsyncAction.setAsyncAcitonId(strAsyncAcitonId);
+					}
+					
+					if (DataTypeUtils.compare(strLastActionStep, strActionStep) != 0 || DataTypeUtils.compare(strLastActionResult, strActionResult) != 0 || fLastCompletionRate != fCompletionRate) {
+						// 执行任务更新
+						String strTemp = strLastActionResult;
+						strLastActionResult = strActionResult;
+
+						actionSession.setActionParam(strLastResultTag, strLastActionResult);
+
+						strLastActionStep = strActionStep;
+						fLastCompletionRate = fCompletionRate;
+
+						portalAsyncAction.setStepInfo(strLastActionStep);
+
+						if (StringUtils.hasLength(strLastActionResult) && StringUtils.hasLength(strTemp) && (strLastActionResult.indexOf(strTemp) == 0)) {
+							portalAsyncAction.setActionResult(strLastActionResult.substring(strTemp.length()));
+						} else {
+							portalAsyncAction.setActionResult(strLastActionResult);
+						}
+
+						portalAsyncAction.set("completionrate", fLastCompletionRate);
+
+						try {
+							nLastActive = System.currentTimeMillis();
+							sseEmitter.send(portalAsyncAction);
+						} catch (IOException ex) {
+							log.error(ex);
+						}
+					}
+
+					try {
+						Thread.sleep(20);
+					} catch (InterruptedException ex) {
+						log.error(ex);
+					}
+
+					if (nLastActive - System.currentTimeMillis() >= nTimeout) {
+						log.warn(String.format("已经超过[%1$s]没有激活，关闭链路", nTimeout));
+						break;
+					}
+				}
+			}
+			
+			@Override
+			public Executor getExecutor() {
+				return getGlobalSseThreadPoolExecutor();
+			}
+		});
+
+		try {
+			long nCurrentTime = System.currentTimeMillis();
+			portalAsyncAction.setActionState(PortalAsyncActionState.EXECUTING.getValue());
+			portalAsyncAction.setBeginTime(new java.sql.Timestamp(System.currentTimeMillis()));
+			try {
+				sseEmitter.send(portalAsyncAction);
+			} catch (IOException ex) {
+				log.error(ex);
+			}
+
+			Object objRet = null;
+			while (true) {
+				boolean bDisabled = EmployeeContext.isCurrentDisabled();
+				PortalAsyncAction last = null;
+				try {
+					EmployeeContext.setCurrentDisabled(true);
+					last = getSysPortalUtilRuntime(false).getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+				}
+				finally {
+					EmployeeContext.setCurrentDisabled(bDisabled);
+				}
+				
+				double fCompletionRate = 0.0f;
+				if (last.getCompletionRate() != null) {
+					fCompletionRate = last.getCompletionRate().doubleValue();
+				}
+		
+				if (DataTypeUtils.compare(actionSession.getActionStep(), last.getStepInfo(), false) != 0) {
+					nCurrentTime = System.currentTimeMillis();
+				}
+		
+				int nActionState = DataTypeUtils.getIntegerValue(last.getActionState(), PortalAsyncActionState.EXECUTING.getValue());
+				if (nActionState == PortalAsyncActionState.EXECUTING.getValue()) {
+					actionSession.updateActionStep(last.getStepInfo(), fCompletionRate, last.getActionResult());
+				}
+		
+				if (nActionState == PortalAsyncActionState.FINISHED.getValue()) {
+					objRet = last.getActionResult();
+					break;
+				}
+				if (nActionState == PortalAsyncActionState.CANCELED.getValue()) {
+					throw new UserCancelException(last.getActionResult());
+				}
+		
+				if (nActionState == PortalAsyncActionState.FAILED.getValue()) {
+					throw new Exception(last.getActionResult());
+				}
+		
+				if (System.currentTimeMillis() - nCurrentTime >= nTimeout) {
+					throw new Exception("反馈超时");
+				}
+		
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException ex) {
+					log.error(ex);
+				}
+			}
+			// 移除线程参数
+			actionSession.removeActionParam(strWorkTag);
+
+			// 完成最后一步数据
+			String strActionResult = actionSession.getActionResult();
+			String strLastActionResult = (String) actionSession.getActionParam(strLastResultTag);
+			if (StringUtils.hasLength(strActionResult) && StringUtils.hasLength(strLastActionResult) && strActionResult.length() > strLastActionResult.length()) {
+				portalAsyncAction.setActionResult(strActionResult.substring(strLastActionResult.length()));
+				portalAsyncAction.setStepInfo(actionSession.getActionStep());
+				portalAsyncAction.set("completionrate", actionSession.getCompletionRate());
+				try {
+					sseEmitter.send(portalAsyncAction);
+				} catch (IOException ex) {
+					log.error(ex);
+				}
+			}
+
+			portalAsyncAction.set("completionrate", 100.0);
+			portalAsyncAction.setStepInfo(null);
+			if (objRet != null) {
+				if (objRet instanceof String) {
+					portalAsyncAction.setActionResult((String) objRet);
+				} else {
+					String strResult = WebClientBase.getOutputMapper().writeValueAsString(objRet);
+					portalAsyncAction.setActionResult(strResult);
+				}
+
+			}
+
+			Object objDownloadRUrl = actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_DOWNLOADURL);
+			if (objDownloadRUrl != null) {
+				if (objDownloadRUrl instanceof String) {
+					portalAsyncAction.setAsyncResultDownloadUrl((String) objDownloadRUrl);
+				} else {
+					String strResult = WebClientBase.getOutputMapper().writeValueAsString(objDownloadRUrl);
+					portalAsyncAction.setAsyncResultDownloadUrl(strResult);
+				}
+			}
+
+			portalAsyncAction.setActionState(PortalAsyncActionState.FINISHED.getValue());
+			portalAsyncAction.setEndTime(new java.sql.Timestamp(System.currentTimeMillis()));
+
+			try {
+				sseEmitter.send(portalAsyncAction);
+			} catch (IOException ex) {
+				log.error(ex);
+			}
+
+			sseEmitter.complete();
+
+			if (bOpenActionSession) {
+				ActionSessionManager.closeSession(true);
+			}
+
+		} catch (Throwable ex) {
+			actionSession.removeActionParam(strWorkTag);
+
+			if (bOpenActionSession) {
+				ActionSessionManager.closeSession(false);
+			}
+			if(ex instanceof UserCancelException) {
+				portalAsyncAction.setActionState(PortalAsyncActionState.CANCELED.getValue());
+			}else {
+				portalAsyncAction.setActionState(PortalAsyncActionState.FAILED.getValue());
+			}
+			portalAsyncAction.setEndTime(new java.sql.Timestamp(System.currentTimeMillis()));
+			portalAsyncAction.setActionResult(ex.getMessage());
+
+			try {
+				sseEmitter.send(portalAsyncAction);
+			} catch (IOException ex2) {
+				log.error(ex2);
+			}
+
+			sseEmitter.completeWithError(ex);
+
+			throw ex;
+		} finally {
+
+		}
+	}
+
+	@Override
+	public PortalAsyncAction syncExecute(IAction iAction, Object[] args, Object actionTag) throws Throwable {
+
+		// 建立同步作业
+		String strName = "同步作业";
+		if (iAction instanceof INamedAction) {
+			strName = ((INamedAction) iAction).getName();
+		}
+
+		ICloudPortalClient iCloudPortalClient = getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDSERVICEURL_PORTAL, ICloudPortalClient.class);
+
+		PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+		portalAsyncAction.setAsyncAcitonName(strName);
+		if (actionTag != null) {
+			if (actionTag instanceof Map) {
+				portalAsyncAction.putAll((Map) actionTag);
+			} else if (actionTag instanceof IEntity) {
+				IEntity iEntity = (IEntity) actionTag;
+				iEntity.copyTo(portalAsyncAction);
+			}
+		}
+
+		try {
+			portalAsyncAction = iCloudPortalClient.createAsyncAction(portalAsyncAction);
+		} catch (Throwable ex) {
+			throw new SystemRuntimeException(this, String.format("建立门户同步作业发生异常，%1$s", ex.getMessage()), ex);
+		}
+		
+		String strAsyncActionId = portalAsyncAction.getAsyncAcitonId();
+		
+		try {
+			return this.onSyncExecute(iAction, args, strAsyncActionId);
+		} catch (Throwable ex) {
+			throw new SystemRuntimeException(this, String.format("执行门户同步作业发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+
+	
+	protected PortalAsyncAction onSyncExecute(IAction iAction, Object[] args, String strAsyncActionId) throws Throwable {
+
+		ICloudPortalClient iCloudPortalClient = getCloudPortalClient();
+
+		// 开启会话
+		boolean bOpenActionSession = (ActionSessionManager.getCurrentSession() == null);
+		if (bOpenActionSession) {
+			String strActionName = null;
+			if(iAction instanceof INamedAction) {
+				strActionName = ((INamedAction)iAction).getName();
+			}
+			if(StringUtils.hasLength(strActionName)) {
+				ActionSessionManager.openSession().setName(strActionName);
+			}
+			else {
+				ActionSessionManager.openSession();
+			}
+			ActionSessionManager.getCurrentSession().setUserContext(EmployeeContext.getCurrent());
+		}
+
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+	
+		actionSession.setActionParam(ActionSession.PARAM_ASYNCACTION_ID, strAsyncActionId);
+
+		try {
+			PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+			portalAsyncAction.setAsyncAcitonId(strAsyncActionId);
+			// 开始执行
+			try {
+				iCloudPortalClient.executeAsyncAction(strAsyncActionId, portalAsyncAction);
+			} catch (Throwable ex) {
+				log.error(String.format("执行门户同步作业发生异常，%1$s", ex.getMessage()), ex);
+			}
+
+			Object objRet = iAction.execute(args);
+			// 移除线程参数
+			actionSession.removeActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+
+			if (objRet != null) {
+				if (objRet instanceof String) {
+					portalAsyncAction.setActionResult((String) objRet);
+				} else {
+					String strResult = WebClientBase.getOutputMapper().writeValueAsString(objRet);
+					portalAsyncAction.setActionResult(strResult);
+				}
+
+			} else {
+				portalAsyncAction.setActionResult(null);
+			}
+
+			Object objDownloadRUrl = actionSession.getActionParam(ActionSession.PARAM_ASYNCACTION_DOWNLOADURL);
+			if (objDownloadRUrl != null) {
+				if (objDownloadRUrl instanceof String) {
+					portalAsyncAction.setAsyncResultDownloadUrl((String) objDownloadRUrl);
+				} else {
+					String strResult = WebClientBase.getOutputMapper().writeValueAsString(objDownloadRUrl);
+					portalAsyncAction.setAsyncResultDownloadUrl(strResult);
+				}
+			}
+
+			portalAsyncAction.setFullStepInfo(actionSession.getActionFullStep());
+
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				portalAsyncAction = iCloudPortalClient.finishAsyncAction(strAsyncActionId, portalAsyncAction);
+			} catch (Throwable ex) {
+				ex = ExceptionUtils.unwrapThrowable(ex);
+				throw new Exception(String.format("完成门户同步作业发生异常，%1$s", ex.getMessage()), ex);
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
+
+			if (bOpenActionSession) {
+				ActionSessionManager.closeSession(true);
+			}
+			
+			portalAsyncAction.setRealResult(objRet);
+			return portalAsyncAction;
+
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			actionSession.removeActionParam(ActionSession.PARAM_ASYNCACTION_ID);
+			
+			if (bOpenActionSession) {
+				ActionSessionManager.closeSession(false);
+			}
+
+			PortalAsyncAction portalAsyncAction = new PortalAsyncAction();
+			portalAsyncAction.setAsyncAcitonId(strAsyncActionId);
+			portalAsyncAction.setActionResult(ex.getMessage());
+			portalAsyncAction.setFullStepInfo(actionSession.getActionFullStep());
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				if(ex instanceof UserCancelException) {
+					iCloudPortalClient.cancelAsyncAction(strAsyncActionId, portalAsyncAction);
+				}
+				else
+					iCloudPortalClient.errorAsyncAction(strAsyncActionId, portalAsyncAction);
+			} catch (Throwable ex2) {
+				log.error(String.format("执行门户同步作业发生异常，%1$s", ex2.getMessage()), ex2);
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
 
 			throw ex;
 		} finally {
@@ -1010,5 +1466,12 @@ public abstract class ServiceSystemRuntimeBase extends net.ibizsys.central.Syste
 		return this.iSysPortalUtilRuntime;
 	}
 	
+	@Override
+	public String getPSModelFolderPath() {
+		return StringUtils.hasLength(this.strPSModelFolderPath)?this.strPSModelFolderPath:super.getPSModelFolderPath();
+	}
 	
+	public void setQuickPSModelFolderPath(String strPSModelFolderPath) {
+		this.strPSModelFolderPath = strPSModelFolderPath;
+	}
 }

@@ -18,7 +18,7 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeNameMode}
 	 * @return
 	 */
-	java.lang.String getAPICodeNameMode();
+	String getAPICodeNameMode();
 	
 	
 	/**
@@ -27,21 +27,21 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysAPISource}
 	 * @return
 	 */
-	java.lang.String getAPISource();
+	String getAPISource();
 	
 	
 	/**
 	 * 获取接口标记
 	 * @return
 	 */
-	java.lang.String getAPITag();
+	String getAPITag();
 	
 	
 	/**
 	 * 获取接口标记2
 	 * @return
 	 */
-	java.lang.String getAPITag2();
+	String getAPITag2();
 	
 	
 	/**
@@ -50,7 +50,7 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysAPIType}
 	 * @return
 	 */
-	java.lang.String getAPIType();
+	String getAPIType();
 	
 	
 	/**
@@ -120,35 +120,35 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 获取认证参数3
 	 * @return
 	 */
-	java.lang.String getAuthParam3();
+	String getAuthParam3();
 	
 	
 	/**
 	 * 获取认证参数4
 	 * @return
 	 */
-	java.lang.String getAuthParam4();
+	String getAuthParam4();
 	
 	
 	/**
 	 * 获取认证脚本代码
 	 * @return
 	 */
-	java.lang.String getAuthScriptCode();
+	String getAuthScriptCode();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取处理对象
 	 * @return
 	 */
-	java.lang.String getHandler();
+	String getHandler();
 	
 	
 	/**
@@ -162,7 +162,7 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 获取方法调用脚本代码
 	 * @return
 	 */
-	java.lang.String getMethodScriptCode();
+	String getMethodScriptCode();
 	
 	
 	/**
@@ -227,28 +227,28 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedServiceAPIClient}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取服务代码名称
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 	
 	
 	/**
 	 * 获取服务参数3
 	 * @return
 	 */
-	java.lang.String getServiceParam3();
+	String getServiceParam3();
 	
 	
 	/**
 	 * 获取服务参数4
 	 * @return
 	 */
-	java.lang.String getServiceParam4();
+	String getServiceParam4();
 	
 	
 	/**
@@ -257,7 +257,7 @@ public interface IPSSubSysServiceAPI extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ServiceType}
 	 * @return
 	 */
-	java.lang.String getServiceType();
+	String getServiceType();
 	
 	
 	/**

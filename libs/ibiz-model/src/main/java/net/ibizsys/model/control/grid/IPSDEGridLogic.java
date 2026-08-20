@@ -14,5 +14,5 @@ public interface IPSDEGridLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取表格列名称
 	 * @return
 	 */
-	java.lang.String getPSDEGridColumnName();
+	String getPSDEGridColumnName();
 }

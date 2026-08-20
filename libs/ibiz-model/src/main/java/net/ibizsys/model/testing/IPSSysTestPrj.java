@@ -14,7 +14,7 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -29,6 +29,34 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	 * @return
 	 */
 	net.ibizsys.model.app.IPSApplication getPSApplicationMust();
+	
+	
+	/**
+	 * 获取系统资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSSysResource getPSSysResource();
+
+
+	/**
+	 * 获取系统资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSSysResource getPSSysResourceMust();
+	
+	
+	/**
+	 * 获取后台扩展插件
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPlugin();
+
+
+	/**
+	 * 获取后台扩展插件，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSSysSFPlugin getPSSysSFPluginMust();
 	
 	
 	/**
@@ -67,17 +95,52 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取访问统一资源
+	 * @return
+	 */
+	net.ibizsys.model.security.IPSSysUniRes getPSSysUniRes();
+
+
+	/**
+	 * 获取访问统一资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.security.IPSSysUniRes getPSSysUniResMust();
+	
+	
+	/**
+	 * 获取系统模块
+	 * @return
+	 */
+	net.ibizsys.model.system.IPSSystemModule getPSSystemModule();
+
+
+	/**
+	 * 获取系统模块，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.system.IPSSystemModule getPSSystemModuleMust();
+	
+	
+	/**
+	 * 获取项目动态参数
+	 * @return
+	 */
+	com.fasterxml.jackson.databind.node.ObjectNode getPrjParams();
+	
+	
+	/**
 	 * 获取项目标记
 	 * @return
 	 */
-	java.lang.String getPrjTag();
+	String getPrjTag();
 	
 	
 	/**
 	 * 获取项目标记2
 	 * @return
 	 */
-	java.lang.String getPrjTag2();
+	String getPrjTag2();
 	
 	
 	/**
@@ -86,5 +149,54 @@ public interface IPSSysTestPrj extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestPrjType}
 	 * @return
 	 */
-	java.lang.String getPrjType();
+	String getPrjType();
+	
+	
+	/**
+	 * 获取服务代码标识
+	 * @return
+	 */
+	String getServiceCodeName();
+	
+	
+	/**
+	 * 获取服务参数
+	 * @return
+	 */
+	String getServiceParam();
+	
+	
+	/**
+	 * 获取服务参数2
+	 * @return
+	 */
+	String getServiceParam2();
+	
+	
+	/**
+	 * 获取自定义服务路径
+	 * @return
+	 */
+	String getServicePath();
+	
+	
+	/**
+	 * 获取测试工具
+	 * @return
+	 */
+	String getTestTool();
+	
+	
+	/**
+	 * 获取工具动态参数
+	 * @return
+	 */
+	com.fasterxml.jackson.databind.node.ObjectNode getToolParams();
+	
+	
+	/**
+	 * 获取是否启用服务接口
+	 * @return
+	 */
+	boolean isEnableServiceAPI();
 }

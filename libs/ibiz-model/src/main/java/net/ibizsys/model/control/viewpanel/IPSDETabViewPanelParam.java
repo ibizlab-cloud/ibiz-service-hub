@@ -14,26 +14,26 @@ public interface IPSDETabViewPanelParam extends net.ibizsys.model.control.viewpa
 	 * 获取导航过滤项
 	 * @return
 	 */
-	java.lang.String getNavFilter();
+	String getNavFilter();
 	
 	
 	/**
 	 * 获取导航关系名称
 	 * @return
 	 */
-	java.lang.String getNavPSDERName();
+	String getNavPSDERName();
 	
 	
 	/**
 	 * 获取访问操作标识
 	 * @return
 	 */
-	java.lang.String getPSDEOPPrivId();
+	String getPSDEOPPrivId();
 	
 	
 	/**
 	 * 获取标题图标
 	 * @return
 	 */
-	java.lang.String getPSSysImageId();
+	String getPSSysImageId();
 }

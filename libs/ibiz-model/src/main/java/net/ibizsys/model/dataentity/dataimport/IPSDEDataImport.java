@@ -21,7 +21,7 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -30,14 +30,14 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataImpExpContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
 	 * 获取建立操作标识
 	 * @return
 	 */
-	java.lang.String getCreateDataAccessAction();
+	String getCreateDataAccessAction();
 	
 	
 	/**
@@ -65,14 +65,14 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取导入标记
 	 * @return
 	 */
-	java.lang.String getImpTag();
+	String getImpTag();
 	
 	
 	/**
 	 * 获取导入标记2
 	 * @return
 	 */
-	java.lang.String getImpTag2();
+	String getImpTag2();
 	
 	
 	/**
@@ -135,7 +135,7 @@ public interface IPSDEDataImport extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取更新操作标识
 	 * @return
 	 */
-	java.lang.String getUpdateDataAccessAction();
+	String getUpdateDataAccessAction();
 	
 	
 	/**

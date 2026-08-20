@@ -31,12 +31,12 @@ class DESample01 {
 		
 		Integer getPrice() { (Integer)get("price") }
 		//void setPrice(def val) { set("price", val) }
+		
 	}
 	
 
 	
 	public void test(def subInfo) {
-		
 		sys.info("测试信息22222")
 		
 		def aa = 中文()

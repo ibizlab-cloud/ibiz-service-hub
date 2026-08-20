@@ -15,7 +15,7 @@ public interface IPSSubSysServiceAPIDTOField extends net.ibizsys.model.service.I
 	 * 获取中文名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -52,7 +52,7 @@ public interface IPSSubSysServiceAPIDTOField extends net.ibizsys.model.service.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SubSysServiceAPIDTOFieldSourceType}
 	 * @return
 	 */
-	java.lang.String getSourceType();
+	String getSourceType();
 	
 	
 	/**

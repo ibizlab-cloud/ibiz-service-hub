@@ -13,7 +13,7 @@ public interface IPSUnkownItem extends net.ibizsys.model.control.IPSRawItemBase{
 	 * 获取Html内容
 	 * @return
 	 */
-	java.lang.String getHtmlContent();
+	String getHtmlContent();
 	
 	
 	/**
@@ -34,5 +34,5 @@ public interface IPSUnkownItem extends net.ibizsys.model.control.IPSRawItemBase{
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 }

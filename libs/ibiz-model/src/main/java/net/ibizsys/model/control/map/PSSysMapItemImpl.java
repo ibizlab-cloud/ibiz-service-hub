@@ -58,6 +58,7 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 	public final static String ATTR_ISENABLESEARCH = "enableSearch";
 	public final static String ATTR_ISENABLEVIEWDATA = "enableViewData";
 	public final static String ATTR_ISLOADDEFAULT = "loadDefault";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISPICKUPMODE = "pickupMode";
 	public final static String ATTR_ISREADONLY = "readOnly";
 	private net.ibizsys.model.app.dataentity.IPSAppDEField altitudepsappdefield;
@@ -922,6 +923,10 @@ public class PSSysMapItemImpl extends net.ibizsys.model.control.PSControlItemImp
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	@Deprecated

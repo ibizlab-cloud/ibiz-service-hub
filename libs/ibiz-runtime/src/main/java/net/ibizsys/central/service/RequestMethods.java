@@ -35,4 +35,13 @@ public class RequestMethods {
      */
     public final static String TRACE = "TRACE";
     
+     /**
+     *  DOWNLOAD，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String DOWNLOAD = "DOWNLOAD";
+    
+    /**
+     *  UPLOAD，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String UPLOAD = "UPLOAD";
 }

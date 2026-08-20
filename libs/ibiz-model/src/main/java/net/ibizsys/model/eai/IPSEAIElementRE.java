@@ -13,14 +13,14 @@ public interface IPSEAIElementRE extends net.ibizsys.model.eai.IPSEAIElementObje
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -29,14 +29,14 @@ public interface IPSEAIElementRE extends net.ibizsys.model.eai.IPSEAIElementObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EAIElementREType}
 	 * @return
 	 */
-	java.lang.String getElementREType();
+	String getElementREType();
 	
 	
 	/**
 	 * 获取固定值
 	 * @return
 	 */
-	java.lang.String getFixedValue();
+	String getFixedValue();
 	
 	
 	/**
@@ -57,14 +57,14 @@ public interface IPSEAIElementRE extends net.ibizsys.model.eai.IPSEAIElementObje
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getRETag();
+	String getRETag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getRETag2();
+	String getRETag2();
 	
 	
 	/**

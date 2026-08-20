@@ -15,26 +15,26 @@ public interface IPSAppViewEngineParam extends net.ibizsys.model.view.IPSUIEngin
 	 * 获取视图逻辑名称
 	 * @return
 	 */
-	java.lang.String getAppViewLogicName();
+	String getAppViewLogicName();
 	
 	
 	/**
 	 * 获取部件名称
 	 * @return
 	 */
-	java.lang.String getCtrlName();
+	String getCtrlName();
 	
 	
 	/**
 	 * 获取参数类型
 	 * @return
 	 */
-	java.lang.String getParamType();
+	String getParamType();
 	
 	
 	/**
 	 * 获取直接值
 	 * @return
 	 */
-	java.lang.Object getValue();
+	Object getValue();
 }

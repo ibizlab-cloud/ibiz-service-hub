@@ -123,14 +123,19 @@ public class SysAIAgentRuntime extends SysEAIAgentRuntimeBase {
 
 		if (!bTimerOnly) {
 			PortalAsyncAction action = null;
-			try {
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+        	try {
 				// 获取行为
+				EmployeeContext.setCurrentDisabled(true);
 				action = this.getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
 			} catch (Throwable ex) {
 				this.getSystemRuntime().log(LogLevels.ERROR, getLogCat(), String.format("检查异步操作状态[%1$s]发生异常，%2$s", portalAsyncAction.getAsyncAcitonId(), ex.getMessage()), null);
 				action = new PortalAsyncAction();
 				action.setActionState(PortalAsyncActionState.FAILED.getValue());
 				action.setActionResult(ex.getMessage());
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
 			}
 			int nActionState = DataTypeUtils.asInteger(action.getActionState(), PortalAsyncActionState.EXECUTING.getValue());
 			if (nActionState == PortalAsyncActionState.FAILED.getValue() || nActionState == PortalAsyncActionState.FINISHED.getValue()) {

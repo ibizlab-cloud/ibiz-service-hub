@@ -14,7 +14,7 @@ public interface IPSDEFormGroupBase extends net.ibizsys.model.control.form.IPSDE
 	 * 获取动态标题绑定值项
 	 * @return
 	 */
-	java.lang.String getCaptionItemName();
+	String getCaptionItemName();
 	
 	
 	/**

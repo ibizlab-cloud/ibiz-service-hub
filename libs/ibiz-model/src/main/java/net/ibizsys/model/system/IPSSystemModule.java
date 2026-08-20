@@ -77,7 +77,7 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -86,49 +86,49 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
-	java.lang.String getDSLink();
+	String getDSLink();
 	
 	
 	/**
 	 * 获取模块编号
 	 * @return
 	 */
-	java.lang.String getModuleSN();
+	String getModuleSN();
 	
 	
 	/**
 	 * 获取模块标记
 	 * @return
 	 */
-	java.lang.String getModuleTag();
+	String getModuleTag();
 	
 	
 	/**
 	 * 获取模块标记2
 	 * @return
 	 */
-	java.lang.String getModuleTag2();
+	String getModuleTag2();
 	
 	
 	/**
 	 * 获取模块标记3
 	 * @return
 	 */
-	java.lang.String getModuleTag3();
+	String getModuleTag3();
 	
 	
 	/**
 	 * 获取模块标记4
 	 * @return
 	 */
-	java.lang.String getModuleTag4();
+	String getModuleTag4();
 	
 	
 	/**
 	 * 获取包代码名称
 	 * @return
 	 */
-	java.lang.String getPKGCodeName();
+	String getPKGCodeName();
 	
 	
 	/**
@@ -177,7 +177,7 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 获取运行时类型
 	 * @return
 	 */
-	java.lang.String getRuntimeType();
+	String getRuntimeType();
 	
 	
 	/**
@@ -186,7 +186,7 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysRefType}
 	 * @return
 	 */
-	java.lang.String getSysRefType();
+	String getSysRefType();
 	
 	
 	/**
@@ -200,7 +200,7 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 获取模块功能标记
 	 * @return
 	 */
-	java.lang.String getUtilTag();
+	String getUtilTag();
 	
 	
 	/**
@@ -209,7 +209,7 @@ public interface IPSSystemModule extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ModuleUtilType}
 	 * @return
 	 */
-	java.lang.String getUtilType();
+	String getUtilType();
 	
 	
 	/**

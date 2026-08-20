@@ -26,7 +26,7 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionTarget}
 	 * @return
 	 */
-	java.lang.String getActionTarget();
+	String getActionTarget();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**
@@ -70,35 +70,35 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取操作确认信息
 	 * @return
 	 */
-	java.lang.String getConfirmMsg();
+	String getConfirmMsg();
 	
 	
 	/**
 	 * 获取计数项标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
 	 * 获取数据访问权限
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**
@@ -107,7 +107,7 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionDialogResult}
 	 * @return
 	 */
-	java.lang.String getDialogResult();
+	String getDialogResult();
 	
 	
 	/**
@@ -130,21 +130,21 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionFrontType}
 	 * @return
 	 */
-	java.lang.String getFrontProcessType();
+	String getFrontProcessType();
 	
 	
 	/**
 	 * 获取完全代码标识，完全代码标识格式：{实体代码标识}_{界面行为代码标识}，解决不同实体的界面行为在同一个应用场合区分的问题
 	 * @return
 	 */
-	java.lang.String getFullCodeName();
+	String getFullCodeName();
 	
 	
 	/**
 	 * 获取Html页面路径
 	 * @return
 	 */
-	java.lang.String getHtmlPageUrl();
+	String getHtmlPageUrl();
 	
 	
 	/**
@@ -193,14 +193,14 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 获取参数项名称
 	 * @return
 	 */
-	java.lang.String getParamItem();
+	String getParamItem();
 	
 	
 	/**
 	 * 获取预置行为类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -230,21 +230,21 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
 	 * 获取操作成功提示信息
 	 * @return
 	 */
-	java.lang.String getSuccessMsg();
+	String getSuccessMsg();
 	
 	
 	/**
 	 * 获取文本项名称
 	 * @return
 	 */
-	java.lang.String getTextItem();
+	String getTextItem();
 	
 	
 	/**
@@ -258,7 +258,7 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 获取操作提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -281,7 +281,7 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionType}
 	 * @return
 	 */
-	java.lang.String getUIActionMode();
+	String getUIActionMode();
 	
 	
 	/**
@@ -295,14 +295,14 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 获取界面行为标记
 	 * @return
 	 */
-	java.lang.String getUIActionTag();
+	String getUIActionTag();
 	
 	
 	/**
 	 * 获取界面行为类型
 	 * @return
 	 */
-	java.lang.String getUIActionType();
+	String getUIActionType();
 	
 	
 	/**
@@ -311,21 +311,21 @@ public interface IPSUIAction extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UIActionVLExecMode}
 	 * @return
 	 */
-	java.lang.String getUILogicAttachMode();
+	String getUILogicAttachMode();
 	
 	
 	/**
 	 * 获取界面逻辑类型
 	 * @return
 	 */
-	java.lang.String getUILogicType();
+	String getUILogicType();
 	
 	
 	/**
 	 * 获取值项名称
 	 * @return
 	 */
-	java.lang.String getValueItem();
+	String getValueItem();
 	
 	
 	/**

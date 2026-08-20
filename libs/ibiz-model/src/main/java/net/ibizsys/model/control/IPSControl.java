@@ -14,14 +14,14 @@ public interface IPSControl extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取部件样式
 	 * @return
 	 */
-	java.lang.String getControlStyle();
+	String getControlStyle();
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface IPSControl extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlType}
 	 * @return
 	 */
-	java.lang.String getControlType();
+	String getControlType();
 	
 	
 	/**
@@ -60,7 +60,7 @@ public interface IPSControl extends net.ibizsys.model.IPSModelObject{
 	 * 获取部件逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

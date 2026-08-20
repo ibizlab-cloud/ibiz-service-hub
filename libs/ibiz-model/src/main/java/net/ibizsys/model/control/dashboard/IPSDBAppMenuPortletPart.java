@@ -14,7 +14,7 @@ public interface IPSDBAppMenuPortletPart extends net.ibizsys.model.control.dashb
 	 * 获取应用菜单列表样式
 	 * @return
 	 */
-	java.lang.String getAMListStyle();
+	String getAMListStyle();
 	
 	
 	/**

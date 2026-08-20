@@ -5,6 +5,7 @@ package net.ibizsys.model.control.searchbar;
 public class PSSysSearchBarImpl extends net.ibizsys.model.control.PSControlContainerImpl implements net.ibizsys.model.control.searchbar.IPSSysSearchBar{
 
 	public final static String ATTR_GETCODENAME = "codeName";
+	public final static String ATTR_GETGMTPSLANGUAGERES = "getGMTPSLanguageRes";
 	public final static String ATTR_GETGROUPMODE = "groupMode";
 	public final static String ATTR_GETGROUPMORETEXT = "groupMoreText";
 	public final static String ATTR_GETPSAPPCOUNTERREF = "getPSAppCounterRef";
@@ -27,6 +28,28 @@ public class PSSysSearchBarImpl extends net.ibizsys.model.control.PSControlConta
 		}
 		return value.asText();
 	}
+	private net.ibizsys.model.res.IPSLanguageRes gmtpslanguageres;
+
+	public net.ibizsys.model.res.IPSLanguageRes getGMTPSLanguageRes(){
+		if(this.gmtpslanguageres != null) return this.gmtpslanguageres;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGMTPSLANGUAGERES);
+		if(value == null){
+			return null;
+		}
+		this.gmtpslanguageres = getPSModelObject(net.ibizsys.model.res.IPSLanguageRes.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETGMTPSLANGUAGERES);
+		return this.gmtpslanguageres;
+	}
+
+	public net.ibizsys.model.res.IPSLanguageRes getGMTPSLanguageResMust(){
+		net.ibizsys.model.res.IPSLanguageRes value = this.getGMTPSLanguageRes();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "未指定更多分组显示文本语言资源");}
+		return value;
+	}
+
+	public void setGMTPSLanguageRes(net.ibizsys.model.res.IPSLanguageRes gmtpslanguageres){
+		this.gmtpslanguageres = gmtpslanguageres;
+	}
+
 
 	public java.lang.String getGroupMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETGROUPMODE);

@@ -13,28 +13,28 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取维度公式
 	 * @return
 	 */
-	java.lang.String getDimensionFormula();
+	String getDimensionFormula();
 	
 	
 	/**
 	 * 获取维度标记
 	 * @return
 	 */
-	java.lang.String getDimensionTag();
+	String getDimensionTag();
 	
 	
 	/**
 	 * 获取维度标记2
 	 * @return
 	 */
-	java.lang.String getDimensionTag2();
+	String getDimensionTag2();
 	
 	
 	/**
@@ -43,7 +43,7 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIDimensionType}
 	 * @return
 	 */
-	java.lang.String getDimensionType();
+	String getDimensionType();
 	
 	
 	/**
@@ -78,7 +78,7 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	 * 获取参数配置界面行为标记
 	 * @return
 	 */
-	java.lang.String getParamPSDEUIActionTag();
+	String getParamPSDEUIActionTag();
 	
 	
 	/**
@@ -108,14 +108,14 @@ public interface IPSBICubeDimension extends net.ibizsys.model.bi.IPSBICubeObject
 	 * 获取文本绘制模板
 	 * @return
 	 */
-	java.lang.String getTextTemplate();
+	String getTextTemplate();
 	
 	
 	/**
 	 * 获取提示绘制模板
 	 * @return
 	 */
-	java.lang.String getTipTemplate();
+	String getTipTemplate();
 	
 	
 	/**

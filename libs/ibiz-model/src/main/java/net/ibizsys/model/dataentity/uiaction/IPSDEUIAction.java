@@ -12,6 +12,20 @@ public interface IPSDEUIAction extends net.ibizsys.model.dataentity.IPSDataEntit
 	
 	
 	/**
+	 * 获取执行之后代码
+	 * @return
+	 */
+	String getAfterCode();
+	
+	
+	/**
+	 * 获取执行之前代码
+	 * @return
+	 */
+	String getBeforeCode();
+	
+	
+	/**
 	 * 获取前端应用视图，根据{@link #isFrontPDTView}优先处理预置视图，否则按应用类型计算对应的实体视图
 	 * @return
 	 */

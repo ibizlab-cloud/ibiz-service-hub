@@ -4,6 +4,8 @@ package net.ibizsys.model.app.msg;
 
 public class PSAppMsgTemplImpl extends net.ibizsys.model.app.PSApplicationObjectImpl implements net.ibizsys.model.app.msg.IPSAppMsgTempl{
 
+	public final static String ATTR_GETATTACHMENTS = "attachments";
+	public final static String ATTR_GETATTACHMENTSPSDEFIELD = "getAttachmentsPSDEField";
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCONTENT = "content";
 	public final static String ATTR_GETCONTENTPSDEFIELD = "getContentPSDEField";
@@ -47,6 +49,37 @@ public class PSAppMsgTemplImpl extends net.ibizsys.model.app.PSApplicationObject
 	public final static String ATTR_GETWXCONTENTPSDEFIELD = "getWXContentPSDEField";
 	public final static String ATTR_GETWXPSLANGUAGERES = "getWXPSLanguageRes";
 	public final static String ATTR_ISMAILGROUPSEND = "mailGroupSend";
+
+	public java.lang.String getAttachments(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETATTACHMENTS);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
+	private net.ibizsys.model.dataentity.defield.IPSDEField attachmentspsdefield;
+
+	@Deprecated
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAttachmentsPSDEField(){
+		if(this.attachmentspsdefield != null) return this.attachmentspsdefield;
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETATTACHMENTSPSDEFIELD);
+		if(value == null){
+			return null;
+		}
+		this.attachmentspsdefield = getPSModelObject(net.ibizsys.model.dataentity.defield.IPSDEField.class, (com.fasterxml.jackson.databind.node.ObjectNode)value, ATTR_GETATTACHMENTSPSDEFIELD);
+		return this.attachmentspsdefield;
+	}
+
+	public net.ibizsys.model.dataentity.defield.IPSDEField getAttachmentsPSDEFieldMust(){
+		net.ibizsys.model.dataentity.defield.IPSDEField value = this.getAttachmentsPSDEField();
+		if(value == null){throw new net.ibizsys.model.PSModelException(this, "[getAttachmentsPSDEField]返回空值");}
+		return value;
+	}
+
+	public void setAttachmentsPSDEField(net.ibizsys.model.dataentity.defield.IPSDEField attachmentspsdefield){
+		this.attachmentspsdefield = attachmentspsdefield;
+	}
+
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);

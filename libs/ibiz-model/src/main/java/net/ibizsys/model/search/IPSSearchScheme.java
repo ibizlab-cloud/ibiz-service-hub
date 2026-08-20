@@ -13,7 +13,7 @@ public interface IPSSearchScheme extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -34,14 +34,14 @@ public interface IPSSearchScheme extends net.ibizsys.model.IPSModelObject{
 	 * 获取体系标记
 	 * @return
 	 */
-	java.lang.String getSchemeTag();
+	String getSchemeTag();
 	
 	
 	/**
 	 * 获取体系标记2
 	 * @return
 	 */
-	java.lang.String getSchemeTag2();
+	String getSchemeTag2();
 	
 	
 	/**
@@ -50,5 +50,5 @@ public interface IPSSearchScheme extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SearchEngineType}
 	 * @return
 	 */
-	java.lang.String getSearchEngineType();
+	String getSearchEngineType();
 }

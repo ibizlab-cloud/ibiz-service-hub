@@ -19,7 +19,7 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERSubType}
 	 * @return
 	 */
-	java.lang.String getDERSubType();
+	String getDERSubType();
 	
 	
 	/**
@@ -54,21 +54,21 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	 * 获取父子类型
 	 * @return
 	 */
-	java.lang.String getParentSubType();
+	String getParentSubType();
 	
 	
 	/**
 	 * 获取父类型
 	 * @return
 	 */
-	java.lang.String getParentType();
+	String getParentType();
 	
 	
 	/**
 	 * 获取关系属性名称
 	 * @return
 	 */
-	java.lang.String getPickupDEFName();
+	String getPickupDEFName();
 	
 	
 	/**
@@ -117,7 +117,7 @@ public interface IPSDERCustom extends net.ibizsys.model.dataentity.der.IPSDERBas
 	 * 获取关系识别值
 	 * @return
 	 */
-	java.lang.String getTypeValue();
+	String getTypeValue();
 	
 	
 	/**

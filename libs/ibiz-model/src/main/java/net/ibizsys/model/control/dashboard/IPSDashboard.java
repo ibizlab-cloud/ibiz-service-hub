@@ -28,7 +28,7 @@ public interface IPSDashboard extends net.ibizsys.model.control.IPSAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DashboardStyle}
 	 * @return
 	 */
-	java.lang.String getDashboardStyle();
+	String getDashboardStyle();
 	
 	
 	/**
@@ -51,14 +51,14 @@ public interface IPSDashboard extends net.ibizsys.model.control.IPSAjaxControl
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.NavBarPos}
 	 * @return
 	 */
-	java.lang.String getNavBarPos();
+	String getNavBarPos();
 	
 	
 	/**
 	 * 获取导航栏样式
 	 * @return
 	 */
-	java.lang.String getNavBarStyle();
+	String getNavBarStyle();
 	
 	
 	/**

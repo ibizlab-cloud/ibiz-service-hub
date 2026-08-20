@@ -1050,10 +1050,10 @@ public abstract class SysKnowledgeBaseUtilRuntimeBase extends SysUtilRuntimeBase
 		final IDocumentProxyDERuntime documentProxyDERuntime = this.getDocumentProxyDERuntime(false);
 		Object keyValue = (args[0] instanceof IEntityBase)?documentProxyDERuntime.getReal().getKeyFieldValue((IEntityBase)args[0]): DataTypeUtils.asSimple(args[0]);
 		IEntityDTO documentEntityDTO = (IEntityDTO) iDataEntityRuntimeContext.getDataEntityRuntime().get(keyValue);
-		return getDocumentContent(documentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL);
+		return getDocumentContent(documentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL, new HashMap<String, Object>());
 	}
 	
-	protected Object getDocumentContent(IEntityDTO documentEntityDTO, String type) throws Throwable {
+	protected Object getDocumentContent(IEntityDTO documentEntityDTO, String type, Map<String, Object> params) throws Throwable {
 		
 		final IDocumentProxyDERuntime documentProxyDERuntime = this.getDocumentProxyDERuntime(false);
 		Object keyValue = documentProxyDERuntime.getReal().getKeyFieldValue(documentEntityDTO);
@@ -1075,7 +1075,7 @@ public abstract class SysKnowledgeBaseUtilRuntimeBase extends SysUtilRuntimeBase
 		String strContent = documentEntityDTO.getString(contentPSDEField.getLowerCaseName(), null);
 		if(StringUtils.hasLength(strContent)) {
 			if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL.equals(type))
-				return iDocumentSplitter.getFullText(keyValue, strContent, strChunkMethod, parserConfig);
+				return iDocumentSplitter.getFullText(keyValue, strContent, strChunkMethod, parserConfig, params);
 			if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__PAGEINDEX.equals(type))
 				return iDocumentSplitter.getPageIndex(keyValue, strContent, strChunkMethod, parserConfig);
 			
@@ -1101,18 +1101,18 @@ public abstract class SysKnowledgeBaseUtilRuntimeBase extends SysUtilRuntimeBase
 		}
 		net.ibizsys.runtime.util.domain.File ossFile = JsonUtils.as(node, net.ibizsys.runtime.util.domain.File.class);
 		if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL.equals(type))
-			return iDocumentSplitter.getFullText(keyValue, ossFile, strChunkMethod, parserConfig);
+			return iDocumentSplitter.getFullText(keyValue, ossFile, strChunkMethod, parserConfig, params);
 		if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__PAGEINDEX.equals(type))
 			return iDocumentSplitter.getPageIndex(keyValue, ossFile, strChunkMethod, parserConfig);
 		
-		return iDocumentSplitter.getOriginalContent(keyValue, ossFile, strChunkMethod, parserConfig, type);
+		return iDocumentSplitter.getOriginalContent(keyValue, ossFile, strChunkMethod, parserConfig, type, params);
 	}
 	
 	protected Object doDocumentGetPageIndex(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {
 		final IDocumentProxyDERuntime documentProxyDERuntime = this.getDocumentProxyDERuntime(false);
 		Object keyValue = (args[0] instanceof IEntityBase)?documentProxyDERuntime.getReal().getKeyFieldValue((IEntityBase)args[0]): DataTypeUtils.asSimple(args[0]);
 		IEntityDTO documentEntityDTO = (IEntityDTO) iDataEntityRuntimeContext.getDataEntityRuntime().get(keyValue);
-		return this.getDocumentContent(documentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__PAGEINDEX);
+		return this.getDocumentContent(documentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__PAGEINDEX, new HashMap<String, Object>());
 	}
 	
 	
@@ -3809,25 +3809,25 @@ public abstract class SysKnowledgeBaseUtilRuntimeBase extends SysUtilRuntimeBase
 	}
 
 	protected String getHistories2queryPrompt() {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "Histories2queryPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "Histories2queryPrompt.md", false);
 	}
 
 	protected String getMiniRagQuery2kwdPrompt() {
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "MiniRagQuery2kwdPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "MiniRagQuery2kwdPrompt.md", false);
 	}
 
 	protected String getGraphEntityDisambiguationPrompt(GraphRAGConfig graphRAGConfig) {
 		if(StringUtils.hasLength(graphRAGConfig.getDisambiguationPrompt())) {
 			return graphRAGConfig.getDisambiguationPrompt();
 		}
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "GraphEntityDisambiguationPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "GraphEntityDisambiguationPrompt.md", false);
 	}
 
 	protected String getGraphRelationDisambiguationPrompt(GraphRAGConfig graphRAGConfig) {
 		if(StringUtils.hasLength(graphRAGConfig.getRelationDisambiguationPrompt())) {
 			return graphRAGConfig.getRelationDisambiguationPrompt();
 		}
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "GraphRelationDisambiguationPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(SysKnowledgeBaseUtilRuntimeBase.class, "GraphRelationDisambiguationPrompt.md", false);
 	}
 	
 
@@ -4190,24 +4190,26 @@ public abstract class SysKnowledgeBaseUtilRuntimeBase extends SysUtilRuntimeBase
 		
 		Map<String, Object> queryParams = RestUtils.queryString2Map(request.getQueryString(), true, KeyNameCaseMode.LOWER);
 		//如果指定内容类型，则需要先下载
-		Object type = queryParams.get(ICloudKBClient.DOWNLOAD_DOCUMENT_PARAM__TYPE);
+		Object type = queryParams.remove(ICloudKBClient.DOWNLOAD_DOCUMENT_PARAM__TYPE);
+		
+		
 		if(!ObjectUtils.isEmpty(type) && !ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__RAW.equalsIgnoreCase(String.valueOf(type))) {
 			if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL.equalsIgnoreCase(String.valueOf(type))) {
 				//获取
-				String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL);
+				String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__FULL, queryParams);
 				RestUtils.downloadFile(response, String.format("%1$s.full.md", documentProxyDERuntime.getReal().getMajorTextIf(lastDocumentEntityDTO, "document")), new ByteArrayInputStream(fullText.getBytes(StandardCharsets.UTF_8)), false);
 				return;
 			}
 			
 			if(ICloudKBClient.DOWNLOAD_DOCUMENT_TYPE__XLSX.equalsIgnoreCase(String.valueOf(type))) {
 				//获取base64编码
-				String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, String.valueOf("base64_"+type));
+				String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, String.valueOf("base64_"+type), queryParams);
 				RestUtils.downloadFile(response, String.format("%1$s.%2$s", documentProxyDERuntime.getReal().getMajorTextIf(lastDocumentEntityDTO, "document"), type), new ByteArrayInputStream(Base64.getDecoder().decode(fullText)), false);
 				return;
 			}
 			
 			
-			String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, String.valueOf(type));
+			String fullText = (String)this.getDocumentContent(lastDocumentEntityDTO, String.valueOf(type), queryParams);
 			RestUtils.downloadFile(response, String.format("%1$s.%2$s", documentProxyDERuntime.getReal().getMajorTextIf(lastDocumentEntityDTO, "document"), type), new ByteArrayInputStream(fullText.getBytes(StandardCharsets.UTF_8)), false);
 			return;
 		}

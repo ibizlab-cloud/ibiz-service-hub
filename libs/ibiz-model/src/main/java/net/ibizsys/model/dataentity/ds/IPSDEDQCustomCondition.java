@@ -16,12 +16,12 @@ public interface IPSDEDQCustomCondition extends net.ibizsys.model.dataentity.ds.
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCondition();
+	String getCondition();
 	
 	
 	/**
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomType();
+	String getCustomType();
 }

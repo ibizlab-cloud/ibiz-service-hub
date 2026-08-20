@@ -14,7 +14,7 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取插件代码
 	 * @return
 	 */
-	java.lang.String getPluginCode();
+	String getPluginCode();
 	
 	
 	/**
@@ -56,14 +56,14 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取插件标记
 	 * @return
 	 */
-	java.lang.String getPluginTag();
+	String getPluginTag();
 	
 	
 	/**
 	 * 获取插件标记2
 	 * @return
 	 */
-	java.lang.String getPluginTag2();
+	String getPluginTag2();
 	
 	
 	/**
@@ -72,21 +72,21 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SFPluginType}
 	 * @return
 	 */
-	java.lang.String getPluginType();
+	String getPluginType();
 	
 	
 	/**
 	 * 获取运行时对象名称
 	 * @return
 	 */
-	java.lang.String getRTObjectName();
+	String getRTObjectName();
 	
 	
 	/**
 	 * 获取运行时对象仓库
 	 * @return
 	 */
-	java.lang.String getRTObjectRepo();
+	String getRTObjectRepo();
 	
 	
 	/**
@@ -102,28 +102,28 @@ public interface IPSSysSFPlugin extends net.ibizsys.model.IPSModelObject{
 	 * 获取运行时模板代码
 	 * @return
 	 */
-	java.lang.String getTemplCode();
+	String getTemplCode();
 	
 	
 	/**
 	 * 获取运行时模板代码2
 	 * @return
 	 */
-	java.lang.String getTemplCode2();
+	String getTemplCode2();
 	
 	
 	/**
 	 * 获取运行时模板代码3
 	 * @return
 	 */
-	java.lang.String getTemplCode3();
+	String getTemplCode3();
 	
 	
 	/**
 	 * 获取运行时模板代码4
 	 * @return
 	 */
-	java.lang.String getTemplCode4();
+	String getTemplCode4();
 	
 	
 	/**

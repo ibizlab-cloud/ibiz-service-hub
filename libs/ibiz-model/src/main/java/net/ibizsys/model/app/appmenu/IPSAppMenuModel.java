@@ -9,12 +9,38 @@ package net.ibizsys.model.app.appmenu;
 public interface IPSAppMenuModel extends net.ibizsys.model.app.IPSApplicationObject{
 
 	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getAppFuncTagPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getAppFuncTagPSAppDEFieldMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getClsPSAppDEFieldMust();
+	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
+	
+	int getDynamicMode();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getEnableScriptPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getEnableScriptPSAppDEFieldMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getIconClsPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getIconClsPSAppDEFieldMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEDataSet getItemPSAppDEDataSet();
+
+net.ibizsys.model.app.dataentity.IPSAppDEDataSet getItemPSAppDEDataSetMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDataEntity getItemPSAppDataEntity();
+
+net.ibizsys.model.app.dataentity.IPSAppDataEntity getItemPSAppDataEntityMust();
 	
 	
 	/**
@@ -36,4 +62,16 @@ public interface IPSAppMenuModel extends net.ibizsys.model.app.IPSApplicationObj
 	 * @param list 菜单项集合
 	 */
 	void setPSAppMenuItems(java.util.List<net.ibizsys.model.control.menu.IPSAppMenuItem> list);
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getTextPSAppDEFieldMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getTipsPSAppDEFieldMust();
+	
+	net.ibizsys.model.app.dataentity.IPSAppDEField getVisibleScriptPSAppDEField();
+
+net.ibizsys.model.app.dataentity.IPSAppDEField getVisibleScriptPSAppDEFieldMust();
 }

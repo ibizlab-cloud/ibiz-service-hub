@@ -14,7 +14,7 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -98,14 +98,14 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	 * 获取值转换器标记
 	 * @return
 	 */
-	java.lang.String getTranslatorTag();
+	String getTranslatorTag();
 	
 	
 	/**
 	 * 获取值转换器标记2
 	 * @return
 	 */
-	java.lang.String getTranslatorTag2();
+	String getTranslatorTag2();
 	
 	
 	/**
@@ -114,7 +114,7 @@ public interface IPSSysTranslator extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TranslatorType}
 	 * @return
 	 */
-	java.lang.String getTranslatorType();
+	String getTranslatorType();
 	
 	
 	/**

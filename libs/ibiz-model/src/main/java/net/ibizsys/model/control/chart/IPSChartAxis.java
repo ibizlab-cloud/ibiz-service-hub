@@ -15,7 +15,7 @@ public interface IPSChartAxis extends net.ibizsys.model.control.chart.IPSChartOb
 	 * 获取基础配置Json内容
 	 * @return
 	 */
-	java.lang.String getBaseOptionJOString();
+	String getBaseOptionJOString();
 	
 	
 	/**
@@ -36,7 +36,7 @@ public interface IPSChartAxis extends net.ibizsys.model.control.chart.IPSChartOb
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -52,28 +52,28 @@ public interface IPSChartAxis extends net.ibizsys.model.control.chart.IPSChartOb
 	 * 获取ECharts位置
 	 * @return
 	 */
-	java.lang.String getEChartsPos();
+	String getEChartsPos();
 	
 	
 	/**
 	 * 获取ECharts类型
 	 * @return
 	 */
-	java.lang.String getEChartsType();
+	String getEChartsType();
 	
 	
 	/**
 	 * 获取最大值
 	 * @return
 	 */
-	java.lang.Double getMaxValue();
+	Double getMaxValue();
 	
 	
 	/**
 	 * 获取最小值
 	 * @return
 	 */
-	java.lang.Double getMinValue();
+	Double getMinValue();
 	
 	
 	/**
@@ -96,7 +96,7 @@ public interface IPSChartAxis extends net.ibizsys.model.control.chart.IPSChartOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartAxisPos}
 	 * @return
 	 */
-	java.lang.String getPosition();
+	String getPosition();
 	
 	
 	/**
@@ -105,5 +105,5 @@ public interface IPSChartAxis extends net.ibizsys.model.control.chart.IPSChartOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartAxisType}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

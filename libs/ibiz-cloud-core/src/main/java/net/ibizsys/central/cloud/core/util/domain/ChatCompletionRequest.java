@@ -111,19 +111,35 @@ public class ChatCompletionRequest extends EntityBase {
 	 */
 	public final static String FIELD_CHUNKPROMPT = "chunkprompt";
 	
-	
 	/**
 	 * 资料目录：remote,local,no
 	 */
 	public final static String FIELD_CHUNKSECTION = "chunksection";
 	 
-	
-
 	/**
 	 * OSS图片识别提示词
 	 */
 	public final static String FIELD_OSSIMAGEVLPROMPT = "ossimagevlprompt";
+	
+	
+	/**
+	 * 来源通道
+	 */
+	public final static String FIELD_SOURCECHANNEL = "sourcechannel";
+	
 
+	/**
+	 * 技能集合
+	 */
+	public final static String FIELD_SKILLS = "skills";
+	
+	
+//	/**
+//	 * 业务范围，一般使用srfscope
+//	 */
+//	public final static String FIELD_BUSINESSSCOPE = "businessscope";
+	
+	
 	/**
 	 * 设置「消息集合」
 	 *
@@ -1222,4 +1238,133 @@ public class ChatCompletionRequest extends EntityBase {
 		this.reset(FIELD_CHUNKSECTION);
 		return this;
 	}
+	
+	/**
+	 * 设置「来源通道标识」（例如：XX@qq）
+	 *
+	 * @param val 来源通道标识
+	 */
+	@JsonProperty(FIELD_SOURCECHANNEL)
+	public ChatCompletionRequest setSourceChannel(String val) {
+		this.set(FIELD_SOURCECHANNEL, val);
+		return this;
+	}
+
+	/**
+	 * 获取「来源通道标识」值
+	 *
+	 */
+	@JsonIgnore
+	public String getSourceChannel() {
+		return (String) this.get(FIELD_SOURCECHANNEL);
+	}
+
+	/**
+	 * 判断 「来源通道标识」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsSourceChannel() {
+		return this.contains(FIELD_SOURCECHANNEL);
+	}
+
+	/**
+	 * 重置 「来源通道标识」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest resetSourceChannel() {
+		this.reset(FIELD_SOURCECHANNEL);
+		return this;
+	}
+	
+	
+	/**
+	 * 设置「Skills」值
+	 *
+	 */
+	@JsonIgnore
+	public void setSkills(List<String> value) {
+		this.set(FIELD_SKILLS, value);
+	}
+
+	/**
+	 * 获取「Skills」值
+	 *
+	 */
+	@JsonIgnore
+	public List<String> getSkills() {
+		Object objValue = this.get(FIELD_SKILLS);
+		if (objValue == null) {
+			return null;
+		}
+
+		if (objValue instanceof String) {
+			List list = Arrays.asList(objValue.toString().split("[,]"));
+			this.set(FIELD_SKILLS, list);
+			return list;
+		}
+
+		return (List<String>) objValue;
+	}
+
+	/**
+	 * 判断 「Skills」是否有值
+	 *
+	 */
+	@JsonIgnore
+	public boolean containsSkills() {
+		return this.contains(FIELD_SKILLS);
+	}
+
+	/**
+	 * 重置 「Skills」
+	 *
+	 */
+	@JsonIgnore
+	public ChatCompletionRequest resetSkills() {
+		this.reset(FIELD_SKILLS);
+		return this;
+	}
+//	
+//	/**
+//	 * 设置「业务范围」
+//	 *
+//	 * @param val 业务范围
+//	 */
+//	@JsonProperty(FIELD_BUSINESSSCOPE)
+//	public ChatCompletionRequest setBusinessScope(String val) {
+//		this.set(FIELD_BUSINESSSCOPE, val);
+//		return this;
+//	}
+//
+//	/**
+//	 * 获取「业务范围」值
+//	 *
+//	 */
+//	@JsonIgnore
+//	public String getBusinessScope() {
+//		return (String) this.get(FIELD_BUSINESSSCOPE);
+//	}
+//
+//	/**
+//	 * 判断 「业务范围」是否有值
+//	 *
+//	 */
+//	@JsonIgnore
+//	public boolean containsBusinessScope() {
+//		return this.contains(FIELD_BUSINESSSCOPE);
+//	}
+//
+//	/**
+//	 * 重置 「业务范围」
+//	 *
+//	 */
+//	@JsonIgnore
+//	public ChatCompletionRequest resetBusinessScope() {
+//		this.reset(FIELD_BUSINESSSCOPE);
+//		return this;
+//	}
+//	
+	
 }

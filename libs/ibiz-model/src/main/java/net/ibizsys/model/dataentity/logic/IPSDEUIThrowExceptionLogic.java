@@ -23,14 +23,14 @@ public interface IPSDEUIThrowExceptionLogic extends net.ibizsys.model.dataentity
 	 * 获取错误信息
 	 * @return
 	 */
-	java.lang.String getErrorInfo();
+	String getErrorInfo();
 	
 	
 	/**
 	 * 获取异常对象
 	 * @return
 	 */
-	java.lang.String getExceptionObj();
+	String getExceptionObj();
 	
 	
 	/**

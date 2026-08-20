@@ -16,7 +16,7 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
-	java.lang.String getCLConvertMode();
+	String getCLConvertMode();
 	
 	
 	/**
@@ -25,7 +25,7 @@ public interface IPSDEFGridColumn extends net.ibizsys.model.dataentity.defield.I
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getColumnAlign();
+	String getColumnAlign();
 	
 	
 	/**

@@ -140,7 +140,15 @@ public abstract class OpenAIAdapterBase extends SysOpenAIServerUtilRTAddinBase i
 				actionSession.setActionParam(ActionSession.PARAM_ASYNCACTION_ID, portalAsyncAction.getAsyncAcitonId());
 				
 				while(true) {
-					PortalAsyncAction last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+					boolean bDisabled = EmployeeContext.isCurrentDisabled();
+		        	PortalAsyncAction last = null;
+					try {
+						EmployeeContext.setCurrentDisabled(true);
+						last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+					}
+					finally {
+						EmployeeContext.setCurrentDisabled(bDisabled);
+					}
 					
 					double fCompletionRate = 0.0f;
 					if(last.getCompletionRate()!=null) {

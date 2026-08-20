@@ -45,7 +45,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取附加查询条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
@@ -66,7 +66,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取数据对象名称
 	 * @return
 	 */
-	java.lang.String getDataName();
+	String getDataName();
 	
 	
 	/**
@@ -89,7 +89,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DETreeNodeSource}
 	 * @return
 	 */
-	java.lang.String getDataSourceType();
+	String getDataSourceType();
 	
 	
 	/**
@@ -173,7 +173,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取移动数据访问行为
 	 * @return
 	 */
-	java.lang.String getMoveDataAccessAction();
+	String getMoveDataAccessAction();
 	
 	
 	/**
@@ -257,7 +257,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取删除数据访问行为
 	 * @return
 	 */
-	java.lang.String getRemoveDataAccessAction();
+	String getRemoveDataAccessAction();
 	
 	
 	/**
@@ -292,7 +292,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -315,7 +315,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeSortDir}
 	 * @return
 	 */
-	java.lang.String getSortDir();
+	String getSortDir();
 	
 	
 	/**
@@ -336,7 +336,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取节点文本格式化
 	 * @return
 	 */
-	java.lang.String getTextFormat();
+	String getTextFormat();
 	
 	
 	/**
@@ -371,7 +371,7 @@ public interface IPSDETreeDataSetNode extends net.ibizsys.model.control.tree.IPS
 	 * 获取更新数据访问行为
 	 * @return
 	 */
-	java.lang.String getUpdateDataAccessAction();
+	String getUpdateDataAccessAction();
 	
 	
 	/**

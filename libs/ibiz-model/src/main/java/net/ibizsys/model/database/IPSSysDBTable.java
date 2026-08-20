@@ -56,42 +56,49 @@ public interface IPSSysDBTable extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取建立SQL
 	 * @return
 	 */
-	java.lang.String getCreateSql();
+	String getCreateSql();
 	
 	
 	/**
 	 * 获取移除SQL
 	 * @return
 	 */
-	java.lang.String getDropSql();
+	String getDropSql();
 	
 	
 	/**
 	 * 获取逻辑名称 
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
+	
+	
+	/**
+	 * 获取数据表动态参数
+	 * @return
+	 */
+	com.fasterxml.jackson.databind.node.ObjectNode getTableParams();
 	
 	
 	/**
 	 * 获取数据表标记
 	 * @return
 	 */
-	java.lang.String getTableTag();
+	String getTableTag();
 	
 	
 	/**
 	 * 获取数据表标记2
 	 * @return
 	 */
-	java.lang.String getTableTag2();
+	String getTableTag2();
 	
 	
 	/**

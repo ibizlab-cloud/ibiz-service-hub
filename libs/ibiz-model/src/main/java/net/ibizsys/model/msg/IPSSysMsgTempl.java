@@ -11,17 +11,38 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	
 	
 	/**
+	 * 获取附件清单
+	 * @return
+	 */
+	String getAttachments();
+	
+	
+	/**
+	 * 获取附件清单值存储属性
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getAttachmentsPSDEField();
+
+
+	/**
+	 * 获取附件清单值存储属性，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.dataentity.defield.IPSDEField getAttachmentsPSDEFieldMust();
+	
+	
+	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
@@ -58,7 +79,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
@@ -79,7 +100,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取钉钉内容
 	 * @return
 	 */
-	java.lang.String getDDContent();
+	String getDDContent();
 	
 	
 	/**
@@ -114,7 +135,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取即时消息内容
 	 * @return
 	 */
-	java.lang.String getIMContent();
+	String getIMContent();
 	
 	
 	/**
@@ -163,7 +184,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取移动端任务操作路径
 	 * @return
 	 */
-	java.lang.String getMobTaskUrl();
+	String getMobTaskUrl();
 	
 	
 	/**
@@ -191,14 +212,14 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取消息模板标记
 	 * @return
 	 */
-	java.lang.String getMsgTemplTag();
+	String getMsgTemplTag();
 	
 	
 	/**
 	 * 获取消息模板标记2
 	 * @return
 	 */
-	java.lang.String getMsgTemplTag2();
+	String getMsgTemplTag2();
 	
 	
 	/**
@@ -207,7 +228,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgTemplType}
 	 * @return
 	 */
-	java.lang.String getMsgTemplType();
+	String getMsgTemplType();
 	
 	
 	/**
@@ -270,7 +291,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取短消息内容
 	 * @return
 	 */
-	java.lang.String getSMSContent();
+	String getSMSContent();
 	
 	
 	/**
@@ -305,7 +326,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -335,7 +356,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getSubject();
+	String getSubject();
 	
 	
 	/**
@@ -356,7 +377,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取任务操作路径
 	 * @return
 	 */
-	java.lang.String getTaskUrl();
+	String getTaskUrl();
 	
 	
 	/**
@@ -379,7 +400,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MsgTemplEngine}
 	 * @return
 	 */
-	java.lang.String getTemplEngine();
+	String getTemplEngine();
 	
 	
 	/**
@@ -428,7 +449,7 @@ public interface IPSSysMsgTempl extends net.ibizsys.model.IPSModelObject{
 	 * 获取微信内容
 	 * @return
 	 */
-	java.lang.String getWXContent();
+	String getWXContent();
 	
 	
 	/**

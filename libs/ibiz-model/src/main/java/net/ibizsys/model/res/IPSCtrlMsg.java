@@ -13,14 +13,14 @@ public interface IPSCtrlMsg extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取消息配置
 	 * @return
 	 */
-	java.lang.String getMsgModel();
+	String getMsgModel();
 	
 	
 	/**

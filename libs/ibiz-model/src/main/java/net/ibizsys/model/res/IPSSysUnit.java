@@ -13,7 +13,7 @@ public interface IPSSysUnit extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -34,12 +34,12 @@ public interface IPSSysUnit extends net.ibizsys.model.IPSModelObject{
 	 * 获取单位标记
 	 * @return
 	 */
-	java.lang.String getUnitTag();
+	String getUnitTag();
 	
 	
 	/**
 	 * 获取单位标记2
 	 * @return
 	 */
-	java.lang.String getUnitTag2();
+	String getUnitTag2();
 }

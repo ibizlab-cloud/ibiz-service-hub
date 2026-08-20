@@ -14,14 +14,14 @@ public interface IPSDENotifyTarget extends net.ibizsys.model.IPSModelObject{
 	 * 获取目标数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取系统消息目标过滤项
 	 * @return
 	 */
-	java.lang.String getFilter();
+	String getFilter();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSDENotifyTarget extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DENotifyTargetType}
 	 * @return
 	 */
-	java.lang.String getTargetType();
+	String getTargetType();
 	
 	
 	/**

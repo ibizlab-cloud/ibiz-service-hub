@@ -3,6 +3,8 @@ package net.ibizsys.central.plugin.ai.agent;
 import java.io.File;
 import java.util.Map;
 
+import net.ibizsys.central.cloud.core.ai.ISysAIChatSkill;
+
 public interface ISysAIFactoryRuntimeContext extends net.ibizsys.central.cloud.core.ai.ISysAIFactoryRuntimeContext {
 
 	
@@ -72,12 +74,34 @@ public interface ISysAIFactoryRuntimeContext extends net.ibizsys.central.cloud.c
 	File getSkillsWorkspace(boolean local);
 	
 	
+	/**
+	 * 获取技能工作目录
+	 * @return
+	 */
+	String getSkillsWorkspacePath();
+	
 	
 	/**
-	 * 获取技能运行器数据
+	 * 获取技能工作目录
+	 * @param local 本地目录
+	 * @return
+	 */
+	String getSkillsWorkspacePath(boolean local);
+	
+	
+	
+	/**
+	 * 获取技能运行器数据（用户侧）
 	 * @return
 	 */
 	Map<String, String> getSkillRunnerData(); 
+	
+	/**
+	 * 获取技能运行器数据（通过业务域数据）
+	 * @return
+	 */
+	Map<String, String> getSkillRunnerDataByBusinessScope(String businessScope);
+	
 	
 	
 	/**
@@ -98,4 +122,104 @@ public interface ISysAIFactoryRuntimeContext extends net.ibizsys.central.cloud.c
 	 * @return
 	 */
 	boolean isEnableKnowledgeBase();
+	
+	
+	
+	
+	 /**
+	  * 获取当前用户远程技能Map
+	 * @return
+	 */
+	Map<String, ISysAIChatSkill> getRemoteAIChatSkills();
+	
+	
+	
+	/**
+	 * 上传远程文件
+	 * @param strSkillId
+	 * @param args
+	 * @param params
+	 * @param realFile
+	 * @throws Throwable
+	 */
+	void uploadRemoteFile(String strSkillId, Map<String, Object> args, Map<String, Object> params, File realFile) throws Exception;
+	
+	
+	
+	/**
+	 * 读取远程文件
+	 * @param strSkillId
+	 * @param strFilePath
+	 * @param  bFromTemplate
+	 * @param bTryMode
+	 * @throws Throwable
+	 */
+	String readRemoteFile(String strSkillId, String strFilePath, boolean bFromTemplate, boolean bTryMode) throws Exception;
+	
+	
+	
+	
+	/**
+	 * 获取技能环境变量
+	 * @param strSkillId
+	 * @param strProfile
+	 * @param strUserId
+	 * @return
+	 */
+	Map<String, Object> getSkillEnvironments(String strSkillId, String strProfileTag, String strUserId) throws Exception;
+	
+	
+	
+	/**
+	 * 读取技能配置文件
+	 * @param strSkillId
+	 * @param strUserId
+	 * @return
+	 * @throws Exception
+	 */
+	String readSkillProfile(String strSkillId, String strUserId) throws Exception;
+	
+	
+	/**
+	 * 更新技能配置文件
+	 * @param strSkillId
+	 * @param strUserId
+	 * @param strContent
+	 * @return
+	 * @throws Exception
+	 */
+	void updateSkillProfile(String strSkillId, String strUserId, String strContent) throws Exception;
+	
+	
+	
+	/**
+	 * 获取当前技能运行器数据
+	 * @return
+	 */
+	Map<String, String> getCurrentSkillRunnerData();
+	
+	
+	
+	
+	/**
+	 * 设置当前技能运行器数据
+	 * @param data
+	 */
+	void setCurrentSkillRunnerData(Map<String, String> data);
+	
+	
+	/**
+	 * 获取当前业务域
+	 * @return
+	 */
+	String getCurrentBusinessScope();
+	
+	
+	
+	
+	/**
+	 * 设置当前业务域
+	 * @param strBusinessScope
+	 */
+	void setCurrentBusinessScope(String strBusinessScope);
 }

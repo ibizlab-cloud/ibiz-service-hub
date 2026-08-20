@@ -15,28 +15,28 @@ public interface IPSDEGroup extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取分组标记
 	 * @return
 	 */
-	java.lang.String getGroupTag();
+	String getGroupTag();
 	
 	
 	/**
 	 * 获取分组标记2
 	 * @return
 	 */
-	java.lang.String getGroupTag2();
+	String getGroupTag2();
 	
 	
 	/**
@@ -45,21 +45,21 @@ public interface IPSDEGroup extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEGroupLogicMode}
 	 * @return
 	 */
-	java.lang.String getLogicMode();
+	String getLogicMode();
 	
 	
 	/**
 	 * 获取逻辑参数
 	 * @return
 	 */
-	java.lang.String getLogicParam();
+	String getLogicParam();
 	
 	
 	/**
 	 * 获取逻辑参数2
 	 * @return
 	 */
-	java.lang.String getLogicParam2();
+	String getLogicParam2();
 	
 	
 	/**

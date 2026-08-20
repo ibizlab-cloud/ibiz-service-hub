@@ -26,14 +26,14 @@ public interface IPSAppDEMethodLogic extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionLogicAttachMode}
 	 * @return
 	 */
-	java.lang.String getAttachMode();
+	String getAttachMode();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

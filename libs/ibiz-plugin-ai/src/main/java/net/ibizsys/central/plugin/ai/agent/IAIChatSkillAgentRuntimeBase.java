@@ -30,6 +30,7 @@ public interface IAIChatSkillAgentRuntimeBase extends IAISkillAgentRuntimeBase{
 	public final static String TEMPLATE_PARAM_SKILLS_WORKSPACE = "skills_workspace";
 	public final static String TEMPLATE_PARAM_SKILL_RUNNER = "skill_runner";
 	public final static String TEMPLATE_PARAM_SKILL_ENV = "skill_env";
+	public final static String TEMPLATE_PARAM_BUSINESS_SCOPE = "business_scope";
 
 	public final static String SKILLS_WORKSPACE = "SKILLS_WORKSPACE";
 	
@@ -38,6 +39,8 @@ public interface IAIChatSkillAgentRuntimeBase extends IAISkillAgentRuntimeBase{
 	public final static String MEMORYFILE_REGULAR = "memory/regular.md";
 	
 	public final static String MEMORYFILE_SESSION = "memory/session.md";
+	
+	public final static String PROFILEFILE = "PROFILE.yaml";
 	
 	/**
 	 * 工具调用

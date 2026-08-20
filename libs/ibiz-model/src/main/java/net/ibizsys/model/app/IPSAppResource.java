@@ -14,14 +14,14 @@ public interface IPSAppResource extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取资源内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
 	 * 获取资源标记
 	 * @return
 	 */
-	java.lang.String getResTag();
+	String getResTag();
 	
 	
 	/**
@@ -30,5 +30,5 @@ public interface IPSAppResource extends net.ibizsys.model.app.IPSApplicationObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppResourceType}
 	 * @return
 	 */
-	java.lang.String getResourceType();
+	String getResourceType();
 }

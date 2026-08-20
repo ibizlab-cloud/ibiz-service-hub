@@ -28,6 +28,7 @@ import net.ibizsys.central.sysutil.ISysCacheUtilRuntime;
 import net.ibizsys.central.sysutil.ISysUniStateUtilRuntime;
 import net.ibizsys.central.sysutil.ISysUtilRuntime;
 import net.ibizsys.central.testing.ISysTestDataRuntime;
+import net.ibizsys.central.testing.ISysTestPrjRuntime;
 import net.ibizsys.central.util.groovy.ISystemRTGroovyContext;
 import net.ibizsys.central.util.script.ISystemRTScriptContext;
 import net.ibizsys.model.IPSSystemService;
@@ -44,6 +45,7 @@ import net.ibizsys.model.search.IPSSysSearchScheme;
 import net.ibizsys.model.service.IPSSubSysServiceAPI;
 import net.ibizsys.model.system.IPSSysRef;
 import net.ibizsys.model.testing.IPSSysTestData;
+import net.ibizsys.model.testing.IPSSysTestPrj;
 import net.ibizsys.runtime.security.IUserContext;
 
 /**
@@ -153,6 +155,13 @@ public interface ISystemRuntime extends net.ibizsys.runtime.ISystemRuntime, ISys
 	 * @return
 	 */
 	IPSSystemService getPSSystemService();
+	
+	
+	/**
+	 * 获取模型文件夹路径
+	 * @return
+	 */
+	String getPSModelFolderPath(); 
 
 	/**
 	 * 获取系统运行时设置
@@ -803,6 +812,25 @@ public interface ISystemRuntime extends net.ibizsys.runtime.ISystemRuntime, ISys
 	 * @return
 	 */
 	ISysTestDataRuntime getSysTestDataRuntime(IPSSysTestData iPSSysTestData);
+	
+	
+	/**
+	 * 获取系统测试项目运行时对象
+	 * 
+	 * @param iPSSysTestPrj
+	 * @return
+	 */
+	ISysTestPrjRuntime getSysTestPrjRuntime(IPSSysTestPrj iPSSysTestPrj);
+	
+	/**
+	 * 获取系统测试项目运行时对象
+	 * 
+	 * @param strTag
+	 * @param bTryMode
+	 * @return
+	 */
+	ISysTestPrjRuntime getSysTestPrjRuntime(String strTag, boolean bTryMode);
+	
 
 	/**
 	 * 获取系统运行时Groovy上下文对象
@@ -949,4 +977,25 @@ public interface ISystemRuntime extends net.ibizsys.runtime.ISystemRuntime, ISys
 	 * @return
 	 */
 	String getResourceContent(String strPath, String strDefault);
+	
+	
+	
+	/**
+	 * 获取资源内容，不存在进一步尝试系统资源
+	 * @param clazz
+	 * @param resourcePath
+	 * @param tryMode
+	 * @return
+	 */
+	String getResourceContent(Class<?> clazz, String resourcePath, boolean tryMode);
+	
+	
+	/**
+	 * 获取资源内容，不存在进一步尝试系统资源
+	 * @param clazz
+	 * @param resourcePath
+	 * @param strDefault
+	 * @return
+	 */
+	String getResourceContent(Class<?> clazz, String resourcePath, String strDefault);
 }

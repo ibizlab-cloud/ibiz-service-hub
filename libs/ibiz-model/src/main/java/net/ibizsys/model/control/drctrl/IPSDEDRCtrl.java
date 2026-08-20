@@ -14,7 +14,7 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	 * 获取实体数据关系标记
 	 * @return
 	 */
-	java.lang.String getDataRelationTag();
+	String getDataRelationTag();
 	
 	
 	/**
@@ -35,7 +35,7 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	 * 获取编辑项标题
 	 * @return
 	 */
-	java.lang.String getEditItemCaption();
+	String getEditItemCaption();
 	
 	
 	/**
@@ -91,7 +91,7 @@ public interface IPSDEDRCtrl extends net.ibizsys.model.control.drctrl.IPSDRCtrl{
 	 * 获取全局唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**

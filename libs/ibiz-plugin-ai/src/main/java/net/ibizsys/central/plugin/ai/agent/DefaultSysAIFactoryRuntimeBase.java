@@ -63,8 +63,6 @@ import net.ibizsys.runtime.sysutil.ISysFileUtilRuntime;
 import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.DataTypeUtils;
-import net.ibizsys.runtime.util.ErrorException;
-import net.ibizsys.runtime.util.Errors;
 import net.ibizsys.runtime.util.ExceptionUtils;
 import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
@@ -105,6 +103,10 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	private boolean bEnableSkillDetection = false;
 	private boolean bEnableKnowledgeBase = true;
 	private Map<String, Object> skillEnv = null;
+	private Map<String, Object> skillRunnerConfig = null;
+	
+	
+	
 
 	/**
 	 * AI工厂通知代理代码标识
@@ -116,6 +118,15 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	public final static String SKILLRUNNER_USERID_UNKNOWN = "unknown";
 
 	private int nToolCallTimeout = 60;
+	
+	private Map<String, ISysAIChatSkill> remoteAIChatSkillMap = new ConcurrentHashMap<String, ISysAIChatSkill>();
+	
+	public static Yaml yaml = new Yaml();
+	
+	private final static ThreadLocal<Map<String, String>> currentSkillRunnerDataThreadLocal = new ThreadLocal<Map<String, String>>();
+	
+	
+	private final static ThreadLocal<String> currentBusinessScopeThreadLocal = new ThreadLocal<String>();
 
 	private ISysEAIMsgListener iSysEAIMsgListener = new ISysEAIMsgListener() {
 
@@ -143,6 +154,16 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 			public File getSkillsWorkspace() {
 				return DefaultSysAIFactoryRuntimeBase.this.getSkillsWorkspace(false);
 			}
+			
+			@Override
+			public String getSkillsWorkspacePath(boolean local) {
+				return DefaultSysAIFactoryRuntimeBase.this.getSkillsWorkspacePath(local);
+			}
+			
+			@Override
+			public String getSkillsWorkspacePath() {
+				return DefaultSysAIFactoryRuntimeBase.this.getSkillsWorkspacePath(false);
+			}
 
 			@Override
 			public String getSkillChatSessionContent(String skillId, String chatSessionId, String defaultContent) {
@@ -168,6 +189,11 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 			public Map<String, String> getSkillRunnerData() {
 				return DefaultSysAIFactoryRuntimeBase.this.getSkillRunnerData();
 			}
+			
+			@Override
+			public Map<String, String> getSkillRunnerDataByBusinessScope(String businessScope) {
+				return DefaultSysAIFactoryRuntimeBase.this.getSkillRunnerDataByBusinessScope(businessScope);
+			}
 
 			@Override
 			public Map<String, Object> getSkillEnv() {
@@ -178,7 +204,60 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 			public boolean isEnableKnowledgeBase() {
 				return DefaultSysAIFactoryRuntimeBase.this.isEnableKnowledgeBase();
 			}
+			
+			@Override
+			public Map<String, ISysAIChatSkill> getRemoteAIChatSkills() {
+				return DefaultSysAIFactoryRuntimeBase.this.getRemoteAIChatSkills();
+			}
+			
+			@Override
+			public void uploadRemoteFile(String strSkillId, Map<String, Object> args, Map<String, Object> params, File realFile) throws Exception {
+				DefaultSysAIFactoryRuntimeBase.this.uploadRemoteFile(strSkillId, args, params, realFile);
+			}
+			
+			@Override
+			public Map<String, Object> getSkillEnvironments(String strSkillId, String strProfile, String strUserId) throws Exception {
+				return DefaultSysAIFactoryRuntimeBase.this.getSkillEnvironments(strSkillId, strProfile, strUserId);
+			}
+			
+			@Override
+			public String readRemoteFile(String strSkillId, String strFilePath, boolean bFromTemplate, boolean bTryMode) throws Exception {
+				return DefaultSysAIFactoryRuntimeBase.this.readRemoteFile(strSkillId, strFilePath, bFromTemplate, bTryMode);
+			}
+
+			@Override
+			public String readSkillProfile(String strSkillId, String strUserId) throws Exception {
+				return DefaultSysAIFactoryRuntimeBase.this.readSkillProfile(strSkillId, strUserId);
+			}
+
+			@Override
+			public void updateSkillProfile(String strSkillId, String strUserId, String strContent) throws Exception {
+				DefaultSysAIFactoryRuntimeBase.this.updateSkillProfile(strSkillId, strUserId, strContent);
+			}
+
+			@Override
+			public Map<String, String> getCurrentSkillRunnerData() {
+				return DefaultSysAIFactoryRuntimeBase.this.getCurrentSkillRunnerData();
+			}
+
+			@Override
+			public void setCurrentSkillRunnerData(Map<String, String> data) {
+				DefaultSysAIFactoryRuntimeBase.this.setCurrentSkillRunnerData(data);
+			}
+			
+			@Override
+			public String getCurrentBusinessScope() {
+				return DefaultSysAIFactoryRuntimeBase.this.getCurrentBusinessScope();
+			}
+
+			@Override
+			public void setCurrentBusinessScope(String data) {
+				DefaultSysAIFactoryRuntimeBase.this.setCurrentBusinessScope(data);
+			}
+			
 		};
+		
+		
 	}
 
 	@Override
@@ -198,6 +277,9 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 
 		Map<String, Object> skillEnv = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".skill.env", new HashMap<String, Object>());
 		this.setSkillEnv(skillEnv);
+		
+		Map<String, Object> skillRunnerConfig = this.getSystemRuntimeSetting().getParams(this.getConfigFolder() + ".skill.runner.config", new HashMap<String, Object>());
+		this.setSkillRunnerConfig(skillRunnerConfig);
 	}
 
 	@Override
@@ -242,6 +324,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	protected Map<String, Object> getSkillEnv() {
 		return this.skillEnv;
 	}
+	
 
 	protected boolean isEnableKnowledgeBase() {
 		return this.bEnableKnowledgeBase;
@@ -260,6 +343,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 			if (!ObjectUtils.isEmpty(params)) {
 				strWorkspacePath = DataTypeUtils.asString((String) params.get(SKILLRUNNER_WORKSPACE), "");
 				if (StringUtils.hasLength(strWorkspacePath)) {
+					//没有附加Unknown用户判断
 					return new File(strWorkspacePath);
 				}
 			}
@@ -283,6 +367,54 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 
 		return this.skillsWorkspace;
 	}
+	
+	protected String getSkillsWorkspacePath(boolean local) {
+		String strWorkspacePath = null;
+		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrent();
+
+		if (!local) {
+			Map<String, String> params = this.getSkillRunnerData();
+			if (!ObjectUtils.isEmpty(params)) {
+				strWorkspacePath = DataTypeUtils.asString((String) params.get(SKILLRUNNER_WORKSPACE), "");
+				if (StringUtils.hasLength(strWorkspacePath)) {
+					//需要进一步判断，如果是UNKNOWN，则需要补充UserId
+					String strUserId = DataTypeUtils.asString((String) params.get(SKILLRUNNER_USER_ID), "");
+					if(!ObjectUtils.isEmpty(strUserId) && SKILLRUNNER_USERID_UNKNOWN.equalsIgnoreCase(strUserId)) {
+						//未知用户，补充用户标识
+						if (iEmployeeContext != null) {
+							strWorkspacePath += "/";
+							strWorkspacePath += KeyValueUtils.genUniqueId(iEmployeeContext.getUserid());
+						}
+					}
+					
+					return strWorkspacePath;
+				}
+			}
+		}
+
+		if (iEmployeeContext != null) {
+			try {
+				strWorkspacePath = this.skillsWorkspace.getCanonicalPath() + File.separator + KeyValueUtils.genUniqueId(iEmployeeContext.getUserid());
+			} catch (IOException ex) {
+				log.error(ex);
+			}
+		}
+
+		if (StringUtils.hasLength(strWorkspacePath)) {
+			File file = new File(strWorkspacePath);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			return strWorkspacePath;
+		}
+
+		try {
+			return this.skillsWorkspace.getCanonicalPath();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 
 	protected ISysEAIAgentRuntime getInformAgent() {
 		return this.getInformAgent(false);
@@ -403,12 +535,12 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	}
 
 	protected Object toolCall(String command, Map<String, Object> args, Map<String, Object> params) throws Throwable {
-
 		ISysEAIAgentRuntime iSysEAIAgentRuntime = this.getInformAgent(true);
 		if (iSysEAIAgentRuntime != null) {
 			String strToolCallInformTopic = this.getToolCallInformTopic();
 			if (StringUtils.hasLength(strToolCallInformTopic)) {
 				String strSkillId = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_SKILL_ID));
+				boolean bFromTemplate = DataTypeUtils.asBoolean(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_FROM_TEMPLATE), false);
 				// 特殊处理上传和下载文件
 				boolean bSendNotify = true;
 				File realFile = null;
@@ -661,12 +793,141 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				log.warn(String.format("无法获取远程ToolCall通知主题，使用本地处理"));
 			}
 		}
+		
+		if (IAIChatSkillAgentRuntimeBase.COMMAND_OUTPUT_STEP.equals(command)) {
+			return "成功";
+		}
 
 		if (!isEnableLocalToolCall()) {
 			throw new Exception(String.format("当前无可用SkillRunner，无法执行工具调用"));
 		}
 
 		return this.doLocalToolCall(command, args, params);
+	}
+	
+	protected String readRemoteFile(String strSkillId, String strFilePath, boolean bFromTemplate,  boolean bTryMode) throws Exception {
+		String strToolCallInformTopic = this.getToolCallInformTopic();
+		if (!StringUtils.hasLength(strToolCallInformTopic)) {
+			if(bTryMode) {
+				return null;
+			}
+			throw new Exception("SkillRunner通知主题无效");
+		}
+		
+		ISysEAIAgentRuntime iSysEAIAgentRuntime = this.getInformAgent(bTryMode);
+		if(iSysEAIAgentRuntime == null) {
+			return null;
+		}
+		
+		try {
+			Map<String, Object> args = new LinkedHashMap<String, Object>();
+			args.put(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_SKILL_ID, strSkillId);
+			args.put(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_X_FILE_PATH, strFilePath);
+			args.put(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_FROM_TEMPLATE, bFromTemplate?"true":"false");
+			
+			return (String)toolCall(IAIChatSkillAgentRuntimeBase.COMMAND_READ_FILE, args);
+		}
+		catch (Throwable ex) {
+			log.error(ex);
+			if(bTryMode) {
+				return null;
+			}
+			throw ex;
+		}
+	}
+	
+	protected void uploadRemoteFile(String strSkillId, Map<String, Object> args, Map<String, Object> params, File realFile) throws Exception {
+		
+		String strToolCallInformTopic = this.getToolCallInformTopic();
+		if (!StringUtils.hasLength(strToolCallInformTopic)) {
+			throw new Exception("SkillRunner通知主题无效");
+		}
+		
+		ISysEAIAgentRuntime iSysEAIAgentRuntime = this.getInformAgent(false);
+		
+		Object ret = null;
+		ToolCallFuture toolCallFuture = null;
+		// 发送消息，并等待消息接收
+		String strToolCallId = KeyValueUtils.genUniqueId();
+		Map<String, Object> msg = new LinkedHashMap<String, Object>();
+		msg.put("command", IAIChatSkillAgentRuntimeBase.COMMAND_UPLOAD_FILE);
+		msg.put("args", args);
+		msg.put("tool_call_id", strToolCallId);
+		msg.put("result_topic", iSysEAIAgentRuntime.getTopics().get(0));
+
+		Object scope = params.get(ISysAIAgentRuntime.SCOPE);
+		if (!ObjectUtils.isEmpty(scope)) {
+			msg.put("scope", scope);
+		}
+
+		Object agentTag = params.get(ISysAIAgentRuntime.AIAGENTTAG);
+		if (!ObjectUtils.isEmpty(agentTag)) {
+			msg.put("agent_tag", agentTag);
+		}
+
+		if (!ObjectUtils.isEmpty(strSkillId)) {
+			if (!IAIChatSkillAgentRuntimeBase.SKILLS_WORKSPACE.equalsIgnoreCase(strSkillId)) {
+				ISysAIChatSkill iSysAIChatSkill = this.getAIChatSkill(strSkillId, true);
+				if (iSysAIChatSkill != null && iSysAIChatSkill.isExtended()) {
+					if (!ObjectUtils.isEmpty(iSysAIChatSkill.getExtendedScripts())) {
+						msg.put("extended", iSysAIChatSkill.getExtendedScripts());
+					}
+				}
+			}
+		}
+
+		CompletableFuture<String> future = new CompletableFuture<>();
+		toolCallFuture = new ToolCallFuture(future, IAIChatSkillAgentRuntimeBase.COMMAND_UPLOAD_FILE, args, params);
+		try {
+			toolCallSessionMap.put(strToolCallId, toolCallFuture);
+			iSysEAIAgentRuntime.send(strToolCallInformTopic, JsonUtils.toString(msg));
+		} catch (Throwable ex) {
+			toolCallSessionMap.remove(strToolCallId);
+			log.error(String.format("发送工具调用通知发生异常，%1$s", ex.getMessage()), ex);
+			throw new Exception(String.format("发送工具调用通知发生异常，%1$s", ex.getMessage()));
+		}
+
+		try {
+			while (true) {
+				try {
+					ret = future.get(nToolCallTimeout, TimeUnit.SECONDS);
+					break;
+				} catch (TimeoutException ex) {
+					if (!toolCallFuture.wait)
+						throw ex;
+				}
+			}
+		} catch (Throwable ex) {
+			log.error(String.format("等待工具调用结果发生异常，%1$s", ex.getMessage()), ex);
+			try {
+				future.cancel(true);
+			} catch (Throwable ex2) {
+				log.error(String.format("取消等待处理发生异常，%1$s", ex2.getMessage()), ex2);
+			}
+			if (ex instanceof TimeoutException) {
+				throw new Exception(String.format("等待工具调用结果超时"));
+			}
+			throw new Exception(String.format("等待工具调用结果发生异常，%1$s", ex.getMessage()));
+		} finally {
+			toolCallSessionMap.remove(strToolCallId);
+		}
+		
+
+		if (toolCallFuture != null) {
+			// 循环写入文件
+			if (!realFile.exists()) {
+				realFile.getParentFile().mkdirs();
+			} else {
+				realFile.delete();
+			}
+			boolean bAppend = false;
+			for (java.util.Map.Entry<Integer, File> entry : toolCallFuture.files.entrySet()) {
+				FileUtils.writeByteArrayToFile(realFile, Base64.getDecoder().decode(FileUtils.readFileToString(entry.getValue(), "UTF-8")), bAppend);
+				if (!bAppend) {
+					bAppend = true;
+				}
+			}
+		}
 	}
 
 	protected boolean isEnableLocalToolCall() {
@@ -767,7 +1028,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				if (ObjectUtils.isEmpty(strFilePath)) {
 					return String.format("写入文件发生异常，返回以下信息：\n未传入文件路径`file_path`");
 				}
-
+				boolean bAppend = DataTypeUtils.asBoolean(args.get(COMMAND_PARAM_WRITE_FILE_APPEND), false);
 				String strContent = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_WRITE_FILE_CONTENT), "");
 
 				String strRealPath = PythonAIChatUtils.isAbsolutePath(strFilePath) ? strFilePath : PythonAIChatUtils.resolveToAbsolute(this.getSkillsWorkspace(true).getCanonicalPath(), strFilePath);
@@ -781,11 +1042,17 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				}
 
 				if (file.exists()) {
-					FileUtils.writeStringToFile(file, strContent, "UTF-8");
+					FileUtils.writeStringToFile(file, strContent, "UTF-8", bAppend);
 					if (bFromTemplate) {
 						return "";
 					}
-					return String.format("写入文件[%1$s]成功", file.getCanonicalPath());
+					
+					if(bAppend) {
+						return String.format("附加写入文件[%1$s]成功， 文件总大小[%2$s]", file.getCanonicalPath(), file.length());
+					}
+					else {
+						return String.format("写入文件[%1$s]成功， 文件大小[%2$s]", file.getCanonicalPath(), file.length());
+					}
 				}
 
 				if (!file.getParentFile().exists()) {
@@ -796,7 +1063,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				if (bFromTemplate) {
 					return "";
 				}
-				return String.format("写入文件[%1$s]成功", file.getCanonicalPath());
+				return String.format("写入文件[%1$s]成功， 文件大小[%2$s]", file.getCanonicalPath(), file.length());
 			}
 
 			if (IAIChatSkillAgentRuntimeBase.COMMAND_UPLOAD_FILE.equalsIgnoreCase(command)) {
@@ -1000,6 +1267,9 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 						FileUtils.writeStringToFile(file, strContent, "UTF-8");
 					}
 				}
+				
+				Map env = (Map)args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_EXECUTE_BASH_ENV);
+				
 
 				//strCommand = strCommand.replace("{SKILLS_WORKSPACE}", this.getSkillsWorkspace(true).getCanonicalPath());
 				//strCommand = strCommand.replace("{baseDir}", iSysAIChatSkill.getSkillFolder().getCanonicalPath());
@@ -1010,7 +1280,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				String strError = "";
 				
 				try {
-					ExecuteResult executeResult = PythonAIChatUtils.executeCommand(strCommand, iSysAIChatSkill.getSkillFolder());
+					ExecuteResult executeResult = PythonAIChatUtils.executeCommand(strCommand, iSysAIChatSkill.getSkillFolder(), env);
 					if (bFromTemplate) {
 						return executeResult.standardOutput;
 					}
@@ -1067,18 +1337,24 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				if (ObjectUtils.isEmpty(strFilePath)) {
 					return String.format("写入文件发生异常，返回以下信息：\n未传入文件路径`file_path`");
 				}
-
+				boolean bAppend = DataTypeUtils.asBoolean(args.get(COMMAND_PARAM_WRITE_FILE_APPEND), false);
+				
 				String strContent = DataTypeUtils.asString(args.get(IAIChatSkillAgentRuntimeBase.COMMAND_PARAM_WRITE_FILE_CONTENT), "");
 
 				String strRealPath = PythonAIChatUtils.isAbsolutePath(strFilePath) ? strFilePath : PythonAIChatUtils.resolveToAbsolute(iSysAIChatSkill.getSkillFolder().getCanonicalPath(), strFilePath);
 				// 判断文件是否存在
 				File file = new File(strRealPath);
 				if (file.exists()) {
-					FileUtils.writeStringToFile(file, strContent, "UTF-8");
+					FileUtils.writeStringToFile(file, strContent, "UTF-8", bAppend);
 					if (bFromTemplate) {
 						return "";
 					}
-					return String.format("写入文件[%1$s]成功", file.getCanonicalPath());
+					if(bAppend) {
+						return String.format("附加写入文件[%1$s]成功， 文件总大小[%2$s]", file.getCanonicalPath(), file.length());
+					}
+					else {
+						return String.format("写入文件[%1$s]成功， 文件大小[%2$s]", file.getCanonicalPath(), file.length());
+					}
 				}
 
 				if (!file.getParentFile().exists()) {
@@ -1089,8 +1365,7 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 				if (bFromTemplate) {
 					return "";
 				}
-				return String.format("写入文件[%1$s]成功", file.getCanonicalPath());
-
+				return String.format("写入文件[%1$s]成功， 文件大小[%2$s]", file.getCanonicalPath(), file.length());
 			}
 		}
 
@@ -1098,16 +1373,23 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	}
 
 	protected Map<String, String> getSkillRunnerData() {
+		
+		Map<String, String> data = getCurrentSkillRunnerData();
+		if(!ObjectUtils.isEmpty(data)) {
+			return data;
+		}
+		
 		ActionSession actionSession = ActionSessionManager.getCurrentSession();
-		if (actionSession != null) {
+		if(actionSession != null) {
 			Object skillRunnerData = actionSession.getActionParam("__SKILLRUNNERDATA__");
 			if (skillRunnerData instanceof Map) {
 				return (Map) skillRunnerData;
 			}
 		}
+		
 
-		Map<String, String> data = this.doGetSkillRunnerData();
-		if (actionSession != null) {
+		data = this.doGetSkillRunnerData();
+		if(actionSession != null) {
 			actionSession.setActionParam("__SKILLRUNNERDATA__", data);
 		}
 		return data;
@@ -1131,11 +1413,55 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 
 		return Collections.EMPTY_MAP;
 	}
+	
+	public Map<String, String> getSkillRunnerDataByBusinessScope(String businessScope) {
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		if(actionSession != null) {
+			Object skillRunnerData = actionSession.getActionParam(String.format("__SKILLRUNNERDATA__%1$s__", businessScope));
+			if (skillRunnerData instanceof Map) {
+				return (Map) skillRunnerData;
+			}
+		}
+		
 
-	protected String getToolCallInformTopic() {
-		Map<String, String> params = this.getSkillRunnerData();
+		Map<String, String> data = this.doGetSkillRunnerDataByBusinessScope(businessScope);
+		if(actionSession != null) {
+			actionSession.setActionParam(String.format("__SKILLRUNNERDATA__%1$s__", businessScope), data);
+		}
+		return data;
+	}
+	
+	protected Map<String, String> doGetSkillRunnerDataByBusinessScope(String businessScope) {
+		String strCacheKey = getSkillRunnerDataCacheKeyByBusinessScope(businessScope);
+		Map<String, String> params = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
 		if (!ObjectUtils.isEmpty(params)) {
-			return (String) params.get("topic");
+			return params;
+		}
+
+		return Collections.EMPTY_MAP;
+	}
+
+	protected Map<String, String> getCurrentSkillRunnerData() {
+		return DefaultSysAIFactoryRuntimeBase.currentSkillRunnerDataThreadLocal.get();
+	}
+
+	protected void setCurrentSkillRunnerData(Map<String, String> data) {
+		DefaultSysAIFactoryRuntimeBase.currentSkillRunnerDataThreadLocal.set(data);
+	}
+	
+	protected String getCurrentBusinessScope() {
+		return DefaultSysAIFactoryRuntimeBase.currentBusinessScopeThreadLocal.get();
+	}
+
+	protected void setCurrentBusinessScope(String data) {
+		DefaultSysAIFactoryRuntimeBase.currentBusinessScopeThreadLocal.set(data);
+	}
+	
+	
+	protected String getToolCallInformTopic() {
+		Map<String, String> data = this.getSkillRunnerData();
+		if (!ObjectUtils.isEmpty(data)) {
+			return (String) data.get("topic");
 		}
 		return null;
 	}
@@ -1260,11 +1586,123 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 
 	}
 
+	
+
+	/**
+	 * 获取技能环境变量
+	 * @param strSkillId
+	 * @param strProfileTag
+	 * @param strUserId
+	 * @return
+	 */
+	protected Map<String, Object> getSkillEnvironments(String strSkillId, String strProfileTag, String strUserId){
+
+		Map<String, Object> env = null;
+		String strProfileId = String.format("%1$s%2$s-%3$s--skill-%4$s--%5$s", "profile-", this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strSkillId, "default").toLowerCase();
+		String strConfig = ServiceHub.getInstance().getConfig(strProfileId);
+		if (!ObjectUtils.isEmpty(strConfig)) {
+			try {
+				Map<String, Object> globalEnv = DefaultSysAIFactoryRuntimeBase.yaml.loadAs(strConfig, Map.class);
+				if(!ObjectUtils.isEmpty(globalEnv)) {
+					Object sector = globalEnv.get("default");
+					if(sector instanceof Map) {
+						env = (Map)sector;
+					}
+					
+					if(StringUtils.hasLength(strProfileTag) && !strProfileTag.equalsIgnoreCase("default")) {
+						sector = globalEnv.get(strProfileTag.toLowerCase());
+						if(sector instanceof Map) {
+							if(env == null) {
+								env = (Map)sector;
+							}
+							else {
+								env.putAll((Map)sector);
+							}
+						}
+					}
+				}
+			}
+			catch (Throwable ex) {
+				log.error(String.format("读取技能[%1$s]全局配置发生异常，%2$s", strSkillId, ex.getMessage()), ex);
+			}
+		}
+		
+		if(StringUtils.hasLength(strUserId) && StringUtils.hasLength(strProfileTag) && !strUserId.equals("default")) {
+			strProfileId = String.format("%1$s%2$s-%3$s--skill-%4$s--%5$s", "profile-", this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strSkillId, strUserId).toLowerCase();
+			strConfig = ServiceHub.getInstance().getConfig(strProfileId);
+			if (!ObjectUtils.isEmpty(strConfig)) {
+				try {
+					Map<String, Object> userEnv = DefaultSysAIFactoryRuntimeBase.yaml.loadAs(strConfig, Map.class);
+					if(!ObjectUtils.isEmpty(userEnv)) {
+						Object sector = userEnv.get(strProfileTag.toLowerCase());
+						if(sector instanceof Map) {
+							if(env == null) {
+								env = (Map)sector;
+							}
+							else {
+								env.putAll((Map)sector);
+							}
+						}
+					}
+				}
+				catch (Throwable ex) {
+					log.error(String.format("读取技能[%1$s]用户配置[%2$s]发生异常，%3$s", strSkillId, strUserId, ex.getMessage()), ex);
+				}
+			}
+		}
+
+		return env;
+	}
+	
+	
+	/**
+	 * 读取技能配置文件
+	 * @param strSkillId
+	 * @param strUserId
+	 * @return
+	 * @throws Exception
+	 */
+	protected String readSkillProfile(String strSkillId, String strUserId) throws Exception {
+		String strProfileId = String.format("%1$s%2$s-%3$s--skill-%4$s--%5$s", "profile-", this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strSkillId, strUserId).toLowerCase();
+		String strContent = ServiceHub.getInstance().getConfig(strProfileId);
+		if(StringUtils.hasLength(strContent)) {
+			return strContent;
+		}
+		
+		throw new Exception("指定文件不存在");
+	}
+	
+	
+	/**
+	 * 更新技能配置文件
+	 * @param strSkillId
+	 * @param strUserId
+	 * @param strContent
+	 * @return
+	 * @throws Exception
+	 */
+	protected void updateSkillProfile(String strSkillId, String strUserId, String strContent) throws Exception{
+		String strProfileId = String.format("%1$s%2$s-%3$s--skill-%4$s--%5$s", "profile-", this.getSystemRuntime().getDeploySystemId(), this.getConfigFolder().replace(".", "-"), strSkillId, strUserId).toLowerCase();
+		if(StringUtils.hasLength(strContent)) {
+			try {
+				Map<String, Object> globalEnv = DefaultSysAIFactoryRuntimeBase.yaml.loadAs(strContent, Map.class);
+			}
+			catch (Throwable ex) {
+				throw new Exception(String.format("配置内容必须为YAML的MAP形式"));
+			}
+			
+			ServiceHub.getInstance().publishConfig(strProfileId, strContent);
+		}
+		else {
+			ServiceHub.getInstance().removeConfig(strProfileId);
+		}
+	}
+	
 	@Override
-	public Object registerSkillRunner(Map<String, Object> params) {
+	public Object registerSkillRunner(String strRunnerId, Map<String, Object> params) {
 		try {
 			this.getInformAgent(false);
-			return this.onRegisterSkillRunner(params);
+			return this.onRegisterSkillRunner(strRunnerId, params);
 		} catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
 			SysAIFactoryRuntimeException.rethrow(this, ex);
@@ -1272,23 +1710,274 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 		}
 	}
 
-	protected Object onRegisterSkillRunner(Map<String, Object> params) throws Throwable {
-		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
-		String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
-		String strListenTopic = String.format("/skillrunner_%1$s", KeyValueUtils.genUniqueId());
+	protected Object onRegisterSkillRunner(String strRunnerId, Map<String, Object> params) throws Throwable {
+
+		Object businessScope = params != null ? params.get(SKILLRUNNER_BUSINESS_SCOPE) : null; 
+		
 		Map<String, String> cacheData = new LinkedHashMap<String, String>();
+		
+		List<String> cacheKeyList = new ArrayList<String>();
+		if(!ObjectUtils.isEmpty(businessScope)) {
+			if(businessScope instanceof List) {
+				List list = (List)businessScope;
+				for(Object item : list) {
+					String strCacheKey = getSkillRunnerDataCacheKeyByBusinessScope(String.valueOf(item));
+					cacheKeyList.add(strCacheKey);
+				}
+			}
+			else {
+				cacheKeyList.add(String.valueOf(businessScope));
+			}
+		}
+		else {
+			IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
+			String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
+			cacheKeyList.add(strCacheKey);
+			
+			Object userId = iEmployeeContext.getSessionParam(SESSIONKEY_SKILLRUNNER_USERID);
+			userId = ObjectUtils.isEmpty(userId) ? iEmployeeContext.getUserid() : userId;
+			if(!ObjectUtils.isEmpty(userId)) {
+				cacheData.put(SKILLRUNNER_USER_ID, String.valueOf(userId));
+			}
+		}
+		
+		
+		String strListenTopic = String.format("/skillrunner_%1$s", KeyValueUtils.genUniqueId());
+		
 		cacheData.put("topic", strListenTopic);
 		String strWorkspace = params != null ? DataTypeUtils.asString(params.get(SKILLRUNNER_WORKSPACE)) : null;
 		if (StringUtils.hasLength(strWorkspace)) {
 			cacheData.put(SKILLRUNNER_WORKSPACE, strWorkspace);
 		}
+		
+		String strOSType = params != null ? DataTypeUtils.asString(params.get(SKILLRUNNER_OS_TYPE)) : null;
+		if (StringUtils.hasLength(strOSType)) {
+			cacheData.put(SKILLRUNNER_OS_TYPE, strOSType);
+		}
+		else {
+			cacheData.put(SKILLRUNNER_OS_TYPE, OS_TYPE_LINUX);
+		}
+		
+		String strSkillsPath = params != null ? DataTypeUtils.asString(params.get(SKILLRUNNER_SKILLS_PATH)) : null;
+		if (StringUtils.hasLength(strSkillsPath)) {
+			cacheData.put(SKILLRUNNER_SKILLS_PATH, strSkillsPath);
+		}
+		
+		
+		//获取远程技能集合
+		Object remoteSkills = params != null ? params.get(SKILLRUNNER_SKILLS) : null;
+		if(remoteSkills instanceof Map) {
+			Map<String, Object> skills = getRemoteSkills((Map)remoteSkills, true);
+			if(!ObjectUtils.isEmpty(skills)) {
+				cacheData.put(SKILLRUNNER_SKILLS, JsonUtils.toString(skills));
+			}
+		}
 
-		this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strCacheKey, cacheData, 120);
+		for(String strCacheKey : cacheKeyList) {
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strCacheKey, cacheData, 120);
+		}
 
 		Map<String, String> ret = new LinkedHashMap<String, String>();
 		ret.put(SKILLRUNNER_REGISTRATION_LISTEN_TOPIC, strListenTopic);
 		ret.put(SKILLRUNNER_REGISTRATION_RESULT_TOPIC, this.getInformAgent(false).getDefaultTopic());
+		
+		//启动线程，获取远程技能集合
+		if(!ObjectUtils.isEmpty(remoteSkills)) {
+			this.getSystemRuntime().threadRun(new Runnable() {
+				@Override
+				public void run() {
+					doGetRemoteAIChatSkills();
+				}
+			});
+		}
+		
+		//登记状态
+		if(StringUtils.hasLength(strRunnerId)) {
+			Map<String, String> stateData = new LinkedHashMap<String, String>();
+			stateData.put("timestamp", String.valueOf(System.currentTimeMillis()));
+			String strSkillRunnerStateKey = getSkillRunnerStateKey(strRunnerId);
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strSkillRunnerStateKey, stateData, 120);
+		}	
 		return ret;
+	}
+	
+	
+	
+	
+	
+
+	protected Map<String, Object> getRemoteSkills(Map<String, Object> map, boolean tryMode) throws Exception {
+		Map<String, Object> skills = new LinkedHashMap<String, Object>();
+		//分析远端SKILLS
+		for(java.util.Map.Entry<String, Object> entry : map.entrySet()) {
+			
+			if(ObjectUtils.isEmpty(entry.getValue())) {
+				continue;
+			}
+			
+			if(entry.getValue() instanceof Map) {
+				skills.put(entry.getKey(), entry.getValue());
+				continue;
+			}
+			
+			if(entry.getValue() instanceof String) {
+				try {
+					Yaml yaml = new Yaml();
+					Map data = yaml.loadAs(String.valueOf(entry.getValue()), Map.class);
+					skills.put(entry.getKey(), data);
+				}
+				catch (Throwable ex) {
+					log.error(String.format("分析远程技能[%1$s]数据[%2$s]发生异常，%3$s", entry.getKey(), entry.getValue(), ex.getMessage()), ex);
+					if(!tryMode) {
+						throw new Exception(String.format("分析远程技能[%1$s]数据[%2$s]发生异常，%3$s", entry.getKey(), entry.getValue(), ex.getMessage()), ex);
+					}
+				}
+				continue;
+			}
+			
+			
+			log.error(String.format("未支持的远程技能[%1$s]数据[%2$s]", entry.getKey(), entry.getValue()));
+			if(!tryMode) {
+				throw new Exception(String.format("未支持的远程技能[%1$s]数据[%2$s]", entry.getKey(), entry.getValue()));
+			}
+		}
+		
+		return skills;
+	}
+	
+	
+	
+	protected Map<String, ISysAIChatSkill> getRemoteAIChatSkills() {
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		if(actionSession != null) {
+			Object remoteSkills = actionSession.getActionParam("__REMOTESKILLS__");
+			if (remoteSkills instanceof Map) {
+				return (Map) remoteSkills;
+			}
+		}
+		
+
+		Map<String, ISysAIChatSkill> map = this.doGetRemoteAIChatSkills();
+		if(actionSession != null) {
+			actionSession.setActionParam("__REMOTESKILLS__", map);
+		}
+		
+		return map;
+	}
+	
+	
+	protected Map<String, ISysAIChatSkill> doGetRemoteAIChatSkills(){
+		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrent();
+		if (iEmployeeContext == null) {
+			return Collections.EMPTY_MAP;
+		}
+		
+		
+		String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
+		Map<String, String> params = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
+		if (ObjectUtils.isEmpty(params)) {
+			return Collections.EMPTY_MAP;
+		}
+		
+		String strSkills = params.get(SKILLRUNNER_SKILLS);
+		if (ObjectUtils.isEmpty(strSkills)) {
+			return Collections.EMPTY_MAP;
+		}
+		
+		Map<String, Object> skills = JsonUtils.asMap(strSkills);
+		
+		Map<String, ISysAIChatSkill> sysAIChatSkillMap = new LinkedHashMap<String, ISysAIChatSkill>();
+		
+		for(java.util.Map.Entry<String, Object> entry : skills.entrySet()) {
+			try {
+				ISysAIChatSkill iSysAIChatSkill = this.getRemoteAIChatSkill(iEmployeeContext, entry.getKey(), (Map)entry.getValue());
+				sysAIChatSkillMap.put(iSysAIChatSkill.getId(), iSysAIChatSkill);
+			}
+			catch (Exception ex) {
+				log.error(String.format("获取远程技能[%1$s]发生异常，%2$s", entry.getKey(), ex.getMessage()), ex);
+			}
+		}
+		
+		if(ObjectUtils.isEmpty(sysAIChatSkillMap)) {
+			return Collections.EMPTY_MAP;
+		}
+		
+		return Collections.unmodifiableMap(sysAIChatSkillMap);
+	}
+	
+	protected ISysAIChatSkill getRemoteAIChatSkill(IEmployeeContext iEmployeeContext, String strSkillId, Map<String, Object> skillData) throws Exception {
+		
+		String strMetadata = yaml.dumpAsMap(skillData);
+		
+		File remoteFolder = new File(this.getSysAIFactoryRuntimeContext().getWorkspace(), "remote");
+		String strSkillTag = KeyValueUtils.genUniqueId(iEmployeeContext!=null?iEmployeeContext.getUserid():"_UNKNOWN_", strSkillId, strMetadata);
+		
+		ISysAIChatSkill remoteAIChatSkill = remoteAIChatSkillMap.get(strSkillTag);
+		if(remoteAIChatSkill == null) {
+
+			File skillProxyFolder = new File(remoteFolder, strSkillTag);
+			File skillFolder = new File(skillProxyFolder, strSkillId);
+			
+			//写入文件
+			File metadataFile = new File(skillFolder, ISysAIChatSkill.METADATAFILE);
+			if(!skillFolder.exists()) {
+				skillFolder.mkdirs();
+			}
+			
+			FileUtils.writeStringToFile(metadataFile, strMetadata, "UTF-8");
+			
+			try {
+				ISysAIChatSkill iSysAIChatSkill = this.createSysAIChatSkill(skillFolder);
+				iSysAIChatSkill.init(this.getSysAIFactoryRuntimeContext(), skillFolder);
+				this.remoteAIChatSkillMap.put(strSkillTag, iSysAIChatSkill);
+				
+				remoteAIChatSkill = iSysAIChatSkill;
+			}
+			catch (Exception ex) {
+				throw new Exception(String.format("初始化远程技能[%1$s][%2$s]发生异常，%3$s", strSkillId, skillFolder.getCanonicalPath(), ex.getMessage()), ex);
+			}
+		}
+		
+		if(!remoteAIChatSkill.containsFile(ISysAIChatSkill.SKILLFILE)) {
+			File skillFile = new File(remoteAIChatSkill.getSkillFolder(), ISysAIChatSkill.SKILLFILE);
+			
+			this.getSystemRuntime().threadRun(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						String strContent = (String)readRemoteFile(strSkillId, ISysAIChatSkill.SKILLFILE, true, true);
+						if(StringUtils.hasLength(strContent)) {
+							//写入文件
+							FileUtils.writeStringToFile(skillFile, strContent, "UTF-8");
+							log.debug(String.format("同步远端技能文件[%1$s][%2$s]", strSkillId, skillFile.getCanonicalPath()));
+						}
+						else {
+							log.error(String.format("同步远端技能文件[%1$s]失败", strSkillId));
+						}
+					} catch (Throwable ex) {
+						log.error(ex);
+					}
+				}
+			});
+		}
+		
+		return remoteAIChatSkill;
+		
+	}
+	
+	@Override
+	protected void onReloadSkills(boolean bFirst) throws Throwable {
+		remoteAIChatSkillMap.clear();
+		super.onReloadSkills(bFirst);
+	}
+
+	@Override
+	public Map<String, Object> getSkillRunnerConfig() {
+		return this.skillRunnerConfig;
+	}
+	
+	protected void setSkillRunnerConfig(Map<String, Object> skillRunnerConfig) {
+		this.skillRunnerConfig = skillRunnerConfig;
 	}
 
 	protected String getSkillRunnerDataCacheKey(IEmployeeContext iEmployeeContext) {
@@ -1296,15 +1985,25 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 		return this.getSkillRunnerDataCacheKey(ObjectUtils.isEmpty(userId) ? iEmployeeContext.getUserid() : userId);
 	}
 
+	protected String getSkillRunnerDataCacheKeyByBusinessScope(String strBusinessScope) {
+		Object key = String.format("scope--%1$s", strBusinessScope);
+		return this.getSkillRunnerDataCacheKey(key);
+	}
+	
 	protected String getSkillRunnerDataCacheKey(Object key) {
 		return String.format("%1$s%2$s-%3$s--skillrunner--%4$s", "ibiz-cloud-sysaifactory-", this.getSystemRuntime().getDeploySystemId(), this.getFullUniqueTag().replace(".", "-"), key).toLowerCase();
 	}
+	
+	protected String getSkillRunnerStateKey(Object key) {
+		return String.format("%1$s%2$s-%3$s--skillrunner--state--%4$s", "ibiz-cloud-sysaifactory-", this.getSystemRuntime().getDeploySystemId(), this.getFullUniqueTag().replace(".", "-"), key).toLowerCase();
+	}
+	
 
 	@Override
-	public Object unregisterSkillRunner(Map<String, Object> params) {
+	public Object unregisterSkillRunner(String strRunnerId, Map<String, Object> params) {
 		try {
 			this.getInformAgent(false);
-			return this.onUnegisterSkillRunner(params);
+			return this.onUnegisterSkillRunner(strRunnerId, params);
 		} catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
 			SysAIFactoryRuntimeException.rethrow(this, ex);
@@ -1312,33 +2011,67 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 		}
 	}
 
-	protected Object onUnegisterSkillRunner(Map<String, Object> params) throws Throwable {
+	protected Object onUnegisterSkillRunner(String strRunnerId, Map<String, Object> params) throws Throwable {
 		String strInputListenTopic = (String) params.get(SKILLRUNNER_REGISTRATION_LISTEN_TOPIC);
 		if (ObjectUtils.isEmpty(strInputListenTopic)) {
-			throw new ErrorException("传入侦听标题无效", Errors.INPUTERROR);
-		}
-
-		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
-		String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
-		Map<String, String> cacheData = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
-		if (ObjectUtils.isEmpty(cacheData)) {
+			//throw new ErrorException("传入侦听标题无效", Errors.INPUTERROR);
+			log.error("传入侦听标题无效");
 			return false;
 		}
-		String strListenTopic = cacheData.get("topic");
-		if (!strInputListenTopic.equals(strListenTopic)) {
-			// 标题不一致
-			return false;
+		
+		Object businessScope = params != null ? params.get(SKILLRUNNER_BUSINESS_SCOPE) : null;
+		List<String> cacheKeyList = new ArrayList<String>();
+		if(!ObjectUtils.isEmpty(businessScope)) {
+			if(businessScope instanceof List) {
+				List list = (List)businessScope;
+				for(Object item : list) {
+					String strCacheKey = getSkillRunnerDataCacheKeyByBusinessScope(String.valueOf(item));
+					cacheKeyList.add(strCacheKey);
+				}
+			}
+			else {
+				cacheKeyList.add(String.valueOf(businessScope));
+			}
 		}
+		else {
+			IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
+			String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
+			cacheKeyList.add(strCacheKey);
+		}
+		
+		boolean bResetSkillState = false;
+		
+		for(String strCacheKey : cacheKeyList) {
+			Map<String, String> cacheData = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
+			if (ObjectUtils.isEmpty(cacheData)) {
+				continue;
+			}
+			String strListenTopic = cacheData.get("topic");
+			if (!strInputListenTopic.equals(strListenTopic)) {
+				// 标题不一致
+				continue;
+			}
 
-		this.getSystemRuntime().getSysCacheUtilRuntime(false).resetAll(strCacheKey);
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).resetAll(strCacheKey);
+			bResetSkillState = true;
+		}
+		
+		if(bResetSkillState && StringUtils.hasLength(strRunnerId)) {
+			Map<String, String> stateData = new LinkedHashMap<String, String>();
+			stateData.put("timestamp", String.valueOf(System.currentTimeMillis()));
+			String strSkillRunnerStateKey = getSkillRunnerStateKey(strRunnerId);
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).resetAll(strSkillRunnerStateKey);
+		}	
+		
+		
 		return true;
 	}
 
 	@Override
-	public Object activeSkillRunner(Map<String, Object> params) {
+	public Object activeSkillRunner(String strRunnerId, Map<String, Object> params) {
 		try {
 			this.getInformAgent(false);
-			return this.onActiveSkillRunner(params);
+			return this.onActiveSkillRunner(strRunnerId, params);
 		} catch (Throwable ex) {
 			ex = ExceptionUtils.unwrapThrowable(ex);
 			SysAIFactoryRuntimeException.rethrow(this, ex);
@@ -1346,27 +2079,101 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 		}
 	}
 
-	protected Object onActiveSkillRunner(Map<String, Object> params) throws Throwable {
+	protected Object onActiveSkillRunner(String strRunnerId, Map<String, Object> params) throws Throwable {
 		String strInputListenTopic = (String) params.get(SKILLRUNNER_REGISTRATION_LISTEN_TOPIC);
 		if (ObjectUtils.isEmpty(strInputListenTopic)) {
-			throw new ErrorException("传入侦听标题无效", Errors.INPUTERROR);
-		}
-
-		IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
-		String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
-		Map<String, String> cacheData = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
-		if (ObjectUtils.isEmpty(cacheData)) {
+			log.error("传入侦听标题无效");
 			return false;
 		}
-		String strListenTopic = cacheData.get("topic");
-		if (!strInputListenTopic.equals(strListenTopic)) {
-			// 标题不一致
-			return false;
+		
+		Object businessScope = params != null ? params.get(SKILLRUNNER_BUSINESS_SCOPE) : null;
+		List<String> cacheKeyList = new ArrayList<String>();
+		if(!ObjectUtils.isEmpty(businessScope)) {
+			if(businessScope instanceof List) {
+				List list = (List)businessScope;
+				for(Object item : list) {
+					String strCacheKey = getSkillRunnerDataCacheKeyByBusinessScope(String.valueOf(item));
+					cacheKeyList.add(strCacheKey);
+				}
+			}
+			else {
+				cacheKeyList.add(String.valueOf(businessScope));
+			}
 		}
+		else {
+			IEmployeeContext iEmployeeContext = EmployeeContext.getCurrentMust();
+			String strCacheKey = getSkillRunnerDataCacheKey(iEmployeeContext);
+			cacheKeyList.add(strCacheKey);
+		}
+		
+		Object remoteSkills = params != null ? params.get(SKILLRUNNER_SKILLS) : null;
+		Map<String, Object> skills = null;
+		for(String strCacheKey : cacheKeyList) {
+			Map<String, String> cacheData = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strCacheKey);
+			if (ObjectUtils.isEmpty(cacheData)) {
+				return false;
+			}
+			String strListenTopic = cacheData.get("topic");
+			if (!strInputListenTopic.equals(strListenTopic)) {
+				// 标题不一致
+				return false;
+			}
+			
+			//需要判断是否有技能数据更新
+			if(remoteSkills instanceof Map) {
+				if(skills == null) {
+					 skills = getRemoteSkills((Map)remoteSkills, true);
+				}
+				if(!ObjectUtils.isEmpty(skills)) {
+					cacheData.put(SKILLRUNNER_SKILLS, JsonUtils.toString(skills));
+				}
+			}
 
-		this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strCacheKey, cacheData, 120);
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strCacheKey, cacheData, 120);
+		}
+		
+		
+		if(!ObjectUtils.isEmpty(remoteSkills)) {
+			//启动线程，获取远程技能集合
+			this.getSystemRuntime().threadRun(new Runnable() {
+				@Override
+				public void run() {
+					doGetRemoteAIChatSkills();
+				}
+			});
+		}
+		
+		//登记状态
+		if(StringUtils.hasLength(strRunnerId)) {
+			Map<String, String> stateData = new LinkedHashMap<String, String>();
+			stateData.put("timestamp", String.valueOf(System.currentTimeMillis()));
+			String strSkillRunnerStateKey = getSkillRunnerStateKey(strRunnerId);
+			this.getSystemRuntime().getSysCacheUtilRuntime(false).set(strSkillRunnerStateKey, stateData, 120);
+		}	
+				
 		return true;
 	}
+	
+	@Override
+	public Map<String, String> getSkillRunnerState(String strRunnerId) {
+		try {
+			return this.onGetSkillRunnerState(strRunnerId);
+		} catch (Throwable ex) {
+			ex = ExceptionUtils.unwrapThrowable(ex);
+			SysAIFactoryRuntimeException.rethrow(this, ex);
+			throw new SysAIFactoryRuntimeException(this, String.format("获取技能运行器状态发生异常，%1$s", ex.getMessage()), ex);
+		}
+	}
+	
+	protected Map<String, String> onGetSkillRunnerState(String strRunnerId) throws Throwable {
+		String strSkillRunnerStateKey = getSkillRunnerStateKey(strRunnerId);
+		 Map<String, String> state = this.getSystemRuntime().getSysCacheUtilRuntime(false).getAll(strSkillRunnerStateKey);
+		 if(state != null) {
+			 return Collections.EMPTY_MAP;
+		 }
+		 return state;
+	}
+	
 
 	protected String getSkillChatSessionCacheKey(String skillId, String chatSessionId) {
 		return String.format("%1$s%2$s-%3$s--skillsession--%4$s--%5$s", "ibiz-cloud-sysaifactory-", this.getSystemRuntime().getDeploySystemId(), this.getFullUniqueTag().replace(".", "-"), skillId, chatSessionId).toLowerCase();
@@ -1374,12 +2181,25 @@ public abstract class DefaultSysAIFactoryRuntimeBase extends SysAIFactoryRuntime
 	
 	@Override
 	public Object toolCall(String command, Map<String, Object> args) {
+		boolean bOpenSession = false;
+		boolean bCommit = true;
 		try {
+			ActionSession actionSession = ActionSessionManager.getCurrentSession();
+			if(actionSession == null) {
+				actionSession = ActionSessionManager.openSession("toolCall");
+				bOpenSession = true;
+			}
 			return this.onToolCall(command, args);
 		} catch (Throwable ex) {
+			bCommit = false;
 			ex = ExceptionUtils.unwrapThrowable(ex);
 			SysAIFactoryRuntimeException.rethrow(this, ex);
 			throw new SysAIFactoryRuntimeException(this, String.format("工具调用发生异常，%1$s", ex.getMessage()), ex);
+		}
+		finally {
+			if(bOpenSession) {
+				ActionSessionManager.closeSession(bCommit);
+			}
 		}
 	}
 	

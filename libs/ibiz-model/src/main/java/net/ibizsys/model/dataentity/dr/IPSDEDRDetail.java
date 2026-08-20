@@ -28,14 +28,14 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取计数项标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -51,21 +51,21 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 获取成员数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取成员标记
 	 * @return
 	 */
-	java.lang.String getDetailTag();
+	String getDetailTag();
 	
 	
 	/**
 	 * 获取成员标记2
 	 * @return
 	 */
-	java.lang.String getDetailTag2();
+	String getDetailTag2();
 	
 	
 	/**
@@ -74,7 +74,7 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRDetailType}
 	 * @return
 	 */
-	java.lang.String getDetailType();
+	String getDetailType();
 	
 	
 	/**
@@ -83,7 +83,7 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDRDetailEnableMode}
 	 * @return
 	 */
-	java.lang.String getEnableMode();
+	String getEnableMode();
 	
 	
 	/**
@@ -111,7 +111,7 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 获取原始标题
 	 * @return
 	 */
-	java.lang.String getOriginCaption();
+	String getOriginCaption();
 	
 	
 	/**
@@ -188,5 +188,5 @@ public interface IPSDEDRDetail extends net.ibizsys.model.IPSModelObject{
 	 * 获取启用判断脚本
 	 * @return
 	 */
-	java.lang.String getTestScriptCode();
+	String getTestScriptCode();
 }

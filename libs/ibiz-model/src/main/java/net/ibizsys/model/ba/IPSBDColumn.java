@@ -13,7 +13,7 @@ public interface IPSBDColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取预定义类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -29,5 +29,5 @@ public interface IPSBDColumn extends net.ibizsys.model.IPSModelObject{
 	 * 获取联合键值模式
 	 * @return
 	 */
-	java.lang.String getUnionKeyValue();
+	String getUnionKeyValue();
 }

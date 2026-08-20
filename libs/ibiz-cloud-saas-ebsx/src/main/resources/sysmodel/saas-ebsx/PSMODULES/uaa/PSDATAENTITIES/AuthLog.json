@@ -275,6 +275,9 @@
     "getAllPSDEDataQueryCodes" : [ {
       "modelref" : true,
       "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog/PSDEDATAQUERIES/CurUser/PSDEDQCODES/MYSQL5.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/uaa/PSDATAENTITIES/AuthLog/PSDEDATAQUERIES/CurUser/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "CurUser",
     "logicName" : "当前用户",
@@ -740,6 +743,7 @@
       "columnName" : "USERID",
       "dBType" : "POSTGRESQL",
       "name" : "USERID",
+      "queryCodeExp" : "t1.USERID",
       "standardColumnName" : "USERID"
     }, {
       "columnName" : "USERID",
@@ -1547,6 +1551,7 @@
       "columnName" : "AUTHAGENT",
       "dBType" : "POSTGRESQL",
       "name" : "AUTHAGENT",
+      "queryCodeExp" : "t1.AUTHAGENT",
       "standardColumnName" : "AUTHAGENT"
     }, {
       "columnName" : "AUTHAGENT",

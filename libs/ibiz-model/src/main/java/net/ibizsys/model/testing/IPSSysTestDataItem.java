@@ -93,7 +93,7 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 	
 	
 	/**
@@ -102,7 +102,7 @@ public interface IPSSysTestDataItem extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestDataItemValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

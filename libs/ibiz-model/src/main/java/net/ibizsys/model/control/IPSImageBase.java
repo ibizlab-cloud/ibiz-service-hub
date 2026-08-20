@@ -14,14 +14,14 @@ public interface IPSImageBase{
 	 * 获取提示信息
 	 * @return
 	 */
-	java.lang.String getAlternativeText();
+	String getAlternativeText();
 	
 	
 	/**
 	 * 获取适配模式
 	 * @return
 	 */
-	java.lang.String getFitMode();
+	String getFitMode();
 	
 	
 	/**

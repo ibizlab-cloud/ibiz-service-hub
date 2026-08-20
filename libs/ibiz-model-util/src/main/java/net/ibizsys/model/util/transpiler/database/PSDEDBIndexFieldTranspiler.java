@@ -21,10 +21,12 @@ public class PSDEDBIndexFieldTranspiler extends net.ibizsys.model.util.transpile
 			
 		}
 		net.ibizsys.model.database.PSDEDBIndexFieldImpl realPSModelObject = (net.ibizsys.model.database.PSDEDBIndexFieldImpl)iPSModelObject;
+		this.setDomainValue(iPSModelTranspileContext, domain, "ordervalue", realPSModelObject.getOrderValue(), realPSModelObject, "getOrderValue");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETORDERVALUE, domain, "ordervalue", int.class, new String[]{"99999"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

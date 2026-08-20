@@ -17,6 +17,7 @@ public class PSDEWizardFormImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETSTEPACTIONS = "stepActions";
 	public final static String ATTR_GETSTEPTAG = "stepTag";
 	public final static String ATTR_ISFIRSTFORM = "firstForm";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.res.IPSLanguageRes cm2pslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCM2PSLanguageRes(){
@@ -170,5 +171,9 @@ public class PSDEWizardFormImpl extends net.ibizsys.model.PSObjectImpl implement
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

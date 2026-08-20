@@ -14,28 +14,28 @@ public interface IPSDEDataRange extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义数据范围模式，等同调用{@link #getPSSysUserDR}.getCustomMode()
 	 * @return
 	 */
-	java.lang.String getCustomDRMode();
+	String getCustomDRMode();
 	
 	
 	/**
 	 * 获取自定义数据范围模式2，等同调用{@link #getPSSysUserDR2}.getCustomMode()
 	 * @return
 	 */
-	java.lang.String getCustomDRMode2();
+	String getCustomDRMode2();
 	
 	
 	/**
 	 * 获取自定义数据范围2参数
 	 * @return
 	 */
-	java.lang.String getCustomDRMode2Param();
+	String getCustomDRMode2Param();
 	
 	
 	/**
 	 * 获取自定义数据范围参数
 	 * @return
 	 */
-	java.lang.String getCustomDRModeParam();
+	String getCustomDRModeParam();
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface IPSDEDataRange extends net.ibizsys.model.IPSModelObject{
 	 * 获取部门业务条件
 	 * @return
 	 */
-	java.lang.String getSecBC();
+	String getSecBC();
 	
 	
 	/**
@@ -67,7 +67,7 @@ public interface IPSDEDataRange extends net.ibizsys.model.IPSModelObject{
 	 * 获取数据访问使用操作标识
 	 * @return
 	 */
-	java.lang.String getUserDRAction();
+	String getUserDRAction();
 	
 	
 	/**

@@ -21,14 +21,18 @@ public class PSDEUICopyParamLogicTranspiler extends net.ibizsys.model.util.trans
 			
 		}
 		net.ibizsys.model.dataentity.logic.PSDEUICopyParamLogicImpl realPSModelObject = (net.ibizsys.model.dataentity.logic.PSDEUICopyParamLogicImpl)iPSModelObject;
+		this.setDomainListValue(iPSModelTranspileContext, domain, "param4", realPSModelObject.getCopyFields(), realPSModelObject, "getCopyFields", java.lang.String.class);
 		this.setDomainValue(iPSModelTranspileContext, domain, "dstpsdlparamid", realPSModelObject.getDstPSDEUILogicParam(), realPSModelObject, "getDstPSDEUILogicParam");
 		this.setDomainValue(iPSModelTranspileContext, domain, "srcpsdlparamid", realPSModelObject.getSrcPSDEUILogicParam(), realPSModelObject, "getSrcPSDEUILogicParam");
+		this.setDomainValue(iPSModelTranspileContext, domain, "param9", realPSModelObject.isCopyIfNotExists(), realPSModelObject, "isCopyIfNotExists");
 		super.onDecompile(iPSModelTranspileContext, iPSModelObject, domain, bFullMode);
 	}
 	@Override
 	protected void onCompile(IPSModelTranspileContext iPSModelTranspileContext, IPSModel domain, ObjectNode objectNode) throws Exception {
+		this.setModelListValue(iPSModelTranspileContext, objectNode, ATTR_GETCOPYFIELDS, domain, "param4", java.lang.String.class);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETDSTPSDEUILOGICPARAM, domain, "dstpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDEUILogicParam.class, false);
 		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_GETSRCPSDEUILOGICPARAM, domain, "srcpsdlparamid", net.ibizsys.model.dataentity.logic.IPSDEUILogicParam.class, false);
+		this.setModelValue(iPSModelTranspileContext, objectNode, ATTR_ISCOPYIFNOTEXISTS, domain, "param9", boolean.class, new String[]{"false"});
 		super.onCompile(iPSModelTranspileContext, domain, objectNode);
 	}
 }

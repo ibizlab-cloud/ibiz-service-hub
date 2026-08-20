@@ -27,14 +27,14 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 获取访问标识
 	 * @return
 	 */
-	java.lang.String getAccessKey();
+	String getAccessKey();
 	
 	
 	/**
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -50,14 +50,14 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
 	 * 获取代码模型对象
 	 * @return
 	 */
-	java.lang.String getModelObj();
+	String getModelObj();
 	
 	
 	/**
@@ -78,7 +78,7 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 获取导航视图过滤项
 	 * @return
 	 */
-	java.lang.String getNavFilter();
+	String getNavFilter();
 	
 	
 	/**
@@ -113,7 +113,7 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 获取节点标识
 	 * @return
 	 */
-	java.lang.String getNodeType();
+	String getNodeType();
 	
 	
 	/**
@@ -295,7 +295,7 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 获取图形动态样式表
 	 * @return
 	 */
-	java.lang.String getShapeDynaClass();
+	String getShapeDynaClass();
 	
 	
 	/**
@@ -318,7 +318,7 @@ public interface IPSDETreeNode extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TreeNodeType}
 	 * @return
 	 */
-	java.lang.String getTreeNodeType();
+	String getTreeNodeType();
 	
 	
 	/**

@@ -30,14 +30,14 @@ public interface IPSDESysLogicLogic extends net.ibizsys.model.dataentity.logic.I
 	 * 获取逻辑调用参数
 	 * @return
 	 */
-	java.lang.String getLogicParam();
+	String getLogicParam();
 	
 	
 	/**
 	 * 获取逻辑调用参数2
 	 * @return
 	 */
-	java.lang.String getLogicParam2();
+	String getLogicParam2();
 	
 	
 	/**

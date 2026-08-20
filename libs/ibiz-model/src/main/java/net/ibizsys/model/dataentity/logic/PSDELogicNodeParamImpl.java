@@ -22,6 +22,7 @@ public class PSDELogicNodeParamImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETSRCVALUE = "srcValue";
 	public final static String ATTR_GETSRCVALUESTDDATATYPE = "srcValueStdDataType";
 	public final static String ATTR_GETSRCVALUETYPE = "srcValueType";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISOUTTRANSLATE = "outTranslate";
 
 	public java.lang.String getAggMode(){
@@ -216,6 +217,10 @@ public class PSDELogicNodeParamImpl extends net.ibizsys.model.PSObjectImpl imple
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isOutTranslate(){

@@ -26,7 +26,7 @@ public interface IPSDEDataFlow extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataFlowSubType}
 	 * @return
 	 */
-	java.lang.String getLogicSubType();
+	String getLogicSubType();
 	
 	
 	/**
@@ -75,5 +75,5 @@ public interface IPSDEDataFlow extends net.ibizsys.model.dataentity.IPSDataEntit
 	 * 获取数据流逻辑包模型
 	 * @return
 	 */
-	java.lang.String getPackageModel();
+	String getPackageModel();
 }

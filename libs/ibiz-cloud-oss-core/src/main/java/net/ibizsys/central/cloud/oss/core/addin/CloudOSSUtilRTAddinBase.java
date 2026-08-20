@@ -11,6 +11,7 @@ public abstract class CloudOSSUtilRTAddinBase extends CloudUtilRTAddinBase imple
 
 	private static final org.apache.commons.logging.Log log = LogFactory.getLog(CloudOSSUtilRTAddinBase.class);
 	
+	
 	@Override
 	public void init(ICloudOSSUtilRuntimeContext ctx, Object addinData) throws Exception {
 		super.init(ctx, addinData);

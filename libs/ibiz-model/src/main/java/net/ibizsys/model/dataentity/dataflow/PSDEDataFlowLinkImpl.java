@@ -7,6 +7,7 @@ public class PSDEDataFlowLinkImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETDSTPSDEDATAFLOWNODE = "getDstPSDEDataFlowNode";
 	public final static String ATTR_GETLINKTYPE = "linkType";
 	public final static String ATTR_GETSRCPSDEDATAFLOWNODE = "getSrcPSDEDataFlowNode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.dataentity.dataflow.IPSDEDataFlowNode dstpsdedataflownode;
 
 	public net.ibizsys.model.dataentity.dataflow.IPSDEDataFlowNode getDstPSDEDataFlowNode(){
@@ -61,4 +62,8 @@ public class PSDEDataFlowLinkImpl extends net.ibizsys.model.PSObjectImpl impleme
 		this.srcpsdedataflownode = srcpsdedataflownode;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

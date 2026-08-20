@@ -13,14 +13,14 @@ public interface IPSSysUseCase extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**
@@ -69,19 +69,19 @@ public interface IPSSysUseCase extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取用例编号
 	 * @return
 	 */
-	java.lang.String getUseCaseSN();
+	String getUseCaseSN();
 	
 	
 	/**
 	 * 获取用例标记
 	 * @return
 	 */
-	java.lang.String getUseCaseTag();
+	String getUseCaseTag();
 	
 	
 	/**
 	 * 获取用例标记2
 	 * @return
 	 */
-	java.lang.String getUseCaseTag2();
+	String getUseCaseTag2();
 }

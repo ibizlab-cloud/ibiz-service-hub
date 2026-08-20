@@ -14,5 +14,5 @@ public interface IPSSysMapLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取地图项名称
 	 * @return
 	 */
-	java.lang.String getPSSysMapItemName();
+	String getPSSysMapItemName();
 }

@@ -23,14 +23,14 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
@@ -46,21 +46,21 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取主实体代码标识
 	 * @return
 	 */
-	java.lang.String getMajorDECodeName();
+	String getMajorDECodeName();
 	
 	
 	/**
 	 * 获取主实体代码标识2
 	 * @return
 	 */
-	java.lang.String getMajorDECodeName2();
+	String getMajorDECodeName2();
 	
 	
 	/**
 	 * 获取主实体名称
 	 * @return
 	 */
-	java.lang.String getMajorDEName();
+	String getMajorDEName();
 	
 	
 	/**
@@ -81,21 +81,21 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取从实体代码标识
 	 * @return
 	 */
-	java.lang.String getMinorDECodeName();
+	String getMinorDECodeName();
 	
 	
 	/**
 	 * 获取从实体代码标识2
 	 * @return
 	 */
-	java.lang.String getMinorDECodeName2();
+	String getMinorDECodeName2();
 	
 	
 	/**
 	 * 获取从实体名称
 	 * @return
 	 */
-	java.lang.String getMinorDEName();
+	String getMinorDEName();
 	
 	
 	/**
@@ -130,7 +130,7 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取关系项
 	 * @return
 	 */
-	java.lang.String getParentFilter();
+	String getParentFilter();
 	
 	
 	/**
@@ -165,7 +165,7 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取删除拒绝消息语言标记
 	 * @return
 	 */
-	java.lang.String getRRMLanResTag();
+	String getRRMLanResTag();
 	
 	
 	/**
@@ -183,7 +183,7 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DERType}
 	 * @return
 	 */
-	java.lang.String getRSType();
+	String getRSType();
 	
 	
 	/**
@@ -206,7 +206,7 @@ public interface IPSAppDERS extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取删除拒绝消息
 	 * @return
 	 */
-	java.lang.String getRemoveRejectMsg();
+	String getRemoveRejectMsg();
 	
 	
 	/**

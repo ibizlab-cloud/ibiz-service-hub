@@ -14,14 +14,14 @@ public interface IPSDESampleData extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取示例数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSDESampleData extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SampleDataType}
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
@@ -46,7 +46,7 @@ public interface IPSDESampleData extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SampleDataLogicMode}
 	 * @return
 	 */
-	java.lang.String getLogicMode();
+	String getLogicMode();
 	
 	
 	/**
@@ -62,21 +62,21 @@ public interface IPSDESampleData extends net.ibizsys.model.dataentity.IPSDataEnt
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SampleDataRandomMode}
 	 * @return
 	 */
-	java.lang.String getRandomMode();
+	String getRandomMode();
 	
 	
 	/**
 	 * 获取随机参数
 	 * @return
 	 */
-	java.lang.String getRandomParam();
+	String getRandomParam();
 	
 	
 	/**
 	 * 获取随机参数2
 	 * @return
 	 */
-	java.lang.String getRandomParam2();
+	String getRandomParam2();
 	
 	
 	/**

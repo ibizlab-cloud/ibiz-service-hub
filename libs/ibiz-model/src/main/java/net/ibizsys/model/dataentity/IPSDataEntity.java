@@ -802,28 +802,28 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEBizTag}
 	 * @return
 	 */
-	java.lang.String getBizTag();
+	String getBizTag();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取实体标记
 	 * @return
 	 */
-	java.lang.String getDETag();
+	String getDETag();
 	
 	
 	/**
 	 * 获取实体标记2
 	 * @return
 	 */
-	java.lang.String getDETag2();
+	String getDETag2();
 	
 	
 	/**
@@ -841,7 +841,7 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSourceLink}
 	 * @return
 	 */
-	java.lang.String getDSLink();
+	String getDSLink();
 	
 	
 	/**
@@ -940,14 +940,14 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取动态实例标记
 	 * @return
 	 */
-	java.lang.String getDynaInstTag();
+	String getDynaInstTag();
 	
 	
 	/**
 	 * 获取动态实例标记2
 	 * @return
 	 */
-	java.lang.String getDynaInstTag2();
+	String getDynaInstTag2();
 	
 	
 	/**
@@ -1008,7 +1008,7 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEIndexType}
 	 * @return
 	 */
-	java.lang.String getIndexDEType();
+	String getIndexDEType();
 	
 	
 	/**
@@ -1043,7 +1043,7 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取逻辑无效值
 	 * @return
 	 */
-	java.lang.String getInvalidLogicValue();
+	String getInvalidLogicValue();
 	
 	
 	/**
@@ -1092,7 +1092,7 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
@@ -1302,14 +1302,14 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取SaaS数据租户列
 	 * @return
 	 */
-	java.lang.String getSaaSDCIdColumnName();
+	String getSaaSDCIdColumnName();
 	
 	
 	/**
 	 * 获取SaaS数据主键列
 	 * @return
 	 */
-	java.lang.String getSaaSDataIdColumnName();
+	String getSaaSDataIdColumnName();
 	
 	
 	/**
@@ -1334,7 +1334,7 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取服务代码标识
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 	
 	
 	/**
@@ -1350,14 +1350,14 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取所属系统标识
 	 * @return
 	 */
-	java.lang.String getSystemTag();
+	String getSystemTag();
 	
 	
 	/**
 	 * 获取表名称
 	 * @return
 	 */
-	java.lang.String getTableName();
+	String getTableName();
 	
 	
 	/**
@@ -1375,14 +1375,14 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEUnionKeyMode}
 	 * @return
 	 */
-	java.lang.String getUnionKeyMode();
+	String getUnionKeyMode();
 	
 	
 	/**
 	 * 获取联合主键参数
 	 * @return
 	 */
-	java.lang.String getUnionKeyParam();
+	String getUnionKeyParam();
 	
 	
 	/**
@@ -1410,35 +1410,35 @@ public interface IPSDataEntity extends net.ibizsys.model.IPSModelObject{
 	 * 获取逻辑有效值
 	 * @return
 	 */
-	java.lang.String getValidLogicValue();
+	String getValidLogicValue();
 	
 	
 	/**
 	 * 获取视图2名称
 	 * @return
 	 */
-	java.lang.String getView2Name();
+	String getView2Name();
 	
 	
 	/**
 	 * 获取视图3名称
 	 * @return
 	 */
-	java.lang.String getView3Name();
+	String getView3Name();
 	
 	
 	/**
 	 * 获取视图4名称
 	 * @return
 	 */
-	java.lang.String getView4Name();
+	String getView4Name();
 	
 	
 	/**
 	 * 获取视图名称
 	 * @return
 	 */
-	java.lang.String getViewName();
+	String getViewName();
 	
 	
 	/**

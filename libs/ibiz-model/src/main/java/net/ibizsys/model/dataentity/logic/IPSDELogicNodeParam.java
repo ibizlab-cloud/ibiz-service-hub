@@ -28,7 +28,7 @@ public interface IPSDELogicNodeParam extends net.ibizsys.model.dataentity.logic.
 	 * 获取表达式
 	 * @return
 	 */
-	java.lang.String getExpression();
+	String getExpression();
 	
 	
 	/**

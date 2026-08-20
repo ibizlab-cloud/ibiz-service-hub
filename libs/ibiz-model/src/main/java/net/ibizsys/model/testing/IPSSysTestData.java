@@ -14,14 +14,14 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取测试数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
@@ -84,7 +84,7 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -93,7 +93,7 @@ public interface IPSSysTestData extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestDataType}
 	 * @return
 	 */
-	java.lang.String getTestDataType();
+	String getTestDataType();
 	
 	
 	/**

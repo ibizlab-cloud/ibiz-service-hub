@@ -16,5 +16,5 @@ public interface IPSWFLinkCond extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WFLinkCondType}
 	 * @return
 	 */
-	java.lang.String getCondType();
+	String getCondType();
 }

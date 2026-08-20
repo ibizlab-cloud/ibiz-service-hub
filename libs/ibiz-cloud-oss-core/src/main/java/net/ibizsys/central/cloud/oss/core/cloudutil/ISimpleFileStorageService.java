@@ -110,6 +110,7 @@ public interface ISimpleFileStorageService {
 	void downloadFile(String strCat, String strFileId, HttpServletResponse response);
 	
 	
+	
 	/**
 	 * 下载文件（提取文件中文本）
 	 * @param strCat
@@ -118,6 +119,17 @@ public interface ISimpleFileStorageService {
 	 * @param params
 	 */
 	void downloadText(String strCat, String strFileId, HttpServletResponse response, Map<String, Object> params);
+	
+	
+	/**
+	 * 下载PDF文件（将文件转化为PDF）
+	 * @param strCat
+	 * @param strFileid
+	 * @param response
+	 * @param params
+	 */
+	void downloadPdf(String strCat, String strFileId, HttpServletResponse response, Map<String, Object> params);
+	
 	
 	/**
 	 * 保存远程上传的文件内容
@@ -181,6 +193,20 @@ public interface ISimpleFileStorageService {
 	 * @param bTryOrigin 尝试文件标识
 	 */
 	void downloadTextByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, Map<String, Object> params, boolean bTryFileId);
+	
+	
+		
+	
+	/**
+	 * 通过文件访问键下载PDF文件（将文件转化为PDF）
+	 * @param strCat
+	 * @param strDownloadKey
+	 * @param response
+	 * @param params 
+	 * @param bTryOrigin 尝试文件标识
+	 */
+	void downloadPdfByTicket(String strCat, String strDownloadTicket, HttpServletResponse response, Map<String, Object> params, boolean bTryFileId);
+	
 	
 	
 	/**

@@ -10,6 +10,7 @@ public class PSDELogicLinkImpl extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETSRCPSDELOGICNODE = "getSrcPSDELogicNode";
 	public final static String ATTR_ISCATCHLINK = "catchLink";
 	public final static String ATTR_ISDEFAULTLINK = "defaultLink";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSUBCALLLINK = "subCallLink";
 	private net.ibizsys.model.dataentity.logic.IPSDELogicNode dstpsdelogicnode;
 
@@ -94,6 +95,10 @@ public class PSDELogicLinkImpl extends net.ibizsys.model.PSObjectImpl implements
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isSubCallLink(){

@@ -16,14 +16,14 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BorderStyle}
 	 * @return
 	 */
-	java.lang.String getBorderStyle();
+	String getBorderStyle();
 	
 	
 	/**
 	 * 获取按钮直接样式
 	 * @return
 	 */
-	java.lang.String getButtonCssStyle();
+	String getButtonCssStyle();
 	
 	
 	/**
@@ -39,14 +39,14 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonStyle}
 	 * @return
 	 */
-	java.lang.String getButtonStyle();
+	String getButtonStyle();
 	
 	
 	/**
 	 * 获取按钮类型
 	 * @return
 	 */
-	java.lang.String getButtonType();
+	String getButtonType();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonIconAlign}
 	 * @return
 	 */
-	java.lang.String getIconAlign();
+	String getIconAlign();
 	
 	
 	/**
@@ -71,9 +71,9 @@ public interface IPSButtonBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ButtonRenderMode}
 	 * @return
 	 */
-	java.lang.String getRenderMode();
+	String getRenderMode();
 	
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**

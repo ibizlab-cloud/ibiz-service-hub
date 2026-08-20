@@ -48,7 +48,25 @@ public class SysDataSyncAgentTypes {
      */
     public final static String INTERNAL = "INTERNAL";
     
+    /**
+     *  FILE，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String FILE = "FILE";
     
+    /**
+     *  FTP，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String FTP = "FTP";
+    
+    /**
+     *  SFTP，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String SFTP = "SFTP";
+    
+    /**
+     *  SMB，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String SMB = "SMB";
     
     
     /**
@@ -59,4 +77,12 @@ public class SysDataSyncAgentTypes {
      *  用户自定义2，注意：值为对象值，不能直接用于 == 比较
      */
     public final static String USER2 = "USER2";
+    /**
+     *  用户自定义3，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String USER3 = "USER3";
+    /**
+     *  用户自定义4，注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String USER4 = "USER4";
 }

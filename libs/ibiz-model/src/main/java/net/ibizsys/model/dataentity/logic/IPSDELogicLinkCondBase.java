@@ -16,5 +16,5 @@ public interface IPSDELogicLinkCondBase extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicLinkCondType}
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 }

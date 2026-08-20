@@ -58,5 +58,5 @@ public interface IPSDESysUtilLogic extends net.ibizsys.model.dataentity.logic.IP
 	 * 获取执行功能操作
 	 * @return
 	 */
-	java.lang.String getUtilAction();
+	String getUtilAction();
 }

@@ -83,6 +83,8 @@ import net.ibizsys.runtime.dataentity.defield.DEFPredefinedTypes;
 import net.ibizsys.runtime.dataentity.defield.DEFTypes;
 import net.ibizsys.runtime.dataentity.der.DERAggDataDEFMapTypes;
 import net.ibizsys.runtime.dataentity.ds.DEDataSetGroupModes;
+import net.ibizsys.runtime.res.ISysValueFuncRuntime;
+import net.ibizsys.runtime.res.ISysValueRuleRuntime;
 import net.ibizsys.runtime.security.UserContext;
 import net.ibizsys.runtime.util.Conditions;
 import net.ibizsys.runtime.util.DataTypeUtils;
@@ -993,6 +995,48 @@ public class MybatisSqlUtil {
 					searchCondGroup(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, Conditions.AND, (ISearchGroupCond) iSearchCond);
 					break;
 				case ISearchCond.CONDTYPE_DEFIELD:
+					ISearchFieldCond iSearchFieldCond = (ISearchFieldCond)iSearchCond;
+					if(StringUtils.hasLength(iSearchFieldCond.getValueFunc())) {
+						ISysValueFuncRuntime rt = iDataEntityRuntime.getSystemRuntime().getSysValueFuncRuntime(iSearchFieldCond.getValueFunc());
+						if(rt instanceof net.ibizsys.central.res.ISysValueFuncRuntime) {
+							net.ibizsys.central.res.ISysValueFuncRuntime iSysValueFuncRuntime = (net.ibizsys.central.res.ISysValueFuncRuntime)rt;
+							ISearchCond realSearchCond =  iSysValueFuncRuntime.convert(iSearchContext, iSearchFieldCond, iDataEntityRuntime);
+							if(realSearchCond instanceof ISearchGroupCond) {
+								searchCondGroup(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, Conditions.AND, (ISearchGroupCond) realSearchCond);
+							}
+							else
+								if(realSearchCond instanceof ISearchFieldCond) {
+									searchDEField(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, (ISearchFieldCond) realSearchCond);
+								}
+								else
+									if(realSearchCond instanceof ISearchCustomCond) {
+										ISearchCustomCond iSearchCustomCond = (ISearchCustomCond)realSearchCond;
+										if(StringUtils.hasLength(iSearchCustomCond.getCustomType())) {
+											//获取自定义解析器
+											IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, iSearchCustomCond.getCustomType());
+											if(iDEDQSQLCustomCondParser == null) {
+												throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iSearchCustomCond.getCustomType()));
+											}
+
+											String strRealCustomCond = null;
+											try {
+												strRealCustomCond = iDEDQSQLCustomCondParser.parse(iSearchCustomCond, iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
+											}
+											catch (Throwable ex) {
+												throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iSearchCustomCond.getCustomCond(), ex.getMessage()), ex);
+											}
+
+											query.apply(strRealCustomCond);
+										}
+										else {
+											query.apply(((ISearchCustomCond) iSearchCond).getCustomCond());
+										}
+									}
+						}
+						break;
+					}
+					
+					
 					searchDEField(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, (ISearchFieldCond) iSearchCond);
 					break;
 				case ISearchCond.CONDTYPE_CUSTOM:
@@ -1101,6 +1145,46 @@ public class MybatisSqlUtil {
 					searchCondGroup(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, groupMode, (ISearchGroupCond) iSearchCond);
 					break;
 				case ISearchCond.CONDTYPE_DEFIELD:
+					ISearchFieldCond iSearchFieldCond = (ISearchFieldCond)iSearchCond;
+					if(StringUtils.hasLength(iSearchFieldCond.getValueFunc())) {
+						ISysValueFuncRuntime rt = iDataEntityRuntime.getSystemRuntime().getSysValueFuncRuntime(iSearchFieldCond.getValueFunc());
+						if(rt instanceof net.ibizsys.central.res.ISysValueFuncRuntime) {
+							net.ibizsys.central.res.ISysValueFuncRuntime iSysValueFuncRuntime = (net.ibizsys.central.res.ISysValueFuncRuntime)rt;
+							ISearchCond realSearchCond =  iSysValueFuncRuntime.convert(iSearchContext, iSearchFieldCond, iDataEntityRuntime);
+							if(realSearchCond instanceof ISearchGroupCond) {
+								searchCondGroup(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, groupMode, (ISearchGroupCond) realSearchCond);
+							}
+							else
+								if(realSearchCond instanceof ISearchFieldCond) {
+									searchDEField(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, (ISearchFieldCond) realSearchCond);
+								}
+								else
+									if(realSearchCond instanceof ISearchCustomCond) {
+										ISearchCustomCond iSearchCustomCond = (ISearchCustomCond)realSearchCond;
+										if(StringUtils.hasLength(iSearchCustomCond.getCustomType())) {
+											//获取自定义解析器
+											IDEDQSQLCustomCondParser iDEDQSQLCustomCondParser = iDataEntityRuntime.getSystemRuntime().getRuntimeObject(IDEDQSQLCustomCondParser.class, iSearchCustomCond.getCustomType());
+											if(iDEDQSQLCustomCondParser == null) {
+												throw new RuntimeException(String.format("无法获取指定[%1$s]自定义SQL条件解析器", iSearchCustomCond.getCustomType()));
+											}
+
+											String strRealCustomCond = null;
+											try {
+												strRealCustomCond = iDEDQSQLCustomCondParser.parse(iSearchCustomCond, iDEDataQueryCodeRuntime.getDBDialect(), iDEDataQueryCodeRuntime.getDataEntityRuntime(), iDEDataQueryCodeRuntime, iSearchContext, iSearchContext!=null?iSearchContext.any():null);
+											}
+											catch (Throwable ex) {
+												throw new RuntimeException(String.format("解析自定义条件[%1$s]发生异常，%2$s", iSearchCustomCond.getCustomCond(), ex.getMessage()), ex);
+											}
+
+											query.apply(strRealCustomCond);
+										}
+										else {
+											query.apply(((ISearchCustomCond) iSearchCond).getCustomCond());
+										}
+									}
+						}
+						break;
+					}
 					searchDEField(iDataEntityRuntime, iDEDataQueryCodeRuntime, iSearchContext, query, (ISearchFieldCond) iSearchCond);
 					break;
 				case ISearchCond.CONDTYPE_CUSTOM:
@@ -1471,7 +1555,8 @@ public class MybatisSqlUtil {
 			}
 			return false;
 		}
-
+		
+		
 		boolean bExistsCond = Conditions.EXISTS.equals(cond.getCondOp()) || Conditions.NOTEXISTS.equals(cond.getCondOp());
 
 		int nDEFType = iPSDEField.getDEFType();

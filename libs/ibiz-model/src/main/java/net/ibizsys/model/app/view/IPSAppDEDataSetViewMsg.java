@@ -19,7 +19,7 @@ public interface IPSAppDEDataSetViewMsg extends net.ibizsys.model.app.view.IPSAp
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgCacheScope}
 	 * @return
 	 */
-	java.lang.String getCacheScope();
+	String getCacheScope();
 	
 	
 	/**

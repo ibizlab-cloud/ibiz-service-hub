@@ -14,5 +14,5 @@ public interface IPSDEChartSeries extends net.ibizsys.model.control.chart.IPSCha
 	 * 获取示例数据
 	 * @return
 	 */
-	java.lang.String getSampleData();
+	String getSampleData();
 }

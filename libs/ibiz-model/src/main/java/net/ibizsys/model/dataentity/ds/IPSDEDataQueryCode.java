@@ -16,7 +16,7 @@ public interface IPSDEDataQueryCode extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBType}
 	 * @return
 	 */
-	java.lang.String getDBType();
+	String getDBType();
 	
 	
 	/**
@@ -65,5 +65,5 @@ public interface IPSDEDataQueryCode extends net.ibizsys.model.IPSModelObject{
 	 * 获取查询代码，优先使用用户查询代码
 	 * @return
 	 */
-	java.lang.String getQueryCode();
+	String getQueryCode();
 }

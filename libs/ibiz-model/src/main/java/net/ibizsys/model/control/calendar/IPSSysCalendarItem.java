@@ -112,7 +112,7 @@ public interface IPSSysCalendarItem extends net.ibizsys.model.control.calendar.I
 	 * 获取附加查询条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**

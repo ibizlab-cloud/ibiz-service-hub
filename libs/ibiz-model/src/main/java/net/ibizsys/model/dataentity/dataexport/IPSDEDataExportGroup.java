@@ -16,7 +16,7 @@ public interface IPSDEDataExportGroup extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSDEDataExportGroup extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**

@@ -22,12 +22,12 @@ public interface IPSSysCounterRef extends net.ibizsys.model.IPSObject
 	 * 获取引用标记
 	 * @return
 	 */
-	java.lang.String getTag();
+	String getTag();
 	
 	
 	/**
 	 * 获取计算器唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

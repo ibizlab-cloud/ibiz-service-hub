@@ -34,6 +34,7 @@ import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.vladsch.flexmark.ast.Image;
 import com.vladsch.flexmark.ast.Text;
@@ -49,10 +50,12 @@ import net.ibizsys.central.cloud.core.cloudutil.ICloudAIUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudKBClient;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudOSSClient;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.ChunkSearchContext;
+import net.ibizsys.central.cloud.core.util.CloudCacheTagUtils;
 import net.ibizsys.central.cloud.core.util.ConfigEntityEx;
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.UserCancelException;
@@ -96,7 +99,6 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	};
 
 	public final static String MODEL_DEFAULT = "Qwen/Qwen2.5-32B-Instruct";
-	// public final static String MODEL_DEFAULT = "deepseek-ai/DeepSeek-V3";
 
 	public final static String EMBEDDINGMODEL_DEFAULT = "BAAI/bge-large-zh-v1.5";
 
@@ -111,6 +113,14 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	public final static String THINK_END = "</think>";
 
 	public final static String TOOL_CALL_EXECUTE_CHAT = "execute_chat";
+	
+	/**
+	 * 工具调用：输出步骤，为微信、QQ等额外输出处理步骤
+	 */
+	public final static String TOOL_CALL_OUTPUT_STEP = "output_step";
+	
+	
+	public final static String TOOL_CALL_ASK_USER_QUESTION = "ask_user_question";
 
 	protected final static Pattern thinkPattern = Pattern.compile("(?m)^</think>\\s*");
 
@@ -134,6 +144,13 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	 * 思维内容
 	 */
 	public final static String FIELD_REASONING_CONTENT = "reasoning_content";
+	
+
+	public final static String FIELD_CONTENT = "content";
+	
+//	public final static String FIELD_SESSION_ID = "session_id";
+	
+	public final static String FIELD_SOURCE_CHANNEL = "source_channel";
 
 	/**
 	 * 工具调用
@@ -155,6 +172,8 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 	private Deque<String> textReRankTokenDeque = new ArrayDeque<String>();
 	private String strTextReRankServiceUrl = null;
 	private String strTextReRankModel = null;
+	
+	private int nAskUserQuestionCacheTimeout = 30 * 60;
 
 	@Override
 	protected void onInit() throws Exception {
@@ -362,52 +381,75 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return ": keep-alive".equalsIgnoreCase(strData);
 	}
 
+	
+		
 	@Override
 	protected ChatCompletionResult onChatCompletion(ChatCompletionRequest chatCompletionRequest) throws Throwable {
-		ActionSession actionSession = ActionSessionManager.getCurrentSession();
-		if (actionSession != null) {
-			// 置空当前会话内容
-			if (this.getLoopCallCount() != 0) {
-				Thread.sleep(200);
-				String strActionResult = actionSession.getActionResult();
-				if (StringUtils.hasLength(strActionResult)) {
-					String strContent = AIChatUtils.removeThinkingContent(strActionResult);
-					ObjectNode jsonNode = JsonUtils.createObjectNode();
-					if (StringUtils.hasLength(strContent)) {
-						jsonNode.put("title", strContent);
-					}
-					jsonNode.put("content", strActionResult);
-					String strStepContent = String.format("\r\n<%1$s>\r\n%2$s\r\n</%1$s>\r\n", DELogicSysAIChatAgentType.CHATSTEP.name().toLowerCase(), jsonNode.toPrettyString());
-					actionSession.updateActionStep(strStepContent, 0.0, strStepContent);
-					Thread.sleep(200);
+		boolean bToolCallInput = false;
+		if(StringUtils.hasLength(chatCompletionRequest.getSessionId()) && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
+			String strAskUserQuestionTag = String.format("%1$s-ai-chatcompletion-askuserquestion--%2$s", CloudCacheTagUtils.PREFIX, chatCompletionRequest.getSessionId());
+			String strRet = this.getSysCacheUtilRuntime().get(strAskUserQuestionTag);
+			if(StringUtils.hasLength(strRet)) {
+				//移除
+				this.getSysCacheUtilRuntime().reset(strAskUserQuestionTag);
+				List<ChatMessage> messageList = JsonUtils.as(strRet, ChatMessageListType);
+				if(!ObjectUtils.isEmpty(messageList)) {
+					messageList.get(messageList.size()-1).setContent(chatCompletionRequest.getMessages().get(chatCompletionRequest.getMessages().size()-1).getRawContent());
+					//替换内容
+					chatCompletionRequest.setMessages(messageList);
+					bToolCallInput = true;
 				}
 			}
-			actionSession.updateActionStep("", 0.0, "");
 		}
-
-		if (this.getLoopCallCount() == 0 && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
-			// 转化请求内容
-			if (!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
-				for (int i = 0; i < chatCompletionRequest.getMessages().size(); i++) {
-					ChatMessage message = chatCompletionRequest.getMessages().get(i);
-					if (!StringUtils.hasLength(message.getRole())) {
-						continue;
+		
+		
+		ActionSession actionSession = ActionSessionManager.getCurrentSession();
+		if(!bToolCallInput) {
+			if (actionSession != null) {
+				// 置空当前会话内容
+				if (this.getLoopCallCount() != 0) {
+					Thread.sleep(200);
+					String strActionResult = actionSession.getActionResult();
+					if (StringUtils.hasLength(strActionResult)) {
+						String strContent = AIChatUtils.removeThinkingContent(strActionResult);
+						ObjectNode jsonNode = JsonUtils.createObjectNode();
+						if (StringUtils.hasLength(strContent)) {
+							jsonNode.put("title", strContent);
+						}
+						jsonNode.put("content", strActionResult);
+						String strStepContent = String.format("\r\n<%1$s>\r\n%2$s\r\n</%1$s>\r\n", DELogicSysAIChatAgentType.CHATSTEP.name().toLowerCase(), jsonNode.toPrettyString());
+						actionSession.updateActionStep(strStepContent, 0.0, strStepContent);
+						Thread.sleep(200);
 					}
+				}
+				actionSession.updateActionStep("", 0.0, "");
+			}
 
-					Object content = getMessageContent(message, chatCompletionRequest);
-					if (content != null && content instanceof String) {
-						// 判断内容是否一致
-						if (!content.equals(message.getContent())) {
-							message.setContent(content);
+			if (this.getLoopCallCount() == 0 && !ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
+				// 转化请求内容
+				if (!ObjectUtils.isEmpty(chatCompletionRequest.getMessages())) {
+					for (int i = 0; i < chatCompletionRequest.getMessages().size(); i++) {
+						ChatMessage message = chatCompletionRequest.getMessages().get(i);
+						if (!StringUtils.hasLength(message.getRole())) {
+							continue;
+						}
+
+						Object content = getMessageContent(message, chatCompletionRequest);
+						if (content != null && content instanceof String) {
+							// 判断内容是否一致
+							if (!content.equals(message.getContent())) {
+								message.setContent(content);
+							}
 						}
 					}
 				}
-			}
 
-			if (!ObjectUtils.isEmpty(chatCompletionRequest.getChunks()) || !ObjectUtils.isEmpty(chatCompletionRequest.getKnowledgeBases())) {
-				this.onFillChatCompletionChunks(chatCompletionRequest);
+				if (!ObjectUtils.isEmpty(chatCompletionRequest.getChunks()) || !ObjectUtils.isEmpty(chatCompletionRequest.getKnowledgeBases())) {
+					this.onFillChatCompletionChunks(chatCompletionRequest);
+				}
 			}
 		}
+		
 
 		boolean bEnableTools = DataTypeUtils.asBoolean(this.getAgentData().getTools(), false);
 		boolean bSimulateToolCall = "simulate".equalsIgnoreCase(this.getAgentData().getTools());
@@ -576,13 +618,25 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 			body.put("messages", historyList);
 			body.put("model", StringUtils.hasLength(this.getAgentData().getModel()) ? this.getAgentData().getModel() : MODEL_DEFAULT);
 			body.put("stream", bStream);
+			
 			if (bEnableTools || bSimulateToolCall) {
 				List<ChatTool> tools = null;
 				if (!ObjectUtils.isEmpty(chatCompletionRequest.getTools())) {
 					String strTools = JsonUtils.toString(chatCompletionRequest.getTools());
 					tools = JsonUtils.as(strTools, ChatToolListType);
+					
+					ChatTool outputStepChatTool = null;
 					for (ChatTool chatTool : tools) {
 						chatTool.getFunction().resetService();
+						
+						if(TOOL_CALL_OUTPUT_STEP.equals(chatTool.getFunction().getName())) {
+							outputStepChatTool = chatTool;
+						}
+					}
+					
+					if(outputStepChatTool != null) {
+						//移除输出步骤
+						tools.remove(outputStepChatTool);
 					}
 				}
 
@@ -968,6 +1022,46 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 										item.put("id", entry.getValue().get("id"));
 										item.put("function", entry.getValue());
 										functionList.add(item);
+									}
+									
+									if(StringUtils.hasLength(strContent)) {
+										//存在常规内容，向前端发送通知
+										String strRealContent = extractRealContent(strContent) ;
+										if(StringUtils.hasLength(strRealContent)) {
+											//仿真ToolCall向前端输出
+											ChatFunction outputStepFunc = null;
+											if (!ObjectUtils.isEmpty(chatCompletionRequest.getTools())) {
+												for (ChatTool chatTool : chatCompletionRequest.getTools()) {
+													if (chatTool.getFunction() == null) {
+														continue;
+													}
+													
+													if(TOOL_CALL_OUTPUT_STEP.equals(chatTool.getFunction().getName())) {
+														outputStepFunc = chatTool.getFunction();
+														break;
+													}
+												}
+											}
+											
+											if(outputStepFunc!=null) {
+												Map<String, Object> args = new LinkedHashMap<String, Object>();
+												args.put(FIELD_CONTENT, strRealContent);
+												args.put(FIELD_REASONING_CONTENT, thinkSb.toString());
+												if(StringUtils.hasLength(chatCompletionRequest.getSourceChannel())) {
+													args.put(FIELD_SOURCE_CHANNEL, chatCompletionRequest.getSourceChannel());
+												}
+//												if(StringUtils.hasLength(chatCompletionRequest.getSessionId())) {
+//													args.put(FIELD_SESSION_ID, chatCompletionRequest.getSessionId());
+//												}
+												
+												try {
+													this.doToolCall(outputStepFunc, args);
+												}
+												catch (Throwable ignored) {
+													
+												}
+											}
+										}
 									}
 
 									return this.doChatCompletionToolCall(actionSession, chatCompletionRequest, thinkSb.toString(), toolCalls, toolCallIdMap, functionList);
@@ -1605,6 +1699,70 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 			boolean bFirst = true;
 
 			for (java.util.Map.Entry<String, Object> call : toolCalls.entrySet()) {
+				
+				String strFunctionName = toolCallIdMap.get(call.getKey());
+				
+				//判断函数名称
+				if(TOOL_CALL_ASK_USER_QUESTION.equalsIgnoreCase(strFunctionName) && StringUtils.hasLength(chatCompletionRequest.getSessionId())) {
+					if(call.getValue()!= null) {
+						JsonNode jsonNode = null;
+						if(call.getValue() instanceof JsonNode) {
+							jsonNode = (JsonNode) call.getValue();
+						}
+						else {
+							jsonNode = JsonUtils.toJsonNode(call.getValue());
+						}
+						
+						JsonNode questionNode = jsonNode.path("question");
+						JsonNode choicesNode = jsonNode.path("choices");
+						
+						StringBuilder sb = new StringBuilder();
+						sb.append(questionNode.textValue());
+						if(!choicesNode.isMissingNode() && choicesNode.isArray()) {
+							ArrayNode arrayNode = (ArrayNode)choicesNode;
+							if(arrayNode.size() > 0) {
+								for(int i = 0;i<arrayNode.size();i++) {
+									sb.append("\n- ");
+									sb.append(arrayNode.get(i).textValue());
+								}
+							}
+						}
+						
+						//"question"
+						//"choices"
+						ChatMessage chatMessage = new ChatMessage();
+						chatMessage.setRole(ChatMessageRole.TOOL.getValue());
+						chatMessage.setContent("");
+						
+						chatMessage.setToolName(strFunctionName);
+						chatMessage.setToolCallId(call.getKey());
+						list.add(chatMessage);
+						
+						//备份列表消息
+						String strAskUserQuestionTag = String.format("%1$s-ai-chatcompletion-askuserquestion--%2$s", CloudCacheTagUtils.PREFIX, chatCompletionRequest.getSessionId());
+						//
+						this.getSysCacheUtilRuntime().set(strAskUserQuestionTag, list, nAskUserQuestionCacheTimeout);
+						
+						//仿真返回结构
+						ChatCompletionResult result = new ChatCompletionResult();
+						
+						result.setChoices(new ArrayList<ChatMessage>());
+						result.getChoices().add(ChatMessage.create(ChatMessageRole.ASSISTANT, sb.toString()));
+						
+						ChatCompletionUsage chatCompletionUsage = new ChatCompletionUsage();
+						chatCompletionUsage.setPromptTokens(this.getTotalPromptTokens());
+						chatCompletionUsage.setCompletionTokens(this.getTotalCompletionTokens());
+						chatCompletionUsage.setTotalTokens(this.getTotalPromptTokens() + this.getTotalCompletionTokens());
+						chatCompletionUsage.setToolCalls(getLoopCallCount() - 1 + this.getTotalToolCalls());
+						result.setUsage(chatCompletionUsage);
+						
+						return result;
+					}
+				}
+				
+				
+				ChatFunction chatFunction = chatFunctionMap.get(strFunctionName);
+				
 				if (actionSession != null) {
 					if (this.getToolCallStep() >= AIAccess.TOOLCALLSTEP_ENABLED) {
 						String strStep = String.format("%1$s\n", TOOL_CALL_BEGIN);
@@ -1620,7 +1778,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				String strErrorInfo = "";
 				ObjectNode toolCallStepNode = JsonUtils.createObjectNode();
 				
-				String strFunctionName = toolCallIdMap.get(call.getKey());
+				
 				
 				toolCallStepNode.put("name", strFunctionName);
 				if (call.getValue() == null) {
@@ -1632,7 +1790,6 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 					else {
 						toolCallStepNode.set("parameters", JsonUtils.toJsonNode(call.getValue()));
 					}
-					
 				}
 
 				try {
@@ -1640,8 +1797,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 					if (getLoopCallCount() > this.getToolMaxCalls()) {
 						throw new Exception(this.getToolExceedMessage());
 					}
-
-					ChatFunction chatFunction = chatFunctionMap.get(strFunctionName);
+					
 					String strResult = null;
 					if (chatFunction != null) {
 						strResult = this.doToolCall(chatFunction, call.getValue());
@@ -2047,7 +2203,15 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 				throw new UserCancelException("用户取消");
 			}
 
-			PortalAsyncAction last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			boolean bDisabled = EmployeeContext.isCurrentDisabled();
+			PortalAsyncAction last = null;
+			try {
+				EmployeeContext.setCurrentDisabled(true);
+				last = iSysPortalUtilRuntime.getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+			}
+			finally {
+				EmployeeContext.setCurrentDisabled(bDisabled);
+			}
 
 			double fCompletionRate = 0.0f;
 			if (last.getCompletionRate() != null) {
@@ -2134,22 +2298,22 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 			return DateUtils.getCurTimeString();
 		}
 
-		if (strName.equalsIgnoreCase("get_current_temperature")) {
-			Map<String, Object> ret = new LinkedHashMap<String, Object>();
-			ret.put("temperature", 26.1);
-			ret.put("unit", "celsius");
-			ret.put("location", "北京，中国");
-			return JsonUtils.toString(ret);
-		}
-
-		if (strName.equalsIgnoreCase("get_temperature_date")) {
-			Map<String, Object> ret = new LinkedHashMap<String, Object>();
-			ret.put("temperature", 26.1);
-			ret.put("unit", "celsius");
-			ret.put("location", "北京，中国");
-			// ret.put("date", "2024-11-15");
-			return JsonUtils.toString(ret);
-		}
+//		if (strName.equalsIgnoreCase("get_current_temperature")) {
+//			Map<String, Object> ret = new LinkedHashMap<String, Object>();
+//			ret.put("temperature", 26.1);
+//			ret.put("unit", "celsius");
+//			ret.put("location", "北京，中国");
+//			return JsonUtils.toString(ret);
+//		}
+//
+//		if (strName.equalsIgnoreCase("get_temperature_date")) {
+//			Map<String, Object> ret = new LinkedHashMap<String, Object>();
+//			ret.put("temperature", 26.1);
+//			ret.put("unit", "celsius");
+//			ret.put("location", "北京，中国");
+//			// ret.put("date", "2024-11-15");
+//			return JsonUtils.toString(ret);
+//		}
 
 		throw new Exception(String.format("无法识别的函数[%1$s]", strName));
 	}
@@ -2192,7 +2356,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return ret;
 	}
 
-	protected static String extractRealContent(String strContent) throws Exception {
+	protected String extractRealContent(String strContent) throws Exception {
 		if (!StringUtils.hasLength(strContent) || !thinkPattern.matcher(strContent).find()) {
 			return strContent;
 		}
@@ -2233,7 +2397,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return StringUtils.collectionToDelimitedString(list, "\n");
 	}
 
-	protected static List<String> extractToolCallContent(String text) {
+	protected List<String> extractToolCallContent(String text) {
 		List<String> toolCallList = new ArrayList<String>();
 		Matcher matcher = toolCallBodyPattern.matcher(text);
 		while (matcher.find()) {
@@ -2242,7 +2406,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return toolCallList;
 	}
 
-	protected static List<String> extractSimulateToolCallContent(String text) {
+	protected List<String> extractSimulateToolCallContent(String text) {
 		List<String> toolCallList = new ArrayList<String>();
 		Matcher matcher = simulateToolCallBodyPattern.matcher(text);
 		while (matcher.find()) {
@@ -2251,7 +2415,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return toolCallList;
 	}
 
-	protected static String extractSimulateToolCallName(String text) {
+	protected String extractSimulateToolCallName(String text) {
 		Matcher matcher = simulateToolCallNamePattern.matcher(text);
 		while (matcher.find()) {
 			return matcher.group(1);
@@ -2259,7 +2423,7 @@ public abstract class OpenAIAccessAgentBase extends AIAccessAgentBase {
 		return null;
 	}
 
-	protected static String extractSimulateToolCallArguments(String text) {
+	protected String extractSimulateToolCallArguments(String text) {
 		Matcher matcher = simulateToolCallArgumentsPattern.matcher(text);
 		while (matcher.find()) {
 			return matcher.group(1);

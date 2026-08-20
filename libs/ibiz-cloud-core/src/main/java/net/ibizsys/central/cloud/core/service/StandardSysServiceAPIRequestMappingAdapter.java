@@ -25,7 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo.Builder;
 
-import net.ibizsys.central.cloud.core.app.IServiceAppRuntime;
 import net.ibizsys.central.cloud.core.dataentity.ac.IDEChatCompletionRuntime;
 import net.ibizsys.central.cloud.core.service.util.MethodHandlerBase;
 import net.ibizsys.central.cloud.core.util.RestUtils;
@@ -36,6 +35,7 @@ import net.ibizsys.central.service.ISysServiceAPIRuntime;
 import net.ibizsys.central.service.RequestMethods;
 import net.ibizsys.central.util.Inflector;
 import net.ibizsys.central.util.domain.ExportDataResult;
+import net.ibizsys.model.PSModelEnums.SADEMethodType;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPI;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIMethod;
 import net.ibizsys.model.dataentity.service.IPSDEServiceAPIRS;
@@ -70,7 +70,7 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 	}
 	
 	private Map<ISysServiceAPIRuntime, List<RequestMappingInfo>> requestMappingInfoMap = new HashMap<ISysServiceAPIRuntime, List<RequestMappingInfo>>();
-	private Map<IServiceAppRuntime, List<RequestMappingInfo>> requestMappingInfoMap2 = new HashMap<IServiceAppRuntime, List<RequestMappingInfo>>();
+	private Map<ISysServiceAPIRuntimeBase, List<RequestMappingInfo>> requestMappingInfoMap2 = new HashMap<ISysServiceAPIRuntimeBase, List<RequestMappingInfo>>();
 	
 	@Override
 	public void registerMapping(ISysServiceAPIRuntime iSysServiceAPIRuntime) throws Exception {
@@ -116,7 +116,7 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 
 					for (IPSDEServiceAPIMethod iPSDEServiceAPIMethod : psDEServiceAPIMethods) {
 
-						if ("FETCH".equals(iPSDEServiceAPIMethod.getMethodType())) {
+						if (SADEMethodType.FETCH.value.equals(iPSDEServiceAPIMethod.getMethodType())) {
 							String strRequestPath = StringUtils.hasLength(strPath)? (strPath + "/" + iPSDEServiceAPIMethod.getCodeName().toLowerCase()):null;
 							String strRequestPath2 = strPath2 + "/" + iPSDEServiceAPIMethod.getCodeName().toLowerCase();
 							RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2).methods(RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod())).build();
@@ -150,15 +150,34 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 							continue;
 						}
 
-						if ("DEACTION".equals(iPSDEServiceAPIMethod.getMethodType())) {
+						if (SADEMethodType.DEACTION.value.equals(iPSDEServiceAPIMethod.getMethodType())) {
 
 							String strRequestPath = StringUtils.hasLength(strPath)?(strPath + getRequestPath(iPSDEServiceAPIMethod)):null;
 							String strRequestPath2 = strPath2 + getRequestPath(iPSDEServiceAPIMethod);
-							RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2).methods(RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod())).build();
+							
+							RequestMethod requestMethod;
+							if(RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+								requestMethod = RequestMethod.GET;
+							}
+							else
+								if(RequestMethods.UPLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+									requestMethod = RequestMethod.POST;
+								}
+								else {
+									requestMethod = RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod());
+								}
+							
+							RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2).methods(requestMethod).build();
 
-							if (RequestMethods.GET.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DELETE.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+							if (RequestMethods.GET.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DELETE.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
 								if (iPSDEServiceAPIMethod.isNeedResourceKey()) {
 									this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+										
+										@Override
+										protected boolean isDownloadMode() {
+											return RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod());
+										}
+										
 										@Override
 										protected Object onExecute(String pkey, Object requestData, String key) throws Throwable {
 											if(iPSDEServiceAPIMethod.isNoServiceCodeName()) {
@@ -175,6 +194,12 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 									}
 								} else {
 									this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+										
+										@Override
+										protected boolean isDownloadMode() {
+											return RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod());
+										}
+										
 										@Override
 										protected Object onExecute(String pkey, Object requestData, String key) throws Throwable {
 											if(iPSDEServiceAPIMethod.isNoServiceCodeName()) {
@@ -231,6 +256,36 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								}
 								continue;
 							}
+							
+							if (RequestMethods.UPLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+								
+								if (iPSDEServiceAPIMethod.isNeedResourceKey()) {
+									this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+										@Override
+										protected Object onUploadX(String pkey, MultipartFile multipartFile, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Throwable {
+											return iSysServiceAPIRuntime.invokeDEMethod(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), iPSDEServiceAPIMethod.getCodeName(), multipartFile, key, null);
+											
+										}
+									}, MethodHandlerBase.getUploadXMethod());
+
+									if (this.getSysServiceAPIDocAdapter() != null) {
+										this.getSysServiceAPIDocAdapter().registerMapping(iDEServiceAPIRuntime, iDEServiceAPIRSRuntime, iPSDEServiceAPIMethod, strRequestPath, strRequestPath2);
+									}
+								} else {
+									this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+										@Override
+										protected Object onUploadX(String pkey, MultipartFile multipartFile, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Throwable {
+											return iSysServiceAPIRuntime.invokeDEMethod(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), iPSDEServiceAPIMethod.getCodeName(), multipartFile, null, null);
+										}
+									}, MethodHandlerBase.getUploadXMethod());
+
+									if (this.getSysServiceAPIDocAdapter() != null) {
+										this.getSysServiceAPIDocAdapter().registerMapping(iDEServiceAPIRuntime, iDEServiceAPIRSRuntime, iPSDEServiceAPIMethod, strRequestPath, strRequestPath2);
+									}
+								}
+								continue;
+							}
+							
 
 							continue;
 						}
@@ -561,23 +616,6 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 								}
 
 								iSysServiceAPIRuntime.invokeDEReport(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strReportTag, strContentType, requestData, httpServletResponse);
-								
-//								ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//								Object ret = iSysServiceAPIRuntime.invokeDEReport(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strReportTag, strContentType, requestData, bos);
-//								if(ret == ISysServiceAPIRuntime.RET_IGNOREPOSTPROCESS) {
-//									return;
-//								}
-//
-//								String strReportName = "report.pdf";
-//								String strFileName = new String(URLEncoder.encode(strReportName, "utf-8").getBytes("utf-8"), "iso8859-1");
-//								httpServletResponse.setContentType("application/pdf");
-//								httpServletResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-//								httpServletResponse.setHeader("Pragma", "no-cache");
-//								httpServletResponse.setHeader("Expires", "0");
-//								httpServletResponse.setHeader("charset", "utf-8");
-//								httpServletResponse.setHeader("Content-Disposition", String.format("attachment;filename=%s;filename*=utf-8''%s", strFileName, URLEncoder.encode(strReportTag, "utf-8")));
-//
-//								bos.writeTo(httpServletResponse.getOutputStream());
 							}
 						}, MethodHandlerBase.getDownloadXMethod());
 					}
@@ -753,6 +791,44 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 					}
 					
 					if (true) {
+						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion/skills"):null;
+						String strRequestPath2 = strPath2 + "/ssechatcompletion/skills";
+						String strRequestPath3 = StringUtils.hasLength(strPath)?(strPath + "/chatcompletion/skills"):null;
+						String strRequestPath4 = strPath2 + "/chatcompletion/skills";
+						String strRequestPath5 = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion/skills/{key}"):null;
+						String strRequestPath6 = strPath2 + "/ssechatcompletion/skills/{key}";
+						String strRequestPath7 = StringUtils.hasLength(strPath)?(strPath + "/chatcompletion/skills/{key}"):null;
+						String strRequestPath8 = strPath2 + "/chatcompletion/skills/{key}";
+						
+						
+						RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(
+								strRequestPath, strRequestPath2, strRequestPath3, strRequestPath4
+								,strRequestPath5, strRequestPath6, strRequestPath7, strRequestPath8
+								
+								).methods(RequestMethod.POST).build();
+
+						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							@Override
+							protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+								
+								String strACTag = null;
+								
+								// 从请求中构建参数对象
+								String strQueryString = httpServletRequest.getQueryString();
+								Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+								if (map != null) {
+									strACTag = (String) map.get("srfactag");
+								}
+								
+								net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+								
+								return realSysServiceAPIRuntime.invokeDEChatCompletion(null, majorPSDEServiceAPI.getName(), pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_SKILLS, requestData, key, null);
+							}
+						}, MethodHandlerBase.getExecuteMethod());
+					}
+					
+					
+					if (true) {
 						String strRequestPath = StringUtils.hasLength(strPath)?(strPath + "/ssechatcompletion/resources"):null;
 						String strRequestPath2 = strPath2 + "/ssechatcompletion/resources";
 						String strRequestPath3 = StringUtils.hasLength(strPath)?(strPath + "/chatcompletion/resources"):null;
@@ -842,7 +918,7 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 		// String strServiceCodeName =
 		for (IPSDEServiceAPIMethod iPSDEServiceAPIMethod : psDEServiceAPIMethods) {
 
-			if ("FETCH".equals(iPSDEServiceAPIMethod.getMethodType())) {
+			if (SADEMethodType.FETCH.value.equals(iPSDEServiceAPIMethod.getMethodType())) {
 				String strRequestPath = strPath + "/" + iPSDEServiceAPIMethod.getCodeName().toLowerCase();
 				RequestMappingInfo requestMappingInfo = RequestMappingInfo.paths(strRequestPath).methods(RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod())).build();
 
@@ -876,14 +952,33 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 				continue;
 			}
 
-			if ("DEACTION".equals(iPSDEServiceAPIMethod.getMethodType())) {
+			if (SADEMethodType.DEACTION.value.equals(iPSDEServiceAPIMethod.getMethodType())) {
 
 				String strRequestPath = strPath + getRequestPath(iPSDEServiceAPIMethod);
-				RequestMappingInfo requestMappingInfo = RequestMappingInfo.paths(strRequestPath).methods(RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod())).build();
+				
+				RequestMethod requestMethod;
+				if(RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+					requestMethod = RequestMethod.GET;
+				}
+				else
+					if(RequestMethods.UPLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+						requestMethod = RequestMethod.POST;
+					}
+					else {
+						requestMethod = RequestMethod.valueOf(iPSDEServiceAPIMethod.getRequestMethod());
+					}
+				
+				RequestMappingInfo requestMappingInfo = RequestMappingInfo.paths(strRequestPath).methods(requestMethod).build();
 
-				if (RequestMethods.GET.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DELETE.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+				if (RequestMethods.GET.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DELETE.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
 					if (iPSDEServiceAPIMethod.isNeedResourceKey()) {
 						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							
+							@Override
+							protected boolean isDownloadMode() {
+								return RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod());
+							}
+							
 							@Override
 							protected Object onExecute(String pkey, Object requestData, String key) throws Throwable {
 								if(iPSDEServiceAPIMethod.isNoServiceCodeName()) {
@@ -899,6 +994,12 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 						}
 					} else {
 						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							
+							@Override
+							protected boolean isDownloadMode() {
+								return RequestMethods.DOWNLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod());
+							}
+							
 							@Override
 							protected Object onExecute(String pkey, Object requestData, String key) throws Throwable {
 								if(iPSDEServiceAPIMethod.isNoServiceCodeName()) {
@@ -953,6 +1054,38 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 					}
 					continue;
 				}
+				
+				if (RequestMethods.UPLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod()) || RequestMethods.PUT.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+					if (iPSDEServiceAPIMethod.isNeedResourceKey()) {
+						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							
+							@Override
+							protected Object onUploadX(String pkey, MultipartFile multipartFile, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+								return iSysServiceAPIRuntime.invokeDEMethod(null, null, null, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), iPSDEServiceAPIMethod.getCodeName(), multipartFile, key, null);
+							}
+							
+						}, MethodHandlerBase.getPostMethod());
+
+						if (this.getSysServiceAPIDocAdapter() != null) {
+							this.getSysServiceAPIDocAdapter().registerMapping(iDEServiceAPIRuntime, null, iPSDEServiceAPIMethod, strRequestPath);
+						}
+					} else {
+						this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+							
+							@Override
+							protected Object onUploadX(String pkey, MultipartFile multipartFile, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+								return iSysServiceAPIRuntime.invokeDEMethod(null, null, null, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), iPSDEServiceAPIMethod.getCodeName(), multipartFile, key, null);
+							}
+							
+						}, MethodHandlerBase.getPost0Method());
+						
+						if (this.getSysServiceAPIDocAdapter() != null) {
+							this.getSysServiceAPIDocAdapter().registerMapping(iDEServiceAPIRuntime, null, iPSDEServiceAPIMethod, strRequestPath);
+						}
+					}
+					continue;
+				}
+				
 
 				continue;
 			}
@@ -1456,6 +1589,34 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 		}
 		
 		if (true) {
+			String strRequestPath = strPath + "/ssechatcompletion/skills";
+			String strRequestPath2 = strPath + "/chatcompletion/skills";
+			String strRequestPath3 = strPath + "/ssechatcompletion/skills/{key}";
+			String strRequestPath4 = strPath + "/chatcompletion/skills/{key}";
+			
+			RequestMappingInfo requestMappingInfo = RequestMappingInfoEx.paths(strRequestPath, strRequestPath2, strRequestPath3, strRequestPath4).methods(RequestMethod.POST).build();
+
+			this.registerMapping(iSysServiceAPIRuntime, requestMappingInfo, new MethodHandlerBase() {
+				@Override
+				protected Object onExecute(String pkey, Object requestData, String key, String param, String param2, HttpServletRequest httpServletRequest, HttpServletResponse httpServletRespons) throws Throwable {
+					
+					String strACTag = null;
+					
+					// 从请求中构建参数对象
+					String strQueryString = httpServletRequest.getQueryString();
+					Map<String, Object> map = RestUtils.queryString2Map(strQueryString);
+					if (map != null) {
+						strACTag = (String) map.get("srfactag");
+					}
+					
+					net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime realSysServiceAPIRuntime = (net.ibizsys.central.cloud.core.service.ISysServiceAPIRuntime)iSysServiceAPIRuntime;
+					
+					return realSysServiceAPIRuntime.invokeDEChatCompletion(null, null, pkey, iDEServiceAPIRuntime.getPSDEServiceAPI().getName(), strACTag, IDEChatCompletionRuntime.METHOD_SKILLS, requestData, key, null);
+				}
+			}, MethodHandlerBase.getExecuteMethod());
+		}
+		
+		if (true) {
 			String strRequestPath = strPath + "/ssechatcompletion/resources";
 			String strRequestPath2 = strPath + "/chatcompletion/resources";
 			String strRequestPath3 = strPath + "/ssechatcompletion/resources/{key}";
@@ -1598,9 +1759,9 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 	}
 	
 	@Override
-	public void registerMapping(IServiceAppRuntime iServiceAppRuntime, RequestMappingInfo mapping, Object handler, Method method) {
+	public void registerMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase, RequestMappingInfo mapping, Object handler, Method method) {
 		this.getRequestMappingHandlerMapping().registerMapping(mapping, handler, method);
-		this.registerRequestMappingInfo(iServiceAppRuntime, mapping);
+		this.registerRequestMappingInfo(iSysServiceAPIRuntimeBase, mapping);
 	}
 	
 	
@@ -1632,13 +1793,13 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 		list.add(requestMappingInfo);
 	}
 
-	protected void registerRequestMappingInfo(IServiceAppRuntime iServiceAppRuntime, RequestMappingInfo requestMappingInfo) {
+	protected void registerRequestMappingInfo(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase, RequestMappingInfo requestMappingInfo) {
 		List<RequestMappingInfo> list = null;
 		synchronized (this.requestMappingInfoMap2) {
-			list = this.requestMappingInfoMap2.get(iServiceAppRuntime);
+			list = this.requestMappingInfoMap2.get(iSysServiceAPIRuntimeBase);
 			if(list == null) {
 				list = new ArrayList<RequestMappingInfo>();
-				this.requestMappingInfoMap2.put(iServiceAppRuntime, list);
+				this.requestMappingInfoMap2.put(iSysServiceAPIRuntimeBase, list);
 			}
 		}
 		list.add(requestMappingInfo);
@@ -1667,28 +1828,16 @@ public class StandardSysServiceAPIRequestMappingAdapter extends SysServiceAPIReq
 	}
 	
 	@Override
-	public void registerMapping(IServiceAppRuntime iServiceAppRuntime) throws Exception {
+	public void registerMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase) throws Exception {
 
-//		List<IPSDEServiceAPI> psDEServiceAPIs = iSysServiceAPIRuntime.getPSSysServiceAPI().getPSDEServiceAPIs();
-//		if (ObjectUtils.isEmpty(psDEServiceAPIs)) {
-//			return;
-//		}
-//
-//		for (IPSDEServiceAPI iPSDEServiceAPI : psDEServiceAPIs) {
-//			// 只注册默认接口
-//			if (iPSDEServiceAPI.getAPIMode() == 1 || iPSDEServiceAPI.getAPIMode() == 0) {
-//				IDEServiceAPIRuntime iDEServiceAPIRuntime = iSysServiceAPIRuntime.getDEServiceAPIRuntime(iPSDEServiceAPI.getCodeName(), false);
-//				this.registerDEServiceAPIMapping(iDEServiceAPIRuntime, iSysServiceAPIRuntime);
-//			}
-//		}
 	}
 	
 	
 	@Override
-	public void unregisterMapping(IServiceAppRuntime iServiceAppRuntime) {
+	public void unregisterMapping(ISysServiceAPIRuntimeBase iSysServiceAPIRuntimeBase) {
 		List<RequestMappingInfo> list = null;
 		synchronized (this.requestMappingInfoMap2) {
-			list = this.requestMappingInfoMap2.remove(iServiceAppRuntime);
+			list = this.requestMappingInfoMap2.remove(iSysServiceAPIRuntimeBase);
 		}
 		if(list != null) {
 			for(RequestMappingInfo requestMappingInfo : list) {

@@ -28,7 +28,7 @@ public interface IPSAppUtilPage extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取页面路径
 	 * @return
 	 */
-	java.lang.String getPageUrl();
+	String getPageUrl();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSAppUtilPage extends net.ibizsys.model.app.IPSApplicationObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUtilPageTargetType}
 	 * @return
 	 */
-	java.lang.String getTargetType();
+	String getTargetType();
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface IPSAppUtilPage extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取功能标记
 	 * @return
 	 */
-	java.lang.String getUtilTag();
+	String getUtilTag();
 	
 	
 	/**
@@ -60,5 +60,5 @@ public interface IPSAppUtilPage extends net.ibizsys.model.app.IPSApplicationObje
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUtilPage}
 	 * @return
 	 */
-	java.lang.String getUtilType();
+	String getUtilType();
 }

@@ -28,28 +28,28 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	 * 获取输入标记
 	 * @return
 	 */
-	java.lang.String getInputTag();
+	String getInputTag();
 	
 	
 	/**
 	 * 获取输入标记2
 	 * @return
 	 */
-	java.lang.String getInputTag2();
+	String getInputTag2();
 	
 	
 	/**
 	 * 获取输入标记3
 	 * @return
 	 */
-	java.lang.String getInputTag3();
+	String getInputTag3();
 	
 	
 	/**
 	 * 获取输入标记4
 	 * @return
 	 */
-	java.lang.String getInputTag4();
+	String getInputTag4();
 	
 	
 	/**
@@ -58,14 +58,14 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TestCaseInputType}
 	 * @return
 	 */
-	java.lang.String getInputType();
+	String getInputType();
 	
 	
 	/**
 	 * 获取输入值
 	 * @return
 	 */
-	java.lang.String getInputValue();
+	String getInputValue();
 	
 	
 	/**
@@ -107,5 +107,5 @@ public interface IPSSysTestCaseInput extends net.ibizsys.model.IPSModelObject{
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 }

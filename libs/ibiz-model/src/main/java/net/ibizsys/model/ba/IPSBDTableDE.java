@@ -22,12 +22,12 @@ public interface IPSBDTableDE extends net.ibizsys.model.IPSModelObject{
 	 * 获取行键值格式化
 	 * @return
 	 */
-	java.lang.String getRowKeyFormat();
+	String getRowKeyFormat();
 	
 	
 	/**
 	 * 获取行键值参数
 	 * @return
 	 */
-	java.lang.String getRowKeyParams();
+	String getRowKeyParams();
 }

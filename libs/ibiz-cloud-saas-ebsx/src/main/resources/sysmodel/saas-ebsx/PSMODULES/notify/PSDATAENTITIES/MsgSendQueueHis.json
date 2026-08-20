@@ -617,6 +617,7 @@
       "columnName" : "URL",
       "dBType" : "POSTGRESQL",
       "name" : "URL",
+      "queryCodeExp" : "t1.URL",
       "standardColumnName" : "URL"
     }, {
       "columnName" : "URL",
@@ -713,6 +714,7 @@
       "columnName" : "MOBILEURL",
       "dBType" : "POSTGRESQL",
       "name" : "MOBILEURL",
+      "queryCodeExp" : "t1.MOBILEURL",
       "standardColumnName" : "MOBILEURL"
     }, {
       "columnName" : "MOBILEURL",

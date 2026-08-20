@@ -15,6 +15,7 @@ public class PSDELogicNodeImpl extends net.ibizsys.model.PSObjectImpl implements
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
 	public final static String ATTR_GETTOPPOS = "topPos";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISPARALLELOUTPUT = "parallelOutput";
 
 	public java.lang.String getCodeName(){
@@ -141,6 +142,10 @@ public class PSDELogicNodeImpl extends net.ibizsys.model.PSObjectImpl implements
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isParallelOutput(){

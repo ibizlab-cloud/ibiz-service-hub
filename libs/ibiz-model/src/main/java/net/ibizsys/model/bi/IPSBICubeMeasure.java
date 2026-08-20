@@ -15,56 +15,56 @@ public interface IPSBICubeMeasure extends net.ibizsys.model.bi.IPSBICubeObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AggMode}
 	 * @return
 	 */
-	java.lang.String getAggMode();
+	String getAggMode();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取反查扩展条件
 	 * @return
 	 */
-	java.lang.String getDrillDetailCustomCond();
+	String getDrillDetailCustomCond();
 	
 	
 	/**
 	 * 获取Json值格式化
 	 * @return
 	 */
-	java.lang.String getJsonFormat();
+	String getJsonFormat();
 	
 	
 	/**
 	 * 获取指标公式
 	 * @return
 	 */
-	java.lang.String getMeasureFormula();
+	String getMeasureFormula();
 	
 	
 	/**
 	 * 获取指标组
 	 * @return
 	 */
-	java.lang.String getMeasureGroup();
+	String getMeasureGroup();
 	
 	
 	/**
 	 * 获取指标标记
 	 * @return
 	 */
-	java.lang.String getMeasureTag();
+	String getMeasureTag();
 	
 	
 	/**
 	 * 获取指标标记2
 	 * @return
 	 */
-	java.lang.String getMeasureTag2();
+	String getMeasureTag2();
 	
 	
 	/**
@@ -73,7 +73,7 @@ public interface IPSBICubeMeasure extends net.ibizsys.model.bi.IPSBICubeObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIMeasureType}
 	 * @return
 	 */
-	java.lang.String getMeasureType();
+	String getMeasureType();
 	
 	
 	/**
@@ -108,7 +108,7 @@ public interface IPSBICubeMeasure extends net.ibizsys.model.bi.IPSBICubeObject{
 	 * 获取参数配置界面行为标记
 	 * @return
 	 */
-	java.lang.String getParamPSDEUIActionTag();
+	String getParamPSDEUIActionTag();
 	
 	
 	/**
@@ -124,21 +124,21 @@ public interface IPSBICubeMeasure extends net.ibizsys.model.bi.IPSBICubeObject{
 	 * 获取文本绘制模板
 	 * @return
 	 */
-	java.lang.String getTextTemplate();
+	String getTextTemplate();
 	
 	
 	/**
 	 * 获取提示绘制模板
 	 * @return
 	 */
-	java.lang.String getTipTemplate();
+	String getTipTemplate();
 	
 	
 	/**
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

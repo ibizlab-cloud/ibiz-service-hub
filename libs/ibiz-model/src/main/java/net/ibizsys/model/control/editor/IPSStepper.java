@@ -16,5 +16,5 @@ public interface IPSStepper extends net.ibizsys.model.control.editor.IPSNumberEd
 	 * 获取步进值[STEPVALUE]
 	 * @return
 	 */
-	java.lang.Double getStepValue();
+	Double getStepValue();
 }

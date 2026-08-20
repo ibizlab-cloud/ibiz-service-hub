@@ -16,5 +16,5 @@ public interface IPSWFEndProcess extends net.ibizsys.model.wf.IPSWFProcess{
 	 * 获取结束状态值
 	 * @return
 	 */
-	java.lang.String getExitStateValue();
+	String getExitStateValue();
 }

@@ -14,21 +14,21 @@ public interface IPSRawItemBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取内容类型
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	
 	/**
 	 * 获取直接Css样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -133,7 +133,7 @@ public interface IPSRawItemBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
@@ -154,7 +154,7 @@ public interface IPSRawItemBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取操作提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**

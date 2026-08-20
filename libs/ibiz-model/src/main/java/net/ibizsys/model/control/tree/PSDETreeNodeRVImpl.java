@@ -7,6 +7,7 @@ public class PSDETreeNodeRVImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETPSNAVIGATECONTEXTS = "getPSNavigateContexts";
 	public final static String ATTR_GETPSNAVIGATEPARAMS = "getPSNavigateParams";
 	public final static String ATTR_GETREFPSAPPVIEW = "getRefPSAppView";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	private java.util.List<net.ibizsys.model.control.IPSNavigateContext> psnavigatecontexts = null;
 	public java.util.List<net.ibizsys.model.control.IPSNavigateContext> getPSNavigateContexts(){
@@ -77,4 +78,8 @@ public class PSDETreeNodeRVImpl extends net.ibizsys.model.PSObjectImpl implement
 		this.refpsappview = refpsappview;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

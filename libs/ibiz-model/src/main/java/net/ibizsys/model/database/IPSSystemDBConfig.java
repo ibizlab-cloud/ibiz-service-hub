@@ -15,7 +15,7 @@ public interface IPSSystemDBConfig extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBType}
 	 * @return
 	 */
-	java.lang.String getDBType();
+	String getDBType();
 	
 	
 	/**
@@ -24,7 +24,7 @@ public interface IPSSystemDBConfig extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBNullValueOrderMode}
 	 * @return
 	 */
-	java.lang.String getNullValueOrderMode();
+	String getNullValueOrderMode();
 	
 	
 	/**
@@ -33,7 +33,7 @@ public interface IPSSystemDBConfig extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBObjNameCaseMode}
 	 * @return
 	 */
-	java.lang.String getObjNameCase();
+	String getObjNameCase();
 	
 	
 	/**

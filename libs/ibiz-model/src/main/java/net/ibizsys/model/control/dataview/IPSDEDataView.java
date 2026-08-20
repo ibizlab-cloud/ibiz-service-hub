@@ -59,7 +59,7 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	 * 获取无值显示内容
 	 * @return
 	 */
-	java.lang.String getEmptyText();
+	String getEmptyText();
 	
 	
 	/**
@@ -117,7 +117,7 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupLayout}
 	 * @return
 	 */
-	java.lang.String getGroupLayout();
+	String getGroupLayout();
 	
 	
 	/**
@@ -126,7 +126,7 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
@@ -233,7 +233,7 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
-	java.lang.String getGroupStyle();
+	String getGroupStyle();
 	
 	
 	/**
@@ -319,7 +319,7 @@ public interface IPSDEDataView extends net.ibizsys.model.control.IPSMDAjaxContro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**

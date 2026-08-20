@@ -822,6 +822,6 @@ public abstract class ChunkGraphExtractorBase extends SysKnowledgeBaseUtilRTAddi
 
 	protected String getSummarizeDescriptionsPrompt() {
 		//return "You are a helpful assistant responsible for generating a comprehensive summary of the data provided below.\r\n" + "Given one or two entities, and a list of descriptions, all related to the same entity or group of entities.\r\n" + "Please concatenate all of these into a single, comprehensive description. Make sure to include information collected from all the descriptions.\r\n" + "If the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\r\n" + "Make sure it is written in third person, and include the entity names so we the have full context.\r\n" + "Use {language} as output language.\r\n" + "\r\n" + "#######\r\n" + "-Data-\r\n" + "Entities: {entity_name}\r\n" + "Description List: {description_list}\r\n" + "#######\r\n";
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(ChunkGraphExtractorBase.class, "SummarizeDescriptionsPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(ChunkGraphExtractorBase.class, "SummarizeDescriptionsPrompt.md", false);
 	}
 }

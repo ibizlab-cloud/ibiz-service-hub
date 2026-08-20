@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>cn.ibizlab.plugin</groupId>
 		<artifactId>ibiz-plugin</artifactId>
-		<version>8.1.0.578.187</version>
+		<version>8.1.0.584.1</version>
     </parent>
 	<artifactId>ibiz-cloud-kb-core</artifactId>
 	<name>ibiz-cloud-kb-core</name>
@@ -17,6 +17,43 @@
 			<groupId>cn.ibizlab.plugin</groupId>
 			<artifactId>ibiz-cloud-core</artifactId>
 			<version>${ibiz.cloud.version}</version>
+		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/org.apache.jackrabbit/jackrabbit-core -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-core</artifactId>
+			<version>2.20.17</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/org.apache.jackrabbit/jackrabbit-webdav -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-webdav</artifactId>
+			<version>2.20.17</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/org.apache.jackrabbit/jackrabbit-jcr-commons -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-jcr-commons</artifactId>
+			<version>2.20.17</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-jcr-server</artifactId>
+			<version>2.20.17</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>

@@ -89,7 +89,9 @@ public abstract class DEPrintRuntimeBase extends net.ibizsys.runtime.dataentity.
 				if(StringUtils.hasLength(this.getReportModel())) {
 					return;
 				}
-				throw new Exception(String.format("指定报表文件不存在"));
+				//throw new Exception(String.format("指定报表文件不存在"));
+				log.error(String.format("实体打印[%1$s]指定报表文件[%2$s]不存在，忽略", this.getFullUniqueTag(), strReportFilePath));
+				return;
 			}
 			this.setReportFilePath(file.getCanonicalPath());
 		}
@@ -279,14 +281,19 @@ public abstract class DEPrintRuntimeBase extends net.ibizsys.runtime.dataentity.
 					break;
 				case HTML:
 					strFileName = "print.html";
+					break;
 				case XLSX:
 					strFileName = "print.xlsx";
+					break;
 				case JSON:
 					strFileName = "print.json";
+					break;
 				case XML:
 					strFileName = "print.xml";
+					break;
 				case TEXT:
 					strFileName = "print.txt";
+					break;
 				default:
 					break;
 				}

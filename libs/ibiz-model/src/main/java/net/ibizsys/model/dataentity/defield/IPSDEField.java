@@ -102,7 +102,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取审计格式
 	 * @return
 	 */
-	java.lang.String getAuditInfoFormat();
+	String getAuditInfoFormat();
 	
 	
 	/**
@@ -111,7 +111,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFBizTag}
 	 * @return
 	 */
-	java.lang.String getBizTag();
+	String getBizTag();
 	
 	
 	/**
@@ -132,14 +132,14 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取值计算表达式
 	 * @return
 	 */
-	java.lang.String getComputeExpression();
+	String getComputeExpression();
 	
 	
 	/**
@@ -171,7 +171,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEMSFieldMode}
 	 * @return
 	 */
-	java.lang.String getDEMSFieldMode();
+	String getDEMSFieldMode();
 	
 	
 	/**
@@ -180,7 +180,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDataType}
 	 * @return
 	 */
-	java.lang.String getDataType();
+	String getDataType();
 	
 	
 	/**
@@ -201,7 +201,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -224,7 +224,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDefaultValueType}
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**
@@ -233,7 +233,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFDupCheckMode}
 	 * @return
 	 */
-	java.lang.String getDupCheckMode();
+	String getDupCheckMode();
 	
 	
 	/**
@@ -268,14 +268,14 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getFieldTag();
+	String getFieldTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getFieldTag2();
+	String getFieldTag2();
 	
 	
 	/**
@@ -289,7 +289,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取导入标识
 	 * @return
 	 */
-	java.lang.String getImportTag();
+	String getImportTag();
 	
 	
 	/**
@@ -310,7 +310,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取Json格式化
 	 * @return
 	 */
-	java.lang.String getJsonFormat();
+	String getJsonFormat();
 	
 	
 	/**
@@ -338,14 +338,14 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取逻辑名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**
 	 * 获取最大值（字符串）
 	 * @return
 	 */
-	java.lang.String getMaxValueString();
+	String getMaxValueString();
 	
 	
 	/**
@@ -359,7 +359,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取最小值（字符串）
 	 * @return
 	 */
-	java.lang.String getMinValueString();
+	String getMinValueString();
 	
 	
 	/**
@@ -368,7 +368,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DBNullValueOrderMode}
 	 * @return
 	 */
-	java.lang.String getNullValueOrderMode();
+	String getNullValueOrderMode();
 	
 	
 	/**
@@ -476,14 +476,14 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.PredefinedFieldType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取预置类型参数
 	 * @return
 	 */
-	java.lang.String getPredefinedTypeParam();
+	String getPredefinedTypeParam();
 	
 	
 	/**
@@ -492,7 +492,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFQueryCSMode}
 	 * @return
 	 */
-	java.lang.String getQueryOption();
+	String getQueryOption();
 	
 	
 	/**
@@ -508,14 +508,14 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFSequenceMode}
 	 * @return
 	 */
-	java.lang.String getSequenceMode();
+	String getSequenceMode();
 	
 	
 	/**
 	 * 获取服务代码标识
 	 * @return
 	 */
-	java.lang.String getServiceCodeName();
+	String getServiceCodeName();
 	
 	
 	/**
@@ -533,7 +533,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.StringCaseMode}
 	 * @return
 	 */
-	java.lang.String getStringCase();
+	String getStringCase();
 	
 	
 	/**
@@ -549,7 +549,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFTranslatorMode}
 	 * @return
 	 */
-	java.lang.String getTranslatorMode();
+	String getTranslatorMode();
 	
 	
 	/**
@@ -558,7 +558,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UnionKeyValueMode}
 	 * @return
 	 */
-	java.lang.String getUnionKeyValue();
+	String getUnionKeyValue();
 	
 	
 	/**
@@ -621,7 +621,7 @@ public interface IPSDEField extends net.ibizsys.model.IPSModelObject
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

@@ -13,7 +13,7 @@ public interface IPSDEDFAggregateProcessNode extends net.ibizsys.model.dataentit
 	 * 获取聚合数据源属性
 	 * @return
 	 */
-	java.lang.String getAggregateField();
+	String getAggregateField();
 	
 	
 	/**

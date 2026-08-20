@@ -14,14 +14,14 @@ public interface IPSEditor extends net.ibizsys.model.IPSModelObject{
 	 * 获取直接Css样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -42,14 +42,14 @@ public interface IPSEditor extends net.ibizsys.model.IPSModelObject{
 	 * 获取编辑器样式
 	 * @return
 	 */
-	java.lang.String getEditorStyle();
+	String getEditorStyle();
 	
 	
 	/**
 	 * 获取编辑器类型
 	 * @return
 	 */
-	java.lang.String getEditorType();
+	String getEditorType();
 	
 	
 	/**
@@ -63,21 +63,35 @@ public interface IPSEditor extends net.ibizsys.model.IPSModelObject{
 	 * 获取对象标识属性[OBJECTIDFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectIdField();
+	String getObjectIdField();
 	
 	
 	/**
 	 * 获取对象名称属性[OBJECTNAMEFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectNameField();
+	String getObjectNameField();
 	
 	
 	/**
 	 * 获取对象值属性[OBJECTVALUEFIELD]
 	 * @return
 	 */
-	java.lang.String getObjectValueField();
+	String getObjectValueField();
+	
+	
+	/**
+	 * 获取编辑器输入提示语言资源
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageRes();
+
+
+	/**
+	 * 获取编辑器输入提示语言资源，不存在时抛出异常
+	 * @return
+	 */
+	net.ibizsys.model.res.IPSLanguageRes getPHPSLanguageResMust();
 	
 	
 	/**
@@ -210,28 +224,28 @@ public interface IPSEditor extends net.ibizsys.model.IPSModelObject{
 	 * 获取编辑器输入提示
 	 * @return
 	 */
-	java.lang.String getPlaceHolder();
+	String getPlaceHolder();
 	
 	
 	/**
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取多项文本分隔符[TEXTSEPARATOR]
 	 * @return
 	 */
-	java.lang.String getTextSeparator();
+	String getTextSeparator();
 	
 	
 	/**
 	 * 获取多项值分隔符[VALUESEPARATOR]
 	 * @return
 	 */
-	java.lang.String getValueSeparator();
+	String getValueSeparator();
 	
 	
 	/**
@@ -240,7 +254,7 @@ public interface IPSEditor extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorValueType}
 	 * @return
 	 */
-	java.lang.String getValueType();
+	String getValueType();
 	
 	
 	/**

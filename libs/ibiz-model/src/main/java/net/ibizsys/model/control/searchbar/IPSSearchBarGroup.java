@@ -34,7 +34,7 @@ public interface IPSSearchBarGroup extends net.ibizsys.model.control.searchbar.I
 	 * 获取分组提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**

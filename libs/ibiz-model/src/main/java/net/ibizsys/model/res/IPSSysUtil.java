@@ -15,21 +15,21 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	 * 获取认证token路径
 	 * @return
 	 */
-	java.lang.String getAuthAccessTokenUrl();
+	String getAuthAccessTokenUrl();
 	
 	
 	/**
 	 * 获取认证客户端标识
 	 * @return
 	 */
-	java.lang.String getAuthClientId();
+	String getAuthClientId();
 	
 	
 	/**
 	 * 获取认证客户端密码
 	 * @return
 	 */
-	java.lang.String getAuthClientSecret();
+	String getAuthClientSecret();
 	
 	
 	/**
@@ -38,28 +38,28 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.APIAuthMode}
 	 * @return
 	 */
-	java.lang.String getAuthMode();
+	String getAuthMode();
 	
 	
 	/**
 	 * 获取认证参数
 	 * @return
 	 */
-	java.lang.String getAuthParam();
+	String getAuthParam();
 	
 	
 	/**
 	 * 获取认证参数2
 	 * @return
 	 */
-	java.lang.String getAuthParam2();
+	String getAuthParam2();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -185,98 +185,98 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	 * 获取运行时对象名称
 	 * @return
 	 */
-	java.lang.String getRTObjectName();
+	String getRTObjectName();
 	
 	
 	/**
 	 * 获取服务参数
 	 * @return
 	 */
-	java.lang.String getServiceParam();
+	String getServiceParam();
 	
 	
 	/**
 	 * 获取服务参数2
 	 * @return
 	 */
-	java.lang.String getServiceParam2();
+	String getServiceParam2();
 	
 	
 	/**
 	 * 获取服务路径
 	 * @return
 	 */
-	java.lang.String getServicePath();
+	String getServicePath();
 	
 	
 	/**
 	 * 获取功能实体10名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE10Name();
+	String getUtilPSDE10Name();
 	
 	
 	/**
 	 * 获取功能实体2名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE2Name();
+	String getUtilPSDE2Name();
 	
 	
 	/**
 	 * 获取功能实体3名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE3Name();
+	String getUtilPSDE3Name();
 	
 	
 	/**
 	 * 获取功能实体4名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE4Name();
+	String getUtilPSDE4Name();
 	
 	
 	/**
 	 * 获取功能实体5名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE5Name();
+	String getUtilPSDE5Name();
 	
 	
 	/**
 	 * 获取功能实体6名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE6Name();
+	String getUtilPSDE6Name();
 	
 	
 	/**
 	 * 获取功能实体7名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE7Name();
+	String getUtilPSDE7Name();
 	
 	
 	/**
 	 * 获取功能实体8名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE8Name();
+	String getUtilPSDE8Name();
 	
 	
 	/**
 	 * 获取功能实体9名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDE9Name();
+	String getUtilPSDE9Name();
 	
 	
 	/**
 	 * 获取功能实体名称
 	 * @return
 	 */
-	java.lang.String getUtilPSDEName();
+	String getUtilPSDEName();
 	
 	
 	/**
@@ -285,7 +285,7 @@ public interface IPSSysUtil extends net.ibizsys.model.dataentity.util.IPSDEUtil
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysUtilType}
 	 * @return
 	 */
-	java.lang.String getUtilType();
+	String getUtilType();
 	
 	
 	/**

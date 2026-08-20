@@ -10,6 +10,7 @@ public class PSDEOPPrivRoleImpl extends net.ibizsys.model.dataentity.PSDataEntit
 	public final static String ATTR_GETDYNAMODELFILEPATH = "dynaModelFilePath";
 	public final static String ATTR_GETPSDEDATAQUERY = "getPSDEDataQuery";
 	public final static String ATTR_GETPSDEOPPRIV = "getPSDEOPPriv";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCustomCond(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCUSTOMCOND);
@@ -81,4 +82,8 @@ public class PSDEOPPrivRoleImpl extends net.ibizsys.model.dataentity.PSDataEntit
 		this.psdeoppriv = psdeoppriv;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

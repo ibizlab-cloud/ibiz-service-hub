@@ -14,49 +14,49 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取注入属性名称
 	 * @return
 	 */
-	java.lang.String getAttrName();
+	String getAttrName();
 	
 	
 	/**
 	 * 获取事件参数
 	 * @return
 	 */
-	java.lang.String getEventArg();
+	String getEventArg();
 	
 	
 	/**
 	 * 获取事件参数2
 	 * @return
 	 */
-	java.lang.String getEventArg2();
+	String getEventArg2();
 	
 	
 	/**
 	 * 获取事件名称
 	 * @return
 	 */
-	java.lang.String getEventNames();
+	String getEventNames();
 	
 	
 	/**
 	 * 获取子项名称
 	 * @return
 	 */
-	java.lang.String getItemName();
+	String getItemName();
 	
 	
 	/**
 	 * 获取逻辑标记
 	 * @return
 	 */
-	java.lang.String getLogicParam();
+	String getLogicParam();
 	
 	
 	/**
 	 * 获取逻辑标记2
 	 * @return
 	 */
-	java.lang.String getLogicParam2();
+	String getLogicParam2();
 	
 	
 	/**
@@ -65,7 +65,7 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewLogicTrigger}
 	 * @return
 	 */
-	java.lang.String getLogicTrigger();
+	String getLogicTrigger();
 	
 	
 	/**
@@ -74,14 +74,14 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ControlLogicType}
 	 * @return
 	 */
-	java.lang.String getLogicType();
+	String getLogicType();
 	
 	
 	/**
 	 * 获取部件容器
 	 * @return
 	 */
-	java.lang.Object getOwner();
+	Object getOwner();
 	
 	
 	/**
@@ -200,14 +200,14 @@ public interface IPSAppViewLogic extends net.ibizsys.model.IPSModelObject{
 	 * 获取部件名称
 	 * @return
 	 */
-	java.lang.String getPSViewCtrlName();
+	String getPSViewCtrlName();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

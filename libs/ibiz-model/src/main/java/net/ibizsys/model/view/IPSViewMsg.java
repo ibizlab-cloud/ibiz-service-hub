@@ -9,21 +9,11 @@ package net.ibizsys.model.view;
 public interface IPSViewMsg extends net.ibizsys.model.IPSModelObject{
 
 	
-	java.lang.String getCodeName();
+	String getCodeName();
 	
-	
-	/**
-	 * 获取内容多语言资源对象
-	 * @return
-	 */
 	net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageRes();
 
-
-	/**
-	 * 获取内容多语言资源对象，不存在时抛出异常
-	 * @return
-	 */
-	net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageResMust();
+net.ibizsys.model.res.IPSLanguageRes getContentPSLanguageResMust();
 	
 	
 	/**
@@ -32,15 +22,15 @@ public interface IPSViewMsg extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgContentType}
 	 * @return
 	 */
-	java.lang.String getContentType();
+	String getContentType();
 	
 	int getDynamicMode();
 	
-	java.lang.String getEnableMode();
+	String getEnableMode();
 	
-	java.lang.String getMessage();
+	String getMessage();
 	
-	java.lang.String getMessageType();
+	String getMessageType();
 	
 	net.ibizsys.model.res.IPSSysCss getPSSysCss();
 
@@ -50,7 +40,7 @@ net.ibizsys.model.res.IPSSysCss getPSSysCssMust();
 
 net.ibizsys.model.res.IPSSysImage getPSSysImageMust();
 	
-	java.lang.String getPosition();
+	String getPosition();
 	
 	int getRemoveMode();
 	
@@ -58,11 +48,11 @@ net.ibizsys.model.res.IPSSysImage getPSSysImageMust();
 
 net.ibizsys.model.dataentity.priv.IPSDEOPPriv getTestPSDEOPPrivMust();
 	
-	java.lang.String getTestScriptCode();
+	String getTestScriptCode();
 	
-	java.lang.String getTitle();
+	String getTitle();
 	
-	java.lang.String getTitleLanResTag();
+	String getTitleLanResTag();
 	
 	net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageRes();
 
@@ -73,7 +63,7 @@ net.ibizsys.model.res.IPSLanguageRes getTitlePSLanguageResMust();
 	 * 获取消息唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	boolean isEnableRemove();
 }

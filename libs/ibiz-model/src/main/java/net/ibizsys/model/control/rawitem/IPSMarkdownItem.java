@@ -16,5 +16,5 @@ public interface IPSMarkdownItem extends net.ibizsys.model.control.IPSRawItemBas
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 }

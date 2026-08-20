@@ -17,7 +17,7 @@ public interface IPSMarkdown extends net.ibizsys.model.control.editor.IPSTextEdi
 	 * 获取功能模式[MODE]{EDIT|PREVIEW|SUBFIELD|PREVIEWONLY}
 	 * @return
 	 */
-	java.lang.String getMode();
+	String getMode();
 	
 	
 	/**

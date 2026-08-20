@@ -6,6 +6,7 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETCODENAME2 = "codeName2";
+	public final static String ATTR_GETCOLUMNPARAMS = "columnParams";
 	public final static String ATTR_GETCOLUMNTAG = "columnTag";
 	public final static String ATTR_GETCOLUMNTAG2 = "columnTag2";
 	public final static String ATTR_GETCREATESQL = "createSql";
@@ -40,6 +41,14 @@ public class PSSysDBColumnImpl extends net.ibizsys.model.PSObjectImpl implements
 			return null;
 		}
 		return value.asText();
+	}
+
+	public com.fasterxml.jackson.databind.node.ObjectNode getColumnParams(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCOLUMNPARAMS);
+		if(value == null){
+			return null;
+		}
+		return (com.fasterxml.jackson.databind.node.ObjectNode)value;
 	}
 
 	public java.lang.String getColumnTag(){

@@ -17,7 +17,7 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MDCtrlGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
@@ -96,7 +96,7 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CtrlGroupStyle}
 	 * @return
 	 */
-	java.lang.String getGroupStyle();
+	String getGroupStyle();
 	
 	
 	/**
@@ -133,7 +133,7 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**
@@ -156,7 +156,7 @@ public interface IPSDEList extends net.ibizsys.model.control.list.IPSList
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.MobMDCtrlType}
 	 * @return
 	 */
-	java.lang.String getMobListStyle();
+	String getMobListStyle();
 	
 	
 	/**

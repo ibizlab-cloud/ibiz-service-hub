@@ -18,7 +18,7 @@ public interface IPSDEFVRGroupCondition extends net.ibizsys.model.dataentity.def
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**

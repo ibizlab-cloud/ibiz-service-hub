@@ -30,7 +30,7 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -44,21 +44,21 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取编辑器样式
 	 * @return
 	 */
-	java.lang.String getEditorStyle();
+	String getEditorStyle();
 	
 	
 	/**
 	 * 获取编辑器类型
 	 * @return
 	 */
-	java.lang.String getEditorType();
+	String getEditorType();
 	
 	
 	/**
 	 * 获取最大值（字符串）
 	 * @return
 	 */
-	java.lang.String getMaxValueString();
+	String getMaxValueString();
 	
 	
 	/**
@@ -72,14 +72,14 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取最小值（字符串）
 	 * @return
 	 */
-	java.lang.String getMinValueString();
+	String getMinValueString();
 	
 	
 	/**
 	 * 获取原始标题
 	 * @return
 	 */
-	java.lang.String getOriginCaption();
+	String getOriginCaption();
 	
 	
 	/**
@@ -123,7 +123,7 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取输入提示信息
 	 * @return
 	 */
-	java.lang.String getPlaceHolder();
+	String getPlaceHolder();
 	
 	
 	/**
@@ -138,14 +138,14 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取引用链接实体视图代码标识
 	 * @return
 	 */
-	java.lang.String getRefLinkPSDEViewCodeName();
+	String getRefLinkPSDEViewCodeName();
 	
 	
 	/**
 	 * 获取引用多项选择实体视图代码标识
 	 * @return
 	 */
-	java.lang.String getRefMPickupPSDEViewCodeName();
+	String getRefMPickupPSDEViewCodeName();
 	
 	
 	/**
@@ -194,7 +194,7 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 获取引用单项选择实体视图代码标识
 	 * @return
 	 */
-	java.lang.String getRefPickupPSDEViewCodeName();
+	String getRefPickupPSDEViewCodeName();
 	
 	
 	/**
@@ -217,14 +217,14 @@ public interface IPSDEFUIItem extends net.ibizsys.model.dataentity.defield.IPSDE
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFUIMode}
 	 * @return
 	 */
-	java.lang.String getUIMode();
+	String getUIMode();
 	
 	
 	/**
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

@@ -379,19 +379,22 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 		}
 
 		if (bGet) {
-
-			IPSDEDataQuery iPSDEDataQuery = null;
-			if (iPSDEAction != null) {
-				iPSDEDataQuery = iPSDEAction.getPSDEActionReturnMust().getPSDEDataQuery();
-			}
-			if (iPSDEDataQuery == null) {
-				iPSDEDataQuery = iDataEntityRuntime.getViewPSDEDataQuery();
-			}
-
-			return this.get(iDataEntityRuntime, iPSDEDataQuery, objKeyValue, outputFields, false);
+			return this.doGetAfterCreate(iDataEntityRuntime, iPSDEAction, iEntity, objKeyValue, outputFields);
 		}
 
 		return null;
+	}
+	
+	protected Object doGetAfterCreate(IDataEntityRuntime iDataEntityRuntime, IPSDEAction iPSDEAction, IEntity iEntity, Object key, String[] outputFields) throws Throwable {
+		IPSDEDataQuery iPSDEDataQuery = null;
+		if (iPSDEAction != null) {
+			iPSDEDataQuery = iPSDEAction.getPSDEActionReturnMust().getPSDEDataQuery();
+		}
+		if (iPSDEDataQuery == null) {
+			iPSDEDataQuery = iDataEntityRuntime.getViewPSDEDataQuery();
+		}
+
+		return this.get(iDataEntityRuntime, iPSDEDataQuery, key, outputFields, false);
 	}
 
 	@Override
@@ -801,20 +804,24 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 		}
 
 		if (bGet) {
-
-			IPSDEDataQuery iPSDEDataQuery = null;
-			if (iPSDEAction != null) {
-				iPSDEDataQuery = iPSDEAction.getPSDEActionReturnMust().getPSDEDataQuery();
-			}
-			if (iPSDEDataQuery == null) {
-				iPSDEDataQuery = iDataEntityRuntime.getViewPSDEDataQuery();
-			}
-
-			return this.get(iDataEntityRuntime, iPSDEDataQuery, objKeyValue, outputFields, false);
+			return this.doGetAfterUpdate(iDataEntityRuntime, iPSDEAction, iEntity, objKeyValue, outputFields);
 		}
 
 		return null;
 
+	}
+	
+	
+	protected Object doGetAfterUpdate(IDataEntityRuntime iDataEntityRuntime, IPSDEAction iPSDEAction, IEntity iEntity, Object key, String[] outputFields) throws Throwable {
+		IPSDEDataQuery iPSDEDataQuery = null;
+		if (iPSDEAction != null) {
+			iPSDEDataQuery = iPSDEAction.getPSDEActionReturnMust().getPSDEDataQuery();
+		}
+		if (iPSDEDataQuery == null) {
+			iPSDEDataQuery = iDataEntityRuntime.getViewPSDEDataQuery();
+		}
+
+		return this.get(iDataEntityRuntime, iPSDEDataQuery, key, outputFields, false);
 	}
 
 	@Override
@@ -860,12 +867,12 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 
 			if (!iDataEntityRuntime.isEnableLogicValid()) {
 				Map<String, Object> map = new HashMap<String, Object>();
-				map.put(iDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), key);
+				this.fillKeyParamsMap(iDataEntityRuntime, key, map);
 				getSysDBSchemeRuntime().delete(strTableName, map, null);
 				// this.executeDelete(strTableName, map, null, key, bSysMode);
 			} else {
 				Map<String, Object> map = new HashMap<String, Object>();
-				map.put(iDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), key);
+				this.fillKeyParamsMap(iDataEntityRuntime, key, map);
 				map.put(iDataEntityRuntime.getLogicValidPSDEField().getLowerCaseName(), iDataEntityRuntime.getInvalidLogicValue());
 				if (bSysMode) {
 					IPSDEField iPSDEField = iDataEntityRuntime.getPSDEFieldByPredefinedType(DEFPredefinedTypes.UPDATEMAN, true);
@@ -1866,11 +1873,9 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 		}
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		if (iDataEntityRuntime.getUniTagPSDEField() != null) {
-			map.put(iDataEntityRuntime.getUniTagPSDEField().getLowerCaseName(), SqlParam.value(key, true));
-		} else {
-			map.put(iDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), SqlParam.value(key, true));
-		}
+
+		this.fillKeyParamsMap(iDataEntityRuntime, key, map);
+
 		if (iDataEntityRuntime.isEnableLogicValid()) {
 			map.put(iDataEntityRuntime.getLogicValidPSDEField().getLowerCaseName(), SqlParam.NOTSET);
 		} else {
@@ -1954,5 +1959,37 @@ public class SysDBPersistentAdapter extends SystemPersistentAdapterBase implemen
 			return actionSession.isEnableNestedDataLightMode();
 		}
 		return false;
+	}
+
+	protected void fillKeyParamsMap(IDataEntityRuntime iDataEntityRuntime,Object key, Map map) throws Exception {
+		if(!iDataEntityRuntime.getKeyPSDEField().isPhisicalDEField()) {
+			// 1. 获取分隔符
+			String delimiter = iDataEntityRuntime.getUnionKeyParam();
+			if (!StringUtils.hasLength(delimiter)) {
+				throw new DataEntityRuntimeException(iDataEntityRuntime, "未定义虚拟主键分隔符");
+			}
+
+			// 2. 拆分键值
+			String[] keySegments = String.valueOf(key).split(delimiter);
+			List<IPSDEField> keyFields = iDataEntityRuntime.getUnionKeyValuePSDEFields();
+
+			// 3. 校验数量一致性
+			if (ObjectUtils.isEmpty(keyFields) || keyFields.size() != keySegments.length) {
+				throw new DataEntityRuntimeException(iDataEntityRuntime, "联合主键属性数量和键值段数量不一致");
+			}
+
+			// 4. 循环赋值
+			for (int i = 0; i < keyFields.size(); i++) {
+				IPSDEField iPSDEField = keyFields.get(i);
+				map.put(iPSDEField.getLowerCaseName(), SqlParam.value( DataTypeUtils.convert(iPSDEField.getStdDataType(), keySegments[i]), true));
+			}
+		}
+		else {
+			if (iDataEntityRuntime.getUniTagPSDEField() != null) {
+				map.put(iDataEntityRuntime.getUniTagPSDEField().getLowerCaseName(), SqlParam.value(key, true));
+			} else {
+				map.put(iDataEntityRuntime.getKeyPSDEField().getLowerCaseName(), SqlParam.value(key, true));
+			}
+		}
 	}
 }

@@ -13,12 +13,12 @@ public interface IPSOpenAPI3Contact extends net.ibizsys.model.service.openapi.IP
 	 * 获取联系人电子邮件地址
 	 * @return
 	 */
-	java.lang.String getEmail();
+	String getEmail();
 	
 	
 	/**
 	 * 获取联系人URL地址
 	 * @return
 	 */
-	java.lang.String getUrl();
+	String getUrl();
 }

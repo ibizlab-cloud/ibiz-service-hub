@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysPortalUtilRuntime;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.UserCancelException;
@@ -383,8 +384,15 @@ public abstract class AIChatAgentBase extends AIAgentBase implements IAIChatAgen
 				long nCurrentTime = System.currentTimeMillis();
 				ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
 				while (true) {
-					PortalAsyncAction last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
-
+					boolean bDisabled = EmployeeContext.isCurrentDisabled();
+		        	PortalAsyncAction last = null;
+					try {
+						EmployeeContext.setCurrentDisabled(true);
+						last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+					}
+					finally {
+						EmployeeContext.setCurrentDisabled(bDisabled);
+					}
 					double fCompletionRate = 0.0f;
 					if (last.getCompletionRate() != null) {
 						fCompletionRate = last.getCompletionRate().doubleValue();

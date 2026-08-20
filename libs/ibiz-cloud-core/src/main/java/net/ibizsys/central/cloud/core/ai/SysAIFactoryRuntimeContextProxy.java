@@ -128,6 +128,12 @@ public class SysAIFactoryRuntimeContextProxy implements ISysAIFactoryRuntimeCont
 		return this.proxySysAIFactoryRuntimeContext.getDailyMemoryMaxTokens();
 	}
 
+
+	@Override
+	public ISysAIChatSkill getAIChatSkill(String strSkillId, boolean tryMode) throws Exception {
+		return this.proxySysAIFactoryRuntimeContext.getAIChatSkill(strSkillId, tryMode);
+	}
+
 	
 	
 }

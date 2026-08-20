@@ -16,14 +16,14 @@ public interface IPSDEFVRValueRange2Condition extends net.ibizsys.model.dataenti
 	 * 获取最大值
 	 * @return
 	 */
-	java.lang.Double getMaxValue();
+	Double getMaxValue();
 	
 	
 	/**
 	 * 获取最小值
 	 * @return
 	 */
-	java.lang.Double getMinValue();
+	Double getMinValue();
 	
 	
 	/**

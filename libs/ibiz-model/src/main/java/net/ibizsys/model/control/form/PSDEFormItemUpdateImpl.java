@@ -10,6 +10,7 @@ public class PSDEFormItemUpdateImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETPSDEFIUPDATEDETAILS = "getPSDEFIUpdateDetails";
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
 	public final static String ATTR_ISCUSTOMCODE = "customCode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSHOWBUSYINDICATOR = "showBusyIndicator";
 
 	public java.lang.String getCodeName(){
@@ -89,6 +90,10 @@ public class PSDEFormItemUpdateImpl extends net.ibizsys.model.PSObjectImpl imple
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isShowBusyIndicator(){

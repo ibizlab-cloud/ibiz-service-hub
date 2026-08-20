@@ -9,6 +9,7 @@ public class PSDEDBIndexFieldImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETPSDEFIELD = "getPSDEField";
 	public final static String ATTR_GETSORTDIR = "sortDir";
 	public final static String ATTR_ISINCLUDEMODE = "includeMode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public int getLength(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETLENGTH);
@@ -63,5 +64,9 @@ public class PSDEDBIndexFieldImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

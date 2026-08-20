@@ -100,98 +100,98 @@ public interface IPSDEUserLogic extends net.ibizsys.model.dataentity.logic.IPSDE
 	 * 获取逻辑参数1
 	 * @return
 	 */
-	java.lang.String getParam1();
+	String getParam1();
 	
 	
 	/**
 	 * 获取逻辑参数10
 	 * @return
 	 */
-	java.lang.Integer getParam10();
+	Integer getParam10();
 	
 	
 	/**
 	 * 获取逻辑参数11
 	 * @return
 	 */
-	java.lang.String getParam11();
+	String getParam11();
 	
 	
 	/**
 	 * 获取逻辑参数12
 	 * @return
 	 */
-	java.lang.String getParam12();
+	String getParam12();
 	
 	
 	/**
 	 * 获取逻辑参数13
 	 * @return
 	 */
-	java.lang.String getParam13();
+	String getParam13();
 	
 	
 	/**
 	 * 获取逻辑参数14
 	 * @return
 	 */
-	java.lang.String getParam14();
+	String getParam14();
 	
 	
 	/**
 	 * 获取逻辑参数2
 	 * @return
 	 */
-	java.lang.String getParam2();
+	String getParam2();
 	
 	
 	/**
 	 * 获取逻辑参数3
 	 * @return
 	 */
-	java.lang.String getParam3();
+	String getParam3();
 	
 	
 	/**
 	 * 获取逻辑参数4
 	 * @return
 	 */
-	java.lang.String getParam4();
+	String getParam4();
 	
 	
 	/**
 	 * 获取逻辑参数5
 	 * @return
 	 */
-	java.lang.String getParam5();
+	String getParam5();
 	
 	
 	/**
 	 * 获取逻辑参数6
 	 * @return
 	 */
-	java.lang.String getParam6();
+	String getParam6();
 	
 	
 	/**
 	 * 获取逻辑参数7
 	 * @return
 	 */
-	java.lang.Integer getParam7();
+	Integer getParam7();
 	
 	
 	/**
 	 * 获取逻辑参数8
 	 * @return
 	 */
-	java.lang.Integer getParam8();
+	Integer getParam8();
 	
 	
 	/**
 	 * 获取逻辑参数9
 	 * @return
 	 */
-	java.lang.Integer getParam9();
+	Integer getParam9();
 	
 	
 	/**

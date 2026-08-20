@@ -44,14 +44,14 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	 * 获取默认控件样式
 	 * @return
 	 */
-	java.lang.String getDefaultControlStyle();
+	String getDefaultControlStyle();
 	
 	
 	/**
 	 * 获取表单项无值显示内容
 	 * @return
 	 */
-	java.lang.String getFormItemEmptyText();
+	String getFormItemEmptyText();
 	
 	
 	/**
@@ -103,7 +103,7 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	 * 获取多数据部件默认无值显示内容
 	 * @return
 	 */
-	java.lang.String getMDCtrlEmptyText();
+	String getMDCtrlEmptyText();
 	
 	
 	/**
@@ -126,21 +126,21 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppIndexViewMenuAlign}
 	 * @return
 	 */
-	java.lang.String getMainMenuAlign();
+	String getMainMenuAlign();
 	
 	
 	/**
 	 * 获取前端模板样式
 	 * @return
 	 */
-	java.lang.String getPFStyle();
+	String getPFStyle();
 	
 	
 	/**
 	 * 获取前端模板
 	 * @return
 	 */
-	java.lang.String getPFType();
+	String getPFType();
 	
 	
 	/**
@@ -149,7 +149,7 @@ public interface IPSApplicationUI extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.AppUIStyle}
 	 * @return
 	 */
-	java.lang.String getUIStyle();
+	String getUIStyle();
 	
 	
 	/**

@@ -42,49 +42,49 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	 * 获取下一步确认信息
 	 * @return
 	 */
-	java.lang.String getConfirmMsg();
+	String getConfirmMsg();
 	
 	
 	/**
 	 * 获取下一步确认信息2
 	 * @return
 	 */
-	java.lang.String getConfirmMsg2();
+	String getConfirmMsg2();
 	
 	
 	/**
 	 * 获取向导表单标记
 	 * @return
 	 */
-	java.lang.String getFormTag();
+	String getFormTag();
 	
 	
 	/**
 	 * 获取完成启用脚本代码
 	 * @return
 	 */
-	java.lang.String getGoFinishEnableScriptCode();
+	String getGoFinishEnableScriptCode();
 	
 	
 	/**
 	 * 获取下一步启用脚本代码
 	 * @return
 	 */
-	java.lang.String getGoNextEnableScriptCode();
+	String getGoNextEnableScriptCode();
 	
 	
 	/**
 	 * 获取上一步启用脚本代码
 	 * @return
 	 */
-	java.lang.String getGoPrevEnableScriptCode();
+	String getGoPrevEnableScriptCode();
 	
 	
 	/**
 	 * 获取实体表单名称
 	 * @return
 	 */
-	java.lang.String getPSDEFormName();
+	String getPSDEFormName();
 	
 	
 	/**
@@ -112,7 +112,7 @@ public interface IPSDEWizardForm extends net.ibizsys.model.IPSModelObject{
 	 * 获取向导步骤标记
 	 * @return
 	 */
-	java.lang.String getStepTag();
+	String getStepTag();
 	
 	
 	/**

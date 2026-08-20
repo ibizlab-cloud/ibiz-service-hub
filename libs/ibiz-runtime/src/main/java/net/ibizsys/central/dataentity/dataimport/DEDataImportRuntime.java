@@ -252,9 +252,10 @@ public class DEDataImportRuntime extends DataEntityModelRuntimeBase implements I
 				}
 
 				strTag = strTag.toUpperCase();
+				//替换空格至下划线
 				IPSDEDataImportItem iPSDEDataImportItem = psDEDataImportItemMap.get(strTag);
 				if (iPSDEDataImportItem == null) {
-					if(this.getPSDEDataImport().isEnableCustomized()){
+					if(this.isEnableCustomized()){
 						continue;
 					}
 					if (bIgnoreError) {
@@ -728,6 +729,15 @@ public class DEDataImportRuntime extends DataEntityModelRuntimeBase implements I
 	 */
 	public boolean isIgnoreError() {
 		return this.getPSDEDataImport().isIgnoreError();
+	}
+
+	/**
+	 * 是否支持自定义
+	 *
+	 * @return
+	 */
+	protected boolean isEnableCustomized(){
+		return this.getPSDEDataImport().isEnableCustomized();
 	}
 
 	@Override

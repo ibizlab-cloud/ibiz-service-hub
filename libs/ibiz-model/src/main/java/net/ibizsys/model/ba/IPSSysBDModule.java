@@ -14,5 +14,5 @@ public interface IPSSysBDModule extends net.ibizsys.model.ba.IPSSysBDSchemeObjec
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 }

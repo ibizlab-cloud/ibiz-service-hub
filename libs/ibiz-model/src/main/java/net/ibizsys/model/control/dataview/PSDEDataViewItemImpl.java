@@ -17,6 +17,7 @@ public class PSDEDataViewItemImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETPSDEUIACTIONGROUP = "getPSDEUIActionGroup";
 	public final static String ATTR_GETVALUEFORMAT = "valueFormat";
 	public final static String ATTR_ISENABLESORT = "enableSort";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCLConvertMode(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCLCONVERTMODE);
@@ -224,5 +225,9 @@ public class PSDEDataViewItemImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

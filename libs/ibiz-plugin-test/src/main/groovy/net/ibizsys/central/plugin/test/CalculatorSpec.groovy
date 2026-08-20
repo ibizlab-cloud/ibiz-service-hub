@@ -1,0 +1,48 @@
+package net.ibizsys.central.plugin.test
+
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
+
+import net.ibizsys.central.ISystemRuntime
+import net.ibizsys.central.cloud.core.dataentity.IDataEntityRuntime
+import net.ibizsys.central.plugin.test.util.SystemRTInjector
+import spock.lang.Specification
+
+@ExtendWith(SystemRTInjector.class)
+class CalculatorSpec extends Specification {
+	
+	@Autowired
+	ISystemRuntime sys
+  
+	@Autowired
+	@Qualifier("")
+	IDataEntityRuntime PSDATAENTITY
+	
+	static final class CalculatorService {
+		int add(int a, int b) { return a + b }
+		int divide(int a, int b) { return a / b }
+	}
+	// 被测对象（这里直接 new，不依赖外部）
+	def calculator = new CalculatorService()
+
+	def "加法运算 - 两个正数相加返回正确结果"() {
+		given: "两个正数"
+		def a = 3
+		def b = 5
+
+		when: "调用 add 方法"
+		def result = calculator.add(a, b)
+
+		then: "结果等于和"
+		result == 8
+	}
+
+	def "除法运算 - 除数为零时抛出异常"() {
+		when:
+		calculator.divide(10, 0)
+
+		then:
+		throw(ArithmeticException)
+	}
+}

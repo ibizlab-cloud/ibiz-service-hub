@@ -5,6 +5,7 @@ package net.ibizsys.model.control.toolbar;
 public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implements net.ibizsys.model.control.toolbar.IPSDEToolbarItem
 		,net.ibizsys.model.control.toolbar.IPSDEContextMenuItem{
 
+	public final static String ATTR_GETACCESSKEY = "accessKey";
 	public final static String ATTR_GETCAPPSLANGUAGERES = "getCapPSLanguageRes";
 	public final static String ATTR_GETCAPTION = "caption";
 	public final static String ATTR_GETCOUNTERID = "counterId";
@@ -25,9 +26,18 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETUSERTAG = "userTag";
 	public final static String ATTR_GETUSERTAG2 = "userTag2";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	public final static String ATTR_ISSHOWCAPTION = "showCaption";
 	public final static String ATTR_ISSHOWICON = "showIcon";
 	public final static String ATTR_ISVALID = "valid";
+
+	public java.lang.String getAccessKey(){
+		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETACCESSKEY);
+		if(value == null){
+			return null;
+		}
+		return value.asText();
+	}
 	private net.ibizsys.model.res.IPSLanguageRes cappslanguageres;
 
 	public net.ibizsys.model.res.IPSLanguageRes getCapPSLanguageRes(){
@@ -305,6 +315,10 @@ public class PSDEToolbarItemImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return 0.0;
 		}
 		return value.asDouble();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 
 	public boolean isShowCaption(){

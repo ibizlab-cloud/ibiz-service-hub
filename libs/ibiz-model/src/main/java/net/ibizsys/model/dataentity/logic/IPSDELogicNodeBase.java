@@ -14,7 +14,7 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public interface IPSDELogicNodeBase extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicNodeType}
 	 * @return
 	 */
-	java.lang.String getLogicNodeType();
+	String getLogicNodeType();
 	
 	
 	/**

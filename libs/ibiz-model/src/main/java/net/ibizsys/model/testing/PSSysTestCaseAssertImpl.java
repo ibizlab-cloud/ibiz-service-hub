@@ -17,6 +17,7 @@ public class PSSysTestCaseAssertImpl extends net.ibizsys.model.PSObjectImpl impl
 	public final static String ATTR_GETPSSYSTESTCASEINPUT = "getPSSysTestCaseInput";
 	public final static String ATTR_GETPSSYSTESTDATA = "getPSSysTestData";
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAssertTag(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETASSERTTAG);
@@ -149,5 +150,9 @@ public class PSSysTestCaseAssertImpl extends net.ibizsys.model.PSObjectImpl impl
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

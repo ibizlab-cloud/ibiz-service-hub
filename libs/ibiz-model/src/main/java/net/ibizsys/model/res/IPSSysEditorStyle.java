@@ -15,14 +15,14 @@ public interface IPSSysEditorStyle extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorHandlerType}
 	 * @return
 	 */
-	java.lang.String getAjaxHandlerType();
+	String getAjaxHandlerType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -31,7 +31,7 @@ public interface IPSSysEditorStyle extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorContainer}
 	 * @return
 	 */
-	java.lang.String getContainerType();
+	String getContainerType();
 	
 	
 	/**
@@ -45,7 +45,7 @@ public interface IPSSysEditorStyle extends net.ibizsys.model.IPSModelObject{
 	 * 获取编辑器类型
 	 * @return
 	 */
-	java.lang.String getEditorType();
+	String getEditorType();
 	
 	
 	/**
@@ -61,7 +61,7 @@ public interface IPSSysEditorStyle extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorRefViewShowMode}
 	 * @return
 	 */
-	java.lang.String getLinkViewShowMode();
+	String getLinkViewShowMode();
 	
 	
 	/**
@@ -98,14 +98,14 @@ public interface IPSSysEditorStyle extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EditorRefViewShowMode}
 	 * @return
 	 */
-	java.lang.String getRefViewShowMode();
+	String getRefViewShowMode();
 	
 	
 	/**
 	 * 获取样式代码
 	 * @return
 	 */
-	java.lang.String getStyleCode();
+	String getStyleCode();
 	
 	
 	/**

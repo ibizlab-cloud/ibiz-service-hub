@@ -14,14 +14,14 @@ public interface IPSDEUserRoleOPPriv extends net.ibizsys.model.IPSModelObject{
 	 * 获取自定义条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
 	 * 获取数据访问标识
 	 * @return
 	 */
-	java.lang.String getDataAccessAction();
+	String getDataAccessAction();
 	
 	
 	/**

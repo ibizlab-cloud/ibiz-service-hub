@@ -28,14 +28,14 @@ public interface IPSDEDRGroup extends net.ibizsys.model.dataentity.IPSDataEntity
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

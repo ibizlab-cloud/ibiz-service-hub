@@ -12,6 +12,7 @@ public class PSDEWizardStepImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_GETTITLEPSLANGUAGERES = "getTitlePSLanguageRes";
 	public final static String ATTR_GETTITLEPSSYSCSS = "getTitlePSSysCss";
 	public final static String ATTR_ISENABLELINK = "enableLink";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.res.IPSSysImage pssysimage;
 
 	public net.ibizsys.model.res.IPSSysImage getPSSysImage(){
@@ -131,5 +132,9 @@ public class PSDEWizardStepImpl extends net.ibizsys.model.PSObjectImpl implement
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

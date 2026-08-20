@@ -15,5 +15,5 @@ public interface IPSDEDFPredefinedSourceNode extends net.ibizsys.model.dataentit
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataFlowPredefinedSourceType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 }

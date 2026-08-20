@@ -14,40 +14,40 @@ public interface IPSChartPosition{
 	 * 获取下方间隔
 	 * @return
 	 */
-	java.lang.Object getBottom();
+	Object getBottom();
 	
 	
 	/**
 	 * 获取高度
 	 * @return
 	 */
-	java.lang.Object getHeight();
+	Object getHeight();
 	
 	
 	/**
 	 * 获取左侧间隔
 	 * @return
 	 */
-	java.lang.Object getLeft();
+	Object getLeft();
 	
 	
 	/**
 	 * 获取右侧间隔
 	 * @return
 	 */
-	java.lang.Object getRight();
+	Object getRight();
 	
 	
 	/**
 	 * 获取上方间隔
 	 * @return
 	 */
-	java.lang.Object getTop();
+	Object getTop();
 	
 	
 	/**
 	 * 获取宽度
 	 * @return
 	 */
-	java.lang.Object getWidth();
+	Object getWidth();
 }

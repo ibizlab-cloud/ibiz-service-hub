@@ -14,28 +14,28 @@ public interface IPSSysImage extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取图片样式
 	 * @return
 	 */
-	java.lang.String getCssClass();
+	String getCssClass();
 	
 	
 	/**
 	 * 获取图片样式（X）
 	 * @return
 	 */
-	java.lang.String getCssClassX();
+	String getCssClassX();
 	
 	
 	/**
 	 * 获取字体标识
 	 * @return
 	 */
-	java.lang.String getGlyph();
+	String getGlyph();
 	
 	
 	/**
@@ -49,21 +49,21 @@ public interface IPSSysImage extends net.ibizsys.model.IPSModelObject{
 	 * 获取图片路径
 	 * @return
 	 */
-	java.lang.String getImagePath();
+	String getImagePath();
 	
 	
 	/**
 	 * 获取图片路径（X）
 	 * @return
 	 */
-	java.lang.String getImagePathX();
+	String getImagePathX();
 	
 	
 	/**
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 	
 	
 	/**

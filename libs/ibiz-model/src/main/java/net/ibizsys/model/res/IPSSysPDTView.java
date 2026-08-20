@@ -27,21 +27,21 @@ public interface IPSSysPDTView extends net.ibizsys.model.IPSModelObject{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取移动端视图代码标识
 	 * @return
 	 */
-	java.lang.String getMobViewCodeName();
+	String getMobViewCodeName();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSSysPDTView extends net.ibizsys.model.IPSModelObject{
 	 * 获取预置视图标记
 	 * @return
 	 */
-	java.lang.String getPDTViewTag();
+	String getPDTViewTag();
 	
 	
 	/**
@@ -83,7 +83,7 @@ public interface IPSSysPDTView extends net.ibizsys.model.IPSModelObject{
 	 * 获取视图代码标识
 	 * @return
 	 */
-	java.lang.String getViewCodeName();
+	String getViewCodeName();
 	
 	
 	/**

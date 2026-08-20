@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ibiz-plugin</artifactId>
         <groupId>cn.ibizlab.plugin</groupId>
-        <version>8.1.0.578.187</version>
+        <version>8.1.0.584.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -36,9 +36,15 @@
 		 <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
-        </dependency> 
+        </dependency>
 
-        
+        <dependency>
+            <groupId>cn.ibizlab.plugin</groupId>
+            <artifactId>ibiz-codegen-core</artifactId>
+            <version>${ibiz.cloud.version}</version>
+        </dependency>
+
+
         <dependency>
 		    <groupId>io.projectreactor.netty</groupId>
 		    <artifactId>reactor-netty-http</artifactId>
@@ -89,8 +95,8 @@
         <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.62</version>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>1.76</version>
         </dependency>
 
 
@@ -156,6 +162,11 @@
             <version>0.50.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.7.1</version>
+        </dependency>
     </dependencies>
 
 

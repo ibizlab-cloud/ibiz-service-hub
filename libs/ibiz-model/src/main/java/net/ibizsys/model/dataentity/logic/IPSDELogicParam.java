@@ -14,14 +14,14 @@ public interface IPSDELogicParam extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
 	 * 获取默认值类型
 	 * @return
 	 */
-	java.lang.String getDefaultValueType();
+	String getDefaultValueType();
 	
 	
 	/**
@@ -30,14 +30,14 @@ public interface IPSDELogicParam extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicParamFileType}
 	 * @return
 	 */
-	java.lang.String getFileType();
+	String getFileType();
 	
 	
 	/**
 	 * 获取文件路径
 	 * @return
 	 */
-	java.lang.String getFileUrl();
+	String getFileUrl();
 	
 	
 	/**
@@ -86,14 +86,14 @@ public interface IPSDELogicParam extends net.ibizsys.model.dataentity.logic.IPSD
 	 * 获取参数标记
 	 * @return
 	 */
-	java.lang.String getParamTag();
+	String getParamTag();
 	
 	
 	/**
 	 * 获取参数标记2
 	 * @return
 	 */
-	java.lang.String getParamTag2();
+	String getParamTag2();
 	
 	
 	/**

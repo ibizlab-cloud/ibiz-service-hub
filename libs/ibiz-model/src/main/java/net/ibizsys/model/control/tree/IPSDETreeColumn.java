@@ -17,7 +17,7 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColAlign}
 	 * @return
 	 */
-	java.lang.String getAlign();
+	String getAlign();
 	
 	
 	/**
@@ -38,7 +38,7 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -59,7 +59,7 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -68,7 +68,7 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColStype}
 	 * @return
 	 */
-	java.lang.String getColumnStyle();
+	String getColumnStyle();
 	
 	
 	/**
@@ -77,14 +77,14 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColType}
 	 * @return
 	 */
-	java.lang.String getColumnType();
+	String getColumnType();
 	
 	
 	/**
 	 * 获取数据项名称
 	 * @return
 	 */
-	java.lang.String getDataItemName();
+	String getDataItemName();
 	
 	
 	/**
@@ -149,7 +149,7 @@ public interface IPSDETreeColumn extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GridColWidthUnitType}
 	 * @return
 	 */
-	java.lang.String getWidthUnit();
+	String getWidthUnit();
 	
 	
 	/**

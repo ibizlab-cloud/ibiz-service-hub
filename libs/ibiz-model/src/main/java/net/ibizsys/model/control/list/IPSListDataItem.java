@@ -28,14 +28,14 @@ public interface IPSListDataItem extends net.ibizsys.model.data.IPSDataItem{
 	 * 获取数据分组项
 	 * @return
 	 */
-	java.lang.String getGroupItem();
+	String getGroupItem();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

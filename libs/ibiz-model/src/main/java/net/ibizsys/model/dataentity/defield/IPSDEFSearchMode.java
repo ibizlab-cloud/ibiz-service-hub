@@ -17,7 +17,7 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -66,21 +66,21 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	 * 获取项标记
 	 * @return
 	 */
-	java.lang.String getItemTag();
+	String getItemTag();
 	
 	
 	/**
 	 * 获取项标记2
 	 * @return
 	 */
-	java.lang.String getItemTag2();
+	String getItemTag2();
 	
 	
 	/**
 	 * 获取搜索模式
 	 * @return
 	 */
-	java.lang.String getMode();
+	String getMode();
 	
 	
 	/**
@@ -138,28 +138,28 @@ public interface IPSDEFSearchMode extends net.ibizsys.model.dataentity.defield.I
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**
 	 * 获取值处理
 	 * @return
 	 */
-	java.lang.String getValueFunc();
+	String getValueFunc();
 	
 	
 	/**
 	 * 获取值操作
 	 * @return
 	 */
-	java.lang.String getValueOP();
+	String getValueOP();
 	
 	
 	/**
 	 * 获取值分隔符
 	 * @return
 	 */
-	java.lang.String getValueSeparator();
+	String getValueSeparator();
 	
 	
 	/**

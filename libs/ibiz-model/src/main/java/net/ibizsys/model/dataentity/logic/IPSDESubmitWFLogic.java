@@ -114,5 +114,5 @@ public interface IPSDESubmitWFLogic extends net.ibizsys.model.dataentity.logic.I
 	 * 获取工作流操作
 	 * @return
 	 */
-	java.lang.String getWFAction();
+	String getWFAction();
 }

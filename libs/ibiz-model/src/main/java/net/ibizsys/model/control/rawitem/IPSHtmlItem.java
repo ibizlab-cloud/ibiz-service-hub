@@ -16,5 +16,5 @@ public interface IPSHtmlItem extends net.ibizsys.model.control.IPSRawItemBase{
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 }

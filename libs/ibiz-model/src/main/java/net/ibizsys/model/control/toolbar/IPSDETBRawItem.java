@@ -18,5 +18,5 @@ public interface IPSDETBRawItem extends net.ibizsys.model.control.toolbar.IPSDET
 	 * 获取直接内容
 	 * @return
 	 */
-	java.lang.String getRawContent();
+	String getRawContent();
 }

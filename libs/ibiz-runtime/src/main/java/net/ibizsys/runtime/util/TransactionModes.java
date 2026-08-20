@@ -35,8 +35,14 @@ public class TransactionModes {
      *  支持事务（没有无事务），注意：值为对象值，不能直接用于 == 比较
      */
     public final static String SUPPORTS = "SUPPORTS";
+    
     /**
-     *  无事务，注意：值为对象值，不能直接用于 == 比较
+     *  无事务（存在异常），注意：值为对象值，不能直接用于 == 比较
+     */
+    public final static String NEVER = "NEVER";
+    
+    /**
+     *  无事务控制，注意：值为对象值，不能直接用于 == 比较
      */
     public final static String NONE = "NONE";
     /**

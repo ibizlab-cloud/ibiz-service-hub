@@ -18,14 +18,14 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatCategoryMode}
 	 * @return
 	 */
-	java.lang.String getCategoryMode();
+	String getCategoryMode();
 	
 	
 	/**
 	 * 获取分类重排序阈值
 	 * @return
 	 */
-	java.lang.Double getCategoryReRankThreshold();
+	Double getCategoryReRankThreshold();
 	
 	
 	/**
@@ -34,7 +34,7 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatRequestAppendMode}
 	 * @return
 	 */
-	java.lang.String getChatRequestAppendMode();
+	String getChatRequestAppendMode();
 	
 	
 	/**
@@ -111,14 +111,14 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * 获取最大智能自愈尝试次数
 	 * @return
 	 */
-	java.lang.Integer getMaxSmartAttempts();
+	Integer getMaxSmartAttempts();
 	
 	
 	/**
 	 * 获取消息内容
 	 * @return
 	 */
-	java.lang.String getMessage();
+	String getMessage();
 	
 	
 	/**
@@ -181,14 +181,14 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * 获取重排序阈值
 	 * @return
 	 */
-	java.lang.Double getReRankThreshold();
+	Double getReRankThreshold();
 	
 	
 	/**
 	 * 获取重入限制次数
 	 * @return
 	 */
-	java.lang.Integer getReentryLimit();
+	Integer getReentryLimit();
 	
 	
 	/**
@@ -225,12 +225,12 @@ public interface IPSDESysAIChatAgentLogic extends net.ibizsys.model.dataentity.l
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DELogicSysAIChatAgentType}
 	 * @return
 	 */
-	java.lang.String getSubType();
+	String getSubType();
 	
 	
 	/**
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 }

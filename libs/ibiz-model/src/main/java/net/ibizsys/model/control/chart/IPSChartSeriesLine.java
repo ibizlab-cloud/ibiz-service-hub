@@ -16,7 +16,7 @@ public interface IPSChartSeriesLine extends net.ibizsys.model.control.chart.IPSC
 	 * 获取阶梯线图
 	 * @return
 	 */
-	java.lang.Object getStep();
+	Object getStep();
 	
 	
 	/**

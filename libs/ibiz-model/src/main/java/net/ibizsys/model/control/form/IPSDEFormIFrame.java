@@ -16,7 +16,7 @@ public interface IPSDEFormIFrame extends net.ibizsys.model.control.form.IPSDEFor
 	 * 获取嵌入Url路径
 	 * @return
 	 */
-	java.lang.String getIFrameUrl();
+	String getIFrameUrl();
 	
 	
 	/**
@@ -37,5 +37,5 @@ public interface IPSDEFormIFrame extends net.ibizsys.model.control.form.IPSDEFor
 	 * 获取界面刷新触发表单项
 	 * @return
 	 */
-	java.lang.String getRefreshItems();
+	String getRefreshItems();
 }

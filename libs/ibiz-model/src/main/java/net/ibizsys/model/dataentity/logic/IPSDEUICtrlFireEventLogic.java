@@ -16,7 +16,7 @@ public interface IPSDEUICtrlFireEventLogic extends net.ibizsys.model.dataentity.
 	 * 获取事件名称
 	 * @return
 	 */
-	java.lang.String getEventName();
+	String getEventName();
 	
 	
 	/**

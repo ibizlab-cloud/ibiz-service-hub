@@ -16,6 +16,7 @@ public class PSDEDQJoinImpl extends net.ibizsys.model.PSObjectImpl implements ne
 	public final static String ATTR_GETPSDEDQGROUPCONDITION = "getPSDEDQGroupCondition";
 	public final static String ATTR_GETPSDEDATAQUERY = "getPSDEDataQuery";
 	public final static String ATTR_GETSELECTEDPSDEDQCOLUMNS = "getSelectedPSDEDQColumns";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAlias(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALIAS);
@@ -205,5 +206,9 @@ public class PSDEDQJoinImpl extends net.ibizsys.model.PSObjectImpl implements ne
 	
 	public void setSelectedPSDEDQColumns(java.util.List<net.ibizsys.model.dataentity.ds.IPSDEDQColumn> list){
 		this.selectedpsdedqcolumns = list;
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

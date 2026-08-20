@@ -15,7 +15,7 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 获取基础配置Json内容
 	 * @return
 	 */
-	java.lang.String getBaseOptionJOString();
+	String getBaseOptionJOString();
 	
 	
 	/**
@@ -36,14 +36,14 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取分类属性
 	 * @return
 	 */
-	java.lang.String getCatalogField();
+	String getCatalogField();
 	
 	
 	/**
@@ -64,7 +64,7 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 获取值属性
 	 * @return
 	 */
-	java.lang.String getDataField();
+	String getDataField();
 	
 	
 	/**
@@ -73,35 +73,35 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartType}
 	 * @return
 	 */
-	java.lang.String getEChartsType();
+	String getEChartsType();
 	
 	
 	/**
 	 * 获取扩展值2属性
 	 * @return
 	 */
-	java.lang.String getExtValue2Field();
+	String getExtValue2Field();
 	
 	
 	/**
 	 * 获取扩展值3属性
 	 * @return
 	 */
-	java.lang.String getExtValue3Field();
+	String getExtValue3Field();
 	
 	
 	/**
 	 * 获取扩展值4属性
 	 * @return
 	 */
-	java.lang.String getExtValue4Field();
+	String getExtValue4Field();
 	
 	
 	/**
 	 * 获取扩展值属性
 	 * @return
 	 */
-	java.lang.String getExtValueField();
+	String getExtValueField();
 	
 	
 	/**
@@ -110,14 +110,14 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartSeriesGroupMode}
 	 * @return
 	 */
-	java.lang.String getGroupMode();
+	String getGroupMode();
 	
 	
 	/**
 	 * 获取序列标识属性
 	 * @return
 	 */
-	java.lang.String getIdField();
+	String getIdField();
 	
 	
 	/**
@@ -180,14 +180,14 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 获取序列名称属性
 	 * @return
 	 */
-	java.lang.String getSeriesField();
+	String getSeriesField();
 	
 	
 	/**
 	 * 获取结果集行列模式
 	 * @return
 	 */
-	java.lang.String getSeriesLayoutBy();
+	String getSeriesLayoutBy();
 	
 	
 	/**
@@ -210,21 +210,21 @@ public interface IPSChartSeries extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartType}
 	 * @return
 	 */
-	java.lang.String getSeriesType();
+	String getSeriesType();
 	
 	
 	/**
 	 * 获取标记属性
 	 * @return
 	 */
-	java.lang.String getTagField();
+	String getTagField();
 	
 	
 	/**
 	 * 获取值属性
 	 * @return
 	 */
-	java.lang.String getValueField();
+	String getValueField();
 	
 	
 	/**

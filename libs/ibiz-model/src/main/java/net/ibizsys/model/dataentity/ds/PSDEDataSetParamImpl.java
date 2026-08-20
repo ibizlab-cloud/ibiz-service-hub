@@ -17,6 +17,7 @@ public class PSDEDataSetParamImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETVALUETYPE = "valueType";
 	public final static String ATTR_ISALLOWEMPTY = "allowEmpty";
 	public final static String ATTR_ISARRAY = "array";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -150,5 +151,9 @@ public class PSDEDataSetParamImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

@@ -18,7 +18,7 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return
 	 */
-	java.lang.String getBodyStyle();
+	String getBodyStyle();
 	
 	
 	/**
@@ -27,14 +27,14 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return
 	 */
-	java.lang.String getBottomStyle();
+	String getBottomStyle();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -64,5 +64,5 @@ public interface IPSAppViewMsgGroup extends net.ibizsys.model.view.IPSViewMsgGro
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ViewMsgShowMode}
 	 * @return
 	 */
-	java.lang.String getTopStyle();
+	String getTopStyle();
 }

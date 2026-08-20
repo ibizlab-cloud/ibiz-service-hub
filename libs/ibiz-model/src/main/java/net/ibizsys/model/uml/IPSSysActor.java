@@ -13,35 +13,35 @@ public interface IPSSysActor extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取操作者编号
 	 * @return
 	 */
-	java.lang.String getActorSN();
+	String getActorSN();
 	
 	
 	/**
 	 * 获取操作者标记
 	 * @return
 	 */
-	java.lang.String getActorTag();
+	String getActorTag();
 	
 	
 	/**
 	 * 获取操作者标记2
 	 * @return
 	 */
-	java.lang.String getActorTag2();
+	String getActorTag2();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 	
 	
 	/**

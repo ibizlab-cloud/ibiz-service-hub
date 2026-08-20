@@ -5,16 +5,19 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudExtensionClient;
@@ -28,6 +31,7 @@ import net.ibizsys.central.dataentity.dataimport.IDEDataImportRuntime;
 import net.ibizsys.central.dataentity.service.DEServiceAPIRuntimeException;
 import net.ibizsys.central.dataentity.service.IDEServiceAPIRSRuntime;
 import net.ibizsys.central.dataentity.util.IDEVersionControlUtilRuntime;
+import net.ibizsys.central.service.RequestMethods;
 import net.ibizsys.central.sysutil.ISysOSSUtilRuntime;
 import net.ibizsys.central.util.IEntityDTO;
 import net.ibizsys.model.dataentity.defield.IPSDEField;
@@ -49,7 +53,11 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 
 	public final static String HEADER_DATAACCACTION = "srfdataaccaction";
 	public final static String HEADER_EXTENSIONSESSIONID = "srfextensionsessionid";
-
+	/**
+	 * 本地路径
+	 */
+	public final static String FIELD_LOCALPATH = "srflocalpath";
+	
 	private ISysCloudClientUtilRuntime iSysCloudClientUtilRuntime = null;
 	private ICloudExtensionClient iCloudExtensionClient = null;
 
@@ -127,17 +135,7 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 		}else {
 			// 判断数据访问
 			if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, strKey, null, DataAccessActions.READ)) {
-
-				// if
-				// (!StringUtils.hasLength(iDEPrintRuntime.getPSDEPrint().getDataAccessAction()))
-				// {
-				// throw new DEServiceAPIRuntimeException(this,
-				// String.format("聊天补全[%1$s]未定义访问操作标识",
-				// iDEPrintRuntime.getPSDEPrint().getName()), Errors.ACCESSDENY);
-				// }
-
 				throw new DEServiceAPIRuntimeException(this, String.format("%1$s[%2$s]不具备操作能力[%3$s]", this.getLogicName(), strKey, DataAccessActions.READ), Errors.ACCESSDENY);
-
 			}
 		}
 		Object key = null;
@@ -186,6 +184,25 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 			}
 			iDEChatCompletionRuntime.cancelChatCompletion(key, strAsyncActionId, objBody);
 			return null;
+		}
+		
+		if (IDEChatCompletionRuntime.METHOD_SSESUBAGENTOUTPUT.equalsIgnoreCase(strMethodName)) {
+			String strAsyncActionId = "";
+			if(objBody instanceof Map) {
+				strAsyncActionId = (String)((Map)objBody).get("asyncacitonid");
+			}
+			if(!StringUtils.hasLength(strAsyncActionId)) {
+				throw new Exception("子代理交互输出未指定行为标识");
+			}
+			return iDEChatCompletionRuntime.sseSubAgentOutput(key, strAsyncActionId, objBody);
+		}
+		
+		if (IDEChatCompletionRuntime.METHOD_SKILLS.equalsIgnoreCase(strMethodName)) {
+			return iDEChatCompletionRuntime.getSkills(key, objBody);
+		}
+		
+		if (IDEChatCompletionRuntime.METHOD_KNOWLEDGEBASES.equalsIgnoreCase(strMethodName)) {
+			return iDEChatCompletionRuntime.getKnowledgeBases(key, objBody);
 		}
 
 		throw new Exception(String.format("未识别的请求方法[%1$s]", strMethodName));
@@ -451,6 +468,47 @@ public class DEServiceAPIRuntime extends net.ibizsys.central.dataentity.service.
 		}
 		
 		return super.doExportData(strExportTag, objData, outputStream);
+	}
+	
+	
+	@Override
+	protected Object[] getActionArgs(IPSDEServiceAPIMethod iPSDEServiceAPIMethod, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, Object objBody, String strKey) throws Throwable {
+
+		//转化UPLOAD请求参数
+		if(RequestMethods.UPLOAD.equals(iPSDEServiceAPIMethod.getRequestMethod())) {
+			if(objBody instanceof MultipartFile ) {
+				MultipartFile file = (MultipartFile)objBody;
+				if(file.isEmpty()) {
+					throw new IllegalArgumentException("未指定上传文件");
+				}
+				
+				 //处理文件名，防止路径遍历攻击（重要！）
+		        String originalFilename = file.getOriginalFilename();
+		        String fileExt = FilenameUtils.getExtension(originalFilename);
+		        if(StringUtils.hasLength(fileExt)) {
+		        	fileExt = "." + fileExt;
+		        }
+		        
+		        java.io.File localFile = java.io.File.createTempFile("upload", fileExt);
+		        try {
+		        	 //  执行保存
+			        file.transferTo(localFile); 
+		        }
+		        catch (Throwable ex) {
+					throw new Exception(String.format("保存上传文件发生异常，%1$s", ex.getMessage()), ex);
+				}
+		        
+		        //重新构建Body
+		        Map<String, Object> map = new LinkedHashMap<String, Object>();
+		        map.put(FIELD_LOCALPATH, localFile.getCanonicalPath());
+		        objBody = map;
+			}
+			else
+				throw new IllegalArgumentException("未指定上传文件");
+		}
+		
+		
+		return super.getActionArgs(iPSDEServiceAPIMethod, iDEServiceAPIRSRuntime, strParentKey, objBody, strKey);
 	}
 	
 

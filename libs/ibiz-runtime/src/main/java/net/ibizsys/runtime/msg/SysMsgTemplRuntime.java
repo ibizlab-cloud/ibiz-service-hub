@@ -2,10 +2,13 @@ package net.ibizsys.runtime.msg;
 
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
@@ -17,6 +20,7 @@ import net.ibizsys.runtime.ISystemRuntimeBaseContext;
 import net.ibizsys.runtime.ISystemRuntimeSetting;
 import net.ibizsys.runtime.SystemModelRuntimeBase;
 import net.ibizsys.runtime.util.IEntityBase;
+import net.ibizsys.runtime.util.domain.File;
 
 /**
  * 系统消息运行时对象实现
@@ -27,6 +31,9 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 
 	private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(SysMsgTemplRuntime.class);
 	
+	public static final TypeReference<List<File>> FileListType = new TypeReference<List<File>>() {
+	};
+	
 	public final static String TEMPL_CONTENT = "CONTENT";
 	public final static String TEMPL_SUBJECT = "SUBJECT";
 	public final static String TEMPL_IMCONTENT = "IMCONTENT";
@@ -35,7 +42,7 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 	public final static String TEMPL_DDCONTENT = "DDCONTENT";
 	public final static String TEMPL_URL = "URL";
 	public final static String TEMPL_MOBILEURL = "MOBILEURL";
-	
+	public final static String TEMPL_ATTACHMENTS = "ATTACHMENTS";
 	
 	private IPSSysMsgTempl iPSSysMsgTempl = null;
 	
@@ -50,6 +57,7 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 	private String strDDContent = null;
 	private String strUrl = null;
 	private String strMobileUrl = null;
+	private String strAttachments = null;
 	
 	/**
 	 * 获取消息模板的配置目录
@@ -79,7 +87,7 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 		this.setDDContent(this.getPSSysMsgTempl().getDDContent());
 		this.setUrl(this.getPSSysMsgTempl().getTaskUrl());
 		this.setMobileUrl(this.getPSSysMsgTempl().getMobTaskUrl());
-		
+		this.setAttachments(this.getPSSysMsgTempl().getAttachments());
 		
 		this.onInit();
 	}
@@ -243,7 +251,15 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 		this.strMobileUrl = strMobileUrl;
 	}
 
-	
+
+	protected String getAttachments() {
+		return strAttachments;
+	}
+
+
+	protected void setAttachments(String strAttachments) {
+		this.strAttachments = strAttachments;
+	}
 	
 
 	@Override
@@ -330,6 +346,13 @@ public class SysMsgTemplRuntime extends SystemModelRuntimeBase implements ISysMs
 		return getTemplContent(TEMPL_MOBILEURL, iEntityBase);
 	}
 
+	@Override
+	public String getAttachments(IEntityBase iEntityBase) {
+		if(!StringUtils.hasLength(this.getAttachments())) {
+			return null;
+		}
+		return getTemplContent(TEMPL_ATTACHMENTS, iEntityBase);
+	}
 	
 	
 	protected String getTemplContent(String strType, IEntityBase iEntityBase) {

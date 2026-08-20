@@ -1,6 +1,6 @@
 package net.ibizsys.central.cloud.core.service;
 
-public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysServiceAPIRuntime {
+public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysServiceAPIRuntime{
 
 	/**
 	 * 反馈头部参数：自定义提示消息
@@ -39,7 +39,6 @@ public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysS
 	public final static String HEADER_DYNAMODELTAG = "x-dyna-model-tag";
 	
 
-	
 	/**
 	 * 注册服务接口映射
 	 * @param iSysServiceAPIRequestMappingAdapter
@@ -64,7 +63,6 @@ public interface ISysServiceAPIRuntime extends net.ibizsys.central.service.ISysS
 	 * @return
 	 */
 	String getBaseUrl();
-	
 	
 	
 	/**

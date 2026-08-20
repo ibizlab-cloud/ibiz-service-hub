@@ -13,28 +13,28 @@ public interface IPSEAIElementAttr extends net.ibizsys.model.eai.IPSEAIElementOb
 	 * 获取属性标记
 	 * @return
 	 */
-	java.lang.String getAttrTag();
+	String getAttrTag();
 	
 	
 	/**
 	 * 获取属性标记2
 	 * @return
 	 */
-	java.lang.String getAttrTag2();
+	String getAttrTag2();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取默认值
 	 * @return
 	 */
-	java.lang.String getDefaultValue();
+	String getDefaultValue();
 	
 	
 	/**
@@ -43,14 +43,14 @@ public interface IPSEAIElementAttr extends net.ibizsys.model.eai.IPSEAIElementOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.EAIElementAttrType}
 	 * @return
 	 */
-	java.lang.String getElementAttrType();
+	String getElementAttrType();
 	
 	
 	/**
 	 * 获取固定值
 	 * @return
 	 */
-	java.lang.String getFixedValue();
+	String getFixedValue();
 	
 	
 	/**

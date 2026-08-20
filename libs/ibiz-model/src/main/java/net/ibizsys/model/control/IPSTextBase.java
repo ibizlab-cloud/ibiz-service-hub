@@ -14,7 +14,7 @@ public interface IPSTextBase{
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSTextBase{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TextAlign}
 	 * @return
 	 */
-	java.lang.String getHAlign();
+	String getHAlign();
 	
 	
 	/**
@@ -32,7 +32,7 @@ public interface IPSTextBase{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TextRenderMode}
 	 * @return
 	 */
-	java.lang.String getRenderMode();
+	String getRenderMode();
 	
 	
 	/**
@@ -41,7 +41,7 @@ public interface IPSTextBase{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TextVAlign}
 	 * @return
 	 */
-	java.lang.String getVAlign();
+	String getVAlign();
 	
 	
 	/**
@@ -50,5 +50,5 @@ public interface IPSTextBase{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.WrapMode}
 	 * @return
 	 */
-	java.lang.String getWrapMode();
+	String getWrapMode();
 }

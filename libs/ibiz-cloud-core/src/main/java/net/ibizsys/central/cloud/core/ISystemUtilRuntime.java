@@ -48,7 +48,36 @@ public interface ISystemUtilRuntime extends net.ibizsys.central.ISystemUtilRunti
 	
 	
 	/**
-	 * 
+	 * 异步执行
 	 */
 	PortalAsyncAction asyncExecute(IAction iAction, Object[] args, Object actionTag) throws Throwable;
+	
+	
+	/**
+	 * 同步执行
+	 */
+	PortalAsyncAction syncExecute(IAction iAction, Object[] args, Object actionTag) throws Throwable;
+	
+	
+	
+	/**
+	 * 服务端异步运行作业
+	 * @param iAction
+	 * @param args
+	 * @param actionTag
+	 * @param nTimeout
+	 * @return
+	 * @throws Throwable
+	 */
+	Object sseExecute(IAction iAction, Object[] args, Object actionTag, long nTimeout) throws Throwable;
+	
+	
+	/**
+	 * 服务器异步行为输出
+	 * @param strAsyncActionId
+	 * @param nTimeout
+	 * @return
+	 * @throws Throwable
+	 */
+	Object sseAsyncActionOutput(String strAsyncActionId, long nTimeout) throws Throwable;
 }

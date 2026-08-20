@@ -13,7 +13,7 @@ public interface IPSSysUCMap extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -76,5 +76,5 @@ public interface IPSSysUCMap extends net.ibizsys.model.uml.IPSUMLObject{
 	 * 获取编号
 	 * @return
 	 */
-	java.lang.String getUCMapSN();
+	String getUCMapSN();
 }

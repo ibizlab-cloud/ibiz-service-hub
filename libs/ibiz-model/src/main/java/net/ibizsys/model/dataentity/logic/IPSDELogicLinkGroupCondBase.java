@@ -16,7 +16,7 @@ public interface IPSDELogicLinkGroupCondBase extends net.ibizsys.model.dataentit
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.GroupCondOP}
 	 * @return
 	 */
-	java.lang.String getGroupOP();
+	String getGroupOP();
 	
 	
 	/**

@@ -14,5 +14,5 @@ public interface IPSDEDRLogic extends net.ibizsys.model.dataentity.logic.IPSDEUI
 	 * 获取向导步骤名称
 	 * @return
 	 */
-	java.lang.String getPSDEDRDetailName();
+	String getPSDEDRDetailName();
 }

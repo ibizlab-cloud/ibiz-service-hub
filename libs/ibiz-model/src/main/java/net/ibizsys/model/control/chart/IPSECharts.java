@@ -14,7 +14,7 @@ public interface IPSECharts{
 	 * 获取基础配置Json内容
 	 * @return
 	 */
-	java.lang.String getBaseOptionJOString();
+	String getBaseOptionJOString();
 	
 	
 	/**

@@ -14,7 +14,7 @@ public interface IPSAppPortlet extends net.ibizsys.model.app.IPSApplicationObjec
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

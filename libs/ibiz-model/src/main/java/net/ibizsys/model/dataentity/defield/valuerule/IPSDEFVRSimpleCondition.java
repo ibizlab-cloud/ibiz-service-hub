@@ -16,7 +16,7 @@ public interface IPSDEFVRSimpleCondition extends net.ibizsys.model.dataentity.de
 	 * 获取条件操作
 	 * @return
 	 */
-	java.lang.String getCondOp();
+	String getCondOp();
 	
 	
 	/**
@@ -25,12 +25,12 @@ public interface IPSDEFVRSimpleCondition extends net.ibizsys.model.dataentity.de
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEFVRParamType}
 	 * @return
 	 */
-	java.lang.String getParamType();
+	String getParamType();
 	
 	
 	/**
 	 * 获取参数值
 	 * @return
 	 */
-	java.lang.String getParamValue();
+	String getParamValue();
 }

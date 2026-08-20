@@ -7,6 +7,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import groovy.lang.GString;
 import net.ibizsys.runtime.util.EntityBase;
 import net.ibizsys.runtime.util.JsonUtils;
 
@@ -306,10 +307,35 @@ public class ChatMessage extends EntityBase {
 	 */
 	@JsonIgnore
 	public ChatMessage setContent(Object val) {
+		if(val instanceof GString) {
+			val = ((GString)val).toString();
+		}
 		this.set(FIELD_CONTENT, val);
 		return this;
 	}
 
+	/**
+	 * 设置「消息内容」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatMessage setContent(List val) {
+		this.set(FIELD_CONTENT, val);
+		return this;
+	}
+	
+	/**
+	 * 设置「消息内容」
+	 *
+	 * @param val
+	 */
+	@JsonIgnore
+	public ChatMessage setContent(String val) {
+		this.set(FIELD_CONTENT, val);
+		return this;
+	}
+	
 	/**
 	 * 获取「消息内容」值
 	 *

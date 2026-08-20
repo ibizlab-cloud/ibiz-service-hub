@@ -1,5 +1,7 @@
 package net.ibizsys.central.service;
 
+import java.util.Map;
+
 import net.ibizsys.central.util.script.IScriptWebClient;
 import net.ibizsys.runtime.util.script.IScriptUtil;
 
@@ -80,4 +82,12 @@ public interface ISubSysServiceAPIRTScriptContext extends IScriptUtil{
 	 * @return
 	 */
 	IScriptWebClient webclient();
+	
+	
+	
+	/**
+	 * 获取当前的请求头
+	 * @return
+	 */
+	Map getHeaders();
 }

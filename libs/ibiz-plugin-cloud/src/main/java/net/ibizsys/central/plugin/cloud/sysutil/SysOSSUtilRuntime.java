@@ -3,12 +3,14 @@ package net.ibizsys.central.plugin.cloud.sysutil;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
+import org.springframework.util.StringUtils;
 
 import net.ibizsys.central.cloud.core.cloudutil.ICloudUtilRuntime;
 import net.ibizsys.central.cloud.core.cloudutil.client.ICloudOSSClient;
 import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.sysutil.ISysCloudClientUtilRuntime;
 import net.ibizsys.central.cloud.core.sysutil.ISysOSSUtilRuntime;
+import net.ibizsys.central.service.client.IWebClient;
 import net.ibizsys.central.sysutil.IObjectStorageServiceAdapter;
 import net.ibizsys.central.sysutil.SysFileUtilRuntimeBase;
 import net.ibizsys.central.util.ISearchContext;
@@ -214,6 +216,40 @@ public class SysOSSUtilRuntime extends SysFileUtilRuntimeBase implements ISysOSS
 		}
 		finally {
 			EmployeeContext.setCurrentDisabled(disabled);
+		}
+	}
+
+	@Override
+	public File getOSSPdfFile(String strKey, String strCat, boolean bTryMode) {
+		return (File)this.executeAction("获取PDF文件", new IAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onGetOSSPdfFile(strKey, strCat, bTryMode);
+			}
+		}, null);
+	}
+	
+	
+	protected File onGetOSSPdfFile(String strKey, String strCat, boolean bTryMode) throws Throwable {
+		try {
+			java.io.File tempFile =	java.io.File.createTempFile("oss", ".pdf");
+			IWebClient iWebClient =  this.getSysCloudClientUtilRuntime().getServiceClient(ICloudUtilRuntime.CLOUDSERVICE_OSS);
+			String strUri = String.format("lb://%1$s/ibizutil/downloadpdf", ICloudUtilRuntime.CLOUDSERVICEURL_OSS);
+			if(StringUtils.hasLength(strCat)) {
+				strUri += ("/" + strCat);
+			}
+			strUri += ("/" + strKey);
+			iWebClient.download(strUri, tempFile);
+			
+			File file = new File();
+			file.setLocalPath(tempFile.getCanonicalPath());
+			return file;
+		}
+		catch(Throwable ex) {
+			if(bTryMode) {
+				return null;
+			}
+			throw ex;
 		}
 	}
 }

@@ -22,14 +22,14 @@ public interface IPSAppViewRef extends net.ibizsys.model.IPSModelObject
 	 * 获取打开模式
 	 * @return
 	 */
-	java.lang.String getOpenMode();
+	String getOpenMode();
 	
 	
 	/**
 	 * 获取引用者
 	 * @return
 	 */
-	java.lang.Object getOwner();
+	Object getOwner();
 	
 	
 	/**
@@ -43,14 +43,14 @@ public interface IPSAppViewRef extends net.ibizsys.model.IPSModelObject
 	 * 获取引用视图打开模式
 	 * @return
 	 */
-	java.lang.String getRealOpenMode();
+	String getRealOpenMode();
 	
 	
 	/**
 	 * 获取引用视图标题
 	 * @return
 	 */
-	java.lang.String getRealTitle();
+	String getRealTitle();
 	
 	
 	/**

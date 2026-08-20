@@ -18,7 +18,7 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEActionLogicAttachMode}
 	 * @return
 	 */
-	java.lang.String getAttachMode();
+	String getAttachMode();
 	
 	
 	/**
@@ -62,28 +62,28 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取默认参数名称
 	 * @return
 	 */
-	java.lang.String getDefaultParamName();
+	String getDefaultParamName();
 	
 	
 	/**
 	 * 获取监控事件模型
 	 * @return
 	 */
-	java.lang.String getEventModel();
+	String getEventModel();
 	
 	
 	/**
 	 * 获取监控事件
 	 * @return
 	 */
-	java.lang.String getEvents();
+	String getEvents();
 	
 	
 	/**
 	 * 获取运行时逻辑上下文标识
 	 * @return
 	 */
-	java.lang.String getLogicContextId();
+	String getLogicContextId();
 	
 	
 	/**
@@ -92,42 +92,42 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.LogicSubType}
 	 * @return
 	 */
-	java.lang.String getLogicSubType();
+	String getLogicSubType();
 	
 	
 	/**
 	 * 获取逻辑标记
 	 * @return
 	 */
-	java.lang.String getLogicTag();
+	String getLogicTag();
 	
 	
 	/**
 	 * 获取逻辑标记2
 	 * @return
 	 */
-	java.lang.String getLogicTag2();
+	String getLogicTag2();
 	
 	
 	/**
 	 * 获取逻辑标记3
 	 * @return
 	 */
-	java.lang.String getLogicTag3();
+	String getLogicTag3();
 	
 	
 	/**
 	 * 获取逻辑标记4
 	 * @return
 	 */
-	java.lang.String getLogicTag4();
+	String getLogicTag4();
 	
 	
 	/**
 	 * 获取McpServer标识
 	 * @return
 	 */
-	java.lang.String getMcpServerId();
+	String getMcpServerId();
 	
 	
 	/**
@@ -190,7 +190,7 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
@@ -220,14 +220,14 @@ public interface IPSDELogic extends net.ibizsys.model.dataentity.IPSDataEntityOb
 	 * 获取定时触发策略
 	 * @return
 	 */
-	java.lang.String getTimerPolicy();
+	String getTimerPolicy();
 	
 	
 	/**
 	 * 获取工具描述
 	 * @return
 	 */
-	java.lang.String getToolSpecification();
+	String getToolSpecification();
 	
 	
 	/**

@@ -119,6 +119,8 @@ public abstract class GroovySysMsgTemplRuntimeBase extends SysMsgTemplRuntimeBas
 			return this.getUrl();
 		case TEMPL_MOBILEURL:
 			return this.getMobileUrl();
+		case TEMPL_ATTACHMENTS:
+			return this.getAttachments();
 		default:
 			if (bTryMode) {
 				return null;

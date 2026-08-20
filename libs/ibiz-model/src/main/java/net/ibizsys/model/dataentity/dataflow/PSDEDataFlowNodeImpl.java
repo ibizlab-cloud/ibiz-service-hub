@@ -14,6 +14,7 @@ public class PSDEDataFlowNodeImpl extends net.ibizsys.model.PSObjectImpl impleme
 	public final static String ATTR_GETPSSYSSFPLUGIN = "getPSSysSFPlugin";
 	public final static String ATTR_GETTOPPOS = "topPos";
 	public final static String ATTR_GETWIDTH = "width";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -137,5 +138,9 @@ public class PSDEDataFlowNodeImpl extends net.ibizsys.model.PSObjectImpl impleme
 			return 0;
 		}
 		return value.asInt();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

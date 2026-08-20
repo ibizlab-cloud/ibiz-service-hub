@@ -15,21 +15,21 @@ public interface IPSSysCounter extends net.ibizsys.model.IPSModelObject
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取计数器数据
 	 * @return
 	 */
-	java.lang.String getCounterData();
+	String getCounterData();
 	
 	
 	/**
 	 * 获取计数器数据2
 	 * @return
 	 */
-	java.lang.String getCounterData2();
+	String getCounterData2();
 	
 	
 	/**
@@ -38,21 +38,21 @@ public interface IPSSysCounter extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CounterType}
 	 * @return
 	 */
-	java.lang.String getCounterType();
+	String getCounterType();
 	
 	
 	/**
 	 * 获取自定义查询条件
 	 * @return
 	 */
-	java.lang.String getCustomCond();
+	String getCustomCond();
 	
 	
 	/**
 	 * 获取预置计数器标识
 	 * @return
 	 */
-	java.lang.String getPSCounterId();
+	String getPSCounterId();
 	
 	
 	/**
@@ -150,5 +150,5 @@ public interface IPSSysCounter extends net.ibizsys.model.IPSModelObject
 	 * 获取计数器标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 }

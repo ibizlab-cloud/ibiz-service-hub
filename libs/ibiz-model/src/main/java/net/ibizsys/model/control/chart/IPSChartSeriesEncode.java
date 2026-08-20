@@ -14,14 +14,14 @@ public interface IPSChartSeriesEncode extends net.ibizsys.model.control.chart.IP
 	 * 获取序列标识维度
 	 * @return
 	 */
-	java.lang.String getItemId();
+	String getItemId();
 	
 	
 	/**
 	 * 获取序列名称维度
 	 * @return
 	 */
-	java.lang.String getItemName();
+	String getItemName();
 	
 	
 	/**
@@ -30,5 +30,5 @@ public interface IPSChartSeriesEncode extends net.ibizsys.model.control.chart.IP
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ChartCoordinateSystem}
 	 * @return
 	 */
-	java.lang.String getType();
+	String getType();
 }

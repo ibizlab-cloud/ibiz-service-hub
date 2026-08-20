@@ -17,7 +17,7 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.CodeListConvertMode}
 	 * @return
 	 */
-	java.lang.String getCLConvertMode();
+	String getCLConvertMode();
 	
 	
 	/**
@@ -38,14 +38,14 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取数据项名称
 	 * @return
 	 */
-	java.lang.String getDataItemName();
+	String getDataItemName();
 	
 	
 	/**
@@ -54,7 +54,7 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ListItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
@@ -103,7 +103,7 @@ public interface IPSDEDataViewItem extends net.ibizsys.model.IPSModelObject
 	 * 获取值格式化
 	 * @return
 	 */
-	java.lang.String getValueFormat();
+	String getValueFormat();
 	
 	
 	/**

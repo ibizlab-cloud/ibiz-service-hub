@@ -15,6 +15,7 @@ public class PSSysTestCaseInputImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETPSSYSTESTCASEASSERTS = "getPSSysTestCaseAsserts";
 	public final static String ATTR_GETPSSYSTESTDATA = "getPSSysTestData";
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.dataentity.action.IPSDEAction inputpsdeaction;
 
 	public net.ibizsys.model.dataentity.action.IPSDEAction getInputPSDEAction(){
@@ -147,5 +148,9 @@ public class PSSysTestCaseInputImpl extends net.ibizsys.model.PSObjectImpl imple
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

@@ -13,5 +13,5 @@ public interface IPSOpenAPI3Object extends net.ibizsys.model.dynamodel.IPSJsonNo
 	 * 获取描述信息
 	 * @return
 	 */
-	java.lang.String getDescription();
+	String getDescription();
 }

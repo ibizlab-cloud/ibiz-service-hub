@@ -13,14 +13,14 @@ public interface IPSBIHierarchy extends net.ibizsys.model.bi.IPSBIDimensionObjec
 	 * 获取维度架构标记
 	 * @return
 	 */
-	java.lang.String getHierarchyTag();
+	String getHierarchyTag();
 	
 	
 	/**
 	 * 获取维度架构标记2
 	 * @return
 	 */
-	java.lang.String getHierarchyTag2();
+	String getHierarchyTag2();
 	
 	
 	/**
@@ -29,7 +29,7 @@ public interface IPSBIHierarchy extends net.ibizsys.model.bi.IPSBIDimensionObjec
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.BIHierarchyType}
 	 * @return
 	 */
-	java.lang.String getHierarchyType();
+	String getHierarchyType();
 	
 	
 	/**

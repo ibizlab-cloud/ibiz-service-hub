@@ -23,5 +23,5 @@ public interface IPSPanelUserControl extends net.ibizsys.model.control.panel.IPS
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 }

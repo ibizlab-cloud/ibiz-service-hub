@@ -1,4 +1,4 @@
- package net.ibizsys.central.dataentity.service;
+package net.ibizsys.central.dataentity.service;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -76,7 +76,7 @@ import net.ibizsys.runtime.util.domain.File;
 
 /**
  * 实体服务接口运行时对象接口
- * 
+ *
  * @author lionlau
  *
  */
@@ -105,7 +105,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		this.setDataEntityRuntimeBase(iDataEntityRuntime);
 
 		this.iPSDEServiceAPI = iPSDEServiceAPI;
-		
+
 		if(this.iPSDEServiceAPI.getPSSysUniRes()!=null) {
 			this.strAccessKey = this.iPSDEServiceAPI.getPSSysUniResMust().getResCode();
 		}
@@ -159,11 +159,11 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 	public IDataEntityRuntime getDataEntityRuntime() {
 		return this.iDataEntityRuntime;
 	}
-	
+
 	public String getAccessKey() {
 		return this.strAccessKey;
 	}
-	
+
 	protected ISystemAccessManager getSystemAccessManager() {
 		return this.getSystemRuntime().getSystemAccessManager();
 	}
@@ -185,7 +185,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			}
 		}
 	}
-	
+
 	@Override
 	public Object invokeMethod(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		testAccessUser();
@@ -238,7 +238,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			}
 			iAppContext.set(iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getName(), strParentKey);
 		}
-		
+
 		// 判断数据访问
 		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, iSearchContextDTO, iPSDEServiceAPIMethod.getDataAccessAction())) {
 			if (!StringUtils.hasLength(iPSDEServiceAPIMethod.getDataAccessAction())) {
@@ -259,7 +259,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 		Object[] args = getActionArgs(iPSDEServiceAPIMethod, iDEServiceAPIRSRuntime, strParentKey, objBody, strKey);
 		if (args != null && args[0] instanceof List) {
-			
+
 			if (iDEServiceAPIRSRuntime != null) {
 				IAppContext iAppContext = UserContext.getCurrentMust().getAppContext();
 				if (iAppContext == null) {
@@ -281,9 +281,9 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					throw new DEServiceAPIRuntimeException(this, String.format("行为[%1$s]参数数量不匹配", iPSDEServiceAPIMethod.getPSDEAction().getName()), Errors.INVALIDDATA);
 				}
 			}
-			
+
 			Map<String, Set<Object>> refCheckData = new HashMap<String, Set<Object>>();
-			
+
 			for (Object item : list) {
 				if (item instanceof IEntityDTO) {
 					// 判断数据访问
@@ -299,9 +299,9 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 						throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), iPSDEServiceAPIMethod.getDataAccessAction()), Errors.ACCESSDENY);
 					}
-					
+
 					this.getDataEntityRuntime().fillEntityDTORefCheckData(refCheckData, (IEntityDTO)item);
-					
+
 				} else {
 					// 判断数据访问
 					if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, item, null, iPSDEServiceAPIMethod.getDataAccessAction())) {
@@ -323,11 +323,11 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					}
 				}
 			}
-			
-			
+
+
 			this.checkRefData(iDEServiceAPIRSRuntime, strParentKey, refCheckData);
 
-			
+
 			// 判断行为是否支持为批操作行为
 			if (iPSDEServiceAPIMethod.getPSDEAction().isBatchAction()) {
 				// 直接传入
@@ -393,7 +393,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				}
 				iAppContext.set(iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getName(), strParentKey);
 			}
-			
+
 			// 判断数据访问
 			if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, strKey, iEntityDTO, iPSDEServiceAPIMethod.getDataAccessAction())) {
 
@@ -417,8 +417,8 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				Map<String, Set<Object>> refCheckData = this.getDataEntityRuntime().fillEntityDTORefCheckData(null, iEntityDTO);
 				this.checkRefData(iDEServiceAPIRSRuntime, strParentKey, refCheckData);
 			}
-			
-			
+
+
 
 			Object objRet = this.getDataEntityRuntime().executeAction(iPSDEServiceAPIMethod.getPSDEAction().getName(), iPSDEServiceAPIMethod.getPSDEAction(), args);
 			if (iPSDEServiceAPIMethod.getPSDEAction().getPSDEActionInput().isOutput()) {
@@ -427,12 +427,12 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			return objRet;
 		}
 	}
-	
+
 	protected void checkRefData(IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, Map<String, Set<Object>> refCheckData) {
 		if(ObjectUtils.isEmpty(refCheckData)) {
 			return;
 		}
-		
+
 		//去除默认父键
 		if(iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
 			Set<Object> keys = refCheckData.get(iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getId());
@@ -440,17 +440,17 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				keys.remove(strParentKey);
 			}
 		}
-		
-		
-		
+
+
+
 		for(Map.Entry<String, Set<Object>> entry : refCheckData.entrySet()) {
 			Set<Object> keys = entry.getValue();
 			if(ObjectUtils.isEmpty(keys)) {
 				continue;
 			}
-			
+
 			IDataEntityRuntime refDataEntityRuntime = this.getSystemRuntime().getDataEntityRuntime(entry.getKey());
-			
+
 			try {
 				if(!refDataEntityRuntime.getDataEntityAccessManager().testDataAccessActionIf(UserContext.getCurrent(), keys, DataAccessActions.READ)) {
 					throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", refDataEntityRuntime.getLogicName(), DataAccessActions.READ), Errors.ACCESSDENY);
@@ -469,7 +469,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		if (iPSDEActionInput == null) {
 			throw new ModelException(iPSDEAction, String.format("实体行为[%1$s]没有指定输入对象", iPSDEAction.getName()));
 		}
-		
+
 		String strVersionId = null;
 		if(this.getDataEntityRuntime().isEnableVersionControl()
 				|| this.getDataEntityRuntime().isEnableVersionStorage()) {
@@ -478,16 +478,16 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				strVersionId = iWebContext.getParameter(IDEVersionControlUtilRuntime.ACTION_ARG_VERSIONID);
 			}
 		}
-		
+
 		if (DEMethodInputTypes.NONE.equals(iPSDEActionInput.getType())) {
 			IEntityDTO iEntityDTO = (IEntityDTO) this.getDataEntityRuntime().createEntity();
-			
+
 			if (iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
 				IPSDEField parentIdPSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentIdPSDEField();
 				if (parentIdPSDEField != null) {
 					Object objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 					iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-					
+
 					IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 					if (parentTypePSDEField != null) {
 						iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -497,7 +497,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 			return new Object[] { iEntityDTO };
 		}
-		
+
 		if (DEMethodInputTypes.KEYFIELD.equals(iPSDEActionInput.getType()) || DEMethodInputTypes.KEYFIELDS.equals(iPSDEActionInput.getType())) {
 			if (ObjectUtils.isEmpty(strKey)) {
 				throw new Exception("没有指定输入参数");
@@ -512,7 +512,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					else {
 						return new Object[] { objValue };
 					}
-					
+
 				} else {
 					List list = new ArrayList();
 					for (int i = 0; i < items.length; i++) {
@@ -533,6 +533,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			}
 		}
 
+
 		if (DEMethodInputTypes.DTO.equals(iPSDEActionInput.getType()) || DEMethodInputTypes.DTOS.equals(iPSDEActionInput.getType())) {
 			if (objBody == null) {
 				throw new Exception("没有指定输入参数");
@@ -551,7 +552,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 						if (parentIdPSDEField != null) {
 							Object objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 							iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-							
+
 							IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 							if (parentTypePSDEField != null) {
 								iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -576,7 +577,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					if (parentIdPSDEField != null) {
 						Object objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 						iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-						
+
 						IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 						if (parentTypePSDEField != null) {
 							iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -614,7 +615,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (objBody instanceof ISearchContextDTO) {
 				return new Object[] { objBody };
 			}
-			
+
 			String strVersionId = null;
 			if(this.getDataEntityRuntime().isEnableVersionControl()
 					|| this.getDataEntityRuntime().isEnableVersionStorage()) {
@@ -639,7 +640,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 						if(!iSearchContextDTO.contains(parentIdPSDEField.getLowerCaseName())) {
 							iSearchContextDTO.set(parentIdPSDEField.getLowerCaseName(), objParentKey);
 						}
-					
+
 						IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 						if (parentTypePSDEField != null) {
 							SearchContextDTO.addSearchFieldCondIf(iSearchContextDTO, parentTypePSDEField.getLowerCaseName(), Conditions.EQ, iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName(), null);
@@ -647,15 +648,15 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					}
 				}
 				else
-					if (DEServiceAPIMethodParentKeyModes.DATACONTEXT.equals(iPSDEServiceAPIMethod.getParentKeyMode())) {
-						IPSDEField parentIdPSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentIdPSDEField();
-						if (parentIdPSDEField != null) {
-							Object objParentKey = DataTypeUtils.parse(parentIdPSDEField.getStdDataType(), strParentKey);
-							if(!iSearchContextDTO.contains(parentIdPSDEField.getLowerCaseName())) {
-								iSearchContextDTO.set(parentIdPSDEField.getLowerCaseName(), objParentKey);
-							}
+				if (DEServiceAPIMethodParentKeyModes.DATACONTEXT.equals(iPSDEServiceAPIMethod.getParentKeyMode())) {
+					IPSDEField parentIdPSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentIdPSDEField();
+					if (parentIdPSDEField != null) {
+						Object objParentKey = DataTypeUtils.parse(parentIdPSDEField.getStdDataType(), strParentKey);
+						if(!iSearchContextDTO.contains(parentIdPSDEField.getLowerCaseName())) {
+							iSearchContextDTO.set(parentIdPSDEField.getLowerCaseName(), objParentKey);
 						}
 					}
+				}
 			} else {
 				// 兼容处理旧版本模式，考虑到外部宋体实体标识可能为服务实体代码标识，所以在接口处进行处理
 				Object parentDEName = iSearchContextDTO.get(ISearchContextDTO.PARAM_PARENTDENAME);
@@ -737,7 +738,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					}
 				}
 			}
-			
+
 			// 强行调整导出的最大数量
 			int nMaxSize = iPSDEDataSet.getMaxRowCount();
 			if(nMaxSize > 0) {
@@ -745,7 +746,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				if(objBody instanceof Map) {
 					size = ((Map)objBody).get(ISearchContextDTO.PARAM_SIZE);
 				}
-				
+
 				Pageable pageable = iSearchContextDTO.getPageable();
 				if (pageable != null) {
 					if (size == null) {
@@ -764,7 +765,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					iSearchContextDTO.limit(nMaxSize);
 				}
 			}
-			
+
 			if(StringUtils.hasLength(strVersionId)) {
 				return new Object[] { iSearchContextDTO, IDEVersionControlUtilRuntime.ACTION_ARG_VERSIONID, strVersionId};
 			}
@@ -804,21 +805,25 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (parentIdPSDEField != null) {
 				objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 				iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-				
+
 				IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 				if (parentTypePSDEField != null) {
 					iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
 				}
-				
+
 			}
 			else {
 				throw new DEServiceAPIRuntimeException(this, "导入数据发生异常，未指定关系属性");
 			}
 		}
 
+		String strAccessAction = this.getDataEntityRuntime().getDEDataImportRuntime(strImportTag).getPSDEDataImport().getCreateDataAccessAction();
+		if(!StringUtils.hasLength(strAccessAction)){
+			strAccessAction = DataAccessActions.CREATE;
+		}
 		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, strAccessAction)) {
+			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), strAccessAction), Errors.ACCESSDENY);
 		}
 
 		InputStream inputStream = null;
@@ -828,9 +833,9 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		catch (Exception ex) {
 			throw new DEServiceAPIRuntimeException(this, String.format("获取输入流发生异常，%1$s", ex.getMessage()), ex);
 		}
-			
+
 		Map<Integer, EntityError> errorMap = null;
-		
+
 		// 填充parentKey
 		if (iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
 			errorMap = this.getDataEntityRuntime().importData(strImportTag, iEntityDTO, inputStream, true, iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime(), String.valueOf(objValue));
@@ -857,7 +862,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (parentIdPSDEField != null) {
 				objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 				iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-				
+
 				IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 				if (parentTypePSDEField != null) {
 					iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -867,11 +872,15 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				throw new DEServiceAPIRuntimeException(this, "解析导入发生异常，未指定关系属性");
 			}
 		}
-		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+		String strAccessAction = this.getDataEntityRuntime().getDEDataImportRuntime(strImportTag).getPSDEDataImport().getCreateDataAccessAction();
+		if(!StringUtils.hasLength(strAccessAction)){
+			strAccessAction = DataAccessActions.CREATE;
 		}
-		
+		// 判断数据访问
+		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, strAccessAction)) {
+			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), strAccessAction), Errors.ACCESSDENY);
+		}
+
 //		IEntityDTO iEntityDTO = this.getDataEntityRuntime().createEntity();
 		InputStream inputStream = null;
 		try {
@@ -880,8 +889,8 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		catch (Exception ex) {
 			throw new DEServiceAPIRuntimeException(this, String.format("获取输入流发生异常，%1$s", ex.getMessage()), ex);
 		}
-		
-		
+
+
 		ImportDataResult objRet = null;
 		// 填充parentKey
 		if (iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
@@ -892,7 +901,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 		return objRet;
 	}
-	
+
 	@Override
 	public Object asyncImportData(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strImportTag, Object objBody, Object objTag) throws Throwable {
 		testAccessUser();
@@ -907,7 +916,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (parentIdPSDEField != null) {
 				objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 				iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-				
+
 				IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 				if (parentTypePSDEField != null) {
 					iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -917,9 +926,13 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				throw new DEServiceAPIRuntimeException(this, "导入数据发生异常，未指定关系属性");
 			}
 		}
+		String strAccessAction = this.getDataEntityRuntime().getDEDataImportRuntime(strImportTag).getPSDEDataImport().getCreateDataAccessAction();
+		if(!StringUtils.hasLength(strAccessAction)){
+			strAccessAction = DataAccessActions.CREATE;
+		}
 		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, strAccessAction)) {
+			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), strAccessAction), Errors.ACCESSDENY);
 		}
 
 		InputStream inputStream2 = null;
@@ -929,19 +942,19 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		catch (Exception ex) {
 			throw new DEServiceAPIRuntimeException(this, String.format("获取输入流发生异常，%1$s", ex.getMessage()), ex);
 		}
-		
+
 
 
 		String strValue = (objValue == null)?null:String.valueOf(objValue);
 		InputStream inputStream = inputStream2;
-		
+
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
 		actionTagMap.put("actiontype", "DEIMPORTDATA");
 		actionTagMap.put("actionparam", getDataEntityRuntime().getName());
 		actionTagMap.put("actionparam2", strImportTag);
-		
+
 		//actionTagMap.put("", value);
-		
+
 		return this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
@@ -978,7 +991,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (parentIdPSDEField != null) {
 				objValue = this.getSystemRuntime().convertValue(parentIdPSDEField.getStdDataType(), strParentKey);
 				iEntityDTO.set(parentIdPSDEField.getLowerCaseName(), objValue);
-				
+
 				IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 				if (parentTypePSDEField != null) {
 					iEntityDTO.set(parentTypePSDEField.getLowerCaseName(), iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName());
@@ -988,10 +1001,13 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				throw new DEServiceAPIRuntimeException(this, "导入数据发生异常，未指定关系属性");
 			}
 		}
-
+		String strAccessAction = this.getDataEntityRuntime().getDEDataImportRuntime(strImportTag).getPSDEDataImport().getCreateDataAccessAction();
+		if(!StringUtils.hasLength(strAccessAction)){
+			strAccessAction = DataAccessActions.CREATE;
+		}
 		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, strAccessAction)) {
+			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), strAccessAction), Errors.ACCESSDENY);
 		}
 
 		InputStream inputStream2 = null;
@@ -1004,12 +1020,12 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 
 		String strValue = (objValue == null)?null:String.valueOf(objValue);
-		
+
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
 		actionTagMap.put("actiontype", "DEIMPORTDATA2");
 		actionTagMap.put("actionparam", getDataEntityRuntime().getName());
 		actionTagMap.put("actionparam2", strImportTag);
-		
+
 		InputStream inputStream = inputStream2;
 		return this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
@@ -1032,7 +1048,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			}
 		}, null, actionTagMap);
 	}
-	
+
 	protected InputStream getImportDataInputStream(Object objBody, IEntityDTO iEntityDTO) throws Exception {
 		if (objBody instanceof MultipartFile) {
 			MultipartFile file = (MultipartFile) objBody;
@@ -1040,14 +1056,14 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			if (iEntityDTO != null && !ObjectUtils.isEmpty(file.getOriginalFilename())) {
 				iEntityDTO.set(IDEDataImportRuntime.FIELD_IMPORTFILENAME, file.getOriginalFilename());
 			}
-			
+
 			return file.getInputStream();
 		}
 		else {
 			throw new Exception("未传入导入数据文件");
 		}
 	}
-	
+
 	@Override
 	public Object getImportTemplate(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strImportTag, Object objTag) throws Throwable {
 		testAccessUser();
@@ -1072,10 +1088,13 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				throw new DEServiceAPIRuntimeException(this, "导入数据发生异常，未指定关系属性");
 			}
 		}
-
+		String strAccessAction = this.getDataEntityRuntime().getDEDataImportRuntime(strImportTag).getPSDEDataImport().getCreateDataAccessAction();
+		if(!StringUtils.hasLength(strAccessAction)){
+			strAccessAction = DataAccessActions.CREATE;
+		}
 		// 判断数据访问
-		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, DataAccessActions.CREATE)) {
-			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), DataAccessActions.CREATE), Errors.ACCESSDENY);
+		if (!this.getDataEntityRuntime().getDataEntityAccessManager().testDataAccessAction(UserContext.getCurrent(), ((iDEServiceAPIRSRuntime == null) ? null : iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime()), strParentKey, null, iEntityDTO, strAccessAction)) {
+			throw new DEServiceAPIRuntimeException(this, String.format("%1$s不具备操作能力[%2$s]", this.getLogicName(), strAccessAction), Errors.ACCESSDENY);
 		}
 
 		OutputStream outputStream = null;
@@ -1113,8 +1132,8 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		if (outputStream == null) {
 			throw new DEServiceAPIRuntimeException(this, String.format("导出数据未传入输出流对象"));
 		}
-		
-		
+
+
 		IDEDataExportRuntime iDEDataExportRuntime = this.getDataEntityRuntime().getDEDataExportRuntime(strExportTag);
 
 		// 需要判断接口是否提供指定方法
@@ -1124,16 +1143,16 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		} else {
 			iPSDEServiceAPIMethod = getPSDEServiceAPIMethod(strMethodName, false);
 		}
-		
+
 		if (iPSDEServiceAPIMethod.getPSDEDataSet() != null) {
-			
+
 			Object size = null;
 			if(objBody instanceof Map) {
 				size = ((Map)objBody).get(ISearchContextDTO.PARAM_SIZE);
 			}
-			
+
 			Object[] args = getDataSetArgs(iPSDEServiceAPIMethod, iDEServiceAPIRSRuntime, strParentKey, objBody);
-			
+
 			if (args.length > 0 && args[0] instanceof ISearchContextDTO) {
 				ISearchContextDTO iSearchContextDTO = (ISearchContextDTO) args[0];
 				// 强行调整导出的最大数量
@@ -1155,7 +1174,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				} else {
 					iSearchContextDTO.limit(nMaxSize);
 				}
-				
+
 				//将已经处理的过滤对象设置到Body对象
 				objBody = iSearchContextDTO;
 			}
@@ -1163,18 +1182,18 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 		// 进行实际方法执行
 		Object objRet = this.invokeMethod(strScope, iDEServiceAPIRSRuntime, strParentKey, strMethodName, objBody, strKey, null);
-		
+
 
 		//this.getDataEntityRuntime().exportData(strExportTag, objRet, outputStream);
 		//return null;
 		return this.doExportData(strExportTag, objRet, outputStream);
 	}
-	
+
 	protected Object doExportData(String strExportTag, Object objData, OutputStream outputStream) throws Throwable {
 		this.getDataEntityRuntime().exportData(strExportTag, objData, outputStream);
 		return null;
 	}
-	
+
 	@Override
 	public Object asyncExportData(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strExportTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
 		testAccessUser();
@@ -1182,7 +1201,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 	}
 
 	protected Object onAsyncExportData(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strExportTag, String strMethodName, Object objBody, String strKey, Object objTag) throws Throwable {
-		
+
 		IDEDataExportRuntime iDEDataExportRuntime = this.getDataEntityRuntime().getDEDataExportRuntime(strExportTag);
 
 		// 需要判断接口是否提供指定方法
@@ -1231,7 +1250,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 
 		ISysFileUtilRuntime iSysFileUtilRuntime = this.getSystemRuntime().getSysUtilRuntime(ISysFileUtilRuntime.class, false);
 		java.io.File tempFile = java.io.File.createTempFile("dataexport_" + this.getSystemRuntime().getDeploySystemId(), ".xlsx");
-		
+
 		Map<String, Object> actionTagMap = new HashMap<String, Object>();
 		actionTagMap.put("actiontype", "DEEXPORTDATA");
 		actionTagMap.put("actionparam", getDataEntityRuntime().getName());
@@ -1271,7 +1290,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 			}
 		}, null, actionTagMap);
 	}
-	
+
 
 	@Override
 	public Object printData(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strPrintTag, String strPrintType, Object objBody, String strKey, Object objTag) throws Throwable {
@@ -1320,31 +1339,31 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				throw new DEServiceAPIRuntimeException(this, String.format("%1$s[%2$s]不具备操作能力[%3$s]", this.getLogicName(), keys[i], iDEPrintRuntime.getPSDEPrint().getDataAccessAction()), Errors.ACCESSDENY);
 			}
 		}
-		
+
 		if(objTag instanceof ServletResponse) {
 			ServletResponse servletResponse = (ServletResponse) objTag;
 			this.getDataEntityRuntime().outputPrint(strPrintTag, servletResponse, keys, strContentType, false);
 			return null;
 		}
-		
+
 		if(objTag instanceof OutputStream) {
 			OutputStream outputStream = (OutputStream) objTag;
 			this.getDataEntityRuntime().outputPrint(strPrintTag, outputStream, keys, strContentType, false);
 			return null;
 		}
-		
+
 		throw new DEServiceAPIRuntimeException(this, String.format("打印数据未传入输出流对象"));
 	}
-	
-	
+
+
 	@Override
 	public Object autoComplete(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strACTag, String strMethod, Object objBody, Object objTag) throws Throwable {
 		testAccessUser();
 		return this.onAutoComplete(strScope, iDEServiceAPIRSRuntime, strParentKey, strACTag, strMethod, objBody, objTag);
 	}
-	
+
 	protected Object onAutoComplete(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strACTag, String strMethodName, Object objBody, Object objTag) throws Throwable {
-		
+
 		IDEAutoCompleteRuntime iDEAutoCompleteRuntime = this.getDataEntityRuntime().getDEAutoCompleteRuntime(strACTag, false);
 
 		// 需要判断接口是否提供指定方法
@@ -1354,16 +1373,16 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		} else {
 			iPSDEServiceAPIMethod = getPSDEServiceAPIMethod(strMethodName, false);
 		}
-		
+
 		if (iPSDEServiceAPIMethod.getPSDEDataSet() != null) {
-			
+
 			Object size = null;
 			if(objBody instanceof Map) {
 				size = ((Map)objBody).get(ISearchContextDTO.PARAM_SIZE);
 			}
-			
+
 			Object[] args = getDataSetArgs(iPSDEServiceAPIMethod, iDEServiceAPIRSRuntime, strParentKey, objBody);
-			
+
 			if (args.length > 0 && args[0] instanceof ISearchContextDTO) {
 				ISearchContextDTO iSearchContextDTO = (ISearchContextDTO) args[0];
 //				// 强行调整导出的最大数量
@@ -1385,7 +1404,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 //				} else {
 //					iSearchContextDTO.limit(nMaxSize);
 //				}
-				
+
 				//将已经处理的过滤对象设置到Body对象
 				objBody = iSearchContextDTO;
 			}
@@ -1435,8 +1454,8 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 	protected Object onDownloadFile(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strKey, String strStorageField, File file, Object objBody, Object objTag) throws Throwable {
 		throw new DEServiceAPIRuntimeException(this, "没有实现", Errors.NOTIMPL);
 	}
-	
-	
+
+
 	@Override
 	public Object report(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strReportTag, String strReportType, Object objBody, Object objTag) throws Throwable {
 		testAccessUser();
@@ -1454,9 +1473,9 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 	protected Object onReport(String strScope, IDEServiceAPIRSRuntime iDEServiceAPIRSRuntime, String strParentKey, String strReportTag, String strContentType, Object objBody, Object objTag) throws Throwable {
 
 		if(!StringUtils.hasLength(strReportTag)) {
-			throw new Exception("未传入报表标记");			
+			throw new Exception("未传入报表标记");
 		}
-		
+
 		IDEReportRuntime iDEReportRuntime = this.getDataEntityRuntime().getDEReportRuntime(strReportTag);
 		if(iDEReportRuntime.getPSDEReport().getPSSysUniRes()!=null) {
 			// 判断数据访问
@@ -1467,7 +1486,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		else {
 			throw new DEServiceAPIRuntimeException(this, String.format("报表[%1$s]未定义访问控制资源", iDEReportRuntime.getPSDEReport().getName()), Errors.ACCESSDENY);
 		}
-		
+
 		Map params = null;
 		if(objBody instanceof Map) {
 			params = (Map)objBody;
@@ -1475,7 +1494,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 		if (params == null) {
 			throw new Exception("未传入报表参数");
 		}
-		
+
 		ISearchContextDTO iSearchContextDTO = this.getDataEntityRuntime().createSearchContext(params);
 		if (iDEServiceAPIRSRuntime != null && StringUtils.hasLength(strParentKey)) {
 			// 送入过滤条件
@@ -1492,7 +1511,7 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 					if(!iSearchContextDTO.contains(parentIdPSDEField.getLowerCaseName())) {
 						iSearchContextDTO.set(parentIdPSDEField.getLowerCaseName(), objParentKey);
 					}
-					
+
 					IPSDEField parentTypePSDEField = iDEServiceAPIRSRuntime.getPSDEServiceAPIRS().getParentTypePSDEField();
 					if (parentTypePSDEField != null) {
 						SearchContextDTO.addSearchFieldCondIf(iSearchContextDTO, parentTypePSDEField.getLowerCaseName(), Conditions.EQ, iDEServiceAPIRSRuntime.getMajorDEServiceAPIRuntime().getDataEntityRuntime().getName(), null);
@@ -1500,19 +1519,19 @@ public class DEServiceAPIRuntime extends DataEntityModelRuntimeBase implements I
 				}
 			}
 		}
-		
+
 		if(objTag instanceof ServletResponse) {
 			ServletResponse servletResponse = (ServletResponse) objTag;
 			this.getDataEntityRuntime().outputReport(strReportTag, servletResponse, iSearchContextDTO, strContentType, false);
 			return null;
 		}
-		
+
 		if (objTag instanceof OutputStream) {
 			OutputStream outputStream = (OutputStream) objTag;
 			this.getDataEntityRuntime().outputReport(strReportTag, outputStream, iSearchContextDTO, strContentType, false);
 			return null;
 		}
-		
+
 		throw new DEServiceAPIRuntimeException(this, String.format("未传入输出流对象"));
 	}
 }

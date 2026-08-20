@@ -16,12 +16,12 @@ public interface IPSPlaceholderItem extends net.ibizsys.model.control.IPSRawItem
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取内容
 	 * @return
 	 */
-	java.lang.String getContent();
+	String getContent();
 }

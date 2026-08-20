@@ -28,6 +28,7 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETSCRIPTCODE = "scriptCode";
 	public final static String ATTR_GETTIMER = "timer";
 	public final static String ATTR_ISBUILTINLOGIC = "builtinLogic";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAttrName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETATTRNAME);
@@ -339,5 +340,9 @@ public class PSSysPanelLogicImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

@@ -17,6 +17,7 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 	public final static String ATTR_GETUSERDATA2 = "userData2";
 	public final static String ATTR_GETWFLINKTYPE = "wFLinkType";
 	public final static String ATTR_ISENABLECUSTOMCOND = "enableCustomCond";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCustomCond(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCUSTOMCOND);
@@ -178,5 +179,9 @@ public class PSWFLinkImpl extends net.ibizsys.model.PSObjectImpl implements net.
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

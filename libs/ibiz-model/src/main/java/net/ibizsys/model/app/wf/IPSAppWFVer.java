@@ -34,7 +34,7 @@ public interface IPSAppWFVer extends net.ibizsys.model.app.IPSApplicationObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

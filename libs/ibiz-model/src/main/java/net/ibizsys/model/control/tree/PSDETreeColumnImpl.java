@@ -25,6 +25,7 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 	public final static String ATTR_ISENABLEEXPAND = "enableExpand";
 	public final static String ATTR_ISENABLESORT = "enableSort";
 	public final static String ATTR_ISHIDEDEFAULT = "hideDefault";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAlign(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALIGN);
@@ -312,5 +313,9 @@ public class PSDETreeColumnImpl extends net.ibizsys.model.PSObjectImpl implement
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

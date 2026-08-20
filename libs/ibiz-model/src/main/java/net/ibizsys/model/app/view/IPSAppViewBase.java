@@ -23,7 +23,7 @@ public interface IPSAppViewBase extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取访问标识
 	 * @return
 	 */
-	java.lang.String getAccessKey();
+	String getAccessKey();
 	
 	
 	/**
@@ -44,21 +44,21 @@ public interface IPSAppViewBase extends net.ibizsys.model.app.IPSApplicationObje
 	 * 获取视图标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取完整代码标识
 	 * @return
 	 */
-	java.lang.String getFullCodeName();
+	String getFullCodeName();
 	
 	
 	/**
@@ -67,14 +67,14 @@ public interface IPSAppViewBase extends net.ibizsys.model.app.IPSApplicationObje
 	 */
 	int getHeight();
 	
-	java.lang.String getMainMenuAlign();
+	String getMainMenuAlign();
 	
 	
 	/**
 	 * 获取视图打开模式
 	 * @return
 	 */
-	java.lang.String getOpenMode();
+	String getOpenMode();
 	
 	net.ibizsys.model.app.dataentity.IPSAppDataEntity getPSAppDataEntity();
 
@@ -303,14 +303,14 @@ net.ibizsys.model.app.view.IPSAppViewMsgGroup getPSAppViewMsgGroupMust();
 	 * 获取视图子标题
 	 * @return
 	 */
-	java.lang.String getSubCaption();
+	String getSubCaption();
 	
 	
 	/**
 	 * 获取视图抬头
 	 * @return
 	 */
-	java.lang.String getTitle();
+	String getTitle();
 	
 	
 	/**
@@ -333,7 +333,7 @@ net.ibizsys.model.app.view.IPSAppViewMsgGroup getPSAppViewMsgGroupMust();
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEViewType}
 	 * @return
 	 */
-	java.lang.String getViewType();
+	String getViewType();
 	
 	
 	/**

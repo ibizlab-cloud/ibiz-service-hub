@@ -41,6 +41,7 @@ import net.ibizsys.runtime.util.ActionSession;
 import net.ibizsys.runtime.util.ActionSessionManager;
 import net.ibizsys.runtime.util.IAction;
 import net.ibizsys.runtime.util.INamedAction;
+import net.ibizsys.runtime.util.JsonUtils;
 import net.ibizsys.runtime.util.KeyValueUtils;
 
 public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implements ICloudAIUtilRuntime {
@@ -216,7 +217,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 			@Override
 			public Object execute(Object[] args) throws Throwable {
 				chatCompletionRequest.setStreaming(0);
-				return onChatCompletion(type, chatCompletionRequest);
+				return onSyncChatCompletion(type, chatCompletionRequest);
 			}
 		}, null);
 	}
@@ -226,6 +227,37 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		return iAIAccessAgent.chatCompletion(chatCompletionRequest);
 	}
 
+	protected ChatCompletionResult onSyncChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) throws Throwable {
+		Map<String, Object> actionTagMap = new HashMap<String, Object>();
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, PortalAsyncActionType.CHATCOMPLETION.getValue());
+		//关闭通知标记
+		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, null);
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONPARAM, chatCompletionRequest.getSessionId());
+
+		PortalAsyncAction portalAsyncAction = this.getSystemRuntime().syncExecute(new INamedAction() {
+			@Override
+			public Object execute(Object[] args) throws Throwable {
+				return onChatCompletion(type, chatCompletionRequest);
+			}
+
+			@Override
+			public String getName() {
+				return "同步交谈补全操作";
+			}
+		}, null, actionTagMap);
+		
+		if(portalAsyncAction.getRealResult() instanceof ChatCompletionResult) {
+			return (ChatCompletionResult)portalAsyncAction.getRealResult();
+		}
+		
+		if(StringUtils.hasLength(portalAsyncAction.getActionResult())) {
+			return JsonUtils.as(portalAsyncAction.getActionResult(), ChatCompletionResult.class);
+		}
+		
+		throw new Exception(String.format("无效的返回结果"));
+	}
+	
+	
 	@Override
 	public PortalAsyncAction asyncChatCompletion(String type, ChatCompletionRequest chatCompletionRequest) {
 		return (PortalAsyncAction) this.executeAction("异步交谈补全操作", new IAction() {
@@ -243,6 +275,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue());
 		//关闭通知标记
 		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, null);
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONPARAM, chatCompletionRequest.getSessionId());
 
 		return (PortalAsyncAction) this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
@@ -274,6 +307,7 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		//actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, "SSECHATCOMPLETION");
 		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONTYPE, PortalAsyncActionType.ASYNCCHATCOMPLETION.getValue());
 		actionTagMap.put(PortalAsyncAction.FIELD_FULLTOPICTAG, null);
+		actionTagMap.put(PortalAsyncAction.FIELD_ACTIONPARAM, chatCompletionRequest.getSessionId());
 		
 		return (SseEmitter) this.getSystemRuntime().sseExecute(new INamedAction() {
 			@Override
@@ -328,6 +362,9 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 			}
 		}, null);
 	}
+	
+	
+	
 
 	protected CompletionResult onCompletion(String type, CompletionRequest CompletionRequest) throws Throwable {
 		IAIAccessAgent iAIAccessAgent = this.getAIAccessAgent(type, CompletionRequest);
@@ -345,11 +382,11 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		}, null);
 	}
 
-	protected PortalAsyncAction onAsyncCompletion(String type, CompletionRequest CompletionRequest) throws Throwable {
+	protected PortalAsyncAction onAsyncCompletion(String type, CompletionRequest completionRequest) throws Throwable {
 		return (PortalAsyncAction) this.getSystemRuntime().asyncExecute(new INamedAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				return onCompletion(type, CompletionRequest);
+				return onCompletion(type, completionRequest);
 			}
 
 			@Override
@@ -370,11 +407,11 @@ public abstract class CloudAIUtilRuntimeBase extends CloudUtilRuntimeBase implem
 		}, null);
 	}
 
-	protected SseEmitter onSseCompletion(String type, CompletionRequest CompletionRequest) throws Throwable {
+	protected SseEmitter onSseCompletion(String type, CompletionRequest completionRequest) throws Throwable {
 		return (SseEmitter) this.getSystemRuntime().sseExecute(new INamedAction() {
 			@Override
 			public Object execute(Object[] args) throws Throwable {
-				return onCompletion(type, CompletionRequest);
+				return onCompletion(type, completionRequest);
 			}
 
 			@Override

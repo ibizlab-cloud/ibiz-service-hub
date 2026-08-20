@@ -14,21 +14,21 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取自定义处理对象
 	 * @return
 	 */
-	java.lang.String getCustomObject();
+	String getCustomObject();
 	
 	
 	/**
 	 * 获取自定义参数
 	 * @return
 	 */
-	java.lang.String getCustomParams();
+	String getCustomParams();
 	
 	
 	/**
@@ -77,42 +77,42 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	 * 获取正则式代码
 	 * @return
 	 */
-	java.lang.String getRegExCode();
+	String getRegExCode();
 	
 	
 	/**
 	 * 获取正则式代码2
 	 * @return
 	 */
-	java.lang.String getRegExCode2();
+	String getRegExCode2();
 	
 	
 	/**
 	 * 获取正则式代码3
 	 * @return
 	 */
-	java.lang.String getRegExCode3();
+	String getRegExCode3();
 	
 	
 	/**
 	 * 获取正则式代码4
 	 * @return
 	 */
-	java.lang.String getRegExCode4();
+	String getRegExCode4();
 	
 	
 	/**
 	 * 获取值规则信息
 	 * @return
 	 */
-	java.lang.String getRuleInfo();
+	String getRuleInfo();
 	
 	
 	/**
 	 * 获取规则信息语言资源标记
 	 * @return
 	 */
-	java.lang.String getRuleInfoLanResTag();
+	String getRuleInfoLanResTag();
 	
 	
 	/**
@@ -133,14 +133,14 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	 * 获取规则标记
 	 * @return
 	 */
-	java.lang.String getRuleTag();
+	String getRuleTag();
 	
 	
 	/**
 	 * 获取规则标记2
 	 * @return
 	 */
-	java.lang.String getRuleTag2();
+	String getRuleTag2();
 	
 	
 	/**
@@ -149,21 +149,21 @@ public interface IPSSysValueRule extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.ValueRuleType}
 	 * @return
 	 */
-	java.lang.String getRuleType();
+	String getRuleType();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**
 	 * 获取唯一标记
 	 * @return
 	 */
-	java.lang.String getUniqueTag();
+	String getUniqueTag();
 	
 	
 	/**

@@ -471,7 +471,7 @@ public abstract class PageIndexDocumentSplitterBase extends DocumentSplitterBase
 		if(StringUtils.hasLength(strPrompt)) {
 			return strPrompt;
 		}
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PageIndexDocumentSplitterBase.class, "TOCValidationPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(PageIndexDocumentSplitterBase.class, "TOCValidationPrompt.md", false);
 	}
 	
 	protected String getPageIndexerPrompt(PageIndexConfig pageIndexConfig) throws Throwable {
@@ -479,7 +479,7 @@ public abstract class PageIndexDocumentSplitterBase extends DocumentSplitterBase
 		if(StringUtils.hasLength(strPrompt)) {
 			return strPrompt;
 		}
-		return net.ibizsys.runtime.util.ResourcesUtils.getInstance().getResourceContent(PageIndexDocumentSplitterBase.class, "PageIndexerPrompt.md", false);
+		return this.getSystemRuntime().getResourceContent(PageIndexDocumentSplitterBase.class, "PageIndexerPrompt.md", false);
 	}
 	
 	@Override

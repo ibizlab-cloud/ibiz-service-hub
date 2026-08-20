@@ -13,7 +13,7 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -62,7 +62,7 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	 * 获取报表模型
 	 * @return
 	 */
-	java.lang.String getReportModel();
+	String getReportModel();
 	
 	
 	/**
@@ -76,26 +76,26 @@ public interface IPSBIReport extends net.ibizsys.model.IPSModelObject{
 	 * 获取报表标记
 	 * @return
 	 */
-	java.lang.String getReportTag();
+	String getReportTag();
 	
 	
 	/**
 	 * 获取报表标记2
 	 * @return
 	 */
-	java.lang.String getReportTag2();
+	String getReportTag2();
 	
 	
 	/**
 	 * 获取报表界面模型
 	 * @return
 	 */
-	java.lang.String getReportUIModel();
+	String getReportUIModel();
 	
 	
 	/**
 	 * 获取系统统一资源代码，等同调用{@link #getPSSysUniRes}.getResCode()
 	 * @return
 	 */
-	java.lang.String getSysUniResCode();
+	String getSysUniResCode();
 }

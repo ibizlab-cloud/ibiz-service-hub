@@ -11,6 +11,7 @@ public class PSWFProcessRoleImpl extends net.ibizsys.model.PSObjectImpl implemen
 	public final static String ATTR_GETUSERDATA2 = "userData2";
 	public final static String ATTR_GETWFPROCESSROLETYPE = "wFProcessRoleType";
 	public final static String ATTR_ISCCMODE = "cCMode";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.msg.IPSSysMsgTempl pssysmsgtempl;
 
 	public net.ibizsys.model.msg.IPSSysMsgTempl getPSSysMsgTempl(){
@@ -94,5 +95,9 @@ public class PSWFProcessRoleImpl extends net.ibizsys.model.PSObjectImpl implemen
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

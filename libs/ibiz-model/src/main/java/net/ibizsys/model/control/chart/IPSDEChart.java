@@ -17,7 +17,7 @@ public interface IPSDEChart extends net.ibizsys.model.control.chart.IPSChart
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SortDir}
 	 * @return
 	 */
-	java.lang.String getMinorSortDir();
+	String getMinorSortDir();
 	
 	
 	/**

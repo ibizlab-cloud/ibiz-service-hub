@@ -7,6 +7,7 @@ public class PSDEDataQueryInputImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETCODENAME = "codeName";
 	public final static String ATTR_GETPSDEFILTERDTO = "getPSDEFilterDTO";
 	public final static String ATTR_GETTYPE = "type";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getCodeName(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETCODENAME);
@@ -45,5 +46,9 @@ public class PSDEDataQueryInputImpl extends net.ibizsys.model.PSObjectImpl imple
 			return null;
 		}
 		return value.asText();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

@@ -14,7 +14,7 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
@@ -23,7 +23,7 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysRoleDefaultUser}
 	 * @return
 	 */
-	java.lang.String getDefaultUser();
+	String getDefaultUser();
 	
 	
 	/**
@@ -128,7 +128,7 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	 * 获取角色标记
 	 * @return
 	 */
-	java.lang.String getRoleTag();
+	String getRoleTag();
 	
 	
 	/**
@@ -151,7 +151,7 @@ public interface IPSSysUserRole extends net.ibizsys.model.IPSModelObject{
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.SysUserRoleType}
 	 * @return
 	 */
-	java.lang.String getRoleType();
+	String getRoleType();
 	
 	
 	/**

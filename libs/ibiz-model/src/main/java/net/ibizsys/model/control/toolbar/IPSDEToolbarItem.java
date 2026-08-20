@@ -12,6 +12,13 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	
 	
 	/**
+	 * 获取访问标识
+	 * @return
+	 */
+	String getAccessKey();
+	
+	
+	/**
 	 * 获取标题语言资源
 	 * @return
 	 */
@@ -29,14 +36,14 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取标题
 	 * @return
 	 */
-	java.lang.String getCaption();
+	String getCaption();
 	
 	
 	/**
 	 * 获取计数器标识
 	 * @return
 	 */
-	java.lang.String getCounterId();
+	String getCounterId();
 	
 	
 	/**
@@ -52,21 +59,21 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取项直接样式
 	 * @return
 	 */
-	java.lang.String getCssStyle();
+	String getCssStyle();
 	
 	
 	/**
 	 * 获取项数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取动态样式表
 	 * @return
 	 */
-	java.lang.String getDynaClass();
+	String getDynaClass();
 	
 	
 	/**
@@ -82,7 +89,7 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.TBItemType}
 	 * @return
 	 */
-	java.lang.String getItemType();
+	String getItemType();
 	
 	
 	/**
@@ -131,7 +138,7 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取工具提示
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -152,14 +159,14 @@ public interface IPSDEToolbarItem extends net.ibizsys.model.IPSModelObject
 	 * 获取用户标记
 	 * @return
 	 */
-	java.lang.String getUserTag();
+	String getUserTag();
 	
 	
 	/**
 	 * 获取用户标记2
 	 * @return
 	 */
-	java.lang.String getUserTag2();
+	String getUserTag2();
 	
 	
 	/**

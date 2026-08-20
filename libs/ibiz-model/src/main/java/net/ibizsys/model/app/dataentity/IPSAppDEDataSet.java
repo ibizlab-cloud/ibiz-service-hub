@@ -35,28 +35,28 @@ public interface IPSAppDEDataSet extends net.ibizsys.model.app.dataentity.IPSApp
 	 * 获取执行之后代码
 	 * @return
 	 */
-	java.lang.String getAfterCode();
+	String getAfterCode();
 	
 	
 	/**
 	 * 获取执行之前代码
 	 * @return
 	 */
-	java.lang.String getBeforeCode();
+	String getBeforeCode();
 	
 	
 	/**
 	 * 获取数据集标识
 	 * @return
 	 */
-	java.lang.String getDataSetName();
+	String getDataSetName();
 	
 	
 	/**
 	 * 获取数据集标记
 	 * @return
 	 */
-	java.lang.String getDataSetTag();
+	String getDataSetTag();
 	
 	
 	/**
@@ -65,7 +65,7 @@ public interface IPSAppDEDataSet extends net.ibizsys.model.app.dataentity.IPSApp
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetType}
 	 * @return
 	 */
-	java.lang.String getDataSetType();
+	String getDataSetType();
 	
 	
 	/**
@@ -137,14 +137,14 @@ public interface IPSAppDEDataSet extends net.ibizsys.model.app.dataentity.IPSApp
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DEDataSetPredefinedType}
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**
 	 * 获取脚本代码
 	 * @return
 	 */
-	java.lang.String getScriptCode();
+	String getScriptCode();
 	
 	
 	/**

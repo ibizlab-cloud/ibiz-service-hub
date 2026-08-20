@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import net.ibizsys.central.cloud.core.IServiceSystemRuntime;
 import net.ibizsys.central.cloud.core.ai.util.AIChatUtils;
 import net.ibizsys.central.cloud.core.ai.util.ChatCompletionRequestHolder;
+import net.ibizsys.central.cloud.core.security.EmployeeContext;
 import net.ibizsys.central.cloud.core.util.ChatMessagesBuilder;
 import net.ibizsys.central.cloud.core.util.ChunkSearchContext;
 import net.ibizsys.central.cloud.core.util.IChunkSearchContext;
@@ -33,13 +34,16 @@ import net.ibizsys.central.cloud.core.util.UserCancelException;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionRequest;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResult;
 import net.ibizsys.central.cloud.core.util.domain.ChatCompletionResultEx;
+import net.ibizsys.central.cloud.core.util.domain.ChatCompletionUsage;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessage;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessageRole;
 import net.ibizsys.central.cloud.core.util.domain.ChatMessageType;
+import net.ibizsys.central.cloud.core.util.domain.ChatSkill;
 import net.ibizsys.central.cloud.core.util.domain.ChatTool;
 import net.ibizsys.central.cloud.core.util.domain.Chunk;
 import net.ibizsys.central.cloud.core.util.domain.ChunkType;
 import net.ibizsys.central.cloud.core.util.domain.Document;
+import net.ibizsys.central.cloud.core.util.domain.KnowledgeBase;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncAction;
 import net.ibizsys.central.cloud.core.util.domain.PortalAsyncActionState;
 import net.ibizsys.central.dataentity.IDataEntityRuntime;
@@ -377,6 +381,11 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
         messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_SEQUENCE, null);
         messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_SESSION_ID, null);
         messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_STATUS, null);
+        messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_INPUT_TOKENS, null);
+        messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_OUTPUT_TOKENS, null);
+        messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_TOTAL_TOKENS, null);
+        messagePSDEFieldMap.put(MESSAGE_PREDEFINEDFIELD_TOOL_CALLS, null);
+        
         messagePSDEFieldMap.put(messageDataEntityRuntime.getKeyPSDEField().getName(), null);
 
         java.util.List<IPSDEField> psDEFieldList = messageDataEntityRuntime.getPSDataEntity().getAllPSDEFields();
@@ -1213,6 +1222,16 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
         ChatMessage chatMessage = chatCompletionRequest.getMessages().get(chatCompletionRequest.getMessages().size() - 1);
         if(ChatMessageRole.ASSISTANT.getValue().equals(chatMessage.getRole())) {
             ChatMessage userChatMessage = this.getDigestMessage(dataOrKeys, chatCompletionRequest, params);
+            
+         // ----- 插入 SYSTEM 提示词 -----
+            boolean hasSystem = chatCompletionRequest.getMessages().stream()
+                    .anyMatch(m -> ChatMessageRole.SYSTEM.getValue().equals(m.getRole()));
+            if (!hasSystem) {
+                String systemPrompt = "你是一个专业的文本摘要助手，擅长根据用户指令对对话内容进行精准摘要。请严格遵循用户要求，只输出摘要结果，不包含任何解释、介绍、序号或多个答案。";
+                chatCompletionRequest.getMessages().add(0, 
+                    ChatMessage.create(ChatMessageRole.SYSTEM, systemPrompt));
+            }
+            
             if(userChatMessage == null) {
                 if(CHATDIGESTMODE_TITLE.equals(chatCompletionRequest.getMode())) {
                     userChatMessage = ChatMessage.create(ChatMessageRole.USER, String.format("请对以上的交互内容总结出合适的标题，不要包含任何介绍、解释、序号或多个答案。长度不大于`%1$s`", chatCompletionRequest.getMaxTokens()));
@@ -1234,6 +1253,9 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
             chatCompletionRequest.getMessages().add(userChatMessage);
         }
 
+        //移除MaxTokens
+        chatCompletionRequest.resetMaxTokens();
+        
         return this.doChatCompletion(this.getAIPlatformType(), chatCompletionRequest);
     }
 
@@ -1295,7 +1317,15 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
                 long nCurrentTime = System.currentTimeMillis();
                 ActionSession actionSession = ActionSessionManager.getCurrentSessionMust();
                 while (true) {
-                    PortalAsyncAction last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+                	boolean bDisabled = EmployeeContext.isCurrentDisabled();
+                	PortalAsyncAction last = null;
+    				try {
+    					EmployeeContext.setCurrentDisabled(true);
+    					last = getSysPortalUtilRuntime().getAsyncAction(portalAsyncAction.getAsyncAcitonId());
+    				}
+    				finally {
+    					EmployeeContext.setCurrentDisabled(bDisabled);
+    				}
 
                     double fCompletionRate = 0.0f;
                     if (last.getCompletionRate() != null) {
@@ -1314,7 +1344,7 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
                         ChatMessage chatMessage = new ChatMessage();
                         chatMessage.setRole(ChatMessageRole.ASSISTANT.getValue());
                         chatMessage.setContent(AIChatUtils.removeThinkingContent(chatCompletionResult.getChoices().get(0).getContent()));
-                        Object ret = createChatMessage(sessionEntityDTO, chatMessage, false, false);
+                        Object ret = createChatMessage(sessionEntityDTO, chatMessage, false, false, chatCompletionResult);
                         if(ret instanceof IEntityDTO) {
                             IEntityDTO iEntityDTO = (IEntityDTO)ret;
                             if(iEntityDTO.getDEMethodDTORuntime() != null && iEntityDTO.getDEMethodDTORuntime().getDataEntityRuntime() != null) {
@@ -1472,8 +1502,12 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
     protected IEntityDTO createCancelChatMessage(IEntityDTO chatSessionEntityDTO, ChatMessage chatMessage) throws Throwable{
         return this.createChatMessage(chatSessionEntityDTO, chatMessage, true, false);
     }
-
+    
     protected IEntityDTO createChatMessage(IEntityDTO chatSessionEntityDTO, ChatMessage chatMessage, boolean bCancel, boolean bError) throws Throwable{
+    	return this.createChatMessage(chatSessionEntityDTO, chatMessage, bCancel, bError, null);
+    }
+
+    protected IEntityDTO createChatMessage(IEntityDTO chatSessionEntityDTO, ChatMessage chatMessage, boolean bCancel, boolean bError, ChatCompletionResult chatCompletionResult) throws Throwable{
         IDataEntityRuntime messageDataEntityRuntime = this.getMessageDataEntityRuntime(true);
         if(messageDataEntityRuntime == null) {
             return null;
@@ -1495,10 +1529,10 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
 
         values.put(MESSAGE_PREDEFINEDFIELD_CONTENT_TYPE, "md");
         if(bError){
-            values.put(MESSAGE_PREDEFINEDFIELD_STATUS, "failed");
+            values.put(MESSAGE_PREDEFINEDFIELD_STATUS, MESSAGE_STATUS_FAILED);
         }
         if(bCancel){
-            values.put(MESSAGE_PREDEFINEDFIELD_STATUS, "canceled");
+            values.put(MESSAGE_PREDEFINEDFIELD_STATUS, MESSAGE_STATUS_CANCELED);
         }
         if(StringUtils.hasLength(chatMessage.getRole())) {
             if(ChatMessageRole.ASSISTANT.getValue().equals(chatMessage.getRole())) {
@@ -1508,7 +1542,16 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
                 values.put(MESSAGE_PREDEFINEDFIELD_SENDER_TYPE, chatMessage.getRole().toLowerCase());
             }
         }
-
+        
+        if(chatCompletionResult != null) {
+         	ChatCompletionUsage chatCompletionUsage = chatCompletionResult.getUsage();
+         	if(chatCompletionUsage != null) {
+         		values.put(MESSAGE_PREDEFINEDFIELD_INPUT_TOKENS, chatCompletionUsage.getPromptTokens());
+         		values.put(MESSAGE_PREDEFINEDFIELD_OUTPUT_TOKENS, chatCompletionUsage.getCompletionTokens());
+         		values.put(MESSAGE_PREDEFINEDFIELD_TOTAL_TOKENS, chatCompletionUsage.getTotalTokens());
+         		values.put(MESSAGE_PREDEFINEDFIELD_TOOL_CALLS, chatCompletionUsage.getToolCalls());
+         	}
+        }
 
         return this.doCreateChatMessage(values);
     }
@@ -1946,8 +1989,29 @@ public abstract class SysAIChatAgentRuntimeBase extends SysAIAgentRuntimeBase im
     }
 
 
+    
 
     @Override
+	public List<ChatSkill> getSkills(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+    	return this.onGetSkills(dataOrKeys, body, params);
+    }
+
+    protected List<ChatSkill> onGetSkills(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+    	return ISysAIChatAgentRuntime.super.getSkills(dataOrKeys, body, params);
+	}
+
+	@Override
+	public List<KnowledgeBase> getKnowledgeBases(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+		return this.onGetKnowledgeBases(dataOrKeys, body, params);
+    }
+
+    protected List<KnowledgeBase> onGetKnowledgeBases(Object dataOrKeys, Object body, Map<String, Object> params) throws Throwable {
+    	return ISysAIChatAgentRuntime.super.getKnowledgeBases(dataOrKeys, body, params);
+	}
+
+
+
+	@Override
     public String getAgentInfo() {
         try {
             if(StringUtils.hasLength(getInfoConfigId())) {

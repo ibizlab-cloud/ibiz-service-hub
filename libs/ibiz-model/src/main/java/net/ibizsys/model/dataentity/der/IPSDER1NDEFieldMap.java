@@ -16,7 +16,7 @@ public interface IPSDER1NDEFieldMap extends net.ibizsys.model.dataentity.der.IPS
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DER1NDEFMapType}
 	 * @return
 	 */
-	java.lang.String getMapType();
+	String getMapType();
 	
 	
 	/**

@@ -21,14 +21,14 @@ public interface IPSSysDataSyncAgent extends net.ibizsys.model.service.IPSSubSys
 	 * 获取代理标记
 	 * @return
 	 */
-	java.lang.String getAgentTag();
+	String getAgentTag();
 	
 	
 	/**
 	 * 获取代理标记2
 	 * @return
 	 */
-	java.lang.String getAgentTag2();
+	String getAgentTag2();
 	
 	
 	/**
@@ -37,21 +37,21 @@ public interface IPSSysDataSyncAgent extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncAgentType}
 	 * @return
 	 */
-	java.lang.String getAgentType();
+	String getAgentType();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取消费组标识
 	 * @return
 	 */
-	java.lang.String getGroupId();
+	String getGroupId();
 	
 	
 	/**
@@ -102,14 +102,14 @@ public interface IPSSysDataSyncAgent extends net.ibizsys.model.service.IPSSubSys
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.DataSyncDir}
 	 * @return
 	 */
-	java.lang.String getSyncDir();
+	String getSyncDir();
 	
 	
 	/**
 	 * 获取消息主题
 	 * @return
 	 */
-	java.lang.String getTopic();
+	String getTopic();
 	
 	
 	/**

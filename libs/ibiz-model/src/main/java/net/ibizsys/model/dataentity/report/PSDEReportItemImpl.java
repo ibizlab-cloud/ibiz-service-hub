@@ -6,6 +6,7 @@ public class PSDEReportItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		,net.ibizsys.model.app.dataentity.IPSAppDEReportItem{
 
 	public final static String ATTR_GETMINORPSAPPDEREPORT = "getMinorPSAppDEReport";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 	private net.ibizsys.model.app.dataentity.IPSAppDEReport minorpsappdereport;
 
 	public net.ibizsys.model.app.dataentity.IPSAppDEReport getMinorPSAppDEReport(){
@@ -28,4 +29,8 @@ public class PSDEReportItemImpl extends net.ibizsys.model.PSObjectImpl implement
 		this.minorpsappdereport = minorpsappdereport;
 	}
 
+
+	public boolean isNestedModel(){
+		return true;
+	}
 }

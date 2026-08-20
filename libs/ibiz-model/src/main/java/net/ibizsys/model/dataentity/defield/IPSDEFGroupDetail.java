@@ -16,28 +16,28 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取代码名称2
 	 * @return
 	 */
-	java.lang.String getCodeName2();
+	String getCodeName2();
 	
 	
 	/**
 	 * 获取成员参数
 	 * @return
 	 */
-	java.lang.String getDetailParam();
+	String getDetailParam();
 	
 	
 	/**
 	 * 获取成员参数2
 	 * @return
 	 */
-	java.lang.String getDetailParam2();
+	String getDetailParam2();
 	
 	
 	/**
@@ -58,7 +58,7 @@ public interface IPSDEFGroupDetail extends net.ibizsys.model.IPSModelSortable
 	 * 获取中文名称
 	 * @return
 	 */
-	java.lang.String getLogicName();
+	String getLogicName();
 	
 	
 	/**

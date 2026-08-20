@@ -14,21 +14,21 @@ public interface IPSSysContentCat extends net.ibizsys.model.IPSModelObject{
 	 * 获取分类标记
 	 * @return
 	 */
-	java.lang.String getCatTag();
+	String getCatTag();
 	
 	
 	/**
 	 * 获取分类标记2
 	 * @return
 	 */
-	java.lang.String getCatTag2();
+	String getCatTag2();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**

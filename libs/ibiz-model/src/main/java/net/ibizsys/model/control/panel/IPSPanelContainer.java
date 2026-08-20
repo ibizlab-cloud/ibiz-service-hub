@@ -19,14 +19,14 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	 * 返回值参考 {@link net.ibizsys.model.PSModelEnums.UGExtractMode}
 	 * @return
 	 */
-	java.lang.String getActionGroupExtractMode();
+	String getActionGroupExtractMode();
 	
 	
 	/**
 	 * 获取动态标题绑定值项，仅在数据区域类型{@link #getDataRegionType}为无(NONE)及继承(INHERIT)时启用
 	 * @return
 	 */
-	java.lang.String getCaptionItemName();
+	String getCaptionItemName();
 	
 	
 	/**
@@ -68,7 +68,7 @@ public interface IPSPanelContainer extends net.ibizsys.model.control.panel.IPSPa
 	 * 获取预置类型
 	 * @return
 	 */
-	java.lang.String getPredefinedType();
+	String getPredefinedType();
 	
 	
 	/**

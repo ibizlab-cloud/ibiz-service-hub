@@ -18,6 +18,7 @@ public class PSDEDataExportItemImpl extends net.ibizsys.model.PSObjectImpl imple
 	public final static String ATTR_GETPSSYSTRANSLATOR = "getPSSysTranslator";
 	public final static String ATTR_GETPRIVILEGEID = "privilegeId";
 	public final static String ATTR_ISHIDDEN = "hidden";
+	public final static String ATTR_ISNESTEDMODEL = "nestedModel";
 
 	public java.lang.String getAlign(){
 		com.fasterxml.jackson.databind.JsonNode value = this.getObjectNode().get(ATTR_GETALIGN);
@@ -209,5 +210,9 @@ public class PSDEDataExportItemImpl extends net.ibizsys.model.PSObjectImpl imple
 			return false;
 		}
 		return value.asBoolean();
+	}
+
+	public boolean isNestedModel(){
+		return true;
 	}
 }

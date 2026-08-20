@@ -14,70 +14,70 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取背景颜色
 	 * @return
 	 */
-	java.lang.String getBKColor();
+	String getBKColor();
 	
 	
 	/**
 	 * 获取开始值
 	 * @return
 	 */
-	java.lang.Double getBeginValue();
+	Double getBeginValue();
 	
 	
 	/**
 	 * 获取代码标识
 	 * @return
 	 */
-	java.lang.String getCodeName();
+	String getCodeName();
 	
 	
 	/**
 	 * 获取文本颜色
 	 * @return
 	 */
-	java.lang.String getColor();
+	String getColor();
 	
 	
 	/**
 	 * 获取数据
 	 * @return
 	 */
-	java.lang.String getData();
+	String getData();
 	
 	
 	/**
 	 * 获取结束值
 	 * @return
 	 */
-	java.lang.Double getEndValue();
+	Double getEndValue();
 	
 	
 	/**
 	 * 获取图标样式
 	 * @return
 	 */
-	java.lang.String getIconCls();
+	String getIconCls();
 	
 	
 	/**
 	 * 获取图标样式(X)
 	 * @return
 	 */
-	java.lang.String getIconClsX();
+	String getIconClsX();
 	
 	
 	/**
 	 * 获取图标路径
 	 * @return
 	 */
-	java.lang.String getIconPath();
+	String getIconPath();
 	
 	
 	/**
 	 * 获取图标路径(X)
 	 * @return
 	 */
-	java.lang.String getIconPathX();
+	String getIconPathX();
 	
 	
 	/**
@@ -133,14 +133,14 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取文本
 	 * @return
 	 */
-	java.lang.String getText();
+	String getText();
 	
 	
 	/**
 	 * 获取文本样式
 	 * @return
 	 */
-	java.lang.String getTextCls();
+	String getTextCls();
 	
 	
 	/**
@@ -161,7 +161,7 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取提示信息
 	 * @return
 	 */
-	java.lang.String getTooltip();
+	String getTooltip();
 	
 	
 	/**
@@ -182,21 +182,21 @@ public interface IPSCodeItem extends net.ibizsys.model.IPSModelObject{
 	 * 获取代码项数据
 	 * @return
 	 */
-	java.lang.String getUserData();
+	String getUserData();
 	
 	
 	/**
 	 * 获取代码项数据2
 	 * @return
 	 */
-	java.lang.String getUserData2();
+	String getUserData2();
 	
 	
 	/**
 	 * 获取值
 	 * @return
 	 */
-	java.lang.String getValue();
+	String getValue();
 	
 	
 	/**
